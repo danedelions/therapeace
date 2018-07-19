@@ -15,7 +15,31 @@
 }
 
 .caption{
+	color: #ffffff;
 	font-size: 70px;
 	font-weight: 700;
 	text-shadow:  2px 2px 4px #000000;
+}
+
+.parallax {
+    /* Set a specific height */
+    height: 500px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.section-1{
+	background-color: #0c1e3a;
+}
+
+.texts{
+	color: white;
+}
+
+.text-container{
+	padding: 2em;
 }

@@ -100,5 +100,13 @@
               </div>
         </div>
 
+        <div class="parallax section-1">
+            <center>
+                <div class="text-container">
+                    <h1 class="texts">What to know before booking?</h1>
+                </div>
+                
+            </center>
+        </div>
     </body>
 </html>
