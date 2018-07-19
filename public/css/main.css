@@ -1,0 +1,21 @@
+.nav-text {
+	font-size: 16pt;
+}
+
+.buttons {
+	margin: 5px;
+}
+
+.slider-caption{
+	color: #ffffff;
+	position: absolute;
+	float: center;
+	padding: 5em;
+	width: 35%;
+}
+
+.caption{
+	font-size: 70px;
+	font-weight: 700;
+	text-shadow:  2px 2px 4px #000000;
+}
