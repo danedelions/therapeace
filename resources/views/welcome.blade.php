@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Laravel</title>
 
+        <link rel="icon" href="img/logo.png" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <link href="css/full-slider.css" rel="stylesheet">
@@ -29,7 +31,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link nav-text" href="#">Home</a>
+                        <a href=""class="nav-link nav-text" href="#">Home</a>
                     </li>
                     <li class="nav-item">
                      <a class="nav-link nav-text" href="#">About</a>
@@ -37,19 +39,27 @@
                     <li class="nav-item">
                         <a class="nav-link nav-text" href="#">FAQ</a>
                     </li>
+                      <li class="nav-item"> 
+                        <a href="/safety" class="nav-link nav-text" >Safety </a>
+                    </li>
                     <li class="nav-item">
                         <button class="btn btn-outline-success" style="margin: 5px;">Heal with theraPeace</button>
                     </li>
                 </ul>
-                <div class="buttons">
-                    <button class="btn btn-outline-info" style="margin: 5px;">Signup</button>
-                    <button class="btn btn-outline-secondary" style="margin: 5px;">Login</button>
-                </div>
-            </div>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Sign Up
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="/client">Client</a>
+                          <a class="dropdown-item" href="/therapist">Therapist</a>
+                        </div>
+                      </div>
+                    <a href="/login" button class="btn btn-outline-secondary" style="margin: 5px;">Login</button> </a>
         </nav>
 
         <div class="slider">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                   <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                   <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>

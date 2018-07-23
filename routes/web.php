@@ -14,3 +14,33 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('safety', function () {
+    return view('safety');
+});
+
+Route::get('login', function () {
+    return view('login');
+});
+
+Route::get('client', function () {
+    return view('client');
+});
+
+Route::get('personal', function () {
+    return view('personal');
+});
+
+Route::get('address', function () {
+    return view('address');
+});
+
+Route::get('therapist', function () {
+    return view('therapist');
+});
+
+
+
+
+
+
