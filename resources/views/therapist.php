@@ -65,7 +65,11 @@
   <h1>Therapist Registration:</h1>
   <!-- One "tab" for each step in the form: -->
 
-    <div class="tab">Name:
+    <div class="tab">
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="fileToUpload" id="fileToUpload"> 
+   <br>
+      Name:
     <p><input placeholder="First name..." oninput="this.className = ''" name="fname"></p>
     <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
      <p><input placeholder="Email" oninput="this.className = ''" name="email"></p>
@@ -81,6 +85,13 @@
     <p><input placeholder="User Name" oninput="this.className = ''" name="uname"></p>
     <p><input placeholder="Password" oninput="this.className = ''" name="password" type="password"></p>
     <p><input placeholder="Re-type Password" oninput="this.className = ''" name="re-password" type="password"></p>
+     <form action="upload.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="fileToUpload" id="fileToUpload"> 
+   <br> <form action="upload.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="fileToUpload" id="fileToUpload"> 
+   <br> <form action="upload.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="fileToUpload" id="fileToUpload"> 
+   <br>
   </div>
     <div class="tab">Profile:
     <p><input placeholder="User Name" oninput="this.className = ''" name="uname"></p>

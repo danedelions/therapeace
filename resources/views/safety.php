@@ -53,4 +53,53 @@
             </div>
         </nav>
 
-        <img src=" url('{{asset('img/8.jpg')}}')">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1>Safety,Security, and Trust</h1>
+   <img src="img/sec.png" alt="id" width="200">
+</div>
+  
+
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-sm-4" style="background-color:lavender;">
+        <img src="img/cert.png" alt="cert" width="300">
+
+    </div><hr>
+    
+    <div class="col-sm-8" style="background-color:lavenderblush;">
+        <h4>CERTIFICATIONS AND LICENSES</h4></br>
+    </div><br>
+    
+     <div class="col-sm-4" style="background-color:lavender;">
+         <img src="img/id.png" alt="id" width="300">
+
+    </div><hr>
+    
+    <div class="col-sm-8" style="background-color:lavenderblush;">
+        <h4>ID VERIFICATION</h4></br>
+    
+    </div>
+     <div class="col-sm-4" style="background-color:lavender;">
+         <img src="img/rate.png" alt="rate" width="300" >
+
+    </div>
+    <div class="col-sm-8" style="background-color:lavenderblush;">
+        <h4>RATING SYSTEM</h4></br>
+    
+    </div>
+  </div>
+</div>
+    
+
+</body>
+</html>

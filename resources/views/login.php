@@ -26,7 +26,7 @@
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     </head>
-    <body background="img/bg.jpg">
+    <body background="img/bg.jpg" id="batay">
         <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="#"><img src="img/logo.png" style="height: 50px;"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,12 +56,46 @@
                 </div>
             </div>
         </nav>
-            <div class="container">
+         </body>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+<!--Pulling Awesome Font -->
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-5 col-md-3">
+            <div class="form-login">
+            <h4>LogIn</h4><br>
+            Username:
+            <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" /> 
+            </br>
+            Password:
+            <input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="password" />
+            </br>
+            <div class="wrapper">
+            <span class="group-btn">     
+                <a href="#" class="btn btn-primary btn-md">Submit <i class="fa fa-sign-in"></i></a>
+            </span>
+            </div>
+            </div>
+        
+        </div>
+    </div>
+</div>
+<!--          <div class="container">
                 <div class="row">
                     <div class="col-sm-6 col-md-4 col-md-offset-4">
                         <div class="account-wall">
                             <div id="my-tab-content" class="tab-content">
-                                    <div class="tab-pane active" id="login">
+                                    <div class="tab-pane active">
                                     <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
                                 alt="">
                                     <form class="form-signin" action="" method="">
@@ -73,6 +107,4 @@
                                         
                              </div>
                          </div>
-                    </div>
-    </body>
-</html>
+                    </div> --> 

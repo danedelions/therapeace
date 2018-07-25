@@ -65,10 +65,11 @@
   <h1>Client Registration:</h1>
   <!-- One "tab" for each step in the form: -->
   <div class="tab">Name:
+    
     <p><input placeholder="First name..." oninput="this.className = ''" name="fname"></p>
     <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
      <p><input placeholder="Email" oninput="this.className = ''" name="email"></p>
-    <p><input placeholder="Contact Number" oninput="this.className = ''" name="number"></p>
+    <p><input placeholder="Contact Number" type="number" oninput="this.className = ''" name="number"></p>
   </div>
   <div class="tab">Address:
     <p><input placeholder="Barangay" oninput="this.className = ''" name="barangay"></p>
