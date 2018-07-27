@@ -16,22 +16,20 @@
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/client.css">
 
-<<<<<<< HEAD
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-=======
+
         <script src="js/main.js"></script>
->>>>>>> 59685f869547c1d358429cfcee19036d1aaac8d2
+
         <script src="js/bootstrap.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/bootstrap.bundle.js"></script>
         <script src="jquery/jquery.min.js"></script>
         <script src="https://unpkg.com/popper.js@1.14.3/dist/umd/popper.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<<<<<<< HEAD
+
 
        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-=======
->>>>>>> 59685f869547c1d358429cfcee19036d1aaac8d2
+
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light">
