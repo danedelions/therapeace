@@ -11,7 +11,15 @@
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <link href="css/full-slider.css" rel="stylesheet">
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/login.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
+<<<<<<< HEAD
+=======
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+>>>>>>> 59685f869547c1d358429cfcee19036d1aaac8d2
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
@@ -19,55 +27,50 @@
         <script src="jquery/jquery.min.js"></script>
         <script src="https://unpkg.com/popper.js@1.14.3/dist/umd/popper.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!------ Include the above in your HEAD tag ---------->
 
+<<<<<<< HEAD
         <link rel="stylesheet" type="text/css" href="css/login.css">
         
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+=======
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+>>>>>>> 59685f869547c1d358429cfcee19036d1aaac8d2
     </head>
+
     <body background="img/bg.jpg" id="batay">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#"><img src="img/logo.png" style="height: 50px;"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href=""class="nav-link nav-text" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                     <a class="nav-link nav-text" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-text" href="#">FAQ</a>
-                    </li>
-                      <li class="nav-item"> 
-                        <a href="/safety" class="nav-link nav-text" >Safety </a>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn btn-outline-success" style="margin: 5px;">Heal with theraPeace</button>
-                    </li>
-                </ul>
-                <div class="buttons">
-                    <button class="btn btn-outline-info" style="margin: 5px;">Signup</button>
-                    <a href="/login" button class="btn btn-outline-secondary" style="margin: 5px;">Login</button> </a>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-6">
+                    <div class="form-login">
+                        <h4>Login</h4>
+                        <br>
+                        <label class="label">Username</label>   
+                        <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="Username" /> 
+                        </br>
+                        <label class="label">Password</label>
+                        <input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="Password" />
+                        </br>
+                        <div class="wrapper">
+                            <span class="group-btn">     
+                                <a href="#" class="btn btn-outline-success btn-md">Submit <i class="fa fa-sign-in"></i></a>
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
-         </body>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        </div>
 
 
-<!--Pulling Awesome Font -->
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    </body>
+</html>
 
+<<<<<<< HEAD
 <div class="container">
     <div class="row">
         <div class="col-md-offset-5 col-md-3">
@@ -91,6 +94,8 @@
         </div>
     </div>
 </div>
+=======
+>>>>>>> 59685f869547c1d358429cfcee19036d1aaac8d2
 <!--          <div class="container">
                 <div class="row">
                     <div class="col-sm-6 col-md-4 col-md-offset-4">

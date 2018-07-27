@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
@@ -57,7 +58,11 @@
                       </div>
                     <a href="/login" button class="btn btn-outline-secondary" style="margin: 5px;">Login</button> </a>
         </nav>
+=======
+@extends('layouts.app')
+>>>>>>> 59685f869547c1d358429cfcee19036d1aaac8d2
 
+@section('page-body')
         <div class="slider">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -117,5 +122,4 @@
                 </div>
             </center>
         </div>
-    </body>
-</html>
+@endsection
