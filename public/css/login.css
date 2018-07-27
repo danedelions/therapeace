@@ -2,25 +2,28 @@
 body {
   background-color:#fff;
   -webkit-font-smoothing: antialiased;
-  font: normal 14px Roboto,arial,sans-serif;
+  font: normal 15px Roboto,arial,sans-serif;
 }
 
 .container {
-    padding: 50px;
+    padding: 100px;
     position: left;
-    height: 100;
+    height: 1000s;
 }
 
 .form-login {
     background-color: #EDEDED;
-    padding-top: 20px;
+    padding-top: 30px;
     padding-bottom: 30px;
-    padding-left: 20px;
+    padding-left: 23px;
     padding-right:20px;
     border-radius: 15px;
     border-color:#d2d2d2;
     border-width: 52px;
     box-shadow:0 1px 0 #cfcfcf;
+    width: 350px;
+    height: 500px;    
+    padding: 50px;
 }
 
 h4 { 

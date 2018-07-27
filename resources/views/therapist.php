@@ -14,6 +14,7 @@
         <link href="css/full-slider.css" rel="stylesheet">
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/bootstrap.bundle.js"></script>
@@ -24,7 +25,6 @@
 
 
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     </head>
@@ -82,16 +82,16 @@
     <p><input placeholder="City" oninput="this.className = ''" name="city"></p>
   </div>
   <div class="tab">License:
-    <p><input placeholder="User Name" oninput="this.className = ''" name="uname"></p>
-    <p><input placeholder="Password" oninput="this.className = ''" name="password" type="password"></p>
-    <p><input placeholder="Re-type Password" oninput="this.className = ''" name="re-password" type="password"></p>
+    <p><input placeholder="Profession" oninput="this.className = ''" name="profession"></p>
+    <p><input placeholder="License Number" oninput="this.className = ''" name="number" type="number"></p>
+    <p><input placeholder="Expriry Date" oninput="this.className = ''" name="number" type="number"></p>
      <form action="upload.php" method="post" enctype="multipart/form-data">
-    <input type="file" name="fileToUpload" id="fileToUpload"> 
+    <input type="file" name="fileToUpload" id=""> 
+   <br> <form action="upload.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="fileToUpload" id=""> 
    <br> <form action="upload.php" method="post" enctype="multipart/form-data">
     <input type="file" name="fileToUpload" id="fileToUpload"> 
-   <br> <form action="upload.php" method="post" enctype="multipart/form-data">
-    <input type="file" name="fileToUpload" id="fileToUpload"> 
-   <br>
+   <br><br>
   </div>
     <div class="tab">Profile:
     <p><input placeholder="User Name" oninput="this.className = ''" name="uname"></p>

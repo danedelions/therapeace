@@ -38,6 +38,10 @@ Route::get('address', function () {
 Route::get('therapist', function () {
     return view('therapist');
 });
+Route::get('about', function () {
+    return view('about');
+});
+
 
 
 

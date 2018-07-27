@@ -12,6 +12,7 @@
         <link href="css/full-slider.css" rel="stylesheet">
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/bootstrap.bundle.js"></script>
@@ -20,9 +21,7 @@
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
         <link rel="stylesheet" type="text/css" href="css/login.css">
-
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     </head>
@@ -74,9 +73,11 @@
         <div class="col-md-offset-5 col-md-3">
             <div class="form-login">
             <h4>LogIn</h4><br>
+             <i class="fa fa-user icon"></i>
             Username:
             <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" /> 
             </br>
+             <i class="fa fa-key icon"></i>
             Password:
             <input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="password" />
             </br>
