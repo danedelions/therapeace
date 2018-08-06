@@ -15,11 +15,12 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
-<<<<<<< HEAD
-=======
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/login.css">
+        
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
->>>>>>> 59685f869547c1d358429cfcee19036d1aaac8d2
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
@@ -30,16 +31,12 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!------ Include the above in your HEAD tag ---------->
-
-<<<<<<< HEAD
-        <link rel="stylesheet" type="text/css" href="css/login.css">
+        
         
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-=======
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
->>>>>>> 59685f869547c1d358429cfcee19036d1aaac8d2
     </head>
 
     <body background="img/bg.jpg" id="batay">
@@ -65,37 +62,9 @@
                 </div>
             </div>
         </div>
-
-
     </body>
 </html>
 
-<<<<<<< HEAD
-<div class="container">
-    <div class="row">
-        <div class="col-md-offset-5 col-md-3">
-            <div class="form-login">
-            <h4>LogIn</h4><br>
-             <i class="fa fa-user icon"></i>
-            Username:
-            <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" /> 
-            </br>
-             <i class="fa fa-key icon"></i>
-            Password:
-            <input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="password" />
-            </br>
-            <div class="wrapper">
-            <span class="group-btn">     
-                <a href="#" class="btn btn-primary btn-md">Submit <i class="fa fa-sign-in"></i></a>
-            </span>
-            </div>
-            </div>
-        
-        </div>
-    </div>
-</div>
-=======
->>>>>>> 59685f869547c1d358429cfcee19036d1aaac8d2
 <!--          <div class="container">
                 <div class="row">
                     <div class="col-sm-6 col-md-4 col-md-offset-4">
