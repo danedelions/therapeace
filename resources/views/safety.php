@@ -78,6 +78,15 @@
     
     <div class="col-sm-8" style="background-color:lavenderblush;">
         <h4>CERTIFICATIONS AND LICENSES</h4></br>
+        <p>Lorem ipsum dolor sit amet, sit no erat nominavi pertinax, qui labores conceptam voluptaria id, hinc maiestatis quo ea. Alia discere platonem pri te, quas docendi appareat est at. Eum in libris lucilius voluptatum, eu dolorum inciderint ius, nostrum scriptorem at quo. At timeam oporteat nec.
+
+Facilis singulis per in. Sit an sonet clita oporteat, cu velit tamquam dolorum pro, te mea tibique convenire. Ei vis quod feugait facilisis. Quo animal impedit consequuntur ex.
+
+Debet reprimique te pro. Ut democritum constituto argumentum per. Te vis meis argumentum, veri labore nec te, no populo debitis eam. Omnis liber pri ut, ut quo detracto pertinax persequeris, unum mandamus reprimique nec te. Sit labores laboramus an, cu est natum solum principes. Gloriatur suscipiantur mea et.
+
+Enim postea est in, graeci oporteat sea an, in his rebum tempor periculis. At affert deserunt gloriatur has. Est assum quidam te. Cu per novum placerat, ex qui eruditi perfecto reprimique. Ea mel rebum paulo dissentias, ea veri saepe definitiones qui. Soluta invenire cu nam, ne duo partem definiebas.
+
+Cu pro affert ceteros, ius ex voluptaria quaerendum. Consulatu interpretaris usu ad. Ex cum facer equidem labores, utinam postea vel ei. Mea te posse placerat praesent. Eos ad commodo blandit, eam ad sale facilisi voluptatum. Mea vivendum legendos id, in vix errem soluta. Est te unum brute.</p>
     </div><br>
     
      <div class="col-sm-4" style="background-color:lavender;">
@@ -87,6 +96,16 @@
     
     <div class="col-sm-8" style="background-color:lavenderblush;">
         <h4>ID VERIFICATION</h4></br>
+         <p>Lorem ipsum dolor sit amet, sit no erat nominavi pertinax, qui labores conceptam voluptaria id, hinc maiestatis quo ea. Alia discere platonem pri te, quas docendi appareat est at. Eum in libris lucilius voluptatum, eu dolorum inciderint ius, nostrum scriptorem at quo. At timeam oporteat nec.
+
+Facilis singulis per in. Sit an sonet clita oporteat, cu velit tamquam dolorum pro, te mea tibique convenire. Ei vis quod feugait facilisis. Quo animal impedit consequuntur ex.
+
+Debet reprimique te pro. Ut democritum constituto argumentum per. Te vis meis argumentum, veri labore nec te, no populo debitis eam. Omnis liber pri ut, ut quo detracto pertinax persequeris, unum mandamus reprimique nec te. Sit labores laboramus an, cu est natum solum principes. Gloriatur suscipiantur mea et.
+
+Enim postea est in, graeci oporteat sea an, in his rebum tempor periculis. At affert deserunt gloriatur has. Est assum quidam te. Cu per novum placerat, ex qui eruditi perfecto reprimique. Ea mel rebum paulo dissentias, ea veri saepe definitiones qui. Soluta invenire cu nam, ne duo partem definiebas.
+
+Cu pro affert ceteros, ius ex voluptaria quaerendum. Consulatu interpretaris usu ad. Ex cum facer equidem labores, utinam postea vel ei. Mea te posse placerat praesent. Eos ad commodo blandit, eam ad sale facilisi voluptatum. Mea vivendum legendos id, in vix errem soluta. Est te unum brute.</p>
+
     
     </div>
      <div class="col-sm-4" style="background-color:lavender;">
@@ -95,6 +114,15 @@
     </div>
     <div class="col-sm-8" style="background-color:lavenderblush;">
         <h4>RATING SYSTEM</h4></br>
+         <p>Lorem ipsum dolor sit amet, sit no erat nominavi pertinax, qui labores conceptam voluptaria id, hinc maiestatis quo ea. Alia discere platonem pri te, quas docendi appareat est at. Eum in libris lucilius voluptatum, eu dolorum inciderint ius, nostrum scriptorem at quo. At timeam oporteat nec.
+
+Facilis singulis per in. Sit an sonet clita oporteat, cu velit tamquam dolorum pro, te mea tibique convenire. Ei vis quod feugait facilisis. Quo animal impedit consequuntur ex.
+
+Debet reprimique te pro. Ut democritum constituto argumentum per. Te vis meis argumentum, veri labore nec te, no populo debitis eam. Omnis liber pri ut, ut quo detracto pertinax persequeris, unum mandamus reprimique nec te. Sit labores laboramus an, cu est natum solum principes. Gloriatur suscipiantur mea et.
+
+Enim postea est in, graeci oporteat sea an, in his rebum tempor periculis. At affert deserunt gloriatur has. Est assum quidam te. Cu per novum placerat, ex qui eruditi perfecto reprimique. Ea mel rebum paulo dissentias, ea veri saepe definitiones qui. Soluta invenire cu nam, ne duo partem definiebas.
+
+Cu pro affert ceteros, ius ex voluptaria quaerendum. Consulatu interpretaris usu ad. Ex cum facer equidem labores, utinam postea vel ei. Mea te posse placerat praesent. Eos ad commodo blandit, eam ad sale facilisi voluptatum. Mea vivendum legendos id, in vix errem soluta. Est te unum brute.</p>
     
     </div>
   </div>

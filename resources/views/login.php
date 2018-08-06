@@ -21,6 +21,7 @@
         <link rel="stylesheet" type="text/css" href="css/login.css">
         
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
@@ -37,6 +38,14 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="css/login.css">
+        
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     </head>
 
     <body background="img/bg.jpg" id="batay">
@@ -47,15 +56,17 @@
                     <div class="form-login">
                         <h4>Login</h4>
                         <br>
+                        <i class="fas fa-user"></i>
                         <label class="label">Username</label>   
                         <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="Username" /> 
                         </br>
+                        <i class="fas fa-key"></i>
                         <label class="label">Password</label>
                         <input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="Password" />
                         </br>
                         <div class="wrapper">
                             <span class="group-btn">     
-                                <a href="#" class="btn btn-outline-success btn-md">Submit <i class="fa fa-sign-in"></i></a>
+                                <a href="#" class="btn btn-outline-success btn-md">Submit <i class="fas fa-sign-in-alt"></i></a>
                             </span>
                         </div>
                     </div>

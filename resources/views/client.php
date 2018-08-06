@@ -18,12 +18,17 @@
 
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="js/main.js"></script>
+
+        <script src="js/main.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/bootstrap.bundle.js"></script>
         <script src="jquery/jquery.min.js"></script>
         <script src="https://unpkg.com/popper.js@1.14.3/dist/umd/popper.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
 
        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     </head>

@@ -27,7 +27,7 @@ body {
 }
 
 h4 { 
- border:0 solid #fff; 
+ border:0 solid blue; 
  border-bottom-width:1px;
  padding-bottom:15px;
  text-align: center;
