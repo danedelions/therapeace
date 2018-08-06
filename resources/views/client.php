@@ -16,6 +16,10 @@
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/client.css">
 
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="js/main.js"></script>
 
@@ -27,10 +31,6 @@
         <script src="https://unpkg.com/popper.js@1.14.3/dist/umd/popper.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-
-
-       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -70,26 +70,26 @@
             </div>
         </nav>
         
-        <form id="regForm" action="/action_page.php">
+        <form id="regForm" action="/action_page.php" class="form-control">
             <h1>Client Registration:</h1>
             <!-- One "tab" for each step in the form: -->
-            <div class="tab">Name:
-                <p><input placeholder="First name..." oninput="this.className = ''" name="fname"></p>
-                <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
-                <p><input placeholder="Email" oninput="this.className = ''" name="email"></p>
-                <p><input placeholder="Contact Number" type="number" oninput="this.className = ''" name="number"></p>
+            <div class="tab form-group">Name:
+                <p><input placeholder="First name..." oninput="this.className = ''" name="fname" class="form-control"></p>
+                <p><input placeholder="Last name..." oninput="this.className = ''" name="lname" class="form-control"></p>
+                <p><input placeholder="Email" oninput="this.className = ''" name="email" class="form-control"></p>
+                <p><input placeholder="Contact Number" type="number" oninput="this.className = ''" name="number" class="form-control"></p>
             </div>
             <div class="tab">Address:
-                <p><input placeholder="Barangay" oninput="this.className = ''" name="barangay"></p>
-                <p><input placeholder="Province" oninput="this.className = ''" name="province"></p>
-                <p><input placeholder="Town" oninput="this.className = ''" name="town"></p>
-                <p><input placeholder="City" oninput="this.className = ''" name="city"></p>
+                <p><input placeholder="Barangay" oninput="this.className = ''" name="barangay" class="form-control"></p>
+                <p><input placeholder="Province" oninput="this.className = ''" name="province" class="form-control"></p>
+                <p><input placeholder="Town" oninput="this.className = ''" name="town" class="form-control"></p>
+                <p><input placeholder="City" oninput="this.className = ''" name="city" class="form-control"></p>
             </div>
             <div class="tab">
                 Profile:
-                <p><input placeholder="User Name" oninput="this.className = ''" name="uname"></p>
-                <p><input placeholder="Password" oninput="this.className = ''" name="password" type="password"></p>
-                <p><input placeholder="Re-type Password" oninput="this.className = ''" name="re-password" type="password"></p>
+                <p><input placeholder="User Name" oninput="this.className = ''" name="uname" class="form-control"></p>
+                <p><input placeholder="Password" oninput="this.className = ''" name="password" type="password" class="form-control"></p>
+                <p><input placeholder="Re-type Password" oninput="this.className = ''" name="re-password" type="password" class="form-control"></p>
             </div>
             <div class="tab">
                 Done:
@@ -109,8 +109,8 @@
             </div>
             <div style="overflow:auto;">
                 <div style="float:right;">
-                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                    <button class="btn btn-sm-success" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                    <button class="btn btn-sm-success" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
                 </div>
             </div>
             <!-- Circles which indicates the steps of the form: -->
@@ -144,7 +144,7 @@ function showTab(n) {
     document.getElementById("nextBtn").innerHTML = "Next";
   }
   //... and run a function that will display the correct step indicator:
-  fixStepIndicator(n)
+  fixStepIndicator(n);
 }
 
 function nextPrev(n) {
