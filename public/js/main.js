@@ -1,6 +1,9 @@
-<<<<<<< HEAD
+
+var currentTab = 0;
+var n;
+
 $(document).ready(function(){
-  var currentTab = 0; // Current tab is set to be the first tab (0)
+   // Current tab is set to be the first tab (0)
   console.log('test1')
   showTab(currentTab); // Display the crurrent tab
   console.log('test2')
@@ -10,7 +13,7 @@ $(document).ready(function(){
 
 function showTab(n) {
   // This function will display the specified tab of the form...
-  var x = document.getElementsByClassName("tab"); console.log(x,n,x[n])
+  var x = document.getElementsByClassName("tab"); console.log(x,n,x[n]);
   x[n].style.display = "block";
   //... and fix the Previous/Next buttons:
   if (n == 0) {
@@ -30,7 +33,6 @@ function showTab(n) {
 function nextPrev(n) {
   // This function will figure out which tab to display
   var x = document.getElementsByClassName("tab");
-  var currentTab = 0;
   // Exit the function if any field in the current tab is invalid:
   if (n == 1 && !validateForm()) return false;
   // Hide the current tab:
@@ -50,7 +52,6 @@ function nextPrev(n) {
 function validateForm() {
   // This function deals with validation of the form fields
   var x, y, i, valid = true;
-  var currentTab = 0;
   x = document.getElementsByClassName("tab");
   y = x[currentTab].getElementsByTagName("input");
   // A loop that checks every input field in the current tab:
@@ -66,7 +67,7 @@ function validateForm() {
   }
   // If the valid status is true, mark the step as finished and valid:
   if (valid) {
-    document.getElementsByClassName("step")[currentTab].addClass('finish');
+    document.getElementsByClassName("step")[currentTab].classList.add('finish');
   }
   return valid; // return the valid status
 }
@@ -82,5 +83,4 @@ function fixStepIndicator(n) {
   // x[n].className += " active";
   $(x[n]).addClass('active');
 }
-=======
->>>>>>> daa8e2a91b3c86202e83c4e74f9dbc6408a51fb1
+
