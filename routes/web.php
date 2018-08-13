@@ -27,14 +27,6 @@ Route::get('client', function () {
     return view('client');
 });
 
-Route::get('personal', function () {
-    return view('personal');
-});
-
-Route::get('address', function () {
-    return view('address');
-});
-
 Route::get('therapist', function () {
     return view('therapist');
 });
