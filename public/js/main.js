@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 $(document).ready(function(){
   var currentTab = 0; // Current tab is set to be the first tab (0)
   console.log('test1')
@@ -81,3 +82,5 @@ function fixStepIndicator(n) {
   // x[n].className += " active";
   $(x[n]).addClass('active');
 }
+=======
+>>>>>>> daa8e2a91b3c86202e83c4e74f9dbc6408a51fb1

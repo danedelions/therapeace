@@ -1,5 +1,3 @@
-
-
 @extends('layouts.app')
 
 @section('page-body')
@@ -44,7 +42,7 @@
                     </div>
                   </div>
                 </div>
-   <!--              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <!--              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="sr-only">Previous</span>
                 </a>
@@ -56,10 +54,56 @@
         </div>
 
         <div class="parallax section-1">
-            <center>
-                <div class="text-container">
-                    <h1 class="texts">What to know before booking?</h1>
+            <div class="container">
+                    <div class="text-container">
+                        <center>
+                            <h1 class="texts">What to know before booking?</h1>
+                        </center>
+                    </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="description">
+                            <article>
+                                <div>
+                                    <div>
+                                        <center>
+                                           <h3>Physical Therapy</h3> 
+                                        </center>
+                                    </div>
+                                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id augue eget orci dignissim volutpat id non ante. Nullam sodales sem at feugiat aliquet. Sed purus mi, tincidunt in ex rutrum, posuere porttitor risus. Donec vitae odio nec tellus bibendum efficitur. Proin id urna non nulla maximus posuere in sed lacus.</p>  
+                                </div>
+                            </article>
+                        </div> 
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="description">
+                            <article>
+                                <div>
+                                    <div>
+                                        <center>
+                                           <h3>Occupational Therapy</h3> 
+                                        </center>
+                                    </div>
+                                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id augue eget orci dignissim volutpat id non ante. Nullam sodales sem at feugiat aliquet. Sed purus mi, tincidunt in ex rutrum, posuere porttitor risus. Donec vitae odio nec tellus bibendum efficitur. Proin id urna non nulla maximus posuere in sed lacus.</p>  
+                                </div>
+                            </article>
+                        </div> 
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="description">
+                            <article>
+                                <div>
+                                    <div>
+                                        <center>
+                                           <h3>Know Your Diagnosis</h3> 
+                                        </center>
+                                    </div>
+                                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id augue eget orci dignissim volutpat id non ante. Nullam sodales sem at feugiat aliquet. Sed purus mi, tincidunt in ex rutrum, posuere porttitor risus. Donec vitae odio nec tellus bibendum efficitur. Proin id urna non nulla maximus posuere in sed lacus.</p>  
+                                </div>
+                            </article>
+                        </div> 
+                    </div>
                 </div>
-            </center>
+            </div>
         </div>
 @endsection

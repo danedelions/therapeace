@@ -23,7 +23,7 @@
 
 .parallax {
     /* Set a specific height */
-    height: 500px;
+    height: 450px;
 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -38,8 +38,11 @@
 
 .texts{
 	color: white;
+	padding: 5px;
 }
 
-.text-container{
-	padding: 2em;
+.description{
+	color: white;
+	text-align: justify;
+	padding: 5px;
 }
