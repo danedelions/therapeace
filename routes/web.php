@@ -31,7 +31,7 @@ Route::get('therapist', function () {
     return view('therapist');
 });
 Route::get('about', function () {
-    return view('about');
+    return view('stats_absolute_deviation(a)');
 });
 
 

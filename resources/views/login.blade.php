@@ -54,20 +54,27 @@
             <div class="row">
                 <div class="col-md-4 col-md-offset-6">
                     <div class="form-login">
-                        <h4>Login</h4>
-                        <br>
-                        <i class="fas fa-user"></i>
-                        <label class="label">Username</label>   
-                        <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="Username" /> 
-                        </br>
-                        <i class="fas fa-key"></i>
-                        <label class="label">Password</label>
-                        <input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="Password" />
-                        </br>
-                        <div class="wrapper">
-                            <span class="group-btn">     
-                                <a href="#" class="btn btn-outline-success btn-md">Submit <i class="fas fa-sign-in-alt"></i></a>
-                            </span>
+                        <form class="" action="index.php" method="post">
+                            <h4>Login</h4>
+                            <br>
+                            <i class="fas fa-user"></i>
+                            <label class="label">Username</label>   
+                            <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="Username" /> 
+                            </br>
+                            <i class="fas fa-key"></i>
+                            <label class="label">Password</label>
+                            <input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="Password" />
+                            </br>
+                             <label>
+                                  <input id="checki" type="checkbox" checked="checked" name="remember"> Remember me
+                            </label><br>
+                                <span class="psw">Forgot <a href="#">password?</a></span>
+                            <div class="wrapper">
+                                <span class="group-btn"><br></br>   
+                                     <a href="" type="button" class="btn btn-outline-success btn-md">Cancel <i class="fas fa-ban"></i></a>
+                                    <a href="#" class="btn btn-outline-success btn-md">Submit <i class="fas fa-sign-in-alt"></i></a>
+                                </span>
+                             </form>
                         </div>
                     </div>
                 </div>

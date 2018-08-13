@@ -2,7 +2,7 @@
 body {
   background-color:#fff;
   -webkit-font-smoothing: antialiased;
-  font: normal 15px Roboto,arial,sans-serif;
+  font: normal 20px Roboto,arial,sans-serif;
 }
 
 .container {
@@ -45,4 +45,8 @@ h4 {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+#checki{
+   font: normal 10px Roboto,arial,sans-serif;
+}
 }

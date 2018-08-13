@@ -9,7 +9,7 @@
         <link rel="icon" href="img/logo.png" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="css/main.css">
+       <!--  <link rel="stylesheet" type="text/css" href="css/main.css"> -->
         <link href="css/full-slider.css" rel="stylesheet">
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="css/full-slider.css" rel="stylesheet">
@@ -22,8 +22,11 @@
 
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="js/main.js"></script>
+<<<<<<< HEAD:resources/views/client.blade.php
+=======
 
         <script src="js/main.js"></script>
+>>>>>>> daa8e2a91b3c86202e83c4e74f9dbc6408a51fb1:resources/views/client.php
         <script src="js/bootstrap.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/bootstrap.bundle.js"></script>
@@ -70,6 +73,16 @@
             </div>
         </nav>
         
+<<<<<<< HEAD:resources/views/client.blade.php
+        <form id="regForm" action="/action_page.php" class="form-group">
+            <h1>Client Registration:</h1>
+            <!-- One "tab" for each step in the form: -->
+            <div class="tab">Name:
+                <p><input placeholder="First name..." oninput="this.className = ''" name="fname" class="form-control" type="text"></p>
+                <p><input placeholder="Last name..." oninput="this.className = ''" name="lname" type="text"></p>
+                <p><input placeholder="Email" oninput="this.className = ''" name="email" type="email"></p>
+                <p><input placeholder="Contact Number" type="number" oninput="this.className = ''" name="number"></p>
+=======
         <form id="regForm" action="/action_page.php" class="form-control">
             <h1>Client Registration:</h1>
             <!-- One "tab" for each step in the form: -->
@@ -78,6 +91,7 @@
                 <p><input placeholder="Last name..." oninput="this.className = ''" name="lname" class="form-control"></p>
                 <p><input placeholder="Email" oninput="this.className = ''" name="email" class="form-control"></p>
                 <p><input placeholder="Contact Number" type="number" oninput="this.className = ''" name="number" class="form-control"></p>
+>>>>>>> daa8e2a91b3c86202e83c4e74f9dbc6408a51fb1:resources/views/client.php
             </div>
             <div class="tab">Address:
                 <p><input placeholder="Barangay" oninput="this.className = ''" name="barangay" class="form-control"></p>
@@ -124,6 +138,8 @@
     </body>
 </html>
 
+<<<<<<< HEAD:resources/views/client.blade.php
+=======
 <script>
     var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the crurrent tab
@@ -198,3 +214,4 @@ function fixStepIndicator(n) {
   x[n].className += " active";
 }
 </script>
+>>>>>>> daa8e2a91b3c86202e83c4e74f9dbc6408a51fb1:resources/views/client.php
