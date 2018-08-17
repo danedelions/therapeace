@@ -71,16 +71,17 @@
          <link rel="stylesheet" type="text/css" href="css/client.css">
 <body>
 
-<form id="regForm" action="/action_page.php">
+<form id="regForm" action="{{ route('therapist.store') }}" method="POST">
+  @csrf
   <h1>Therapist Registration:</h1>
   <!-- One "tab" for each step in the form: -->
 
     <div class="tab">
     <h6>Upload profile picture</h6>
     <form action="upload.php" method="post" enctype="multipart/form-data">
-    <input type="file" name="fileToUpload" id="fileToUpload"> 
-   <br>
-      Name:
+    <input type="file" name="image" id="fileToUpload"> 
+    <br>
+    Name:
     <p><input placeholder="First name..." oninput="this.className = ''" name="fname"></p>
     <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
      <p><input placeholder="Email" oninput="this.className = ''" name="email"></p>
@@ -95,22 +96,22 @@
   <div class="tab" >License:
     <br><br>
   <form class="col-md-4">
-    <select select class="form-control select2">
+    <select select class="form-control select2" name="therapist">
        <option value="pt" style="width:250px">Physical Therapist</option>
       <option value="ot" style="width:250px">Occupational therapy</option>
     </select><br>
-    <p><input placeholder="License Number" oninput="this.className = ''" name="number" type="number"></p>
-    <p><input placeholder="Expriry Date" oninput="this.className = ''" name="number" type="number"></p>
+    <p><input placeholder="License Number" oninput="this.className = ''" name="license" type="number"></p>
+    <p><input placeholder="Expriry Date" oninput="this.className = ''" name="expiry_date" type="number"></p>
      <form action="upload.php" method="post" enctype="multipart/form-data">
-    <input type="file" name="fileToUpload" id="fileUpload2"> 
+    <input type="file" name="license_image" id="fileUpload2"> 
    <br> <form action="upload.php" method="post" enctype="multipart/3orm-data">
-    <input type="file" name="fileToUpload" id="fileUpload3"> 
+    _<input type="file" name="nbi_image" id="fileUpload3"> 
    <br> <form action="upload.php" method="post" enctype="multipart/form-data">
-    <input type="file" name="fileToUpload" id="fileUpload4"> 
+    <input type="file" name="bp_image" id="fileUpload4"> 
    <br><br>
  </div>
     <div class="tab">Profile:
-    <p><input placeholder="User Name" oninput="this.className = ''" name="uname"></p>
+    <p><input placeholder="User Name" oninput="this.className = ''" name="username"></p>
     <p><input placeholder="Password" oninput="this.className = ''" name="password" type="password"></p>
     <p><input placeholder="Re-type Password" oninput="this.className = ''" name="re-password" type="password"></p>
   </div>
@@ -131,6 +132,7 @@ Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facili
     <div style="float:right;">
       <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
       <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+       <button type="submit" id="subBtn" style="display:none">Submit</button>
     </div>
   </div>
   <!-- Circles which indicates the steps of the form: -->

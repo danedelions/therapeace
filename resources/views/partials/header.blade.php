@@ -23,7 +23,7 @@
                           Sign Up
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="{{route('client')}}">Client</a>
+                          <a class="dropdown-item" href="/client">Client</a>
                           <a class="dropdown-item" href="/therapist">Therapist</a>
                         </div>
                       </div>

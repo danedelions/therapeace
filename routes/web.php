@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,20 +24,22 @@ Route::get('login', function () {
     return view('login');
 });
 
-Route::get('client', function () {
-    return view('client');
-});
+// Route::get('client', function () {
+//     return view('client');
+// });
 
-Route::get('therapist', function () {
-    return view('therapist');
-});
+
 Route::get('about', function () {
     return view('stats_absolute_deviation(a)');
 });
 
 
 
+Route::resource('therapist' ,'RegistrationController');
 
 
+Route::resource('client' ,'ClientRegistration');
+
+Route::post('user_login' ,'LoginController@index');
 
 

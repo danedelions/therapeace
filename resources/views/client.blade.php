@@ -9,21 +9,16 @@
         <link rel="icon" href="img/logo.png" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-       <!--  <link rel="stylesheet" type="text/css" href="css/main.css"> -->
+        <link rel="stylesheet" type="text/css" href="css/main.css">
         <link href="css/full-slider.css" rel="stylesheet">
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="css/full-slider.css" rel="stylesheet">
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/client.css">
 
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-        <script src="js/main.js"></script>
 
-        <script src="js/main.js"></script>
+    
         <script src="js/bootstrap.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/bootstrap.bundle.js"></script>
@@ -31,6 +26,10 @@
         <script src="https://unpkg.com/popper.js@1.14.3/dist/umd/popper.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+       <script src="js/main.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -69,8 +68,10 @@
                     </a>
             </div>
         </nav>
-        
-        <form id="regForm" action="/action_page.php" class="form-group">
+         <link rel="stylesheet" type="text/css" href="css/client.css">
+
+        <form id="regForm"action="{{ route('client.store') }}" class="form-group" method="POST">
+             {{ csrf_field() }}
             <h1>Client Registration:</h1>
             <!-- One "tab" for each step in the form: -->
             <div class="tab">Name:
@@ -87,7 +88,7 @@
             </div>
             <div class="tab">
                 Profile:
-                <p><input placeholder="User Name" oninput="this.className = ''" name="uname" class="form-control"></p>
+                <p><input placeholder="User Name" oninput="this.className = ''" name="username" class="form-control"></p>
                 <p><input placeholder="Password" oninput="this.className = ''" name="password" type="password" class="form-control"></p>
                 <p><input placeholder="Re-type Password" oninput="this.className = ''" name="re-password" type="password" class="form-control"></p>
             </div>
@@ -111,6 +112,7 @@
                 <div style="float:right;">
                     <button class="btn btn-sm-success" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
                     <button class="btn btn-sm-success" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                    <button type="submit" id="subBtn" style="display:none">Submit</button>
                 </div>
             </div>
             <!-- Circles which indicates the steps of the form: -->
@@ -120,7 +122,11 @@
                 <span class="step"></span>
                 <span class="step"></span>
             </div>
-        </form>
-    </body>
+  </form>
+<script>
+
+</script>
+
+</body>
 </html>
 
