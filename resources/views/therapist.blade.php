@@ -6,15 +6,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Therapeace</title>
         
-         <link rel="icon" href="img/logo.png" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-
-
+        <link rel="icon" href="img/logo.png" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <link href="css/full-slider.css" rel="stylesheet">
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/full-slider.css" rel="stylesheet">
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/client.css">
 
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    
         <script src="js/bootstrap.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/bootstrap.bundle.js"></script>
@@ -23,10 +27,9 @@
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+       <script src="js/main.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -52,24 +55,33 @@
                         <button class="btn btn-outline-success" style="margin: 5px;">Heal with theraPeace</button>
                     </li>
                 </ul>
-                <div class="buttons">
-                    <button class="btn btn-outline-info" style="margin: 5px;">Signup</button>
-                    <a href="/login" button class="btn btn-outline-secondary" style="margin: 5px;">Login</button> </a>
-                </div>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Sign Up
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="/client">Client</a>
+                          <a class="dropdown-item" href="#">Therapist</a>
+                        </div>
+                    </div>
+                    <a href="/login" button class="btn btn-outline-secondary" style="margin: 5px;">Login</button>
+                    </a>
             </div>
         </nav>
          <link rel="stylesheet" type="text/css" href="css/client.css">
 <body>
 
-<form id="regForm" action="/action_page.php">
+<form id="regForm" action="{{ route('therapist.store') }}" method="POST">
+  @csrf
   <h1>Therapist Registration:</h1>
   <!-- One "tab" for each step in the form: -->
 
     <div class="tab">
+    <h6>Upload profile picture</h6>
     <form action="upload.php" method="post" enctype="multipart/form-data">
-    <input type="file" name="fileToUpload" id="fileToUpload"> 
-   <br>
-      Name:
+    <input type="file" name="image" id="fileToUpload"> 
+    <br>
+    Name:
     <p><input placeholder="First name..." oninput="this.className = ''" name="fname"></p>
     <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
      <p><input placeholder="Email" oninput="this.className = ''" name="email"></p>
@@ -81,20 +93,25 @@
     <p><input placeholder="Town" oninput="this.className = ''" name="town"></p>
     <p><input placeholder="City" oninput="this.className = ''" name="city"></p>
   </div>
-  <div class="tab">License:
-    <p><input placeholder="Profession" oninput="this.className = ''" name="profession"></p>
-    <p><input placeholder="License Number" oninput="this.className = ''" name="number" type="number"></p>
-    <p><input placeholder="Expriry Date" oninput="this.className = ''" name="number" type="number"></p>
+  <div class="tab" >License:
+    <br><br>
+  <form class="col-md-4">
+    <select select class="form-control select2" name="therapist">
+       <option value="pt" style="width:250px">Physical Therapist</option>
+      <option value="ot" style="width:250px">Occupational therapy</option>
+    </select><br>
+    <p><input placeholder="License Number" oninput="this.className = ''" name="license" type="number"></p>
+    <p><input placeholder="Expriry Date" oninput="this.className = ''" name="expiry_date" type="number"></p>
      <form action="upload.php" method="post" enctype="multipart/form-data">
-    <input type="file" name="fileToUpload" id=""> 
+    <input type="file" name="license_image" id="fileUpload2"> 
+   <br> <form action="upload.php" method="post" enctype="multipart/3orm-data">
+    _<input type="file" name="nbi_image" id="fileUpload3"> 
    <br> <form action="upload.php" method="post" enctype="multipart/form-data">
-    <input type="file" name="fileToUpload" id=""> 
-   <br> <form action="upload.php" method="post" enctype="multipart/form-data">
-    <input type="file" name="fileToUpload" id="fileToUpload"> 
+    <input type="file" name="bp_image" id="fileUpload4"> 
    <br><br>
-  </div>
+ </div>
     <div class="tab">Profile:
-    <p><input placeholder="User Name" oninput="this.className = ''" name="uname"></p>
+    <p><input placeholder="User Name" oninput="this.className = ''" name="username"></p>
     <p><input placeholder="Password" oninput="this.className = ''" name="password" type="password"></p>
     <p><input placeholder="Re-type Password" oninput="this.className = ''" name="re-password" type="password"></p>
   </div>
@@ -115,6 +132,7 @@ Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facili
     <div style="float:right;">
       <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
       <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+       <button type="submit" id="subBtn" style="display:none">Submit</button>
     </div>
   </div>
   <!-- Circles which indicates the steps of the form: -->
@@ -126,78 +144,7 @@ Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facili
   </div>
 </form>
 <script>
-var currentTab = 0; // Current tab is set to be the first tab (0)
-showTab(currentTab); // Display the crurrent tab
 
-function showTab(n) {
-  // This function will display the specified tab of the form...
-  var x = document.getElementsByClassName("tab");
-  x[n].style.display = "block";
-  //... and fix the Previous/Next buttons:
-  if (n == 0) {
-    document.getElementById("prevBtn").style.display = "none";
-  } else {
-    document.getElementById("prevBtn").style.display = "inline";
-  }
-  if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Submit";
-  } else {
-    document.getElementById("nextBtn").innerHTML = "Next";
-  }
-  //... and run a function that will display the correct step indicator:
-  fixStepIndicator(n)
-}
-
-function nextPrev(n) {
-  // This function will figure out which tab to display
-  var x = document.getElementsByClassName("tab");
-  // Exit the function if any field in the current tab is invalid:
-  if (n == 1 && !validateForm()) return false;
-  // Hide the current tab:
-  x[currentTab].style.display = "none";
-  // Increase or decrease the current tab by 1:
-  currentTab = currentTab + n;
-  // if you have reached the end of the form...
-  if (currentTab >= x.length) {
-    // ... the form gets submitted:
-    document.getElementById("regForm").submit();
-    return false;
-  }
-  // Otherwise, display the correct tab:
-  showTab(currentTab);
-}
-
-function validateForm() {
-  // This function deals with validation of the form fields
-  var x, y, i, valid = true;
-  x = document.getElementsByClassName("tab");
-  y = x[currentTab].getElementsByTagName("input");
-  // A loop that checks every input field in the current tab:
-  for (i = 0; i < y.length; i++) {
-    // If a field is empty...
-    if (y[i].value == "") {
-      // add an "invalid" class to the field:
-      y[i].className += " invalid";
-      // and set the current valid status to false
-      valid = false;
-    }
-  }
-  // If the valid status is true, mark the step as finished and valid:
-  if (valid) {
-    document.getElementsByClassName("step")[currentTab].className += " finish";
-  }
-  return valid; // return the valid status
-}
-
-function fixStepIndicator(n) {
-  // This function removes the "active" class of all steps...
-  var i, x = document.getElementsByClassName("step");
-  for (i = 0; i < x.length; i++) {
-    x[i].className = x[i].className.replace(" active", "");
-  }
-  //... and adds the "active" class on the current step:
-  x[n].className += " active";
-}
 </script>
 
 </body>

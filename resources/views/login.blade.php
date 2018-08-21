@@ -15,13 +15,10 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="css/login.css">
-        
+
+
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
@@ -32,12 +29,7 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!------ Include the above in your HEAD tag ---------->
-        
-        
 
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
         <link rel="stylesheet" type="text/css" href="css/login.css">
         
@@ -46,6 +38,7 @@
 
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
     </head>
 
     <body background="img/bg.jpg" id="batay">
@@ -54,27 +47,38 @@
             <div class="row">
                 <div class="col-md-4 col-md-offset-6">
                     <div class="form-login">
-                        <h4>Login</h4>
-                        <br>
-                        <i class="fas fa-user"></i>
-                        <label class="label">Username</label>   
-                        <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="Username" /> 
-                        </br>
-                        <i class="fas fa-key"></i>
-                        <label class="label">Password</label>
-                        <input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="Password" />
-                        </br>
-                        <div class="wrapper">
-                            <span class="group-btn">     
-                                <a href="#" class="btn btn-outline-success btn-md">Submit <i class="fas fa-sign-in-alt"></i></a>
-                            </span>
+                        <form class="" action="{{ url('user_login') }}" method="POST">
+                            {{ csrf_field() }}
+                            <h4>Login</h4>
+                            <br>
+                            <i class="fas fa-user"></i>
+                            <label class="label">Username</label>   
+                            <input type="text" id="userName" name="username"class="form-control input-sm chat-input" placeholder="Username" /> 
+                            </br>
+                            <i class="fas fa-key"></i>
+                            <label class="label">Password</label>
+                            <input type="password" id="userPassword" name="password" class="form-control input-sm chat-input" placeholder="Password" />
+                            </br>
+                             <label>
+                                  <input id="checki" type="checkbox" checked="checked" name="remember"> Remember me
+                            </label><br>
+                                <span class="psw">Forgot <a href="#">password?</a></span>
+                            <div class="wrapper">
+                                <span class="group-btn"><br></br>   
+                                     <a href="" type="button" class="btn btn-outline-success btn-md">Cancel <i class="fas fa-ban"></i></a>
+                                    <button  class="btn btn-outline-success btn-md">Submit <i class="fas fa-sign-in-alt"></i></button>
+                                </span>
+                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+
     </body>
 </html>
+
 
 <!--          <div class="container">
                 <div class="row">
