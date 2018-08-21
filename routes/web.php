@@ -46,4 +46,12 @@ Route::resource('client' ,'ClientRegistration');
 
 Route::post('user_login' ,'LoginController@index');
 
+Route::get('admin', function(){
+	return view ('admin.dashboard');
+});
 
+Route::get('admin', 'AdminController@getDashboard'); 
+Route::get('admin-user', 'AdminController@getUserView');
+Route::get('admin-pending', 'AdminController@getPendingView');
+Route::get('admin-history', 'AdminController@getHistoryView');
+Route::get('admin-reports', 'AdminController@getReportsView');  
