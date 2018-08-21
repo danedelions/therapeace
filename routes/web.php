@@ -42,6 +42,10 @@ Route::get('about', function () {
     return view('about');
 });
 
+Route::get('transaction', function () {
+    return view('transaction');
+});
+
 
 
 
