@@ -7,7 +7,10 @@ use App\Therapist;
 use App\Client;
 use App\User;
 use Hash;
-class RegistrationController extends Controller
+use Illuminate\Http\Request\TherapistRequest;]
+use Illuminate\Http\Request\UserRequest;
+
+class TherapistController extends Controller
 {
     /**
      * Display a listing of the resource.

@@ -7,6 +7,8 @@ use App\Therapist;
 use App\Client;
 use Hash;
 use App\User;
+use Illuminate\Http\Request\ClientRequest;
+use Illuminate\Http\Request\UserRequest;
 
 class ClientRegistration extends Controller
 {

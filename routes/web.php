@@ -29,7 +29,7 @@ Route::get('transaction', function () {
 });
 
 
-Route::resource('therapist' ,'RegistrationController');
+Route::resource('therapist' ,'TherapistController');
 
 Route::resource('client' ,'ClientRegistration');
 
