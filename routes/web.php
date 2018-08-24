@@ -24,7 +24,15 @@ Route::get('login', function () {
     return view('login');
 }); 
 
+
 Route::resource('therapist' ,'RegistrationController');
+
+Route::get('transaction', function () {
+    return view('transaction');
+});
+
+
+Route::resource('therapist' ,'TherapistController');
 
 Route::resource('client', 'ClientRegistration');
 Route::get('client-find', 'ClientRegistration@findTherapist');

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ClientRequest extends FormRequest
+class UserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,22 +23,13 @@ class ClientRequest extends FormRequest
      */
     public function rules()
     {
-        return [    
-        'fname' => 'required|alpha_spaces', 
-        'lname' =>  'required|alpha_spaces',
-        'contact' => 'required|numeric',
-        'barangay' => 'required' ,
-        'province' => 'required' ,
-        'town' => 'required' ,
-        'city' => 'required';
-
-
-
-
-
-
-
-
+        return [
+        $this->validate($request, [
+        'name' => 'required|min:3|max:50',
+        'email' => 'email',
+        'password' => 'min:6|required_with:password_confirmation',
+        'password_confirmation' => 'min:6|same:password'
+        ]);
             //
         ];
     }

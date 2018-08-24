@@ -24,7 +24,7 @@
                 Profile:
                 <p><input placeholder="User Name" oninput="this.className = ''" name="username" class="form-control"></p>
                 <p><input placeholder="Password" oninput="this.className = ''" name="password" type="password" class="form-control"></p>
-                <p><input placeholder="Re-type Password" oninput="this.className = ''" name="re-password" type="password" class="form-control"></p>
+                <p><input placeholder="Retype Password" oninput="this.className = ''" name="password_confirmation" type="password" class="form-control"></p>
             </div>
             <div class="tab">
                 Done:
