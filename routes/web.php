@@ -22,16 +22,7 @@ Route::get('safety', function () {
 
 Route::get('login', function () {
     return view('login');
-});
-
- Route::get('client', function () {
-     return view ('partials.client');
- });
-
-Route::get('about', function () {
-    return view('stats_absolute_deviation(a)');
-});
-
+}); 
 
 Route::get('transaction', function () {
     return view('transaction');

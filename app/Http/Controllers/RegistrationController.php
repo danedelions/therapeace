@@ -44,7 +44,7 @@ class RegistrationController extends Controller
 
         Therapist::insert([
 
-            'user_id' =>$users[0]['id'] ,
+            'user_id' =>$users[0]['id'],
             'image' => $request->post('image'),
             'fname' => $request->post('fname'),
             'lname' => $request->post('lname'),

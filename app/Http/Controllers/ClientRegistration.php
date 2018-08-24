@@ -37,7 +37,7 @@ class ClientRegistration extends Controller
 
         Client::insert([
 
-            'user_id' =>$users[0]['id'] ,
+            'user_id' =>$users[0]['id'],
             'fname' => $request->post('fname'),
             'lname' => $request->post('lname'),
             'email' => $request->post('email'),
