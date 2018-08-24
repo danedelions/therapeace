@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ClientRequest;
 use App\Therapist;
 use App\Client;
 use Hash;
 use App\User;
-use Illuminate\Http\Request\ClientRequest;
-use Illuminate\Http\Request\UserRequest;
+
 
 class ClientRegistration extends Controller
 {
@@ -22,7 +22,7 @@ class ClientRegistration extends Controller
         return view('client');
     }
 
-    public function store(Request $request)
+    public function store(ClientRequest $request)
     {
 
         User::insert([
@@ -52,5 +52,18 @@ class ClientRegistration extends Controller
         ]);
 
          return view('login');
+    }
+
+    public function findTherapist()
+    {
+        return view('client.find');
+    }
+    public function clientHistory()
+    {
+        return view('client.history');
+    }
+    public function clientAccount()
+    {
+        return view('client.account');
     }
 }

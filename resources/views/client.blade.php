@@ -2,7 +2,17 @@
 
 @section('client')
         
-         <link rel="stylesheet" type="text/css" href="css/client.css">
+        <link rel="stylesheet" type="text/css" href="css/client.css">
+        
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
         <form id="regForm"action="{{ route('client.store') }}" class="form-group" method="POST">
              {{ csrf_field() }}

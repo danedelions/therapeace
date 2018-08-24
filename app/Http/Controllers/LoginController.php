@@ -16,7 +16,7 @@ class LoginController extends Controller
     	print_r($request->post('success'));
     	if (Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')))){
 
-            echo "success". Auth::user()->user_type;
+            echo "success ". Auth::user()->user_type;
             if(Auth::user()->user_type === 'therapist'){
             	view('therapist');
             }else {
