@@ -25,7 +25,7 @@ class Therapist extends Migration
             $table->string('town');
             $table->string('city');
             $table->string('therapist');
-            $table->string('license');
+            $table->string('license_number');
             $table->string('expiry_date');
             $table->string('license_image');
             $table->string('nbi_image');

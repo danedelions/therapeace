@@ -7,7 +7,7 @@ use App\Therapist;
 use App\Client;
 use App\User;
 use Hash;
-use Illuminate\Http\Request\TherapistRequest;]
+use Illuminate\Http\Request\TherapistRequest;
 use Illuminate\Http\Request\UserRequest;
 
 class TherapistController extends Controller

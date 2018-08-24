@@ -18,7 +18,6 @@ class Clients extends Migration
             $table->unsignedInteger('user_id');
             $table->string('fname');
             $table->string('lname');
-            $table->string('email');
             $table->string('contact');
             $table->string('barangay');
             $table->string('province');
