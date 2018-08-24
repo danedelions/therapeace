@@ -13,7 +13,7 @@ class ClientRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,13 +24,13 @@ class ClientRequest extends FormRequest
     public function rules()
     {
         return [    
-        'fname' => 'required|alpha_spaces', 
-        'lname' =>  'required|alpha_spaces',
+        'fname' => 'required|alpha', 
+        'lname' =>  'required|alpha',
         'contact' => 'required|numeric',
         'barangay' => 'required' ,
         'province' => 'required' ,
         'town' => 'required' ,
-        'city' => 'required';
+        'city' => 'required'
 
 
 
