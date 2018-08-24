@@ -1,4 +1,4 @@
-<?php
+	<?php
 
 
 /*
@@ -24,6 +24,9 @@ Route::get('login', function () {
     return view('login');
 }); 
 
+
+Route::resource('therapist' ,'RegistrationController');
+
 Route::get('transaction', function () {
     return view('transaction');
 });
@@ -31,7 +34,10 @@ Route::get('transaction', function () {
 
 Route::resource('therapist' ,'TherapistController');
 
-Route::resource('client' ,'ClientRegistration');
+Route::resource('client', 'ClientRegistration');
+Route::get('client-find', 'ClientRegistration@findTherapist');
+Route::get('client-history', 'ClientRegistration@clientHistory');
+Route::get('client-account', 'ClientRegistration@clientAccount');
 
 Route::post('user_login' ,'LoginController@index');
 

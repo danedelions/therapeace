@@ -53,4 +53,17 @@ class ClientRegistration extends Controller
 
          return view('login');
     }
+
+    public function findTherapist()
+    {
+        return view('client.find');
+    }
+    public function clientHistory()
+    {
+        return view('client.history');
+    }
+    public function clientAccount()
+    {
+        return view('client.account');
+    }
 }
