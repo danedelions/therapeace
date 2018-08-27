@@ -201,9 +201,9 @@
                 <td></td>
                 <td></td>
                 <td>
-                    <a class="btn btn-info" href="#"><i style="color:black;" class="far fa-eye"></i></a> 
-                    <a class="btn btn-success href="#"><i class="far fa-envelope"></i></a> 
-                    <a class="btn btn-danger" href="#"><i style="color:black;" class="fas fa-ban"></i></a>
+                    <a class="btn btn-outline-info" href="#"><i style="color:black;" class="far fa-eye"></i></a> 
+                    <a class="btn btn-outline-success href="#"><i class="far fa-envelope"></i></a> 
+                    <a class="btn btn-outline-danger" href="#"><i style="color:black;" class="fas fa-ban"></i></a>
                 </td>
               </tr>
         

@@ -207,9 +207,9 @@
                 <td>00000000002</td>
                 <td>Physical</td>
                 <td>
-                    <a class="btn btn-info" href="#"><i style="color:black;" class="far fa-eye"></i></a>
-                    <a class="btn btn-success" href="#"><i style="color:black;" class="far fa-envelope"></i></a>
-                    <a class="btn btn-danger" href="#"><i style="color:black;" class="far fa-trash-alt"></i></a>
+                    <a class="btn btn-outline-info" href="#"><i style="color:black;" class="far fa-eye"></i></a>
+                    <a class="btn btn-outline-success" href="#"><i style="color:black;" class="far fa-envelope"></i></a>
+                    <a class="btn btn-outline-danger" href="#"><i style="color:black;" class="far fa-trash-alt"></i></a>
                 </td>
               </tr>
             </tbody>
