@@ -21,9 +21,9 @@ class DatabaseSeeder extends Seeder
         //     'user_type' => 'admin'
         // ]);
 
-         //factory(App\User::class,0)->create();
-         //factory(App\Client::class,5)->create();
-        // factory(App\Therapist::class,5)->create();
+         // factory(App\User::class,0)->create();
+         // factory(App\Client::class,5)->create();
+            factory(App\Therapist::class,5)->create();
 
     }
 }
