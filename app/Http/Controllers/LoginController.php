@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use app\User;
 
 
 class LoginController extends Controller
@@ -20,7 +21,7 @@ class LoginController extends Controller
             if(Auth::user()->user_type === 'therapist'){
             	view('therapist');
             }else {
-            	view('/client.account');
+            	url('/client-accont/{id}');
             }
         }else{
              return "wrong".Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
