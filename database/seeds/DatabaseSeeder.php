@@ -21,17 +21,10 @@ class DatabaseSeeder extends Seeder
             'user_type' => 'admin'
         ]);
 
-<<<<<<< HEAD
-        factory(App\User::class,0)->create();
-        //factory(App\Client::class,5)->create();
-=======
         // factory(App\User::class,0)->create();
         // factory(App\Client::class,5)->create();
-        factory(App\Therapist::class,5)->create();
-        factory(App\User::class,0)->create();
-        // factory(App\Client::class,5)->create();
->>>>>>> 48a5267d6f470fae5bb6ec48de42f65e6c09dc06
-        factory(App\Therapist::class,5)->create();
+        //factory(App\Therapist::class,5)->create();
+        
 
     }
 }

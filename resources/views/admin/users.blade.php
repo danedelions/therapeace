@@ -207,9 +207,34 @@
                 <td>{{$row['email']}}</td>
                 <td>{{$row['user_type']}}</td>
                 <td>{{$row['created_at']}}</td>
-                <td><a class="btn btn-info" href="#"><i style="color:black;" class="far fa-eye"></i></a> <a class="btn btn-success href="3"><i class="far fa-envelope"></i></a> <a class="btn btn-danger" href="#"><i style="color:black;"class="fas fa-ban"></i></a></td>
+                <td>
+                    <a class="btn btn-info" href="#" data-toggle="modal" data-target="#viewModal"><i style="color:black;" class="far fa-eye"></i></a>
+                    <a class="btn btn-success href="3"><i class="far fa-envelope"></i></a>
+                    <a class="btn btn-danger" href="#"><i style="color:black;"class="fas fa-ban"></i></a>
+                </td>
               </tr>
-            @endforeach    
+            @endforeach
+
+            <!-- Modal -->
+            <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">User Information</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    ...
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>  
              
         
             </tbody>
