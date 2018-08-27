@@ -6,8 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class ClientRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
+     /* Determine if the user is authorized to make this request.
      *
      * @return bool
      */
@@ -24,13 +23,16 @@ class ClientRequest extends FormRequest
     public function rules()
     {
         return [    
+        'fname' => 'required|alpha_spaces', 
+        'lname' =>  'required|alpha_spaces',
+        'contact' => 'required|numeric',
         'fname' => 'required|alpha', 
         'lname' =>  'required|alpha',
         'contact' => 'numeric|between:1,20',
-        'barangay' => 'required' ,
-        'province' => 'required' ,
-        'town' => 'required' ,
-        'city' => 'required'
+        'barangay' => 'required',
+        'province' => 'required',
+        'town' => 'required',
+        'city' => 'required',
 
 
 

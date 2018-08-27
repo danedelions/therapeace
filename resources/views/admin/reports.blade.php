@@ -203,17 +203,9 @@
                 <td>1</td>
                 <td>100010</td>
                 <td>MM-DD-YYYY</td>
-                <td><button class="btn btn-sm btn-info">View</button></td>
+                <td><a class="btn btn-outline-info" href="#"><i style="color:black;" class="far fa-eye"></i></a> </td>
                 
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>102000</td>
-                <td>MM-DD-YYYY</td>
-                <td><button class="btn btn-sm btn-info">View</button></td>
-                
-              </tr>
-        
+              </tr>        
             </tbody>
           </table>
         </div>

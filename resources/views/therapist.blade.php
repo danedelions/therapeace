@@ -105,7 +105,7 @@
      <form action="upload.php" method="post" enctype="multipart/form-data">
     <input type="file" name="license_image" id="fileUpload2"> 
    <br> <form action="upload.php" method="post" enctype="multipart/3orm-data">
-    _<input type="file" name="nbi_image" id="fileUpload3"> 
+    <input type="file" name="nbi_image" id="fileUpload3"> 
    <br> <form action="upload.php" method="post" enctype="multipart/form-data">
     <input type="file" name="bp_image" id="fileUpload4"> 
    <br><br>
