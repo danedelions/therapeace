@@ -26,9 +26,15 @@ class ClientRequest extends FormRequest
     public function rules()
     {
         return [    
+<<<<<<< HEAD
         'fname' => 'required|alpha_spaces', 
         'lname' =>  'required|alpha_spaces',
         'contact' => 'required|numeric',
+=======
+        'fname' => 'required|alpha', 
+        'lname' =>  'required|alpha',
+        'contact' => 'numeric|between:1,20',
+>>>>>>> bc922da31aadf84e8fbbbf7ce6669f0bf0ca9200
         'barangay' => 'required' ,
         'province' => 'required' ,
         'town' => 'required' ,

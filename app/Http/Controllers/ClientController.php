@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ClientRequest;
-use App\Therapist;
 use App\Client;
 use Hash;
 use App\User;
@@ -42,7 +41,6 @@ class ClientController extends Controller
             'user_id' =>$users[0]['id'],
             'fname' => $request->post('fname'),
             'lname' => $request->post('lname'),
-            'email' => $request->post('email'),
             'contact' => $request->post('number'), 
             'barangay' => $request->post('barangay'),
             'province' => $request->post('province'),
