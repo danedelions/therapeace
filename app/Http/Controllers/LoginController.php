@@ -9,6 +9,12 @@ use Auth;
 class LoginController extends Controller
 {
     //
+
+       public function view()
+    {
+        return view('login');
+    }
+
      
     public function index(Request $request)
     {

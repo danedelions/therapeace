@@ -1,6 +1,6 @@
-@extends('layouts.clienthead')
+@extends('layouts.app')
 
-@section('client')
+@section('page-body')
         
         <link rel="stylesheet" type="text/css" href="css/client.css">
         

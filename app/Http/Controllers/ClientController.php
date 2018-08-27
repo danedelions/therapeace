@@ -10,7 +10,7 @@ use Hash;
 use App\User;
 
 
-class ClientRegistration extends Controller
+class ClientController extends Controller
 {
     /**
      * Display a listing of the resource.
