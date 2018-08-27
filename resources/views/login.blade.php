@@ -47,7 +47,7 @@
             <div class="row">
                 <div class="col-md-4 col-md-offset-6">
                     <div class="form-login">
-                        <form class="" action="{{ url('user_login') }}" method="POST">
+                        <form class="" action="{{ url('logged') }}" method="POST">
                             {{ csrf_field() }}
                             <h4>Login</h4>
                             <br>

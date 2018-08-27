@@ -16,9 +16,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 // Route::get('login', function () {
 //     return view('login');
 // }); 
+
+Route::get('safety', function () {
+    return view('safety');
+});
+
 
 
 // Route::resource('therapist' ,'RegistrationController');
@@ -30,12 +36,24 @@ Route::get('transaction', function () {
 
 Route::resource('therapist' ,'TherapistController');
 
-Route::resource('client', 'ClientRegistration');
-Route::get('client-find', 'ClientRegistration@findTherapist');
-Route::get('client-history', 'ClientRegistration@clientHistory');
-Route::get('client-account/{id}', 'ClientRegistration@clientAccount');
 
-Route::post('user_login' ,'LoginController@index');
+Route::resource('client', 'ClientController');
+
+
+
+Route::get('client-find', 'ClientController@findTherapist');
+Route::get('client-history', 'ClientController@clientHistory');
+Route::get('client-account/{id}', 'ClientController@clientAccount');
+
+Route::resource('client', 'ClientController');
+
+Route::get('client-find', 'ClientController@findTherapist');
+Route::get('client-history/{id}', 'ClientController@clientHistory');
+Route::get('client-account/{id}', 'ClientController@clientAccount');
+
+
+Route::get('user-login' ,'LoginController@view');
+Route::post('logged', 'LoginController@doLogin');
 
 Route::get('admin', function(){
 	return view ('admin.dashboard');
