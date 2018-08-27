@@ -38,7 +38,6 @@ $factory->define(App\User::class, function (Faker $faker) {
 // });
 
 
-
 $factory->define(App\Therapist::class, function (Faker $faker) use ($factory) {
     return [
     	'user_id' => $factory->create(App\User::class)->id,

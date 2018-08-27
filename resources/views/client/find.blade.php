@@ -1,5 +1,5 @@
-@extends('layouts.clienthead')
+@extends('layouts.cli')
 
-@section('find')
+@section('page-section')
  <h1>FIND THERAPISTS PAGE</h1>
 @endsection
