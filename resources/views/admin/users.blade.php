@@ -192,33 +192,25 @@
             <thead>
               <tr>
                 <th>#</th>
-                <th>Name</th>
+                <th>Username</th>
                 <th>Email</th>
-                <th>Contact</th>
                 <th>Role</th>
-                <th>Info</th>
+                <th>Date Joined</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>John Doe</td>
-                <td>john@example.com</td>
-                <td>00000000001</td>
-                <td>Therapist</td>
-                <td><button class="btn btn-sm btn-info">View</button></td>
-                <td><button class="btn btn-sm btn-danger">Block</button> <button class="btn btn-sm btn-warning">Message</button></td>
+            @foreach($users as $row)
+                <tr>
+                <td>{{$row['id']}}</td>
+                <td>{{$row['username']}}</td>
+                <td>{{$row['email']}}</td>
+                <td>{{$row['user_type']}}</td>
+                <td>{{$row['created_at']}}</td>
+                <td><a class="btn btn-info" href="#"><i style="color:black;" class="far fa-eye"></i></a> <a class="btn btn-success href="3"><i class="far fa-envelope"></i></a> <a class="btn btn-danger" href="#"><i style="color:black;"class="fas fa-ban"></i></a></td>
               </tr>
-              <tr>
-                <td>2</td>
-                <td>Mary Mary</td>
-                <td>mary@example.com</td>
-                <td>00000000002</td>
-                <td>Client</td>
-                <td><button class="btn btn-sm btn-info">View</button></td>
-                <td><button class="btn btn-sm btn-danger">Block</button> <button class="btn btn-sm btn-warning">Message</button></td>
-              </tr>
+            @endforeach    
+             
         
             </tbody>
           </table>

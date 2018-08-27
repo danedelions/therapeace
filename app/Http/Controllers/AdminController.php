@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Client;
+use App\Therapist;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -13,7 +16,8 @@ class AdminController extends Controller
 
     public function getUserView()
     {
-    	return view('admin.users');
+        $users = User::all()->toArray();
+    	return view('admin.users', compact('users'));
     }
 
     public function getPendingView()
