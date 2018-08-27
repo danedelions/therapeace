@@ -1,6 +1,6 @@
-@extends('layouts.clienthead')
+@extends('layouts.app')
 
-@section('client')
+@section('page-body')
         
         <link rel="stylesheet" type="text/css" href="css/client.css">
         
@@ -22,10 +22,10 @@
                 <p><input placeholder="First name..." name="fname" class="form-control" type="text"></p>
                 <p><input placeholder="Last name..." name="lname" type="text"></p>
                 <p><input placeholder="Email"  name="email" type="email"></p>
-                <p><input placeholder="Contact Number" type="number" name="number"></p>
+                <p><input placeholder="Contact Number" type="text" name="number"></p>
             </div>
             <div class="tab">Address:
-                <p><input placeholder="Barangay" oninput="this.className = ''" name="barangay" class="form-control"></p>
+                <p><input placeholder="Barangay" name="barangay" class="form-control"></p>
                 <p><input placeholder="Province" oninput="this.className = ''" name="province" class="form-control"></p>
                 <p><input placeholder="Town" oninput="this.className = ''" name="town" class="form-control"></p>
                 <p><input placeholder="City" oninput="this.className = ''" name="city" class="form-control"></p>

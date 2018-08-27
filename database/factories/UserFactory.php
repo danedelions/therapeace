@@ -37,6 +37,7 @@ $factory->define(App\User::class, function (Faker $faker) {
 //     ];
 // });
 
+<<<<<<< HEAD
 $factory->define(App\Therapist::class, function (Faker $faker) use ($factory) {
     return [
         'user_id' => $factory->create(App\User::class)->id,
@@ -44,6 +45,16 @@ $factory->define(App\Therapist::class, function (Faker $faker) use ($factory) {
         'fname' => $faker->firstName,
         'lname' => $faker->lastName,
         'contact' => $faker->phoneNumber,
+=======
+
+$factory->define(App\Therapist::class, function (Faker $faker) use ($factory) {
+    return [
+    	'user_id' => $factory->create(App\User::class)->id,
+    	'image' => $faker->imageUrl($width = 200, $height = 200),
+    	'fname' => $faker->firstName,
+	    'lname' => $faker->lastName,
+    	'contact' => $faker->phoneNumber,
+>>>>>>> 48a5267d6f470fae5bb6ec48de42f65e6c09dc06
         'barangay' => $faker->city,
         'province' => $faker->city,
         'town' => $faker->city,
@@ -56,4 +67,11 @@ $factory->define(App\Therapist::class, function (Faker $faker) use ($factory) {
         'bp_image' => $faker->imageUrl($width = 200, $height = 200),
         'remember_token' => str_random(10),
     ];
+<<<<<<< HEAD
 });
+=======
+});
+
+ 
+
+>>>>>>> 48a5267d6f470fae5bb6ec48de42f65e6c09dc06
