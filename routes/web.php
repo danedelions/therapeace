@@ -30,7 +30,7 @@ Route::get('transaction', function () {
 
 Route::resource('therapist' ,'TherapistController');
 
-<<<<<<< HEAD
+
 Route::resource('client', 'ClientController');
 
 
@@ -38,14 +38,14 @@ Route::resource('client', 'ClientController');
 Route::get('client-find', 'ClientRegistration@findTherapist');
 Route::get('client-history', 'ClientRegistration@clientHistory');
 Route::get('client-account/{id}', 'ClientRegistration@clientAccount');
-=======
-Route::resource('client', 'ClientRegistration');
-// Route::get('client-find', 'ClientRegistration@findTherapist');
+
+	// Route::get('client-find', 'ClientRegistration@findTherapist');
 // Route::get('client-history', 'ClientRegistration@clientHistory');
 // Route::get('client-account', 'ClientRegistration@clientAccount');
->>>>>>> bc922da31aadf84e8fbbbf7ce6669f0bf0ca9200
 
-Route::post('user_login' ,'LoginController@index');
+
+Route::get('user_login' ,'LoginController@view');
+Route::post('login','LoginController@index');
 
 Route::get('admin', function(){
 	return view ('admin.dashboard');

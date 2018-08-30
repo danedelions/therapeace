@@ -27,5 +27,5 @@
                           <a class="dropdown-item" href="/therapist">Therapist</a>
                         </div>
                       </div>
-                    <a href="/login" button class="btn btn-outline-secondary" style="margin: 5px;">Login</button> </a>
+                    <a href="/user_login" button class="btn btn-outline-secondary" style="margin: 5px;">Login</button> </a>
         </nav>

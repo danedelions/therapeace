@@ -31,7 +31,8 @@ class LoginController extends Controller
         }else{
              return "wrong".Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
         }
-       
+             return "sakto".Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
+   
     	    	// user::where('username', 'name');
 	}
 }
