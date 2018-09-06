@@ -34,7 +34,7 @@ class ClientRequest extends FormRequest
         'barangay' => 'required' ,
         'province' => 'required' ,
         'town' => 'required' ,
-        'city' => 'required'
+        'city' => 'required',
 
 
 

@@ -28,6 +28,10 @@ Route::get('transaction', function () {
 });
 
 
+Route::view('/therapistdashboard', 'therapistdashboard');
+
+
+
 Route::resource('therapist' ,'TherapistController');
 
 
