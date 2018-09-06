@@ -50,7 +50,7 @@
             </button>                     
           <ul class="nav navbar-nav float-right">
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <button class="btn btn-outline-info" style="margin: 5px;">Find</button>
+                    <button class="btn btn-outline-info" style="margin: 5px;">Appoint</button>
                     <button class="btn btn-outline-info" style="margin: 5px;">History</button>
                     <button class="btn btn-outline-info" style="margin: 5px;">Account</button>
                      <button class="btn btn-outline-info" style="margin: 5px;">Logout</button> 
@@ -81,45 +81,91 @@
                                 <label for="contactnumber"><b>Contact Number</b></label><br>
                                 <input type="text" placeholder="Contact Number" name="number" class="form-control">
                                 <br>
-                            <input type="submit" value="Update" class="btn btn-outline-successs">
+                            <input type="submit" value="Update" class="btn btn-outline-success">
                         </form>                        
                     </div>               
                 </div>
             </div>
             <div class="col-sm-8">
                 <div class="row" style="padding-bottom: 1em; padding-left: 1em; padding-right: 1em;">
-                  <h1>Want's to connect with you</h1>
                     <div class="col-sm-12 text-left" id="amazing"> 
-                    
-                        
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                        <hr>
+                    <table class="table table-hover table-striped">
+                      <thead class="thead-light">
+                        <tr>
+                          <th><h3>Wants to connect with you</h3></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info">  <input type="submit" value="View" class="btn btn-outline-info"></p></p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info">  <input type="submit" value="View" class="btn btn-outline-info"></p></p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info">  <input type="submit" value="View" class="btn btn-outline-info"></p></p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info">  <input type="submit" value="View" class="btn btn-outline-info"></p></p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info">  <input type="submit" value="View" class="btn btn-outline-info"></p></p>
+                          </td>
+                        </tr>
+                      </tbody>
+                       </table>
                     </div>                    
                 </div>
   
                 <div class="row" style="padding-bottom: 1em; padding-left: 1em; padding-right: 1em;">
-                  <h1>Ratings</h1>
+               
                     <div class="col-sm-12 text-left" id="amazing"> 
-                      
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                        <hr>
+                      <table class="table table-hover table-striped">
+                      <thead class="thead-light">
+                        <tr>
+                          <th><h3>Ratings</h3></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
+                          </td>
+                        </tr>
+                      </tbody>
+                       </table>
                     </div>                  
                 </div>
-
+            
             </div>
         </div>
     </div>
