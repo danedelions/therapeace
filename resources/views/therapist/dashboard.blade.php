@@ -59,7 +59,6 @@
             </div>
        </div>
 
-<center>
     <div class="container-fluid text-center">    
         <div class="row content">
             <div class="col-sm-4">
@@ -87,6 +86,7 @@
                     </div>               
                 </div>
             </div>
+
             <div class="col-sm-8">
                 <div class="row" style="padding-bottom: 1em;">
                     <div class="col-sm-12 text-left" id="amazing"> 
@@ -119,7 +119,6 @@
             </div>
         </div>
     </div>
-</center>
 
 </body>
 </html>
