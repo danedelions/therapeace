@@ -62,7 +62,7 @@
 
       <div class="container-fluid text-center">    
         <div class="row content">
-          <div class="col-sm-5 " >
+          <div class="col-sm-5" >
            <form action="/action_page.php">
             <img src="img/di.png" style="height: 95px;"><br>
   <!--   <br><br><br><br><br> -->
