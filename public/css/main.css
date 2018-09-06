@@ -94,9 +94,8 @@
 
 #amazing {
     background-color: #eee;
-    width: 300px;
-    height: 300px;
-    border: 1px dotted black;
+
+    height: 20em;
     overflow: scroll;
 }
  
