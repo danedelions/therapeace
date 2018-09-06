@@ -19,7 +19,7 @@ class TherapistController extends Controller
      */
     public function index()
     {
-        return view('therapist');
+        return view('therapistregistration');
     }
 
    
@@ -66,6 +66,11 @@ class TherapistController extends Controller
         ]);
 
          return view('login');
+    }
+
+    public function therapistDashboard(){
+
+        return view('therapist.dashboard');
     }
 
  

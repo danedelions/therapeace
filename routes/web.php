@@ -34,7 +34,7 @@ Route::get('transaction', function () {
 });
 
 
-Route::view('/therapistdashboard', 'therapistdashboard');
+Route::get('/therapistdashboard', 'TherapistController@therapistDashboard');
 
 
 
