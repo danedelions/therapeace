@@ -207,19 +207,23 @@
                 <td>{{$row['email']}}</td>
                 <td>{{$row['user_type']}}</td>
                 <td>{{$row['created_at']}}</td>
-<<<<<<< HEAD
+
                 <td>
                     <a class="btn btn-info" href="#" data-toggle="modal" data-target="#viewModal"><i style="color:black;" class="far fa-eye"></i></a>
-                    <a class="btn btn-success href="3"><i class="far fa-envelope"></i></a>
+                    <a class="btn btn-success href="#"><i class="far fa-envelope"></i></a>
                     <a class="btn btn-danger" href="#"><i style="color:black;"class="fas fa-ban"></i></a>
                 </td>
-=======
-                <td><a class="btn btn-outline-info" href="#"><i style="color:black;" class="far fa-eye"></i></a> <a class="btn btn-outline-success href="3"><i class="far fa-envelope"></i></a> <a class="btn btn-outline-danger" href="#"><i style="color:black;"class="fas fa-ban"></i></a></td>
->>>>>>> a607b44df1c3af803b9145785983dbef799c1931
+
+                <!-- <td>
+                    <a class="btn btn-outline-info" href="#" data-toggle="modal" data-target="#viewModal"><i style="color:black;" class="far fa-eye"></i></a> 
+                    <a class="btn btn-outline-success href="3"><i class="far fa-envelope"></i></a> 
+                    <a class="btn btn-outline-danger" href="#"><i style="color:black;"class="fas fa-ban"></i></a>
+                </td> -->
+
               </tr>
             @endforeach
 
-            <!-- Modal -->
+            <!-- View Modal -->
             <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -230,7 +234,24 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    ...
+                    <div class="col-sm-12" style="font-weight: bold;">
+                        <div class="card">
+                            <div class="card-body">
+                              <label>Name : </label><br>
+                              <label>Email:</label><br>
+                              <label>Contact #:</label>
+                              <label>Barangay:</label><br>
+                              <label>Town/Municipality:</label><br>
+                              <label>Street:</label><br>
+                              <label>Province:</label><br>
+                              <!-- <label>ZIP Code:</h5> -->  
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-sm-12">
+                        <label>Date Joined: </label>
+                    </div>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -238,7 +259,8 @@
                   </div>
                 </div>
               </div>
-            </div>  
+            </div>
+            <!-- end of view modal -->  
              
         
             </tbody>
