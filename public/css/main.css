@@ -46,6 +46,7 @@
 	text-align: justify;
 	padding: 5px;
 }
+
 #batay{
  background-color:lightblue;
 
@@ -93,9 +94,10 @@
 
 #amazing {
     background-color: #eee;
-    width: 300px;
+    width: 20em;
     height: 300px;
-    border: 1px dotted black;
+    border: 1px black;
+    height: 20em;
     overflow: scroll;
 }
  
