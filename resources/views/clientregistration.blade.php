@@ -19,22 +19,34 @@
             <h1>Client Registration:</h1>
             <!-- One "tab" for each step in the form: -->
             <div class="tab">Name:
-                <p><input placeholder="First name..." name="fname" class="form-control" type="text"></p>
+                <p><input placeholder="First name..." name="fname"  type="text"></p>
                 <p><input placeholder="Last name..." name="lname" type="text"></p>
                 <p><input placeholder="Email"  name="email" type="email"></p>
                 <p><input placeholder="Contact Number" type="text" name="number"></p>
             </div>
-            <div class="tab">Address:
-                <p><input placeholder="Barangay" name="barangay" class="form-control"></p>
-                <p><input placeholder="Province" oninput="this.className = ''" name="province" class="form-control"></p>
-                <p><input placeholder="Town" oninput="this.className = ''" name="town" class="form-control"></p>
-                <p><input placeholder="City" oninput="this.className = ''" name="city" class="form-control"></p>
+            <div class="tab" >Address:
+                <p><input placeholder="Barangay" name="barangay"  type="text"></p>
+                <p><input placeholder="Province" name="province" type="text"></p>
+                <p><input placeholder="Town"  name="town"></p>
+                <p><input placeholder="City" type="city"></p>
+
+
+
+           <!--      <p><input placeholder="Barangay" name="barangay" class="form-control" ></p>
+                <p><input placeholder="Province" name="province" class="form-control"></p>
+                <p><input placeholder="Town"  name="town" class="form-control"></p>
+                <p><input placeholder="City" name="city" class="form-control"></p> -->
             </div>
-            <div class="tab">
-                Profile:
+            <div class="tab"> Profile:
+        
+                <p><input placeholder="User Name" name="username"  type="text"></p>
+                <p><input placeholder="Password" name="password" type="password"></p>
+                <p><input placeholder="Retype Password"  name="password_confirmation" type="password"></p>
+
+<!-- 
                 <p><input placeholder="User Name" oninput="this.className = ''" name="username" class="form-control"></p>
                 <p><input placeholder="Password" oninput="this.className = ''" name="password" type="password" class="form-control"></p>
-                <p><input placeholder="Retype Password" oninput="this.className = ''" name="password_confirmation" type="password" class="form-control"></p>
+                <p><input placeholder="Retype Password" oninput="this.className = ''" name="password_confirmation" type="password" class="form-control"></p> -->
             </div>
             <div class="tab">
                 Done:

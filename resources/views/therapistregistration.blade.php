@@ -100,12 +100,12 @@
        <option value="pt" style="width:250px">Physical Therapist</option>
       <option value="ot" style="width:250px">Occupational therapy</option>
     </select><br>
-    <p><input placeholder="License Number" oninput="this.className = ''" name="license" type="number"></p>
+    <p><input placeholder="License Number" oninput="this.className = ''" name="license_number" type="number"></p>
     <p><input placeholder="Expriry Date" oninput="this.className = ''" name="expiry_date" type="number"></p>
      <form action="upload.php" method="post" enctype="multipart/form-data">
     <input type="file" name="license_image" id="fileUpload2"> 
    <br> <form action="upload.php" method="post" enctype="multipart/3orm-data">
-    <input type="file" name="nbi_image" id="fileUpload3"> 
+  <input type="file" name="nbi_image" id="fileUpload3"> 
    <br> <form action="upload.php" method="post" enctype="multipart/form-data">
     <input type="file" name="bp_image" id="fileUpload4"> 
    <br><br>

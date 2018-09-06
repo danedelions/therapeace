@@ -19,7 +19,7 @@ class TherapistController extends Controller
      */
     public function index()
     {
-        return view('therapist');
+        return view('therapistregistration');
     }
 
    
@@ -57,7 +57,7 @@ class TherapistController extends Controller
             'town' => $request->post('town'),
             'city' => $request->post('city'), 
             'therapist' => $request->post('therapist'),
-            'license' => $request->post('license'),
+            'license_number' => $request->post('license_number'),
             'expiry_date' => $request->post('expiry_date'),
             'license_image' => $request->post('license_image'),
             'nbi_image' =>$request->post('nbi_image'),
@@ -66,6 +66,11 @@ class TherapistController extends Controller
         ]);
 
          return view('login');
+    }
+
+    public function therapistDashboard(){
+
+        return view('therapist.dashboard');
     }
 
  

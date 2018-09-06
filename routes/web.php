@@ -34,12 +34,29 @@ Route::get('transaction', function () {
 });
 
 
+Route::get('/therapistdashboard', 'TherapistController@therapistDashboard');
+
+
+
 Route::resource('therapist' ,'TherapistController');
 
 
 Route::resource('client', 'ClientController');
 
 
+
+
+Route::get('client-find', 'ClientRegistration@findTherapist');
+Route::get('client-history', 'ClientRegistration@clientHistory');
+Route::get('client-account/{id}', 'ClientRegistration@clientAccount');
+
+	// Route::get('client-find', 'ClientRegistration@findTherapist');
+// Route::get('client-history', 'ClientRegistration@clientHistory');
+// Route::get('client-account', 'ClientRegistration@clientAccount');
+
+
+Route::get('user_login' ,'LoginController@view');
+Route::post('login','LoginController@index');
 
 Route::get('client-find', 'ClientController@findTherapist');
 Route::get('client-history', 'ClientController@clientHistory');
@@ -54,6 +71,7 @@ Route::get('client-account/{id}', 'ClientController@clientAccount');
 
 Route::get('user-login' ,'LoginController@view');
 Route::post('logged', 'LoginController@doLogin');
+
 
 Route::get('admin', function(){
 	return view ('admin.dashboard');
