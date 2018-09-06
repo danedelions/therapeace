@@ -96,7 +96,8 @@
     background-color: #eee;
     width: 20em;
     height: 300px;
-    border: 1px dotted black;
+    border: 1px black;
+    height: 20em;
     overflow: scroll;
 }
  

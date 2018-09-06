@@ -58,75 +58,74 @@
         </nav>
             </div>
        </div>
-       <div class="container">
-       <div class="row">
-          <div class="card">
-            <div class="col-sm-12" >
-              <center>
-                <form action="/action_page.php">
-                <img src="img/di.png" style="height: 95px;" class="form-group"><br>
-                    <label for="firstname"><b>First Name</b></label><br>
-                    <input type="text" placeholder="First Name" name="fname" class="form-control">
-                    <br>
-                    <label for="lastname"><b>Last Name</b></label><br>
-                    <input type="text" placeholder="Last Name" name="lname" class="form-control">
-                    <br>
-                    <label for="address"><b>Address</b></label><br>
-                    <input type="text" placeholder="Address" name="address" class="form-control">
-                    <br>
-                    <label for="email"><b>Email</b></label><br>
-                    <input type="text" placeholder="Enter Email" name="email" class="form-control">
-                    <br>
-                    <label for="contactnumber"><b>Contact Number</b></label><br>
-                    <input type="text" placeholder="Contact Number" name="number" class="form-control">
-                    <br>
-                <input type="submit" value="Update" class="btn btn-outline-info">
-                </form> 
-              </center>
-              </div>
-            </div>
-          </div>
-          <div class="rightcolumn">
-          <div class="card">
-            <div class="col-sm-md-lg-8 text-left" > 
-                <h1>Want's to connect with you</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                
-                <br>
-            </div>   
-          </div>
-        </div>
-            <div class="rightcolumn">
-              <div class="card">
-            <div class="col-sm-md-lg-4 text-left"> 
-                <h1>Ratings</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
 
-                <hr>
+    <div class="container-fluid text-center">    
+        <div class="row content">
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/action_page.php">
+                            <img src="img/di.png" style="height: 95px;" class="form-group"><br>
+                                <label for="firstname"><b>First Name</b></label><br>
+                                <input type="text" placeholder="First Name" name="fname" class="form-control">
+                                <br>
+                                <label for="lastname"><b>Last Name</b></label><br>
+                                <input type="text" placeholder="Last Name" name="lname" class="form-control">
+                                <br>
+                                <label for="address"><b>Address</b></label><br>
+                                <input type="text" placeholder="Address" name="address" class="form-control">
+                                <br>
+                                <label for="email"><b>Email</b></label><br>
+                                <input type="text" placeholder="Enter Email" name="email" class="form-control">
+                                <br>
+                                <label for="contactnumber"><b>Contact Number</b></label><br>
+                                <input type="text" placeholder="Contact Number" name="number" class="form-control">
+                                <br>
+                            <input type="submit" value="Update" class="btn btn-outline-successs">
+                        </form>                        
+                    </div>               
+                </div>
             </div>
-          </div>
-              </div>
+            <div class="col-sm-8">
+                <div class="row" style="padding-bottom: 1em; padding-left: 1em; padding-right: 1em;">
+                  <h1>Want's to connect with you</h1>
+                    <div class="col-sm-12 text-left" id="amazing"> 
+                    
+                        
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
+                        <hr>
+                    </div>                    
+                </div>
+  
+                <div class="row" style="padding-bottom: 1em; padding-left: 1em; padding-right: 1em;">
+                  <h1>Ratings</h1>
+                    <div class="col-sm-12 text-left" id="amazing"> 
+                      
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
+                        <hr>
+                    </div>                  
+                </div>
+
             </div>
         </div>
     </div>
   </div>
 </div>
  
-
 
 </body>
 </html>
