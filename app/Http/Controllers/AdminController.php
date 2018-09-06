@@ -17,6 +17,8 @@ class AdminController extends Controller
     public function getUserView()
     {
         $users = User::all()->toArray();
+        // $clients = Client::all()->toArray();
+
     	return view('admin.users', compact('users'));
     }
 
