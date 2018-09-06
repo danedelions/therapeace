@@ -1,20 +1,3 @@
-<!--         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#"><img src="img/logo.png" style="height: 50px;"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link nav-text" href="/client-find">Find</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-text" href="/client-account">Account</a>
-                    </li>
-                </ul>
-                    <a href="#" button class="btn btn-outline-danger" style="margin: 5px;">Logout</button> </a>
-        </nav> -->
 
     <!-- Start of Nav -->
     <nav class="navbar navbar-expand-sm  bg-light border">
@@ -27,12 +10,12 @@
       <!-- end of THERApeace brand -->
 
        <!-- Toggler/collapsibe Button -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <button class="navbar-toggler" type="button">
         <span class="navbar-toggler-icon"></span>
       </button>
 
     <!-- Navbar links -->
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
 
                 <li class="nav-item">

@@ -41,7 +41,7 @@
     <style>
     body{
         background-image: url("img/14.png");
-        background-position: fixed;
+        background-position: absolute;
         background-repeat: no-repeat;
         background-size: cover;
     </style>
