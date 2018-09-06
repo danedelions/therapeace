@@ -47,17 +47,29 @@
             <div class="row">
                 <div class="col-md-4 col-md-offset-6">
                     <div class="form-login">
+
+                        <form class="" action="{{ url('login') }}" method="POST">
+
                         <form class="" action="{{ url('logged') }}" method="POST">
+
                             {{ csrf_field() }}
                             <h4>Login</h4>
                             <br>
                             <i class="fas fa-user"></i>
                             <label class="label">Username</label>   
-                            <input type="text" id="userName" name="username"class="form-control input-sm chat-input" placeholder="Username" /> 
+                            <input type="text" id="userName" name="username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" placeholder="Username" required/>
+
+                            @if ($errors->has('username'))
+                                <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('username') }}</strong>
+                                </span>
+                            @endif
+
+
                             </br>
                             <i class="fas fa-key"></i>
                             <label class="label">Password</label>
-                            <input type="password" id="userPassword" name="password" class="form-control input-sm chat-input" placeholder="Password" />
+                            <input type="password" id="userPassword" name="password" class="form-control input-sm chat-input" placeholder="Password" required/>
                             </br>
                              <label>
                                   <input id="checki" type="checkbox" checked="checked" name="remember"> Remember me
