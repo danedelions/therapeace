@@ -40,7 +40,7 @@
                         <a class="nav-link nav-text" href="#">FAQ</a>
                     </li>
                       <li class="nav-item"> 
-                        <a href="/safety" class="nav-link nav-text" href="#z">Safety </a>
+                        <a href="/safety" class="nav-link nav-text">Safety </a>
                     </li>
                     <li class="nav-item">
                         <button class="btn btn-outline-success" style="margin: 5px;">Heal with theraPeace</button>

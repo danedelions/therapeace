@@ -20,12 +20,12 @@ class LoginController extends Controller
     public function doLogin(Request $request)
     {
     	
-    	print_r($request->post('success'));
-    	if (Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')))){
-
+        print_r($request->post('success'));
+        if (Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')))){
+            
             return "success".Auth::user()->user_type;
             if(Auth::user()->user_type === 'therapist'){
-            	// view('therapist');
+                // view('therapist');
                 return redirect('therapist');
             }else {
                 // view('client');
@@ -34,8 +34,7 @@ class LoginController extends Controller
         }else{
              return "wrong".Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
         }
-       
-    	//     	// user::where('username', 'name');
+    	    	// user::where('username', 'name');
 
         // if(Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('post')))){
 
