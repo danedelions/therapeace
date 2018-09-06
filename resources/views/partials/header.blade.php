@@ -27,5 +27,9 @@
                           <a class="dropdown-item" href="/therapist">Therapist</a>
                         </div>
                       </div>
+<<<<<<< HEAD
                     <a href="/user_login" button class="btn btn-outline-secondary" style="margin: 5px;">Login</button> </a>
+=======
+                    <a href="{{url('/user-login')}}" button class="btn btn-outline-secondary" style="margin: 5px;">Login</button> </a>
+>>>>>>> 48de9d7a0fe8812ce236af581338892d9268df2f
         </nav>

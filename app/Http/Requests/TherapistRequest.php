@@ -13,7 +13,7 @@ class TherapistRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -45,9 +45,9 @@ class TherapistRequest extends FormRequest
 
 
     }
-       public function rules()
+    public function rules()
 
-           $this->validate($request, [
+        $this->validate($request, [
         'name' => 'required|min:3|max:50',
         'email' => 'email',
         'password' => 'min:6|required_with:password_confirmation',
