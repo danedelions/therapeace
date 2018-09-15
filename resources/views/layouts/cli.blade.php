@@ -49,6 +49,6 @@
     <body>
         @include('client.nav')
         @yield('page-section')
-        @include('partials.footer')
+<!--     -->
     </body>
 </html>
