@@ -39,26 +39,50 @@
             <a class="navbar-brand"><img src="img/logo.png" style="height: 50px;"></a>
             <br><br><br><br>
                </nav> 
+     <nav class="navbar navbar-expand-sm  bg-light border">
+          <div class="container">
+         
+      <!-- end of THERApeace brand -->
 
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span> 
-            </button>                     
-          <ul class="nav navbar-nav float-right">
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <button class="btn btn-outline-info" style="margin: 5px;">Appoint</button>
-                    <button class="btn btn-outline-info" style="margin: 5px;">History</button>
-                    <button class="btn btn-outline-info" style="margin: 5px;">Account</button>
-                     <button class="btn btn-outline-info" style="margin: 5px;">Logout</button> 
-          </ul>
-        </nav>
-            </div>
-       </div>
+       <!-- Toggler/collapsibe Button -->
+      <button class="navbar-toggler" type="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
+    <!-- Navbar links -->
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/client-find"><h3><i class="fas fa-search"></i> Find</h3></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/client-history"><h3><i class="fas fa-history"></i> History</h3></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/client-account"><h3><i class="fas fa-user"></i> Account</h3></a>
+                </li>
+
+<!-- 
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><h2> Dropdown</h2></a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Item 1</a>
+                    <a class="dropdown-item" href="#">Item 2</a>
+                    <a class="dropdown-item" href="#">Item 3</a>
+                  </div>
+                </li>
+ -->
+          
+        <form class="form-inline" action="#">
+            <button class="btn btn-danger" type="submit"><i class="fas fa-sign-out-alt"></i>Logout</button>
+        </form>
+        </ul>
+      </div>
+     </div>
+    </nav>
     <div class="container-fluid text-center">    
         <div class="row content">
             <div class="col-sm-4">

@@ -28,7 +28,7 @@
                         </div>
                 </div>
 
-                    <a href="/user_login" button class="btn btn-outline-secondary" style="margin: 5px;">Login</button> </a>
+                    
                     <a href="{{url('/user-login')}}" button class="btn btn-outline-secondary" style="margin: 5px;">Login</button> </a>
 
         </nav>

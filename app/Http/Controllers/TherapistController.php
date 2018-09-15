@@ -68,9 +68,9 @@ class TherapistController extends Controller
          return view('login');
     }
 
-    public function therapistDashboard(){
+    public function accountTherapist(){
 
-        return view('therapist.dashboard');
+        return view('therapist.account');
     }
 
  
