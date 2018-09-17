@@ -64,4 +64,8 @@ class ClientController extends Controller
     {
         return view('client.account');
     }
+    public function clientMessage()
+    {
+        return view('client.message');
+    }
 }

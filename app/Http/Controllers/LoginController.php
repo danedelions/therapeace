@@ -34,7 +34,10 @@ class LoginController extends Controller
         }else{
              return "wrong".Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c2056f8a466e1f18d42bc7b4b5e0eb869b6398e6
     	    	// user::where('username', 'name');
 
              return "sakto".Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
@@ -43,6 +46,10 @@ class LoginController extends Controller
 
        
     	//     	// user::where('username', 'name');
+<<<<<<< HEAD
+=======
+
+>>>>>>> c2056f8a466e1f18d42bc7b4b5e0eb869b6398e6
 
         // if(Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('post')))){
 

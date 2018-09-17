@@ -61,7 +61,7 @@ Route::post('login','LoginController@index');
 Route::get('client-find', 'ClientController@findTherapist');
 Route::get('client-history', 'ClientController@clientHistory');
 Route::get('client-account', 'ClientController@clientAccount');
-
+Route::get('client-message', 'ClientController@clientMessage');
 Route::resource('client', 'ClientController');
 
 Route::get('client-find', 'ClientController@findTherapist');
