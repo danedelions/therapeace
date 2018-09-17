@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Therapeace | Dashboard</title>
+        <title>Account | Therapist</title>
         
         <link rel="icon" href="img/logo.png" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
@@ -39,22 +39,18 @@
             <a class="navbar-brand"><img src="img/logo.png" style="height: 50px;"></a>
             <br><br><br><br>
                </nav> 
+
      <nav class="navbar navbar-expand-sm  bg-light border">
           <div class="container">
-         
-      <!-- end of THERApeace brand -->
-
-       <!-- Toggler/collapsibe Button -->
       <button class="navbar-toggler" type="button">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-    <!-- Navbar links -->
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/client-find"><h3><i class="fas fa-search"></i> Find</h3></a>
+                    <a class="nav-link" href="/client-find"><h3><i class="fas fa-search"></i> Appoint</h3></a>
                 </li>
 
                 <li class="nav-item">
@@ -64,18 +60,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/client-account"><h3><i class="fas fa-user"></i> Account</h3></a>
                 </li>
-
-<!-- 
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><h2> Dropdown</h2></a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Item 1</a>
-                    <a class="dropdown-item" href="#">Item 2</a>
-                    <a class="dropdown-item" href="#">Item 3</a>
-                  </div>
-                </li>
- -->
-          
+     
         <form class="form-inline" action="#">
             <button class="btn btn-danger" type="submit"><i class="fas fa-sign-out-alt"></i>Logout</button>
         </form>
@@ -91,19 +76,19 @@
                         <form action="/action_page.php">
                             <img src="img/di.png" style="height: 95px;" class="form-group"><br>
                                 <label for="firstname"><b>First Name</b></label><br>
-                                <input type="text" placeholder="First Name" name="fname" class="form-control">
+                                <input type="text" placeholder="Francis" name="fname" class="form-control">
                                 <br>
                                 <label for="lastname"><b>Last Name</b></label><br>
-                                <input type="text" placeholder="Last Name" name="lname" class="form-control">
+                                <input type="text" placeholder="Seno" name="lname" class="form-control">
                                 <br>
                                 <label for="address"><b>Address</b></label><br>
-                                <input type="text" placeholder="Address" name="address" class="form-control">
+                                <input type="text" placeholder="Nasipit Talamban" name="address" class="form-control">
                                 <br>
                                 <label for="email"><b>Email</b></label><br>
-                                <input type="text" placeholder="Enter Email" name="email" class="form-control">
+                                <input type="text" placeholder="franz@yahoo.com" name="email" class="form-control">
                                 <br>
                                 <label for="contactnumber"><b>Contact Number</b></label><br>
-                                <input type="text" placeholder="Contact Number" name="number" class="form-control">
+                                <input type="text" placeholder="095894293" name="number" class="form-control">
                                 <br>
                             <input type="submit" value="Update" class="btn btn-outline-success">
                         </form>                        
@@ -122,27 +107,102 @@
                       <tbody>
                         <tr>
                           <td>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info">  <input type="submit" value="View" class="btn btn-outline-info"></p></p>
+                            <div class="card card-outline-secondary">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="float-right"><i class="fas fa-user-circle fa-4x"></i></label>
+                                </div>
+
+                              <div class="col-lg-4"><br>
+                                  <label>Tiffany Centillas</label>
+                          </div>
+                          <div class="col-lg-3"><br>
+                              <label class="btn btn-outline-info">View</label>
+                              <label class="btn btn-outline-success">Connect</label>
+                          </div>
+                          </div>
+                        </div>
+                           
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info">  <input type="submit" value="View" class="btn btn-outline-info"></p></p>
+                           <div class="card card-outline-secondary">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="float-right"><i class="fas fa-user-circle fa-4x"></i></label>
+                                </div>
+
+                              <div class="col-lg-4"><br>
+                                  <label>Jude Nino Canete</label>
+                          </div>
+                          <div class="col-lg-3"><br>
+                              <label class="btn btn-outline-info">View</label>
+                              <label class="btn btn-outline-success">Connect</label>
+                          </div>
+                          </div>
+                        </div>
+                           
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info">  <input type="submit" value="View" class="btn btn-outline-info"></p></p>
+                            <div class="card card-outline-secondary">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="float-right"><i class="fas fa-user-circle fa-4x"></i></label>
+                                </div>
+
+                              <div class="col-lg-4"><br>
+                                  <label>Daniela Echavez</label>
+                          </div>
+                          <div class="col-lg-3"><br>
+                              <label class="btn btn-outline-info">View</label>
+                              <label class="btn btn-outline-success">Connect</label>
+                          </div>
+                          </div>
+                        </div>
+                           
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info">  <input type="submit" value="View" class="btn btn-outline-info"></p></p>
+                           <div class="card card-outline-secondary">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="float-right"><i class="fas fa-user-circle fa-4x"></i></label>
+                                </div>
+
+                              <div class="col-lg-4"><br>
+                                  <label>Chino Francis Lopez</label>
+                          </div>
+                          <div class="col-lg-3"><br>
+                              <label class="btn btn-outline-info">View</label>
+                              <label class="btn btn-outline-success">Connect</label>
+                          </div>
+                          </div>
+                        </div>
+                           
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info">  <input type="submit" value="View" class="btn btn-outline-info"></p></p>
+                            <div class="card card-outline-secondary">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="float-right"><i class="fas fa-user-circle fa-4x"></i></label>
+                                </div>
+
+                              <div class="col-lg-4"><br>
+                                  <label>Godwin Monserate</label>
+                          </div>
+                          <div class="col-lg-3"><br>
+                              <label class="btn btn-outline-info">View</label>
+                              <label class="btn btn-outline-success">Connect</label>
+                          </div>
+                          </div>
+                        </div>
+                           
                           </td>
                         </tr>
                       </tbody>
@@ -162,27 +222,92 @@
                       <tbody>
                         <tr>
                           <td>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
+                            <div class="card card-outline-secondary">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="float-right"><i class="fas fa-user-circle fa-4x"></i></label>
+                                </div>
+
+                              <div class="col-lg-4"><br>
+                                  <label>Ela Abrantes</label>
+                          </div>
+                          <div class="col-lg-3"><br>
+          
+                          </div>
+                          </div>
+                        </div>
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
+                            <div class="card card-outline-secondary">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="float-right"><i class="fas fa-user-circle fa-4x"></i></label>
+                                </div>
+
+                              <div class="col-lg-4"><br>
+                                  <label>Qeeuuu VAbahug</label>
+                          </div>
+                          <div class="col-lg-3"><br>
+                 
+                          </div>
+                          </div>
+                        </div>
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
+                             <div class="card card-outline-secondary">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="float-right"><i class="fas fa-user-circle fa-4x"></i></label>
+                                </div>
+
+                              <div class="col-lg-4"><br>
+                                  <label>Cza Olindria</label>
+                          </div>
+                          <div class="col-lg-3"><br>
+    
+                          </div>
+                          </div>
+                        </div>
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
+                            <div class="card card-outline-secondary">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="float-right"><i class="fas fa-user-circle fa-4x"></i></label>
+                                </div>
+
+                              <div class="col-lg-4"><br>
+                                  <label>Kimberly Gipulan</label>
+                          </div>
+                          <div class="col-lg-3"><br>
+                
+                          </div>
+                          </div>
+                        </div>
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. <input type="submit" value="Connect" class="btn btn-outline-info"></p>
+                            <div class="card card-outline-secondary">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="float-right"><i class="fas fa-user-circle fa-4x"></i></label>
+                                </div>
+
+                              <div class="col-lg-4"><br>
+                                  <label>Sherrally Labares</label>
+                          </div>
+                          <div class="col-lg-3"><br>
+                         
+                          </div>
+                          </div>
+                        </div>
                           </td>
                         </tr>
                       </tbody>
