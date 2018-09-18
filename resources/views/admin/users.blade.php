@@ -214,15 +214,15 @@
                     <a class="btn btn-danger" href="#"><i style="color:black;"class="fas fa-ban"></i></a>
                 </td>
 
-<<<<<<< HEAD
+
                 <!-- <td>
                     <a class="btn btn-outline-info" href="#" data-toggle="modal" data-target="#viewModal"><i style="color:black;" class="far fa-eye"></i></a> 
                     <a class="btn btn-outline-success href="3"><i class="far fa-envelope"></i></a> 
                     <a class="btn btn-outline-danger" href="#"><i style="color:black;"class="fas fa-ban"></i></a>
                 </td> -->
-=======
-                <td><a class="btn btn-outline-info" href="#"><i style="color:black;" class="far fa-eye"></i></a> <a class="btn btn-outline-success href="3"><i class="far fa-envelope"></i></a> <a class="btn btn-outline-danger" href="#"><i style="color:black;"class="fas fa-ban"></i></a></td>
->>>>>>> 473caffa89ab76ece658c7f4cc9644584306741a
+
+                <!-- <td><a class="btn btn-outline-info" href="#"><i style="color:black;" class="far fa-eye"></i></a> <a class="btn btn-outline-success href="3"><i class="far fa-envelope"></i></a> <a class="btn btn-outline-danger" href="#"><i style="color:black;"class="fas fa-ban"></i></a></td> -->
+
 
               </tr>
             @endforeach
