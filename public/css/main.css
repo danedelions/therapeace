@@ -1,24 +1,25 @@
+
 .nav-text {
-	font-size: 16pt;
+  font-size: 16pt;
 }
 
 .buttons {
-	margin: 5px;
+  margin: 5px;
 }
 
 .slider-caption{
-	color: #ffffff;
-	position: absolute;
-	float: center;
-	padding: 5em;
-	width: 35%;
+  color: #ffffff;
+  position: absolute;
+  float: center;
+  padding: 5em;
+  width: 35%;
 }
 
 .caption{
-	color: #ffffff;
-	font-size: 70px;
-	font-weight: 700;
-	text-shadow:  2px 2px 4px #000000;
+  color: #ffffff;
+  font-size: 70px;
+  font-weight: 700;
+  text-shadow:  2px 2px 4px #000000;
 }
 
 .parallax {
@@ -33,18 +34,18 @@
 }
 
 .section-1{
-	background-color: #0c1e3a;
+  background-color: #0c1e3a;
 }
 
 .texts{
-	color: white;
-	padding: 5px;
+  color: white;
+  padding: 5px;
 }
 
 .description{
-	color: white;
-	text-align: justify;
-	padding: 5px;
+  color: white;
+  text-align: justify;
+  padding: 5px;
 }
 
 #batay{
@@ -86,7 +87,7 @@
 
 
  #dd{
- 	padding-top: 20px;
+  padding-top: 20px;
       background-color: white;
       height: 1s0%;
  }
@@ -104,13 +105,24 @@
 
 
 
+/*CLIENT*/
+#clientBg {
+    background-image: url("/img/14.png");
+    background-position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+#transaction a {
+    color: blue;
+}
 
  /*RATING*/
 
  @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
 fieldset, label { margin: 0; padding: 0; }
-body{ margin: 20px; }
+
 h1 { font-size: 1.5em; margin: 10px; }
 
 /****** Style Star Rating Widget *****/
