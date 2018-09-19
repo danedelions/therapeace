@@ -13,6 +13,7 @@
 */
 
 Route::group(['middleware' => 'guest'], function(){
+<<<<<<< HEAD
 	Route::get('/',function() {
 		return view('welcome');   
 	});
@@ -22,6 +23,24 @@ Route::group(['middleware' => 'guest'], function(){
 });
 
 
+=======
+	Route::get('/', function () {
+    return view('welcome');
+	});
+	Route::get('user_login' ,'LoginController@view')->name('get:login');
+	Route::get('login' ,'LoginController@view')->name('get:login');
+	Route::post('doLogin','LoginController@index')->name('post:login');
+
+});
+
+
+// Route::get('login', function () {
+//     return view('login');
+// }); 
+
+
+
+>>>>>>> 8e518a9109b7c05465fd5df63a6a29597c6d2498
 // Route::resource('therapist' ,'RegistrationController');
 
 Route::get('transaction', function () {
@@ -30,17 +49,10 @@ Route::get('transaction', function () {
 
 
 Route::get('/therapist-account', 'TherapistController@accountTherapist');
-
-
-
 Route::resource('therapist' ,'TherapistController');
 
 
 Route::resource('client', 'ClientController');
-
-
-
-
 Route::get('client-find', 'ClientRegistration@findTherapist');
 Route::get('client-history', 'ClientRegistration@clientHistory');
 Route::get('client-account/{id}', 'ClientRegistration@clientAccount');
@@ -50,8 +62,7 @@ Route::get('client-account/{id}', 'ClientRegistration@clientAccount');
 // Route::get('client-account', 'ClientRegistration@clientAccount');
 
 
-Route::get('user_login' ,'LoginController@view');
-Route::post('login','LoginController@index');
+
 
 Route::get('client-find', 'ClientController@findTherapist');
 Route::get('client-history', 'ClientController@clientHistory');
@@ -64,8 +75,8 @@ Route::get('client-history/{id}', 'ClientController@clientHistory');
 Route::get('client-account/{id}', 'ClientController@clientAccount');
 
 
-Route::get('user-login' ,'LoginController@view');
-Route::post('logged', 'LoginController@doLogin');
+// Route::get('user-login' ,'LoginController@view');
+// Route::post('logged', 'LoginController@doLogin');
 
 
 Route::get('admin', function(){

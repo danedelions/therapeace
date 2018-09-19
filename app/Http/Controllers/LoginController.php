@@ -42,7 +42,10 @@ class LoginController extends Controller
 
        
     	//     	// user::where('username', 'name');
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8e518a9109b7c05465fd5df63a6a29597c6d2498
 
         // if(Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('post')))){
 

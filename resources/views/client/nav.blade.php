@@ -10,11 +10,11 @@
             </li>
 
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Account</a>
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">More</a>
               <div class="dropdown-menu" style="font-size: 14px;">
                 <a class="dropdown-item" href="/client-account"><i class="fas fa-user"></i> Account</a>
                 <a class="dropdown-item" href="/client-history"><i class="fas fa-history"></i> History</a>
-                <a class="dropdown-item" href="/client-message"><i class="far fa-envelope"></i> Messages</a>
+                <a class="dropdown-item" href="/client-message"><i class="fas fa-envelope"></i> Messages</a>
                 <a class="dropdown-item" href="/client-report"><i class="fas fa-file"></i> Report an Abuse</a>
                 <a class="dropdown-item" href="#" style="color: red;"><i class="fas fa-sign-out-alt" style="color: red;"></i> Logout</a>
               </div>
