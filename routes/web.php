@@ -13,7 +13,7 @@
 */
 
 Route::group(['middleware' => 'guest'], function(){
-<<<<<<< HEAD
+
 	Route::get('/',function() {
 		return view('welcome');   
 	});
@@ -23,16 +23,6 @@ Route::group(['middleware' => 'guest'], function(){
 });
 
 
-=======
-	Route::get('/', function () {
-    return view('welcome');
-	});
-	Route::get('user_login' ,'LoginController@view')->name('get:login');
-	Route::get('login' ,'LoginController@view')->name('get:login');
-	Route::post('doLogin','LoginController@index')->name('post:login');
-
-});
-
 
 // Route::get('login', function () {
 //     return view('login');
@@ -40,7 +30,7 @@ Route::group(['middleware' => 'guest'], function(){
 
 
 
->>>>>>> 8e518a9109b7c05465fd5df63a6a29597c6d2498
+
 // Route::resource('therapist' ,'RegistrationController');
 
 Route::get('transaction', function () {
