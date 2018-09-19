@@ -12,19 +12,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => 'guest'], function(){
+	Route::get('/',function() {
+		return view('welcome');   
+	});
+	Route::get('user_login', 'LoginController@view')->name('get:login');
+	Route::get('login', 'LoginController@view')->name('get:login');
+	Route::view('doLogin', 'LoginController@index')->name('post:login');
 });
-
-
-// Route::get('login', function () {
-//     return view('login');
-// }); 
-
-Route::get('safety', function () {
-    return view('safety');
-});
-
 
 
 // Route::resource('therapist' ,'RegistrationController');
