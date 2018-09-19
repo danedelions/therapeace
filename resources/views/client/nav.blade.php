@@ -10,7 +10,7 @@
             </li>
 
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Account</a>
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">More</a>
               <div class="dropdown-menu" style="font-size: 14px;">
                 <a class="dropdown-item" href="/client-account"><i class="fas fa-user"></i> Account</a>
                 <a class="dropdown-item" href="/client-history"><i class="fas fa-history"></i> History</a>

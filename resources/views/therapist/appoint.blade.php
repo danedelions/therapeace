@@ -1,22 +1,23 @@
-@extends('layouts.cli')
+@extends('therapist.dashboard')
 
 @section('page-section')
-@include('modals.client')
 <div class="container">
-	<div class="row"> <!-- 	<div class="row">  --><!-- <div class="col-md-5"> -->
-		<div class="col-sm-5 col-md-5 col-lg-5">
+	<div class="row offset-md-1"> <!-- 	<div class="row">  --><!-- <div class="col-md-5"> -->
+		<div class="col-md-4 col-lg-5">
 			<div class="card">
 				<div class="card-header">
-					<h5>User Information</h5>
+					<h3>User Information</h3>
 				</div>
 				<div class="card-body">
 					<form class="form">
-						<div class="form-group row">
-							<label class="col-lg-3 col-form-label">Username</label>
-								<div class="col-lg-9">
-									<input class="form-control" type="text" value="sabrina">
-								</div>
-						</div>
+						<div>
+							<div>
+								<center><i class="fas fa-user-circle fa-5x"></i>
+								<input type="file" name="filename"></center>
+							</div>
+						</div>	
+						<hr>					
+
 						<div class="form-group row">
 							<label class="col-lg-3 col-form-label form-control-label">First name</label>
 								<div class="col-lg-9">
@@ -42,27 +43,9 @@
 								</div>
 						</div>
 						<div class="form-group row">
-							<label class="col-lg-3 col-form-label form-control-label">Birthday</label>
+							<label class="col-lg-3 col-form-label form-control-label">Phone Number</label>
 								<div class="col-lg-9">
-									<input class="form-control" type="text" value="September 5, 2018">
-								</div>
-						</div>
-						<div class="form-group row">
-							<label class="col-lg-3 col-form-label form-control-label">Gender</label>
-								<div class="col-lg-9">
-									<input class="form-control" type="url" value="Female">
-								</div>
-						</div>
-						<div class="form-group row">
-							<label class="col-lg-3 col-form-label form-control-label">Password</label>
-								<div class="col-lg-9">
-									<input class="form-control" type="password" value="11111122333">
-								</div>
-						</div>
-						<div class="form-group row">
-							<label class="col-lg-3 col-form-label form-control-label">Confirm Password</label>
-								<div class="col-lg-9">
-									<input class="form-control" type="password" value="11111122333">
+									<input class="form-control" type="text" value="09254125444">
 								</div>
 						</div>
 						<div class="form-group row">
@@ -77,55 +60,65 @@
 			</div>
 		</div>
 
-		<div class="col-sm-5 col-md-5 col-lg-6">
+		<div class="col-md-7 col-lg-6">
 			<div class="card">
 				<div class="card-header">
-					<h5>Connections</h5>
+					<h3>Client Requests</h3>
 				</div>
 				<div class="card-body" style="overflow: scroll; height: 200px;">
-					<table class="table table-default">
-						<thead>
+					<table>
+						<tbody>
 							<tr>
-								<td><i class="fas fa-user-circle fa-5x"></i></td>
-								<td><label>Tiffany</label> wants to connect with you</td>
 								<td>
-									<input type="submit" value="Connect" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
-									<input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
+									<p>
+									<i class="fas fa-user-circle fa-5x"></i>
+									<label>Tiffany</label> wants to connect with you
+									<input type="submit" value="Connect" class="btn btn-outline-success">  
+									<input type="submit" value="View" class="btn btn-outline-info">
+									</p>
 								</td>
 							</tr>
 							<tr>
-								<td><i class="fas fa-user-circle fa-5x"></i></td>
-								<td><label>Tiffany</label> wants to connect with you</td>
 								<td>
-									<input type="submit" value="Connect" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
-									<input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
+									<p>
+									<i class="fas fa-user-circle fa-5x"></i>
+									<label>Tiffany</label> wants to connect with you
+									<input type="submit" value="Connect" class="btn btn-outline-success">  
+									<input type="submit" value="View" class="btn btn-outline-info">
+									</p>
 								</td>
 							</tr>
 							<tr>
-								<td><i class="fas fa-user-circle fa-5x"></i></td>
-								<td><label>Tiffany</label> wants to connect with you</td>
 								<td>
-									<input type="submit" value="Connect" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
-									<input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
+									<p>
+									<i class="fas fa-user-circle fa-5x"></i>
+									<label>Tiffany</label> wants to connect with you
+									<input type="submit" value="Connect" class="btn btn-outline-success">  
+									<input type="submit" value="View" class="btn btn-outline-info">
+									</p>
 								</td>
 							</tr>
 							<tr>
-								<td><i class="fas fa-user-circle fa-5x"></i></td>
-								<td><label>Tiffany</label> wants to connect with you</td>
 								<td>
-									<input type="submit" value="Connect" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
-									<input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
-								</td>
-							</tr>		
-							<tr>
-								<td><i class="fas fa-user-circle fa-5x"></i></td>
-								<td><label>Tiffany</label> wants to connect with you</td>
-								<td>
-									<input type="submit" value="Connect" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
-									<input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
+									<p>
+									<i class="fas fa-user-circle fa-5x"></i>
+									<label>Tiffany</label> wants to connect with you
+									<input type="submit" value="Connect" class="btn btn-outline-success">  
+									<input type="submit" value="View" class="btn btn-outline-info">
+									</p>
 								</td>
 							</tr>
-						</thead>
+							<tr>
+								<td>
+									<p>
+									<i class="fas fa-user-circle fa-5x"></i>
+									<label>Tiffany</label> wants to connect with you
+									<input type="submit" value="Connect" class="btn btn-outline-success">  
+									<input type="submit" value="View" class="btn btn-outline-info">
+									</p>
+								</td>
+							</tr>
+						</tbody>
 					</table>
 				</div>
 			</div>
@@ -134,13 +127,14 @@
 
 			<div class="card">
 				<div class="card-header">
-				<h5>Comments and Ratings</h5>
+				<h3>Comments and Ratings</h3>
 				</div>
 				<div class="card-body" style="overflow: scroll; height: 200px;">
-					<table class="table table-default">
-						<thead>
+					<table>
+						<tbody>
 							<tr>
 								<td>
+									<p>
 									<fieldset class="rating">
 										<i class="fas fa-user-circle fa-5x"></i>	
 										<input type="radio" id="star5" name="rating" value="5" />
@@ -154,20 +148,17 @@
 										<input type="radio" id="star1" name="rating" value="1" />
 											<label class = "full" for="star1" title="Sucks big time - 1 star"></label>
 									</fieldset>
-								</td>
-								<td>
-									<div>
-										<textarea placeholder="Comment"></textarea>
-									</div>
-								</td>		
-								<td>
-									<div>
-										<label class="btn btn-success">	Submit</label>
-									</div>
+
+										<div class="col-lg-7" style="text-align:justify">
+											<a>Lorem ipsum dolor sit amet, urna quis eros, donec sed purus, elit at amet non, placerat lorem mattis posuere platea, mauris vestibulum sem semper lobortis ut. Penatibus odio eu gravida sit, leo aenean sit ut.</a>
+										</div>
+									</p>
 								</td>
 							</tr>
+
 							<tr>
 								<td>
+									<p>
 									<fieldset class="rating">
 										<i class="fas fa-user-circle fa-5x"></i>	
 										<input type="radio" id="star5" name="rating" value="5" />
@@ -181,20 +172,17 @@
 										<input type="radio" id="star1" name="rating" value="1" />
 											<label class = "full" for="star1" title="Sucks big time - 1 star"></label>
 									</fieldset>
-								</td>
-								<td>
-									<div>
-										<textarea placeholder="Comment"></textarea>
-									</div>
-								</td>		
-								<td>
-									<div>
-										<label class="btn btn-success">	Submit</label>
-									</div>
+
+										<div class="col-lg-7" style="text-align:justify">
+											<a>Lorem ipsum dolor sit amet, urna quis eros, donec sed purus, elit at amet non, placerat lorem mattis posuere platea, mauris vestibulum sem semper lobortis ut. Penatibus odio eu gravida sit, leo aenean sit ut.</a>
+										</div>
+									</p>
 								</td>
 							</tr>
+
 							<tr>
 								<td>
+									<p>
 									<fieldset class="rating">
 										<i class="fas fa-user-circle fa-5x"></i>	
 										<input type="radio" id="star5" name="rating" value="5" />
@@ -208,26 +196,17 @@
 										<input type="radio" id="star1" name="rating" value="1" />
 											<label class = "full" for="star1" title="Sucks big time - 1 star"></label>
 									</fieldset>
+
+										<div class="col-lg-7" style="text-align:justify">
+											<a>Lorem ipsum dolor sit amet, urna quis eros, donec sed purus, elit at amet non, placerat lorem mattis posuere platea, mauris vestibulum sem semper lobortis ut. Penatibus odio eu gravida sit, leo aenean sit ut.</a>
+										</div>
+									</p>
 								</td>
-								<td>
-									<div>
-										<textarea placeholder="Comment"></textarea>
-									</div>
-								</td>		
-								<td>
-									<div>
-										<label class="btn btn-success">	Submit</label>
-									</div>
-								</td>
-							</tr>							
-						</thead>
+							</tr>
+								
+						</tbody>
 					</table>
 				</div>
 			</div>
-		</div>
-	</div>
 </div>
-
-
 @endsection
-
