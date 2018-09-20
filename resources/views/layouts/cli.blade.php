@@ -20,6 +20,7 @@
         <!-- THEME STYLES-->
         <link href="dist/assets/css/main.min.css" rel="stylesheet" />
         <link href="dist/assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet" />
+        @stack('js')
     </head>
     
     <body id="clientBg">
