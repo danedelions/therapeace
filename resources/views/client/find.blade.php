@@ -1,6 +1,7 @@
 @extends('layouts.cli')
 
 @section('page-section')
+
 	<div class="row">
 		<div class="col-md-12">
 			<div id="map"></div>
