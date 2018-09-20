@@ -8,6 +8,7 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
         <!-- font awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
         <link href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css" rel="stylesheet" media="screen">  
@@ -21,11 +22,10 @@
         <link href="dist/assets/css/main.min.css" rel="stylesheet" />
         <link href="dist/assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet" />
     </head>
-    
-    <body id="clientBg">
-        @include('client.nav')
-        @yield('page-section')
- <!--        @include('partials.footer') -->
+
+    <body id="batay">
+            @include('therapist.nav')
+            @yield('page-section')
 
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
@@ -34,10 +34,18 @@
         <script src="jquery/jquery.min.js"></script>
         <script src="https://unpkg.com/popper.js@1.14.3/dist/umd/popper.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+       
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-        <!-- dropdown -->
+        <!-- DROPDOWN -->
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     
+
     </body>
 </html>
