@@ -3,10 +3,32 @@
 @section('page-section')
 
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-10">
 			<div id="map"></div>
 		</div>
 	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	<script>
 		function initMap() {

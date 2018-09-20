@@ -28,13 +28,12 @@ Route::get('transaction', function () {
 Route::get('/therapist-account', 'TherapistController@therapistAccount');
 Route::get('/therapist-appoint', 'TherapistController@therapistAppoint');
 Route::get('/therapist-history', 'TherapistController@therapistHistory');
-
 Route::resource('therapist' ,'TherapistController');
 
-Route::resource('client', 'ClientController');
-Route::get('client-find', 'ClientRegistration@clientFind');
-Route::get('client-history', 'ClientRegistration@clientHistory');
-Route::get('client-account/{id}', 'ClientRegistration@clientAccount');
+// Route::resource('client', 'ClientController');
+// Route::get('client-find', 'ClientRegistration@clientFind');
+// Route::get('client-history', 'ClientRegistration@clientHistory');
+// Route::get('client-account/{id}', 'ClientRegistration@clientAccount');
 
 
 Route::get('client-find', 'ClientController@clientFind');
@@ -48,12 +47,15 @@ Route::get('client-history/{id}', 'ClientController@clientHistory');
 Route::get('client-account/{id}', 'ClientController@clientAccount');
 
 
-Route::get('admin', function(){
-	return view ('admin.dashboard');
+Route::prefix('admin')->group(function(){
+	Route::get('/', 'AdminController@getDashboard')->name('get:home'); 
+	Route::get('/user', 'AdminController@getUserView')->name('users');
+	Route::get('/pending', 'AdminController@getPendingView');
+	Route::get('/history', 'AdminController@getHistoryView');
+	Route::get('/reports', 'AdminController@getReportsView');
 });
+	  
 
-Route::get('admin', 'AdminController@getDashboard'); 
-Route::get('admin-user', 'AdminController@getUserView');
-Route::get('admin-pending', 'AdminController@getPendingView');
-Route::get('admin-history', 'AdminController@getHistoryView');
-Route::get('admin-reports', 'AdminController@getReportsView');  
+
+
+

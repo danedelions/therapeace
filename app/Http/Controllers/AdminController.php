@@ -11,7 +11,9 @@ class AdminController extends Controller
 {
 	public function getDashboard()
     {
-    	return view('admin.dashboard');
+    	// return view('admin.dashboard');
+        return redirect()->route('get:home');
+        
     }
 
     public function getUserView()
