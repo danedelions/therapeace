@@ -52,7 +52,7 @@ class ClientController extends Controller
          return view('login');
     }
 
-    public function findTherapist()
+    public function clientFind()
     {
         return view('client.find');
     }

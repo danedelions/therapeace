@@ -1,328 +1,157 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Account | Therapist</title>
-        
-        <link rel="icon" href="img/logo.png" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+@extends('layouts.the')
 
-
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="css/main.css">
-        <link href="css/full-slider.css" rel="stylesheet" type="text/css">
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/bootstrap.bundle.js"></script>
-        <script src="jquery/jquery.min.js"></script>
-        <script src="https://unpkg.com/popper.js@1.14.3/dist/umd/popper.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-       
-
-
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-    </head>
-    <body id="batay">
-            <a class="navbar-brand"><img src="img/logo.png" style="height: 50px;"></a>
-            <br><br><br><br>
-               </nav> 
-
-     <nav class="navbar navbar-expand-sm  bg-light border">
-          <div class="container">
-      <button class="navbar-toggler" type="button">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/client-find"><h3><i class="fas fa-search"></i> Appoint</h3></a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/client-history"><h3><i class="fas fa-history"></i> History</h3></a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/client-account"><h3><i class="fas fa-user"></i> Account</h3></a>
-                </li>
-     
-        <form class="form-inline" action="#">
-            <button class="btn btn-danger" type="submit"><i class="fas fa-sign-out-alt"></i>Logout</button>
-        </form>
-        </ul>
-      </div>
-     </div>
-    </nav>
-    <div class="container-fluid text-center">    
-        <div class="row content">
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-body">
-                        <form action="/action_page.php">
-                            <img src="img/di.png" style="height: 95px;" class="form-group"><br>
-                                <label for="firstname"><b>First Name</b></label><br>
-                                <input type="text" placeholder="Francis" name="fname" class="form-control">
-                                <br>
-                                <label for="lastname"><b>Last Name</b></label><br>
-                                <input type="text" placeholder="Seno" name="lname" class="form-control">
-                                <br>
-                                <label for="address"><b>Address</b></label><br>
-                                <input type="text" placeholder="Nasipit Talamban" name="address" class="form-control">
-                                <br>
-                                <label for="email"><b>Email</b></label><br>
-                                <input type="text" placeholder="franz@yahoo.com" name="email" class="form-control">
-                                <br>
-                                <label for="contactnumber"><b>Contact Number</b></label><br>
-                                <input type="text" placeholder="095894293" name="number" class="form-control">
-                                <br>
-                            <input type="submit" value="Update" class="btn btn-outline-success">
-                        </form>                        
-                    </div>               
-                </div>
-            </div>
-            <div class="col-sm-8">
-                <div class="row" style="padding-bottom: 1em; padding-left: 1em; padding-right: 1em;">
-                    <div class="col-sm-12 text-left" id="amazing"> 
-                    <table class="table table-hover table-striped">
-                      <thead class="thead-light">
-                        <tr>
-                          <th><h3>Wants to connect with you</h3></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            <div class="card card-outline-secondary">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label class="float-right"><i class="fas fa-user-circle fa-4x"></i></label>
-                                </div>
-
-                              <div class="col-lg-4"><br>
-                                  <label>Tiffany Centillas</label>
-                          </div>
-                          <div class="col-lg-3"><br>
-                              <label class="btn btn-outline-info">View</label>
-                              <label class="btn btn-outline-success">Connect</label>
-                          </div>
-                          </div>
-                        </div>
-                           
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                           <div class="card card-outline-secondary">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label class="float-right"><i class="fas fa-user-circle fa-4x"></i></label>
-                                </div>
-
-                              <div class="col-lg-4"><br>
-                                  <label>Jude Nino Canete</label>
-                          </div>
-                          <div class="col-lg-3"><br>
-                              <label class="btn btn-outline-info">View</label>
-                              <label class="btn btn-outline-success">Connect</label>
-                          </div>
-                          </div>
-                        </div>
-                           
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="card card-outline-secondary">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label class="float-right"><i class="fas fa-user-circle fa-4x"></i></label>
-                                </div>
-
-                              <div class="col-lg-4"><br>
-                                  <label>Daniela Echavez</label>
-                          </div>
-                          <div class="col-lg-3"><br>
-                              <label class="btn btn-outline-info">View</label>
-                              <label class="btn btn-outline-success">Connect</label>
-                          </div>
-                          </div>
-                        </div>
-                           
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                           <div class="card card-outline-secondary">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label class="float-right"><i class="fas fa-user-circle fa-4x"></i></label>
-                                </div>
-
-                              <div class="col-lg-4"><br>
-                                  <label>Chino Francis Lopez</label>
-                          </div>
-                          <div class="col-lg-3"><br>
-                              <label class="btn btn-outline-info">View</label>
-                              <label class="btn btn-outline-success">Connect</label>
-                          </div>
-                          </div>
-                        </div>
-                           
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="card card-outline-secondary">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label class="float-right"><i class="fas fa-user-circle fa-4x"></i></label>
-                                </div>
-
-                              <div class="col-lg-4"><br>
-                                  <label>Godwin Monserate</label>
-                          </div>
-                          <div class="col-lg-3"><br>
-                              <label class="btn btn-outline-info">View</label>
-                              <label class="btn btn-outline-success">Connect</label>
-                          </div>
-                          </div>
-                        </div>
-                           
-                          </td>
-                        </tr>
-                      </tbody>
-                       </table>
-                    </div>                    
-                </div>
-  
-                <div class="row" style="padding-bottom: 1em; padding-left: 1em; padding-right: 1em;">
-               
-                    <div class="col-sm-12 text-left" id="amazing"> 
-                      <table class="table table-hover table-striped">
-                      <thead class="thead-light">
-                        <tr>
-                          <th><h3>Ratings</h3></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            <div class="card card-outline-secondary">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label class="float-right"><i class="fas fa-user-circle fa-4x"></i></label>
-                                </div>
-
-                              <div class="col-lg-4"><br>
-                                  <label>Ela Abrantes</label>
-                          </div>
-                          <div class="col-lg-3"><br>
-          
-                          </div>
-                          </div>
-                        </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="card card-outline-secondary">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label class="float-right"><i class="fas fa-user-circle fa-4x"></i></label>
-                                </div>
-
-                              <div class="col-lg-4"><br>
-                                  <label>Qeeuuu VAbahug</label>
-                          </div>
-                          <div class="col-lg-3"><br>
-                 
-                          </div>
-                          </div>
-                        </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                             <div class="card card-outline-secondary">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label class="float-right"><i class="fas fa-user-circle fa-4x"></i></label>
-                                </div>
-
-                              <div class="col-lg-4"><br>
-                                  <label>Cza Olindria</label>
-                          </div>
-                          <div class="col-lg-3"><br>
-    
-                          </div>
-                          </div>
-                        </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="card card-outline-secondary">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label class="float-right"><i class="fas fa-user-circle fa-4x"></i></label>
-                                </div>
-
-                              <div class="col-lg-4"><br>
-                                  <label>Kimberly Gipulan</label>
-                          </div>
-                          <div class="col-lg-3"><br>
-                
-                          </div>
-                          </div>
-                        </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="card card-outline-secondary">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label class="float-right"><i class="fas fa-user-circle fa-4x"></i></label>
-                                </div>
-
-                              <div class="col-lg-4"><br>
-                                  <label>Sherrally Labares</label>
-                          </div>
-                          <div class="col-lg-3"><br>
-                         
-                          </div>
-                          </div>
-                        </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                       </table>
-                    </div>                  
-                </div>
-            
-            </div>
+@section('page-section')
+@include('modals.therapist')
+<div class="container">
+  <div class="row"> <!--  <div class="row">  --><!-- <div class="col-md-5"> -->
+    <div class="col-sm-5 col-md-5 col-lg-5">
+      <div class="card">
+        <div class="card-header">
+          <h5>User Information</h5>
         </div>
+        <div class="card-body">
+          <form class="form">
+            <div class="form-group">
+              <form action="#" method="#" enctype="multipart/form-data">
+                  <center><i class="fas fa-user-circle fa-7x"></i>
+                    <input type="file" name="fileToUpload" id="fileToUpload">
+                    <input type="submit" value="Upload Image" name="submit">
+                  </center>
+              </form>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label">Username</label>
+                <div class="col-lg-9">
+                  <input class="form-control" type="text" value="sabrina">
+                </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                <div class="col-lg-9">
+                  <input class="form-control" type="text" value="Sabrina">
+                </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                <div class="col-lg-9">
+                  <input class="form-control" type="text" value="Lopez">
+                </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Address</label>
+                <div class="col-lg-9">
+                  <input class="form-control" type="text" value="Consolacion">
+                </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                <div class="col-lg-9">
+                  <input class="form-control" type="email" value="therapeace@gmail.com">
+                </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Contact Number</label>
+                <div class="col-lg-9">
+                  <input class="form-control" type="text" value="09304254152">
+                </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label"></label>
+                <div class="col-lg-9">
+                  <input type="reset" class="btn btn-secondary" value="Cancel">
+                  <input type="button" class="btn btn-success" value="Save Changes">
+                </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-5 col-md-5 col-lg-6">
+      <div class="card">
+        <div class="card-header">
+          <h5>Client Requests</h5>
+        </div>
+        <div class="card-body" style="overflow: scroll; height: 200px;">
+          <table class="table table-default">
+            <thead>
+              <tr>
+                <td><label>Client1</label> wants to connect with you</td>
+                <td>
+                  <input type="submit" value="Connect" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
+                  <input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
+                </td>
+              </tr>
+              <tr>
+                <td><label>Client2</label> wants to connect with you</td>
+                <td>
+                  <input type="submit" value="Connect" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
+                  <input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
+                </td>
+              </tr>
+              <tr>
+                <td><label>Client3</label> wants to connect with you</td>
+                <td>
+                  <input type="submit" value="Connect" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
+                  <input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
+                </td>
+              </tr>
+              <tr>
+                <td><label>Client4</label> wants to connect with you</td>
+                <td>
+                  <input type="submit" value="Connect" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
+                  <input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
+                </td>
+              </tr>   
+              <tr>
+                <td><label>Client5</label> wants to connect with you</td>
+                <td>
+                  <input type="submit" value="Connect" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
+                  <input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
+                </td>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="card">
+        <div class="card-header">
+        <h5>Comments and Ratings</h5>
+        </div>
+        <div class="card-body" style="overflow: scroll; height: 200px;">
+          <table class="table table-default">
+            <thead>
+              <tr>
+                <td><label>Client1</label></td>
+                <td>
+                  <fieldset class="rating">  
+                    <input type="radio" id="star5" name="rating" value="5" />
+                      <label class = "full" for="star5" title="5 stars"></label>
+                    <input type="radio" id="star4" name="rating" value="4" />
+                      <label class = "full" for="star4" title="4 stars"></label>
+                    <input type="radio" id="star3" name="rating" value="3" />
+                      <label class = "full" for="star3" title="3 stars"></label>
+                    <input type="radio" id="star2" name="rating" value="2" />
+                      <label class = "full" for="star2" title="2 stars"></label>
+                    <input type="radio" id="star1" name="rating" value="1" />
+                      <label class = "full" for="star1" title="1 star"></label>
+                  </fieldset>
+                </td>
+                <td>
+                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam.</p>
+                </td>   
+              </tr>     
+            </thead>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>
- 
 
-</body>
-</html>
 
+@endsection
 
