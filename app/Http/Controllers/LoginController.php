@@ -28,13 +28,10 @@ class LoginController extends Controller
                 // view('therapist');
                 return redirect('therapist');
 
-            }else if(Auth::user()->user_type === 'client') {
+            }else{
                 // view('client');
                 return redirect('client');
 
-            }else if(Auth::user()->user_type === 'admin') {
-                
-                return redirect()->route('get:home');
             }
         }else{
              return "wrong".Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));

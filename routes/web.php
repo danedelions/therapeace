@@ -35,6 +35,7 @@ Route::resource('therapist' ,'TherapistController');
 // Route::get('client-history', 'ClientRegistration@clientHistory');
 // Route::get('client-account/{id}', 'ClientRegistration@clientAccount');
 
+//PLEASE GROUP YOUR ROUTES//
 
 Route::get('client-find', 'ClientController@clientFind');
 Route::get('client-history', 'ClientController@clientHistory');
@@ -47,14 +48,12 @@ Route::get('client-history/{id}', 'ClientController@clientHistory');
 Route::get('client-account/{id}', 'ClientController@clientAccount');
 
 
-Route::prefix('admin')->group(function(){
-	Route::get('/', 'AdminController@getDashboard')->name('get:home'); 
-	Route::get('/user', 'AdminController@getUserView')->name('users');
-	Route::get('/pending', 'AdminController@getPendingView');
-	Route::get('/history', 'AdminController@getHistoryView');
-	Route::get('/reports', 'AdminController@getReportsView');
-});
-	  
+
+Route::get('/admin/home', 'AdminController@getDashboard'); 
+Route::get('/user', 'AdminController@getUserView');
+Route::get('/pending', 'AdminController@getPendingView');
+Route::get('/history', 'AdminController@getHistoryView');
+Route::get('/reports', 'AdminController@getReportsView');
 
 
 

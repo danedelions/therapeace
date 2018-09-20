@@ -2,33 +2,81 @@
 
 @section('page-section')
 
-	<div class="row">
-		<div class="col-md-10">
-			<div id="map"></div>
-		</div>
+<div class="container">
+  <div class="row"> <!--  <div class="row">  --><!-- <div class="col-md-5"> -->
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <div class="card">
+        <div class="card-header">
+          <h5>Search</h5>
+        </div>
+        <div class="card-body">
+          <form class="form">
+            <div class="form-group">
+              <form action="#" method="#" enctype="multipart/form-data">
+                  
+              </form>
+            </div>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-md-6 col-lg-8">
+      <div class="card text-white bg-success mb-3">
+        <div class="card-header">
+          <h5>Who's Nearby</h5>
+        </div>
+        <div class="card-body" style=" height: 400px;">
+			<div class="row">
+				<div class="col-md-12">
+					<div id="map"></div>
+				</div>
+			</div>
+        </div>
+      </div>
+    </div>
+
+	<div class="col-sm-6 col-md-6 col-lg-12">
+		<div class="card">
+			<div class="card-header bg-info">
+			<h5>Therapists Found...</h5>
+			</div>
+			<div class="card-body" style="overflow: scroll; height: 300px;">
+				<table>
+					<tr>
+						<td>
+							<div class="card" style="width: 20em; padding: 5px;">
+								<center>
+									<i class="fas fa-user-circle fa-4x" style="padding: 5px;"></i>
+									<div class="card-body">
+										<h4>Therapist Name</h4>
+										<p>
+											<b>Distance:</b> 10km 
+											<br>
+											<b>Ratings/Reviews:</b> 4.5 stars
+											<br>
+											<b>Rate:</b> 500 per hour
+										</p>
+										
+										<button class="btn btn-sm btn-success">Book</button>
+										<button class="btn btn-sm btn-info">View</button>
+									</div>									
+								</center>
+							</div>
+						</td>
+
+
+					</tr>
+				</table>
+			</div>
+		</div>    	
 	</div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  </div>
+</div>
+<br>
 
 	<script>
 		function initMap() {
@@ -41,7 +89,7 @@
 				}
 	    	}
 	        var map = new google.maps.Map(document.getElementById('map'), {
-	          zoom: 18,
+	          zoom: 16,
 	          center:  userLocation()
 	        });
 			var marker = new google.maps.Marker({
