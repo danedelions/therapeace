@@ -80,6 +80,10 @@ class TherapistController extends Controller
 
         return view('therapist.history');
     }
+    public function therapistMessage(){
+
+        return view('therapist.message');
+    }
  
 }
       

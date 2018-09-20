@@ -77,7 +77,7 @@
 			</div>
 		</div>
 
-		<div class="col-sm-5 col-md-5 col-lg-6">
+		<div class="col-sm-5 col-md-5 col-lg-7">
 			<div class="card">
 				<div class="card-header">
 					<h5>Connections</h5>

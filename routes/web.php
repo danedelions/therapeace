@@ -38,6 +38,8 @@ Route::get('transaction', function () {
 Route::get('/therapist-account', 'TherapistController@therapistAccount');
 Route::get('/therapist-appoint', 'TherapistController@therapistAppoint');
 Route::get('/therapist-history', 'TherapistController@therapistHistory');
+Route::get('/therapist-message', 'TherapistController@therapistMessage');
+
 
 Route::resource('therapist' ,'TherapistController');
 
