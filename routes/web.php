@@ -16,7 +16,6 @@ Route::group(['middleware' => 'guest'], function(){
 	Route::get('/', function () {
     	return view('welcome');
 	});
-	Route::get('user_login' ,'LoginController@view')->name('get:login');
 	Route::get('login' ,'LoginController@view')->name('get:login');
 	Route::post('doLogin','LoginController@index')->name('post:login');
 });
