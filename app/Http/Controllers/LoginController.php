@@ -23,13 +23,15 @@ class LoginController extends Controller
         print_r($request->post('success'));
         if (Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')))){
             
-            return "success".Auth::user()->user_type;
+            // return "success".Auth::user()->user_type;
             if(Auth::user()->user_type === 'therapist'){
                 // view('therapist');
                 return redirect('therapist');
-            }else {
+
+            }else{
                 // view('client');
                 return redirect('client');
+
             }
         }else{
              return "wrong".Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));

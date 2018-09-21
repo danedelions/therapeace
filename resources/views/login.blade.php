@@ -47,11 +47,16 @@
             <div class="row">
                 <div class="col-md-4 col-md-offset-6">
                     <div class="form-login">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 19fe21dbe0d250c551828a250e598deb0e61b70c
                         <form class="" action="{{ route('post:login') }}" method="POST">
 
                             {{ csrf_field() }}
-                            <h4>Login</h4>
+                        <h4>Login</h4>
                             <br>
+                            
                             <i class="fas fa-user"></i>
                             <label class="label">Username</label>   
                             <input type="text" id="userName" name="username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" placeholder="Username" required/>
@@ -62,29 +67,32 @@
                                 </span>
                             @endif
 
-
                             </br>
+                            
                             <i class="fas fa-key"></i>
                             <label class="label">Password</label>
                             <input type="password" id="userPassword" name="password" class="form-control input-sm chat-input" placeholder="Password" required/>
+
                             </br>
-                             <label>
-                                  <input id="checki" type="checkbox" checked="checked" name="remember"> Remember me
-                            </label><br>
-                                <span class="psw">Forgot <a href="#">password?</a></span>
+
+                            <label>
+                            <input id="checki" type="checkbox" checked="checked" name="remember"> Remember me</label>
+
+                            <br>
+                            
+                            <span class="psw">Forgot <a href="#">password?</a></span>
+                            
                             <div class="wrapper">
                                 <span class="group-btn"><br></br>   
                                      <a href="" type="button" class="btn btn-outline-success btn-md">Cancel <i class="fas fa-ban"></i></a>
                                     <button  class="btn btn-outline-success btn-md">Submit <i class="fas fa-sign-in-alt"></i></button>
                                 </span>
-                             </form>
-                        </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-
-
     </body>
 </html>
 

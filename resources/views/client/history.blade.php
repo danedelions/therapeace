@@ -6,7 +6,7 @@
 		<div class="col-sm-3 col-md-3 col-lg-3">
 			<div class="card">
 				<div class="card-header">
-					<h5>Search History</h5>
+					<h5>Search</h5>
 				</div>
 				<div class="card-body">
 					<form action="#">
@@ -45,7 +45,7 @@
 									<tr>
 										<th>DATE</th>
 										<th>TIME</th>
-										<th>THERAPIST</th>
+										<th>CLIENT</th>
 										<th>TOTAL SESSION</th>
 										<th>OPTION</th>
 									</tr>
@@ -57,8 +57,8 @@
 										<td>Daniela Echavez</td>
 										<td>980.00</td>
 										<td>
-											<button class="btn btn-outline-info" href="#" data-toggle="modal" data-target="#viewTransaction"><i style="color:black;" class="fas fa-eye"></i></button>
-											<button class="btn btn-outline-danger" href="#" data-toggle="modal" data-target="#deleteTransaction"><i style="color:black;" class="fas fa-trash-alt"></i></button>
+											<button class="btn btn-outline-info" href="#" data-toggle="modal" data-target="#viewTransaction"><i style="color:black;" class="far fa-eye"></i></button>
+											<button class="btn btn-outline-danger" href="#" data-toggle="modal" data-target="#deleteTransaction"><i style="color:black;" class="far fa-trash-alt"></i></button>
 										</td>
 									</tr>
 								</tbody>

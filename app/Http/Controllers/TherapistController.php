@@ -68,11 +68,22 @@ class TherapistController extends Controller
          return view('login');
     }
 
-    public function accountTherapist(){
+    public function therapistAccount(){
 
         return view('therapist.account');
     }
+    public function therapistAppoint(){
 
+        return view('therapist.appoint');
+    }
+    public function therapistHistory(){
+
+        return view('therapist.history');
+    }
+    public function therapistMessage(){
+
+        return view('therapist.message');
+    }
  
 }
       

@@ -10,38 +10,35 @@
 			<div class="modal-body">
 				<div class="card" style="overflow: scroll; height: 500px;">
 					<div class="card-header">
-						<h3 class="mb-0">THERAPY INVOICE 
-							<a class="btn btn-outline-primary" href="#" data-toggle="modal" data-target="#printTransaction"><i style="color:black;" class="fas fa-print"></i></a>
-						</h3>
+						<h5 class="mb-0">THERAPY INVOICE 
+							<a class="btn btn-no-outline-primary" href="#" data-toggle="modal" data-target="#printTransaction"><i class="fas fa-print"></i></a>
+						</h5>
 					</div>
 
 					<div class="card-body">
 						<div class="row">
 							<div class="col-md-12" id="transaction">
-								<label>Patient Name:</label>
-								<a>Tiffany Centillas</a>
-								<br>
-								<label>Address:</label>
-								<a>Malayo Nortes, Cortes Bohol</a>
-								<br>
-								<label>Phone:</label>
-								<a>09099876541</a>
-								<br>
-								<label>Date of Birth</label>
-								<a>March 3, 1998</a>
-								
-								<hr>
-								
-								<label>Physician</label>
-								<a>Daniela Echavez</a>
-								<br>
-								<label>Diagnosis</label>
-								<a>Inability to do project due to procrastination</a>
-								<br>
-								<label>Order: </label>
-								<a>Physical Therapist</a>
+			                	<label class="control-label">Patient Name: </label>
+								<a>Tiffany Centillas</a><br>
 
-								<hr><hr>
+			                	<label class="control-label">Address: </label>
+								<a>Malayo Nortes, Cortes Bohol</a><br>
+
+			                	<label class="control-label">Phone: </label>
+								<a>09099429744</a><br>
+
+			                	<label class="control-label">Date of Birth: </label>
+								<a>March 3, 2018</a> 
+			                <hr>
+			                	<label class="control-label">Physician: </label>
+								<a>Daniela Echavez</a><br>
+
+			                	<label class="control-label">Diagnosis: </label>
+								<a>Inability to do project due to procrastination </a><br>
+
+			                	<label class="control-label">Order: </label>
+								<a>Occupational Therapy</a>
+							<hr>
 								<table class="table table-default">
 									<thead>
 										<tr>
@@ -85,18 +82,16 @@
 			<div class="modal-body">
 				<div class="card">
 					<div class="card-header text-center">
-						<h3>INFORMATION</h3>
+						<h5>THERAPIST'S PROFILE</h5>
 					</div>
 					<div class="card-body">
 						<center><i class="fas fa-user-circle fa-8x"></i></center>
-						<p><br>
 							<label>Name : </label><br>
 							<label>Gender: </label><br>
 							<label>Type: </label><br>
 							<label>Email:</label><br>
 							<label>Contact #:</label><br>
-						</p>
-						<input type="submit" value="Connect Therapist" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
+						<input type="submit" value="Connect" class="btn btn-success">
 					</div>
 				</div>		
 			</div>
