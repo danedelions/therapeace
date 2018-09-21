@@ -28,7 +28,7 @@
                 <p><input placeholder="Barangay" name="barangay"  type="text"></p>
                 <p><input placeholder="Province" name="province" type="text"></p>
                 <p><input placeholder="Town"  name="town"></p>
-                <p><input placeholder="City" type="city"></p>
+                <p><input placeholder="City" name="city" type="text"></p>
 
 
 

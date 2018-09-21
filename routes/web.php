@@ -21,7 +21,7 @@ Route::group(['middleware' => 'guest'], function(){
 	Route::get('login', 'LoginController@view')->name('get:login');
 	Route::view('doLogin', 'LoginController@index')->name('post:login');
 });
-
+	
 
 
 // Route::get('login', function () {
