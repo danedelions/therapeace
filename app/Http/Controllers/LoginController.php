@@ -26,11 +26,11 @@ class LoginController extends Controller
             // return "success".Auth::user()->user_type;
             if(Auth::user()->user_type === 'therapist'){
                 // view('therapist');
-                return redirect('therapist');
+                return redirect(route('get.therapist-account'));
 
             }else{
                 // view('client');
-                return redirect('client');
+                return redirect(route('get.client-account'));
 
             }
         }else{
@@ -55,4 +55,11 @@ class LoginController extends Controller
         // }
 
 	}
+    public function Logout(Request $request){
+    Auth::logout();
+
+    session()->flash('message', 'Some goodbye message');
+
+    return redirect('/login');
+  }
 }

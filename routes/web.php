@@ -16,11 +16,15 @@ Route::group(['middleware' => 'guest'], function(){
 	Route::get('/', function () {
     	return view('welcome');
 	});
-	Route::get('user_login' ,'LoginController@view')->name('get:login');
 	Route::get('login' ,'LoginController@view')->name('get:login');
-	Route::post('doLogin','LoginController@index')->name('post:login');
+	Route::post('doLogin','LoginController@doLogin')->name('post:login');
+
+
+
 });
-<<<<<<< HEAD
+
+	Route::get('/logout','LoginController@Logout');
+
 	
 
 
@@ -32,21 +36,21 @@ Route::group(['middleware' => 'guest'], function(){
 
 
 // Route::resource('therapist' ,'RegistrationController');
-=======
->>>>>>> 19fe21dbe0d250c551828a250e598deb0e61b70c
+
+Route::resource('therapist' ,'TherapistController');
 
 Route::get('transaction', function () {
     return view('transaction');
 });
-
-Route::get('/therapist-account', 'TherapistController@therapistAccount');
-Route::get('/therapist-appoint', 'TherapistController@therapistAppoint');
-Route::get('/therapist-history', 'TherapistController@therapistHistory');
+Route::group(['middleware' => 'auth'], function(){
+Route::get('/therapist-account', 'TherapistController@therapistAccount')->name('get.therapist-account');
+Route::get('/therapist-appoint', 'TherapistController@therapistAppoint')->name('get.therapist-appoint');
+Route::get('/therapist-history', 'TherapistController@therapistHistory')->name('get.therapist-history');
 
 Route::get('/therapist-message', 'TherapistController@therapistMessage');
 
 
-Route::resource('therapist' ,'TherapistController');
+});
 
 // Route::resource('client', 'ClientController');
 // Route::get('client-find', 'ClientRegistration@clientFind');
@@ -57,7 +61,7 @@ Route::resource('therapist' ,'TherapistController');
 
 Route::get('client-find', 'ClientController@clientFind');
 Route::get('client-history', 'ClientController@clientHistory');
-Route::get('client-account', 'ClientController@clientAccount');
+Route::get('client-account', 'ClientController@clientAccount')->name('get.client-account');
 Route::get('client-message', 'ClientController@clientMessage');
 Route::resource('client', 'ClientController');
 
@@ -72,7 +76,5 @@ Route::get('/user', 'AdminController@getUserView');
 Route::get('/pending', 'AdminController@getPendingView');
 Route::get('/history', 'AdminController@getHistoryView');
 Route::get('/reports', 'AdminController@getReportsView');
-
-
 
 
