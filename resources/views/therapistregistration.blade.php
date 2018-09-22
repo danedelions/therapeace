@@ -62,9 +62,9 @@ Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facili
   </div>
   <div style="overflow:auto;">
     <div style="float:right;">
-      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-      <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-       <button type="submit" id="subBtn" style="display:none">Submit</button>
+      <button class="btn btn-sm-success" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+      <button class="btn btn-sm-success" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+       <button class="btn btn-sm-success" type="submit" id="subBtn" style="display:none">Submit</button>
     </div>
   </div>
   <!-- Circles which indicates the steps of the form: -->
