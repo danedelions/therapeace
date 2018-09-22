@@ -67,7 +67,7 @@
       </div>
     </div>
 
-    <div class="col-sm-5 col-md-5 col-lg-6">
+    <div class="col-sm-5 col-md-5 col-lg-7">
       <div class="card">
         <div class="card-header">
           <h5>Client Requests</h5>
@@ -143,7 +143,28 @@
                 <td>
                   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam.</p>
                 </td>   
-              </tr>     
+              </tr>
+
+              <tr>
+                <td><label>Client1</label></td>
+                <td>
+                  <fieldset class="rating">  
+                    <input type="radio" id="star5" name="rating" value="5" />
+                      <label class = "full" for="star5" title="5 stars"></label>
+                    <input type="radio" id="star4" name="rating" value="4" />
+                      <label class = "full" for="star4" title="4 stars"></label>
+                    <input type="radio" id="star3" name="rating" value="3" />
+                      <label class = "full" for="star3" title="3 stars"></label>
+                    <input type="radio" id="star2" name="rating" value="2" />
+                      <label class = "full" for="star2" title="2 stars"></label>
+                    <input type="radio" id="star1" name="rating" value="1" />
+                      <label class = "full" for="star1" title="1 star"></label>
+                  </fieldset>
+                </td>
+                <td>
+                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam.</p>
+                </td>   
+              </tr>      
             </thead>
           </table>
         </div>

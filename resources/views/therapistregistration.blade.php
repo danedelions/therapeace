@@ -3,6 +3,7 @@
 @section('page-body')
 
 <form id="regForm" action="{{ route('therapist.store') }}" method="POST">
+  
   @csrf
   <h1>Therapist Registration:</h1>
   <!-- One "tab" for each step in the form: -->
@@ -74,4 +75,7 @@ Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facili
     <span class="step"></span>
   </div>
 </form>
+    </form>
+</body>
+</html>
 @endsection
