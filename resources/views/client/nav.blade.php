@@ -5,7 +5,7 @@
     </a>
     <div class="collapse navbar-collapse" style="font-size: 16px;">
         <ul class="navbar-nav ml-auto">
-          <li>{{ Auth::user()->username}}</li>
+          <li>User</li>
             <li class="nav-item">
               <a class="nav-link" href="/client-account"><i class="fas fa-user"></i> Account</a>
             </li>
