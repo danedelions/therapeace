@@ -2,11 +2,6 @@
 
 namespace App\Http\Requests;
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 48de9d7a0fe8812ce236af581338892d9268df2f
 use Illuminate\Foundation\Http\FormRequest;
 
 class ClientRequest extends FormRequest
@@ -34,22 +29,13 @@ class ClientRequest extends FormRequest
         'fname' => 'required|alpha', 
         'lname' =>  'required|alpha',
         'contact' => 'numeric|between:1,20',
-<<<<<<< HEAD
         'barangay' => 'required' ,
         'province' => 'required' ,
         'town' => 'required' ,
-=======
         'barangay' => 'required',
         'province' => 'required',
         'town' => 'required',
->>>>>>> 48de9d7a0fe8812ce236af581338892d9268df2f
         'city' => 'required',
-
-
-
-
-
-
 
 
             //

@@ -12,14 +12,14 @@
 					<form action="#">
 						<div>
 							<label>From:</label>
-							<input class="form-control md-sm-2" type="date">
+							<input class="form-control" type="date" placeholder="" id="" value="" name="">
 						</div>
 
 						<br>
 
 						<div>
 							<label>To:</label>
-							<input class="form-control mr-sm-2" type="date">
+							<input class="form-control" type="date" placeholder="" id="" value="" name="">
 						</div>
 
 						<br>
@@ -71,6 +71,19 @@
 	</div>
 </div>
 
+
+<script src="{{ asset('assets/js/ProductSearch.js') }}"></script>
+<script>
+        var postSearch = '{{ route('product::searchPost') }}';
+        var searchRequest = {
+            'descricao':'{{session('descricao')}}',
+            'model': '{{ session('model') }}',
+            'distributor': '{{ session('distributor') }}',
+            'status': '{{ session('status') }}',
+            'stock' : '{{ session('stock') }}',
+            'image' : '{{ session('image') }}',
+        };
+</script>
 
 @endsection
 
