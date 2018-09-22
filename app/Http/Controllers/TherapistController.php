@@ -12,6 +12,11 @@ use Illuminate\Http\Request\UserRequest;
 
 class TherapistController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -65,7 +70,7 @@ class TherapistController extends Controller
 
         ]);
 
-         return view('login');
+    return view('login');
     }
 
     public function therapistAccount(){

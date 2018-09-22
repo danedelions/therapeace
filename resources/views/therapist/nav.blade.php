@@ -5,6 +5,7 @@
     </a>
     <div class="collapse navbar-collapse" style="font-size: 16px;">
         <ul class="navbar-nav ml-auto">
+            <li>{{Auth::user()->username}}</li>
             <li class="nav-item">
               <a class="nav-link" href="/therapist-account"><i class="fas fa-user"></i> Account</a>
             </li>
@@ -19,7 +20,9 @@
                 <a class="dropdown-item" href="/therapist-history"><i class="fas fa-history"></i> History</a>
                 <a class="dropdown-item" href="/therapist-message"><i class="fas fa-envelope"></i> Messages</a>
                 <a class="dropdown-item" href="/therapist-report"><i class="fas fa-file"></i> Report an Abuse</a>
-                <a class="dropdown-item" href="#" style="color: red;"><i class="fas fa-sign-out-alt" style="color: red;"></i> Logout</a>
+                <a class="dropdown-item" href="{{url('/logout')}}" style="color: red;"><i class="fas fa-sign-out-alt" style="color: red;"></i> Logout</a>
+
+                </form>
               </div>
             </li>
         </ul>
