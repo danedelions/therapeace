@@ -139,7 +139,7 @@
                     <input type="radio" id="star1" name="rating" value="1" />
                       <label class = "full" for="star1" title="1 star"></label>
                   </fieldset>
-                </td>
+                </td> 
                 <td>
                   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam.</p>
                 </td>   
