@@ -163,7 +163,7 @@
 								</td>		
 								<td>
 									<div>
-										<input class="btn btn-success" value="Submit">	
+										<input type="submit" class="btn btn-success" value="Submit">	
 									</div>
 								</td>
 							</tr>
@@ -190,7 +190,7 @@
 								</td>		
 								<td>
 									<div>
-										<input class="btn btn-success" value="Submit">	
+										<input type="submit" class="btn btn-success" value="Submit">	
 									</div>
 								</td>
 							</tr>
@@ -217,7 +217,7 @@
 								</td>		
 								<td>
 									<div>
-										<input class="btn btn-success" value="Submit">
+										<input type="submit" class="btn btn-success" value="Submit">
 									</div>
 								</td>
 							</tr>							
