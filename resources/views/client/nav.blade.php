@@ -9,8 +9,11 @@
 
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav ml-auto"> <!-- ml-auto (navbar items on the right side)-->
+        <li class="nav-item">
+          <a class="nav-link disabled">User</a>
+        </li>
         <li class="nav-item active">
-          <a class="nav-link" href="/client-find"><i class="fas fa-search"></i> Find<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/client-find"><i class="fas fa-search"></i> Find</a>
         </li>
         
         <li class="nav-item">
