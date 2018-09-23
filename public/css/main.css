@@ -1,3 +1,6 @@
+main {
+    padding: 90px;
+}
 
 .nav-text {
   font-size: 16pt;
@@ -111,9 +114,6 @@
 
 
 /*CLIENT DASHBOARD*/
-main {
-    padding: 90px;
-}
 
 #clientBg {
 /*    background-image: url("/img/14.png");
