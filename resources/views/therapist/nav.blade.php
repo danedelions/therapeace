@@ -8,11 +8,13 @@
     </button>
 
     <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav ml-auto"> <!-- ml-auto (navbar items on the right side)-->
-       
+      <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link disabled">{{Auth::user()->username}}</a>
         </li>
+      </ul>
+
+      <ul class="nav navbar-nav ml-auto"> <!-- ml-auto (navbar items on the right side)-->
 
         <li class="nav-item active">
           <a class="nav-link" href="/therapist-appoint"><i class="fas fa-search"></i> Appoint</a>
