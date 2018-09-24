@@ -19,6 +19,7 @@ class Clients extends Migration
             $table->string('fname');
             $table->string('lname');
             $table->string('contact');
+            $table->string('gender');
             $table->string('barangay');
             $table->string('province');
             $table->string('town');

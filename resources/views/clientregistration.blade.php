@@ -23,6 +23,13 @@
                 <p><input placeholder="Last name..." name="lname" type="text"></p>
                 <p><input placeholder="Email"  name="email" type="email"></p>
                 <p><input placeholder="Contact Number" type="text" name="number"></p>
+                        <select id="gender" class="form-control" name="gender">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+  </div><br>
             </div>
             <div class="tab" >Address:
                 <p><input placeholder="Barangay" name="barangay"  type="text"></p>
@@ -61,7 +68,16 @@
 
                     Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facilis antiopam. Fastidii nominati contentiones duo ea. Has ne corpora albucius voluptaria.
                 </p>
-                <input type="checkbox" name="box" value="bos" class="float-left">
+                <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="" id="">
+                                    I accept the <a href="#">terms and conditions</a>.
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                 <br>
             </div>
             <div style="overflow:auto;">

@@ -15,7 +15,7 @@ class TherapistController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except(['index']);
+        $this->middleware('auth')->except(['index', 'store']);
     }
     /**
      * Display a listing of the resource.
@@ -23,7 +23,7 @@ class TherapistController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
         return view('therapistregistration');
     }
 
@@ -57,6 +57,7 @@ class TherapistController extends Controller
             'fname' => $request->post('fname'),
             'lname' => $request->post('lname'),
             'contact' => $request->post('number'), 
+            'gender' => $request->post('gender'), 
             'barangay' => $request->post('barangay'),
             'province' => $request->post('province'),
             'town' => $request->post('town'),
@@ -70,7 +71,7 @@ class TherapistController extends Controller
 
         ]);
 
-    return view('login');
+        return ('login');
     }
 
     public function therapistAccount(){
@@ -88,6 +89,10 @@ class TherapistController extends Controller
     public function therapistMessage(){
 
         return view('therapist.message');
+    }
+       public function therapistEdit(){
+
+        return view('therapist.edit');
     }
  
 }

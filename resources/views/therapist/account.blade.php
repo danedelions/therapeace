@@ -7,7 +7,7 @@
     <div class="col-sm-5 col-md-5 col-lg-5">
       <div class="card">
         <div class="card-header">
-          <h5>User Information</h5>
+          <h5><a href="/therapist-edit"><i class="far fa-edit"></i> User Information</h5></a>
         </div>
         <div class="card-body">
           <form class="form">

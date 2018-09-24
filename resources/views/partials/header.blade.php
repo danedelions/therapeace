@@ -29,6 +29,6 @@
                 </div>
 
                     
-                    <a href="{{route('get:login')}}" button class="btn btn-outline-secondary" style="margin: 5px;">Login</button> </a>
+                    <a href="{{route('login')}}" button class="btn btn-outline-secondary" style="margin: 5px;">Login</button> </a>
 
         </nav>

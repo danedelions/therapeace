@@ -1,4 +1,4 @@
-@extends('layouts.app')
+  @extends('layouts.app')
 
 @section('page-body')
         <div class="slider">
@@ -52,7 +52,6 @@
                 </a> -->
               </div>
         </div>
-
         <div class="parallax section-1">
             <div class="container">
                     <div class="text-container">

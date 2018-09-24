@@ -16,7 +16,7 @@ Route::group(['middleware' => 'guest'], function(){
 	Route::get('/', function () {
     	return view('welcome');
 	});
-	Route::get('login' ,'LoginController@view')->name('get:login');
+	Route::get('/login' ,'LoginController@view')->name('login');
 	Route::post('doLogin','LoginController@doLogin')->name('post:login');
 
 
@@ -24,7 +24,7 @@ Route::group(['middleware' => 'guest'], function(){
 });
 
 	Route::get('/logout','LoginController@Logout');
-
+	
 	
 
 
@@ -33,11 +33,10 @@ Route::group(['middleware' => 'guest'], function(){
 // }); 
 
 
-
+Route::resource('therapist' ,'TherapistController');
 
 // Route::resource('therapist' ,'RegistrationController');
 
-Route::resource('therapist' ,'TherapistController');
 
 Route::get('transaction', function () {
     return view('transaction');
@@ -48,6 +47,7 @@ Route::get('/therapist-appoint', 'TherapistController@therapistAppoint')->name('
 Route::get('/therapist-history', 'TherapistController@therapistHistory')->name('get.therapist-history');
 
 Route::get('/therapist-message', 'TherapistController@therapistMessage');
+Route::get('/therapist-edit' ,'TherapistController@therapistEdit');
 
 
 });
