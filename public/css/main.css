@@ -48,6 +48,11 @@
   padding: 5px;
 }
 
+main {
+    padding: 90px;
+}
+
+
 #therapistBg{
   /*    background-image: url("/img/14.png");
     background-position: absolute;
@@ -110,7 +115,8 @@
 
 
 
-/*CLIENT*/
+/*CLIENT DASHBOARD*/
+
 #clientBg {
 /*    background-image: url("/img/14.png");
     background-position: absolute;
@@ -123,7 +129,7 @@
     color: blue;
 }
 
- /*RATING*/
+ /*rating*/
 
  @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 

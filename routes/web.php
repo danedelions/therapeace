@@ -72,9 +72,9 @@ Route::get('client-account/{id}', 'ClientController@clientAccount');
 
 
 Route::get('/admin/home', 'AdminController@getDashboard'); 
-Route::get('/user', 'AdminController@getUserView');
-Route::get('/pending', 'AdminController@getPendingView');
-Route::get('/history', 'AdminController@getHistoryView');
-Route::get('/reports', 'AdminController@getReportsView');
+Route::get('/admin/user', 'AdminController@getUserView');
+Route::get('/admin/pending', 'AdminController@getPendingView');
+Route::get('/admin/history', 'AdminController@getHistoryView');
+Route::get('/admin/reports', 'AdminController@getReportsView');
 
 
