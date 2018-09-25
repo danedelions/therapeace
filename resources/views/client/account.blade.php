@@ -2,7 +2,8 @@
 
 @section('page-section')
 @include('modals.client')
-<div class="container">
+
+
 	<div class="row"> <!-- 	<div class="row">  --><!-- <div class="col-md-5"> -->
 		<div class="col-sm-5 col-md-5 col-lg-5">
 			<div class="card">
@@ -18,49 +19,49 @@
 								</div>
 						</div>
 						<div class="form-group row">
-							<label class="col-lg-3 col-form-label form-control-label">First name</label>
+							<label class="col-lg-3 col-form-label">First name</label>
 								<div class="col-lg-9">
 									<input class="form-control" type="text" value="Sabrina">
 								</div>
 						</div>
 						<div class="form-group row">
-							<label class="col-lg-3 col-form-label form-control-label">Last name</label>
+							<label class="col-lg-3 col-form-label">Last name</label>
 								<div class="col-lg-9">
 									<input class="form-control" type="text" value="Lopez">
 								</div>
 						</div>
 						<div class="form-group row">
-							<label class="col-lg-3 col-form-label form-control-label">Email</label>
+							<label class="col-lg-3 col-form-label">Email</label>
 								<div class="col-lg-9">
 									<input class="form-control" type="email" value="therapeace@gmail.com">
 								</div>
 						</div>
 						<div class="form-group row">
-							<label class="col-lg-3 col-form-label form-control-label">Address</label>
+							<label class="col-lg-3 col-form-label">Address</label>
 								<div class="col-lg-9">
 									<input class="form-control" type="text" value="Consolacion">
 								</div>
 						</div>
 						<div class="form-group row">
-							<label class="col-lg-3 col-form-label form-control-label">Birthday</label>
+							<label class="col-lg-3 col-form-label">Birthday</label>
 								<div class="col-lg-9">
 									<input class="form-control" type="text" value="September 5, 2018">
 								</div>
 						</div>
 						<div class="form-group row">
-							<label class="col-lg-3 col-form-label form-control-label">Gender</label>
+							<label class="col-lg-3 col-form-label">Gender</label>
 								<div class="col-lg-9">
 									<input class="form-control" type="url" value="Female">
 								</div>
 						</div>
 						<div class="form-group row">
-							<label class="col-lg-3 col-form-label form-control-label">Password</label>
+							<label class="col-lg-3 col-form-label">Password</label>
 								<div class="col-lg-9">
 									<input class="form-control" type="password" value="11111122333">
 								</div>
 						</div>
 						<div class="form-group row">
-							<label class="col-lg-3 col-form-label form-control-label">Confirm Password</label>
+							<label class="col-lg-3 col-form-label">Confirm Password</label>
 								<div class="col-lg-9">
 									<input class="form-control" type="password" value="11111122333">
 								</div>
@@ -68,8 +69,8 @@
 						<div class="form-group row">
 							<label class="col-lg-3 col-form-label form-control-label"></label>
 								<div class="col-lg-9">
-									<input type="reset" class="btn btn-secondary" value="Cancel">
 									<input type="button" class="btn btn-success" value="Save Changes">
+									<input type="reset" class="btn btn-secondary" value="Cancel">
 								</div>
 						</div>
 					</form>
@@ -162,7 +163,7 @@
 								</td>		
 								<td>
 									<div>
-										<label class="btn btn-success">	Submit</label>
+										<input type="submit" class="btn btn-success" value="Submit">	
 									</div>
 								</td>
 							</tr>
@@ -189,7 +190,7 @@
 								</td>		
 								<td>
 									<div>
-										<label class="btn btn-success">	Submit</label>
+										<input type="submit" class="btn btn-success" value="Submit">	
 									</div>
 								</td>
 							</tr>
@@ -216,7 +217,7 @@
 								</td>		
 								<td>
 									<div>
-										<label class="btn btn-success">	Submit</label>
+										<input type="submit" class="btn btn-success" value="Submit">
 									</div>
 								</td>
 							</tr>							
@@ -226,7 +227,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+
 
 
 @endsection

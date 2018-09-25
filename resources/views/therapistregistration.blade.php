@@ -18,7 +18,13 @@
     <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
      <p><input placeholder="Email" oninput="this.className = ''" name="email"></p>
     <p><input placeholder="Contact Number" oninput="this.className = ''" name="number"></p>
-  </div>
+        <select id="gender" class="form-control" name="gender">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+  </div><br>
   <div class="tab">Address:
     <p><input placeholder="Barangay" oninput="this.className = ''" name="barangay"></p>
     <p><input placeholder="Province" oninput="this.className = ''" name="province"></p>
@@ -33,7 +39,7 @@
       <option value="ot" style="width:250px">Occupational therapy</option>
     </select><br>
     <p><input placeholder="License Number" oninput="this.className = ''" name="license_number" type="number"></p>
-    <p><input placeholder="Expriry Date" oninput="this.className = ''" name="expiry_date" type="number"></p>
+    <p><input placeholder="Expriry Date" oninput="this.className = ''" name="expiry_date" type="date"></p>
      <form action="upload.php" method="post" enctype="multipart/form-data">
     <input type="file" name="license_image" id="fileUpload2"> 
    <br> <form action="upload.php" method="post" enctype="multipart/3orm-data">
@@ -58,7 +64,16 @@ Te graeco imperdiet per, pri ea summo voluptatibus. Fierent voluptua pri ea, nam
 Nisl elit epicuri id vis, sea alterum commune deterruisset cu. Ea vel rebum fabulas deseruisse, mei cu nulla minim munere. Offendit placerat iracundia cum id, mea at brute vocent quaeque. Rebum feugait oportere at pro, sit regione persecuti eu, vel explicari accusamus splendide in. Sea at blandit ponderum.
 
 Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facilis antiopam. Fastidii nominati contentiones duo ea. Has ne corpora albucius voluptaria.</p>
-  <input type="checkbox" name="box" value="bos" class="float-left"><br>
+     <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="" id="">
+                                    I accept the <a href="#">terms and conditions</a>.
+                                </label>
+                            </div>
+                        </div>
+                    </div>
   </div>
   <div style="overflow:auto;">
     <div style="float:right;">

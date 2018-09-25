@@ -21,12 +21,31 @@ class DatabaseSeeder extends Seeder
         //     'user_type' => 'admin'
         // ]);
 
+<<<<<<< HEAD
+=======
+
+        // factory(App\User::class,0)->create();
+        // factory(App\Client::class,5)->create();
+        //factory(App\Therapist::class,5)->create();
+        
+
+         factory(App\User::class,0)->create();
+        //  factory(App\Client::class,5)->create();
+
+        factory(App\User::class,0)->create();
+        //factory(App\Client::class,5)->create();
+
+        // factory(App\User::class,0)->create();
+        // factory(App\Client::class,5)->create();
+        factory(App\Therapist::class,5)->create();
+>>>>>>> 943f2b65f9607852f57b67584d5fab59505e372d
         factory(App\User::class,0)->create();
         factory(App\Client::class,5)->create();
         // factory(App\Therapist::class,5)->create();
 
         // // factory(App\User::class,0)->create();
         // factory(App\Client::class,5)->create();
+<<<<<<< HEAD
         // // factory(App\User::class,0)->create();
         // //factory(App\Client::class,5)->create();
 
@@ -35,6 +54,11 @@ class DatabaseSeeder extends Seeder
         // factory(App\Therapist::class,5)->create();
         // factory(App\User::class,5)->create();
         // // factory(App\Client::class,5)->create();
+=======
+
+        factory(App\Therapist::class,5)->create();
+
+>>>>>>> 943f2b65f9607852f57b67584d5fab59505e372d
 
     }
 }
