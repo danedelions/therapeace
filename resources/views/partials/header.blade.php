@@ -27,14 +27,10 @@
                         <a class="dropdown-item" href="/therapist">Therapist</a>
                         </div>
                 </div>
-<<<<<<< HEAD
 
                     
                     <a href="{{route('login')}}" button class="btn btn-outline-secondary" style="margin: 5px;">Login</button> </a>
+    </div>
+ </nav>
 
-        </nav>
-=======
-            <a href="{{route('get:login')}}" button class="btn btn-outline-secondary" style="margin: 5px;">Login</a>
-        </div>
-</nav>
->>>>>>> d800dbe1fed07989756485b63b62c0baf22fc8bf
+

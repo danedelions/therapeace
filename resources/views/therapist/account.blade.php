@@ -22,7 +22,7 @@
             <div class="form-group row">
               <label class="col-lg-3 col-form-label">Username</label>
                 <div class="col-lg-9">
-                  <input class="form-control" type="text" value="sabrina">
+                  <input class="form-control" type="text" value="{{Auth::user()->username}}">
                 </div>
             </div>
             <div class="form-group row">

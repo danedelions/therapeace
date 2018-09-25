@@ -11,44 +11,37 @@
                     <legend class="text-center">Update Information</legend>
 
                     <fieldset>
-                        <legend>Account Details</legend>
 
                         <div class="form-group col-md-6">
-                            <label for="first_name">First name</label>
-                            <input type="text" class="form-control" name="" id="fname" placeholder="First Name">
+                            {!! Form::inputGroup('text', 'First Name', 'firstname', null, ['placeholder' => 'First Name'])  !!}
                         </div>
 
                         <div class="form-group col-md-6">
-                            <label for="last_name">Last name</label>
-                            <input type="text" class="form-control" name="last_name" id="lnmae" placeholder="Last Name">
+                             {!! Form::inputGroup('text', 'Last Name', 'lastname', null, ['placeholder' => 'Last Name']) !!}
                         </div>
 
                         <div class="form-group col-md-12">
-                            <label for="">Email</label>
-                            <input type="email" class="form-control" name="" id="email" placeholder="Email">
+                             {!! Form::inputGroup('email', 'Email', 'email', null, ['placeholder' => 'Email']) !!}
                         </div>
 
                         <div class="form-group col-md-6">
-                            <label for="">Contact Number</label>
-                            <input type="number" class="form-control" name="" id="number" placeholder="Contact Number">
+                             {!! Form::inputGroup('number', 'Contact Number', 'contactnumber', null, ['placeholder' => 'Contact Number']) !!}
                         </div>
 
                         <div class="form-group col-md-6">
-                            <label for="password">Gender</label>
-                            <input type="gender" class="form-control" name="" id="gender" placeholder="Gender">
-                        </div>
+                            {!! Form::inputGroup('text', 'Gender', 'gender', null, ['placeholder' => 'Gender']) !!}
+
+                        </fieldset>
+                        <fieldset>
                              <legend>Address:</legend>
                         <div class="form-group col-md-6">
-                            <label for="confirm_password">Barangay</label>
-                            <input type="barangay" class="form-control" name="" id="barangay" placeholder="Barangay">
+                             {!! Form::inputGroup('text', 'Barangay', 'barangay', null, ['placeholder' => 'Barangay']) !!}
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="confirm_password">Province</label>
-                            <input type="province" class="form-control" name="" id="province" placeholder="Province">
+                            {!! Form::inputGroup('text', 'Province', 'province', null, ['placeholder' => 'Province']) !!}
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="confirm_password">City</label>
-                            <input type="city" class="form-control" name="" id="city" placeholder="City">
+                            {!! Form::inputGroup('text', 'City', 'city', null, ['placeholder' => 'City']) !!}
                         </div>
 
 
@@ -57,40 +50,26 @@
                     <fieldset>
                         <legend>License:</legend>
                         <div class="form-group col-md-6">
-                            <label for="confirm_password">City</label>
-                            <input type="city" class="form-control" name="" id="city" placeholder="City">
+                            {!! Form::inputGroup('number', 'License Number', 'license_number', null, ['placeholder' => 'License Number']) !!}
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="confirm_password">License Number</label>
-                            <input type="licensenumber" class="form-control" name="" id="licensenumber" placeholder="License NUmber">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="confirm_password">Expiry Date</label>
-                            <input type="expirydate" class="form-control" name="" id="expirydatge" placeholder="Expiry Date">
+                            {!! Form::inputGroup('date', 'Expiry Date', 'expiry_date', null, ['placeholder' => 'Expiry Date']) !!}
                         </div>
                     </fieldset>
                     <fieldset>
                         <legend>Profile:</legend>
                         <div class="form-group col-md-6">
-                            <label for="confirm_password">Username</label>
-                            <input type="city" class="form-control" name="" id="city" placeholder="City">
+                            {!! Form::inputGroup('text', 'Username', 'username', null, ['placeholder' => 'User Name']) !!}
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="confirm_password">Password</label>
-                            <input type="licensenumber" class="form-control" name="" id="licensenumber" placeholder="License NUmber">
+                            {!! Form::inputGroup('password', 'Password', 'password', null, ['placeholder' => 'Password']) !!}
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="confirm_password">Confirm Password</label>
-                            <input type="expirydate" class="form-control" name="" id="expirydatge" placeholder="Expiry Date">
+                            {!! Form::inputGroup('password', 'Password', 'password', null, ['placeholder' => 'Re-type Password']) !!}
                         </div>
                     </fieldset>
 
-
-
-
-
-
-                <input type="reset" class="btn btn-secondary" value="Cancel">
+                  <input type="reset" href="/therapist-account" class="btn btn-secondary" value="Cancel">
                   <input type="button" class="btn btn-success" value="Update">
                         </div>
                     </div>

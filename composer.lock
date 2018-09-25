@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3900f2e69b8e4eb7f28eecccc6878e0e",
+    "content-hash": "c24c8b66d7bc66613b893a923fc08b30",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -884,6 +884,51 @@
                 "psr-3"
             ],
             "time": "2017-06-19T01:22:40+00:00"
+        },
+        {
+            "name": "natabio/bs4-form",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/biglanggwapoventures/bootstrap-form.git",
+                "reference": "20061aa9a59f193448dbe429ccd4e642080be2a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/biglanggwapoventures/bootstrap-form/zipball/20061aa9a59f193448dbe429ccd4e642080be2a2",
+                "reference": "20061aa9a59f193448dbe429ccd4e642080be2a2",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.5.0|~5.6.0",
+                "laravelcollective/html": "^5.5.0",
+                "php": ">=5.5.9"
+            },
+            "type": "package",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Natabio\\BS4Form\\BootstrapFormServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Natabio\\BS4Form\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Adrian Natabio",
+                    "email": "adriannatabio@gmail.com"
+                }
+            ],
+            "description": "Laravel Collective 5 based Twitter Bootstrap 4 Form service.",
+            "time": "2018-07-17T11:26:54+00:00"
         },
         {
             "name": "nesbot/carbon",

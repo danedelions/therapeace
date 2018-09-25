@@ -24,6 +24,9 @@ Route::group(['middleware' => 'guest'], function(){
 });
 
 	Route::get('/logout','LoginController@Logout');
+
+
+	
 	
 	
 
