@@ -27,7 +27,6 @@ class TherapistController extends Controller
         return view('therapistregistration');
     }
 
-   
     /**
      * Store a newly created resource in storage.
      *
@@ -72,6 +71,29 @@ class TherapistController extends Controller
         ]);
 
         return ('login');
+    }
+
+    public function edit($id)
+    {
+        return view('therapist.update');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+
+        // Post::where('id',$id)->update($request->only(['title', 'blog_post']));
+        // return redirect()->route('admin.index');
+
+        // $post->where('id', $post->id)->update($request->only(['title', 'blog_post']));
+        // return redirect()->route('admin/');
+
     }
 
     public function therapistAccount(){

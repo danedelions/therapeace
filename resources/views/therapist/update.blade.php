@@ -2,12 +2,12 @@
 
 @section('page-section')
 @include('modals.therapist')
-
+<div class="container">
   <div class="row"> <!--  <div class="row">  --><!-- <div class="col-md-5"> -->
     <div class="col-sm-5 col-md-5 col-lg-5">
       <div class="card">
         <div class="card-header">
-          <h5><a href="/therapist-edit"><i class="far fa-edit"></i> User Information</h5></a>
+          <h5>User Information</h5>
         </div>
         <div class="card-body">
           <form class="form">
@@ -22,7 +22,7 @@
             <div class="form-group row">
               <label class="col-lg-3 col-form-label">Username</label>
                 <div class="col-lg-9">
-                  <input class="form-control" type="text" value="{{Auth::user()->username}}">
+                  <input class="form-control" type="text" value="sabrina">
                 </div>
             </div>
             <div class="form-group row">
@@ -59,7 +59,7 @@
               <label class="col-lg-3 col-form-label form-control-label"></label>
                 <div class="col-lg-9">
                   <input type="reset" class="btn btn-secondary" value="Cancel">
-                  <a href="{{url('admin/edit')}}"><input type="button" class="btn btn-success" value="Save Edit Info"></a>
+                  <input type="button" class="btn btn-success" value="Save Changes">
                 </div>
             </div>
           </form>
@@ -139,7 +139,7 @@
                     <input type="radio" id="star1" name="rating" value="1" />
                       <label class = "full" for="star1" title="1 star"></label>
                   </fieldset>
-                </td> 
+                </td>
                 <td>
                   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam.</p>
                 </td>   
@@ -171,6 +171,7 @@
       </div>
     </div>
   </div>
+</div>
 
 
 @endsection

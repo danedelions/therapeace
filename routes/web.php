@@ -23,6 +23,13 @@ Route::group(['middleware' => 'guest'], function(){
 
 });
 
+Route::get('/logout','LoginController@Logout');
+
+	
+
+Route::get('transaction', function () {
+    return view('transaction');
+});
 	Route::get('/logout','LoginController@Logout');
 
 
@@ -44,21 +51,20 @@ Route::resource('therapist' ,'TherapistController');
 Route::get('transaction', function () {
     return view('transaction');
 });
+
+
+Route::resource('therapist' ,'TherapistController');
+
 Route::group(['middleware' => 'auth'], function(){
-Route::get('/therapist-account', 'TherapistController@therapistAccount')->name('get.therapist-account');
-Route::get('/therapist-appoint', 'TherapistController@therapistAppoint')->name('get.therapist-appoint');
-Route::get('/therapist-history', 'TherapistController@therapistHistory')->name('get.therapist-history');
-
-Route::get('/therapist-message', 'TherapistController@therapistMessage');
-Route::get('/therapist-edit' ,'TherapistController@therapistEdit');
-
+	
+	Route::get('/therapist-account', 'TherapistController@therapistAccount')->name('get.therapist-account');
+	Route::get('/therapist-appoint', 'TherapistController@therapistAppoint')->name('get.therapist-appoint');
+	Route::get('/therapist-history', 'TherapistController@therapistHistory')->name('get.therapist-history');
+	Route::get('/therapist-message', 'TherapistController@therapistMessage');
+	Route::get('/therapist-edit' ,'TherapistController@therapistEdit');
 
 });
 
-// Route::resource('client', 'ClientController');
-// Route::get('client-find', 'ClientRegistration@clientFind');
-// Route::get('client-history', 'ClientRegistration@clientHistory');
-// Route::get('client-account/{id}', 'ClientRegistration@clientAccount');
 
 //PLEASE GROUP YOUR ROUTES//
 

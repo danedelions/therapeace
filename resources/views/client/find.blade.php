@@ -9,12 +9,24 @@
 				</div>
 				<div class="card-body">
 					<form class="form">
-						<div class="form-group">
-							<form action="#" method="#" enctype="multipart/form-data">
-
-							</form>
+						<div class="form-group col-md-12">
+							<label>Enter Location</label>
+							<input type="text" class="form-control">
 						</div>
-
+						<div class="form-group col-md-12">
+							<label>Therapist Type</label>
+							<select class="form-control">
+								<option>Occupational Therapist</option>
+								<option>Physical Therapist</option>
+							</select>
+						</div>
+						<div class="form-group col-md-12">
+							<label>Specialty</label>
+							<input type="text" class="form-control">
+						</div>
+						<div class="card-footer col-sm-4">
+							<button class="btn btn-success">Submit</button>
+						</div>
 					</form>
 				</div>
 			</div>
