@@ -58,7 +58,7 @@
                             <label class="label">Username</label>   
                             <input type="text" id="userName" name="username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" placeholder="Username" required/>
 
-                            @if ($errors->has('username'))
+                            @if($errors->any())
                                 <span class="invalid-feedback">
                                     <strong>{{ $errors->first('username') }}</strong>
                                 </span>

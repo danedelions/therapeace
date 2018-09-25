@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Redirect;
 use Auth;
 use app\User;
 
@@ -10,6 +11,8 @@ use app\User;
 class LoginController extends Controller
 {
     //
+
+        //
 
     public function view()
     {
@@ -19,7 +22,7 @@ class LoginController extends Controller
      
     public function doLogin(Request $request)
     {
-    	
+        
         print_r($request->post('success'));
         if (Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')))){
             
@@ -36,14 +39,14 @@ class LoginController extends Controller
         }else{
              return "wrong".Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
         }
-    	    	// user::where('username', 'name');
+                // user::where('username', 'name');
 
              return "sakto".Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
    
-    	    	// user::where('username', 'name');
+                // user::where('username', 'name');
 
        
-    	//     	// user::where('username', 'name');
+        //      // user::where('username', 'name');
 
         // if(Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('post')))){
 
@@ -54,7 +57,7 @@ class LoginController extends Controller
         //     }
         // }
 
-	}
+    }
     public function Logout(Request $request){
     Auth::logout();
 
@@ -62,4 +65,5 @@ class LoginController extends Controller
 
     return redirect('/login');
   }
+
 }

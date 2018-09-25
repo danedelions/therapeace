@@ -59,7 +59,7 @@
               <label class="col-lg-3 col-form-label form-control-label"></label>
                 <div class="col-lg-9">
                   <input type="reset" class="btn btn-secondary" value="Cancel">
-                  <a href="{{url('admin/edit')}}"><input type="button" class="btn btn-success" value="Save Edit Info"></a>
+                  <input type="button" class="btn btn-success" value="Save Changes">
                 </div>
             </div>
           </form>

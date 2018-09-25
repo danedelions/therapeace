@@ -21,8 +21,9 @@ class CreateSpecialtiesTable extends Migration
 
         Schema::create('t_specialties', function (Blueprint $table) {
             
-            $table->integer('therapist_id');
-            $table->integer('spec_id');
+            $table->integer('therapist_id')->references('id')->on('therapists')->onDelete('cascade');
+            $table->integer('spec_id')->references('id')->on('specialties')->onDelete('cascade');
+            $table->primary(['therapist_id','spec_id']);
             $table->timestamps();
         });
     }
