@@ -1,7 +1,7 @@
-@extends('layouts.app')
+ @extends('layouts.app')
 
 @section('page-body')
-
+   <link rel="stylesheet" type="text/css" href="css/client.css">
 <form id="regForm" action="{{ route('therapist.store') }}" method="POST">
   
   @csrf

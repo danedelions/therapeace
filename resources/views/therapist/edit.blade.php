@@ -1,4 +1,4 @@
-@extends('layouts.the')
+    @extends('layouts.the')
 
 @section('page-section')
 @include('modals.therapist')
@@ -9,8 +9,11 @@
                 <form role="form" method="POST" action="#">
 
                     <legend class="text-center">Update Information</legend>
-
-                    <fieldset>
+                  <center><i class="fas fa-user-circle fa-7x"></i>
+                    <input type="file" name="fileToUpload" id="fileToUpload" >
+                    <input type="submit" value="Upload Image" name="submit" class="btn btn-primary btn-xs">
+              </form>
+                    <fieldset>  
 
                         <div class="form-group col-md-6">
                             {!! Form::inputGroup('text', 'First Name', 'firstname', null, ['placeholder' => 'First Name'])  !!}
@@ -27,9 +30,9 @@
                         <div class="form-group col-md-6">
                              {!! Form::inputGroup('number', 'Contact Number', 'contactnumber', null, ['placeholder' => 'Contact Number']) !!}
                         </div>
-
-                        <div class="form-group col-md-6">
-                            {!! Form::inputGroup('text', 'Gender', 'gender', null, ['placeholder' => 'Gender']) !!}
+                        <br>
+                        <div class="form-group col-md-6"><br>
+                            {!! Form::select('gender',array('Male', 'Female', 'Others')) !!}
 
                         </fieldset>
                         <fieldset>
@@ -60,12 +63,6 @@
                         <legend>Profile:</legend>
                         <div class="form-group col-md-6">
                             {!! Form::inputGroup('text', 'Username', 'username', null, ['placeholder' => 'User Name']) !!}
-                        </div>
-                        <div class="form-group col-md-6">
-                            {!! Form::inputGroup('password', 'Password', 'password', null, ['placeholder' => 'Password']) !!}
-                        </div>
-                        <div class="form-group col-md-6">
-                            {!! Form::inputGroup('password', 'Password', 'password', null, ['placeholder' => 'Re-type Password']) !!}
                         </div>
                     </fieldset>
 

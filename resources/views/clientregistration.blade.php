@@ -2,7 +2,7 @@
 
 @section('page-body')
         
-        <link rel="stylesheet" type="text/css" href="css/client.css">
+       <!--  <link rel="stylesheet" type="text/css" href="css/client.css"> -->
         
         @if ($errors->any())
             <div class="alert alert-danger">

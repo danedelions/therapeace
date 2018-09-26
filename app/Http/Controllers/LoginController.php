@@ -63,7 +63,7 @@ class LoginController extends Controller
 
     session()->flash('message', 'Some goodbye message');
 
-    return redirect('/login');
+    return redirect('/');
   }
 
 }
