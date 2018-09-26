@@ -70,7 +70,7 @@ class TherapistController extends Controller
 
         ]);
 
-        return ('login');
+        return view('login');
     }
 
     public function edit(Therapist $therapist)
