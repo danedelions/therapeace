@@ -114,6 +114,24 @@ class TherapistController extends Controller
 
         return view('therapist.message');
     }
+<<<<<<< HEAD
+       public function therapistEdit(){
+
+
+        // $user = DB::table('users')->where('id', );
+
+
+
+        // $user = User::get()->toArray();
+
+        // dd($user);
+
+
+
+         return view('therapist.edit');
+    }
+=======
+>>>>>>> c4137fcc8839bfdc452c32c73c06b5aa78b9754e
  
 }
       

@@ -10,7 +10,6 @@
           <h5><a href="/therapist-edit"><i class="far fa-edit"></i> User Information</h5></a>
         </div>
         <div class="card-body">
-          <form class="form">
             <div class="form-group">
               <form action="#" method="#" enctype="multipart/form-data">
                   <center><i class="fas fa-user-circle fa-7x"></i>
@@ -22,7 +21,7 @@
             <div class="form-group row">
               <label class="col-lg-3 col-form-label">Username</label>
                 <div class="col-lg-9">
-                  <input class="form-control" type="text" value="{{Auth::user()->username}}">
+                  <input class="form-control" type="text" value="UserName">
                 </div>
             </div>
             <div class="form-group row">
@@ -62,7 +61,6 @@
                   <a href="{{url('/therapist-edit')}}"><input type="button" class="btn btn-success" value="Edit Info"></a>
                 </div>
             </div>
-          </form>
         </div>
       </div>
     </div>
