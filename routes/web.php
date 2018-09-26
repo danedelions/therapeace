@@ -31,6 +31,9 @@ Route::get('transaction', function () {
     return view('transaction');
 });
 	Route::get('/logout','LoginController@Logout');
+
+
+	
 	
 	
 

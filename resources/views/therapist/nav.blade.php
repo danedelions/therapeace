@@ -10,12 +10,11 @@
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li class="nav-item">
-          <a class="nav-link disabled">{{Auth::user()->username}}</a>
+          <a class="nav-link disabled"></a>
         </li>
       </ul>
 
       <ul class="nav navbar-nav ml-auto"> <!-- ml-auto (navbar items on the right side)-->
-
         <li class="nav-item active">
           <a class="nav-link" href="/therapist-appoint"><i class="fas fa-search"></i> Appoint</a>
         </li>
@@ -25,7 +24,7 @@
         </li>
         
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">More</a>
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Welcome {{Auth::user()->username}}</a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="/therapist-history"><i class="fas fa-history"></i> History</a>
             <a class="dropdown-item" href="/therapist-message"><i class="fas fa-envelope"></i> Messages</a>

@@ -30,6 +30,12 @@
 
                     
                     <a href="{{route('login')}}" button class="btn btn-outline-secondary" style="margin: 5px;">Login</button> </a>
+    </div>
+ </nav>
 
+
+<<<<<<< HEAD
+=======
         </div>
 </nav>
+>>>>>>> 6026bfcda1484cf46e1386bf33452f8464455a91

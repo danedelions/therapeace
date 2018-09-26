@@ -10,12 +10,10 @@
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li class="nav-item">
-          <a class="nav-link">User</a>
         </li>
       </ul>
 
       <ul class="nav navbar-nav ml-auto"> <!-- ml-auto (navbar items on the right side)-->
-
         <li class="nav-item">
           <a class="nav-link" href="/client-find"><i class="fas fa-search"></i> Find</a>
         </li>
@@ -25,7 +23,7 @@
         </li>
         
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">More</a>
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Welcome  {{Auth::user()->username}}</a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="/client-history"><i class="fas fa-history"></i> History</a>
             <a class="dropdown-item" href="/client-message"><i class="fas fa-envelope"></i> Messages</a>

@@ -56,7 +56,8 @@
                 <p><input placeholder="Retype Password" oninput="this.className = ''" name="password_confirmation" type="password" class="form-control"></p> -->
             </div>
             <div class="tab">
-                Done:
+
+                Done:   
                 <p>
                     Lorem ipsum dolor sit amet, sea harum delenit in. Ut omnis affert mel. Vel ea tantas labores officiis. Ignota noster elaboraret cum ad. No pri munere vocent interpretaris, ei sea mandamus laboramus tincidunt.
 
@@ -68,16 +69,11 @@
 
                     Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facilis antiopam. Fastidii nominati contentiones duo ea. Has ne corpora albucius voluptaria.
                 </p>
-                <div class="form-group">
-                        <div class="col-md-12">
-                            <div class="checkbox">
                                 <label>
                                     <input type="checkbox" value="" id="">
-                                    I accept the <a href="#">terms and conditions</a>.
+                                    I accept the terms and conditions
                                 </label>
-                            </div>
-                        </div>
-                    </div>
+
                 <br>
             </div>
             <div style="overflow:auto;">
