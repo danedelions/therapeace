@@ -12,8 +12,9 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('fontawesome-free-5.1.0-web/css/all.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/full-slider.css') }}" >
         <link rel="stylesheet" type="text/css" href="{{ asset('css/login.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/client.css') }}">
+     <!--    <link rel="stylesheet" type="text/css" href="{{ asset('css/client.css') }}"> -->
         <link rel="stylesheet" type="text/css" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="css/client.css">
         <script src="{{ asset('jquery/jquery.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>

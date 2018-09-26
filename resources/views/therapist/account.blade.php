@@ -11,49 +11,50 @@
         </div>
         <div class="card-body">
             <div class="form-group">
-              <form action="#" method="#" enctype="multipart/form-data">
-                  <center><i class="fas fa-user-circle fa-7x"></i>
-                    <input type="file" name="fileToUpload" id="fileToUpload">
-                    <input type="submit" value="Upload Image" name="submit">
+              <center><i class="fas fa-user-circle fa-7x"></i>
+                {!! Form::open(array('url'=>'dashboard/edit','method'=>'POST', 'files'=>true)) !!}
+                {!! csrf_field() !!}
+                 <input type="file" id="itemImage" name="itemImage">
+                <input type="submit" value="Upload Image" name="submit" class="btn btn-primary btn-sm">
                   </center>
               </form>
             </div>
             <div class="form-group row">
-              <label class="col-lg-3 col-form-label">Username</label>
+              <label class="col-lg-3 col-form-label form-control-label">Username</label>
                 <div class="col-lg-9">
-                  <input class="form-control" type="text" value="UserName">
+                  {!! Form::inputGroup('text', null, 'username', null, ['placeholder' => 'Userame'])  !!}
                 </div>
             </div>
             <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">First name</label>
+               <label class="col-lg-3 col-form-label form-control-label">First Name</label>
                 <div class="col-lg-9">
-                  <input class="form-control" type="text" value="Sabrina">
+                   {!! Form::inputGroup('text', null, 'firstname', null, ['placeholder' => 'First Name'])  !!}
                 </div>
             </div>
             <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+               <label class="col-lg-3 col-form-label form-control-label">Last Name</label>
                 <div class="col-lg-9">
-                  <input class="form-control" type="text" value="Lopez">
+                  {!! Form::inputGroup('text', null, 'lastname', null, ['placeholder' => 'Last Name']) !!}
                 </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Address</label>
                 <div class="col-lg-9">
-                  <input class="form-control" type="text" value="Consolacion">
+                  {!! Form::inputGroup('text', null, 'address', null, ['placeholder' => 'Address']) !!}
                 </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Email</label>
                 <div class="col-lg-9">
-                  <input class="form-control" type="email" value="therapeace@gmail.com">
+                  {!! Form::inputGroup('text', null, 'email', null, ['placeholder' => 'Email']) !!}
                 </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Contact Number</label>
                 <div class="col-lg-9">
-                  <input class="form-control" type="text" value="09304254152">
-                </div>
+                   {!! Form::inputGroup('number', null, 'contactnumber', null, ['placeholder' => 'Contact Number']) !!}
             </div>
+          </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label"></label>
                 <div class="col-lg-9">
@@ -64,7 +65,7 @@
         </div>
       </div>
     </div>
-
+ {!! Form::close() !!}  
     <div class="col-sm-5 col-md-5 col-lg-7">
       <div class="card">
         <div class="card-header">

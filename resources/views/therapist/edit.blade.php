@@ -6,15 +6,15 @@
         <div class="row">
 
             <div class="col-md-8 col-md-offset-2">
-                <form role="form" method="POST" action="#">
-
-                    <legend class="text-center">Update Information</legend>
-                  <center><i class="fas fa-user-circle fa-7x"></i>
-                    <input type="file" name="fileToUpload" id="fileToUpload" >
-                    <input type="submit" value="Upload Image" name="submit" class="btn btn-primary btn-xs">
+                <form role="form">
+                     <legend class="text-center">Update Information</legend>
+                    <center><i class="fas fa-user-circle fa-7x"></i>
+                {!! Form::open(array('url'=>'dashboard/edit','method'=>'POST', 'files'=>true)) !!}
+                {!! csrf_field() !!}
+                 <input type="file" id="itemImage" name="itemImage">
+                <input type="submit" value="Upload Image" name="submit" class="btn btn-primary btn-xs">
               </form>
                     <fieldset>  
-
                         <div class="form-group col-md-6">
                             {!! Form::inputGroup('text', 'First Name', 'firstname', null, ['placeholder' => 'First Name'])  !!}
                         </div>
@@ -74,6 +74,6 @@
             </div>
         </div>
     </div>
-                    
+     {!! Form::close() !!}                 
    
 @endsection

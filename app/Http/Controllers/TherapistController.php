@@ -90,7 +90,7 @@ class TherapistController extends Controller
 
         $therapist->where('user_id', $therapist->id)->update($request->only(['image', 'fname', 'lname','contact', 'gender', 'barangay', 'province', 'town', 'city', 'therapist', 'license_number', 'license_image', 'expiry_date', 'nbi_image', 'bp_image']));
         User::where('id', $therapist->id)->update($request->only(['username']));
-        return redirect()->('therapist.account');
+        return redirect()->route('therapist.account');
 
         // ClientProfile::where('client_id', $client->id)->update($request->only(['firstname','middlename','lastname','civil_status','birthday']));
         // $post->where('id', $post->id)->update($request->only(['title', 'blog_post']));
@@ -114,7 +114,7 @@ class TherapistController extends Controller
 
         return view('therapist.message');
     }
-<<<<<<< HEAD
+
        public function therapistEdit(){
 
 
@@ -130,8 +130,6 @@ class TherapistController extends Controller
 
          return view('therapist.edit');
     }
-=======
->>>>>>> c4137fcc8839bfdc452c32c73c06b5aa78b9754e
  
 }
       
