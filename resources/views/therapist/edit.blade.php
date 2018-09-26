@@ -4,14 +4,13 @@
 @include('modals.therapist')
        <div class="container">
         <div class="row">
-
             <div class="col-md-8 col-md-offset-2">
                 <form role="form" method="POST" action="#">
 
                     <legend class="text-center">Update Information</legend>
                   <center><i class="fas fa-user-circle fa-7x"></i>
-                    <input type="file" name="fileToUpload" id="fileToUpload" >
-                    <input type="submit" value="Upload Image" name="submit" class="btn btn-primary btn-xs">
+                    <input type="file" name="fileToUpload" id="fileToUpload" class="form-control-file form-control-sm">
+                    <input type="submit" value="Upload Image" name="submit" class="btn btn-primary btn-sm">
               </form>
                     <fieldset>  
 

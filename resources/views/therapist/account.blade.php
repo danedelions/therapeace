@@ -13,8 +13,8 @@
             <div class="form-group">
               <form action="#" method="#" enctype="multipart/form-data">
                   <center><i class="fas fa-user-circle fa-7x"></i>
-                    <input type="file" name="fileToUpload" id="fileToUpload">
-                    <input type="submit" value="Upload Image" name="submit">
+                    <input type="file" name="fileToUpload" id="fileToUpload" class="form-control-file form-control-sm">
+                    <input type="submit" value="Upload Image" name="submit" class="btn btn-sm btn-info">
                   </center>
               </form>
             </div>

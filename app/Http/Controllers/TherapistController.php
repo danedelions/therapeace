@@ -92,15 +92,11 @@ class TherapistController extends Controller
         User::where('id', $therapist->id)->update($request->only(['username']));
         return redirect()->route('therapist.account');
 
-        // ClientProfile::where('client_id', $client->id)->update($request->only(['firstname','middlename','lastname','civil_status','birthday']));
-        // $post->where('id', $post->id)->update($request->only(['title', 'blog_post']));
-        // return redirect()->route('admin/');
-
     }
 
     public function therapistAccount(){
-        $therapist = Therapist::all();
-        return view('therapist.account', compact('therapist'));
+      
+        return view('therapist.account');
     }
     public function therapistAppoint(){
 
@@ -114,24 +110,6 @@ class TherapistController extends Controller
 
         return view('therapist.message');
     }
-<<<<<<< HEAD
-       public function therapistEdit(){
-
-
-        // $user = DB::table('users')->where('id', );
-
-
-
-        // $user = User::get()->toArray();
-
-        // dd($user);
-
-
-
-         return view('therapist.edit');
-    }
-=======
->>>>>>> c4137fcc8839bfdc452c32c73c06b5aa78b9754e
  
 }
       
