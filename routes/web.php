@@ -36,7 +36,7 @@ Route::resource('therapist' ,'TherapistController');
 Route::resource('client', 'ClientController');
 
 Route::group(['middleware' => 'auth'], function(){
-	
+
 // THERAPIST
 	Route::get('/therapist-account', 'TherapistController@therapistAccount')->name('get.therapist-account');
 	Route::get('/therapist-appoint', 'TherapistController@therapistAppoint')->name('get.therapist-appoint');
@@ -47,11 +47,9 @@ Route::group(['middleware' => 'auth'], function(){
 // CLIENT
 	Route::get('/client-find', 'ClientController@clientFind')->name('get.client-find');
 	Route::get('/client-account', 'ClientController@clientAccount')->name('get.client-account');
-	Route::get('/client-edit', 'ClientController@clientEdit');
-	Route::get('/client-history', 'ClientController@clientHistory');
-	Route::get('/client-message', 'ClientController@clientMessage');
-	Route::get('client-history/{id}', 'ClientController@clientHistory');
-	Route::get('client-account/{id}', 'ClientController@clientAccount');
+	Route::get('/client-edit', 'ClientController@clientEdit')->name('get.client-edit');
+	Route::get('/client-history', 'ClientController@clientHistory')->name('get.client-history');;
+	Route::get('/client-message', 'ClientController@clientMessage')->name('get.client-message');;
 
 });
 

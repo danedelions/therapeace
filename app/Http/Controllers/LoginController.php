@@ -27,7 +27,7 @@ class LoginController extends Controller
                 return redirect(route('get.therapist-account'));
             }else if(Auth::user()->user_type === 'client'){
                 // view('client');
-                return redirect('get.client-account');
+                return redirect(route('get.client-account'));
             }else if(Auth::user()->user_type === 'admin'){
                 // view('admin');
                 return redirect('admin');
@@ -51,7 +51,7 @@ class LoginController extends Controller
         //     } else {
         //         return "wrong";
         //     }
-        // }
+    }
 
     // protected function credentials(Request $request){
 
@@ -61,14 +61,13 @@ class LoginController extends Controller
     // }
 
     
-    // public function Logout(Request $request)
-    // {
-    // Auth::logout();
+    public function Logout(Request $request)
+    {
+    Auth::logout();
 
-    // session()->flash('message', 'Some goodbye message');
+    session()->flash('message', 'Some goodbye message');
 
-    // return redirect('/');
-    // 
+    return redirect('/');
     }
 
 
