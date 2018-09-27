@@ -19,18 +19,9 @@ Route::group(['middleware' => 'guest'], function(){
 	Route::get('/login' ,'LoginController@view')->name('login');
 	Route::post('doLogin','LoginController@doLogin')->name('post:login');
 
-
-
 });
 
 Route::get('/logout','LoginController@Logout');
-
-	
-
-Route::get('transaction', function () {
-    return view('transaction');
-});
-	Route::get('/logout','LoginController@Logout');
 
 Route::resource('therapist' ,'TherapistController');
 
@@ -42,34 +33,31 @@ Route::get('transaction', function () {
 });
 
 Route::resource('therapist' ,'TherapistController');
+Route::resource('client', 'ClientController');
 
 Route::group(['middleware' => 'auth'], function(){
 	
+// THERAPIST
 	Route::get('/therapist-account', 'TherapistController@therapistAccount')->name('get.therapist-account');
 	Route::get('/therapist-appoint', 'TherapistController@therapistAppoint')->name('get.therapist-appoint');
 	Route::get('/therapist-history', 'TherapistController@therapistHistory')->name('get.therapist-history');
 	Route::get('/therapist-message', 'TherapistController@therapistMessage');
 	Route::get('/therapist-edit' ,'TherapistController@edit')->name('get.therapist-edit');
 
+// CLIENT
+	Route::get('/client-find', 'ClientController@clientFind')->name('get.client-find');
+	Route::get('/client-account', 'ClientController@clientAccount')->name('get.client-account');
+	Route::get('/client-edit', 'ClientController@clientEdit');
+	Route::get('/client-history', 'ClientController@clientHistory');
+	Route::get('/client-message', 'ClientController@clientMessage');
+	Route::get('client-history/{id}', 'ClientController@clientHistory');
+	Route::get('client-account/{id}', 'ClientController@clientAccount');
+
 });
 
 
-//PLEASE GROUP YOUR ROUTES//
-
-Route::get('client-find', 'ClientController@clientFind');
-Route::get('client-history', 'ClientController@clientHistory');
-Route::get('client-account', 'ClientController@clientAccount')->name('get.client-account');
-Route::get('client-message', 'ClientController@clientMessage');
-Route::resource('client', 'ClientController');
-
-Route::get('client-find', 'ClientController@clientFind');
-Route::get('client-history/{id}', 'ClientController@clientHistory');
-Route::get('client-account/{id}', 'ClientController@clientAccount');
-
-
-
 Route::get('/admin/home', 'AdminController@getDashboard'); 
-Route::get('/admin/user', 'AdminController@getUserView');
+Route::get('/admin/ user', 'AdminController@getUserView');
 Route::get('/admin/pending', 'AdminController@getPendingView');
 Route::get('/admin/history', 'AdminController@getHistoryView');
 Route::get('/admin/reports', 'AdminController@getReportsView');
