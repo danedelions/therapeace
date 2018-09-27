@@ -29,6 +29,7 @@ class ClientRequest extends FormRequest
         'fname' => 'required|alpha', 
         'lname' =>  'required|alpha',
         'contact' => 'numeric|between:1,20',
+        'gender' => 'required',
         'barangay' => 'required' ,
         'province' => 'required' ,
         'town' => 'required' ,

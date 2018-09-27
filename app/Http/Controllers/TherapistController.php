@@ -13,10 +13,10 @@ use Illuminate\Http\Request\UserRequest;
 class TherapistController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('auth')->except(['index', 'store']);
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth')->except(['index', 'store']);
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -57,10 +57,12 @@ class TherapistController extends Controller
             'lname' => $request->post('lname'),
             'contact' => $request->post('number'), 
             'gender' => $request->post('gender'), 
-            'barangay' => $request->post('barangay'),
-            'province' => $request->post('province'),
+            'streetaddress' => $request->post('streetaddress'),
+            'city' => $request->post('city'),
             'town' => $request->post('town'),
-            'city' => $request->post('city'), 
+            'province' => $request->post('province'), 
+            'barangay' => $request->post('barangay'), 
+            'postal_code' => $request->post('postal_code'), 
             'therapist' => $request->post('therapist'),
             'license_number' => $request->post('license_number'),
             'expiry_date' => $request->post('expiry_date'),
