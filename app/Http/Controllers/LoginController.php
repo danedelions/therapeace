@@ -27,9 +27,12 @@ class LoginController extends Controller
             if(Auth::user()->user_type === 'therapist'){
                 // view('therapist');
                 return redirect('therapist');
-            }else {
+            }else if(Auth::user()->user_type === 'client'){
                 // view('client');
                 return redirect('client');
+            }else if(Auth::user()->user_type === 'admin'){
+                // view('admin');
+                return redirect('admin.dashboard');
             }
         }else{
              return "wrong".Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
@@ -54,4 +57,11 @@ class LoginController extends Controller
         // }
 
 	}
+
+    protected function credentials(Request $request){
+
+        // $status = $request->status;
+
+        // DB::table('users')->where('id', $id)->update(['status' => $status]);
+    }
 }

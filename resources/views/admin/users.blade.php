@@ -195,6 +195,7 @@
                 <th>Username</th>
                 <th>Email</th>
                 <th>Role</th>
+                <th>Status</th>
                 <th>Date Joined</th>
                 <th>Action</th>
               </tr>
@@ -206,26 +207,34 @@
                 <td>{{$row['username']}}</td>
                 <td>{{$row['email']}}</td>
                 <td>{{$row['user_type']}}</td>
+                <td>
+                    @if ($row['status'] == 1)
+                        Blocked
+                    @else
+                        Unblocked
+                    @endif
+                </td>
                 <td>{{$row['created_at']}}</td>
 
                 <td>
-                    <a class="btn btn-info" href="#" data-toggle="modal" data-target="#viewModal"><i style="color:black;" class="far fa-eye"></i></a>
-                    <a class="btn btn-success href="#"><i class="far fa-envelope"></i></a>
-                    <a class="btn btn-danger" href="#"><i style="color:black;"class="fas fa-ban"></i></a>
+                    <a  class="btn btn-outline-info" data-toggle="modal" data-target="#viewModal"><i style="color:black;" class="far fa-eye"></i></a>
+
+                    <a data-id="{{ $row['id'] }}" class="btn btn-outline-success" data-toggle="modal" data-target="#emailModal"><i class="far fa-envelope"></i></a>
+
+                    {!! Form::open(['url' => route('admin.status-update', $row->id), 'method' => 'PATCH']) !!}
+                    @if ($row['status'] == 0)
+                        <button class="btn btn-outline-danger"><i style="color:black;"class="fas fa-ban"></i></button>
+                    @else
+                        <button class="btn btn-outline-success"><i style="color:black;"class="fas fa-ban"></i></button>
+                    @endif
+                    {!! Form::close() !!}
                 </td>
-
-
-                <!-- <td>
-                    <a class="btn btn-outline-info" href="#" data-toggle="modal" data-target="#viewModal"><i style="color:black;" class="far fa-eye"></i></a> 
-                    <a class="btn btn-outline-success href="3"><i class="far fa-envelope"></i></a> 
-                    <a class="btn btn-outline-danger" href="#"><i style="color:black;"class="fas fa-ban"></i></a>
-                </td> -->
 
 
                 <!-- <td><a class="btn btn-outline-info" href="#"><i style="color:black;" class="far fa-eye"></i></a> <a class="btn btn-outline-success href="3"><i class="far fa-envelope"></i></a> <a class="btn btn-outline-danger" href="#"><i style="color:black;"class="fas fa-ban"></i></a></td> -->
 
-                <td><a class="btn btn-outline-info" href="#"><i style="color:black;" class="far fa-eye"></i></a> <a class="btn btn-outline-success href="3"><i class="far fa-envelope"></i></a> <a class="btn btn-outline-danger" href="#"><i style="color:black;"class="fas fa-ban"></i></a></td>
-
+                <!-- <td><a class="btn btn-outline-info" href="#"><i style="color:black;" class="far fa-eye"></i></a> <a class="btn btn-outline-success href="3"><i class="far fa-envelope"></i></a> <a class="btn btn-outline-danger" href="#"><i style="color:black;"class="fas fa-ban"></i></a></td>
+  -->
 
 
               </tr>
@@ -241,7 +250,11 @@
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
-                  <div class="modal-body">
+                  <div class="modal-body" id="modalView">
+                    <div class="col-sm-12">
+                        <label>Date Joined: </label>
+                    </div>
+                    <br>
                     <div class="col-sm-12" style="font-weight: bold;">
                         <div class="card">
                             <div class="card-body">
@@ -255,11 +268,7 @@
                               <!-- <label>ZIP Code:</h5> -->  
                             </div>
                         </div>
-                    </div>
-                    <br>
-                    <div class="col-sm-12">
-                        <label>Date Joined: </label>
-                    </div>
+                    </div>                    
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -269,7 +278,39 @@
               </div>
             </div>
             <!-- end of view modal -->  
-             
+            
+            <!-- Mail Modal -->
+            <div class="modal fade" id="emailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Send Your Mail</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body" id="modalView">
+                    <div class="row">
+                        <div class="col-sm-12 pull-center" style="font-weight: bold;">
+                            <div class="card">
+                                <div class="card-body">
+                                  <p><center>Send An Email</center></p>
+
+                                  <a id="sendEmailBtn" data-href="{{route('sendEmail', '__ID__')}}" class="col-sm-6 btn btn-success">Send Introduction</a>
+                                  <a id="#" data-href="#" class="col-sm-5 btn btn-info">Send Notice</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end of email modal --> 
         
             </tbody>
           </table>
