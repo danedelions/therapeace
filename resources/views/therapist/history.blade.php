@@ -1,5 +1,5 @@
 @extends('layouts.the')
-@section('title', 'History')
+
 @section('page-section')
 @include('modals.therapist')
 
