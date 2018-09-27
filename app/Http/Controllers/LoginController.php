@@ -61,14 +61,14 @@ class LoginController extends Controller
     // }
 
     
-    public function Logout(Request $request)
-    {
-    Auth::logout();
+    // public function Logout(Request $request)
+    // {
+    // Auth::logout();
 
-    session()->flash('message', 'Some goodbye message');
+    // session()->flash('message', 'Some goodbye message');
 
-    return redirect('/');
-    }
+    // return redirect('/');
+    // }
 
 
 }
