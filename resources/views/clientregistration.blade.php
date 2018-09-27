@@ -1,8 +1,8 @@
-@extends('layouts.app')
+ @extends('layouts.app')
 
 @section('page-body')
         
-        <link rel="stylesheet" type="text/css" href="css/client.css">
+      <!--   <link rel="stylesheet" type="text/css" href="css/client.css"> -->
         
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -23,12 +23,19 @@
                 <p><input placeholder="Last name..." name="lname" type="text"></p>
                 <p><input placeholder="Email"  name="email" type="email"></p>
                 <p><input placeholder="Contact Number" type="text" name="number"></p>
+                        <select id="gender" class="form-control" name="gender">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+  </div><br>
             </div>
             <div class="tab" >Address:
                 <p><input placeholder="Barangay" name="barangay"  type="text"></p>
                 <p><input placeholder="Province" name="province" type="text"></p>
                 <p><input placeholder="Town"  name="town"></p>
-                <p><input placeholder="City" type="city"></p>
+                <p><input placeholder="City" name="city" type="text"></p>
 
 
 
@@ -49,7 +56,8 @@
                 <p><input placeholder="Retype Password" oninput="this.className = ''" name="password_confirmation" type="password" class="form-control"></p> -->
             </div>
             <div class="tab">
-                Done:
+
+                Done:   
                 <p>
                     Lorem ipsum dolor sit amet, sea harum delenit in. Ut omnis affert mel. Vel ea tantas labores officiis. Ignota noster elaboraret cum ad. No pri munere vocent interpretaris, ei sea mandamus laboramus tincidunt.
 
@@ -61,14 +69,18 @@
 
                     Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facilis antiopam. Fastidii nominati contentiones duo ea. Has ne corpora albucius voluptaria.
                 </p>
-                <input type="checkbox" name="box" value="bos" class="float-left">
+                                <label>
+                                    <input type="checkbox" value="" id="">
+                                    I accept the terms and conditions
+                                </label>
+
                 <br>
             </div>
             <div style="overflow:auto;">
                 <div style="float:right;">
                     <button class="btn btn-sm-success" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
                     <button class="btn btn-sm-success" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-                    <button type="submit" id="subBtn" style="display:none">Submit</button>
+                    <button class="btn btn-sm-success" type="submit" id="subBtn" style="display:none">Submit</button>
                 </div>
             </div>
             <!-- Circles which indicates the steps of the form: -->

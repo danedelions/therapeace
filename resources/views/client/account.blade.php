@@ -1,13 +1,14 @@
 @extends('layouts.cli')
 
 @section('page-section')
+@include('modals.client')
 
-<div class="container">
-	<div class="row offset-md-1"> <!-- 	<div class="row">  --><!-- <div class="col-md-5"> -->
-		<div class="col-md-4 col-lg-5">
+
+	<div class="row"> <!-- 	<div class="row">  --><!-- <div class="col-md-5"> -->
+		<div class="col-sm-5 col-md-5 col-lg-5">
 			<div class="card">
 				<div class="card-header">
-					<h3>User Information</h3>
+					<h5>User Information</h5>
 				</div>
 				<div class="card-body">
 					<form class="form">
@@ -18,49 +19,49 @@
 								</div>
 						</div>
 						<div class="form-group row">
-							<label class="col-lg-3 col-form-label form-control-label">First name</label>
+							<label class="col-lg-3 col-form-label">First name</label>
 								<div class="col-lg-9">
 									<input class="form-control" type="text" value="Sabrina">
 								</div>
 						</div>
 						<div class="form-group row">
-							<label class="col-lg-3 col-form-label form-control-label">Last name</label>
+							<label class="col-lg-3 col-form-label">Last name</label>
 								<div class="col-lg-9">
 									<input class="form-control" type="text" value="Lopez">
 								</div>
 						</div>
 						<div class="form-group row">
-							<label class="col-lg-3 col-form-label form-control-label">Email</label>
+							<label class="col-lg-3 col-form-label">Email</label>
 								<div class="col-lg-9">
 									<input class="form-control" type="email" value="therapeace@gmail.com">
 								</div>
 						</div>
 						<div class="form-group row">
-							<label class="col-lg-3 col-form-label form-control-label">Address</label>
+							<label class="col-lg-3 col-form-label">Address</label>
 								<div class="col-lg-9">
 									<input class="form-control" type="text" value="Consolacion">
 								</div>
 						</div>
 						<div class="form-group row">
-							<label class="col-lg-3 col-form-label form-control-label">Birthday</label>
+							<label class="col-lg-3 col-form-label">Birthday</label>
 								<div class="col-lg-9">
 									<input class="form-control" type="text" value="September 5, 2018">
 								</div>
 						</div>
 						<div class="form-group row">
-							<label class="col-lg-3 col-form-label form-control-label">Gender</label>
+							<label class="col-lg-3 col-form-label">Gender</label>
 								<div class="col-lg-9">
 									<input class="form-control" type="url" value="Female">
 								</div>
 						</div>
 						<div class="form-group row">
-							<label class="col-lg-3 col-form-label form-control-label">Password</label>
+							<label class="col-lg-3 col-form-label">Password</label>
 								<div class="col-lg-9">
 									<input class="form-control" type="password" value="11111122333">
 								</div>
 						</div>
 						<div class="form-group row">
-							<label class="col-lg-3 col-form-label form-control-label">Confirm Password</label>
+							<label class="col-lg-3 col-form-label">Confirm Password</label>
 								<div class="col-lg-9">
 									<input class="form-control" type="password" value="11111122333">
 								</div>
@@ -68,8 +69,8 @@
 						<div class="form-group row">
 							<label class="col-lg-3 col-form-label form-control-label"></label>
 								<div class="col-lg-9">
-									<input type="reset" class="btn btn-secondary" value="Cancel">
 									<input type="button" class="btn btn-success" value="Save Changes">
+									<input type="reset" class="btn btn-secondary" value="Cancel">
 								</div>
 						</div>
 					</form>
@@ -77,65 +78,55 @@
 			</div>
 		</div>
 
-		<div class="col-md-7 col-lg-6">
+		<div class="col-sm-5 col-md-5 col-lg-7">
 			<div class="card">
 				<div class="card-header">
-					<h3>Connections</h3>
+					<h5>Connections</h5>
 				</div>
 				<div class="card-body" style="overflow: scroll; height: 200px;">
-					<table>
-						<tbody>
+					<table class="table table-default">
+						<thead>
 							<tr>
+								<td><i class="fas fa-user-circle fa-5x"></i></td>
+								<td><label>Tiffany</label> wants to connect with you</td>
 								<td>
-									<p>
-									<i class="fas fa-user-circle fa-5x"></i>
-									<label>Tiffany</label> wants to connect with you
-									<input type="submit" value="Connect" class="btn btn-outline-success">  
-									<input type="submit" value="View" class="btn btn-outline-info">
-									</p>
+									<input type="submit" value="Connect" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
+									<input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
 								</td>
 							</tr>
 							<tr>
+								<td><i class="fas fa-user-circle fa-5x"></i></td>
+								<td><label>Tiffany</label> wants to connect with you</td>
 								<td>
-									<p>
-									<i class="fas fa-user-circle fa-5x"></i>
-									<label>Tiffany</label> wants to connect with you
-									<input type="submit" value="Connect" class="btn btn-outline-success">  
-									<input type="submit" value="View" class="btn btn-outline-info">
-									</p>
+									<input type="submit" value="Connect" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
+									<input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
 								</td>
 							</tr>
 							<tr>
+								<td><i class="fas fa-user-circle fa-5x"></i></td>
+								<td><label>Tiffany</label> wants to connect with you</td>
 								<td>
-									<p>
-									<i class="fas fa-user-circle fa-5x"></i>
-									<label>Tiffany</label> wants to connect with you
-									<input type="submit" value="Connect" class="btn btn-outline-success">  
-									<input type="submit" value="View" class="btn btn-outline-info">
-									</p>
+									<input type="submit" value="Connect" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
+									<input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
 								</td>
 							</tr>
 							<tr>
+								<td><i class="fas fa-user-circle fa-5x"></i></td>
+								<td><label>Tiffany</label> wants to connect with you</td>
 								<td>
-									<p>
-									<i class="fas fa-user-circle fa-5x"></i>
-									<label>Tiffany</label> wants to connect with you
-									<input type="submit" value="Connect" class="btn btn-outline-success">  
-									<input type="submit" value="View" class="btn btn-outline-info">
-									</p>
+									<input type="submit" value="Connect" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
+									<input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
 								</td>
-							</tr>
+							</tr>		
 							<tr>
+								<td><i class="fas fa-user-circle fa-5x"></i></td>
+								<td><label>Tiffany</label> wants to connect with you</td>
 								<td>
-									<p>
-									<i class="fas fa-user-circle fa-5x"></i>
-									<label>Tiffany</label> wants to connect with you
-									<input type="submit" value="Connect" class="btn btn-outline-success">  
-									<input type="submit" value="View" class="btn btn-outline-info">
-									</p>
+									<input type="submit" value="Connect" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
+									<input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
 								</td>
 							</tr>
-						</tbody>
+						</thead>
 					</table>
 				</div>
 			</div>
@@ -144,14 +135,13 @@
 
 			<div class="card">
 				<div class="card-header">
-				<h3>Comments and Ratings</h3>
+				<h5>Comments and Ratings</h5>
 				</div>
 				<div class="card-body" style="overflow: scroll; height: 200px;">
-					<table>
-						<tbody>
+					<table class="table table-default">
+						<thead>
 							<tr>
 								<td>
-									<p>
 									<fieldset class="rating">
 										<i class="fas fa-user-circle fa-5x"></i>	
 										<input type="radio" id="star5" name="rating" value="5" />
@@ -165,21 +155,20 @@
 										<input type="radio" id="star1" name="rating" value="1" />
 											<label class = "full" for="star1" title="Sucks big time - 1 star"></label>
 									</fieldset>
-
-										<div class="col-lg-3">
-											<textarea placeholder="Comment"></textarea>
-										</div>
-										
-										<div class="col-lg-3">
-											<label class="btn btn-success">Submit</label>
-										</div>
-									</p>
+								</td>
+								<td>
+									<div>
+										<textarea placeholder="Comment"></textarea>
+									</div>
+								</td>		
+								<td>
+									<div>
+										<input type="submit" class="btn btn-success" value="Submit">	
+									</div>
 								</td>
 							</tr>
-
 							<tr>
 								<td>
-									<p>
 									<fieldset class="rating">
 										<i class="fas fa-user-circle fa-5x"></i>	
 										<input type="radio" id="star5" name="rating" value="5" />
@@ -193,50 +182,53 @@
 										<input type="radio" id="star1" name="rating" value="1" />
 											<label class = "full" for="star1" title="Sucks big time - 1 star"></label>
 									</fieldset>
-
-										<div class="col-lg-3">
-											<textarea placeholder="Comment"></textarea>
-										</div>
-										
-										<div class="col-lg-3">
-											<label class="btn btn-success">Submit</label>
-										</div>
-									</p>
+								</td>
+								<td>
+									<div>
+										<textarea placeholder="Comment"></textarea>
+									</div>
+								</td>		
+								<td>
+									<div>
+										<input type="submit" class="btn btn-success" value="Submit">	
+									</div>
 								</td>
 							</tr>
-
 							<tr>
 								<td>
-									<p>
 									<fieldset class="rating">
 										<i class="fas fa-user-circle fa-5x"></i>	
-										<input type="radio" id="star5" name="rating" value="5" />
-											<label class = "full" for="star5" title="Awesome - 5 stars"></label>
-										<input type="radio" id="star4" name="rating" value="4" />
-											<label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-										<input type="radio" id="star3" name="rating" value="3" />
-											<label class = "full" for="star3" title="Meh - 3 stars"></label>
-										<input type="radio" id="star2" name="rating" value="2" />
-											<label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-										<input type="radio" id="star1" name="rating" value="1" />
-											<label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+						                    <input type="radio" id="star5" name="rating" value="5" />
+						                      <label class = "full" for="star5" title="5 stars"></label>
+						                    <input type="radio" id="star4" name="rating" value="4" />
+						                      <label class = "full" for="star4" title="4 stars"></label>
+						                    <input type="radio" id="star3" name="rating" value="3" />
+						                      <label class = "full" for="star3" title="3 stars"></label>
+						                    <input type="radio" id="star2" name="rating" value="2" />
+						                      <label class = "full" for="star2" title="2 stars"></label>
+						                    <input type="radio" id="star1" name="rating" value="1" />
+						                      <label class = "full" for="star1" title="1 star"></label>
 									</fieldset>
-
-										<div class="col-lg-3">
-											<textarea placeholder="Comment"></textarea>
-										</div>
-										
-										<div class="col-lg-3">
-											<label class="btn btn-success">Submit</label>
-										</div>
-									</p>
 								</td>
-							</tr>
-						</tbody>
+								<td>
+									<div>
+										<textarea placeholder="Comment"></textarea>
+									</div>
+								</td>		
+								<td>
+									<div>
+										<input type="submit" class="btn btn-success" value="Submit">
+									</div>
+								</td>
+							</tr>							
+						</thead>
 					</table>
 				</div>
 			</div>
-</div>
+		</div>
+	</div>
+
+
 
 @endsection
 

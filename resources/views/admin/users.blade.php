@@ -233,8 +233,13 @@
 
                 <!-- <td><a class="btn btn-outline-info" href="#"><i style="color:black;" class="far fa-eye"></i></a> <a class="btn btn-outline-success href="3"><i class="far fa-envelope"></i></a> <a class="btn btn-outline-danger" href="#"><i style="color:black;"class="fas fa-ban"></i></a></td> -->
 
+<<<<<<< HEAD
                 <!-- <td><a class="btn btn-outline-info" href="#"><i style="color:black;" class="far fa-eye"></i></a> <a class="btn btn-outline-success href="3"><i class="far fa-envelope"></i></a> <a class="btn btn-outline-danger" href="#"><i style="color:black;"class="fas fa-ban"></i></a></td>
   -->
+=======
+                <!-- <td><a class="btn btn-outline-info" href="#"><i style="color:black;" class="far fa-eye"></i></a> <a class="btn btn-outline-success href="3"><i class="far fa-envelope"></i></a> <a class="btn btn-outline-danger" href="#"><i style="color:black;"class="fas fa-ban"></i></a></td> -->
+
+>>>>>>> 2e864664b810f8e79491662596e77eb1bedc9705
 
 
               </tr>

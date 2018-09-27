@@ -1,7 +1,7 @@
-@extends('layouts.cli')
+@extends('layouts.the')
 @section('page-section')
-@include('modals.client')
-<div class="container">
+@include('modals.therapist')
+
 	<div class="row">
 		<div class="col-sm-3 col-md-3 col-lg-3">
 			<div class="card">
@@ -12,14 +12,14 @@
 					<form action="#">
 						<div>
 							<label>From:</label>
-							<input class="form-control" type="date" placeholder="" id="" value="" name="">
+							<input class="form-control md-sm-2" type="date">
 						</div>
 
 						<br>
 
 						<div>
 							<label>To:</label>
-							<input class="form-control" type="date" placeholder="" id="" value="" name="">
+							<input class="form-control mr-sm-2" type="date">
 						</div>
 
 						<br>
@@ -45,7 +45,7 @@
 									<tr>
 										<th>DATE</th>
 										<th>TIME</th>
-										<th>CLIENT</th>
+										<th>THERAPIST</th>
 										<th>TOTAL SESSION</th>
 										<th>OPTION</th>
 									</tr>
@@ -57,8 +57,8 @@
 										<td>Daniela Echavez</td>
 										<td>980.00</td>
 										<td>
-											<button class="btn btn-outline-info" href="#" data-toggle="modal" data-target="#viewTransaction"><i style="color:black;" class="far fa-eye"></i></button>
-											<button class="btn btn-outline-danger" href="#" data-toggle="modal" data-target="#deleteTransaction"><i style="color:black;" class="far fa-trash-alt"></i></button>
+											<button class="btn btn-outline-info" href="#" data-toggle="modal" data-target="#viewTransaction"><i style="color:black;" class="fas fa-eye"></i></button>
+											<button class="btn btn-outline-danger" href="#" data-toggle="modal" data-target="#deleteTransaction"><i style="color:black;" class="fas fa-trash-alt"></i></button>
 										</td>
 									</tr>
 								</tbody>
@@ -69,21 +69,8 @@
 			</div>
 		</div>
 	</div>
-</div>
 
 
-<script src="{{ asset('assets/js/ProductSearch.js') }}"></script>
-<script>
-        var postSearch = '{{ route('product::searchPost') }}';
-        var searchRequest = {
-            'descricao':'{{session('descricao')}}',
-            'model': '{{ session('model') }}',
-            'distributor': '{{ session('distributor') }}',
-            'status': '{{ session('status') }}',
-            'stock' : '{{ session('stock') }}',
-            'image' : '{{ session('image') }}',
-        };
-</script>
 
 @endsection
 

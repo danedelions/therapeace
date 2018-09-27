@@ -1,77 +1,9 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Therapeace</title>
-        
-        <link rel="icon" href="img/logo.png" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="css/main.css">
-        <link href="css/full-slider.css" rel="stylesheet">
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/full-slider.css" rel="stylesheet">
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="css/client.css">
+ @extends('layouts.app')
 
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
-    
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/bootstrap.bundle.js"></script>
-        <script src="jquery/jquery.min.js"></script>
-        <script src="https://unpkg.com/popper.js@1.14.3/dist/umd/popper.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
-       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-
-       <script src="js/main.js"></script>
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="/"><img src="img/logo.png" style="height: 50px;"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href=""class="nav-link nav-text" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                     <a class="nav-link nav-text" href="/about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-text" href="#">FAQ</a>
-                    </li>
-                      <li class="nav-item"> 
-                        <a href="/safety" class="nav-link nav-text" >Safety </a>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn btn-outline-success" style="margin: 5px;">Heal with theraPeace</button>
-                    </li>
-                </ul>
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Sign Up
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="/client">Client</a>
-                          <a class="dropdown-item" href="#">Therapist</a>
-                        </div>
-                    </div>
-                    <a href="/login" button class="btn btn-outline-secondary" style="margin: 5px;">Login</button>
-                    </a>
-            </div>
-        </nav>
-         <link rel="stylesheet" type="text/css" href="css/client.css">
-<body>
-
+@section('page-body')
+ <!--   <link rel="stylesheet" type="text/css" href="css/client.css"> -->
 <form id="regForm" action="{{ route('therapist.store') }}" method="POST">
+  
   @csrf
   <h1>Therapist Registration:</h1>
   <!-- One "tab" for each step in the form: -->
@@ -86,7 +18,13 @@
     <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
      <p><input placeholder="Email" oninput="this.className = ''" name="email"></p>
     <p><input placeholder="Contact Number" oninput="this.className = ''" name="number"></p>
-  </div>
+        <select id="gender" class="form-control" name="gender">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+  </div><br>
   <div class="tab">Address:
     <p><input placeholder="Barangay" oninput="this.className = ''" name="barangay"></p>
     <p><input placeholder="Province" oninput="this.className = ''" name="province"></p>
@@ -101,7 +39,7 @@
       <option value="ot" style="width:250px">Occupational therapy</option>
     </select><br>
     <p><input placeholder="License Number" oninput="this.className = ''" name="license_number" type="number"></p>
-    <p><input placeholder="Expriry Date" oninput="this.className = ''" name="expiry_date" type="number"></p>
+    <p><input placeholder="Expriry Date" oninput="this.className = ''" name="expiry_date" type="date"></p>
      <form action="upload.php" method="post" enctype="multipart/form-data">
     <input type="file" name="license_image" id="fileUpload2"> 
    <br> <form action="upload.php" method="post" enctype="multipart/3orm-data">
@@ -126,13 +64,22 @@ Te graeco imperdiet per, pri ea summo voluptatibus. Fierent voluptua pri ea, nam
 Nisl elit epicuri id vis, sea alterum commune deterruisset cu. Ea vel rebum fabulas deseruisse, mei cu nulla minim munere. Offendit placerat iracundia cum id, mea at brute vocent quaeque. Rebum feugait oportere at pro, sit regione persecuti eu, vel explicari accusamus splendide in. Sea at blandit ponderum.
 
 Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facilis antiopam. Fastidii nominati contentiones duo ea. Has ne corpora albucius voluptaria.</p>
-  <input type="checkbox" name="box" value="bos" class="float-left"><br>
+     <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="" id="">
+                                    I accept the <a href="#">terms and conditions</a>.
+                                </label>
+                            </div>
+                        </div>
+                    </div>
   </div>
   <div style="overflow:auto;">
     <div style="float:right;">
-      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-      <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-       <button type="submit" id="subBtn" style="display:none">Submit</button>
+      <button class="btn btn-sm-success" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+      <button class="btn btn-sm-success" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+       <button class="btn btn-sm-success" type="submit" id="subBtn" style="display:none">Submit</button>
     </div>
   </div>
   <!-- Circles which indicates the steps of the form: -->
@@ -143,9 +90,7 @@ Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facili
     <span class="step"></span>
   </div>
 </form>
-<script>
-
-</script>
-
+    </form>
 </body>
 </html>
+@endsection

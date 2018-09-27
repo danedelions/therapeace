@@ -42,6 +42,7 @@ class ClientController extends Controller
             'fname' => $request->post('fname'),
             'lname' => $request->post('lname'),
             'contact' => $request->post('number'), 
+            'gender' => $request->post('gender'), 
             'barangay' => $request->post('barangay'),
             'province' => $request->post('province'),
             'town' => $request->post('town'),
@@ -52,7 +53,7 @@ class ClientController extends Controller
          return view('login');
     }
 
-    public function findTherapist()
+    public function clientFind()
     {
         return view('client.find');
     }

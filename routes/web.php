@@ -12,67 +12,81 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => 'guest'], function(){
+	Route::get('/', function () {
+    	return view('welcome');
+	});
+	Route::get('/login' ,'LoginController@view')->name('login');
+	Route::post('doLogin','LoginController@doLogin')->name('post:login');
+
+
+
 });
+
+Route::get('/logout','LoginController@Logout');
+
+	
+
+Route::get('transaction', function () {
+    return view('transaction');
+});
+	Route::get('/logout','LoginController@Logout');
+
+
+	
+	
+	
 
 
 // Route::get('login', function () {
 //     return view('login');
 // }); 
 
-Route::get('safety', function () {
-    return view('safety');
-});
 
-
+Route::resource('therapist' ,'TherapistController');
 
 // Route::resource('therapist' ,'RegistrationController');
+
 
 Route::get('transaction', function () {
     return view('transaction');
 });
 
 
-Route::get('/therapistdashboard', 'TherapistController@therapistDashboard');
-
-
-
 Route::resource('therapist' ,'TherapistController');
 
+Route::group(['middleware' => 'auth'], function(){
+	
+	Route::get('/therapist-account', 'TherapistController@therapistAccount')->name('get.therapist-account');
+	Route::get('/therapist-appoint', 'TherapistController@therapistAppoint')->name('get.therapist-appoint');
+	Route::get('/therapist-history', 'TherapistController@therapistHistory')->name('get.therapist-history');
+	Route::get('/therapist-message', 'TherapistController@therapistMessage');
+	Route::get('/therapist-edit' ,'TherapistController@edit');
 
-Route::resource('client', 'ClientController');
-
-
-
-
-Route::get('client-find', 'ClientRegistration@findTherapist');
-Route::get('client-history', 'ClientRegistration@clientHistory');
-Route::get('client-account/{id}', 'ClientRegistration@clientAccount');
-
-	// Route::get('client-find', 'ClientRegistration@findTherapist');
-// Route::get('client-history', 'ClientRegistration@clientHistory');
-// Route::get('client-account', 'ClientRegistration@clientAccount');
+});
 
 
-Route::get('user_login' ,'LoginController@view');
-Route::post('login','LoginController@index');
+//PLEASE GROUP YOUR ROUTES//
 
-Route::get('client-find', 'ClientController@findTherapist');
+Route::get('client-find', 'ClientController@clientFind');
 Route::get('client-history', 'ClientController@clientHistory');
-Route::get('client-account', 'ClientController@clientAccount');
+Route::get('client-account', 'ClientController@clientAccount')->name('get.client-account');
 Route::get('client-message', 'ClientController@clientMessage');
 Route::resource('client', 'ClientController');
 
-Route::get('client-find', 'ClientController@findTherapist');
+Route::get('client-find', 'ClientController@clientFind');
 Route::get('client-history/{id}', 'ClientController@clientHistory');
 Route::get('client-account/{id}', 'ClientController@clientAccount');
 
 
-Route::get('user-login' ,'LoginController@view');
-Route::post('logged', 'LoginController@doLogin');
 
+Route::get('/admin/home', 'AdminController@getDashboard'); 
+Route::get('/admin/user', 'AdminController@getUserView');
+Route::get('/admin/pending', 'AdminController@getPendingView');
+Route::get('/admin/history', 'AdminController@getHistoryView');
+Route::get('/admin/reports', 'AdminController@getReportsView');
 
+<<<<<<< HEAD
 // Route::get('admin', function(){
 // 	return view ('admin.dashboard');
 // });
@@ -87,3 +101,6 @@ Route::get('admin-reports', 'AdminController@getReportsView');
 Route::get('email/{user}', 'AdminController@email')->name('sendEmail');
 
 Route::patch('admin-user/{user}', 'AdminController@statusUpdate')->name('admin.status-update');  
+=======
+
+>>>>>>> 2e864664b810f8e79491662596e77eb1bedc9705
