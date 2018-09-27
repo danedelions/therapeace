@@ -32,10 +32,11 @@ class LoginController extends Controller
                 // view('admin');
                 return redirect('admin');
             }
+
         }else{
              return "wrong".Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
         }
-                // user::where('username', 'name');
+          }      // user::where('username', 'name');
 
              // return "sakto".Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
    
@@ -70,5 +71,5 @@ class LoginController extends Controller
     return redirect('/');
     }
 
-
+    
 }

@@ -90,7 +90,7 @@ class TherapistController extends Controller
     public function update(TherapistRequest $request, Therapist $therapist)
     {
 
-        $therapist->where('user_id', $therapist->id)->update($request->only(['image', 'fname', 'lname','contact', 'gender', 'barangay', 'province', 'town', 'city', 'therapist', 'license_number', 'license_image', 'expiry_date', 'nbi_image', 'bp_image']));
+        $therapist->where('user_id', $therapist->id)->update($request->only(['image', 'fname', 'lname','contact', 'gender', 'streetaddress','city', 'town', 'province', 'barangay', 'postal_code','therapist', 'license_number', 'license_image', 'expiry_date', 'nbi_image', 'bp_image']));
         User::where('id', $therapist->id)->update($request->only(['username']));
         return redirect()->route('therapist.account');
 
