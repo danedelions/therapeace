@@ -187,7 +187,7 @@
         <div class="content-wrapper">
         <!-- START PAGE CONTENT-->
           <h2>Search Bar</h2>
-          <p>List of Clients</p>           
+          <p>List of User</p>           
           <table class="table table-hover">
             <thead>
               <tr>
@@ -229,19 +229,6 @@
                     @endif
                     {!! Form::close() !!}
                 </td>
-
-
-                <!-- <td><a class="btn btn-outline-info" href="#"><i style="color:black;" class="far fa-eye"></i></a> <a class="btn btn-outline-success href="3"><i class="far fa-envelope"></i></a> <a class="btn btn-outline-danger" href="#"><i style="color:black;"class="fas fa-ban"></i></a></td> -->
-
-<<<<<<< HEAD
-                <!-- <td><a class="btn btn-outline-info" href="#"><i style="color:black;" class="far fa-eye"></i></a> <a class="btn btn-outline-success href="3"><i class="far fa-envelope"></i></a> <a class="btn btn-outline-danger" href="#"><i style="color:black;"class="fas fa-ban"></i></a></td>
-  -->
-=======
-                <!-- <td><a class="btn btn-outline-info" href="#"><i style="color:black;" class="far fa-eye"></i></a> <a class="btn btn-outline-success href="3"><i class="far fa-envelope"></i></a> <a class="btn btn-outline-danger" href="#"><i style="color:black;"class="fas fa-ban"></i></a></td> -->
-
->>>>>>> 2e864664b810f8e79491662596e77eb1bedc9705
-
-
               </tr>
             @endforeach
 

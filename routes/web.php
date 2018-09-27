@@ -83,7 +83,7 @@ Route::get('/admin/reports', 'AdminController@getReportsView');
 
 
 // Admin Side
-// Route::get('admin', 'AdminController@getDashboard'); 
+Route::get('admin', 'AdminController@getDashboard'); 
 Route::get('admin-user', 'AdminController@getUserView');
 Route::get('admin-pending', 'AdminController@getPendingView');
 Route::get('admin-history', 'AdminController@getHistoryView');
