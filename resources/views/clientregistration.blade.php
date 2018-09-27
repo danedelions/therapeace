@@ -26,7 +26,6 @@
                         <select id="gender" class="form-control" name="gender">
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
-                                <option value="other">Other</option>
                             </select>
                         </div>
   </div><br>

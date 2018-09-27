@@ -8,13 +8,8 @@
     </button>
 
     <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li class="nav-item">
-        </li>
-      </ul>
-
       <ul class="nav navbar-nav ml-auto"> <!-- ml-auto (navbar items on the right side)-->
-        <li class="nav-item">
+        <li class="active nav-item">
           <a class="nav-link" href="/client-find"><i class="fas fa-search"></i> Find</a>
         </li>
         

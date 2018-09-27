@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Therapeace | Client</title>       
+        <title>Therapeace | @yield('title')</title>       
         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
         <!-- <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}"> -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
@@ -14,7 +14,6 @@
         <!-- THEME STYLES-->
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/assets/css/main.min.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/assets/vendors/themify-icons/css/themify-icons.css') }}" />
-
 
         <script src="{{ asset('jquery/jquery.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
@@ -31,7 +30,7 @@
         <main class="container">
         @include('client.nav')
         @yield('page-section')
- <!--        @include('partials.footer') -->
+        @include('partials.footer')
         </main>
     </body>
 </html>
