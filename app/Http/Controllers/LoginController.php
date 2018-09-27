@@ -30,19 +30,22 @@ class LoginController extends Controller
                 return redirect('get.client-account');
             }else if(Auth::user()->user_type === 'admin'){
                 // view('admin');
-                return redirect('admin');
+                var_dump($request);
+                die();
+                //return redirect('get.admin');
             }
         }else{
              return "wrong".Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
         }
-                // user::where('username', 'name');
+        }
+             //    user::where('username', 'name');
 
              // return "sakto".Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
    
-                // user::where('username', 'name');
+             //    user::where('username', 'name');
 
        
-        //      // user::where('username', 'name');
+             // user::where('username', 'name');
 
         // if(Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('post')))){
 
@@ -61,14 +64,14 @@ class LoginController extends Controller
     // }
 
     
-    // public function Logout(Request $request)
-    // {
-    // Auth::logout();
+    public function Logout(Request $request)
+    {
+    Auth::logout();
 
-    // session()->flash('message', 'Some goodbye message');
+    session()->flash('message', 'Some goodbye message');
 
-    // return redirect('/');
-    // 
+    return redirect('/');
+
     }
 
 

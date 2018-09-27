@@ -53,14 +53,23 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('client-history/{id}', 'ClientController@clientHistory');
 	Route::get('client-account/{id}', 'ClientController@clientAccount');
 
+// Admin Side
+// Route::get('admin', 'AdminController@getDashboard')->name('get.admin'); 
+// Route::get('admin-user', 'AdminController@getUserView');
+// Route::get('admin-pending', 'AdminController@getPendingView');
+// Route::get('admin-history', 'AdminController@getHistoryView');
+// Route::get('admin-reports', 'AdminController@getReportsView');
+// Route::get('email/{user}', 'AdminController@email')->name('sendEmail');
+// Route::patch('admin-user/{user}', 'AdminController@statusUpdate')->name('admin.status-update'); 
+
 });
 
 
-Route::get('/admin/home', 'AdminController@getDashboard'); 
-Route::get('/admin/ user', 'AdminController@getUserView');
-Route::get('/admin/pending', 'AdminController@getPendingView');
-Route::get('/admin/history', 'AdminController@getHistoryView');
-Route::get('/admin/reports', 'AdminController@getReportsView');
+// Route::get('/admin/home', 'AdminController@getDashboard'); 
+// Route::get('/admin/ user', 'AdminController@getUserView');
+// Route::get('/admin/pending', 'AdminController@getPendingView');
+// Route::get('/admin/history', 'AdminController@getHistoryView');
+// Route::get('/admin/reports', 'AdminController@getReportsView');
 
 // Route::get('admin', function(){
 // 	return view ('admin.dashboard');
@@ -68,13 +77,12 @@ Route::get('/admin/reports', 'AdminController@getReportsView');
 
 
 // Admin Side
-Route::get('admin', 'AdminController@getDashboard'); 
-Route::get('admin-user', 'AdminController@getUserView');
+Route::get('admin', 'AdminController@getDashboard')->name('get.admin'); 
+Route::get('admin-user', 'AdminController@getUserView')->name('get.view');
 Route::get('admin-pending', 'AdminController@getPendingView');
 Route::get('admin-history', 'AdminController@getHistoryView');
 Route::get('admin-reports', 'AdminController@getReportsView');
-
 Route::get('email/{user}', 'AdminController@email')->name('sendEmail');
+Route::patch('admin-user/{user}', 'AdminController@statusUpdate')->name('admin.status-update');
 
-Route::patch('admin-user/{user}', 'AdminController@statusUpdate')->name('admin.status-update');  
 
