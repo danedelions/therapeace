@@ -46,6 +46,23 @@
     <script src="dist/assets/js/app.min.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
     <script src="dist/assets/js/scripts/dashboard_1_demo.js" type="text/javascript"></script>
+
+    <!-- View Modal Script and Ajax -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            // $('#viewModal').on('show.bs.modal', fucntion(){
+            //     $('#modalView').
+            // })
+
+            $('#emailModal').on('show.bs.modal', function (e) {
+                var btn = $(e.relatedTarget)
+                $('#sendEmailBtn').attr('href', function () {
+                    return $(this).data('href').replace('__ID__', btn.data('id'))
+                })
+            })
+        });
+    </script>
     
 </body>
 </html>
