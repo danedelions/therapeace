@@ -9,10 +9,10 @@
                 <form role="form">
                      <legend class="text-center">Update Information</legend>
                     <center><i class="fas fa-user-circle fa-7x"></i>
-                {!! Form::open(array('url'=>'dashboard/edit','method'=>'POST', 'files'=>true)) !!}
+                {!! Form::open(array('url'=>'','method'=>'POST', 'files'=>true)) !!}
                 {!! csrf_field() !!}
                  <input type="file" id="itemImage" name="itemImage">
-                <input type="submit" value="Upload Image" name="submit" class="btn btn-primary btn-xs">
+                <input type="submit" value="Upload Image" name="submit" class="btn btn-primary btn-sm">
               </form>
                     <fieldset>  
                         <div class="form-group col-md-6">
@@ -30,7 +30,7 @@
                         <div class="form-group col-md-6">
                              {!! Form::inputGroup('number', 'Contact Number', 'contactnumber', null, ['placeholder' => 'Contact Number']) !!}
                         </div>
-                        <br>
+                        
                         <div class="form-group col-md-6"><br>
                             {!! Form::select('gender',array('Male', 'Female', 'Others')) !!}
 

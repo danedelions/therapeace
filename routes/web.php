@@ -61,7 +61,7 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/therapist-appoint', 'TherapistController@therapistAppoint')->name('get.therapist-appoint');
 	Route::get('/therapist-history', 'TherapistController@therapistHistory')->name('get.therapist-history');
 	Route::get('/therapist-message', 'TherapistController@therapistMessage');
-	Route::get('/therapist-edit' ,'TherapistController@edit');
+	Route::get('/therapist-edit' ,'TherapistController@edit')->name('get.therapist-edit');
 
 });
 

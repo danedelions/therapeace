@@ -21,10 +21,12 @@ class Therapist extends Migration
             $table->string('lname');
             $table->string('contact');
             $table->string('gender');
-            $table->string('barangay');
-            $table->string('province');
-            $table->string('town');
+            $table->string('streetaddress');
             $table->string('city');
+            $table->string('town');
+            $table->string('province');
+            $table->string('barangay');
+            $table->string('postal_code');
             $table->string('therapist');
             $table->string('license_number');
             $table->string('expiry_date');

@@ -18,10 +18,8 @@
 										<th>#</th>
 										<th>Patient Name</th>
 										<th>Phone Number</th>
-										<th>Date</th>
-										<th>Hour/s</th>
-										<th>Additional Fee</th>
-										<th>Other Services</th>
+										<th>Booking Date</th>
+										<th>Session Start Date</th>
 										<th>Action</th>
 									</tr>
 								</thead>
@@ -35,7 +33,7 @@
 										<td>500</td>
 										<td>Massage</td>
 										<td>
-											<button class="btn btn-danger" href="#" data-toggle="modal" data-target="#assess"><i style="color:black;" class="far fa-eye"></i></button>
+											<button class="btn btn-primary" href="#" data-toggle="modal" data-target="#assess"><i style="color:black;" class="far fa-eye"></i></button>
 										</td>
 									</tr>
 									<tr>
@@ -47,7 +45,7 @@
 										<td>500</td>
 										<td>Massage</td>
 										<td>
-											<button class="btn btn-danger" href="#" data-toggle="modal" data-target="#assess"><i style="color:black;" class="far fa-eye"></i></button>
+											<button class="btn btn-primary" href="#" data-toggle="modal" data-target="#assess"><i style="color:black;" class="far fa-eye"></i></button>
 										</td>
 									</tr>
 									<tr>
@@ -59,7 +57,7 @@
 										<td>500</td>
 										<td>Massage</td>
 										<td>
-											<button class="btn btn-danger" href="#" data-toggle="modal" data-target="#assess"><i style="color:black;" class="far fa-eye"></i></button>
+											<button class="btn btn-primary" href="#" data-toggle="modal" data-target="#assess"><i style="color:black;" class="far fa-eye"></i></button>
 										</td>
 									</tr>
 									<tr>
@@ -71,7 +69,7 @@
 										<td>500</td>
 										<td>Massage</td>
 										<td>
-											<button class="btn btn-danger" href="#" data-toggle="modal" data-target="#assess"><i style="color:black;" class="far fa-eye"></i></button>
+											<button class="btn btn-primary" href="#" data-toggle="modal" data-target="#assess"><i style="color:black;" class="far fa-eye"></i></button>
 										</td>
 									</tr>
 									<tr>
@@ -83,7 +81,7 @@
 										<td>500</td>
 										<td>Massage</td>
 										<td>
-											<button class="btn btn-danger" href="#"><i style="color:black;" class="far fa-eye"></i></button>
+											<button class="btn btn-primary" href="#"><i style="color:black;" class="far fa-eye"></i></button>
 										</td>
 									</tr>
 								</tbody>
