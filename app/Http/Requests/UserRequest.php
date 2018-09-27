@@ -24,13 +24,11 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-        $this->validate($request, [
-        'name' => 'required|min:3|max:50',
-        'email' => 'email',
-        'password' => 'min:6|required_with:password_confirmation',
-        'password_confirmation' => 'min:6|same:password'
-        ]);
-            //
+            'name' => 'required|min:3|max:50',
+            'email' => 'email',
+            'status' => 'required',
+            'password' => 'min:6|required_with:password_confirmation',
+            'password_confirmation' => 'min:6|same:password'
         ];
     }
 }

@@ -57,10 +57,12 @@ class TherapistController extends Controller
             'lname' => $request->post('lname'),
             'contact' => $request->post('number'), 
             'gender' => $request->post('gender'), 
-            'barangay' => $request->post('barangay'),
-            'province' => $request->post('province'),
+            'streetaddress' => $request->post('streetaddress'),
+            'city' => $request->post('city'),
             'town' => $request->post('town'),
-            'city' => $request->post('city'), 
+            'province' => $request->post('province'), 
+            'barangay' => $request->post('barangay'), 
+            'postal_code' => $request->post('postal_code'), 
             'therapist' => $request->post('therapist'),
             'license_number' => $request->post('license_number'),
             'expiry_date' => $request->post('expiry_date'),
@@ -70,12 +72,12 @@ class TherapistController extends Controller
 
         ]);
 
-        return ('login');
+        return view('login');
     }
 
-    public function edit($id)
+    public function edit(Therapist $therapist)
     {
-        return view('therapist.update');
+        return view('therapist.edit', compact('therapist'));
     }
 
     /**
@@ -85,20 +87,22 @@ class TherapistController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TherapistRequest $request, Therapist $therapist)
     {
 
-        // Post::where('id',$id)->update($request->only(['title', 'blog_post']));
-        // return redirect()->route('admin.index');
+        $therapist->where('user_id', $therapist->id)->update($request->only(['image', 'fname', 'lname','contact', 'gender', 'barangay', 'province', 'town', 'city', 'therapist', 'license_number', 'license_image', 'expiry_date', 'nbi_image', 'bp_image']));
+        User::where('id', $therapist->id)->update($request->only(['username']));
+        return redirect()->route('therapist.account');
 
+        // ClientProfile::where('client_id', $client->id)->update($request->only(['firstname','middlename','lastname','civil_status','birthday']));
         // $post->where('id', $post->id)->update($request->only(['title', 'blog_post']));
         // return redirect()->route('admin/');
 
     }
 
     public function therapistAccount(){
-
-        return view('therapist.account');
+        $therapist = Therapist::all();
+        return view('therapist.account', compact('therapist'));
     }
     public function therapistAppoint(){
 
@@ -112,9 +116,21 @@ class TherapistController extends Controller
 
         return view('therapist.message');
     }
+
        public function therapistEdit(){
 
-        return view('therapist.edit');
+
+        // $user = DB::table('users')->where('id', );
+
+
+
+        // $user = User::get()->toArray();
+
+        // dd($user);
+
+
+
+         return view('therapist.edit');
     }
  
 }
