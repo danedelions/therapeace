@@ -1,6 +1,6 @@
 
 @extends('layouts.the')
-@section('title', 'Account-edit')
+
 @section('page-section')
 @include('modals.therapist')
 <div class="row">

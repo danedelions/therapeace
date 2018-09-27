@@ -1,5 +1,5 @@
 @extends('layouts.the')
-@section('title', 'Message')
+
 @section('page-section')
 
 <div class="row"> <!-- 	<div class="row">  --><!-- <div class="col-md-5"> -->
