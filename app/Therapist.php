@@ -15,4 +15,9 @@ class Therapist extends Model
     {
     	return $this->belongsToMany('App\Specialty', 't_specialties', 'therapist_id', 'spec_id');
     }
+
+    public function user(){
+    	return $this->belongsTo('App\User', 'id', 'user_id');
+    }
+
 }

@@ -1,7 +1,7 @@
  @extends('layouts.app')
 
 @section('page-body')
-   <link rel="stylesheet" type="text/css" href="css/client.css">
+ <!--   <link rel="stylesheet" type="text/css" href="css/client.css"> -->
 <form id="regForm" action="{{ route('therapist.store') }}" method="POST">
   
   @csrf
@@ -35,8 +35,8 @@
     <br><br>
   <form class="col-md-4">
     <select select class="form-control select2" name="therapist">
-       <option value="pt" style="width:250px">Physical Therapist</option>
-      <option value="ot" style="width:250px">Occupational therapy</option>
+       <option value="Physical Therapist" style="width:250px">Physical Therapist</option>
+      <option value="Occupational Therapist" style="width:250px">Occupational therapy</option>
     </select><br>
     <p><input placeholder="License Number" oninput="this.className = ''" name="license_number" type="number"></p>
     <p><input placeholder="Expriry Date" oninput="this.className = ''" name="expiry_date" type="date"></p>

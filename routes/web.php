@@ -57,11 +57,12 @@ Route::resource('therapist' ,'TherapistController');
 
 Route::group(['middleware' => 'auth'], function(){
 	
-	Route::get('/therapist-account/{id}', 'TherapistController@therapistAccount')->name('get.therapist-account');
+	Route::get('/therapist-account/', 'TherapistController@therapistAccount')->name('get.therapist-account');
 	Route::get('/therapist-appoint', 'TherapistController@therapistAppoint')->name('get.therapist-appoint');
 	Route::get('/therapist-history', 'TherapistController@therapistHistory')->name('get.therapist-history');
 	Route::get('/therapist-message', 'TherapistController@therapistMessage');
 	Route::get('/therapist-edit' ,'TherapistController@edit');
+	Route::patch('/therapist-edit', 'TherapistController@update');
 
 });
 
@@ -73,11 +74,6 @@ Route::get('client-history', 'ClientController@clientHistory');
 Route::get('client-account', 'ClientController@clientAccount')->name('get.client-account');
 Route::get('client-message', 'ClientController@clientMessage');
 Route::resource('client', 'ClientController');
-
-Route::get('client-find', 'ClientController@clientFind');
-Route::get('client-history/{id}', 'ClientController@clientHistory');
-Route::get('client-account/', 'ClientController@clientAccount');
-
 
 
 Route::get('/admin/home', 'AdminController@getDashboard'); 

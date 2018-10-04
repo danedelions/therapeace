@@ -29,4 +29,14 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function therapist()
+    {
+        return $this->hasOne('App\therapist', 'user_id', 'id');
+    }
+
+    public function client()
+    {
+        return $this->hasOne('App\Client', 'user_id', 'id');
+    }
+
 }

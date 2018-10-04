@@ -69,4 +69,8 @@ class ClientController extends Controller
     {
         return view('client.message');
     }
+
+    public function search(){
+
+    }
 }

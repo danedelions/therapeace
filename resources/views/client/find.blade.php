@@ -8,7 +8,24 @@
 					<h5>Search</h5>
 				</div>
 				<div class="card-body">
-					<form class="form">
+						{!! Form::open(['method'=>'GET','class'=>'navbar-form navbar-left','role'=>'search'])  !!}
+							<div class="form-group col-md-12">
+								{!! Form::inputGroup('text', 'Location', null, null, ['placeholder' => 'Your Location here...'])  !!}
+							</div>
+							<div class="form-group col-md-12">
+								<label>Therapist Type</label>
+								{!! Form::select('therapist',array('Physical Therapist', 'Occupational Therapist')) !!}
+							</div>
+							<div class="form-group col-md-12">
+								{!! Form::inputGroup('text', 'Specialty', 't_specialties', null, ['placeholder' => 'Specialty']) !!}
+							</div>
+							<div class="card-footer col-md-12">
+								<button class="btn btn-default" type="submit">
+					           		 <i class="fa fa-search"></i> Submit
+					    		</button>
+							</div>
+						{!! Form::close() !!}
+					<!-- <form class="form">
 						<div class="form-group col-md-12">
 							<label>Enter Location</label>
 							<input type="text" class="form-control">
@@ -27,7 +44,7 @@
 						<div class="card-footer col-sm-4">
 							<button class="btn btn-success">Submit</button>
 						</div>
-					</form>
+					</form> -->
 				</div>
 			</div>
 		</div>
