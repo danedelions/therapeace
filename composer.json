@@ -9,10 +9,7 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0",
-<<<<<<< HEAD
-=======
         "laravelcollective/html": "^5.4.0",
->>>>>>> 2e864664b810f8e79491662596e77eb1bedc9705
         "natabio/bs4-form": "^2.0"
     },
     "require-dev": {

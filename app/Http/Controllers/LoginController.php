@@ -30,6 +30,7 @@ class LoginController extends Controller
                 return redirect('get.client-account');
             }else if(Auth::user()->user_type === 'admin'){
                 // view('admin');
+                print_r('request');
                 return redirect('admin');
             }
 
@@ -62,14 +63,14 @@ class LoginController extends Controller
     // }
 
     
-    // public function Logout(Request $request)
-    // {
-    // Auth::logout();
+    public function Logout(Request $request)
+    {
+    Auth::logout();
 
-    // session()->flash('message', 'Some goodbye message');
+    session()->flash('message', 'Some goodbye message');
 
-    // return redirect('/');
-    // }
+    return redirect('/');
+    }
 
     
 }

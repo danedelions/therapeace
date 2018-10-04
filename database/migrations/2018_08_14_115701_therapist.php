@@ -32,7 +32,7 @@ class Therapist extends Migration
             $table->string('expiry_date');
             $table->string('license_image');
             $table->string('nbi_image');
-            $table->string('bp_image');
+            $table->string('bc_image');
             $table->rememberToken();
             $table->timestamps();
 

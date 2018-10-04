@@ -23,38 +23,29 @@ class TherapistRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-        'image' => 'required',
-        'fname' =>  'required|alpha_spaces', 
-        'lname' => 'required|alpha_spaces', 
-        'email' => 'required|alpha_spaces', 
-        'contact' => 'required|numeric',
-        'barangay' => 'required', 
-        'province' => 'required', 
-        'town' => 'required', 
-        'city' => 'required', 
-        'therapist' => 'required', 
-        'license' => 'required', 
-        'expiry_date' => 'required', 
-        'license_image' => 'required', 
-        'nbi_image' => 'required', 
-        'bp_image' => 'required', 
-
-
+        $rules =  [
+            'image' => 'required',
+            'fname' =>  'required', 
+            'lname' => 'required', 
+            'email' => 'required', 
+            'contact' => 'required',
+            'gender' => 'required',
+            'streetaddress'  => 'required',
+            'city' => 'required',
+            'town' => 'required',
+            'province' => 'required', 
+            'barangay' => 'required', 
+            'postal_code' => 'required', 
+            'therapist' => 'required', 
+            'license' => 'nullable', 
+            'expiry_date' => 'nullable', 
+            'license_image' => 'nullable', 
+            'nbi_image' => 'nullable', 
+            'bc_image' => 'nullable', 
         ];
 
-
+        return $rules;
     }
-    public function rules()
-
-        $this->validate($request, [
-        'name' => 'required|min:3|max:50',
-        'email' => 'email',
-        'password' => 'min:6|required_with:password_confirmation',
-        'password_confirmation' => 'min:6|same:password'
-        ]);
-
-
-
+   
 
 }
