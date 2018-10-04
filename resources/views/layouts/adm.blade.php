@@ -24,7 +24,8 @@
 
     
 </head>
-<body class="fixed-navbar">
+<body class="fixed-navbar" style="overflow: hidden">
+    @include('partials.aheader')
     @yield('dashboard')
 
     <!-- jquery -->

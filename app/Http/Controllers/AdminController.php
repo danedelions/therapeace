@@ -23,7 +23,6 @@ class AdminController extends Controller
     public function getUserView()
     {
         $users = User::all();
-
     	return view('admin.users', compact('users','newstatus'));
     }
 

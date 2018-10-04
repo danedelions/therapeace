@@ -27,24 +27,35 @@ class LoginController extends Controller
                 return redirect(route('get.therapist-account'));
             }else if(Auth::user()->user_type === 'client'){
                 // view('client');
-                return redirect('get.client-account');
+                return redirect(route('get.client-account'));
             }else if(Auth::user()->user_type === 'admin'){
                 // view('admin');
+<<<<<<< HEAD
                 print_r('request');
                 return redirect('admin');
+=======
+                var_dump($request);
+                die();
+                //return redirect('get.admin');
+>>>>>>> 9553ff93049d8c5ffcc1a36509c3975ba18c75a4
             }
 
         }else{
              return "wrong".Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
         }
+<<<<<<< HEAD
           }      // user::where('username', 'name');
+=======
+        }
+             //    user::where('username', 'name');
+>>>>>>> 9553ff93049d8c5ffcc1a36509c3975ba18c75a4
 
              // return "sakto".Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
    
-                // user::where('username', 'name');
+             //    user::where('username', 'name');
 
        
-        //      // user::where('username', 'name');
+             // user::where('username', 'name');
 
         // if(Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('post')))){
 
@@ -53,7 +64,7 @@ class LoginController extends Controller
         //     } else {
         //         return "wrong";
         //     }
-        // }
+    }
 
     // protected function credentials(Request $request){
 
@@ -66,8 +77,24 @@ class LoginController extends Controller
     public function Logout(Request $request)
     {
     Auth::logout();
+<<<<<<< HEAD
 
     session()->flash('message', 'Some goodbye message');
+=======
+<<<<<<< HEAD
+
+    session()->flash('message', 'Some goodbye message');
+
+    return redirect('/');
+
+=======
+
+    session()->flash('message', 'Some goodbye message');
+
+    return redirect('/');
+>>>>>>> f66c4cd13c541a637363c86a9bdb6a62b5ca480c
+    }
+>>>>>>> 9553ff93049d8c5ffcc1a36509c3975ba18c75a4
 
     return redirect('/');
     }

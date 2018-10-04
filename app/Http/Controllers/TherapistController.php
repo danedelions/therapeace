@@ -14,10 +14,10 @@ use Auth;
 class TherapistController extends Controller
 {
 
-    // public function __construct()
-    // {
-    //     $this->middleware('auth')->except(['index', 'store']);
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'store']);
+    }
     /**
      * Display a listing of the resource.
      *
