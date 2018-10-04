@@ -1,16 +1,16 @@
 @extends('layouts.cli')
-
+@section('title', 'Find')
 @section('page-section')
-	<div class="row"> <!--  <div class="row">  --><!-- <div class="col-md-5"> -->
+	<div class="row">
 		<div class="col-sm-4 col-md-4 col-lg-4">
 			<div class="card">
 				<div class="card-header">
 					<h5>Search</h5>
 				</div>
 				<div class="card-body">
-						{!! Form::open(['method'=>'GET','class'=>'navbar-form navbar-left','role'=>'search'])  !!}
+						{!!Form::open(['method'=>'GET','class'=>'navbar-form navbar-left','role'=>'search'])  !!}
 							<div class="form-group col-md-12">
-								{!! Form::inputGroup('text', 'Location', null, null, ['placeholder' => 'Your Location here...'])  !!}
+								{!! Form::inputGroup('text', 'Location', null, null, ['placeholder' => 'Your Location here...', 'id'=>'searchTextField'])  !!}
 							</div>
 							<div class="form-group col-md-12">
 								<label>Therapist Type</label>
@@ -18,6 +18,10 @@
 							</div>
 							<div class="form-group col-md-12">
 								{!! Form::inputGroup('text', 'Specialty', 't_specialties', null, ['placeholder' => 'Specialty']) !!}
+							</div>
+							<div class="form-group col-md-12">
+								latitude:<input name="latitude" class="MapLat" value="" type="text" placeholder="Latitude" style="width: 161px;" disabled>
+								longitude:<input name="longitude" class="MapLon" value="" type="text" placeholder="Longitude" style="width: 161px;" disabled>
 							</div>
 							<div class="card-footer col-md-12">
 								<button class="btn btn-default" type="submit">
@@ -50,14 +54,15 @@
 		</div>
 
 	<div class="col-sm-6 col-md-6 col-lg-8">
-	<div class="card text-white bg-success mb-3">
-		<div class="card-header">
-			<h5>Who's Nearby</h5>
-		</div>
-		<div class="card-body" style=" height: 400px;">
-			<div class="row">
-				<div class="col-md-12">
-					<div id="map"></div>
+		<div class="card text-white bg-success mb-3">
+			<div class="card-header">
+				<h5>Who's Nearby</h5>
+			</div>
+			<div class="card-body" style=" height: 400px;">
+				<div class="row">
+					<div class="col-md-12">
+						<div id="map"></div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -96,30 +101,77 @@
 				</table>
 			</div>
 		</div>    	
-	</div>
-	
-	<br>
+</div>
 
-	<script>
-		function initMap() {
-			function userLocation() {
-				var defaultLat = parseFloat($('[name=latitude]').val()) ||  10.3157,
-					defaultLng =  parseFloat($('[name=longitude]').val()) ||  123.8854;
-				return {
-					lat: defaultLat,
-					lng: defaultLng
-				}
-	    	}
-			var map = new google.maps.Map(document.getElementById('map'), {
-				zoom: 16,
-				center:  userLocation()
-				});
-			var marker = new google.maps.Marker({
-				map: map,
-				position: userLocation()
-				});
+<br>
+
+<script>
+	function initMap() {
+		function userLocation() {
+			var defaultLat = parseFloat($('[name=latitude]').val()) ||  10.3157,
+				defaultLng =  parseFloat($('[name=longitude]').val()) ||  123.8854;
+			return {
+				lat: defaultLat,
+				lng: defaultLng
 			}
-	</script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD85clj7B85QRZPmO6m4Fky0Wi6P0MzVpA&callback=initMap"
-	async defer></script>
+    	}
+		var map = new google.maps.Map(document.getElementById('map'), {
+			zoom: 16,
+			center:  userLocation()
+			});
+		var marker = new google.maps.Marker({
+			map: map,
+			position: userLocation()
+			});
+
+		var input = document.getElementById('searchTextField');
+        var autocomplete = new google.maps.places.Autocomplete(input, {
+             types: ["geocode"]
+         });
+         autocomplete.bindTo('bounds', map);
+         var infowindow = new google.maps.InfoWindow();
+         google.maps.event.addListener(autocomplete, 'place_changed', function (event) {
+             infowindow.close();
+             var place = autocomplete.getPlace();
+             if (place.geometry.viewport) {
+                 map.fitBounds(place.geometry.viewport);
+             } else {
+                 map.setCenter(place.geometry.location);
+                 map.setZoom(17);
+             }
+             moveMarker(place.name, place.geometry.location);
+             $('.MapLat').val(place.geometry.location.lat());
+             $('.MapLon').val(place.geometry.location.lng());
+         });
+         google.maps.event.addListener(map, 'click', function (event) {
+             $('.MapLat').val(event.latLng.lat());
+             $('.MapLon').val(event.latLng.lng());
+             infowindow.close();
+                     var geocoder = new google.maps.Geocoder();
+                     geocoder.geocode({
+                         "latLng":event.latLng
+                     }, function (results, status) {
+                         console.log(results, status);
+                         if (status == google.maps.GeocoderStatus.OK) {
+                             console.log(results);
+                             var lat = results[0].geometry.location.lat(),
+                                 lng = results[0].geometry.location.lng(),
+                                 placeName = results[0].address_components[0].long_name,
+                                 latlng = new google.maps.LatLng(lat, lng);
+                             moveMarker(placeName, latlng);
+                             $("#searchTextField").val(results[0].formatted_address);
+                         }
+                     });
+         });
+        
+         function moveMarker(placeName, latlng) {
+             marker.setIcon(image);
+             marker.setPosition(latlng);
+             infowindow.setContent(placeName);
+             //infowindow.open(map, marker);
+         }
+	}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD85clj7B85QRZPmO6m4Fky0Wi6P0MzVpA&libraries=places&callback=initMap"
+async defer></script>
 @endsection

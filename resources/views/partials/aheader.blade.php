@@ -1,6 +1,39 @@
-@extends('layouts.adm')
+<div class="page-wrapper">
+        <!-- START HEADER-->
+        <header class="header">
+            <div class="page-brand">
+                <a class="link" href="index.html">
+                    <span class="brand">Thera
+                        <span class="brand-tip">PEACE</span>
+                    </span>
+                    <span class="brand-mini">TP</span>
+                </a>
+            </div>
+            <div class="flexbox flex-1">
+                <!-- START TOP-LEFT TOOLBAR-->
+                <ul class="nav navbar-toolbar">
+                    <li>
+                        <a class="nav-link sidebar-toggler js-sidebar-toggler"><i class="ti-menu"></i></a>
+                    </li>
+                </ul>
+                <!-- END TOP-LEFT TOOLBAR-->
+                <!-- START TOP-RIGHT TOOLBAR-->
+                <ul class="nav navbar-toolbar"
+>                    <li class="dropdown dropdown-user">
+                        <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
+                            <img src="dist/assets/img/admin-avatar.png" />
+                            <span></span>Admin<i class="fa fa-angle-down m-l-5"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <a><h6 class="text-overflow m-0">Welcome !</h6></a>
+                            <a class="dropdown-item" href="login.html"><i class="fa fa-power-off"></i>Logout</a>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- END TOP-RIGHT TOOLBAR-->
+            </div>
+        </header>
+        <!-- END HEADER-->
 
-@section('dashboard')
         <!-- START SIDEBAR-->
         <nav class="page-sidebar" id="sidebar">
             <div id="sidebar-collapse">
@@ -37,36 +70,3 @@
             </div>
         </nav>
         <!-- END SIDEBAR-->
-        <div class="content-wrapper">
-        <!-- START PAGE CONTENT-->
-          <h2>Search Bar</h2>
-          <p>Reports of Abuse</p>           
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Session ID</th>
-                <th>Date</th>
-                <th>Info</th>
-                
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>100010</td>
-                <td>MM-DD-YYYY</td>
-                <td><a class="btn btn-outline-info" href="#"><i style="color:black;" class="far fa-eye"></i></a> </td>
-                
-              </tr>        
-            </tbody>
-          </table>
-        </div>
-        
-                
-            
-        <!-- END PAGE CONTENT-->
-            
-        </div>
-    </div>
-@endsection

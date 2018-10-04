@@ -11,6 +11,11 @@ use App\User;
 
 class ClientController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'store']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -57,13 +62,17 @@ class ClientController extends Controller
     {
         return view('client.find');
     }
-    public function clientHistory()
-    {
-        return view('client.history');
-    }
     public function clientAccount()
     {
         return view('client.account');
+    }
+    public function clientEdit()
+    {
+        return view('client.edit');
+    }
+    public function clientHistory()
+    {
+        return view('client.history');
     }
     public function clientMessage()
     {

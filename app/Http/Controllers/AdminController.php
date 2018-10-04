@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 use App\Client;
 use App\Therapist;
 use App\User;
+use Mail;
+use App\Mail\NewUserWelcome;
+use Auth;
+use DB;
+use App\Http\Requests\UserRequest;
+
 
 class AdminController extends Controller
 {
@@ -16,10 +22,8 @@ class AdminController extends Controller
 
     public function getUserView()
     {
-        $users = User::all()->toArray();
-        // $clients = Client::all()->toArray();
-
-    	return view('admin.users', compact('users'));
+        $users = User::all();
+    	return view('admin.users', compact('users','newstatus'));
     }
 
     public function getPendingView()
@@ -35,5 +39,17 @@ class AdminController extends Controller
     public function getReportsView()
     {
     	return view('admin.reports');
+    }
+
+    public function email(User $user)
+    { 
+        Mail::to($user->email)->send(new NewUserWelcome());
+        return redirect()->back();
+    }
+
+    public function statusUpdate(User $user)
+    {        
+        $user->update(['status' => !$user->status]);
+        return redirect()->back();
     }
 }
