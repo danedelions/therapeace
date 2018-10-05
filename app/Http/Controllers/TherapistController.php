@@ -7,8 +7,9 @@ use App\Therapist;
 use App\Client;
 use App\User;
 use Hash;
-use Illuminate\Http\Request\TherapistRequest;
-use Illuminate\Http\Request\UserRequest;
+use App\Http\Requests\TherapistRequest;
+use Illuminate\Http\Requests\UserRequest;
+use Auth;
 
 class TherapistController extends Controller
 {
@@ -43,10 +44,10 @@ class TherapistController extends Controller
             'password' =>Hash::make($request->post('password')),
             'user_type' => 'therapist'
 
-            ]);
+        ]);
 
 
-          $users = User::where('username', $request->post('username'))->get()->toArray();
+        $users = User::where('username', $request->post('username'))->get();
 
 
         Therapist::insert([
@@ -68,15 +69,18 @@ class TherapistController extends Controller
             'expiry_date' => $request->post('expiry_date'),
             'license_image' => $request->post('license_image'),
             'nbi_image' =>$request->post('nbi_image'),
-            'bp_image' => $request->post('bp_image'),
+            'bc_image' => $request->post('bc_image'),
 
         ]);
+        $this->getData();
 
         return view('login');
     }
 
-    public function edit(Therapist $therapist)
-    {
+    public function edit($userId)
+    {  
+        $therapist = Therapist::with('user')->find($userId);
+
         return view('therapist.edit', compact('therapist'));
     }
 
@@ -87,18 +91,30 @@ class TherapistController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(TherapistRequest $request, Therapist $therapist)
+    public function update(TherapistRequest $request, Therapist $therapist, $id)
     {
+        dd($request->toArray());
 
-        $therapist->where('user_id', $therapist->id)->update($request->only(['image', 'fname', 'lname','contact', 'gender', 'barangay', 'province', 'town', 'city', 'therapist', 'license_number', 'license_image', 'expiry_date', 'nbi_image', 'bp_image']));
+        $therapist->fill($request)->save();
+
         User::where('id', $therapist->id)->update($request->only(['username']));
-        return redirect()->route('therapist.account');
 
+<<<<<<< HEAD
     }
 
     public function therapistAccount(){
       
         return view('therapist.account');
+=======
+        return redirect()->route('therapist.index');
+
+
+    }
+
+    public function therapistAccount(){
+         $therapist = Therapist::ofUser(Auth::id())->first();
+        return view('therapist.account', compact('therapist'));
+>>>>>>> 148cb2c4ed8505dc3f1ba38179f54c1b5902d685
     }
     public function therapistAppoint(){
 

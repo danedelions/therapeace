@@ -17,8 +17,8 @@
         <!-- Rating (stars) -->
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
         <!-- THEME STYLES-->
-        <link href="dist/assets/css/main.min.css" rel="stylesheet" />
-        <link href="dist/assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet" />
+        <link href="dist/assets/css/main.min.css" rel="stylesheet"/>
+        <link href="dist/assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet"/>
     </head>
 
     <body id="therapistBg">
