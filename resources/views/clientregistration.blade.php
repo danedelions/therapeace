@@ -14,7 +14,7 @@
             </div>
         @endif
 
-        <form id="regForm"action="{{ route('client.store') }}" class="form-group" method="POST">
+        <form id="regForm" action="{{ route('client.store') }}" class="form-group" method="POST">
              {{ csrf_field() }}
             <h1>Client Registration:</h1>
             <!-- One "tab" for each step in the form: -->

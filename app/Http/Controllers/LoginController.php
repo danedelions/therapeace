@@ -38,6 +38,9 @@ class LoginController extends Controller
                 die();
                 //return redirect('get.admin');
     
+                //return redirect('get.admin');
+            }
+
 
         }else{
              return "wrong".Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
@@ -45,7 +48,15 @@ class LoginController extends Controller
 
           }      // user::where('username', 'name');
 
-        }
+        
+
+      // }
+
+
+               // user::where('username', 'name');
+
+
+
              //    user::where('username', 'name');
 
 

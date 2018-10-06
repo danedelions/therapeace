@@ -80,7 +80,7 @@ class TherapistController extends Controller
     public function edit($userId)
     {  
 
-        $therapist = Therapist::with('user')->find($userId);
+        $therapist = Therapist::find($userId)->load('user');
 
 
         return view('therapist.edit', compact('therapist'));
@@ -113,13 +113,16 @@ class TherapistController extends Controller
 
         User::where('id', Auth::id())->update(['username' => $request['username'], 'email' => $request['email']]);
 
+
         return redirect()->route('get.therapist-account');
 
 
     }
 
     public function therapistAccount(){
-         $therapist = Therapist::with('user')->whereUserId(Auth::id())->first();
+        $therapist = Therapist::ofUser(Auth::id())->first();
+        
+
         return view('therapist.account', compact('therapist'));
 
         
@@ -135,6 +138,7 @@ class TherapistController extends Controller
     public function therapistMessage(){
 
         return view('therapist.message');
+
     }   
 
        public function therapistEdit(){
@@ -151,6 +155,7 @@ class TherapistController extends Controller
 
 
          return view('therapist.edit');
+
     }
  
 }

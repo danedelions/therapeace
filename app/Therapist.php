@@ -35,9 +35,8 @@ class Therapist extends Model
     	return $this->belongsToMany('App\Specialty', 't_specialties', 'therapist_id', 'spec_id');
     }
 
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'user_id');
+    public function user(){
+    	return $this->belongsTo('App\User', 'user_id');
     }
 
     public function scopeOfUser($query, $userId)

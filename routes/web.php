@@ -48,9 +48,12 @@ Route::group(['middleware' => 'auth'], function(){
 // CLIENT
 	Route::get('/client-find', 'ClientController@clientFind')->name('get.client-find');
 	Route::get('/client-account', 'ClientController@clientAccount')->name('get.client-account');
-	Route::get('/client-edit', 'ClientController@clientEdit')->name('get.client-edit');
-	Route::get('/client-history', 'ClientController@clientHistory')->name('get.client-history');;
-	Route::get('/client-message', 'ClientController@clientMessage')->name('get.client-message');;
+	Route::get('/client-edit/{id}', 'ClientController@clientEdit');
+	Route::get('/client-history', 'ClientController@clientHistory')->name('get.client-history');
+	Route::get('/client-message', 'ClientController@clientMessage')->name('get.client-message');
+
+	Route::get('/client-transaction', 'PrintController@index');
+	Route::get('/printpreview','PrintController@printClient');
 
 // Admin Side
 // Route::get('admin', 'AdminController@getDashboard')->name('get.admin'); 
@@ -64,16 +67,8 @@ Route::group(['middleware' => 'auth'], function(){
 });
 
 
-// Route::get('/admin/home', 'AdminController@getDashboard'); 
-// Route::get('/admin/ user', 'AdminController@getUserView');
-// Route::get('/admin/pending', 'AdminController@getPendingView');
-// Route::get('/admin/history', 'AdminController@getHistoryView');
-// Route::get('/admin/reports', 'AdminController@getReportsView');
 
-// Route::get('admin', function(){
-// 	return view ('admin.dashboard');
-// });
-
+//PLEASE GROUP YOUR ROUTES//
 
 // Admin Side
 Route::get('admin', 'AdminController@getDashboard')->name('get.admin'); 

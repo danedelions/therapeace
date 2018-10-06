@@ -1,8 +1,7 @@
 @extends('layouts.the')
 
 @section('page-section')
-@include('modals.therapist')
-    
+
       <div class="container">
         <div class="row">
           {!! Form::model($therapist, array('url'=> route('therapist.update', ['id'=> $therapist->id]),'method'=>'PATCH', 'files'=>true,'role'=>'form')) !!}
@@ -81,7 +80,6 @@
           {!! Form::close() !!}  
         </div>
       </div>
+    </div>
         
-
-      
 @endsection
