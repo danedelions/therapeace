@@ -36,11 +36,11 @@ class Therapist extends Model
     }
 
     public function user(){
-    	return $this->belongsTo('App\User', 'id', 'user_id');
+    	return $this->belongsTo('App\User', 'id');
     }
 
     public function scopeOfUser($query, $userId)
     {
-    	return $query->where('user_id', $userId);
+    	return $query->where('id', $userId);
     }
 }

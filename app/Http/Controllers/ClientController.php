@@ -80,6 +80,6 @@ class ClientController extends Controller
     }
 
     public function search(){
-
+        
     }
 }

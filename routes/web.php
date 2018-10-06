@@ -38,7 +38,7 @@ Route::resource('client', 'ClientController');
 Route::group(['middleware' => 'auth'], function(){
 
 // THERAPIST
-	Route::get('/therapist-account', 'TherapistController@therapistAccount')->name('get.therapist-account');
+	Route::get('/therapist-account/', 'TherapistController@therapistAccount')->name('get.therapist-account');
 	Route::get('/therapist-appoint', 'TherapistController@therapistAppoint')->name('get.therapist-appoint');
 	Route::get('/therapist-history', 'TherapistController@therapistHistory')->name('get.therapist-history');
 	Route::get('/therapist-message', 'TherapistController@therapistMessage');

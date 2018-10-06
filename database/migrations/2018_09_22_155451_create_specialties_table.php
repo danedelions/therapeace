@@ -21,10 +21,14 @@ class CreateSpecialtiesTable extends Migration
 
         Schema::create('t_specialties', function (Blueprint $table) {
             
-            $table->integer('therapist_id')->references('id')->on('therapists')->onDelete('cascade');
-            $table->integer('spec_id')->references('id')->on('specialties')->onDelete('cascade');
-            $table->primary(['therapist_id','spec_id']);
+            $table->unsignedInteger('therapist_id');
+            $table->unsignedInteger('spec_id')->nullable();
             $table->timestamps();
+        });
+
+        Schema::table('t_specialties', function(Blueprint $table){
+            $table->foreign('therapist_id')->references('id')->on('therapists')->onDelete('cascade');
+            $table->foreign('spec_id')->references('id')->on('specialties')->onDelete('set null');
         });
     }
 

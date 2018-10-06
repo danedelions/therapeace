@@ -31,19 +31,19 @@
             <div class="form-group row">
                <label class="col-lg-3 col-form-label form-control-label">First Name:</label>
                 <div class="col-lg-9">
-                  {{ $therapist->fname }}
+                  Name
                 </div>
             </div>
             <div class="form-group row">
                <label class="col-lg-3 col-form-label form-control-label">Last Name:</label>
                 <div class="col-lg-9">
-                  {{ $therapist->lname }}
+                  Name
                 </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Address:</label>
                 <div class="col-lg-9">
-                  {{ $therapist->address }}
+                  Address
                 </div>
             </div>
             <div class="form-group row">
@@ -55,7 +55,7 @@
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Contact Number:</label>
                 <div class="col-lg-9">
-                   {{ $therapist->contact}} 
+                   contact 
             </div>  
           </div>
           <a  value="Edit Info" class="btn btn-success" href="{{url('/therapist-edit/'. $therapist->id )}}"><i class="far fa-edit"></i>Edit</a>

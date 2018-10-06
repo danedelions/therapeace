@@ -1,4 +1,5 @@
- @extends('layouts.app')
+<!-- oninput="this.className = ''" -->
+@extends('layouts.app')
 
 @section('page-body')
 
@@ -11,14 +12,14 @@
 
     <div class="tab">
     <h6>Upload profile picture</h6>
-    <form action="upload.php" method="post" enctype="multipart/form-data">
-    <input type="file" name="image" id="fileToUpload"> 
+    <form action="upload.php" method="post" enctype="multipart/form-data" class="form-group">
+    <input type="file" name="image" id="fileToUpload" class="form-control"> 
     <br>
     Name:
-    <p><input placeholder="First name..." oninput="this.className = ''" name="fname"></p>
-    <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
-     <p><input placeholder="Email" oninput="this.className = ''" name="email"></p>
-    <p><input placeholder="Contact Number" oninput="this.className = ''" name="number"></p>
+    <p><input placeholder="First name..."  name="fname" class="form-control"></p>
+    <p><input placeholder="Last name..."  name="lname" class="form-control"></p>
+     <p><input placeholder="Email"  name="email" class="form-control"></p>
+    <p><input placeholder="Contact Number"  name="number" class="form-control"></p>
         <select id="gender" class="form-control" name="gender">
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
@@ -26,36 +27,36 @@
                         </div>
   </div><br>
   <div class="tab">Address:
-    <p><input placeholder="Street Address" oninput="this.className = ''" name="streetaddress" id="streetaddress"></p>
-    <p><input placeholder="City" oninput="this.className = ''" name="city" id="locality"></p>
-    <p><input placeholder="Town" oninput="this.className = ''" name="town" id="town"></p>
-    <p><input placeholder="Province" oninput="this.className = ''" name="province" id="province"></p>
-    <p><input placeholder="Barangay" oninput="this.className = ''" name="barangay" id="barangay"></p>
-    <p><input placeholder="Postal Code" oninput="this.className = ''" name="postal_code" id="postal_code" type="number"></p>
-    <p><input placeholder="Country" oninput="this.className = ''" name="country" id="country"></p>
+    <p><input id="autocomplete" placeholder="Enter Your Address Here to Fill Up the Form" onfocus="geolocate()" type="text" class="form-control"></p>
+    <p><input placeholder="Street Address"  name="streetaddress" id="streetaddress" class="form-control"></p>
+    <p><input placeholder="City"  class="form-control" name="city" id="locality"></p>
+    <p><input placeholder="Town"  name="town" id="town" class="form-control"></p>
+    <p><input placeholder="Province"  name="province" id="province" class="form-control"></p>
+    <p><input placeholder="Barangay"  name="barangay" id="barangay" class="form-control"></p>
+    <p><input placeholder="Postal Code"  name="postal_code" id="postal_code" type="number" class="form-control"></p>
+    <p><input placeholder="Country"  name="country" id="country" class="form-control"></p>
   
   </div>
   <div class="tab" >License:
     <br><br>
   <form class="col-md-4">
-    <select select class="form-control select2" name="therapist">
+    <select select class="form-control select2" name="therapist" class="form-control">
        <option value="Physical Therapist" style="width:250px">Physical Therapist</option>
       <option value="Occupational Therapist" style="width:250px">Occupational therapy</option>
     </select><br>
-    <p><input placeholder="License Number" oninput="this.className = ''" name="license_number" type="number"></p>
-    <p><input placeholder="Expriry Date" oninput="this.className = ''" name="expiry_date" type="date"></p>
-     <form action="upload.php" method="post" enctype="multipart/form-data">
-    <input type="file" name="license_image" id="fileUpload2"> 
-   <br> <form action="upload.php" method="post" enctype="multipart/3orm-data">
-  <input type="file" name="nbi_image" id="fileUpload3"> 
-   <br> <form action="upload.php" method="post" enctype="multipart/form-data">
-    <input type="file" name="bc_image" id="fileUpload4"> 
+    <p><input placeholder="License Number"  name="license_number" type="number" class="form-control"></p>
+    <p><input class="form-control" placeholder="Expriry Date"  name="expiry_date" type="date"></p>
+    <input type="file" name="license_image" id="fileUpload2" class="form-control"> 
+   <br>
+  <input type="file" name="nbi_image" id="fileUpload3" class="form-control"> 
+   <br>
+    <input type="file" name="bc_image" id="fileUpload4" class="form-control"> 
    <br><br>
  </div>
     <div class="tab">Profile:
-    <p><input placeholder="User Name" oninput="this.className = ''" name="username"></p>
-    <p><input placeholder="Password" oninput="this.className = ''" name="password" type="password"></p>
-    <p><input placeholder="Re-type Password" oninput="this.className = ''" name="re-password" type="password"></p>
+    <p><input placeholder="User Name"  name="username" class="form-control"></p>
+    <p><input placeholder="Password"  name="password" type="password" class="form-control"></p>
+    <p><input placeholder="Re-type Password"  name="re-password" type="password" class="form-control"></p>
   </div>
 
   <div class="tab">Done:
@@ -164,7 +165,7 @@ Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facili
         }
       }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD85clj7B85QRZPmO6m4Fky0Wi6P0MzVpA&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD85clj7B85QRZPmO6m4Fky0Wi6P0MzVpA&libraries=places&callback=initAutocomplete"
         async defer></script>
 </body>
 </html>
