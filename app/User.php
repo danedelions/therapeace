@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Therapist;
 
 class User extends Authenticatable
 {
@@ -17,8 +18,8 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'status',
         'password',
+        'user_type'
     ];
 
     /**
@@ -29,5 +30,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function therapist()
+    {
+        return $this->hasOne('App\therapist', 'user_id', 'id');
+    }
+
+    public function client()
+    {
+        return $this->hasOne('App\Client', 'user_id', 'id');
+    }
+
 
 }

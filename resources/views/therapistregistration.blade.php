@@ -1,6 +1,7 @@
  @extends('layouts.app')
 
 @section('page-body')
+
  <!--   <link rel="stylesheet" type="text/css" href="css/client.css"> -->
 <form id="regForm" action="{{ route('therapist.store') }}" method="POST">
   
@@ -38,8 +39,8 @@
     <br><br>
   <form class="col-md-4">
     <select select class="form-control select2" name="therapist">
-       <option value="pt" style="width:250px">Physical Therapist</option>
-      <option value="ot" style="width:250px">Occupational therapy</option>
+       <option value="Physical Therapist" style="width:250px">Physical Therapist</option>
+      <option value="Occupational Therapist" style="width:250px">Occupational therapy</option>
     </select><br>
     <p><input placeholder="License Number" oninput="this.className = ''" name="license_number" type="number"></p>
     <p><input placeholder="Expriry Date" oninput="this.className = ''" name="expiry_date" type="date"></p>
@@ -48,7 +49,7 @@
    <br> <form action="upload.php" method="post" enctype="multipart/3orm-data">
   <input type="file" name="nbi_image" id="fileUpload3"> 
    <br> <form action="upload.php" method="post" enctype="multipart/form-data">
-    <input type="file" name="bp_image" id="fileUpload4"> 
+    <input type="file" name="bc_image" id="fileUpload4"> 
    <br><br>
  </div>
     <div class="tab">Profile:
@@ -94,24 +95,26 @@ Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facili
   </div>
 </form>
     </form>
-    <script>
-       // This example displays an address form, using the autocomplete feature
+ <script>
+      // This example displays an address form, using the autocomplete feature
       // of the Google Places API to help users fill in the information.
 
       // This example requires the Places library. Include the libraries=places
       // parameter when you first load the API. For example:
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
       var placeSearch, autocomplete;
       var componentForm = {
         streetaddress: 'short_name',
         locality: 'long_name',
         town: 'long_name',
         province: 'short_name',
-        barangay: 'short_name',
-        postal_code: 'long_name',
-        country: 'long_name'
+        barangay: 'long_name',
+        postal_code: 'short_name',
+        country: 'short_name'
       };
-     function initAutocomplete() {
+
+      function initAutocomplete() {
         // Create the autocomplete object, restricting the search to geographical
         // location types.
         autocomplete = new google.maps.places.Autocomplete(
@@ -160,10 +163,10 @@ Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facili
           });
         }
       }
-        </script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD85clj7B85QRZPmO6m4Fky0Wi6P0MzVpA&callback=initMap"
-  async defer></script>
-
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD85clj7B85QRZPmO6m4Fky0Wi6P0MzVpA&callback=initMap"
+        async defer></script>
 </body>
 </html>
 @endsection
+

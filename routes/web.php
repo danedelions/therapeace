@@ -32,7 +32,7 @@ Route::get('transaction', function () {
     return view('transaction');
 });
 
-Route::resource('therapist' ,'TherapistController');
+// Route::resource('therapist' ,'TherapistController');
 Route::resource('client', 'ClientController');
 
 Route::group(['middleware' => 'auth'], function(){
@@ -42,7 +42,8 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/therapist-appoint', 'TherapistController@therapistAppoint')->name('get.therapist-appoint');
 	Route::get('/therapist-history', 'TherapistController@therapistHistory')->name('get.therapist-history');
 	Route::get('/therapist-message', 'TherapistController@therapistMessage');
-	Route::get('/therapist-edit' ,'TherapistController@edit')->name('get.therapist-edit');
+	Route::get('/therapist-edit/{id}' ,'TherapistController@edit');
+	Route::patch('/therapist-update/{id}' ,'TherapistController@update')->name('therapist.update');
 
 // CLIENT
 	Route::get('/client-find', 'ClientController@clientFind')->name('get.client-find');
@@ -66,16 +67,8 @@ Route::group(['middleware' => 'auth'], function(){
 });
 
 
-// Route::get('/admin/home', 'AdminController@getDashboard'); 
-// Route::get('/admin/ user', 'AdminController@getUserView');
-// Route::get('/admin/pending', 'AdminController@getPendingView');
-// Route::get('/admin/history', 'AdminController@getHistoryView');
-// Route::get('/admin/reports', 'AdminController@getReportsView');
 
-// Route::get('admin', function(){
-// 	return view ('admin.dashboard');
-// });
-
+//PLEASE GROUP YOUR ROUTES//
 
 // Admin Side
 Route::get('admin', 'AdminController@getDashboard')->name('get.admin'); 
