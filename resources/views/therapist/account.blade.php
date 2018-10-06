@@ -13,56 +13,54 @@
         </div>
         <div class="card-body">
             <div class="form-group">
-              <center><i class="fas fa-user-circle fa-7x"></i>
+              <center>
                 {!! Form::open(array('url'=>'dashboard/edit','method'=>'POST', 'files'=>true)) !!}
                 {!! csrf_field() !!}
                  <input type="file" id="itemImage" name="itemImage">
-                <input type="submit" value="Upload Image" name="submit" class="btn btn-primary btn-sm">
+               
                   </center>
               </form>
-              @foreach($therapist as $data)
             </div>
             <div class="form-control-labelgroup row">
-              <label class="col-lg-3 col-form-label form-control-label">Username:</label>
+              <label class="col-lg-3 col-form-label form-control-label">Username: </label>
                 <div class="col-lg-9">
-                  {{ $data->username }}
+                {{ $therapist->user->username }}
                 </div>
             </div>
             <div class="form-group row">
                <label class="col-lg-3 col-form-label form-control-label">First Name:</label>
-                <div class="col-lg-9">
-                  {{ $ata->firstname }}
+                <div class="col-lg-9"><br>
+                  {{ $therapist->fname }}
                 </div>
             </div>
             <div class="form-group row">
                <label class="col-lg-3 col-form-label form-control-label">Last Name:</label>
                 <div class="col-lg-9">
-                  {{ $data->lastname }}
+                  {{ $therapist->lname }}
                 </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Address:</label>
                 <div class="col-lg-9">
-                  {{ $data->address }}
+                  {{ $therapist->streetaddress }}
                 </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Email:</label>
                 <div class="col-lg-9">
-                  {{ $data->email }}
+                  {{ $therapist->user->email }}
                 </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Contact Number:</label>
-                <div class="col-lg-9">
-                   {{ $data->contact}} 
+                <div class="col-lg-9"><br>
+                   {{ $therapist->contact}} 
             </div>  
           </div>
           <a  value="Edit Info" class="btn btn-success" href="{{url('/therapist-edit/'. $therapist->id )}}"><i class="far fa-edit"></i>Edit</a>
         </div>
       </div>
     </div>
-    @endforeach
  {!! Form::close() !!}  
     <div class="col-sm-5 col-md-5 col-lg-7">
       <div class="card">

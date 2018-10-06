@@ -24,7 +24,7 @@ class TherapistRequest extends FormRequest
     public function rules()
     {
         $rules =  [
-            'image' => 'required',
+            'image' => 'nullable',
             'fname' =>  'required', 
             'lname' => 'required', 
             'email' => 'required', 
@@ -36,12 +36,13 @@ class TherapistRequest extends FormRequest
             'province' => 'required', 
             'barangay' => 'required', 
             'postal_code' => 'required', 
-            'therapist' => 'required', 
-            'license' => 'nullable', 
+            'therapist' => 'sometimes|required', 
+            'license_number' => 'nullable', 
             'expiry_date' => 'nullable', 
             'license_image' => 'nullable', 
             'nbi_image' => 'nullable', 
             'bc_image' => 'nullable', 
+            'username' => 'sometimes|required'
         ];
 
         return $rules;
