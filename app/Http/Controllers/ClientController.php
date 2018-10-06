@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
+
 use App\Http\Requests\ClientRequest;
 use App\Therapist;
 use App\Client;
 use App\User;
+
 use Hash;
 use Auth;
 
@@ -30,7 +33,7 @@ class ClientController extends Controller
         return view('clientregistration');
     }
 
-    public function store(ClientRequest $request)
+    public function store(Request $request)
     {
 
         User::insert([
@@ -43,7 +46,7 @@ class ClientController extends Controller
             ]);
 
 
-          $users = User::where('username', $request->post('username'))->get()->toArray();
+          $users = User::where('username', $request->post('username'))->get();
 
         Client::insert([
 
@@ -69,16 +72,28 @@ class ClientController extends Controller
     public function clientAccount()
     {
         // $client = Client::all();
-        $client = Client::where('id', Auth::id())->first();
+        $client = Client::ofUser(Auth::id())->first();
         return view('client.account', compact('client'));
     }
-    public function edit($id)
+    public function edit($userId)
     {
-        $client = Client::find($id);
-        return view('client.edit', compact('client', 'id'));
+        $client = Client::find($userId);
+        return view('client.edit', compact('client'));
     }
-    public function update(Request $request, $id)
+    public function update(ClientRequest $request, $id)
     {
+        // dd($therapist->toArray());
+        $client = Client::find($id);
+        $request = $request->validated();
+        // dd($request);
+            
+        $client->fill($request)->save();
+
+        User::where('id', Auth::id())->update(['username' => $request['username'], 'email' => $request['email']]);
+
+
+        return redirect()->route('get.client-account');
+
 
     }
     public function clientHistory(Client $client)

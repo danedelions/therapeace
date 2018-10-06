@@ -68,13 +68,13 @@
 									
 				                	
 				                	<label class="control-label">Patient Name: </label>
-									<a>{{$client->fname}} {{$client->lname}}</a><br>
+									<a>{{ $client->fname }} {{ $client->lname }}</a><br>
 
 				                	<label class="control-label">Address: </label>
-									<a>{{$client->barangay}} {{$client->town}} {{$client->province}} {{$client->city}}</a><br>
+									<a>{{ $client->barangay }} {{ $client->town }} {{ $client->province }} {{ $client->city }}</a><br>
 
 				                	<label class="control-label">Phone: </label>
-									<a>{{$client->contact}}</a><br>
+									<a>{{ $client->contact }}</a><br>
 
 				               		<hr>
 

@@ -15,39 +15,45 @@
 			<div class="card-body">
 				<form class="form">
 						<div class="form-group row justify-content-center">
-							<label class="col-lg-4 col-form-label">Username</label>
-								<div class="col-lg-7 form-control">
+							<label class="col-lg-3 col-form-label">Username</label>
+								<div class="col-lg-8 form-control">
 									{{ Auth::user()->username }}
 								</div>
 						</div>
 						<div class="form-group row justify-content-center">
-							<label class="col-lg-4 col-form-label">First Name</label>
-								<div class="col-lg-7 form-control">
+							<label class="col-lg-3 col-form-label">First Name</label>
+								<div class="col-lg-8 form-control">
 									{{ $client->fname }}
 								</div>
 						</div>
 						<div class="form-group row justify-content-center">
-							<label class="col-lg-4 col-form-label">Last Name</label>
-								<div class="col-lg-7 form-control">
+							<label class="col-lg-3 col-form-label">Last Name</label>
+								<div class="col-lg-8 form-control">
 									{{ $client->lname }}
 								</div>
 						</div>
 						<div class="form-group row justify-content-center">
-							<label class="col-lg-4 col-form-label">Address</label>
-								<div class="col-lg-7 form-control">
-									{{ $client->barangay }} {{ $client->town}} {{ $client->city }}
-								</div>
-						</div>
-						<div class="form-group row justify-content-center">
-							<label class="col-lg-4 col-form-label">Email</label>
-								<div class="col-lg-7 form-control">
-									{{ Auth::user()->email }}
-								</div>
-						</div>
-						<div class="form-group row justify-content-center">
-							<label class="col-lg-4 col-form-label">Contact Number</label>
-								<div class="col-lg-7 form-control">
+							<label class="col-lg-3 col-form-label">Contact Number</label>
+								<div class="col-lg-8 form-control">
 									{{ $client->contact }}
+								</div>
+						</div>
+						<div class="form-group row justify-content-center">
+							<label class="col-lg-3 col-form-label">Gender</label>
+								<div class="col-lg-8 form-control">
+									{{ $client->gender }}
+								</div>
+						</div>
+						<div class="form-group row justify-content-center">
+							<label class="col-lg-3 col-form-label">Address</label>
+								<div class="col-lg-8 form-control">
+									{{ $client->barangay }} {{ $client->town}} {{ $client->province }} {{ $client->city }}
+								</div>
+						</div>
+						<div class="form-group row justify-content-center">
+							<label class="col-lg-3 col-form-label">Email</label>
+								<div class="col-lg-8 form-control">
+									{{ Auth::user()->email }}
 								</div>
 						</div>
 		            
