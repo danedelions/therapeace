@@ -29,26 +29,6 @@
 					    		</button>
 							</div>
 						{!! Form::close() !!}
-					<!-- <form class="form">
-						<div class="form-group col-md-12">
-							<label>Enter Location</label>
-							<input type="text" class="form-control">
-						</div>
-						<div class="form-group col-md-12">
-							<label>Therapist Type</label>
-							<select class="form-control">
-								<option>Occupational Therapist</option>
-								<option>Physical Therapist</option>
-							</select>
-						</div>
-						<div class="form-group col-md-12">
-							<label>Specialty</label>
-							<input type="text" class="form-control">
-						</div>
-						<div class="card-footer col-sm-4">
-							<button class="btn btn-success">Submit</button>
-						</div>
-					</form> -->
 				</div>
 			</div>
 		</div>
@@ -107,6 +87,7 @@
 
 <script>
 	function initMap() {
+		//------------initial------------//
 		function userLocation() {
 			var defaultLat = parseFloat($('[name=latitude]').val()) ||  10.3157,
 				defaultLng =  parseFloat($('[name=longitude]').val()) ||  123.8854;
@@ -124,51 +105,86 @@
 			position: userLocation()
 			});
 
+		//------//
+
+		infoWindow = new google.maps.InfoWindow;
+
+		//------------Try HTML5 geolocation.------------//
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('<b style="color:green;">You are here</b>');
+            infoWindow.open(map);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+    }
+
+       //------------search functions------------//
 		var input = document.getElementById('searchTextField');
         var autocomplete = new google.maps.places.Autocomplete(input, {
-             types: ["geocode"]
+            types: ["geocode"]
+        });
+        autocomplete.bindTo('bounds', map);
+        var infowindow = new google.maps.InfoWindow();
+        google.maps.event.addListener(autocomplete, 'place_changed', function (event) {
+         		infowindow.close();
+            	var place = autocomplete.getPlace();
+            	if (place.geometry.viewport) {
+                	map.fitBounds(place.geometry.viewport);
+            	} else {
+                	map.setCenter(place.geometry.location);
+                	map.setZoom(17);
+             	}
+            	moveMarker(place.name, place.geometry.location);
+            	$('.MapLat').val(place.geometry.location.lat());
+            	$('.MapLon').val(place.geometry.location.lng());
          });
-         autocomplete.bindTo('bounds', map);
-         var infowindow = new google.maps.InfoWindow();
-         google.maps.event.addListener(autocomplete, 'place_changed', function (event) {
-             infowindow.close();
-             var place = autocomplete.getPlace();
-             if (place.geometry.viewport) {
-                 map.fitBounds(place.geometry.viewport);
-             } else {
-                 map.setCenter(place.geometry.location);
-                 map.setZoom(17);
-             }
-             moveMarker(place.name, place.geometry.location);
-             $('.MapLat').val(place.geometry.location.lat());
-             $('.MapLon').val(place.geometry.location.lng());
-         });
-         google.maps.event.addListener(map, 'click', function (event) {
-             $('.MapLat').val(event.latLng.lat());
-             $('.MapLon').val(event.latLng.lng());
-             infowindow.close();
-                     var geocoder = new google.maps.Geocoder();
-                     geocoder.geocode({
-                         "latLng":event.latLng
-                     }, function (results, status) {
-                         console.log(results, status);
-                         if (status == google.maps.GeocoderStatus.OK) {
-                             console.log(results);
-                             var lat = results[0].geometry.location.lat(),
-                                 lng = results[0].geometry.location.lng(),
-                                 placeName = results[0].address_components[0].long_name,
-                                 latlng = new google.maps.LatLng(lat, lng);
-                             moveMarker(placeName, latlng);
-                             $("#searchTextField").val(results[0].formatted_address);
+
+        google.maps.event.addListener(map, 'click', function (event) {
+            $('.MapLat').val(event.latLng.lat());
+            $('.MapLon').val(event.latLng.lng());
+            infowindow.close();
+                    var geocoder = new google.maps.Geocoder();
+                    geocoder.geocode({
+                        	"latLng":event.latLng
+                    	}, function (results, status) {
+                        	console.log(results, status);
+                        	if (status == google.maps.GeocoderStatus.OK) {
+                            	console.log(results);
+                            	var lat = results[0].geometry.location.lat(),
+                                	lng = results[0].geometry.location.lng(),
+                                	placeName = results[0].address_components[0].long_name,
+                                	latlng = new google.maps.LatLng(lat, lng);
+                            	moveMarker(placeName, latlng);
+                            	$("#searchTextField").val(results[0].formatted_address);
                          }
                      });
          });
         
-         function moveMarker(placeName, latlng) {
-             marker.setIcon(image);
-             marker.setPosition(latlng);
-             infowindow.setContent(placeName);
-             //infowindow.open(map, marker);
+        function moveMarker(placeName, latlng) {
+            marker.setIcon(image);
+            marker.setPosition(latlng);
+            infowindow.setContent(placeName);
+            //infowindow.open(map, marker);
          }
 	}
 </script>

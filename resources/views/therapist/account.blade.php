@@ -21,49 +21,47 @@
                 <input type="submit" value="Upload Image" name="submit" class="btn btn-primary btn-sm">
                   </center>
               </form>
-              @foreach($therapist as $data)
             </div>
             <div class="form-control-labelgroup row">
               <label class="col-lg-3 col-form-label form-control-label">Username:</label>
                 <div class="col-lg-9">
-                  {{ $data->username }}
+                  {{ Auth::user()->username }}
                 </div>
             </div>
             <div class="form-group row">
                <label class="col-lg-3 col-form-label form-control-label">First Name:</label>
                 <div class="col-lg-9">
-                  {{ $ata->firstname }}
+                  {{ $therapist->fname }}
                 </div>
             </div>
             <div class="form-group row">
                <label class="col-lg-3 col-form-label form-control-label">Last Name:</label>
                 <div class="col-lg-9">
-                  {{ $data->lastname }}
+                  {{ $therapist->lname }}
                 </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Address:</label>
                 <div class="col-lg-9">
-                  {{ $data->address }}
+                  {{ $therapist->address }}
                 </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Email:</label>
                 <div class="col-lg-9">
-                  {{ $data->email }}
+                  {{ Auth::user()->email }}
                 </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Contact Number:</label>
                 <div class="col-lg-9">
-                   {{ $data->contact}} 
+                   {{ $therapist->contact}} 
             </div>  
           </div>
           <a  value="Edit Info" class="btn btn-success" href="{{url('/therapist-edit/'. $therapist->id )}}"><i class="far fa-edit"></i>Edit</a>
         </div>
       </div>
     </div>
-    @endforeach
  {!! Form::close() !!}  
     <div class="col-sm-5 col-md-5 col-lg-7">
       <div class="card">

@@ -31,7 +31,6 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-<<<<<<< HEAD
     public function therapist()
     {
         return $this->hasOne('App\therapist', 'user_id', 'id');
@@ -40,12 +39,7 @@ class User extends Authenticatable
     public function client()
     {
         return $this->hasOne('App\Client', 'user_id', 'id');
-=======
-
-    public function therapist()
-    {
-        return $this->hasOne(Therapist::class, 'user_id');
->>>>>>> 148cb2c4ed8505dc3f1ba38179f54c1b5902d685
     }
+
 
 }

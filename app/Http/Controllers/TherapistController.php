@@ -99,22 +99,12 @@ class TherapistController extends Controller
 
         User::where('id', $therapist->id)->update($request->only(['username']));
 
-<<<<<<< HEAD
     }
 
     public function therapistAccount(){
-      
-        return view('therapist.account');
-=======
-        return redirect()->route('therapist.index');
-
-
-    }
-
-    public function therapistAccount(){
-         $therapist = Therapist::ofUser(Auth::id())->first();
+        $therapist = Therapist::ofUser(Auth::id())->first();
+        
         return view('therapist.account', compact('therapist'));
->>>>>>> 148cb2c4ed8505dc3f1ba38179f54c1b5902d685
     }
     public function therapistAppoint(){
 
