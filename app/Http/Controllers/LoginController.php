@@ -37,7 +37,7 @@ class LoginController extends Controller
         }else{
              return "wrong".Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
         }
-        }
+        // }
              //    user::where('username', 'name');
 
              // return "sakto".Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
@@ -67,18 +67,10 @@ class LoginController extends Controller
     public function Logout(Request $request)
     {
     Auth::logout();
-<<<<<<< HEAD
 
     session()->flash('message', 'Some goodbye message');
 
     return redirect('/');
-
-=======
-
-    session()->flash('message', 'Some goodbye message');
-
-    return redirect('/');
->>>>>>> f66c4cd13c541a637363c86a9bdb6a62b5ca480c
     }
 
 

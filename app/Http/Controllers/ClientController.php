@@ -7,14 +7,14 @@ use App\Http\Requests\ClientRequest;
 use App\Client;
 use Hash;
 use App\User;
-
+use Validator;
 
 class ClientController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except(['index', 'store']);;
     }
     /**
      * Display a listing of the resource.
@@ -62,17 +62,48 @@ class ClientController extends Controller
     {
         return view('client.find');
     }
-    public function clientAccount()
+    public function clientAccount(Client $client)
     {
-        return view('client.account');
+        $clients = Client::all();
+        return view('client.account', compact('clients'));
     }
-    public function clientEdit()
+    public function clientEdit($id)
     {
-        return view('client.edit');
+        $clients = Client::find($id);
+        return view('client.edit', compact('clients', 'id'));
     }
-    public function clientHistory()
+    public function clientUpdate(Request $request, $id)
     {
-        return view('client.history');
+        $this->validate($request, array(
+            'fname' => 'required|alpha_spaces', 
+            'lname' =>  'required|alpha_spaces',
+            'contact' => 'numeric|between:1,20',
+            'gender' => 'required',
+            'barangay' => 'required' ,
+            'province' => 'required' ,
+            'town' => 'required',
+            'city' => 'required',
+        ));
+
+        $client = Client::find($id);
+
+        $client->fname = $request->get('fname');
+        $client->lname = $request->get('lname');
+        $client->contact = $request->get('contact');
+        $client->gender = $request->get('gender');
+        $client->barangay = $request->get('barangay');
+        $client->province = $request->get('province');
+        $client->town = $request->get('town');
+        $client->city = $request->get('city');
+
+        $client->save();
+
+        return redirect()->route('get.client.account');
+    }
+    public function clientHistory(Client $client)
+    {
+        $clients = Client::all();
+        return view('client.history', compact('clients'));
     }
     public function clientMessage()
     {

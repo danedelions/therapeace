@@ -1,6 +1,9 @@
 @extends('layouts.cli')
+
 @section('title', 'Find')
+
 @section('page-section')
+
 <div class="row"> <!--  <div class="row">  --><!-- <div class="col-md-5"> -->
 	<div class="col-sm-4 col-md-4 col-lg-4">
 		<div class="card">

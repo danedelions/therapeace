@@ -1,7 +1,11 @@
 @extends('layouts.cli')
+
 @section('title', 'Account')
+
 @section('page-section')
+
 @include('modals.client')
+
 <div class="row"> <!-- 	<div class="row">  --><!-- <div class="col-md-5"> -->
 	<div class="col-sm-5 col-md-5 col-lg-5">
 		<div class="card ">
@@ -10,45 +14,58 @@
 			</div>
 			<div class="card-body">
 				<form class="form">
-					<div class="form-group row">
-						<label class="col-lg-3 col-form-label">Username</label>
-							<div class="col-lg-9">
-								<input class="form-control" type="text" value="juan" disabled="disabled">
-							</div>
+
+					@foreach($clients as $client)
+
+					<div class="form-group row justify-content-center">
+						{{ Form::label('username', 'Username', ['class' => 'col-lg-4 col-form-label']) }}
+						{{ Form::text('username', Auth::user()->username, array_merge(['class' => 'col-lg-7 form-control', 'disabled' => 'disabled'])) }}
 					</div>
-					<div class="form-group row">
-						<label class="col-lg-3 col-form-label">First name</label>
-							<div class="col-lg-9">
-								<input class="form-control" type="text" value="Juan" disabled="disabled">
-							</div>
+					<div class="form-group row justify-content-center">
+						{{ Form::label('fname', 'First Name', ['class' => 'col-lg-4 col-form-label']) }}
+						{{ Form::text('fname', $client->fname, array_merge(['class' => 'col-lg-7 form-control', 'disabled' => 'disabled'])) }}
 					</div>
-					<div class="form-group row">
-						<label class="col-lg-3 col-form-label">Last name</label>
-							<div class="col-lg-9">
-								<input class="form-control" type="text" value="Dela Cruz" disabled="disabled">
-							</div>
+					<div class="form-group row justify-content-center">
+						{{ Form::label('lname', 'Last Name', ['class' => 'col-lg-4 col-form-label']) }}
+						{{ Form::text('lname', $client->lname, array_merge(['class' => 'col-lg-7 form-control', 'disabled' => 'disabled'])) }}
 					</div>
-					<div class="form-group row">
-						<label class="col-lg-3 col-form-label">Gender</label>
-							<div class="col-lg-9">
-								<input class="form-control" type="text" value="Male" disabled="disabled">
-							</div>
-					</div>			
-					<div class="form-group row">
-						<label class="col-lg-3 col-form-label">Email</label>
-							<div class="col-lg-9">
-								<input class="form-control" type="email" value="juan@gmail.com" disabled="disabled">
-							</div>
+					<div class="form-group row justify-content-center">
+						{{ Form::label('gender', 'Gender', ['class' => 'col-lg-4 col-form-label']) }}
+						{{ Form::text('gender', $client->gender, array_merge(['class' => 'col-lg-7 form-control', 'disabled' => 'disabled'])) }}
+					</div>		
+					<div class="form-group row justify-content-center">
+						{{ Form::label('email', 'Email Address', ['class' => 'col-lg-4 col-form-label']) }}
+						{{ Form::text('email', Auth::user()->email, array_merge(['class' => 'col-lg-7 form-control', 'disabled' => 'disabled'])) }}
 					</div>
-					<div class="form-group row">
-						<label class="col-lg-3 col-form-label">Address</label>
-							<div class="col-lg-9">
-								<input class="form-control" type="text" value="Malayo Cortes Bohol" disabled="disabled">
-							</div>
+					<div class="form-group row justify-content-center">
+						{{ Form::label('contact', 'Contact Number', ['class' => 'col-lg-4 col-form-label']) }}
+						{{ Form::text('contact', $client->contact, array_merge(['class' => 'col-lg-7 form-control', 'disabled' => 'disabled'])) }}
 					</div>
-					<div>
-						<label style="display:block; width:x; height:y; text-align:right;"><a href="/client-edit"><i class="far fa-edit"></i> Edit</a></label>
+
+				<hr>
+
+					<div class="form-group row justify-content-center">
+						{{ Form::label('barangay', 'Barangay', ['class' => 'col-lg-4 col-form-label']) }}
+						{{ Form::text('barangay', $client->barangay, array_merge(['class' => 'col-lg-7 form-control', 'disabled' => 'disabled'])) }}
 					</div>
+					<div class="form-group row justify-content-center">
+						{{ Form::label('town', 'Town', ['class' => 'col-lg-4 col-form-label']) }}
+						{{ Form::text('town', $client->town, array_merge(['class' => 'col-lg-7 form-control', 'disabled' => 'disabled'])) }}
+					</div>
+					<div class="form-group row justify-content-center">
+						{{ Form::label('province', 'Province', ['class' => 'col-lg-4 col-form-label']) }}
+						{{ Form::text('province', $client->province, array_merge(['class' => 'col-lg-7 form-control', 'disabled' => 'disabled'])) }}
+					</div>
+					<div class="form-group row justify-content-center">
+						{{ Form::label('city', 'City', ['class' => 'col-lg-4 col-form-label']) }}
+						{{ Form::text('city', $client->city, array_merge(['class' => 'col-lg-7 form-control', 'disabled' => 'disabled'])) }}
+					</div>
+					<div style="display:block; width:x; height:y; text-align:right;">
+						<a href="{{ URL::to('/client-edit', $client->id) }}"><i class="far fa-edit"></i> Edit</a>
+					</div>
+
+					@endforeach
+					
 				</form>
 			</div>
 		</div>

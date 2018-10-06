@@ -52,16 +52,22 @@
 								</tr>
 							</thead>
 							<tbody>
+
+								@foreach($client as $row)
+
 								<tr>
-									<td>8-9-2018</td>
-									<td>9:00</td>
-									<td>Daniela Echavez</td>
-									<td>980.00</td>
+									<td>mm-dd-yyyy</td>
+									<td>00:00:00</td>
+									<td>NOT AVAILABLE</td>
+									<td>0000</td>
 									<td>
 										<button class="btn btn-outline-info" href="#" data-toggle="modal" data-target="#viewTransaction"><i style="color:black;" class="fas fa-eye"></i></button>
 										<button class="btn btn-outline-danger" href="#" data-toggle="modal" data-target="#deleteTransaction"><i style="color:black;" class="fas fa-trash-alt"></i></button>
 									</td>
 								</tr>
+
+								#endforeach
+
 							</tbody>
 						</table>
 					</div>

@@ -47,9 +47,12 @@ Route::group(['middleware' => 'auth'], function(){
 // CLIENT
 	Route::get('/client-find', 'ClientController@clientFind')->name('get.client-find');
 	Route::get('/client-account', 'ClientController@clientAccount')->name('get.client-account');
-	Route::get('/client-edit', 'ClientController@clientEdit')->name('get.client-edit');
-	Route::get('/client-history', 'ClientController@clientHistory')->name('get.client-history');;
-	Route::get('/client-message', 'ClientController@clientMessage')->name('get.client-message');;
+	Route::get('/client-edit/{id}', 'ClientController@clientEdit');
+	Route::get('/client-history', 'ClientController@clientHistory')->name('get.client-history');
+	Route::get('/client-message', 'ClientController@clientMessage')->name('get.client-message');
+
+	Route::get('/client-transaction', 'PrintController@index');
+	Route::get('/printpreview','PrintController@printClient');
 
 // Admin Side
 // Route::get('admin', 'AdminController@getDashboard')->name('get.admin'); 

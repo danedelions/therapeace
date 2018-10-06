@@ -15,30 +15,35 @@
 						</h5>
 					</div>
 
+					@foreach($clients as $client)
+
 					<div class="card-body">
 						<div class="row">
 							<div class="col-md-12" id="transaction">
 			                	<label class="control-label">Patient Name: </label>
-								<a>Tiffany Centillas</a><br>
+								<a>{{$client['fname']}} {{$client['lname']}}</a><br>
 
 			                	<label class="control-label">Address: </label>
-								<a>Malayo Nortes, Cortes Bohol</a><br>
+								<a>{{$client['barangay']}} {{$client['town']}} {{$client['province']}} {{$client['city']}}</a><br>
 
 			                	<label class="control-label">Phone: </label>
-								<a>09099429744</a><br>
+								<a>{{$client['contact']}}</a><br>
 
-			                	<label class="control-label">Date of Birth: </label>
-								<a>March 3, 2018</a> 
-			                <hr>
-			                	<label class="control-label">Physician: </label>
-								<a>Daniela Echavez</a><br>
+			               		<hr>
+			        @endforeach
+
+			                	<label class="control-label">Therapist: </label>
+								<a></a><br>
 
 			                	<label class="control-label">Diagnosis: </label>
-								<a>Inability to do project due to procrastination </a><br>
+								<a></a><br>
 
 			                	<label class="control-label">Order: </label>
-								<a>Occupational Therapy</a>
-							<hr>
+								<a></a>
+								<hr>
+
+
+
 								<table class="table table-default">
 									<thead>
 										<tr>
@@ -50,16 +55,17 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td>Random stuff</td>
-											<td>100</td>
-											<td>70</td>
-											<td>900</td>
+											<td>description</td> 
+											<td>000</td>
+											<td>000</td>
+											<td>000</td>
 										</tr>
 									</tbody>
 								</table>
 							</div>
 						</div>
 					</div>
+
 				</div>		
 			</div>
 			<div class="modal-footer">
