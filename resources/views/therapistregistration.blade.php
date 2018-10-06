@@ -1,4 +1,5 @@
- @extends('layouts.app')
+<!-- oninput="this.className = ''" -->
+@extends('layouts.app')
 
 @section('page-body')
 
@@ -11,14 +12,14 @@
 
     <div class="tab">
     <h6>Upload profile picture</h6>
-    <form action="upload.php" method="post" enctype="multipart/form-data">
-    <input type="file" name="image" id="fileToUpload"> 
+    <form action="upload.php" method="post" enctype="multipart/form-data" class="form-group">
+    <input type="file" name="image" id="fileToUpload" class="form-control"> 
     <br>
     Name:
-    <p><input placeholder="First name..." oninput="this.className = ''" name="fname"></p>
-    <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
-     <p><input placeholder="Email" oninput="this.className = ''" name="email"></p>
-    <p><input placeholder="Contact Number" oninput="this.className = ''" name="number"></p>
+    <p><input placeholder="First name..."  name="fname" class="form-control"></p>
+    <p><input placeholder="Last name..."  name="lname" class="form-control"></p>
+     <p><input placeholder="Email"  name="email" class="form-control"></p>
+    <p><input placeholder="Contact Number"  name="number" class="form-control"></p>
         <select id="gender" class="form-control" name="gender">
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
@@ -26,36 +27,36 @@
                         </div>
   </div><br>
   <div class="tab">Address:
-    <p><input placeholder="Street Address" oninput="this.className = ''" name="streetaddress" id="streetaddress"></p>
-    <p><input placeholder="City" oninput="this.className = ''" name="city" id="locality"></p>
-    <p><input placeholder="Town" oninput="this.className = ''" name="town" id="town"></p>
-    <p><input placeholder="Province" oninput="this.className = ''" name="province" id="province"></p>
-    <p><input placeholder="Barangay" oninput="this.className = ''" name="barangay" id="barangay"></p>
-    <p><input placeholder="Postal Code" oninput="this.className = ''" name="postal_code" id="postal_code" type="number"></p>
-    <p><input placeholder="Country" oninput="this.className = ''" name="country" id="country"></p>
+    <p><input id="autocomplete" placeholder="Enter Your Address Here to Fill Up the Form" onfocus="geolocate()" type="text" class="form-control"></p>
+    <p><input placeholder="Street Address"  name="streetaddress" id="route" class="form-control"></p>
+    <p><input placeholder="Barangay"  name="barangay" id="barangay" class="form-control"></p>
+    <p><input placeholder="City"  class="form-control" name="city" id="locality"></p>
+    <p><input placeholder="Town"  name="town" id="town" class="form-control"></p>
+    <p><input placeholder="Province"  name="province" id="administrative_area_level_2" class="form-control"></p>
+    <p><input placeholder="Postal Code"  name="postal_code" id="postal_code" class="form-control"></p>
+    <p><input placeholder="Country"  name="country" id="country" class="form-control"></p>
   
   </div>
   <div class="tab" >License:
     <br><br>
   <form class="col-md-4">
-    <select select class="form-control select2" name="therapist">
+    <select select class="form-control select2" name="therapist" class="form-control">
        <option value="Physical Therapist" style="width:250px">Physical Therapist</option>
       <option value="Occupational Therapist" style="width:250px">Occupational therapy</option>
     </select><br>
-    <p><input placeholder="License Number" oninput="this.className = ''" name="license_number" type="number"></p>
-    <p><input placeholder="Expriry Date" oninput="this.className = ''" name="expiry_date" type="date"></p>
-     <form action="upload.php" method="post" enctype="multipart/form-data">
-    <input type="file" name="license_image" id="fileUpload2"> 
-   <br> <form action="upload.php" method="post" enctype="multipart/3orm-data">
-  <input type="file" name="nbi_image" id="fileUpload3"> 
-   <br> <form action="upload.php" method="post" enctype="multipart/form-data">
-    <input type="file" name="bc_image" id="fileUpload4"> 
+    <p><input placeholder="License Number"  name="license_number" type="number" class="form-control"></p>
+    <p><input class="form-control" placeholder="Expriry Date"  name="expiry_date" type="date"></p>
+    <input type="file" name="license_image" id="fileUpload2" class="form-control"> 
+   <br>
+  <input type="file" name="nbi_image" id="fileUpload3" class="form-control"> 
+   <br>
+    <input type="file" name="bc_image" id="fileUpload4" class="form-control"> 
    <br><br>
  </div>
     <div class="tab">Profile:
-    <p><input placeholder="User Name" oninput="this.className = ''" name="username"></p>
-    <p><input placeholder="Password" oninput="this.className = ''" name="password" type="password"></p>
-    <p><input placeholder="Re-type Password" oninput="this.className = ''" name="re-password" type="password"></p>
+    <p><input placeholder="User Name"  name="username" class="form-control"></p>
+    <p><input placeholder="Password"  name="password" type="password" class="form-control"></p>
+    <p><input placeholder="Re-type Password"  name="re-password" type="password" class="form-control"></p>
   </div>
 
   <div class="tab">Done:
@@ -95,110 +96,69 @@ Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facili
   </div>
 </form>
     </form>
+  </div>
+</form>
  <script>
-  function initMap() {
-    //------------initial------------//
-    function userLocation() {
-      var defaultLat = parseFloat($('[name=latitude]').val()) ||  10.3157,
-        defaultLng =  parseFloat($('[name=longitude]').val()) ||  123.8854;
-      return {
-        lat: defaultLat,
-        lng: defaultLng
+      var placeSearch, autocomplete;
+      var componentForm = {  
+        route: 'long_name',
+        locality: 'long_name',
+        administrative_area_level_2: 'short_name',
+        country: 'long_name',
+        postal_code: 'short_name'
+      };
+
+      function initAutocomplete() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+            {types: ['geocode']});
+
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+        autocomplete.addListener('place_changed', fillInAddress);
       }
+
+      function fillInAddress() {
+        // Get the place details from the autocomplete object.
+        var place = autocomplete.getPlace();
+
+        for (var component in componentForm) {
+          document.getElementById(component).value = '';
+          document.getElementById(component).disabled = false;
+        }
+
+        // Get each component of the address from the place details
+        // and fill the corresponding field on the form.
+        for (var i = 0; i < place.address_components.length; i++) {
+          var addressType = place.address_components[i].types[0];
+          if (componentForm[addressType]) {
+            var val = place.address_components[i][componentForm[addressType]];
+            document.getElementById(addressType).value = val;
+          }
+        }
       }
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 16,
-      center:  userLocation()
-      });
-    var marker = new google.maps.Marker({
-      map: map,
-      position: userLocation()
-      });
 
-    //------//
-
-    infoWindow = new google.maps.InfoWindow;
-
-    //------------Try HTML5 geolocation.------------//
+      // Bias the autocomplete object to the user's geographical location,
+      // as supplied by the browser's 'navigator.geolocation' object.
+      function geolocate() {
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
+            var geolocation = {
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('<b style="color:green;">You are here</b>');
-            infoWindow.open(map);
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
+            var circle = new google.maps.Circle({
+              center: geolocation,
+              radius: position.coords.accuracy
+            });
+            autocomplete.setBounds(circle.getBounds());
           });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
         }
-
-
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
-    }
-
-       //------------search functions------------//
-    var input = document.getElementById('searchTextField');
-        var autocomplete = new google.maps.places.Autocomplete(input, {
-            types: ["geocode"]
-        });
-        autocomplete.bindTo('bounds', map);
-        var infowindow = new google.maps.InfoWindow();
-        google.maps.event.addListener(autocomplete, 'place_changed', function (event) {
-            infowindow.close();
-              var place = autocomplete.getPlace();
-              if (place.geometry.viewport) {
-                  map.fitBounds(place.geometry.viewport);
-              } else {
-                  map.setCenter(place.geometry.location);
-                  map.setZoom(17);
-              }
-              moveMarker(place.name, place.geometry.location);
-              $('.MapLat').val(place.geometry.location.lat());
-              $('.MapLon').val(place.geometry.location.lng());
-         });
-
-        google.maps.event.addListener(map, 'click', function (event) {
-            $('.MapLat').val(event.latLng.lat());
-            $('.MapLon').val(event.latLng.lng());
-            infowindow.close();
-                    var geocoder = new google.maps.Geocoder();
-                    geocoder.geocode({
-                          "latLng":event.latLng
-                      }, function (results, status) {
-                          console.log(results, status);
-                          if (status == google.maps.GeocoderStatus.OK) {
-                              console.log(results);
-                              var lat = results[0].geometry.location.lat(),
-                                  lng = results[0].geometry.location.lng(),
-                                  placeName = results[0].address_components[0].long_name,
-                                  latlng = new google.maps.LatLng(lat, lng);
-                              moveMarker(placeName, latlng);
-                              $("#searchTextField").val(results[0].formatted_address);
-                         }
-                     });
-         });
-        
-        function moveMarker(placeName, latlng) {
-            marker.setIcon(image);
-            marker.setPosition(latlng);
-            infowindow.setContent(placeName);
-            //infowindow.open(map, marker);
-         }
-  }
+      }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD85clj7B85QRZPmO6m4Fky0Wi6P0MzVpA&libraries=places&callback=initMap"
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD85clj7B85QRZPmO6m4Fky0Wi6P0MzVpA&libraries=places&callback=initAutocomplete"
 async defer></script>
 </body>
 </html>

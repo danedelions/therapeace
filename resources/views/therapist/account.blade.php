@@ -31,20 +31,20 @@
             </div>
             <div class="form-group row">
                <label class="col-lg-3 col-form-label form-control-label">First Name:</label>
-                <div class="col-lg-9"><br>
-                  {{ $therapist->fname }}
+                <div class="col-lg-9">
+                  Name
                 </div>
             </div>
             <div class="form-group row">
                <label class="col-lg-3 col-form-label form-control-label">Last Name:</label>
                 <div class="col-lg-9">
-                  {{ $therapist->lname }}
+                  Name
                 </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Address:</label>
                 <div class="col-lg-9">
-                  {{ $therapist->streetaddress }}
+                  Address
                 </div>
             </div>
             <div class="form-group row">
@@ -55,9 +55,9 @@
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Contact Number:</label>
-                <div class="col-lg-9"><br>
-                   {{ $therapist->contact}} 
-            </div>  
+                <div class="col-lg-9">
+                   contact  
+                </div> 
           </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Input Speacialties:</label>

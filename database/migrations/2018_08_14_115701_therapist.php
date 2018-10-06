@@ -35,9 +35,6 @@ class Therapist extends Migration
             $table->string('bc_image')->nullable();
             $table->rememberToken();
             $table->timestamps();
-
-
-            
         });
           Schema::table('therapists', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

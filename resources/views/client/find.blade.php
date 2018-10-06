@@ -3,36 +3,7 @@
 @section('title', 'Find')
 
 @section('page-section')
-
-
-<div class="row"> <!--  <div class="row">  --><!-- <div class="col-md-5"> -->
-	<div class="col-sm-4 col-md-4 col-lg-4">
-		<div class="card">
-			<div class="card-header">
-				<h5>Search</h5>
-			</div>
-			<div class="card-body">
-				<form class="form">
-					<div class="form-group col-md-12">
-						<label>Enter Location</label>
-						<input type="text" class="form-control">
-					</div>
-					<div class="form-group col-md-12">
-						<label>Therapist Type</label>
-						<select class="form-control">
-							<option>Occupational Therapist</option>
-							<option>Physical Therapist</option>
-						</select>
-					</div>
-					<div class="form-group col-md-12">
-						<label>Specialty</label>
-						<input type="text" class="form-control">
-					</div>
-					<div class="card-footer col-sm-4">
-						<button class="btn btn-success">Submit</button>
-					</div>
-				</form>
-
+<div class="col-md-12">
 	<div class="row">
 		<div class="col-sm-4 col-md-4 col-lg-4">
 			<div class="card">
@@ -52,8 +23,8 @@
 								{!! Form::inputGroup('text', 'Specialty', 't_specialties', null, ['placeholder' => 'Specialty']) !!}
 							</div>
 							<div class="form-group col-md-12">
-								latitude:<input name="latitude" class="MapLat" value="" type="text" placeholder="Latitude" style="width: 161px;" disabled>
-								longitude:<input name="longitude" class="MapLon" value="" type="text" placeholder="Longitude" style="width: 161px;" disabled>
+								<input name="latitude" class="MapLat" value="" type="text" placeholder="Latitude" style="width: 161px;" hidden>
+								<input name="longitude" class="MapLon" value="" type="text" placeholder="Longitude" style="width: 161px;" hidden>
 							</div>
 							<div class="card-footer col-md-12">
 								<button class="btn btn-default" type="submit">
@@ -65,7 +36,7 @@
 			</div>
 		</div>
 
-	<div class="col-sm-6 col-md-6 col-lg-8">
+	<div class="col-sm-8 col-md-8 col-lg-8">
 		<div class="card text-white bg-success mb-3">
 			<div class="card-header">
 				<h5>Who's Nearby</h5>
@@ -81,7 +52,7 @@
 		</div>
 	</div>
 
-	<div class="col-sm-6 col-md-6 col-lg-12">
+	<div class="col-sm-6 col-md-12 col-lg-12">
 		<div class="card">
 			<div class="card-header bg-info">
 			<h5>Therapists Found...</h5>
@@ -113,6 +84,7 @@
 				</table>
 			</div>
 		</div>    	
+	</div>
 </div>
 
 <br>
@@ -165,7 +137,7 @@
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
+                              '<text style="color:red;">Error: The Geolocation service failed.</text>' :
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
     }
