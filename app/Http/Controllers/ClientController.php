@@ -16,9 +16,8 @@ class ClientController extends Controller
     public function __construct()
     {
 
-        $this->middleware('auth')->except(['index', 'store']);;
-
         $this->middleware('auth')->except(['index', 'store']);
+
 
     }
     /**

@@ -72,16 +72,19 @@ class TherapistController extends Controller
             'bc_image' => $request->post('bc_image'),
 
         ]);
-        $this->getData();
+      
 
         return view('login');
     }
 
     public function edit($userId)
     {  
-        $therapist = Therapist::with('user')->find($userId);
+
+        $therapist = Therapist::find($userId)->load('user');
+
 
         return view('therapist.edit', compact('therapist'));
+
     }
 
     /**
@@ -91,20 +94,38 @@ class TherapistController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(TherapistRequest $request, Therapist $therapist, $id)
+    public function update(TherapistRequest $request, $id)
     {
-        dd($request->toArray());
+        // dd($therapist->toArray());
+        $therapist = Therapist::find($id);
+        $request = $request->validated();
+        // dd($request);
+        if(isset($request['image'])){
+            $request['image'] = request()->file('image')->store('image', 'public');
+        }
 
+        if(isset($request['license_image'])){
+            $request['license_image'] = request()->file('license_image')->store('image', 'public');
+        }
+
+            
         $therapist->fill($request)->save();
 
-        User::where('id', $therapist->id)->update($request->only(['username']));
+        User::where('id', Auth::id())->update(['username' => $request['username'], 'email' => $request['email']]);
+
+
+        return redirect()->route('get.therapist-account');
+
 
     }
 
     public function therapistAccount(){
         $therapist = Therapist::ofUser(Auth::id())->first();
         
+
         return view('therapist.account', compact('therapist'));
+
+        
     }
     public function therapistAppoint(){
 
@@ -117,6 +138,24 @@ class TherapistController extends Controller
     public function therapistMessage(){
 
         return view('therapist.message');
+
+    }   
+
+       public function therapistEdit(){
+
+
+        // $user = DB::table('users')->where('id', );
+
+
+
+        // $user = User::get()->toArray();
+
+        // dd($user);
+
+
+
+         return view('therapist.edit');
+
     }
  
 }
