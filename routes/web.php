@@ -48,7 +48,8 @@ Route::group(['middleware' => 'auth'], function(){
 // CLIENT
 	Route::get('/client-find', 'ClientController@clientFind')->name('get.client-find');
 	Route::get('/client-account', 'ClientController@clientAccount')->name('get.client-account');
-	Route::get('/client-edit/{id}', 'ClientController@clientEdit');
+	Route::get('/client-edit/{id}', 'ClientController@edit');
+	Route::patch('/client-update/{id}' ,'ClientController@update');
 	Route::get('/client-history', 'ClientController@clientHistory')->name('get.client-history');
 	Route::get('/client-message', 'ClientController@clientMessage')->name('get.client-message');
 

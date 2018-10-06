@@ -12,46 +12,37 @@
 			</div>
 			<div class="card-body">
 
-                {!! Form::open(['url' => ['/client-account','$clients->$id'], 'files' => true, 'method' => 'PUT']) !!}
-
-                    {{ csrf_field() }}
-
+                {!! Form::model($client, ['url'=> route('client.update', ['id'=>$client->id]),'method'=>'PATCH', 'files'=>true,'role'=>'form']) !!}
+                {!! csrf_field() !!}
                     <input type="hidden" name="_method" value="PATCH">
-                    <div class="form-group row justify-content-center">
-                        {{ Form::label('fname', 'First Name', ['class' => 'col-lg-4 col-form-label']) }}
-                        {{ Form::text('fname', $clients->fname, array_merge(['class' => 'col-lg-7 form-control'])) }}
+                    <div class="form-group col-md-6">
+                        {!! Form::inputGroup('text', 'First Name', 'fname', null, ['placeholder' => 'First Name'])  !!}
                     </div>
-                    <div class="form-group row justify-content-center">
-                        {{ Form::label('lname','Last Name', ['class' => 'col-lg-4 col-form-label']) }}
-                        {{ Form::text('lname', $clients->lname, array_merge(['class' => 'col-lg-7 form-control'])) }}
+                    <div class="form-group col-md-6">
+                        {!! Form::inputGroup('text', 'Last Name', 'lname', null, ['placeholder' => 'Last Name']) !!}
                     </div>
-                    <div class="form-group row justify-content-center">
-                        {{ Form::label('gender','Gender', ['class' => 'col-lg-4 col-form-label']) }}
-                        <div class="col-lg-7">
-                        {{ Form::select('gender', ['Male' => 'Male', 'F' => 'Female'])  }}
-                        </div>
+
+                    <div class="form-group col-md-6"><br>
+                        {!! Form::select('gender',array('Male', 'Female', 'Others')) !!}
                     </div>
                     <div class="form-group row justify-content-center">
                         {{ Form::label('email','Email', ['class' => 'col-lg-4 col-form-label']) }}
                         {{ Form::text('email', Auth::user()->email, array_merge(['class' => 'col-lg-7 form-control'])) }}                 
                     </div>
+
+                    <div class="form-group col-md-6">
+                        {!! Form::inputGroup('text', 'City', 'city', null, ['placeholder' => 'City']) !!}
+                    </div>
+                    <div class="form-group col-md-6">
+                        {!! Form::inputGroup('text', 'Town', 'town', null, ['placeholder' => 'Town']) !!}
+                    </div>
+                    <div class="form-group col-md-6">
+                        {!! Form::inputGroup('text', 'Province', 'province', null, ['placeholder' => 'Province']) !!}
+                    </div>
+                    <div class="form-group col-md-6">
+                        {!! Form::inputGroup('text', 'Barangay', 'barangay', null, ['placeholder' => 'Barangay']) !!}
+                    </div>
                     <hr>
-                    <div class="form-group row justify-content-center">
-                        {{ Form::label('barangay', 'Barangay', ['class' => 'col-lg-4 col-form-label']) }}
-                        {{ Form::text('barangay', $clients->barangay, array_merge(['class' => 'col-lg-7 form-control'])) }}                     
-                    </div>
-                    <div class="form-group row justify-content-center">
-                        {{ Form::label('town', 'Town', ['class' => 'col-lg-4 col-form-label']) }}
-                        {{ Form::text('town', $clients->town, array_merge(['class' => 'col-lg-7 form-control'])) }}                     
-                    </div>
-                    <div class="form-group row justify-content-center">
-                        {{ Form::label('province', 'Province', ['class' => 'col-lg-4 col-form-label']) }}
-                        {{ Form::text('province', $clients->province, array_merge(['class' => 'col-lg-7 form-control'])) }}                     
-                    </div>
-                    <div class="form-group row justify-content-center">
-                        {{ Form::label('city', 'City', ['class' => 'col-lg-4 col-form-label']) }}
-                        {{ Form::text('city', $clients->city, array_merge(['class' => 'col-lg-7 form-control'])) }}                     
-                    </div>
                     
                     <div class="form-group" style="display:block; width:x; height:y; text-align:right;">
                         {{ Form::submit('Save Changes', array('class' => 'btn btn-primary')) }}

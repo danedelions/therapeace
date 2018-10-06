@@ -14,58 +14,47 @@
 			</div>
 			<div class="card-body">
 				<form class="form">
-
-					@foreach($clients as $client)
-
-					<div class="form-group row justify-content-center">
-						{{ Form::label('username', 'Username', ['class' => 'col-lg-4 col-form-label']) }}
-						{{ Form::text('username', Auth::user()->username, array_merge(['class' => 'col-lg-7 form-control', 'disabled' => 'disabled'])) }}
-					</div>
-					<div class="form-group row justify-content-center">
-						{{ Form::label('fname', 'First Name', ['class' => 'col-lg-4 col-form-label']) }}
-						{{ Form::text('fname', $client->fname, array_merge(['class' => 'col-lg-7 form-control', 'disabled' => 'disabled'])) }}
-					</div>
-					<div class="form-group row justify-content-center">
-						{{ Form::label('lname', 'Last Name', ['class' => 'col-lg-4 col-form-label']) }}
-						{{ Form::text('lname', $client->lname, array_merge(['class' => 'col-lg-7 form-control', 'disabled' => 'disabled'])) }}
-					</div>
-					<div class="form-group row justify-content-center">
-						{{ Form::label('gender', 'Gender', ['class' => 'col-lg-4 col-form-label']) }}
-						{{ Form::text('gender', $client->gender, array_merge(['class' => 'col-lg-7 form-control', 'disabled' => 'disabled'])) }}
-					</div>		
-					<div class="form-group row justify-content-center">
-						{{ Form::label('email', 'Email Address', ['class' => 'col-lg-4 col-form-label']) }}
-						{{ Form::text('email', Auth::user()->email, array_merge(['class' => 'col-lg-7 form-control', 'disabled' => 'disabled'])) }}
-					</div>
-					<div class="form-group row justify-content-center">
-						{{ Form::label('contact', 'Contact Number', ['class' => 'col-lg-4 col-form-label']) }}
-						{{ Form::text('contact', $client->contact, array_merge(['class' => 'col-lg-7 form-control', 'disabled' => 'disabled'])) }}
-					</div>
-
-				<hr>
-
-					<div class="form-group row justify-content-center">
-						{{ Form::label('barangay', 'Barangay', ['class' => 'col-lg-4 col-form-label']) }}
-						{{ Form::text('barangay', $client->barangay, array_merge(['class' => 'col-lg-7 form-control', 'disabled' => 'disabled'])) }}
-					</div>
-					<div class="form-group row justify-content-center">
-						{{ Form::label('town', 'Town', ['class' => 'col-lg-4 col-form-label']) }}
-						{{ Form::text('town', $client->town, array_merge(['class' => 'col-lg-7 form-control', 'disabled' => 'disabled'])) }}
-					</div>
-					<div class="form-group row justify-content-center">
-						{{ Form::label('province', 'Province', ['class' => 'col-lg-4 col-form-label']) }}
-						{{ Form::text('province', $client->province, array_merge(['class' => 'col-lg-7 form-control', 'disabled' => 'disabled'])) }}
-					</div>
-					<div class="form-group row justify-content-center">
-						{{ Form::label('city', 'City', ['class' => 'col-lg-4 col-form-label']) }}
-						{{ Form::text('city', $client->city, array_merge(['class' => 'col-lg-7 form-control', 'disabled' => 'disabled'])) }}
-					</div>
+						<div class="form-group row justify-content-center">
+							<label class="col-lg-4 col-form-label">Username</label>
+								<div class="col-lg-7 form-control">
+									{{ Auth::user()->username }}
+								</div>
+						</div>
+						<div class="form-group row justify-content-center">
+							<label class="col-lg-4 col-form-label">First Name</label>
+								<div class="col-lg-7 form-control">
+									{{ $client->fname }}
+								</div>
+						</div>
+						<div class="form-group row justify-content-center">
+							<label class="col-lg-4 col-form-label">Last Name</label>
+								<div class="col-lg-7 form-control">
+									{{ $client->lname }}
+								</div>
+						</div>
+						<div class="form-group row justify-content-center">
+							<label class="col-lg-4 col-form-label">Address</label>
+								<div class="col-lg-7 form-control">
+									{{ $client->barangay }} {{ $client->town}} {{ $client->city }}
+								</div>
+						</div>
+						<div class="form-group row justify-content-center">
+							<label class="col-lg-4 col-form-label">Email</label>
+								<div class="col-lg-7 form-control">
+									{{ Auth::user()->email }}
+								</div>
+						</div>
+						<div class="form-group row justify-content-center">
+							<label class="col-lg-4 col-form-label">Contact Number</label>
+								<div class="col-lg-7 form-control">
+									{{ $client->contact }}
+								</div>
+						</div>
+		            
 					<div style="display:block; width:x; height:y; text-align:right;">
-						<a href="{{ URL::to('/client-edit', $client->id) }}"><i class="far fa-edit"></i> Edit</a>
+						<a href="{{url('/client-edit/'. $client->id )}}"><i class="far fa-edit"></i> Edit</a>
 					</div>
 
-					@endforeach
-					
 				</form>
 			</div>
 		</div>
@@ -148,12 +137,7 @@
 									<input type="radio" id="star1" name="rating" value="1" />
 										<label class = "full" for="star1" title="Sucks big time - 1 star"></label>
 								</fieldset>
-							</td>
-							<td>
-								<div>
-									<textarea placeholder="Comment"></textarea>
-								</div>
-							</td>		
+							</td>	
 							<td>
 								<div>
 									<input type="submit" class="btn btn-success" value="Submit">	
@@ -175,11 +159,6 @@
 									<input type="radio" id="star1" name="rating" value="1" />
 										<label class = "full" for="star1" title="Sucks big time - 1 star"></label>
 								</fieldset>
-							</td>
-							<td>
-								<div>
-									<textarea placeholder="Comment"></textarea>
-								</div>
 							</td>		
 							<td>
 								<div>
@@ -202,11 +181,6 @@
 					                    <input type="radio" id="star1" name="rating" value="1" />
 					                      <label class = "full" for="star1" title="1 star"></label>
 								</fieldset>
-							</td>
-							<td>
-								<div>
-									<textarea placeholder="Comment"></textarea>
-								</div>
 							</td>		
 							<td>
 								<div>

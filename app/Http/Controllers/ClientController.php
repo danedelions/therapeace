@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ClientRequest;
+use App\Therapist;
 use App\Client;
-use Hash;
 use App\User;
-use Validator;
+use Hash;
+use Auth;
 
 class ClientController extends Controller
 {
@@ -66,48 +67,25 @@ class ClientController extends Controller
     {
         return view('client.find');
     }
-    public function clientAccount(Client $client)
+    public function clientAccount()
     {
-        $clients = Client::all();
-        return view('client.account', compact('clients'));
+        // $client = Client::all();
+        $client = Client::where('id', Auth::id())->first();
+        return view('client.account', compact('client'));
     }
-    public function clientEdit($id)
+    public function edit($id)
     {
-        $clients = Client::find($id);
-        return view('client.edit', compact('clients', 'id'));
-    }
-    public function clientUpdate(Request $request, $id)
-    {
-        $this->validate($request, array(
-            'fname' => 'required|alpha_spaces', 
-            'lname' =>  'required|alpha_spaces',
-            'contact' => 'numeric|between:1,20',
-            'gender' => 'required',
-            'barangay' => 'required' ,
-            'province' => 'required' ,
-            'town' => 'required',
-            'city' => 'required',
-        ));
-
         $client = Client::find($id);
+        return view('client.edit', compact('client', 'id'));
+    }
+    public function update(Request $request, $id)
+    {
 
-        $client->fname = $request->get('fname');
-        $client->lname = $request->get('lname');
-        $client->contact = $request->get('contact');
-        $client->gender = $request->get('gender');
-        $client->barangay = $request->get('barangay');
-        $client->province = $request->get('province');
-        $client->town = $request->get('town');
-        $client->city = $request->get('city');
-
-        $client->save();
-
-        return redirect()->route('get.client.account');
     }
     public function clientHistory(Client $client)
     {
-        $clients = Client::all();
-        return view('client.history', compact('clients'));
+        $client = Client::all();
+        return view('client.history', compact('client'));
     }
     public function clientMessage()
     {

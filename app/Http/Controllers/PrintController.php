@@ -10,13 +10,13 @@ class PrintController extends Controller
 {
 	public function index()
       {
-              $clients = Client::all();
-              return view('client.printtransaction', compact('clients'));
+              $client = Client::all();
+              return view('client.printtransaction', compact('client'));
      }
 
      public function printClient()
      {
-              $clients = Client::all();
-              return view('client.transaction', compact('clients'));
+              $client = Client::all();
+              return view('client.transaction', compact('client'));
      }
 }

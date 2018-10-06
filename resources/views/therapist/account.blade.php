@@ -114,7 +114,7 @@
 
     <div class="card">
       <div class="card-header">
-      <h5>Comments and Ratings</h5>
+      <h5>Ratings</h5>
       </div>
       <div class="card-body" style="overflow: scroll; height: 250px;">
         <table class="table table-default">
