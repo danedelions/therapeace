@@ -28,12 +28,12 @@
   </div><br>
   <div class="tab">Address:
     <p><input id="autocomplete" placeholder="Enter Your Address Here to Fill Up the Form" onfocus="geolocate()" type="text" class="form-control"></p>
-    <p><input placeholder="Street Address"  name="streetaddress" id="streetaddress" class="form-control"></p>
+    <p><input placeholder="Street Address"  name="streetaddress" id="route" class="form-control"></p>
+    <p><input placeholder="Barangay"  name="barangay" id="barangay" class="form-control"></p>
     <p><input placeholder="City"  class="form-control" name="city" id="locality"></p>
     <p><input placeholder="Town"  name="town" id="town" class="form-control"></p>
-    <p><input placeholder="Province"  name="province" id="province" class="form-control"></p>
-    <p><input placeholder="Barangay"  name="barangay" id="barangay" class="form-control"></p>
-    <p><input placeholder="Postal Code"  name="postal_code" id="postal_code" type="number" class="form-control"></p>
+    <p><input placeholder="Province"  name="province" id="administrative_area_level_2" class="form-control"></p>
+    <p><input placeholder="Postal Code"  name="postal_code" id="postal_code" class="form-control"></p>
     <p><input placeholder="Country"  name="country" id="country" class="form-control"></p>
   
   </div>
@@ -96,23 +96,16 @@ Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facili
   </div>
 </form>
     </form>
+  </div>
+</form>
  <script>
-      // This example displays an address form, using the autocomplete feature
-      // of the Google Places API to help users fill in the information.
-
-      // This example requires the Places library. Include the libraries=places
-      // parameter when you first load the API. For example:
-      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-
       var placeSearch, autocomplete;
-      var componentForm = {
-        streetaddress: 'short_name',
+      var componentForm = {  
+        route: 'long_name',
         locality: 'long_name',
-        town: 'long_name',
-        province: 'short_name',
-        barangay: 'long_name',
-        postal_code: 'short_name',
-        country: 'short_name'
+        administrative_area_level_2: 'short_name',
+        country: 'long_name',
+        postal_code: 'short_name'
       };
 
       function initAutocomplete() {
@@ -164,9 +157,9 @@ Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facili
           });
         }
       }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD85clj7B85QRZPmO6m4Fky0Wi6P0MzVpA&libraries=places&callback=initAutocomplete"
-        async defer></script>
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD85clj7B85QRZPmO6m4Fky0Wi6P0MzVpA&libraries=places&callback=initAutocomplete"
+async defer></script>
 </body>
 </html>
 @endsection

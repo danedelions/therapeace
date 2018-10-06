@@ -1,7 +1,11 @@
 @extends('layouts.cli')
+
 @section('title', 'Account')
+
 @section('page-section')
+
 @include('modals.client')
+
 <div class="row"> <!-- 	<div class="row">  --><!-- <div class="col-md-5"> -->
 	<div class="col-sm-5 col-md-5 col-lg-5">
 		<div class="card ">
@@ -10,45 +14,47 @@
 			</div>
 			<div class="card-body">
 				<form class="form">
-					<div class="form-group row">
-						<label class="col-lg-3 col-form-label">Username</label>
-							<div class="col-lg-9">
-								<input class="form-control" type="text" value="juan" disabled="disabled">
-							</div>
+						<div class="form-group row justify-content-center">
+							<label class="col-lg-4 col-form-label">Username</label>
+								<div class="col-lg-7 form-control">
+									{{ Auth::user()->username }}
+								</div>
+						</div>
+						<div class="form-group row justify-content-center">
+							<label class="col-lg-4 col-form-label">First Name</label>
+								<div class="col-lg-7 form-control">
+									{{ $client->fname }}
+								</div>
+						</div>
+						<div class="form-group row justify-content-center">
+							<label class="col-lg-4 col-form-label">Last Name</label>
+								<div class="col-lg-7 form-control">
+									{{ $client->lname }}
+								</div>
+						</div>
+						<div class="form-group row justify-content-center">
+							<label class="col-lg-4 col-form-label">Address</label>
+								<div class="col-lg-7 form-control">
+									{{ $client->barangay }} {{ $client->town}} {{ $client->city }}
+								</div>
+						</div>
+						<div class="form-group row justify-content-center">
+							<label class="col-lg-4 col-form-label">Email</label>
+								<div class="col-lg-7 form-control">
+									{{ Auth::user()->email }}
+								</div>
+						</div>
+						<div class="form-group row justify-content-center">
+							<label class="col-lg-4 col-form-label">Contact Number</label>
+								<div class="col-lg-7 form-control">
+									{{ $client->contact }}
+								</div>
+						</div>
+		            
+					<div style="display:block; width:x; height:y; text-align:right;">
+						<a href="{{url('/client-edit/'. $client->id )}}"><i class="far fa-edit"></i> Edit</a>
 					</div>
-					<div class="form-group row">
-						<label class="col-lg-3 col-form-label">First name</label>
-							<div class="col-lg-9">
-								<input class="form-control" type="text" value="Juan" disabled="disabled">
-							</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-lg-3 col-form-label">Last name</label>
-							<div class="col-lg-9">
-								<input class="form-control" type="text" value="Dela Cruz" disabled="disabled">
-							</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-lg-3 col-form-label">Gender</label>
-							<div class="col-lg-9">
-								<input class="form-control" type="text" value="Male" disabled="disabled">
-							</div>
-					</div>			
-					<div class="form-group row">
-						<label class="col-lg-3 col-form-label">Email</label>
-							<div class="col-lg-9">
-								<input class="form-control" type="email" value="juan@gmail.com" disabled="disabled">
-							</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-lg-3 col-form-label">Address</label>
-							<div class="col-lg-9">
-								<input class="form-control" type="text" value="Malayo Cortes Bohol" disabled="disabled">
-							</div>
-					</div>
-					<div>
-						<label style="display:block; width:x; height:y; text-align:right;"><a href="/client-edit"><i class="far fa-edit"></i> Edit</a></label>
-					</div>
+
 				</form>
 			</div>
 		</div>
@@ -131,12 +137,7 @@
 									<input type="radio" id="star1" name="rating" value="1" />
 										<label class = "full" for="star1" title="Sucks big time - 1 star"></label>
 								</fieldset>
-							</td>
-							<td>
-								<div>
-									<textarea placeholder="Comment"></textarea>
-								</div>
-							</td>		
+							</td>	
 							<td>
 								<div>
 									<input type="submit" class="btn btn-success" value="Submit">	
@@ -158,11 +159,6 @@
 									<input type="radio" id="star1" name="rating" value="1" />
 										<label class = "full" for="star1" title="Sucks big time - 1 star"></label>
 								</fieldset>
-							</td>
-							<td>
-								<div>
-									<textarea placeholder="Comment"></textarea>
-								</div>
 							</td>		
 							<td>
 								<div>
@@ -185,11 +181,6 @@
 					                    <input type="radio" id="star1" name="rating" value="1" />
 					                      <label class = "full" for="star1" title="1 star"></label>
 								</fieldset>
-							</td>
-							<td>
-								<div>
-									<textarea placeholder="Comment"></textarea>
-								</div>
 							</td>		
 							<td>
 								<div>

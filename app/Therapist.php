@@ -36,7 +36,11 @@ class Therapist extends Model
     }
 
     public function user(){
+<<<<<<< HEAD
     	return $this->belongsTo('App\User', 'id');
+=======
+    	return $this->belongsTo('App\User', 'user_id');
+>>>>>>> e804af52f673025b54ffe9d45efc156104470456
     }
 
     public function scopeOfUser($query, $userId)

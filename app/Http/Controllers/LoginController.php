@@ -30,18 +30,32 @@ class LoginController extends Controller
                 return redirect(route('get.client-account'));
             }else if(Auth::user()->user_type === 'admin'){
                 // view('admin');
+
                 print_r('request');
                 return redirect('admin');
+
                 var_dump($request);
                 die();
                 //return redirect('get.admin');
+    
+                //return redirect('get.admin');
             }
+
 
         }else{
              return "wrong".Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
         }
 
           }      // user::where('username', 'name');
+
+        
+
+      // }
+
+
+               // user::where('username', 'name');
+
+
 
              //    user::where('username', 'name');
 
@@ -76,7 +90,6 @@ class LoginController extends Controller
     session()->flash('message', 'Some goodbye message');
 
     return redirect('/');
-
     }
 
     

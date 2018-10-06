@@ -4,17 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ClientRequest;
+use App\Therapist;
 use App\Client;
-use Hash;
 use App\User;
-
+use Hash;
+use Auth;
 
 class ClientController extends Controller
 {
 
     public function __construct()
     {
+
         $this->middleware('auth')->except(['index', 'store']);
+
+
     }
     /**
      * Display a listing of the resource.
@@ -64,15 +68,23 @@ class ClientController extends Controller
     }
     public function clientAccount()
     {
-        return view('client.account');
+        // $client = Client::all();
+        $client = Client::where('id', Auth::id())->first();
+        return view('client.account', compact('client'));
     }
-    public function clientEdit()
+    public function edit($id)
     {
-        return view('client.edit');
+        $client = Client::find($id);
+        return view('client.edit', compact('client', 'id'));
     }
-    public function clientHistory()
+    public function update(Request $request, $id)
     {
-        return view('client.history');
+
+    }
+    public function clientHistory(Client $client)
+    {
+        $client = Client::all();
+        return view('client.history', compact('client'));
     }
     public function clientMessage()
     {

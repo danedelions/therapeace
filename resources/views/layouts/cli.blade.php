@@ -28,9 +28,13 @@
     
     <body id="clientBg">
         <main class="container">
-        @include('client.nav')
+
+        @include('partials.client.header')
+
         @yield('page-section')
-        @include('partials.footer')
+
+        @include('partials.client.footer')
+
         </main>
     </body>
 </html>

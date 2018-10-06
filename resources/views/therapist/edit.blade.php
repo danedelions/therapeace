@@ -1,20 +1,16 @@
 @extends('layouts.the')
 
 @section('page-section')
-@include('modals.therapist')
-       <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-    
+
       <div class="container">
         <div class="row">
-          {!! Form::model($therapist, array('url'=> route('therapist.update', ['id'=>$therapist->id]),'method'=>'PATCH', 'files'=>true,'role'=>'form')) !!}
+          {!! Form::model($therapist, array('url'=> route('therapist.update', ['id'=> $therapist->id]),'method'=>'PATCH', 'files'=>true,'role'=>'form')) !!}
           {!! csrf_field() !!}
           <div class="col-md-8 col-md-offset-2">
             <legend class="text-center">Update Information</legend>
-            <center><i class="fas fa-user-circle fa-7x"></i>
+            <center>
             <input type="file" id="itemImage" name="image">
-            <input type="submit" value="Upload Image" name="submit" class="btn btn-primary btn-sm">
+            <br>
 
               <fieldset>  
                         <div class="form-group col-md-6">
@@ -34,9 +30,8 @@
                         </div>
                         
                         <div class="form-group col-md-6"><br>
-                            {!! Form::select('gender',array('Male', 'Female', 'Others')) !!}
+                            {!! Form::select('gender',array('Male' => 'Male', 'Female' => 'Female', 'Others' => 'Others')) !!}
                         </div>
-
               </fieldset>
               <fieldset>
                              <legend>Address:</legend>
@@ -59,10 +54,6 @@
                             {!! Form::inputGroup('number', 'Postal Code', 'postal_code', null, ['placeholder' => 'Postal Code']) !!}
                         </div>
               </fieldset>
-
-                </div>
-            </div>
-
               <fieldset>
                         <legend>License:</legend>
                         <div class="form-group col-md-6">
@@ -73,15 +64,7 @@
                         </div>
                          <div class="form-group col-md-6">
                           <label>License Image</label>
-                         <input type="file" id="itemImage" name="itemImage" >
-                        </div>
-                         <div class="form-group col-md-6">
-                          <label>NBI Image</label>
-                         <input type="file" id="itemImage" name="itemImage">
-                        </div>
-                         <div class="form-group col-md-6">
-                           <label>Barangay Clearance Image</label>
-                         <input type="file" id="itemImage" name="itemImage">
+                         <input type="file" id="itemImage" name="license_image">
                         </div>
               </fieldset>
               <fieldset>
@@ -97,7 +80,6 @@
           {!! Form::close() !!}  
         </div>
       </div>
+    </div>
         
-                   
-   
 @endsection
