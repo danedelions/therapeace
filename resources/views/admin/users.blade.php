@@ -9,11 +9,10 @@
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>Username</th>
-                          <th>Email</th>
                           <th>Role</th>
                           <th>Status</th>
-                          <th>Date Joined</th>
+                          <th>Username</th>
+                          <th>Email</th>
                           <th>Action</th>
                         </tr>
                       </thead>
@@ -21,8 +20,6 @@
                       @foreach($users as $row)
                           <tr>
                           <td>{{$row['id']}}</td>
-                          <td>{{$row['username']}}</td>
-                          <td>{{$row['email']}}</td>
                           <td>{{$row['user_type']}}</td>
                           <td>
                               @if ($row['status'] == 1)
@@ -31,7 +28,8 @@
                                   Unblocked
                               @endif
                           </td>
-                          <td>{{$row['created_at']}}</td>
+                          <td>{{$row['username']}}</td>
+                          <td>{{$row['email']}}</td>
 
                           <!-- View Modal client-->
                           <div class="modal fade" id="viewModalc" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -71,7 +69,7 @@
                           </div>
                           <!-- end of view modal -->
 
-                          <!-- View Modal client-->
+                          <!-- View Modal admin-->
                           <div class="modal fade" id="viewModala" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                               <div class="modal-content">
@@ -150,11 +148,11 @@
                           <td>
                             <!-- view button -->
                               @if ($row['user_type'] == 'client')
-                                  <button  class="btn btn-outline-info" data-toggle="modal" data-target="#viewModalc"><i style="color:black;" class="far fa-eye"></i></button>
+                                  <button data-id="{{ $row['id'] }}" class="btn btn-outline-info" data-toggle="modal" data-target="#viewModalc"><i style="color:black;" class="far fa-eye"></i></button>
                               @elseif ($row['user_type'] == 'therapist')
-                                  <button  class="btn btn-outline-info" data-toggle="modal" data-target="#viewModalt"><i style="color:black;" class="far fa-eye"></i></button>
+                                  <button data-id="{{ $row['id'] }}" class="btn btn-outline-info" data-toggle="modal" data-target="#viewModalt"><i style="color:black;" class="far fa-eye"></i></button>
                               @else
-                                  <button  class="btn btn-outline-info" data-toggle="modal" data-target="#viewModala"><i style="color:black;" class="far fa-eye"></i></button>     
+                                  <button data-id="{{ $row['id'] }}" class="btn btn-outline-info" data-toggle="modal" data-target="#viewModala"><i style="color:black;" class="far fa-eye"></i></button>     
                               @endif
 
                               <!-- {!! Form::open(['url' => route('get.view', $row->id), 'method' => 'GET']) !!}
@@ -197,8 +195,10 @@
                                           <div class="card-body text-center">
                                             <p><center>Send An Email</center></p>
 
-                                            <a id="sendEmailBtn" data-href="{{route('sendEmail', '__ID__')}}" class="col-sm-5 btn btn-success">Send Introduction</a>
-                                            <a id="#" data-href="#" class="col-sm-5 btn btn-info">Send Notice</a>
+                                            <a id="sendWelcomeBtn" data-href="{{route('sendWelcome', '__ID__')}}" class="col-sm-5 btn btn-success">Send Welcome</a>
+
+                                             
+                                            
                                           </div>
                                       </div>
                                   </div>

@@ -80,7 +80,8 @@ Route::get('admin-user', 'AdminController@getUserView')->name('get.view');
 Route::get('admin-pending', 'AdminController@getPendingView');
 Route::get('admin-history', 'AdminController@getHistoryView');
 Route::get('admin-reports', 'AdminController@getReportsView');
-Route::get('email/{user}', 'AdminController@email')->name('sendEmail');
+Route::get('email/{user}', 'AdminController@welcome')->name('sendWelcome');
+// Route::get('email/{user}', 'AdminController@notice')->name('sendNotice');
 Route::patch('admin-user/{user}', 'AdminController@statusUpdate')->name('admin.status-update');
 
 

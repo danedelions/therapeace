@@ -58,10 +58,15 @@
 
             $('#emailModal').on('show.bs.modal', function (e) {
                 var btn = $(e.relatedTarget)
-                $('#sendEmailBtn').attr('href', function () {
+                $('#sendWelcomeBtn').attr('href', function () {
                     return $(this).data('href').replace('__ID__', btn.data('id'))
                 })
+
+                // $('#sendNoticeBtn').attr('href', function () {
+                //     return $(this).data('href').replace('__ID__', btn.data('id'))
+                // })
             })
+
         });
     </script>
     

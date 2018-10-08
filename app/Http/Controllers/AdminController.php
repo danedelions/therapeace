@@ -11,6 +11,7 @@ use App\Mail\NewUserWelcome;
 use Auth;
 use DB;
 use App\Http\Requests\UserRequest;
+use App\Mail\UserExpiryNotice;
 
 
 class AdminController extends Controller
@@ -41,11 +42,17 @@ class AdminController extends Controller
     	return view('admin.reports');
     }
 
-    public function email(User $user)
+    public function welcome(User $user)
     { 
         Mail::to($user->email)->send(new NewUserWelcome());
         return redirect()->back();
     }
+
+    // public function notice(User $user)
+    // { 
+    //     Mail::to($user->email)->send(new UserExpiryNotice());
+    //     return redirect()->back();
+    // }
 
     public function statusUpdate(User $user)
     {        
