@@ -117,9 +117,9 @@ class TherapistController extends Controller
 
     }
 
-    public function therapistAccount($userId)
-    {
-        $therapist = Therapist::find($userId)->load('users');
+    public function therapistAccount()
+    {        
+        $therapist = Therapist::whereUserId(Auth::id())->with('user')->first();
         
 
         return view('therapist.account', compact('therapist'));

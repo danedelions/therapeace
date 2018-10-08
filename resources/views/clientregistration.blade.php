@@ -19,11 +19,11 @@
             <h1>Client Registration:</h1>
             <!-- One "tab" for each step in the form: -->
             <div class="tab">Name:
-                <p><input placeholder="First name..." name="fname"  type="text"></p>
-                <p><input placeholder="Last name..." name="lname" type="text"></p>
-                <p><input placeholder="Email"  name="email" type="email"></p>
-                <p><input placeholder="Contact Number" type="text" name="number"></p>
-                        <select id="gender" class="form-control" name="gender">
+                <p><input placeholder="First name..." name="fname"  type="text" class="form-control"></p>
+                <p><input placeholder="Last name..." name="lname" type="text" class="form-control"></p>
+                <p><input placeholder="Email"  name="email" type="email" class="form-control"></p>
+                <p><input placeholder="Contact Number" type="text" name="number" class="form-control"></p>
+                        <select id="gender" class="form-control" name="gender" class="form-control">
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                             </select>
@@ -31,10 +31,10 @@
   </div><br>
             </div>
             <div class="tab" >Address:
-                <p><input placeholder="Barangay" name="barangay"  type="text"></p>
-                <p><input placeholder="Province" name="province" type="text"></p>
-                <p><input placeholder="Town"  name="town"></p>
-                <p><input placeholder="City" name="city" type="text"></p>
+                <p><input placeholder="Barangay" name="barangay"  type="text" class="form-control"></p>
+                <p><input placeholder="Province" name="province" type="text" class="form-control"></p>
+                <p><input placeholder="Town"  name="town" class="form-control"></p>
+                <p><input placeholder="City" name="city" type="text" class="form-control"></p>
 
 
 
@@ -45,9 +45,9 @@
             </div>
             <div class="tab"> Profile:
         
-                <p><input placeholder="User Name" name="username"  type="text"></p>
-                <p><input placeholder="Password" name="password" type="password"></p>
-                <p><input placeholder="Retype Password"  name="password_confirmation" type="password"></p>
+                <p><input placeholder="User Name" name="username"  type="text" class="form-control"></p>
+                <p><input placeholder="Password" name="password" type="password" class="form-control"></p>
+                <p><input placeholder="Retype Password"  name="password_confirmation" type="password" class="form-control"></p>
 
 <!-- 
                 <p><input placeholder="User Name" oninput="this.className = ''" name="username" class="form-control"></p>
@@ -68,10 +68,10 @@
 
                     Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facilis antiopam. Fastidii nominati contentiones duo ea. Has ne corpora albucius voluptaria.
                 </p>
-                                <label>
-                                    <input type="checkbox" value="" id="">
-                                    I accept the terms and conditions
-                                </label>
+                    <label>
+                        <input type="checkbox" value="" id="">
+                            I accept the terms and conditions
+                    </label>
 
                 <br>
             </div>
