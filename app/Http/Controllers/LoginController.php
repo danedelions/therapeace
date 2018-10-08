@@ -30,15 +30,35 @@ class LoginController extends Controller
                 return redirect(route('get.client-account'));
             }else if(Auth::user()->user_type === 'admin'){
                 // view('admin');
+
+                print_r('request');
+                return redirect('admin');
+
                 var_dump($request);
                 die();
                 //return redirect('get.admin');
+    
+                //return redirect('get.admin');
             }
+
+
         }else{
              return "wrong".Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
         }
-        }
+
+          }      // user::where('username', 'name');
+
+        
+
+      // }
+
+
+               // user::where('username', 'name');
+
+
+
              //    user::where('username', 'name');
+
 
              // return "sakto".Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
    
@@ -54,7 +74,6 @@ class LoginController extends Controller
         //     } else {
         //         return "wrong";
         //     }
-    }
 
     // protected function credentials(Request $request){
 
@@ -67,19 +86,11 @@ class LoginController extends Controller
     public function Logout(Request $request)
     {
     Auth::logout();
-<<<<<<< HEAD
 
     session()->flash('message', 'Some goodbye message');
 
     return redirect('/');
-
-=======
-
-    session()->flash('message', 'Some goodbye message');
-
-    return redirect('/');
->>>>>>> f66c4cd13c541a637363c86a9bdb6a62b5ca480c
     }
 
-
+    
 }

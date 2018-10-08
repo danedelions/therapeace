@@ -1,12 +1,8 @@
 <nav class="navbar navbar-expand-md bg-white fixed-top">
   <div class="container">    
     <a class="navbar-brand" href="#">
-      <img src="img/logo.png" alt="Logo" style="width:130px;">
+      <img src="{{asset('img/logo.png')}}" alt="Logo" style="width:130px;">
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav ml-auto"> <!-- ml-auto (navbar items on the right side)-->
         <li class="active nav-item">

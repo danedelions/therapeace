@@ -16,7 +16,7 @@ class Therapist extends Migration
         Schema::create('therapists', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('fname');
             $table->string('lname');
             $table->string('contact');
@@ -30,14 +30,11 @@ class Therapist extends Migration
             $table->string('therapist');
             $table->string('license_number');
             $table->string('expiry_date');
-            $table->string('license_image');
-            $table->string('nbi_image');
-            $table->string('bp_image');
+            $table->string('license_image')->nullable();
+            $table->string('nbi_image')->nullable();
+            $table->string('bc_image')->nullable();
             $table->rememberToken();
             $table->timestamps();
-
-
-            
         });
           Schema::table('therapists', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

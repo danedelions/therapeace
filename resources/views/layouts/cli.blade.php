@@ -10,6 +10,9 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" >
         <link rel="stylesheet" type="text/css" href="{{ asset('fontawesome-free-5.1.0-web/css/all.css') }}">
+
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
         <!-- THEME STYLES-->
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/assets/css/main.min.css') }}" />
@@ -23,14 +26,19 @@
         <!-- dropdown -->
         <!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
 
+
         @stack('js')
     </head>
     
     <body id="clientBg">
         <main class="container">
-        @include('client.nav')
+
+        @include('partials.client.header')
+
         @yield('page-section')
-        @include('partials.footer')
+
+        @include('partials.client.footer')
+
         </main>
     </body>
 </html>

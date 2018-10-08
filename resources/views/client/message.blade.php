@@ -1,7 +1,11 @@
 @extends('layouts.cli')
+
 @section('title', 'Message')
+
 @section('page-section')
+
 @include('modals.client')
+
 <div class="row"> <!-- 	<div class="row">  --><!-- <div class="col-md-5"> -->
 	<div class="col-sm-5 col-md-5 col-lg-12">
 		<div class="card">

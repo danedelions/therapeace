@@ -2,19 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
+
 use App\Http\Requests\ClientRequest;
+use App\Therapist;
 use App\Client;
-use Hash;
 use App\User;
 
+use Hash;
+use Auth;
 
 class ClientController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware('auth');
+
+        $this->middleware('auth')->except(['index', 'store']);
+
+
     }
     /**
      * Display a listing of the resource.
@@ -26,7 +33,7 @@ class ClientController extends Controller
         return view('clientregistration');
     }
 
-    public function store(ClientRequest $request)
+    public function store(Request $request)
     {
 
         User::insert([
@@ -39,7 +46,7 @@ class ClientController extends Controller
             ]);
 
 
-          $users = User::where('username', $request->post('username'))->get()->toArray();
+          $users = User::where('username', $request->post('username'))->get();
 
         Client::insert([
 
@@ -64,18 +71,42 @@ class ClientController extends Controller
     }
     public function clientAccount()
     {
-        return view('client.account');
+        // $client = Client::all();
+        $client = Client::ofUser(Auth::id())->first();
+        return view('client.account', compact('client'));
     }
-    public function clientEdit()
+    public function edit($userId)
     {
-        return view('client.edit');
+        $client = Client::find($userId);
+        return view('client.edit', compact('client'));
     }
-    public function clientHistory()
+    public function update(ClientRequest $request, $id)
     {
-        return view('client.history');
+        // dd($therapist->toArray());
+        $client = Client::find($id);
+        $request = $request->validated();
+        // dd($request);
+            
+        $client->fill($request)->save();
+
+        User::where('id', Auth::id())->update(['username' => $request['username'], 'email' => $request['email']]);
+
+
+        return redirect()->route('get.client-account');
+
+
+    }
+    public function clientHistory(Client $client)
+    {
+        $client = Client::all();
+        return view('client.history', compact('client'));
     }
     public function clientMessage()
     {
         return view('client.message');
+    }
+
+    public function search(){
+        
     }
 }
