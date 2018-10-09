@@ -13,10 +13,11 @@
 						<br>
 						<h4>{{$therapist->therapist}}</h4>
 					</center>
-						<label><b>Name: </b>{{$therapist->fname}} {{$therapist->lname}}</label><br>
+						<label><b>Name: </b>{{$therapist->fullName}}</label><br>
 						<label><b>Gender: </b>{{$therapist->gender}}</label><br>
 						<label><b>Email: </b>{{$therapist->user->email}}</label><br>
 						<label><b>Contact #: </b>{{$therapist->contact}}</label><br>
+						<label><b>Address: </b>{{$therapist->address}}</label><br>
 						<label><b>Specializations:</b></label><br>
 				</div>
 			</div>
@@ -31,7 +32,7 @@
 					  <div class="form-row">
 					    <div class="form-group col-md-6">
 					     	<label for="inputEmail4">Name</label>
-					     	<input type="text" class="form-control" value="{{$client->fname}} {{$client->lname}}" disabled>
+					     	<input type="text" class="form-control" value="{{$client->fullName}}" disabled>
 					    </div>
 					    <div class="form-group col-md-6">
 					     	<label for="inputEmail4">E-mail</label>
@@ -43,7 +44,7 @@
 					    </div>
 					    <div class="form-group col-md-12">
 							<label for="inputAddress">Address</label>
-						    <input type="text" class="form-control" disabled>
+						    <input type="text" class="form-control" value="{{$client->address}}" disabled>
 						</div>
 						<div class="form-group col-md-12">
 							<label for="inputAddress">Notes to your therapist</label>

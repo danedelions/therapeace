@@ -3,9 +3,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Booking;
 
 class Booking extends Model
 {
+	protected $fillable = [
+		'therapist_id',
+		'client_id',
+		'status',
+	];
+
 	public function client()
 	{
 		return $this->belongsTo('App\Client', 'client_id');
@@ -18,6 +25,6 @@ class Booking extends Model
 
     public function bookingDetails()
     {
-    	return $this->hasOne('App\Booking', 'booking_id');
+    	return $this->hasOne('App\bookingDetails', 'booking_id', 'id');
     }
 }

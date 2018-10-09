@@ -64,7 +64,7 @@
 						<center>
 							<i class="fas fa-user-circle fa-4x" style="padding: 5px;"></i>
 							<div class="card-body">
-								<h4>{{$data->fname}} {{$data->lname}}</h4>
+								<h4>{{$data->fullName}}</h4>
 								<h5 style="font-size: 8pt;">{{$data->therapist}}</h5>
 								<p>
 									<b>Distance:</b> 10km 
