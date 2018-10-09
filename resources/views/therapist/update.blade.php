@@ -1,6 +1,7 @@
 @extends('layouts.the')
 
 @section('page-section')
+
 @include('modals.therapist')
 
   <div class="row"> <!--  <div class="row">  --><!-- <div class="col-md-5"> -->

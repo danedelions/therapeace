@@ -5,7 +5,7 @@
 <div class="row"> <!-- 	<div class="row">  --><!-- <div class="col-md-5"> -->
 	<div class="col-sm-5 col-md-5 col-lg-12">
 		<div class="card">
-			<div class="card-header">
+			<div class="card-header bg-info">
 				<h5>Messages</h5>
 			</div>
 			<div class="card-body" style="overflow: scroll; height: 500px;">

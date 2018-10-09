@@ -6,7 +6,7 @@
         <div class="row">
           {!! Form::model($therapist, array('url'=> route('therapist.update', ['id'=> $therapist->id]),'method'=>'PATCH', 'files'=>true,'role'=>'form')) !!}
           {!! csrf_field() !!}
-          <div class="col-md-8 col-md-offset-2">
+          <div class="col-md-12">
             <legend class="text-center">Update Information</legend>
             <center>
             <input type="file" id="itemImage" name="image">

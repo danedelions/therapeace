@@ -11,18 +11,18 @@
   <!-- One "tab" for each step in the form: -->
 
     <div class="tab">
-    <h6>Upload profile picture</h6>
-    <input type="file" name="image" id="fileToUpload" class="form-control"> 
-    <br>
-    Name:
-    <input placeholder="First name..."  name="fname" class="form-control"><br>
-    <input placeholder="Last name..."  name="lname" class="form-control"><br>
-    <input placeholder="Email"  name="email" class="form-control"><br>
-    <input placeholder="Contact Number"  name="number" class="form-control"><br>
-        <select id="gender" class="form-control" name="gender">
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-        </select>
+      <h6>Upload profile picture</h6>
+      <input type="file" name="image" id="fileToUpload" class="form-control"> 
+      <br>
+      Name:
+      <input placeholder="First name..."  name="fname" class="form-control"><br>
+      <input placeholder="Last name..."  name="lname" class="form-control"><br>
+      <input placeholder="Email"  name="email" class="form-control"><br>
+      <input placeholder="Contact Number"  name="number" class="form-control"><br>
+          <select id="gender" class="form-control" name="gender">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+          </select>
   
     </div>
   <br>

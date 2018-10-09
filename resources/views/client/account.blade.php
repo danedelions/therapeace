@@ -33,9 +33,9 @@
 								</div>
 						</div>
 						<div class="form-group row justify-content-center">
-							<label class="col-lg-3 col-form-label">Contact Number</label>
+							<label class="col-lg-3 col-form-label">Email</label>
 								<div class="col-lg-8 form-control">
-									{{ $client->contact }}
+									{{ Auth::user()->email }}
 								</div>
 						</div>
 						<div class="form-group row justify-content-center">
@@ -45,15 +45,25 @@
 								</div>
 						</div>
 						<div class="form-group row justify-content-center">
-							<label class="col-lg-3 col-form-label">Address</label>
+							<label class="col-lg-3 col-form-label">Contact Number</label>
 								<div class="col-lg-8 form-control">
-									{{ $client->barangay }} {{ $client->town}} {{ $client->province }} {{ $client->city }}
+									{{ $client->contact }}
 								</div>
 						</div>
 						<div class="form-group row justify-content-center">
-							<label class="col-lg-3 col-form-label">Email</label>
+							<label class="col-lg-3 col-form-label">Address</label>
 								<div class="col-lg-8 form-control">
-									{{ Auth::user()->email }}
+									{{ $client->street }},
+									{{ $client->barangay }},
+									{{ $client->town}},
+									{{ $client->province }},
+									{{ $client->city }}
+								</div>
+						</div>
+						<div class="form-group row justify-content-center">
+							<label class="col-lg-3 col-form-label">Postal Code</label>
+								<div class="col-lg-8 form-control">
+									{{ $client->postal_code }}
 								</div>
 						</div>
 		            

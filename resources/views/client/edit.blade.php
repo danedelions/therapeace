@@ -6,13 +6,13 @@
 
     <div class="container">
         <div class="row ">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-12">
                 {!! Form::model($client, ['url'=> route('client.update', ['id'=>$client->id]),'method'=>'PATCH', 'files'=>true,'role'=>'form']) !!}
                 {!! csrf_field() !!}
     			<legend class="text-center">Update Information</legend>
               <fieldset>
                     <legend>Profile:</legend>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-12">
                         {!! Form::inputGroup('text', 'Username', 'username', $client->user->username, ['placeholder' => 'User Name']) !!}
                     </div>
                     <div class="form-group col-md-6">
@@ -37,7 +37,7 @@
                 </fieldset>
 
                 <fieldset>
-                    <legend>Address</legend>
+                    <legend>Address</legend>    
                     <div class="form-group col-md-6">
                         {!! Form::inputGroup('text', 'City', 'city', null, ['placeholder' => 'City']) !!}
                     </div>

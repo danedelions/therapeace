@@ -1,13 +1,14 @@
 @extends('layouts.the')
 
 @section('page-section')
+
 @include('modals.therapist')
 
 
 	<div class="row"> <!-- 	<div class="row">  --><!-- <div class="col-md-5"> -->
 		<div class="col-sm-5 col-md-5 col-lg-12">
 			<div class="card">
-				<div class="card-header">
+				<div class="card-header bg-info">
 					<h5>Appointment <a class="btn btn-no-outline-primary" href="#" data-toggle="modal" data-target="#appoint"><i class="fas fa-plus-circle"></i></a></h5>
 				</div>
 				<div class="card-body" style="overflow: scroll; height: 500px;">

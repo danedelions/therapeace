@@ -35,7 +35,7 @@
 	        <nav class="navbar navbar-expand-md bg-white fixed-top">
 			  <div class="container">    
 			    <a class="navbar-brand" href="#">
-			      <img src="img/logo.png" alt="Logo" style="width:130px;">
+			      <img src="{{ asset('img/logo.png')}}" alt="Logo" style="width:130px;">
 			    </a>
 			    <div class="collapse navbar-collapse">
 			      <ul class="nav navbar-nav ml-auto"> <!-- ml-auto (navbar items on the right side)-->

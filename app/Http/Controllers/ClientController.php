@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
-
+use Illuminate\Http\Requests\UserRequest;
 use App\Http\Requests\ClientRequest;
-use App\Therapist;
 use App\Client;
+use App\Therapist;
 use App\User;
 use DB;
 use Hash;
@@ -18,10 +17,7 @@ class ClientController extends Controller
 
     public function __construct()
     {
-
         $this->middleware('auth')->except(['index', 'store']);
-
-
     }
     /**
      * Display a listing of the resource.
@@ -54,11 +50,13 @@ class ClientController extends Controller
             'fname' => $request->post('fname'),
             'lname' => $request->post('lname'),
             'contact' => $request->post('number'), 
-            'gender' => $request->post('gender'), 
+            'gender' => $request->post('gender'),
+            'street' => $request->post('street'),
             'barangay' => $request->post('barangay'),
-            'province' => $request->post('province'),
             'town' => $request->post('town'),
-            'city' => $request->post('city'), 
+            'province' => $request->post('province'),
+            'city' => $request->post('city'),
+            'postal_code' => $request->post('postal_code'),
 
         ]);
 
@@ -72,7 +70,7 @@ class ClientController extends Controller
     }
     public function clientAccount()
     {
-        // $client = Client::all();
+        // $client = Client::where('id', Auth::id())->first();
         $client = Client::ofUser(Auth::id())->first();
         return view('client.account', compact('client'));
     }

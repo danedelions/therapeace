@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Therapist;
+use Illuminate\Http\Requests\UserRequest;
+use App\Http\Requests\TherapistRequest;
 use App\Client;
+use App\Therapist;
 use App\User;
 use App\Specialty;
-use Hash;
-use App\Http\Requests\TherapistRequest;
-use Illuminate\Http\Requests\UserRequest;
 use Auth;
+use Hash;
 
 class TherapistController extends Controller
 {
