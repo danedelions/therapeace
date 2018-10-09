@@ -119,12 +119,12 @@ class TherapistController extends Controller
     }
 
     public function therapistAccount()
-    {
+
+    {        
+
         $therapist = Therapist::whereUserId(Auth::id())->with('user')->first();
-        
-
+    
         return view('therapist.account', compact('therapist'));
-
         
     }
     public function therapistAppoint(){
