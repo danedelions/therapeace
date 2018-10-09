@@ -1,14 +1,13 @@
 @extends('layouts.the')
 
 @section('page-section')
+
 @include('modals.therapist')
-
-
 
   <div class="row"> <!--  <div class="row">  --><!-- <div class="col-md-5"> -->
     <div class="col-sm-5 col-md-5 col-lg-5">
       <div class="card">
-        <div class="card-header">
+        <div class="card-header bg-info">
           <h5> User Information</h5>
         </div>
         <div class="card-body">
@@ -73,7 +72,7 @@
  {!! Form::close() !!}  
     <div class="col-sm-5 col-md-5 col-lg-7">
       <div class="card">
-        <div class="card-header">
+        <div class="card-header bg-info">
           <h5>Client Requests</h5>
         </div>
         <div class="card-body" style="overflow: scroll; height: 200px;">
@@ -126,7 +125,7 @@
     <br>
 
     <div class="card">
-      <div class="card-header">
+      <div class="card-header bg-info">
       <h5>Ratings</h5>
       </div>
       <div class="card-body" style="overflow: scroll; height: 250px;">

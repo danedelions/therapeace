@@ -12,11 +12,12 @@ class Client extends Model
         'lname',
         'contact',
         'gender',
-        'city',
+        'street',
+        'barangay',
         'town',
         'province',
-        'barangay',
-        'client',
+        'city',
+        'postal_code',
     ] ;
 
     public function user()
