@@ -8,6 +8,7 @@ use App\Http\Requests\TherapistRequest;
 use App\Client;
 use App\Therapist;
 use App\User;
+use App\Specialty;
 use Auth;
 use Hash;
 
@@ -118,12 +119,12 @@ class TherapistController extends Controller
     }
 
     public function therapistAccount()
+
     {        
+
         $therapist = Therapist::whereUserId(Auth::id())->with('user')->first();
-        
-
+    
         return view('therapist.account', compact('therapist'));
-
         
     }
     public function therapistAppoint(){
@@ -138,23 +139,16 @@ class TherapistController extends Controller
 
         return view('therapist.message');
 
+    }
+
+    public function createSpecialties()
+    {
+        return view('therapist.specialty');
     }   
 
-       public function therapistEdit(){
-
-
-        // $user = DB::table('users')->where('id', );
-
-
-
-        // $user = User::get()->toArray();
-
-        // dd($user);
-
-
-
-         return view('therapist.edit');
-
+    public function storeSpecialties()
+    {
+        $specialties;
     }
  
 }

@@ -31,13 +31,13 @@
             <div class="form-group row">
                <label class="col-lg-3 col-form-label form-control-label">First Name:</label>
                 <div class="col-lg-9">
-                  Name
+                {{$therapist->fname}}
                 </div>
             </div>
             <div class="form-group row">
                <label class="col-lg-3 col-form-label form-control-label">Last Name:</label>
                 <div class="col-lg-9">
-                  Name
+                  {{$therapist->lname}}
                 </div>
             </div>
             <div class="form-group row">
@@ -55,13 +55,14 @@
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Contact Number:</label>
                 <div class="col-lg-9">
-                   contact  
+                   {{$therapist->contact}} 
                 </div> 
           </div>
             <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Input Speacialties:</label>
-                <div class="col-lg-9"><br>
-                  
+              <label class="col-lg-3 col-form-label form-control-label">Specialties:</label>
+                <div class="col-lg-9">
+                    <a href="{{url('/therapist-specialty/')}}" class="btn btn-sm btn-outline-info">Add Specialties</a>
+                  <br>
              </div>  
           </div>
           <a  value="Edit Info" class="btn btn-success" href="{{url('/therapist-edit/'. $therapist->id )}}"><i class="far fa-edit"></i>Edit</a>
@@ -81,39 +82,7 @@
               <tr>
                 <td><label>Client1</label> wants to connect with you</td>
                 <td>
-                  <input type="submit" value="Approved" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
-                  <input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
-                  <input type="submit" value="Cancel" class="btn btn-danger" >
-                </td>
-              </tr>
-              <tr>
-                <td><label>Client2</label> wants to connect with you</td>
-                <td>
-                  <input type="submit" value="Approved" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
-                  <input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
-                  <input type="submit" value="Cancel" class="btn btn-danger" >
-                </td>
-              </tr>
-              <tr>
-                <td><label>Client3</label> wants to connect with you</td>
-                <td>
-                  <input type="submit" value="Approved" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
-                  <input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
-                  <input type="submit" value="Cancel" class="btn btn-danger" >
-                </td>
-              </tr>
-              <tr>
-                <td><label>Client4</label> wants to connect with you</td>
-                <td>
-                  <input type="submit" value="Approved" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
-                  <input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
-                  <input type="submit" value="Cancel" class="btn btn-danger" >
-                </td>
-              </tr>   
-              <tr>
-                <td><label>Client5</label> wants to connect with you</td>
-                <td>
-                  <input type="submit" value="Approved" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
+                  <input type="submit" value="Approve" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
                   <input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
                   <input type="submit" value="Cancel" class="btn btn-danger" >
                 </td>

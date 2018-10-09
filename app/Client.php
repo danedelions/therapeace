@@ -28,4 +28,9 @@ class Client extends Model
     {
     	return $query->where('user_id', $userId);
     }
+
+    public function booking()
+    {
+        return $this->hasMany('App\Booking');
+    }
 }
