@@ -17,7 +17,7 @@ class Client extends Model
         'province',
         'barangay',
         'client',
-    ] ;
+    ];
 
     public function user()
     {
@@ -26,5 +26,10 @@ class Client extends Model
         public function scopeOfUser($query, $userId)
     {
     	return $query->where('user_id', $userId);
+    }
+
+    public function booking()
+    {
+        return $this->hasMany('App\Booking');
     }
 }

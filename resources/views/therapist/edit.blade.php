@@ -14,15 +14,15 @@
 
               <fieldset>  
                         <div class="form-group col-md-6">
-                            {!! Form::inputGroup('text', 'First Name', 'fname', null, ['placeholder' => 'First Name'])  !!}
+                            {!! Form::inputGroup('text', 'First Name', 'fname', $therapist->fname, ['placeholder' => 'First Name'])  !!}
                         </div>
 
                         <div class="form-group col-md-6">
-                             {!! Form::inputGroup('text', 'Last Name', 'lname', null, ['placeholder' => 'Last Name']) !!}
+                             {!! Form::inputGroup('text', 'Last Name', 'lname', $therapist->lname, ['placeholder' => 'Last Name']) !!}
                         </div>
 
                         <div class="form-group col-md-12">
-                             {!! Form::inputGroup('email', 'Email', 'email', $therapist->user->email, ['placeholder' => 'Email']) !!}
+                             {!! Form::inputGroup('email', 'Email', 'email', Auth::user()->email, ['placeholder' => 'Email']) !!}
                         </div>
 
                         <div class="form-group col-md-6">
@@ -70,7 +70,7 @@
               <fieldset>
                         <legend>Profile:</legend>
                         <div class="form-group col-md-6">
-                            {!! Form::inputGroup('text', 'Username', 'username', $therapist->user->username, ['placeholder' => 'User Name']) !!}
+                            {!! Form::inputGroup('text', 'Username', 'username', Auth::user()->username, ['placeholder' => 'User Name']) !!}
                         </div>
               </fieldset>
 

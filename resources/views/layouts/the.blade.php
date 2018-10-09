@@ -5,9 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Therapeace | Therapist</title>       
+        <link rel="stylesheet" type="text/css" href="{{asset('path/dist/css/select2.min.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
         <link href="dist/assetsvendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- javascript -->
+        <script type="text/javascript" src="{{asset('path/dist/js/select2.min.js')}}"></script>
         <!-- font awesome -->
         <link rel="stylesheet" type="text/css" href="{{asset('fontawesome-free-5.1.0-web/css/all.css')}}">
         <!-- Card and Nav padding -->

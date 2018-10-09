@@ -9,7 +9,7 @@ use App\Http\Requests\ClientRequest;
 use App\Therapist;
 use App\Client;
 use App\User;
-
+use DB;
 use Hash;
 use Auth;
 
@@ -65,9 +65,10 @@ class ClientController extends Controller
          return view('login');
     }
 
-    public function clientFind()
+    public function clientFind(Therapist $therapists)
     {
-        return view('client.find');
+        $therapists = Therapist::all();
+        return view('client.find', compact('therapists'));
     }
     public function clientAccount()
     {
@@ -106,7 +107,13 @@ class ClientController extends Controller
         return view('client.message');
     }
 
-    public function search(){
-        
+    public function search(Request $request, Therapist $therapists)
+    {
+        $query = $request->get('q');
+        if($query)
+        {
+            $therapists = $query ? Therapist::search($query)->orderBy('id','desc')->paginate(7):Therapist::all();
+            return view('client.find', compact('therapists'));
+        }
     }
 }

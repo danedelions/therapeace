@@ -1,0 +1,52 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateBookingRequestsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('booking_requests', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('therapist_id');
+            $table->unsignedInteger('client_id');
+            $table->string('status');
+            $table->timestamps();
+        });
+
+        Schema::table('booking_requests', function (Blueprint $table){
+            $table->foreign('therapist_id')->references('id')->on('therapists')->onDelete('restrict');
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('restrict');
+        });
+
+        // booking details
+
+        Schema::create('booking_details', function (Blueprint $table){
+            $table->increments('id');
+            $table->unsignedInteger('booking_id');
+            $table->string('diagnosis');
+            $table->text('notes');
+        });
+
+        Schema::table('booking_details', function(Blueprint $table){
+            $table->foreign('booking_id')->references('id')->on('booking_requests')->onDelete('cascade');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('booking_requests');
+    }
+}

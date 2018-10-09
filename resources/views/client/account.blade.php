@@ -69,49 +69,17 @@
 	<div class="col-sm-5 col-md-5 col-lg-7">
 		<div class="card">
 			<div class="card-header bg-info">
-				<h5>Connections</h5>
+				<h5>Sent Requests</h5>
 			</div>
 			<div class="card-body" style="overflow: scroll; height: 250px;">
 				<table class="table table-default">
 					<thead>
 						<tr>
 							<td><i class="fas fa-user-circle fa-5x"></i></td>
-							<td><label>Tiffany</label> wants to connect with you</td>
+							<td>You sent a request to <b>Daniela</b></td>
 							<td>
-								<input type="submit" value="Connect" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
 								<input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
-							</td>
-						</tr>
-						<tr>
-							<td><i class="fas fa-user-circle fa-5x"></i></td>
-							<td><label>Tiffany</label> wants to connect with you</td>
-							<td>
-								<input type="submit" value="Connect" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
-								<input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
-							</td>
-						</tr>
-						<tr>
-							<td><i class="fas fa-user-circle fa-5x"></i></td>
-							<td><label>Tiffany</label> wants to connect with you</td>
-							<td>
-								<input type="submit" value="Connect" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
-								<input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
-							</td>
-						</tr>
-						<tr>
-							<td><i class="fas fa-user-circle fa-5x"></i></td>
-							<td><label>Tiffany</label> wants to connect with you</td>
-							<td>
-								<input type="submit" value="Connect" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
-								<input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
-							</td>
-						</tr>		
-						<tr>
-							<td><i class="fas fa-user-circle fa-5x"></i></td>
-							<td><label>Tiffany</label> wants to connect with you</td>
-							<td>
-								<input type="submit" value="Connect" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
-								<input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
+								<button class="btn btn-danger">Cancel</button>
 							</td>
 						</tr>
 					</thead>
