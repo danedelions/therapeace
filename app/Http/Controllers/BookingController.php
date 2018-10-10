@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Client;
 use App\Therapist;
 use App\User;
+use App\Booking;
+use App\BookingDetail;
 
 use Auth;
 class BookingController extends Controller
@@ -18,9 +20,20 @@ class BookingController extends Controller
     	// return view('client.book');
     }
 
-    public function submitDetails()
+    public function submitDetails(Request $request,$id)
     {
+    	$therapist = Therapist::ofUser($id)->first();
+    	$client = Client::ofUser(Auth::id())->first();
 
+    	Booking::create([
+    		'therapist_id' => $request->post($therapist->$id),
+    		'client_id' => $request->post($client->$id),
+    		'status' => $request->post('status'),
+    	]);
+
+    	BookingDetail::create([
+    		''
+    	]);
     }
 
 }

@@ -17,6 +17,7 @@ class CreateBookingRequestsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('therapist_id');
             $table->unsignedInteger('client_id');
+            $table->string('name');
             $table->string('status');
             $table->timestamps();
         });
@@ -33,6 +34,9 @@ class CreateBookingRequestsTable extends Migration
             $table->unsignedInteger('booking_id');
             $table->string('diagnosis');
             $table->text('notes');
+            $table->text('user_address');
+            $table->string('email');
+            $table->string('contact');
         });
 
         Schema::table('booking_details', function(Blueprint $table){
