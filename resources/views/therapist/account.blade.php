@@ -17,49 +17,49 @@
               <center><i class="fas fa-user-circle fa-7x"></i>
                 {!! Form::open(array('url'=>'dashboard/edit','method'=>'POST', 'files'=>true)) !!}
                 {!! csrf_field() !!}
-                 <input type="file" id="itemImage" name="itemImage">
+                 <input type="file" id="itemImage" name="itemImage" class="form-control">
                
                   </center>
               </form>
             </div>
             <div class="form-control-labelgroup row">
-              <label class="col-lg-3 col-form-label form-control-label">Username: </label>
+              <label class="col-lg-3 col-form-label form-control-label"><b>Username: </b></label>
                 <div class="col-lg-9">
                 {{ Auth::user()->username }}
                 </div>
             </div>
             <div class="form-group row">
-               <label class="col-lg-3 col-form-label form-control-label">First Name:</label>
+               <label class="col-lg-3 col-form-label form-control-label"><b>First Name: </b></label>
                 <div class="col-lg-9">
                 {{$therapist->fname}}
                 </div>
             </div>
             <div class="form-group row">
-               <label class="col-lg-3 col-form-label form-control-label">Last Name:</label>
+               <label class="col-lg-3 col-form-label form-control-label"><b>Last Name:</b></label>
                 <div class="col-lg-9">
                   {{$therapist->lname}}
                 </div>
             </div>
             <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Address:</label>
+              <label class="col-lg-3 col-form-label form-control-label"><b>Address:</b></label>
                 <div class="col-lg-9">
-                  Address
+                  {{$therapist->address}}
                 </div>
             </div>
             <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Email:</label>
+              <label class="col-lg-3 col-form-label form-control-label"><b>Email:</b></label>
                 <div class="col-lg-9">
                   {{ Auth::user()->email }}
                 </div>
             </div>
             <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Contact Number:</label>
+              <label class="col-lg-3 col-form-label form-control-label"><b>Contact Number:</b></label>
                 <div class="col-lg-9">
                    {{$therapist->contact}} 
                 </div> 
           </div>
             <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Specialties:</label>
+              <label class="col-lg-3 col-form-label form-control-label"><b>Specialties:</b></label>
                 <div class="col-lg-9">
                     <a href="{{url('/therapist-specialty/')}}" class="btn btn-sm btn-outline-info">Add Specialties</a>
                   <br>
@@ -79,14 +79,16 @@
         <div class="card-body" style="overflow: scroll; height: 200px;">
           <table class="table table-default">
             <thead>
+              @foreach($bookings as $data)
               <tr>
-                <td><label>Client1</label> wants to connect with you</td>
+                <td><label><b>{{$data->name}}</b></label> wants to connect with you</td>
                 <td>
                   <input type="submit" value="Approve" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
                   <input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
                   <input type="submit" value="Cancel" class="btn btn-danger" >
                 </td>
               </tr>
+              @endforeach
             </thead>
           </table>
         </div>

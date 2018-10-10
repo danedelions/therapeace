@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Requests\UserRequest;
 use App\Http\Requests\ClientRequest;
+use App\BookingRequest;
 use App\Client;
 use App\Therapist;
 use App\User;
@@ -52,11 +53,12 @@ class ClientController extends Controller
             'contact' => $request->post('number'), 
             'gender' => $request->post('gender'),
             'street' => $request->post('street'),
+            'postal_code' => $request->post('postal_code'),
             'barangay' => $request->post('barangay'),
             'town' => $request->post('town'),
             'province' => $request->post('province'),
             'city' => $request->post('city'),
-            'postal_code' => $request->post('postal_code'),
+
 
         ]);
 
@@ -68,11 +70,12 @@ class ClientController extends Controller
         $therapists = Therapist::all();
         return view('client.find', compact('therapists'));
     }
-    public function clientAccount()
+    public function clientAccount(BookingRequest $bookings)
     {
         // $client = Client::where('id', Auth::id())->first();
         $client = Client::ofUser(Auth::id())->first();
-        return view('client.account', compact('client'));
+        $bookings = BookingRequest::all();
+        return view('client.account', compact('client','bookings'));
     }
     public function edit($userId)
     {

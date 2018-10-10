@@ -53,11 +53,7 @@
 						<div class="form-group row justify-content-center">
 							<label class="col-lg-3 col-form-label">Address</label>
 								<div class="col-lg-8 form-control">
-									{{ $client->street }},
-									{{ $client->barangay }},
-									{{ $client->town}},
-									{{ $client->province }},
-									{{ $client->city }}
+									{{$client->address}}
 								</div>
 						</div>
 						<div class="form-group row justify-content-center">
@@ -84,14 +80,16 @@
 			<div class="card-body" style="overflow: scroll; height: 250px;">
 				<table class="table table-default">
 					<thead>
+						@foreach($bookings as $data)
 						<tr>
 							<td><i class="fas fa-user-circle fa-5x"></i></td>
-							<td>You sent a request to <b>Daniela</b></td>
+							<td>You sent a request to <b>{{$data->therapist->fname}}</b></td>
 							<td>
 								<input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
 								<button class="btn btn-danger">Cancel</button>
 							</td>
 						</tr>
+						@endforeach
 					</thead>
 				</table>
 			</div>

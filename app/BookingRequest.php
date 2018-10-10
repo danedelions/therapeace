@@ -3,13 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Booking;
 
-class Booking extends Model
+class BookingRequest extends Model
 {
 	protected $fillable = [
 		'therapist_id',
 		'client_id',
+		'name',
 		'status',
 	];
 
@@ -20,7 +20,7 @@ class Booking extends Model
 
 	public function therapist()
 	{
-		return $this->belongsTo('App\therapist', 'therapist_id');
+		return $this->belongsTo('App\Therapist', 'therapist_id', 'user_id');
 	}
 
     public function bookingDetails()

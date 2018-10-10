@@ -60,6 +60,7 @@ Route::group(['middleware' => 'auth'], function(){
 //BOOKING
 
 	Route::get('/booktherapist/{id}', 'BookingController@index')->name('get.booktherapist');
+	Route::post('/doBookTherapist/','BookingController@submitDetails')->name('post.doBook');
 
 // Admin Side
 // Route::get('admin', 'AdminController@getDashboard')->name('get.admin'); 

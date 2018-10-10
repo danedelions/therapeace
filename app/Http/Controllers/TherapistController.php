@@ -9,6 +9,7 @@ use App\Client;
 use App\Therapist;
 use App\User;
 use App\Specialty;
+use App\BookingRequest;
 use Auth;
 use Hash;
 
@@ -118,13 +119,12 @@ class TherapistController extends Controller
 
     }
 
-    public function therapistAccount()
-
+    public function therapistAccount(BookingRequest $bookings)
     {        
 
         $therapist = Therapist::whereUserId(Auth::id())->with('user')->first();
-    
-        return view('therapist.account', compact('therapist'));
+        $bookings = BookingRequest::all();
+        return view('therapist.account', compact('therapist', 'bookings'));
         
     }
     public function therapistAppoint(){

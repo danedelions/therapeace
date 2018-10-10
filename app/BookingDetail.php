@@ -10,6 +10,9 @@ class BookingDetail extends Model
 		'booking_id',
 		'diagnosis',
 		'notes',
+		'user_address',
+		'contact',
+		'email',
 	];
 
     public function booking()

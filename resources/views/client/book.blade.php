@@ -28,27 +28,29 @@
 					Your Details
 				</div>
 				<div class="card-body">
-					<form>
+					<form method="POST" action="{{url('/doBookTherapist/')}}">
+						{{csrf_field()}}
 					  <div class="form-row">
 					    <div class="form-group col-md-6">
 					     	<label for="inputEmail4">Name</label>
-					     	<input type="text" class="form-control" value="{{$client->fullName}}" disabled>
+					     	<input type="text" class="form-control" value="{{$client->fullName}}" name="name">
+					     	<input type="number" name="therapist_id" value="{{$therapist->user_id}}" hidden>
 					    </div>
 					    <div class="form-group col-md-6">
 					     	<label for="inputEmail4">E-mail</label>
-					     	<input type="text" class="form-control" value="{{$client->user->email}}" disabled>
+					     	<input type="text" class="form-control" value="{{$client->user->email}}" name="email">
 					    </div>
 					    <div class="form-group col-md-6">
 					     	<label for="inputEmail4">Contact</label>
-					     	<input type="text" class="form-control" value="{{$client->contact}}" disabled>
+					     	<input type="text" class="form-control" value="{{$client->contact}}" name="contact">
 					    </div>
 					    <div class="form-group col-md-12">
 							<label for="inputAddress">Address</label>
-						    <input type="text" class="form-control" value="{{$client->address}}" disabled>
+						    <input type="text" class="form-control" value="{{$client->address}}" name="user_address">
 						</div>
 						<div class="form-group col-md-12">
 							<label for="inputAddress">Notes to your therapist</label>
-						    <input type="text" class="form-control">
+						    <input type="text" class="form-control" name="notes">
 						</div>
 						<div class="form-group col-md-12">
 							<div class="card">
@@ -56,12 +58,13 @@
 									<label for="inputAddress">What's your diagnosis?</label>
 								</div>
 								<div class="card-body">
-									<textarea class="form-control" rows="4"></textarea>
+									<textarea class="form-control" rows="4" name="diagnosis"></textarea>
 								</div>
 							</div>
 						</div>
-						<button type="submit" class="btn btn-danger">Back</button>&nbsp;
+						<a href="{{url('/client-find')}}" class="btn btn-danger">Back</a>&nbsp;
 						<button type="submit" class="btn btn-success">Submit</button>
+					</div>
 					</form>
 				</div>
 			</div>

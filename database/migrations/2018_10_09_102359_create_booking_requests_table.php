@@ -23,8 +23,8 @@ class CreateBookingRequestsTable extends Migration
         });
 
         Schema::table('booking_requests', function (Blueprint $table){
-            $table->foreign('therapist_id')->references('id')->on('therapists')->onDelete('restrict');
-            $table->foreign('client_id')->references('id')->on('clients')->onDelete('restrict');
+            $table->foreign('therapist_id')->references('user_id')->on('therapists')->onDelete('cascade');
+            $table->foreign('client_id')->references('user_id')->on('clients')->onDelete('cascade');
         });
 
         // booking details
@@ -37,6 +37,7 @@ class CreateBookingRequestsTable extends Migration
             $table->text('user_address');
             $table->string('email');
             $table->string('contact');
+            $table->timestamps();
         });
 
         Schema::table('booking_details', function(Blueprint $table){
