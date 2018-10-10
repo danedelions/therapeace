@@ -54,8 +54,12 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/client-message', 'ClientController@clientMessage')->name('get.client-message');
 	Route::get('/client-search/', 'ClientController@search')->name('get.client-search');
 
-	Route::get('/client-transaction', 'PrintController@index');
-	Route::get('/printpreview','PrintController@printClient');
+//PRINTING
+	Route::get('/client-transaction', 'PrintController@clientTrans');
+	Route::get('/printclient','PrintController@printclient');
+
+	Route::get('/therapist-transaction', 'PrintController@therapistTrans');
+	Route::get('/printtherapist','PrintController@printtherapist');
 
 //BOOKING
 

@@ -73,7 +73,8 @@ class ClientController extends Controller
     public function clientAccount(BookingRequest $bookings)
     {
         // $client = Client::where('id', Auth::id())->first();
-        $client = Client::ofUser(Auth::id())->first();
+        // $client = Client::ofUser(Auth::id())->first();
+        $client = Client::whereUserId(Auth::id())->with('user')->first();
         $bookings = BookingRequest::all();
         return view('client.account', compact('client','bookings'));
     }
@@ -98,14 +99,15 @@ class ClientController extends Controller
 
 
     }
-    public function clientHistory(Client $client)
+    public function clientHistory(Therapist $therapists)
     {
-        $client = Client::all();
-        return view('client.history', compact('client'));
+        $therapists = Therapist::all();
+        return view('client.history', compact('therapists'));
     }
     public function clientMessage()
     {
-        return view('client.message');
+        $therapists = Therapist::all();
+        return view('client.message', compact('therapists'));
     }
 
     public function search(Request $request, Therapist $therapists)

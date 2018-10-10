@@ -30,7 +30,7 @@
         @stack('js')
     </head>
     
-    <body id="clientBg">
+    <body id="therapistBg">
         <main class="container">
 	        <nav class="navbar navbar-expand-md bg-white fixed-top">
 			  <div class="container">    
@@ -40,19 +40,19 @@
 			    <div class="collapse navbar-collapse">
 			      <ul class="nav navbar-nav ml-auto"> <!-- ml-auto (navbar items on the right side)-->
 			        <li class="active nav-item">
-			          <a class="nav-link" href="/client-history"><i class="fas fa-chevron-left"></i> Go Back</a>
+			          <a class="nav-link" href="/therapist-history"><i class="fas fa-chevron-left"></i> Go Back</a>
 			        </li>
 			      </ul>
 			    </div>
 			  </div>
 			</nav>
-			<br>
+
 			<div class="row justify-content-center"> <!-- 	<div class="row">  --><!-- <div class="col-md-5"> -->
 				<div class="col-sm-5 col-md-5 col-lg-10">
 					<div class="card">
 						<div class="card-header">
 							<h5 class="mb-0">THERAPY INVOICE 
-								<a class="btnprn btn" href="{{ url('/printclient') }}"><i class="fas fa-print"></i></a>		
+								<a class="btnprn btn" href="{{ url('/printtherapist') }}"><i class="fas fa-print"></i></a>		
 							</h5>
 						</div>
 
@@ -66,30 +66,26 @@
 							<div class="row">
 							  	<div class="col-12 col-md-6">
 							  		<label class="control-label">Patient Name: </label>
-									<a>{{ $client->fname }} {{ $client->lname }}</a>
+									<a></a>
 							  	</div>
 							  	<div class="col-6 col-md-2">
 							  		<label class="control-label">Gender: </label>
-									<a>{{ $client->gender }}</a>
+									<a></a>
 							  	</div>									  	
 							  	<div class="col-6 col-md-4">
 							  		<label class="control-label">Contact Number: </label>
-									<a>{{ $client->contact }}</a>
+									<a></a>
 							  	</div>
 							</div>
 
 							<div class="row">
 								<div class="col-6 col-md-6">
 								  		<label class="control-label">Address: </label>
-										<a>{{ $client->street }},
-											{{ $client->barangay }},
-											{{ $client->town }},
-											{{ $client->province }},
-											{{ $client->city }}</a>
+										<a></a>
 								</div>
 								<div class="col-6 col-md-4">
 								  		<label class="control-label">Email Address: </label>
-										<a>{{ Auth::user()->email }}</a>
+										<a></a>
 								</div>
 							</div>
 							
@@ -100,11 +96,12 @@
 								</div>
 								<div class="col-6 col-md-4">
 								  		<label class="control-label">Therapist: </label>
-										<a></a>
+										<a>{{ $therapist->fname }} {{ $therapist->lname }}</a>
 								</div>
 							</div>
 
 							<hr>
+
 							<table class="table table-default">
 								<thead>
 									<tr>
@@ -128,7 +125,8 @@
 				</div>
 			</div>
 
-        @include('partials.client.footer')
+        @include('partials.therapist.footer')
+        
         </main>
     </body>
 

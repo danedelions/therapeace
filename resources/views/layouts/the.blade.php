@@ -32,8 +32,12 @@
 
     <body id="therapistBg">
         <main class="container">
+
             @include('partials.therapist.header')
+
             @yield('page-section')
+
+            @include('partials.therapist.footer')
 
 <!--         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

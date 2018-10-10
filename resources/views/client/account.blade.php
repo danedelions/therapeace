@@ -62,7 +62,6 @@
 									{{ $client->postal_code }}
 								</div>
 						</div>
-		            
 					<div style="display:block; width:x; height:y; text-align:right;">
 						<a href="{{url('/client-edit/'. $client->id )}}"><i class="far fa-edit"></i> Edit</a>
 					</div>
@@ -77,7 +76,7 @@
 			<div class="card-header bg-info">
 				<h5>Sent Requests</h5>
 			</div>
-			<div class="card-body" style="overflow: scroll; height: 250px;">
+			<div class="card-body" style="overflow: scroll; height: 200px;">
 				<table class="table table-default">
 					<thead>
 						@foreach($bookings as $data)
