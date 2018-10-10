@@ -16,14 +16,14 @@
 				<form action="#">
 					<div>
 						<label>From:</label>
-						<input class="form-control" type="date" placeholder="" id="" value="" name="">
+						<input class="form-control" type="date">
 					</div>
 
 					<br>
 
 					<div>
 						<label>To:</label>
-						<input class="form-control" type="date" placeholder="" id="" value="" name="">
+						<input class="form-control" type="date">
 					</div>
 
 					<br>
@@ -49,24 +49,25 @@
 								<tr>
 									<th>DATE</th>
 									<th>TIME</th>
-									<th>CLIENT</th>
+									<th>THERAPIST</th>
 									<th>TOTAL SESSION</th>
 									<th>OPTION</th>
 								</tr>
 							</thead>
 							<tbody>
 
-
+								@foreach($therapists as $row)
 								<tr>
 									<td>mm-dd-yyyy</td>
 									<td>00:00:00</td>
-									<td>NOT AVAILABLE</td>
+									<td>{{ $row->fname }} {{ $row->lname }}</td>
 									<td>0000</td>
 									<td>
 										<a class="btn btn-outline-info" href="/client-transaction"><i style="color:black;" class="fas fa-eye"></i></a>
 										<button class="btn btn-outline-danger" href="#" data-toggle="modal" data-target="#deleteTransaction"><i style="color:black;" class="fas fa-trash-alt"></i></button>
 									</td>
 								</tr>
+								@endforeach
 
 							</tbody>
 						</table>

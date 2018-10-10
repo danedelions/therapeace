@@ -33,7 +33,7 @@ class User extends Authenticatable
 
     public function therapist()
     {
-        return $this->hasOne('App\therapist', 'user_id', 'id');
+        return $this->hasOne('App\Therapist', 'user_id', 'id');
     }
 
     public function client()

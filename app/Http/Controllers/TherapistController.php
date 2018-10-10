@@ -120,20 +120,23 @@ class TherapistController extends Controller
 
     public function therapistAccount()
 
-    {        
-
+    {
+        $clients = Client::all();        
         $therapist = Therapist::whereUserId(Auth::id())->with('user')->first();
     
-        return view('therapist.account', compact('therapist'));
+        return view('therapist.account', compact('therapist', 'clients'));
         
     }
-    public function therapistAppoint(){
-
-        return view('therapist.appoint');
+    public function therapistAppoint(Client $clients)
+    {
+        $clients = Client::all();
+        return view('therapist.appoint', compact('clients'));
     }
-    public function therapistHistory(){
+    public function therapistHistory(Client $clients){
 
-        return view('therapist.history');
+        $clients = Client::all();
+        return view('therapist.history', compact('clients'));
+        // return view('client.book');
     }
     public function therapistMessage(){
 

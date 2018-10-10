@@ -11,66 +11,63 @@
           <h5> User Information</h5>
         </div>
         <div class="card-body">
-            <div class="form-group">
-              <center>
-              <form action="#" method="#" enctype="multipart/form-data">
-              <center><i class="fas fa-user-circle fa-7x"></i>
-                {!! Form::open(array('url'=>'dashboard/edit','method'=>'POST', 'files'=>true)) !!}
-                {!! csrf_field() !!}
-                 <input type="file" id="itemImage" name="itemImage">
-               
-                  </center>
-              </form>
-            </div>
-            <div class="form-control-labelgroup row">
-              <label class="col-lg-3 col-form-label form-control-label">Username: </label>
-                <div class="col-lg-9">
+          <center><i class="fas fa-user-circle fa-7x"></i>
+            {!! Form::open(array('url'=>'dashboard/edit','method'=>'POST', 'files'=>true)) !!}
+            {!! csrf_field() !!}
+            <input type="file" id="itemImage" name="itemImage">
+          </center>
+          <br>
+          <div class="form-group row justify-content-center">
+            <label class="col-lg-3 col-form-label">Username</label>
+              <div class="col-lg-8 form-control">
                 {{ Auth::user()->username }}
-                </div>
-            </div>
-            <div class="form-group row">
-               <label class="col-lg-3 col-form-label form-control-label">First Name:</label>
-                <div class="col-lg-9">
-                {{$therapist->fname}}
-                </div>
-            </div>
-            <div class="form-group row">
-               <label class="col-lg-3 col-form-label form-control-label">Last Name:</label>
-                <div class="col-lg-9">
-                  {{$therapist->lname}}
-                </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Address:</label>
-                <div class="col-lg-9">
-                  Address
-                </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Email:</label>
-                <div class="col-lg-9">
-                  {{ Auth::user()->email }}
-                </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Contact Number:</label>
-                <div class="col-lg-9">
-                   {{$therapist->contact}} 
-                </div> 
+              </div>
           </div>
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Specialties:</label>
-                <div class="col-lg-9">
+          <div class="form-group row justify-content-center">
+            <label class="col-lg-3 col-form-label">First Name</label>
+              <div class="col-lg-8 form-control">
+                {{$therapist->fname}}
+              </div>
+          </div>
+          <div class="form-group row justify-content-center">
+            <label class="col-lg-3 col-form-label">Last Name</label>
+              <div class="col-lg-8 form-control">
+                  {{$therapist->lname}}
+              </div>
+          </div>
+          <div class="form-group row justify-content-center">
+            <label class="col-lg-3 col-form-label">Address</label>
+              <div class="col-lg-8 form-control">
+                  {{$therapist->streetaddress}}
+              </div>
+          </div>
+          <div class="form-group row justify-content-center">
+            <label class="col-lg-3 col-form-label">Email</label>
+              <div class="col-lg-8 form-control">
+                  {{ Auth::user()->email }}
+              </div>
+          </div>
+          <div class="form-group row justify-content-center">
+            <label class="col-lg-3 col-form-label">Contact Number</label>
+              <div class="col-lg-8 form-control">
+                   {{$therapist->contact}} 
+              </div> 
+          </div>
+          <div class="form-group row justify-content-center">
+            <label class="col-lg-3 col-form-label">Specialties</label>
+              <div class="col-lg-8">
                     <a href="{{url('/therapist-specialty/')}}" class="btn btn-sm btn-outline-info">Add Specialties</a>
                   <br>
-             </div>  
+              </div>  
           </div>
-          <a  value="Edit Info" class="btn btn-success" href="{{url('/therapist-edit/'. $therapist->id )}}"><i class="far fa-edit"></i>Edit</a>
+
+          <div style="display:block; width:x; height:y; text-align:right;">
+            <a href="{{url('/therapist-edit/'. $therapist->id )}}"><i class="far fa-edit"></i> Edit</a>
+          </div>
+          {!! Form::close() !!}  
         </div>
       </div>
     </div>
-
- {!! Form::close() !!}  
     <div class="col-sm-5 col-md-5 col-lg-7">
       <div class="card">
         <div class="card-header bg-info">

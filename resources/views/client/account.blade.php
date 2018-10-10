@@ -14,59 +14,60 @@
 			</div>
 			<div class="card-body">
 				<form class="form">
-						<div class="form-group row justify-content-center">
-							<label class="col-lg-3 col-form-label">Username</label>
-								<div class="col-lg-8 form-control">
-									{{ Auth::user()->username }}
-								</div>
-						</div>
-						<div class="form-group row justify-content-center">
-							<label class="col-lg-3 col-form-label">First Name</label>
-								<div class="col-lg-8 form-control">
-									{{ $client->fname }}
-								</div>
-						</div>
-						<div class="form-group row justify-content-center">
-							<label class="col-lg-3 col-form-label">Last Name</label>
-								<div class="col-lg-8 form-control">
-									{{ $client->lname }}
-								</div>
-						</div>
-						<div class="form-group row justify-content-center">
-							<label class="col-lg-3 col-form-label">Email</label>
-								<div class="col-lg-8 form-control">
-									{{ Auth::user()->email }}
-								</div>
-						</div>
-						<div class="form-group row justify-content-center">
-							<label class="col-lg-3 col-form-label">Gender</label>
-								<div class="col-lg-8 form-control">
-									{{ $client->gender }}
-								</div>
-						</div>
-						<div class="form-group row justify-content-center">
-							<label class="col-lg-3 col-form-label">Contact Number</label>
-								<div class="col-lg-8 form-control">
-									{{ $client->contact }}
-								</div>
-						</div>
-						<div class="form-group row justify-content-center">
-							<label class="col-lg-3 col-form-label">Address</label>
-								<div class="col-lg-8 form-control">
-									{{ $client->street }},
-									{{ $client->barangay }},
-									{{ $client->town}},
-									{{ $client->province }},
-									{{ $client->city }}
-								</div>
-						</div>
-						<div class="form-group row justify-content-center">
-							<label class="col-lg-3 col-form-label">Postal Code</label>
-								<div class="col-lg-8 form-control">
-									{{ $client->postal_code }}
-								</div>
-						</div>
-		            
+
+					<div class="form-group row justify-content-center">
+						<label class="col-lg-3 col-form-label"><b>Username</b></label>
+							<div class="col-lg-8 form-control">
+								{{ Auth::user()->username }}
+							</div>
+					</div>
+					<div class="form-group row justify-content-center">
+						<label class="col-lg-3 col-form-label"><b>First Name</b></label>
+							<div class="col-lg-8 form-control">
+								{{ $client->fname }}
+							</div>
+					</div>
+					<div class="form-group row justify-content-center">
+						<label class="col-lg-3 col-form-label"><b>Last Name</b></label>
+							<div class="col-lg-8 form-control">
+								{{ $client->lname }}
+							</div>
+					</div>
+					<div class="form-group row justify-content-center">
+						<label class="col-lg-3 col-form-label"><b>Email</b></label>
+							<div class="col-lg-8 form-control">
+								{{ Auth::user()->email }}
+							</div>
+					</div>
+					<div class="form-group row justify-content-center">
+						<label class="col-lg-3 col-form-label"><b>Gender</b></label>
+							<div class="col-lg-8 form-control">
+								{{ $client->gender }}
+							</div>
+					</div>
+					<div class="form-group row justify-content-center">
+						<label class="col-lg-3 col-form-label"><b>Contact Number</b></label>
+							<div class="col-lg-8 form-control">
+								{{ $client->contact }}
+							</div>
+					</div>
+					<div class="form-group row justify-content-center">
+						<label class="col-lg-3 col-form-label"><b>Address</b></label>
+							<div class="col-lg-8 form-control">
+								{{ $client->street }},
+								{{ $client->barangay }},
+								{{ $client->town}},
+								{{ $client->province }},
+								{{ $client->city }}
+							</div>
+					</div>
+					<div class="form-group row justify-content-center">
+						<label class="col-lg-3 col-form-label"><b>Postal Code</b></label>
+							<div class="col-lg-8 form-control">
+								{{ $client->postal_code }}
+							</div>
+					</div>
+	            
 					<div style="display:block; width:x; height:y; text-align:right;">
 						<a href="{{url('/client-edit/'. $client->id )}}"><i class="far fa-edit"></i> Edit</a>
 					</div>
@@ -81,12 +82,12 @@
 			<div class="card-header bg-info">
 				<h5>Sent Requests</h5>
 			</div>
-			<div class="card-body" style="overflow: scroll; height: 250px;">
+			<div class="card-body" style="overflow: scroll; height: 200px;">
 				<table class="table table-default">
 					<thead>
 						<tr>
 							<td><i class="fas fa-user-circle fa-5x"></i></td>
-							<td>You sent a request to <b>Daniela</b></td>
+							<td>You sent a request to <b>Stiffani</b></td>
 							<td>
 								<input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
 								<button class="btn btn-danger">Cancel</button>

@@ -71,8 +71,9 @@ class ClientController extends Controller
     public function clientAccount()
     {
         // $client = Client::where('id', Auth::id())->first();
+        $therapists = Therapist::all();
         $client = Client::ofUser(Auth::id())->first();
-        return view('client.account', compact('client'));
+        return view('client.account', compact('client', 'therapists'));
     }
     public function edit($userId)
     {
@@ -95,10 +96,10 @@ class ClientController extends Controller
 
 
     }
-    public function clientHistory(Client $client)
+    public function clientHistory(Therapist $therapists)
     {
-        $client = Client::all();
-        return view('client.history', compact('client'));
+        $therapists = Therapist::all();
+        return view('client.history', compact('therapists'));
     }
     public function clientMessage()
     {

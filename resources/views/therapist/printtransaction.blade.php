@@ -1,4 +1,4 @@
-@extends('layouts.cli')
+@extends('layouts.the')
 
 @section('page-section')
 
@@ -11,35 +11,31 @@
 
 						<div class="card-body" id="transaction">
 							<div class="row">
-							  	<div class="col-12 col-md-6">
+							  	<div class="col-12 col-md-5">
 							  		<label class="control-label">Patient Name: </label>
-									<a>{{ $client->fname }} {{ $client->lname }}</a>
+									<a></a>
 							  	</div>
 							  	<div class="col-6 col-md-2">
 							  		<label class="control-label">Gender: </label>
-									<a>{{ $client->gender }}</a>
+									<a></a>
 							  	</div>									  	
-							  	<div class="col-6 col-md-4">
+							  	<div class="col-6 col-md-3">
 							  		<label class="control-label">Contact Number: </label>
-									<a>{{ $client->contact }}</a>
+									<a></a>
 							  	</div>
 							</div>
 
 							<div class="row">
 								<div class="col-6 col-md-6">
 								  		<label class="control-label">Address: </label>
-										<a>{{ $client->street }},
-											{{ $client->barangay }},
-											{{ $client->town }},
-											{{ $client->province }},
-											{{ $client->city }}</a>
+										<a></a>
 								</div>
 								<div class="col-6 col-md-4">
 								  		<label class="control-label">Email Address: </label>
-										<a>{{ Auth::user()->email }}</a>
+										<a></a>
 								</div>
 							</div>
-							
+
 							<div class="row">
 								<div class="col-6 col-md-6">
 								  		<label class="control-label">Diagnosis: </label>
