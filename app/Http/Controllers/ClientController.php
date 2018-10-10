@@ -103,7 +103,8 @@ class ClientController extends Controller
     }
     public function clientMessage()
     {
-        return view('client.message');
+        $therapists = Therapist::all();
+        return view('client.message', compact('therapists'));
     }
 
     public function search(Request $request, Therapist $therapists)
