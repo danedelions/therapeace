@@ -3,9 +3,6 @@
 @section('title', 'Account')
 
 @section('page-section')
-
-@include('modals.client')
-
 <div class="row"> <!-- 	<div class="row">  --><!-- <div class="col-md-5"> -->
 	<div class="col-sm-5 col-md-5 col-lg-5">
 		<div class="card ">
@@ -13,60 +10,57 @@
 				<h5>User Information</h5>
 			</div>
 			<div class="card-body">
-				<form class="form">
 						<div class="form-group row justify-content-center">
-							<label class="col-lg-3 col-form-label">Username</label>
-								<div class="col-lg-8 form-control">
+							<label class="col-lg-3"><b>Username</b></label>
+								<div class="col-lg-8">
 									{{ Auth::user()->username }}
 								</div>
 						</div>
 						<div class="form-group row justify-content-center">
-							<label class="col-lg-3 col-form-label">First Name</label>
-								<div class="col-lg-8 form-control">
+							<label class="col-lg-3"><b>First Name</b></label>
+								<div class="col-lg-8">
 									{{ $client->fname }}
 								</div>
 						</div>
 						<div class="form-group row justify-content-center">
-							<label class="col-lg-3 col-form-label">Last Name</label>
-								<div class="col-lg-8 form-control">
+							<label class="col-lg-3">Last Name</label>
+								<div class="col-lg-8">
 									{{ $client->lname }}
 								</div>
 						</div>
 						<div class="form-group row justify-content-center">
-							<label class="col-lg-3 col-form-label">Email</label>
-								<div class="col-lg-8 form-control">
+							<label class="col-lg-3">Email</label>
+								<div class="col-lg-8">
 									{{ Auth::user()->email }}
 								</div>
 						</div>
 						<div class="form-group row justify-content-center">
-							<label class="col-lg-3 col-form-label">Gender</label>
-								<div class="col-lg-8 form-control">
+							<label class="col-lg-3">Gender</label>
+								<div class="col-lg-8">
 									{{ $client->gender }}
 								</div>
 						</div>
 						<div class="form-group row justify-content-center">
-							<label class="col-lg-3 col-form-label">Contact Number</label>
-								<div class="col-lg-8 form-control">
+							<label class="col-lg-3">Contact Number</label>
+								<div class="col-lg-8">
 									{{ $client->contact }}
 								</div>
 						</div>
 						<div class="form-group row justify-content-center">
-							<label class="col-lg-3 col-form-label">Address</label>
-								<div class="col-lg-8 form-control">
+							<label class="col-lg-3">Address</label>
+								<div class="col-lg-8">
 									{{$client->address}}
 								</div>
 						</div>
 						<div class="form-group row justify-content-center">
-							<label class="col-lg-3 col-form-label">Postal Code</label>
-								<div class="col-lg-8 form-control">
+							<label class="col-lg-3">Postal Code</label>
+								<div class="col-lg-8">
 									{{ $client->postal_code }}
 								</div>
 						</div>
 					<div style="display:block; width:x; height:y; text-align:right;">
 						<a href="{{url('/client-edit/'. $client->id )}}"><i class="far fa-edit"></i> Edit</a>
 					</div>
-
-				</form>
 			</div>
 		</div>
 	</div>

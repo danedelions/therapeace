@@ -15,8 +15,8 @@ class BookingDetail extends Model
 		'email',
 	];
 
-    public function booking()
+    public function bookingRequest()
     {
-    	return $this->hasOne('App\Booking', 'booking_id', 'id');
+    	return $this->belongsTo('App\BookingRequest', 'id', 'booking_id');
     }
 }

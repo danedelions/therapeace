@@ -42,10 +42,10 @@ class Therapist extends Model
     	// return $this->belongsTo('App\User', 'user_id');
     	// return $this->belongsTo('App\User', 'id');
 
-    	return $this->belongsTo('App\User', 'user_id');
-
-    	return $this->belongsTo('App\User', 'id');
     	// return $this->belongsTo('App\User', 'user_id');
+
+    	// return $this->belongsTo('App\User', 'id');
+    	// // return $this->belongsTo('App\User', 'user_id');
 
     }
 
@@ -61,7 +61,7 @@ class Therapist extends Model
         }
     }
 
-    public function booking()
+    public function bookingRequest()
     {
         return $this->hasMany('App\Booking','therapist_id','user_id');
     }

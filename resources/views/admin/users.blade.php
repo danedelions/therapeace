@@ -13,7 +13,6 @@
                           <th>Email</th>
                           <th>Role</th>
                           <th>Status</th>
-                          <th>Date Joined</th>
                           <th>Action</th>
                         </tr>
                       </thead>
@@ -31,7 +30,7 @@
                                   Unblocked
                               @endif
                           </td>
-                          <td>{{$row['created_at']}}</td>
+                          
 
                           <!-- View Modal client-->
                           <div class="modal fade" id="viewModalc" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

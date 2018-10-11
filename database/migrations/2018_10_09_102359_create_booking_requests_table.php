@@ -53,5 +53,6 @@ class CreateBookingRequestsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('booking_requests');
+        Schema::dropIfExists('booking_details');
     }
 }

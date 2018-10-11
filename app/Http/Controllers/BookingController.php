@@ -21,32 +21,33 @@ class BookingController extends Controller
 
     public function submitDetails(Request $request)
     {
-    	BookingRequest::create([
+    	$bookingRequest = BookingRequest::create([
     		'therapist_id' => $request->post('therapist_id'),
     		'client_id' => Auth::id(),
     		'name' => $request->post('name'),
     		'status' => 0,
     	]);
 
-    	$bookings = BookingRequest::where('name', $request->post('name'))->get();
+        $bookingRequest->bookingDetails()->create([
+            'diagnosis' => $request->post('diagnosis'),
+            'notes' => $request->post('notes'),
+            'user_address' => $request->post('user_address'),
+            'email' => $request->post('email'),
+            'contact' => $request->post('contact'),
+        ]);
 
-    	BookingDetail::create([
-    		'booking_id' => $bookings[0]['id'],
-    		'diagnosis' => $request->post('diagnosis'),
-    		'notes' => $request->post('notes'),
-    		'user_address' => $request->post('user_address'),
-    		'email' => $request->post('email'),
-    		'contact' => $request->post('contact'),
-    	]);
+    	// $bookings = BookingRequest::where('id', $request->post('id'))->get();
+     //    // dd($bookings);
+    	// BookingDetail::create([
+    	// 	'booking_id' => $bookings[0]['id'],
+    	// 	'diagnosis' => $request->post('diagnosis'),
+    	// 	'notes' => $request->post('notes'),
+    	// 	'user_address' => $request->post('user_address'),
+    	// 	'email' => $request->post('email'),
+    	// 	'contact' => $request->post('contact'),
+    	// ]);
 
-    	return Redirect::back();
+    	return redirect()->route('get.client-find');
     }
-
-    // public function showClientRequests(BookingRequest $bookingrequests)
-    // {
-    //     $bookingrequests = BookingRequest::all();
-
-    //     return view('client.account', compact('bookingrequests'));
-    // }
 
 }

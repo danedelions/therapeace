@@ -15,7 +15,7 @@ class BookingRequest extends Model
 
 	public function client()
 	{
-		return $this->belongsTo('App\Client', 'client_id');
+		return $this->belongsTo('App\Client', 'client_id', 'user_id');
 	}
 
 	public function therapist()
@@ -25,6 +25,6 @@ class BookingRequest extends Model
 
     public function bookingDetails()
     {
-    	return $this->hasOne('App\bookingDetails', 'booking_id', 'id');
+    	return $this->hasOne('App\BookingDetail', 'booking_id');
     }
 }
