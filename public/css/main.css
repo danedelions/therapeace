@@ -126,7 +126,7 @@ main {
     background-color: #dcdcdc;
   }
 #transaction a {
-    color: blue;
+    font-weight: bold;
 }
 
  /*rating*/

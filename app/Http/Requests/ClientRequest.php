@@ -22,41 +22,21 @@ class ClientRequest extends FormRequest
      */
     public function rules()
     {
-        // return [    
-        // 'fname' => 'required|alpha_spaces', 
-        // 'lname' =>  'required|alpha_spaces',
-        // 'contact' => 'required|numeric',
-        // 'fname' => 'required|alpha', 
-        // 'lname' =>  'required|alpha',
-        // 'contact' => 'numeric|between:1,20',
-        // 'gender' => 'required',
-        // 'barangay' => 'required' ,
-        // 'province' => 'required' ,
-        // 'town' => 'required' ,
-        // 'barangay' => 'required',
-        // 'province' => 'required',
-        // 'town' => 'required',
-        // 'city' => 'required',
-
-
-        //     //
-        // ];
-
         $rules =  [
             'fname' =>  'required', 
             'lname' => 'required', 
             'email' => 'required', 
             'contact' => 'required',
             'gender' => 'required',
-            'city' => 'required',
-            'town' => 'required',
-            'province' => 'required', 
+            'street' => 'required',
             'barangay' => 'required',
-            'client' => 'sometimes|required',
+            'town' => 'nullable',
+            'province' => 'required', 
+            'city' => 'required',
+            'postal_code' => 'required',
             'username' => 'sometimes|required'
         ];
 
         return $rules;
-
     }
 }

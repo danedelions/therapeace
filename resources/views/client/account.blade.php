@@ -31,7 +31,7 @@
 								<div class="col-lg-8 form-control">
 									{{ $client->lname }}
 								</div>
-						</div>
+						</div>n
 						<div class="form-group row justify-content-center">
 							<label class="col-lg-3 col-form-label">Contact Number</label>
 								<div class="col-lg-8 form-control">

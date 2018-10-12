@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
-
+use Illuminate\Http\Requests\UserRequest;
 use App\Http\Requests\ClientRequest;
-use App\Therapist;
+use App\BookingRequest;
 use App\Client;
+use App\Therapist;
 use App\User;
-
+use DB;
 use Hash;
 use Auth;
 
@@ -18,10 +18,7 @@ class ClientController extends Controller
 
     public function __construct()
     {
-
         $this->middleware('auth')->except(['index', 'store']);
-
-
     }
     /**
      * Display a listing of the resource.
@@ -54,26 +51,32 @@ class ClientController extends Controller
             'fname' => $request->post('fname'),
             'lname' => $request->post('lname'),
             'contact' => $request->post('number'), 
-            'gender' => $request->post('gender'), 
+            'gender' => $request->post('gender'),
+            'street' => $request->post('street'),
+            'postal_code' => $request->post('postal_code'),
             'barangay' => $request->post('barangay'),
-            'province' => $request->post('province'),
             'town' => $request->post('town'),
-            'city' => $request->post('city'), 
+            'province' => $request->post('province'),
+            'city' => $request->post('city'),
+
 
         ]);
 
          return view('login');
     }
 
-    public function clientFind()
+    public function clientFind(Therapist $therapists)
     {
-        return view('client.find');
+        $therapists = Therapist::all();
+        return view('client.find', compact('therapists'));
     }
-    public function clientAccount()
+    public function clientAccount(BookingRequest $bookings)
     {
-        // $client = Client::all();
-        $client = Client::ofUser(Auth::id())->first();
-        return view('client.account', compact('client'));
+        // $client = Client::where('id', Auth::id())->first();
+        // $client = Client::ofUser(Auth::id())->first();
+        $client = Client::whereUserId(Auth::id())->with('user')->first();
+        $bookings = BookingRequest::all();
+        return view('client.account', compact('client','bookings'));
     }
     public function edit($userId)
     {
@@ -96,17 +99,24 @@ class ClientController extends Controller
 
 
     }
-    public function clientHistory(Client $client)
+    public function clientHistory(Therapist $therapists)
     {
-        $client = Client::all();
-        return view('client.history', compact('client'));
+        $therapists = Therapist::all();
+        return view('client.history', compact('therapists'));
     }
     public function clientMessage()
     {
-        return view('client.message');
+        $therapists = Therapist::all();
+        return view('client.message', compact('therapists'));
     }
 
-    public function search(){
-        
+    public function search(Request $request, Therapist $therapists)
+    {
+        $query = $request->get('q');
+        if($query)
+        {
+            $therapists = $query ? Therapist::search($query)->orderBy('id','desc')->paginate(7):Therapist::all();
+            return view('client.find', compact('therapists'));
+        }
     }
 }

@@ -18,19 +18,19 @@
 						<table class="table table-default" >
 							<thead>
 								<tr>
-									<th>Aaaaaaaa</th>
-									<th>Bbbbbbbb</th>
-									<th>Cccccccc</th>
-									<th>Dddddddd</th>
-									<th>DELETE</th>
+									<th></th>
+									<th></th>
+									<th></th>
+									<th></th>
+									<th></th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td>1</td>
-									<td>2</td>
-									<td>3</td>
-									<td>4</td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
 									<td>
 										<button class="btn btn-danger" href="#" data-toggle="modal" data-target="#deleteTransaction"><i style="color:black;" class="fas fa-trash-alt"></i></button>
 									</td>

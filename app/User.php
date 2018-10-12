@@ -33,7 +33,7 @@ class User extends Authenticatable
 
     public function therapist()
     {
-        return $this->hasOne('App\therapist', 'user_id', 'id');
+        return $this->hasOne('App\Therapist', 'user_id', 'id');
     }
 
     public function client()
@@ -41,5 +41,8 @@ class User extends Authenticatable
         return $this->hasOne('App\Client', 'user_id', 'id');
     }
 
-
+    public function getFullNameAttribute()
+    {
+        return "{$this->fname} {$this->lname}";
+    } 
 }

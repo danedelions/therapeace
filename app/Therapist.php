@@ -37,14 +37,43 @@ class Therapist extends Model
 
     public function user(){
 
+
+    	return $this->belongsTo('App\User', 'id');
+    	// return $this->belongsTo('App\User', 'user_id');
     	// return $this->belongsTo('App\User', 'id');
 
-    	return $this->belongsTo('App\User', 'user_id');
+    	// return $this->belongsTo('App\User', 'user_id');
+
+    	// return $this->belongsTo('App\User', 'id');
+    	// // return $this->belongsTo('App\User', 'user_id');
 
     }
 
     public function scopeOfUser($query, $userId)
     {
     	return $query->where('id', $userId);
+    }
+
+    public function scopeSearch($query, $search)
+    {
+        if($query === 'Physical Therapist'){
+            return $query->where('therapist', 'LIKE', '%$search%');
+        }
+    }
+
+    public function bookingRequest()
+    {
+        return $this->hasMany('App\Booking','therapist_id','user_id');
+    }
+
+    public function getFullNameAttribute()
+    {
+        return "{$this->fname} {$this->lname}";
+    }
+
+
+    public function getAddressAttribute()
+    {
+        return "{$this->streetaddress}, {$this->town}, {$this->barangay}, {$this->city}, {$this->province}";
     }
 }

@@ -1,9 +1,6 @@
 @extends('layouts.cli')
-
-@section('title', 'Find')
-
+@include('modals.client',['therapists'=>'therapists'])
 @section('page-section')
-<div class="col-md-12">
 	<div class="row">
 		<div class="col-sm-4 col-md-4 col-lg-4">
 			<div class="card">
@@ -11,13 +8,14 @@
 					<h5>Search</h5>
 				</div>
 				<div class="card-body">
-						{!!Form::open(['method'=>'GET','class'=>'navbar-form navbar-left','role'=>'search'])  !!}
+						{!!Form::open(['method'=>'GET','url'=>'/client-search','class'=>'navbar-form navbar-left','role'=>'search'])  !!}
+							{{csrf_field()}}
 							<div class="form-group col-md-12">
 								{!! Form::inputGroup('text', 'Location', null, null, ['placeholder' => 'Your Location here...', 'id'=>'searchTextField'])  !!}
 							</div>
 							<div class="form-group col-md-12">
 								<label>Therapist Type</label>
-								{!! Form::select('therapist',array('Physical Therapist', 'Occupational Therapist')) !!}
+								{!! Form::select('therapist', array('Physical Therapist', 'Occupational Therapist'), ['id'=>'q']) !!}
 							</div>
 							<div class="form-group col-md-12">
 								{!! Form::inputGroup('text', 'Specialty', 't_specialties', null, ['placeholder' => 'Specialty']) !!}
@@ -36,20 +34,20 @@
 			</div>
 		</div>
 
-	<div class="col-sm-8 col-md-8 col-lg-8">
-		<div class="card text-white bg-success mb-3">
-			<div class="card-header">
-				<h5>Who's Nearby</h5>
-			</div>
-			<div class="card-body" style=" height: 400px;">
-				<div class="row">
-					<div class="col-md-12">
-						<div id="map"></div>
+			<div class="col-sm-4 col-md-8 col-lg-8">
+				<div class="card text-white bg-success mb-3">
+					<div class="card-header">
+						<h5>Who's Nearby</h5>
+					</div>
+					<div class="card-body" style=" height: 400px;">
+						<div class="row">
+							<div class="col-md-12">
+								<div id="map"></div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 	</div>
 
 	<div class="col-sm-6 col-md-12 col-lg-12">
@@ -60,12 +58,14 @@
 			<div class="card-body" style="overflow: scroll; height: 300px;">
 				<table>
 					<tr>
+						@foreach($therapists as $data)
 						<td>
 						<div class="card" style="width: 20em; padding: 5px;">
 						<center>
 							<i class="fas fa-user-circle fa-4x" style="padding: 5px;"></i>
 							<div class="card-body">
-								<h4>Therapist Name</h4>
+								<h4>{{$data->fullName}}</h4>
+								<h5 style="font-size: 8pt;">{{$data->therapist}}</h5>
 								<p>
 									<b>Distance:</b> 10km 
 									<br>
@@ -74,18 +74,17 @@
 									<b>Rate:</b> 500 per hour
 								</p>
 
-								<button class="btn btn-sm btn-success">Book</button>
-								<button class="btn btn-sm btn-info">View</button>
+								<a href='{{url("/booktherapist/{$data->id}")}}' class="btn btn-sm btn-success">Book</a>
 							</div>									
 						</center>
 						</div>
 						</td>
+						@endforeach
 					</tr>
 				</table>
 			</div>
 		</div>    	
 	</div>
-</div>
 
 <br>
 
@@ -185,7 +184,7 @@
          });
         
         function moveMarker(placeName, latlng) {
-            marker.setIcon(image);
+            marker.setIcon(marker);
             marker.setPosition(latlng);
             infowindow.setContent(placeName);
             //infowindow.open(map, marker);
