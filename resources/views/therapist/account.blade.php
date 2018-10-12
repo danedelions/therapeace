@@ -24,27 +24,27 @@
               </form>
             </div>
             <div class="form-control-labelgroup row">
-              <label class="col-lg-3 col-form-label form-control-label">Username: </label>
+              <label class="col-lg-3 col-form-label form-control-label"> Username: </label>
                 <div class="col-lg-9">
                 {{ Auth::user()->username }}
                 </div>
             </div>
             <div class="form-group row">
                <label class="col-lg-3 col-form-label form-control-label">First Name:</label>
-                <div class="col-lg-9">
-                  Name
+                <div class="col-lg-9"><br>
+                    {{ $therapist->fname }}
                 </div>
             </div>
             <div class="form-group row">
                <label class="col-lg-3 col-form-label form-control-label">Last Name:</label>
                 <div class="col-lg-9">
-                  Name
+                  {{ $therapist->lname }}
                 </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Address:</label>
                 <div class="col-lg-9">
-                  Address
+                  {{ $therapist->streetaddress }}
                 </div>
             </div>
             <div class="form-group row">
@@ -55,8 +55,8 @@
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Contact Number:</label>
-                <div class="col-lg-9">
-                   contact  
+                <div class="col-lg-9"><br>
+                   {{ $therapist->contact }}
                 </div> 
           </div>
             <div class="form-group row">
