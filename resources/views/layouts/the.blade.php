@@ -12,6 +12,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('fontawesome-free-5.1.0-web/css/all.css') }}">
         <link rel="stylesheet" type="text/css" href="{{asset('path/dist/css/select2.min.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
+        
         <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
         <link href="dist/assetsvendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- javascript -->
@@ -21,6 +22,11 @@
         <!-- Card and Nav padding -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
         <!-- THEME STYLES-->
+<<<<<<< HEAD
+        <link href="dist/assets/css/main.min.css" rel="stylesheet"/> 
+        <link href="dist/assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet"/>
+
+=======
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/assets/css/main.min.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/assets/vendors/themify-icons/css/themify-icons.css') }}" />
 
@@ -28,11 +34,18 @@
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('js/main.js') }}"></script>
         <script src="https://unpkg.com/popper.js@1.14.3/dist/umd/popper.min.js"></script>
+>>>>>>> 2c02aeffb047d50e5087be47f2164d77021f7e11
     </head>
 
     <body id="therapistBg">
         <main class="container">
 
+<<<<<<< HEAD
+            @include('therapist.nav')
+            @yield('page-section')
+
+    
+=======
             @include('partials.therapist.header')
 
             @yield('page-section')
@@ -58,6 +71,7 @@
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
      -->
+>>>>>>> 2c02aeffb047d50e5087be47f2164d77021f7e11
         </main>
     </body>
 </html>

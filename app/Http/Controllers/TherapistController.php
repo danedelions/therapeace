@@ -101,6 +101,7 @@ class TherapistController extends Controller
         $request = $request->validated();
         // dd($request);
         if(isset($request['image'])){
+            
             $request['image'] = request()->file('image')->store('image', 'public');
         }
 
