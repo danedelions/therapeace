@@ -101,6 +101,7 @@ class TherapistController extends Controller
         $request = $request->validated();
         // dd($request);
         if(isset($request['image'])){
+            
             $request['image'] = request()->file('image')->store('image', 'public');
         }
 
@@ -123,7 +124,7 @@ class TherapistController extends Controller
     {        
 
         $therapist = Therapist::whereUserId(Auth::id())->with('user')->first();
-        $bookings = BookingRequest::all();
+        $bookings = BookingRequest::with(Auth::id())->with('client')->first(); //unsure about here//
         return view('therapist.account', compact('therapist', 'bookings'));
     }
 
