@@ -52,7 +52,7 @@
 
 	<div class="col-sm-6 col-md-12 col-lg-12">
 		<div class="card">
-			<div class="card-header bg-info">
+			<div class="card-header text-white bg-info">
 			<h5>Therapists Found...</h5>
 			</div>
 			<div class="card-body" style="overflow: scroll; height: 300px;">

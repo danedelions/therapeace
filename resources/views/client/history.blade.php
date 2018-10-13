@@ -9,7 +9,7 @@
 <div class="row">
 	<div class="col-sm-3 col-md-3 col-lg-3">
 		<div class="card">
-			<div class="card-header bg-info">
+			<div class="card-header text-white bg-info">
 				<h5>Search</h5>
 			</div>
 			<div class="card-body">
@@ -38,7 +38,7 @@
 
  	<div class="col-sm-7 col-md-7 col-lg-9">
 		<div class="card">
-			<div class="card-header bg-info">
+			<div class="card-header text-white bg-info">
 				<h5>Transactions</h5>
 			</div>
 			<div class="card-body" style="overflow: scroll; height: 500px;">

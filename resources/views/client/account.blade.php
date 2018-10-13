@@ -6,7 +6,7 @@
 <div class="row"> <!-- 	<div class="row">  --><!-- <div class="col-md-5"> -->
 	<div class="col-sm-5 col-md-5 col-lg-5">
 		<div class="card ">
-			<div class="card-header bg-info">
+			<div class="card-header text-white bg-info">
 				<h5>User Information</h5>
 			</div>
 			<div class="card-body">
@@ -23,37 +23,37 @@
 								</div>
 						</div>
 						<div class="form-group row justify-content-center">
-							<label class="col-lg-3">Last Name</label>
+							<label class="col-lg-3"><b>Last Name</b></label>
 								<div class="col-lg-8">
 									{{ $client->lname }}
 								</div>
 						</div>
 						<div class="form-group row justify-content-center">
-							<label class="col-lg-3">Email</label>
+							<label class="col-lg-3"><b>Email</b></label>
 								<div class="col-lg-8">
 									{{ Auth::user()->email }}
 								</div>
 						</div>
 						<div class="form-group row justify-content-center">
-							<label class="col-lg-3">Gender</label>
+							<label class="col-lg-3"><b>Gender</b></label>
 								<div class="col-lg-8">
 									{{ $client->gender }}
 								</div>
 						</div>
 						<div class="form-group row justify-content-center">
-							<label class="col-lg-3">Contact Number</label>
+							<label class="col-lg-3"><b>Contact Number</b></label>
 								<div class="col-lg-8">
 									{{ $client->contact }}
 								</div>
 						</div>
 						<div class="form-group row justify-content-center">
-							<label class="col-lg-3">Address</label>
+							<label class="col-lg-3"><b>Address</b></label>
 								<div class="col-lg-8">
 									{{$client->address}}
 								</div>
 						</div>
 						<div class="form-group row justify-content-center">
-							<label class="col-lg-3">Postal Code</label>
+							<label class="col-lg-3"><b>Postal Code</b></label>
 								<div class="col-lg-8">
 									{{ $client->postal_code }}
 								</div>
@@ -67,7 +67,7 @@
 
 	<div class="col-sm-5 col-md-5 col-lg-7">
 		<div class="card">
-			<div class="card-header bg-info">
+			<div class="card-header text-white bg-info">
 				<h5>Sent Requests</h5>
 			</div>
 			<div class="card-body" style="overflow: scroll; height: 200px;">
@@ -91,7 +91,7 @@
 		<br>
 
 		<div class="card">
-			<div class="card-header bg-info">
+			<div class="card-header text-white bg-info">
 			<h5>Comments and Ratings</h5>
 			</div>
 			<div class="card-body" style="overflow: scroll; height: 250px;">

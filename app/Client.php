@@ -42,6 +42,6 @@ class Client extends Model
 
     public function getAddressAttribute()
     {
-        return "{$this->streetaddress}, {$this->town}, {$this->barangay}, {$this->city}, {$this->province}";
+        return "{$this->street}, {$this->town}, {$this->barangay}, {$this->city}, {$this->province}";
     }
 }
