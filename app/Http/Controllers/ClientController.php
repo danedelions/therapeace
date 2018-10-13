@@ -70,12 +70,13 @@ class ClientController extends Controller
         $therapists = Therapist::all();
         return view('client.find', compact('therapists'));
     }
-    public function clientAccount(BookingRequest $bookings)
+    public function clientAccount()
     {
         // $client = Client::where('id', Auth::id())->first();
         // $client = Client::ofUser(Auth::id())->first();
         $client = Client::whereUserId(Auth::id())->with('user')->first();
-        $bookings = BookingRequest::all();
+        $bookings = $client->booking()->first(); //unsure about here//
+
         return view('client.account', compact('client','bookings'));
     }
     public function edit($userId)

@@ -32,7 +32,7 @@ class Client extends Model
 
     public function booking()
     {
-        return $this->hasMany('App\Booking', 'client_id', 'user_id');
+        return $this->hasMany(BookingRequest::class);
     }
 
     public function getFullNameAttribute()
@@ -44,4 +44,5 @@ class Client extends Model
     {
         return "{$this->streetaddress}, {$this->town}, {$this->barangay}, {$this->city}, {$this->province}";
     }
+
 }

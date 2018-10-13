@@ -73,10 +73,10 @@
 			<div class="card-body" style="overflow: scroll; height: 200px;">
 				<table class="table table-default">
 					<thead>
-						@foreach($bookings as $data)
+						@foreach($bookings as $row)
 						<tr>
 							<td><i class="fas fa-user-circle fa-5x"></i></td>
-							<td>You sent a request to <b>{{$data->therapist->fname}}</b></td>
+							<td>You sent a request to <b>{{$row->therapist->name}}</b></td>
 							<td>
 								<input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
 								<button class="btn btn-danger">Cancel</button>
