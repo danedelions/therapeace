@@ -9,12 +9,15 @@
         <!-- <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}"> -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" >
-        <link rel="stylesheet" type="text/css" href="{{ asset('fontawesome-free-5.1.0-web/css/all.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('fontawesome/css/all.css') }}">
         <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
         <!-- THEME STYLES-->
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/assets/css/main.min.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/assets/vendors/themify-icons/css/themify-icons.css') }}" />
+
+        <link rel="stylesheet" type="text/css" href="{{ asset('fullcalendar/fullcalendar.min.css') }}">
+        <script src="{{ asset('fullcalendar/fullcalendar.min.js') }}"></script>
 
         <script src="{{ asset('jquery/jquery.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>

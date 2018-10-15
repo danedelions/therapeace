@@ -128,7 +128,16 @@ main {
 #transaction a {
     font-weight: bold;
 }
+.col-lg-3{
+    font-weight: bold;
+}
+div .form-group{   /*Form in Account page*/
+  justify-content: center;
+}
 
+div .bg-info, .bg-success{
+  color: white;
+}
  /*rating*/
 
  @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
