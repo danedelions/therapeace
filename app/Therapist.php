@@ -19,6 +19,8 @@ class Therapist extends Model
         'province',
         'barangay',
         'postal_code',
+        'longitude',
+        'latitude',
         'therapist',
         'license_number',
         'expiry_date',

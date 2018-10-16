@@ -15,44 +15,38 @@
 			<div class="card-body">
 				<form class="form">
 						<div class="form-group row justify-content-center">
-							<label class="col-lg-3 col-form-label">Username</label>
-								<div class="col-lg-8 form-control">
+							<label class="col-lg-3"><b>Username</b></label>
+								<div class="col-lg-8">
 									{{ Auth::user()->username }}
 								</div>
 						</div>
 						<div class="form-group row justify-content-center">
-							<label class="col-lg-3 col-form-label">First Name</label>
-								<div class="col-lg-8 form-control">
-									{{ $client->fname }}
+							<label class="col-lg-3"><b>Name</b></label>
+								<div class="col-lg-8">
+									{{ $client->fullname }}
 								</div>
 						</div>
 						<div class="form-group row justify-content-center">
-							<label class="col-lg-3 col-form-label">Last Name</label>
-								<div class="col-lg-8 form-control">
-									{{ $client->lname }}
-								</div>
-						</div>n
-						<div class="form-group row justify-content-center">
-							<label class="col-lg-3 col-form-label">Contact Number</label>
-								<div class="col-lg-8 form-control">
+							<label class="col-lg-3"><b>Contact Number</b></label>
+								<div class="col-lg-8">
 									{{ $client->contact }}
 								</div>
 						</div>
 						<div class="form-group row justify-content-center">
-							<label class="col-lg-3 col-form-label">Gender</label>
-								<div class="col-lg-8 form-control">
+							<label class="col-lg-3"><b>Gender</b></label>
+								<div class="col-lg-8">
 									{{ $client->gender }}
 								</div>
 						</div>
 						<div class="form-group row justify-content-center">
-							<label class="col-lg-3 col-form-label">Address</label>
-								<div class="col-lg-8 form-control">
-									{{ $client->barangay }} {{ $client->town}} {{ $client->province }} {{ $client->city }}
+							<label class="col-lg-3"><b>Address</b></label>
+								<div class="col-lg-8">
+									{{ $client->address}}
 								</div>
 						</div>
 						<div class="form-group row justify-content-center">
-							<label class="col-lg-3 col-form-label">Email</label>
-								<div class="col-lg-8 form-control">
+							<label class="col-lg-3"><b>Email</b></label>
+								<div class="col-lg-8">
 									{{ Auth::user()->email }}
 								</div>
 						</div>
@@ -77,12 +71,13 @@
 						@foreach($bookings as $row)
 						<tr>
 							<td><i class="fas fa-user-circle fa-5x"></i></td>
-							<td>You sent a request to <b>{{$row->therapist->name}}</b></td>
+							<td>You sent a request to <b>{{$row->name}}</b></td>
 							<td>
 								<input type="submit" value="Connect" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
 								<input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
 							</td>
 						</tr>
+						@endforeach
 					</thead>
 				</table>
 			</div>
@@ -102,15 +97,15 @@
 								<fieldset class="rating">
 									<i class="fas fa-user-circle fa-5x"></i>	
 									<input type="radio" id="star5" name="rating" value="5" />
-										<label class = "full" for="star5" title="Awesome - 5 stars"></label>
+										<label class = "full" for="star5" title="Awesome - 5 stars"></label></label>
 									<input type="radio" id="star4" name="rating" value="4" />
-										<label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+										<label class = "full" for="star4" title="Pretty good - 4 stars"></label></label>
 									<input type="radio" id="star3" name="rating" value="3" />
-										<label class = "full" for="star3" title="Meh - 3 stars"></label>
+										<label class = "full" for="star3" title="Meh - 3 stars"></label></label>
 									<input type="radio" id="star2" name="rating" value="2" />
-										<label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+										<label class = "full" for="star2" title="Kinda bad - 2 stars"></label></label>
 									<input type="radio" id="star1" name="rating" value="1" />
-										<label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+										<label class = "full" for="star1" title="Sucks big time - 1 star"></label></label>
 								</fieldset>
 							</td>	
 							<td>
@@ -124,15 +119,15 @@
 								<fieldset class="rating">
 									<i class="fas fa-user-circle fa-5x"></i>	
 									<input type="radio" id="star5" name="rating" value="5" />
-										<label class = "full" for="star5" title="Awesome - 5 stars"></label>
+										<label class = "full" for="star5" title="Awesome - 5 stars"></label></label>
 									<input type="radio" id="star4" name="rating" value="4" />
-										<label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+										<label class = "full" for="star4" title="Pretty good - 4 stars"></label></label>
 									<input type="radio" id="star3" name="rating" value="3" />
-										<label class = "full" for="star3" title="Meh - 3 stars"></label>
+										<label class = "full" for="star3" title="Meh - 3 stars"></label></label>
 									<input type="radio" id="star2" name="rating" value="2" />
-										<label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+										<label class = "full" for="star2" title="Kinda bad - 2 stars"></label></label>
 									<input type="radio" id="star1" name="rating" value="1" />
-										<label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+										<label class = "full" for="star1" title="Sucks big time - 1 star"></label></label>
 								</fieldset>
 							</td>		
 							<td>
@@ -146,15 +141,15 @@
 								<fieldset class="rating">
 									<i class="fas fa-user-circle fa-5x"></i>	
 					                    <input type="radio" id="star5" name="rating" value="5" />
-					                      <label class = "full" for="star5" title="5 stars"></label>
+					                      <label class = "full" for="star5" title="5 stars"></label></label>
 					                    <input type="radio" id="star4" name="rating" value="4" />
-					                      <label class = "full" for="star4" title="4 stars"></label>
+					                      <label class = "full" for="star4" title="4 stars"></label></label>
 					                    <input type="radio" id="star3" name="rating" value="3" />
-					                      <label class = "full" for="star3" title="3 stars"></label>
+					                      <label class = "full" for="star3" title="3 stars"></label></label>
 					                    <input type="radio" id="star2" name="rating" value="2" />
-					                      <label class = "full" for="star2" title="2 stars"></label>
+					                      <label class = "full" for="star2" title="2 stars"></label></label>
 					                    <input type="radio" id="star1" name="rating" value="1" />
-					                      <label class = "full" for="star1" title="1 star"></label>
+					                      <label class = "full" for="star1" title="1 star"></label></label>
 								</fieldset>
 							</td>		
 							<td>

@@ -32,7 +32,7 @@ class Client extends Model
 
     public function booking()
     {
-        return $this->hasMany(BookingRequest::class);
+        return $this->hasMany('App\BookingRequest', 'client_id', 'user_id');
     }
 
     public function getFullNameAttribute()

@@ -30,12 +30,14 @@
   <div class="tab">Address:
     <input id="autocomplete" placeholder="Enter Your Address " onfocus="geolocate()" type="text" class="form-control"><br>
     <input placeholder="Street Address"  name="streetaddress" id="route" class="form-control"><br>
-    <input placeholder="Barangay"  name="barangay" id="barangay" class="form-control"><br>
+    <input placeholder="Barangay"  name="barangay" id="sublocality" class="form-control"><br>
     <input placeholder="City"  class="form-control" name="city" id="locality"><br>
     <input placeholder="Town"  name="town" id="town" class="form-control"><br>
     <input placeholder="Province"  name="province" id="administrative_area_level_2" class="form-control"><br>
     <input placeholder="Postal Code"  name="postal_code" id="postal_code" class="form-control"><br>
     <input placeholder="Country"  name="country" id="country" class="form-control"><br>
+    <input name="latitude" name="latitude" id="latitude" type="text" placeholder="Latitude" style="width: 161px;">
+    <input name="longitude" name="longitude" id="longitude" type="text" placeholder="Longitude" style="width: 161px;">
   </div>
 
   <div class="tab">License:
@@ -98,6 +100,7 @@ Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facili
         route: 'long_name',
         locality: 'long_name',
         administrative_area_level_2: 'short_name',
+        sublocality: 'long_name',
         country: 'long_name',
         postal_code: 'short_name'
       };
@@ -112,6 +115,7 @@ Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facili
         // When the user selects an address from the dropdown, populate the address
         // fields in the form.
         autocomplete.addListener('place_changed', fillInAddress);
+
       }
 
       function fillInAddress() {
@@ -132,8 +136,12 @@ Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facili
             document.getElementById(addressType).value = val;
           }
         }
-      }
 
+        document.getElementById('latitude').value = place.geometry.location.lat();
+        document.getElementById('longitude').value = place.geometry.location.lng();
+
+      }
+      google.maps.event.addDomListener(window, "load", initAutocomplete);
       // Bias the autocomplete object to the user's geographical location,
       // as supplied by the browser's 'navigator.geolocation' object.
       function geolocate() {
@@ -149,8 +157,11 @@ Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facili
             });
             autocomplete.setBounds(circle.getBounds());
           });
+
         }
-      }
+
+     }
+
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD85clj7B85QRZPmO6m4Fky0Wi6P0MzVpA&libraries=places&callback=initAutocomplete"
 async defer></script>

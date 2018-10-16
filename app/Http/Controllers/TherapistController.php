@@ -66,6 +66,8 @@ class TherapistController extends Controller
             'province' => $request->post('province'), 
             'barangay' => $request->post('barangay'), 
             'postal_code' => $request->post('postal_code'), 
+            'longitude' => $request->post('longitude'),
+            'latitude' => $request->post('latitude'),
             'therapist' => $request->post('therapist'),
             'license_number' => $request->post('license_number'),
             'expiry_date' => $request->post('expiry_date'),
