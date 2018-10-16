@@ -65,7 +65,7 @@ class Therapist extends Model
 
     public function bookingRequest()
     {
-        return $this->hasMany('App\Booking','therapist_id','user_id');
+        return $this->hasMany('App\BookingRequest','therapist_id','user_id');
     }
 
     public function getFullNameAttribute()

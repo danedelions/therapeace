@@ -35,7 +35,7 @@
 		</div>
 
 			<div class="col-sm-4 col-md-8 col-lg-8">
-				<div class="card text-white bg-success mb-3">
+				<div class="card bg-success mb-3">
 					<div class="card-header">
 						<h5>Who's Nearby</h5>
 					</div>
@@ -55,7 +55,7 @@
 			<div class="card-header bg-info">
 			<h5>Therapists Found...</h5>
 			</div>
-			<div class="card-body" style="overflow: scroll; height: 300px;">
+			<div class="card-body" style="overflow-y: hidden; overflow-x: scroll;">
 				<table>
 					<tr>
 						@foreach($therapists as $data)

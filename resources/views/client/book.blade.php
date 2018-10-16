@@ -4,7 +4,7 @@
 	<div class="row">
 		<div class="col-sm-4 col-md-4 col-lg-4">
 			<div class="card">
-				<div class="card-header text-white bg-info">
+				<div class="card-header bg-info">
 					Therapist's Information
 				</div>
 				<div class="card-body">
@@ -13,6 +13,7 @@
 						<br>
 						<h4>{{$therapist->therapist}}</h4>
 					</center>
+					<hr>	
 						<label><b>Name: </b>{{$therapist->fullName}}</label><br>
 						<label><b>Gender: </b>{{$therapist->gender}}</label><br>
 						<label><b>Email: </b>{{$therapist->user->email}}</label><br>
@@ -24,7 +25,7 @@
 		</div>
 		<div class="col-sm-8 col-md-8 col-lg-8">
 			<div class="card">
-				<div class="card-header text-white bg-success">
+				<div class="card-header bg-success">
 					Your Details
 				</div>
 				<div class="card-body">
@@ -32,24 +33,24 @@
 						{{csrf_field()}}
 					  <div class="form-row">
 					    <div class="form-group col-md-6">
-					     	<label for="inputEmail4">Name</label>
+					     	<label for="inputEmail4"><b>Name</b></label>
 					     	<input type="text" class="form-control" value="{{$client->fullName}}" name="name">
 					     	<input type="number" name="therapist_id" value="{{$therapist->user_id}}" hidden>
 					    </div>
 					    <div class="form-group col-md-6">
-					     	<label for="inputEmail4">E-mail</label>
+					     	<label for="inputEmail4"><b>E-mail</b></label>
 					     	<input type="text" class="form-control" value="{{$client->user->email}}" name="email">
 					    </div>
 					    <div class="form-group col-md-6">
-					     	<label for="inputEmail4">Contact</label>
+					     	<label for="inputEmail4"><b>Contact</b></label>
 					     	<input type="text" class="form-control" value="{{$client->contact}}" name="contact">
 					    </div>
 					    <div class="form-group col-md-12">
-							<label for="inputAddress">Address</label>
+							<label for="inputAddress"><b>Address</b></label>
 						    <input type="text" class="form-control" value="{{$client->address}}" name="user_address">
 						</div>
 						<div class="form-group col-md-12">
-							<label for="inputAddress">Notes to your therapist</label>
+							<label for="inputAddress"><b>Notes to your therapist</b></label>
 						    <input type="text" class="form-control" name="notes">
 						</div>
 						<div class="form-group col-md-12">

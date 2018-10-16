@@ -6,74 +6,60 @@
 
 @include('modals.client')
 
-<div class="row"> <!-- 	<div class="row">  --><!-- <div class="col-md-5"> -->
+<div class="row"> <!-- LABEL->col-form-label INPUT-> form-control -->
 	<div class="col-sm-5 col-md-5 col-lg-5">
-		<div class="card ">
+		<div class="card">
 			<div class="card-header bg-info">
 				<h5>User Information</h5>
 			</div>
 			<div class="card-body">
-				<form class="form">
-						<div class="form-group row justify-content-center">
-							<label class="col-lg-3"><b>Username</b></label>
-								<div class="col-lg-8">
-									{{ Auth::user()->username }}
-								</div>
+						<div class="form-group row">
+							<label class="col-lg-3">Username</label>
+								<div class="col-lg-8">{{ Auth::user()->username }}</div>
 						</div>
-						<div class="form-group row justify-content-center">
-							<label class="col-lg-3"><b>Name</b></label>
-								<div class="col-lg-8">
-									{{ $client->fullname }}
-								</div>
+						<div class="form-group row">
+							<label class="col-lg-3">Name</label>
+								<div class="col-lg-8">{{ $client->fullname }}</div>
 						</div>
-						<div class="form-group row justify-content-center">
-							<label class="col-lg-3"><b>Contact Number</b></label>
-								<div class="col-lg-8">
-									{{ $client->contact }}
-								</div>
+						<div class="form-group row">
+							<label class="col-lg-3">Email</label>
+								<div class="col-lg-8">{{ Auth::user()->email }}</div>
 						</div>
-						<div class="form-group row justify-content-center">
-							<label class="col-lg-3"><b>Gender</b></label>
-								<div class="col-lg-8">
-									{{ $client->gender }}
-								</div>
+						<div class="form-group row">
+							<label class="col-lg-3">Contact Number</label>
+								<div class="col-lg-8">{{ $client->contact }}</div>
 						</div>
-						<div class="form-group row justify-content-center">
-							<label class="col-lg-3"><b>Address</b></label>
-								<div class="col-lg-8">
-									{{ $client->address}}
-								</div>
+						<div class="form-group row">
+							<label class="col-lg-3">Gender</label>
+								<div class="col-lg-8">{{ $client->gender }}</div>
 						</div>
-						<div class="form-group row justify-content-center">
-							<label class="col-lg-3"><b>Email</b></label>
-								<div class="col-lg-8">
-									{{ Auth::user()->email }}
-								</div>
+						<div class="form-group row">
+							<label class="col-lg-3">Address</label>
+								<div class="col-lg-8">{{$client->address}}</div>
 						</div>
 		            
 					<div style="display:block; width:x; height:y; text-align:right;">
 						<a href="{{url('/client-edit/'. $client->id )}}"><i class="far fa-edit"></i> Edit</a>
 					</div>
-
-				</form>
 			</div>
 		</div>
 	</div>
 
 	<div class="col-sm-5 col-md-5 col-lg-7">
 		<div class="card">
+
 			<div class="card-header bg-info">
-				<h5>Connections</h5>
+				<h5>Sent Requests</h5>
 			</div>
-			<div class="card-body" style="overflow: scroll; height: 250px;">
+			<div class="card-body" style="overflow: scroll; height: 200px;">
 				<table class="table table-default">
 					<thead>
 						@foreach($bookings as $row)
 						<tr>
 							<td><i class="fas fa-user-circle fa-5x"></i></td>
-							<td>You sent a request to <b>{{$row->name}}</b></td>
+							<td>You sent a request to <b>{{$row->therapist->fullname}}</b></td>
 							<td>
-								<input type="submit" value="Connect" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
+								<input type="submit" value="Cancel" class="btn btn-danger" href="#" data-toggle="modal" data-target="#connectModal">
 								<input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
 							</td>
 						</tr>
@@ -168,4 +154,3 @@
 
 
 @endsection
-

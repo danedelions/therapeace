@@ -126,7 +126,7 @@ class TherapistController extends Controller
     {        
 
         $therapist = Therapist::whereUserId(Auth::id())->with('user')->first();
-        $bookings = BookingRequest::with(Auth::id())->with('client')->first(); //unsure about here//
+        $bookings = $therapist->bookingRequest()->with('therapist')->get();
         return view('therapist.account', compact('therapist', 'bookings'));
     }
 
