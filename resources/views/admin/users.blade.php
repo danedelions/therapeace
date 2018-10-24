@@ -145,6 +145,8 @@
                           </div>
                           <!-- end of view modal -->
 
+                        <!-- BUTTONS -->    
+
                           <td>
                             <!-- view button -->
                               @if ($row['user_type'] == 'client')
@@ -155,25 +157,21 @@
                                   <button data-id="{{ $row['id'] }}" class="btn btn-outline-info" data-toggle="modal" data-target="#viewModala"><i style="color:black;" class="far fa-eye"></i></button>     
                               @endif
 
-                              <!-- {!! Form::open(['url' => route('get.view', $row->id), 'method' => 'GET']) !!}
-                              @if ($row['user_type'] == 'client')
-                                  <button  class="btn btn-outline-info" data-toggle="modal" data-target="#viewModalc"><i style="color:black;" class="far fa-eye"></i></button>
-                              @else
-                                  <button  class="btn btn-outline-info" data-toggle="modal" data-target="#viewModalt"><i style="color:black;" class="far fa-eye"></i></button>
-                              @endif
-                              {!! Form::close() !!} -->
-
-                              <!-- mail button -->
+                            <!-- mail button -->
                               <button data-id="{{ $row['id'] }}" class="btn btn-outline-success" data-toggle="modal" data-target="#emailModal"><i class="far fa-envelope"></i></button>
 
-                              <!-- disabling button -->
+                            <!-- disabling button -->
                               {!! Form::open(['url' => route('admin.status-update', $row->id), 'method' => 'PATCH']) !!}
                               @if ($row['status'] == 0)
-                                  <button class="btn btn-outline-danger"><i style="color:black;"class="fas fa-ban"></i></button>
+                                  <button class="btn btn-outline-warning"><i style="color:black;"class="fas fa-ban"></i></button>
                               @else
-                                  <button class="btn btn-outline-success"><i style="color:black;"class="fas fa-ban"></i></button>
+                                  <button class="btn btn-outline-primary"><i style="color:black;"class="fas fa-ban"></i></button>
                               @endif
                               {!! Form::close() !!}
+
+                            <!-- delete button -->
+                              <button class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></i></button>
+
                           </td>
                         </tr>
                       @endforeach

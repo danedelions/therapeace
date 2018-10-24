@@ -81,4 +81,13 @@ Route::get('email/{user}', 'AdminController@welcome')->name('sendWelcome');
 // Route::get('email/{user}', 'AdminController@notice')->name('sendNotice');
 Route::patch('admin-user/{user}', 'AdminController@statusUpdate')->name('admin.status-update');
 
+//testing
+// Route::resource('datatables', 'AdminController', [
+//     'anyData'  => 'datatables.data',
+//     'getIndex' => 'datatables',
+// ]);
+
+
+// Route::resource('datatables', 'AdminController@getIndex');
+// Route::resource('datatables', 'AdminController@anyData');
 
