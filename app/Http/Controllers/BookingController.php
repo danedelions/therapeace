@@ -39,10 +39,10 @@ class BookingController extends Controller
     	return redirect()->route('get.client-find');
     }
 
-    public function approveRequest(BookingDetail $bookingrequest)
+    public function approveRequest(BookingRequest $booking)
     {
-        $bookingrequest->update(['status' != $bookingrequest->status]);
-        
+        $booking->update(['status' => 1]);
+        return redirect()->back();
     }
-
+ 
 }

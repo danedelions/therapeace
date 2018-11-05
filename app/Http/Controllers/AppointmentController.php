@@ -10,6 +10,9 @@ class AppointmentController extends Controller
 {
     public function addEvent()
     {
-    	
+    	$appointments = Appointment::create([
+    		'therapist_id' => Auth::id(),
+    		''
+    	])
     }
 }

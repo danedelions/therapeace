@@ -45,6 +45,7 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/therapist-edit/{id}' ,'TherapistController@edit');
 	Route::patch('/therapist-update/{id}' ,'TherapistController@update')->name('therapist.update');
 	Route::get('/therapist-specialty/', 'TherapistController@createSpecialties')->name('get.therapist-specialty');
+	Route::patch('/therapist-account/{booking}', 'BookingController@approveRequest')->name('therapist.accept');
 // CLIENT
 	Route::get('/client-find', 'ClientController@clientFind')->name('get.client-find');
 	Route::get('/client-account', 'ClientController@clientAccount')->name('get.client-account');

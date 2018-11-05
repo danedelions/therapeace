@@ -64,8 +64,10 @@
                     <tr>
                         <td><label><b>{{$data->client->fullname}}</b></label></label> wants to connect with you</td>
                         <td>
-                            <input type="submit" value="Approve" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
                             <input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
+                            {!!Form::open(['url'=>route('therapist.accept', $data->id), 'method'=>'PATCH'])!!}
+                                <button class="btn btn-sm btn-success">Approve</button>
+                            {!!Form::close()!!}
                             <input type="submit" value="Cancel" class="btn btn-danger" >
                         </td>
                     </tr>
