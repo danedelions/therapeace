@@ -35,6 +35,11 @@ class Client extends Model
         return $this->hasMany('App\BookingRequest', 'client_id', 'user_id');
     }
 
+    public function appointment()
+    {
+        return $this->hasMany('App\Appointment', 'client_id', 'user_id');
+    }
+
     public function getFullNameAttribute()
     {
         return "{$this->fname} {$this->lname}";

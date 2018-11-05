@@ -56,16 +56,14 @@ class Therapist extends Model
     	return $query->where('id', $userId);
     }
 
-    public function scopeSearch($query, $search)
-    {
-        if($query === 'Physical Therapist'){
-            return $query->where('therapist', 'LIKE', '%$search%');
-        }
-    }
-
     public function bookingRequest()
     {
         return $this->hasMany('App\BookingRequest','therapist_id','user_id');
+    }
+
+    public function appointment()
+    {
+        return $this->hasMany('App\Appointment', 'therapist_id', 'user_id');
     }
 
     public function getFullNameAttribute()

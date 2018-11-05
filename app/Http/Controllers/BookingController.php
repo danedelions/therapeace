@@ -36,18 +36,13 @@ class BookingController extends Controller
             'contact' => $request->post('contact'),
         ]);
 
-    	// $bookings = BookingRequest::where('id', $request->post('id'))->get();
-     //    // dd($bookings);
-    	// BookingDetail::create([
-    	// 	'booking_id' => $bookings[0]['id'],
-    	// 	'diagnosis' => $request->post('diagnosis'),
-    	// 	'notes' => $request->post('notes'),
-    	// 	'user_address' => $request->post('user_address'),
-    	// 	'email' => $request->post('email'),
-    	// 	'contact' => $request->post('contact'),
-    	// ]);
-
     	return redirect()->route('get.client-find');
+    }
+
+    public function approveRequest(BookingDetail $bookingrequest)
+    {
+        $bookingrequest->update(['status' != $bookingrequest->status]);
+        
     }
 
 }
