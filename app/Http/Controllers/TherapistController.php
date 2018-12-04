@@ -160,7 +160,11 @@ class TherapistController extends Controller
     {
         $specialties;
     }
- 
+
+    public function viewChecklist()
+    {
+        return view('therapist.checklist');
+    } 
 }
       
       

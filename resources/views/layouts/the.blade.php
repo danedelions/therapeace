@@ -11,18 +11,22 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css')}}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css')}}">
         <link href="dist/assetsvendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <!-- javascript -->
-        <link rel="stylesheet" type="text/css" href="{{asset('fullcalendar-3.9.0/fullcalendar.min.css')}}">
         <!-- font awesome -->
         <link rel="stylesheet" type="text/css" href="{{ asset('fontawesome-free-5.1.0-web/css/all.css')}}">
-        <!-- Card and Nav padding -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
         <!-- THEME STYLES-->
         <link href="dist/assets/css/main.min.css" rel="stylesheet"/> 
         <link href="dist/assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet"/>
-
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/assets/css/main.min.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/assets/vendors/themify-icons/css/themify-icons.css') }}" />
+        <!-- JAVASCRIPT -->
+        <script type="text/javascript" src="{{ asset('path/dist/js/select2.min.js') }}"></script>
+        <script type="text/javascript" src="{{asset('fullcalendar-3.9.0/fullcalendar.min.js')}}"></script>
+        <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
+        <script src="{{ asset('jquery/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('js/main.js') }}"></script>
+        <script src="https://unpkg.com/popper.js@1.14.3/dist/umd/popper.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     </head>
 
@@ -35,12 +39,7 @@
 
             @include('partials.therapist.footer')
 
-        <script type="text/javascript" src="{{ asset('path/dist/js/select2.min.js') }}"></script>
-        <script type="text/javascript" src="{{asset('fullcalendar-3.9.0/fullcalendar.min.js')}}"></script>
-        <script src="{{ asset('jquery/jquery.min.js') }}"></script>
-        <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ asset('js/main.js') }}"></script>
-        <script src="https://unpkg.com/popper.js@1.14.3/dist/umd/popper.min.js"></script>
+
         </main>
     </body>
 </html>
