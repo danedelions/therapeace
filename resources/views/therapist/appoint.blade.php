@@ -51,7 +51,7 @@
 	</div> -->
 
 	<div class="container">
-		<div id='calendar'>
+		<div class='calendar'>
 			
 
 

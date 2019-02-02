@@ -16,7 +16,12 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css')}}">
         <link href="dist/assetsvendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- javascript -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('fullcalendar/fullcalendar.min.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/fullcalendar/stylesheets/fullcalendar.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/fullcalendar/stylesheets/fullcalendar.min.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/fullcalendar/stylesheets/fullcalendar.print.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/fullcalendar/stylesheets/fullcalendar.print.min.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/fullcalendar/stylesheets/daterangepicker.css') }}"/>
+
         <!-- font awesome -->
         <link rel="stylesheet" type="text/css" href="{{ asset('fontawesome-free-5.1.0-web/css/all.css')}}">
         <!-- Card and Nav padding -->
@@ -39,8 +44,12 @@
 
             @include('partials.therapist.footer')
 
-        <script type="text/javascript" src="{{ asset('fullcalendar/lib/moment.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('fullcalendar/fullcalendar.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('vendor/fullcalendar/javascripts/daterangepicker.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('vendor/fullcalendar/javascripts/moment.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('vendor/fullcalendar/javascripts/fullcalendar.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('vendor/fullcalendar/javascripts/fullcalendar.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('vendor/fullcalendar/javascripts/fullcalendar/gcal.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('vendor/fullcalendar/javascripts/fullcalendar/gcal.min.js') }}"></script>
        
         <script type="text/javascript" src="{{ asset('path/dist/js/select2.min.js') }}"></script>
 
