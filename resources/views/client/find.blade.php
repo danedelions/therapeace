@@ -21,8 +21,8 @@
 								{!! Form::inputGroup('text', 'Specialty', 't_specialties', null, ['placeholder' => 'Specialty']) !!}
 							</div>
 							<div class="form-group col-md-12">
-								<input name="latitude" class="MapLat" value="" type="text" placeholder="Latitude" style="width: 161px;" hidden>
-								<input name="longitude" class="MapLon" value="" type="text" placeholder="Longitude" style="width: 161px;" hidden>
+								<input name="latitude" class="MapLat" value="" type="text" placeholder="Latitude" style="width: 161px;" id="lat1" >
+								<input name="longitude" class="MapLon" value="" type="text" placeholder="Longitude" style="width: 161px;" id="long1" >
 							</div>
 							<div class="card-footer col-md-12">
 								<button class="btn btn-default" type="submit">
@@ -66,13 +66,9 @@
 							<div class="card-body">
 								<h4>{{$data->fullName}}</h4>
 								<h5 style="font-size: 8pt;">{{$data->therapist}}</h5>
-								<p>
-									<b>Distance:</b> 10km 
-									<br>
-									<b>Ratings/Reviews:</b> 4.5 stars
-									<br>
-									<b>Rate:</b> 500 per hour
-								</p>
+								<h6 id="long2">{{$data->longitude}}</h6>
+								<h6 id="lat2">{{$data->latitude}}</h6>
+								<h6 id="distance" onload="distanceCalculator()">Distance:</h6>
 
 								<a href='{{url("/booktherapist/{$data->id}")}}' class="btn btn-sm btn-success">Book</a>
 							</div>									
@@ -114,22 +110,21 @@
 
 		//------------Try HTML5 geolocation.------------//
         if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('<b style="color:green;">You are here</b>');
-            infoWindow.open(map);
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
+        	navigator.geolocation.getCurrentPosition(function(position) {
+        		var pos = {
+            		lat: position.coords.latitude,
+            		lng: position.coords.longitude
+            	};
+            	infoWindow.setPosition(pos);
+            	infoWindow.setContent('<b style="color:green;">You are here</b>');
+            	infoWindow.open(map);
+            	map.setCenter(pos);
+          	}, function() {
+            	handleLocationError(true, infoWindow, map.getCenter());
+          	});
         } else {
           // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
+        	handleLocationError(false, infoWindow, map.getCenter());
         }
 
 
@@ -189,7 +184,42 @@
             infowindow.setContent(placeName);
             //infowindow.open(map, marker);
          }
+
 	}
+
+		function distanceCalculator() {
+			// var R = 6371e3;
+			var long1 = document.getElementById("long1").value;
+			var lat1 = document.getElementById("lat1").value;
+
+			var long2 = document.getElementById("long2").value;
+			var lat2 = document.getElementById("lat2").value;
+
+			// var a = parseFloat(long2) - parseFloat(long1) * Math.cos(parseFloat(lat2) + parseFloat(lat1)/2);
+			// var b =	parseFloat(lat2) - parseFloat(lat1);
+
+			// var dist = (Math.sqrt((a*a) + (b*b)))*R;
+
+			var R = 6371; // metres
+			var a = toRadians(lat1);
+			var a2 = toRadians(lat2);
+			var b = toRadians(lat2-lat1);
+			var x = toRadians(long2-long1);
+
+			var a = Math.sin(b/2) * Math.sin(b/2) +
+			        Math.cos(a) * Math.cos(a2) *
+			        Math.sin(x/2) * Math.sin(x/2);
+			var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+			var d = R * c;
+			var dist = d.toFixed(2);
+			document.getElementById("distance").innerHTML = parseFloat(dist) + "km";
+		}
+
+		function toRadians(Value) {
+		    /** Converts numeric degrees to radians */
+		    return Value * Math.PI / 180;
+		}
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD85clj7B85QRZPmO6m4Fky0Wi6P0MzVpA&libraries=places&callback=initMap"
 async defer></script>

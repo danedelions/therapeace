@@ -72,10 +72,8 @@ class ClientController extends Controller
     }
     public function clientAccount()
     {
-        // $client = Client::where('id', Auth::id())->first();
-        // $client = Client::ofUser(Auth::id())->first();
         $client = Client::whereUserId(Auth::id())->with('user')->first();
-        $bookings = $client->booking()->first(); //unsure about here//
+        $bookings = $client->booking()->with('client')->get(); //unsure about here//
 
         return view('client.account', compact('client','bookings'));
     }

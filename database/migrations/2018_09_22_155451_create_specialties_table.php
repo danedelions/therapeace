@@ -20,7 +20,7 @@ class CreateSpecialtiesTable extends Migration
         });
 
         Schema::create('t_specialties', function (Blueprint $table) {
-            
+
             $table->unsignedInteger('therapist_id');
             $table->unsignedInteger('spec_id')->nullable();
             $table->timestamps();

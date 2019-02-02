@@ -27,4 +27,9 @@ class BookingRequest extends Model
     {
     	return $this->hasOne('App\BookingDetail', 'booking_id');
     }
+
+    public function appointment()
+    {
+    	return $this->hasOne('App\Appointment', 'booking_id');
+    }
 }

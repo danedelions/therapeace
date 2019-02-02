@@ -10,12 +10,9 @@
                 <h5> User Information</h5>
             </div>
             <div class="card-body">
-                <form action="#" method="#" enctype="multipart/form-data">
                     <center>
-                    {!! Form::open(array('url'=>'dashboard/edit','method'=>'POST', 'files'=>true)) !!}
-                    {!! csrf_field() !!}
-                        <i class="fas fa-user-circle fa-7x"></i>
-                        <input type="file" id="itemImage" name="itemImage">
+                        <img src="storage/{{$therapist->image}}">
+                        <br>
                             <div class="col-lg-8"><h4>{{$therapist->therapist}}</h4></div>
                     </center>
                     <hr>    
@@ -24,12 +21,8 @@
                             <div class="col-lg-8">{{ Auth::user()->username }}</div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-3">First Name</label>
-                            <div class="col-lg-8">{{$therapist->fname}}</div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3">Last Name</label>
-                            <div class="col-lg-8">{{$therapist->lname}}</div>
+                        <label class="col-lg-3">Full Name</label>
+                            <div class="col-lg-8">{{$therapist->fullname}}</div>
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-3">Address</label>
@@ -51,11 +44,9 @@
                             <br>
                             </div>  
                     </div>
-
                     <div style="display:block; width:x; height:y; text-align:right;">
                         <a href="{{url('/therapist-edit/'. $therapist->id )}}"><i class="far fa-edit"></i> Edit</a>
                     </div>
-                {!! Form::close() !!}  
             </div>
         </div>
     </div>
@@ -71,10 +62,12 @@
                 <thead>
                     @foreach($bookings as $data)
                     <tr>
-                        <td><label><b></b></label></label> wants to connect with you</td>
+                        <td><label><b>{{$data->client->fullname}}</b></label></label> wants to connect with you</td>
                         <td>
-                            <input type="submit" value="Approve" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
                             <input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
+                            {!!Form::open(['url'=>route('therapist.accept', $data->id), 'method'=>'PATCH'])!!}
+                                <button class="btn btn-sm btn-success">Approve</button>
+                            {!!Form::close()!!}
                             <input type="submit" value="Cancel" class="btn btn-danger" >
                         </td>
                     </tr>

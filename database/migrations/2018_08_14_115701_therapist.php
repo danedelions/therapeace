@@ -27,6 +27,8 @@ class Therapist extends Migration
             $table->string('province');
             $table->string('barangay');
             $table->string('postal_code');
+            $table->decimal('longitude', 18, 10);
+            $table->decimal('latitude', 18, 10);
             $table->string('therapist');
             $table->string('license_number');
             $table->string('expiry_date');

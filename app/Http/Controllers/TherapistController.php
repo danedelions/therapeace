@@ -66,6 +66,8 @@ class TherapistController extends Controller
             'province' => $request->post('province'), 
             'barangay' => $request->post('barangay'), 
             'postal_code' => $request->post('postal_code'), 
+            'longitude' => $request->post('longitude'),
+            'latitude' => $request->post('latitude'),
             'therapist' => $request->post('therapist'),
             'license_number' => $request->post('license_number'),
             'expiry_date' => $request->post('expiry_date'),
@@ -124,7 +126,7 @@ class TherapistController extends Controller
     {        
 
         $therapist = Therapist::whereUserId(Auth::id())->with('user')->first();
-        // $bookings = BookingRequest::with(Auth::id())->with('client')->first(); //unsure about here//
+        $bookings = $therapist->bookingRequest()->where('status', 0)->with('therapist')->get();
         return view('therapist.account', compact('therapist', 'bookings'));
     }
 
@@ -133,13 +135,17 @@ class TherapistController extends Controller
         $clients = Client::all();
         return view('therapist.appoint', compact('clients'));
     }
-    public function therapistHistory(Client $clients){
+
+    public function therapistHistory(Client $clients)
+    {
 
         $clients = Client::all();
         return view('therapist.history', compact('clients'));
         // return view('client.book');
     }
-    public function therapistMessage(){
+
+    public function therapistMessage()
+    {
 
         return view('therapist.message');
 
@@ -154,7 +160,11 @@ class TherapistController extends Controller
     {
         $specialties;
     }
- 
+
+    public function viewChecklist()
+    {
+        return view('therapist.checklist');
+    } 
 }
       
       
