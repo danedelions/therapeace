@@ -126,7 +126,7 @@ class TherapistController extends Controller
     {        
 
         $therapist = Therapist::whereUserId(Auth::id())->with('user')->first();
-        $bookings = $therapist->bookingRequest()->with('therapist')->get();
+        $bookings = $therapist->bookingRequest()->where('status', 0)->with('therapist')->get();
         return view('therapist.account', compact('therapist', 'bookings'));
     }
 
@@ -135,13 +135,17 @@ class TherapistController extends Controller
         $clients = Client::all();
         return view('therapist.appoint', compact('clients'));
     }
-    public function therapistHistory(Client $clients){
+
+    public function therapistHistory(Client $clients)
+    {
 
         $clients = Client::all();
         return view('therapist.history', compact('clients'));
         // return view('client.book');
     }
-    public function therapistMessage(){
+
+    public function therapistMessage()
+    {
 
         return view('therapist.message');
 
@@ -156,7 +160,11 @@ class TherapistController extends Controller
     {
         $specialties;
     }
- 
+
+    public function viewChecklist()
+    {
+        return view('therapist.checklist');
+    } 
 }
       
       

@@ -51,21 +51,17 @@
 	</div> -->
 
 	<div class="container">
-		<div id='calendar'>
-			
-
-
-
-
-
-
+		<div class="card">
+			<div class="card bg-primary white-text">
+				<h3>Appoint a client</h3>
+			</div>
 		</div>
 	</div>
 
-	<script type="text/javascript">
+<!-- 	<script type="text/javascript">
 		$(document).ready(function(){
-		    $("div").find("#calendar");
+		    $(".container").find("#calendar");
 		});
 	</script>
-     
+      -->
 @endsection
