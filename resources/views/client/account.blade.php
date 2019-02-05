@@ -47,26 +47,25 @@
 
 	<div class="col-sm-5 col-md-5 col-lg-7">
 		<div class="card">
-
 			<div class="card-header bg-info">
 				<h5>Sent Requests</h5>
 			</div>
-			<div class="card-body" style="overflow: scroll; height: 200px;">
-				<table class="table table-default">
-					<thead>
-						@foreach($bookings as $row)
-						<tr>
-							<td><i class="fas fa-user-circle fa-5x"></i></td>
-							<td>You sent a request to <b>{{$row->therapist->fullname}}</b></td>
-							<td>
-								<input type="submit" value="Cancel" class="btn btn-danger" href="#" data-toggle="modal" data-target="#connectModal">
-								<input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
-							</td>
-						</tr>
-						@endforeach
-					</thead>
-				</table>
-			</div>
+		<div class="card-body" style="overflow: scroll; height: 200px;">
+			<table class="table table-default">
+				<thead>
+					@foreach($bookings as $row)
+					<tr>
+						<td><i class="fas fa-user-circle fa-5x"></i></td>
+						<td>You sent a request to <b>{{$row->therapist->fullname}}</b></td>
+						<td>
+							<input type="submit" value="Cancel" class="btn btn-danger" href="#" data-toggle="modal" data-target="#connectModal">
+							<input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
+						</td>
+					</tr>
+					@endforeach
+				</thead>
+			</table>
+		</div>
 		</div>
 
 		<br>

@@ -9,18 +9,16 @@
      {{ csrf_field() }}
     <h1>Client Registration:</h1>
 
-    <div class="tab">Name:
-        <p><input placeholder="First name" name="fname"  type="text" class="form-control"></p>
-        <p><input placeholder="Last name" name="lname" type="text" class="form-control"></p>
-        <p><input placeholder="Email"  name="email" type="email" class="form-control"></p>
-        <p><input placeholder="Contact Number" type="text" name="number" class="form-control"></p>
-        <p>
-            <select id="gender" class="form-control" name="gender" class="form-control">
+    <div class="tab">
+            <input placeholder="First name" name="fname"  type="text" class="form-control"><br>
+            <input placeholder="Last name" name="lname" type="text" class="form-control"><br>
+            <input placeholder="Email"  name="email" type="email" class="form-control"><br>
+            <input placeholder="Contact Number" type="text" name="number" class="form-control"><br> 
+            <select id="gender" class="form-control" name="gender">
                 <option disabled="disabled" selected>Select Gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
-            </select>
-        </p>
+            </select> <br>
     </div>
 
     <div class="tab" >Address:

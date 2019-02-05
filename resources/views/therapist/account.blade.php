@@ -65,9 +65,13 @@
                         <td><label><b>{{$data->client->fullname}}</b></label></label> wants to connect with you</td>
                         <td>
                             <input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
+                        </td>
+                        <td>
                             {!!Form::open(['url'=>route('therapist.accept', $data->id), 'method'=>'PATCH'])!!}
-                                <button class="btn btn-sm btn-success">Approve</button>
+                            <button class="btn btn-success">Approve</button>
                             {!!Form::close()!!}
+                        </td>
+                        <td>
                             <input type="submit" value="Cancel" class="btn btn-danger" >
                         </td>
                     </tr>
@@ -101,7 +105,7 @@
                                 <label class = "full" for="star2" title="2 stars"></label></label>
                                 <input type="radio" id="star1" name="rating" value="1" />
                                 <label class = "full" for="star1" title="1 star"></label></label>
-                                </fieldset>
+                            </fieldset>
                         </td>  
                     </tr>          
                 </thead>
