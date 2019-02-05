@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Therapist;
-use App\Client;
-use App\User;
-use Hash;
-use App\Http\Requests\TherapistRequest;
 use Illuminate\Http\Requests\UserRequest;
+use App\Http\Requests\TherapistRequest;
+use App\Client;
+use App\Therapist;
+use App\User;
+use App\Specialty;
+use App\BookingRequest;
 use Auth;
+use Hash;
 
 class TherapistController extends Controller
 {
@@ -64,6 +66,8 @@ class TherapistController extends Controller
             'province' => $request->post('province'), 
             'barangay' => $request->post('barangay'), 
             'postal_code' => $request->post('postal_code'), 
+            'longitude' => $request->post('longitude'),
+            'latitude' => $request->post('latitude'),
             'therapist' => $request->post('therapist'),
             'license_number' => $request->post('license_number'),
             'expiry_date' => $request->post('expiry_date'),
@@ -99,6 +103,7 @@ class TherapistController extends Controller
         $request = $request->validated();
         // dd($request);
         if(isset($request['image'])){
+            
             $request['image'] = request()->file('image')->store('image', 'public');
         }
 
@@ -117,44 +122,39 @@ class TherapistController extends Controller
 
     }
 
-    public function therapistAccount($userId)
+    public function therapistAccount(BookingRequest $bookings)
+    {        
+
+        $therapist = Therapist::whereUserId(Auth::id())->with('user')->first();
+        $bookings = $therapist->bookingRequest()->with('therapist')->get();
+        return view('therapist.account', compact('therapist', 'bookings'));
+    }
+
+    public function therapistAppoint(Client $clients)
     {
-        $therapist = Therapist::find($userId)->load('users');
-        
-
-        return view('therapist.account', compact('therapist'));
-
-        
+        $clients = Client::all();
+        return view('therapist.appoint', compact('clients'));
     }
-    public function therapistAppoint(){
+    public function therapistHistory(Client $clients){
 
-        return view('therapist.appoint');
-    }
-    public function therapistHistory(){
-
-        return view('therapist.history');
+        $clients = Client::all();
+        return view('therapist.history', compact('clients'));
+        // return view('client.book');
     }
     public function therapistMessage(){
 
         return view('therapist.message');
 
+    }
+
+    public function createSpecialties()
+    {
+        return view('therapist.specialty');
     }   
 
-       public function therapistEdit(){
-
-
-        // $user = DB::table('users')->where('id', );
-
-
-
-        // $user = User::get()->toArray();
-
-        // dd($user);
-
-
-
-         return view('therapist.edit');
-
+    public function storeSpecialties()
+    {
+        $specialties;
     }
  
 }

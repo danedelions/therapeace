@@ -38,13 +38,13 @@ Route::resource('client', 'ClientController');
 Route::group(['middleware' => 'auth'], function(){
 
 // THERAPIST
-	Route::get('/therapist-account/', 'TherapistController@therapistAccount')->name('get.therapist-account');
+	Route::get('/therapist-account', 'TherapistController@therapistAccount')->name('get.therapist-account');
 	Route::get('/therapist-appoint', 'TherapistController@therapistAppoint')->name('get.therapist-appoint');
 	Route::get('/therapist-history', 'TherapistController@therapistHistory')->name('get.therapist-history');
 	Route::get('/therapist-message', 'TherapistController@therapistMessage');
 	Route::get('/therapist-edit/{id}' ,'TherapistController@edit');
 	Route::patch('/therapist-update/{id}' ,'TherapistController@update')->name('therapist.update');
-
+	Route::get('/therapist-specialty/', 'TherapistController@createSpecialties')->name('get.therapist-specialty');
 // CLIENT
 	Route::get('/client-find', 'ClientController@clientFind')->name('get.client-find');
 	Route::get('/client-account', 'ClientController@clientAccount')->name('get.client-account');
@@ -52,9 +52,19 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::patch('/client-update/{id}' ,'ClientController@update');
 	Route::get('/client-history', 'ClientController@clientHistory')->name('get.client-history');
 	Route::get('/client-message', 'ClientController@clientMessage')->name('get.client-message');
+	Route::get('/client-search/', 'ClientController@search')->name('get.client-search');
 
-	Route::get('/client-transaction', 'PrintController@index');
-	Route::get('/printpreview','PrintController@printClient');
+//PRINTING
+	Route::get('/client-transaction', 'PrintController@clientTrans');
+	Route::get('/printclient','PrintController@printclient');
+
+	Route::get('/therapist-transaction', 'PrintController@therapistTrans');
+	Route::get('/printtherapist','PrintController@printtherapist');
+
+//BOOKING
+
+	Route::get('/booktherapist/{id}', 'BookingController@index')->name('get.booktherapist');
+	Route::post('/doBookTherapist/','BookingController@submitDetails')->name('post.doBook');
 
 // Admin Side
 // Route::get('admin', 'AdminController@getDashboard')->name('get.admin'); 
@@ -80,6 +90,10 @@ Route::get('admin-reports', 'AdminController@getReportsView');
 Route::get('email/{user}', 'AdminController@welcome')->name('sendWelcome');
 // Route::get('email/{user}', 'AdminController@notice')->name('sendNotice');
 Route::patch('admin-user/{user}', 'AdminController@statusUpdate')->name('admin.status-update');
+
+//table user
+Route::get('admin-user2', 'AdminController@getNewUser')->name('admin.user2');
+Route::post('admin-user2', 'DatatablesController@getUser')->name('dataProcessing');
 
 //testing
 // Route::resource('datatables', 'AdminController', [

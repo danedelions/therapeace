@@ -11,53 +11,57 @@
   <!-- One "tab" for each step in the form: -->
 
     <div class="tab">
-    <h6>Upload profile picture</h6>
-    <form action="upload.php" method="post" enctype="multipart/form-data" class="form-group">
-    <input type="file" name="image" id="fileToUpload" class="form-control"> 
-    <br>
-    Name:
-    <p><input placeholder="First name..."  name="fname" class="form-control"></p>
-    <p><input placeholder="Last name..."  name="lname" class="form-control"></p>
-     <p><input placeholder="Email"  name="email" class="form-control"></p>
-    <p><input placeholder="Contact Number"  name="number" class="form-control"></p>
-        <select id="gender" class="form-control" name="gender">
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                            </select>
-                        </div>
-  </div><br>
-  <div class="tab">Address:
-    <p><input id="autocomplete" placeholder="Enter Your Address Here to Fill Up the Form" onfocus="geolocate()" type="text" class="form-control"></p>
-    <p><input placeholder="Street Address"  name="streetaddress" id="route" class="form-control"></p>
-    <p><input placeholder="Barangay"  name="barangay" id="barangay" class="form-control"></p>
-    <p><input placeholder="City"  class="form-control" name="city" id="locality"></p>
-    <p><input placeholder="Town"  name="town" id="town" class="form-control"></p>
-    <p><input placeholder="Province"  name="province" id="administrative_area_level_2" class="form-control"></p>
-    <p><input placeholder="Postal Code"  name="postal_code" id="postal_code" class="form-control"></p>
-    <p><input placeholder="Country"  name="country" id="country" class="form-control"></p>
+      <h6>Upload profile picture</h6>
+      <input type="file" name="image" id="fileToUpload" class="form-control"> 
+      <br>
+      Name:
+      <input placeholder="First name..."  name="fname" class="form-control"><br>
+      <input placeholder="Last name..."  name="lname" class="form-control"><br>
+      <input placeholder="Email"  name="email" class="form-control"><br>
+      <input placeholder="Contact Number"  name="number" class="form-control"><br>
+          <select id="gender" class="form-control" name="gender">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+          </select>
   
+    </div>
+  <br>
+
+  <div class="tab">Address:
+    <input id="autocomplete" placeholder="Enter Your Address " onfocus="geolocate()" type="text" class="form-control"><br>
+    <input placeholder="Street Address"  name="streetaddress" id="route" class="form-control"><br>
+    <input placeholder="Barangay"  name="barangay" id="sublocality" class="form-control"><br>
+    <input placeholder="City"  class="form-control" name="city" id="locality"><br>
+    <input placeholder="Town"  name="town" id="town" class="form-control"><br>
+    <input placeholder="Province"  name="province" id="administrative_area_level_2" class="form-control"><br>
+    <input placeholder="Postal Code"  name="postal_code" id="postal_code" class="form-control"><br>
+    <input placeholder="Country"  name="country" id="country" class="form-control"><br>
+    <input name="latitude" name="latitude" id="latitude" type="text" placeholder="Latitude" style="width: 161px;">
+    <input name="longitude" name="longitude" id="longitude" type="text" placeholder="Longitude" style="width: 161px;">
   </div>
-  <div class="tab" >License:
+
+  <div class="tab">License:
     <br><br>
-  <form class="col-md-4">
     <select select class="form-control select2" name="therapist" class="form-control">
        <option value="Physical Therapist" style="width:250px">Physical Therapist</option>
-      <option value="Occupational Therapist" style="width:250px">Occupational therapy</option>
+       <option value="Occupational Therapist" style="width:250px">Occupational therapy</option>
     </select><br>
-    <p><input placeholder="License Number"  name="license_number" type="number" class="form-control"></p>
-    <p><input class="form-control" placeholder="Expriry Date"  name="expiry_date" type="date"></p>
-    <input type="file" name="license_image" id="fileUpload2" class="form-control"> 
-   <br>
-  <input type="file" name="nbi_image" id="fileUpload3" class="form-control"> 
-   <br>
-    <input type="file" name="bc_image" id="fileUpload4" class="form-control"> 
+      <input placeholder="License Number"  name="license_number" type="number" class="form-control"><br>
+      <input class="form-control" placeholder="Expriry Date"  name="expiry_date" type="date"><br>
+      <label>License Imgae</label>
+      <input type="file" name="license_image" id="fileUpload2" class="form-control"><br>
+      <label>NBI Imgae</label>
+      <input type="file" name="nbi_image" id="fileUpload3" class="form-control"><br>
+      <label>Barangay Clearance Imgae</label>
+      <input type="file" name="bc_image" id="fileUpload4" class="form-control"><br>
    <br><br>
  </div>
-    <div class="tab">Profile:
-    <p><input placeholder="User Name"  name="username" class="form-control"></p>
-    <p><input placeholder="Password"  name="password" type="password" class="form-control"></p>
-    <p><input placeholder="Re-type Password"  name="re-password" type="password" class="form-control"></p>
+  <div class="tab">Profile:
+    <input placeholder="User Name"  name="username" class="form-control"><br>
+    <input placeholder="Password"  name="password" type="password" class="form-control"><br>
+    <input placeholder="Re-type Password"  name="re-password" type="password" class="form-control"><br>
   </div>
+
 
   <div class="tab">Done:
     <p>Lorem ipsum dolor sit amet, sea harum delenit in. Ut omnis affert mel. Vel ea tantas labores officiis. Ignota noster elaboraret cum ad. No pri munere vocent interpretaris, ei sea mandamus laboramus tincidunt.
@@ -69,22 +73,17 @@ Te graeco imperdiet per, pri ea summo voluptatibus. Fierent voluptua pri ea, nam
 Nisl elit epicuri id vis, sea alterum commune deterruisset cu. Ea vel rebum fabulas deseruisse, mei cu nulla minim munere. Offendit placerat iracundia cum id, mea at brute vocent quaeque. Rebum feugait oportere at pro, sit regione persecuti eu, vel explicari accusamus splendide in. Sea at blandit ponderum.
 
 Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facilis antiopam. Fastidii nominati contentiones duo ea. Has ne corpora albucius voluptaria.</p>
-     <div class="form-group">
-                        <div class="col-md-12">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" value="" id="">
-                                    I accept the <a href="#">terms and conditions</a>.
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+     </p>
+     <div>
+    <label><input type="checkbox" />  I accept the terms and conditions.</label>
+     </div>  
   </div>
+
   <div style="overflow:auto;">
     <div style="float:right;">
       <button class="btn btn-sm-success" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
       <button class="btn btn-sm-success" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-       <button class="btn btn-sm-success" type="submit" id="subBtn" style="display:none">Submit</button>
+      <button class="btn btn-sm-success" type="submit" id="subBtn" style="display:none">Submit</button>
     </div>
   </div>
   <!-- Circles which indicates the steps of the form: -->
@@ -95,15 +94,13 @@ Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facili
     <span class="step"></span>
   </div>
 </form>
-    </form>
-  </div>
-</form>
  <script>
       var placeSearch, autocomplete;
       var componentForm = {  
         route: 'long_name',
         locality: 'long_name',
         administrative_area_level_2: 'short_name',
+        sublocality: 'long_name',
         country: 'long_name',
         postal_code: 'short_name'
       };
@@ -118,6 +115,7 @@ Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facili
         // When the user selects an address from the dropdown, populate the address
         // fields in the form.
         autocomplete.addListener('place_changed', fillInAddress);
+
       }
 
       function fillInAddress() {
@@ -138,8 +136,12 @@ Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facili
             document.getElementById(addressType).value = val;
           }
         }
-      }
 
+        document.getElementById('latitude').value = place.geometry.location.lat();
+        document.getElementById('longitude').value = place.geometry.location.lng();
+
+      }
+      google.maps.event.addDomListener(window, "load", initAutocomplete);
       // Bias the autocomplete object to the user's geographical location,
       // as supplied by the browser's 'navigator.geolocation' object.
       function geolocate() {
@@ -155,12 +157,14 @@ Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facili
             });
             autocomplete.setBounds(circle.getBounds());
           });
+
         }
-      }
+
+     }
+
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD85clj7B85QRZPmO6m4Fky0Wi6P0MzVpA&libraries=places&callback=initAutocomplete"
 async defer></script>
-</body>
-</html>
+
 @endsection
 

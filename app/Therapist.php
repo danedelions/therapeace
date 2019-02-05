@@ -19,6 +19,8 @@ class Therapist extends Model
         'province',
         'barangay',
         'postal_code',
+        'longitude',
+        'latitude',
         'therapist',
         'license_number',
         'expiry_date',
@@ -36,15 +38,44 @@ class Therapist extends Model
     }
 
     public function user(){
-<<<<<<< HEAD
+
+
     	return $this->belongsTo('App\User', 'id');
-=======
-    	return $this->belongsTo('App\User', 'user_id');
->>>>>>> e804af52f673025b54ffe9d45efc156104470456
+    	// return $this->belongsTo('App\User', 'user_id');
+    	// return $this->belongsTo('App\User', 'id');
+
+    	// return $this->belongsTo('App\User', 'user_id');
+
+    	// return $this->belongsTo('App\User', 'id');
+    	// // return $this->belongsTo('App\User', 'user_id');
+
     }
 
     public function scopeOfUser($query, $userId)
     {
     	return $query->where('id', $userId);
+    }
+
+    public function scopeSearch($query, $search)
+    {
+        if($query === 'Physical Therapist'){
+            return $query->where('therapist', 'LIKE', '%$search%');
+        }
+    }
+
+    public function bookingRequest()
+    {
+        return $this->hasMany('App\BookingRequest','therapist_id','user_id');
+    }
+
+    public function getFullNameAttribute()
+    {
+        return "{$this->fname} {$this->lname}";
+    }
+
+
+    public function getAddressAttribute()
+    {
+        return "{$this->streetaddress}, {$this->town}, {$this->barangay}, {$this->city}, {$this->province}";
     }
 }

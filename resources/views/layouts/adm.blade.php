@@ -21,29 +21,24 @@
     <!-- PAGE LEVEL STYLES-->
 
     <!-- Data Tables -->
-    <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
+    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
 
     <!-- Bootstrap CSS -->
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
 
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-
-    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
     
 </head>
 <body class="fixed-navbar" style="overflow: hidden">
     @include('partials.aheader')
     @yield('dashboard')
-
-    <!-- jquery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
     <!-- CORE PLUGINS-->
     <script src="dist/assets/vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
@@ -66,13 +61,13 @@
     <script type="text/javascript" src="DataTables/datatables.min.js"></script>
 
     <!-- jQuery -->
-        <script src="//code.jquery.com/jquery.js"></script>
-        <!-- DataTables -->
-        <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-        <!-- Bootstrap JavaScript -->
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        <!-- App scripts -->
-        @stack('scripts')
+    <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+    <!-- DataTables -->
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!-- App scripts -->
+<!--     @stack('scripts') -->
 
     <!-- View Modal Script and Ajax -->
     <script type="text/javascript">
@@ -99,8 +94,30 @@
                 // })
             })
 
+            $('#userTable').DataTable( {
+                    "processing": true,
+                    "serverSide": true,
+                    "ajax": {
+                        "url": "{{route('dataProcessing')}}",
+                        "dataType": "json",
+                        "type":"POST",
+                        "data":{"_token":"{{ csrf_token() }}"}
+                    },
+                    "columns":[
+                        {"data":"id"},
+                        {"data":"username"},
+                        {"data":"email"},
+                        {"data":"user_type"},
+                        {"data":"status"},
+                        {"data":"action", "searchable":false,"orderable":false}
+                    ]
+
+                } );
+
+
         });
     </script>
     
 </body>
 </html>
+

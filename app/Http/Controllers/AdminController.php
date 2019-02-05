@@ -12,7 +12,7 @@ use Auth;
 use DB;
 use App\Http\Requests\UserRequest;
 use App\Mail\UserExpiryNotice;
-use Datatables;
+
 
 
 class AdminController extends Controller
@@ -61,6 +61,11 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
+    public function getNewUser()
+    {        
+        return view('admin.users2');
+    }
+
     //admin.users2
     // public function getUserView()
     // {
@@ -73,10 +78,10 @@ class AdminController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function getIndex(User $user)
-    {
-        return view('admin.users2');
-    }
+    // public function getIndex(User $user)
+    // {
+    //     return view('admin.users2');
+    // }
 
     /**
      * Process datatables ajax request.
@@ -84,8 +89,8 @@ class AdminController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
      
-    public function anyData()
-    {
-        return Datatables::of(User::query())->make(true);
-    }
+    // public function anyData()
+    // {
+    //     return Datatables::of(User::query())->make(true);
+    // }
 }

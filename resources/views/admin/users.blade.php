@@ -28,8 +28,10 @@
                                   Unblocked
                               @endif
                           </td>
+
                           <td>{{$row['username']}}</td>
                           <td>{{$row['email']}}</td>
+
 
                           <!-- View Modal client-->
                           <div class="modal fade" id="viewModalc" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

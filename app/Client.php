@@ -12,19 +12,37 @@ class Client extends Model
         'lname',
         'contact',
         'gender',
-        'city',
+        'street',
+        'barangay',
         'town',
         'province',
-        'barangay',
-        'client',
+        'city',
+        'postal_code',
     ] ;
 
     public function user()
     {
     	return $this->belongsTo('App\User', 'user_id');
     }
-        public function scopeOfUser($query, $userId)
+    
+    public function scopeOfUser($query, $userId)
     {
     	return $query->where('user_id', $userId);
     }
+
+    public function booking()
+    {
+        return $this->hasMany('App\BookingRequest', 'client_id', 'user_id');
+    }
+
+    public function getFullNameAttribute()
+    {
+        return "{$this->fname} {$this->lname}";
+    }
+
+    public function getAddressAttribute()
+    {
+        return "{$this->street}, {$this->town}, {$this->barangay}, {$this->city}, {$this->province}, {$this->postal_code}, {$this->country}";
+    }
+
 }
