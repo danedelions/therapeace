@@ -38,6 +38,7 @@ class ClientController extends Controller
             'username' => $request->post('username'),
             'email' => $request->post('email'),
             'password' =>Hash::make($request->post('password')),
+            'status' => 0,
             'user_type' => 'client'
 
             ]);
@@ -58,8 +59,6 @@ class ClientController extends Controller
             'town' => $request->post('town'),
             'province' => $request->post('province'),
             'city' => $request->post('city'),
-
-
         ]);
 
          return view('login');
