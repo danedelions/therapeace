@@ -162,7 +162,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        Yajra\DataTables\DataTablesServiceProvider::class,
+        //Yajra\DataTables\DataTablesServiceProvider::class,
 
     ],
 
@@ -215,6 +215,6 @@ return [
         
     ],
 
-    'Datatables' => Yajra\Datatables\Facades\Datatables::class,
+   // 'Datatables' => Yajra\Datatables\Facades\Datatables::class,
 
 ];
