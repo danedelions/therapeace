@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width initial-scale=1.0">
     <title>TheraPeace | Welcome</title>
+    
     <!-- GLOBAL MAINLY STYLES-->
     <link href="dist/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="dist/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -94,25 +95,25 @@
                 // })
             })
 
-            $('#userTable').DataTable( {
-                    "processing": true,
-                    "serverSide": true,
-                    "ajax": {
-                        "url": "{{route('dataProcessing')}}",
-                        "dataType": "json",
-                        "type":"POST",
-                        "data":{"_token":"{{ csrf_token() }}"}
-                    },
-                    "columns":[
-                        {"data":"id"},
-                        {"data":"username"},
-                        {"data":"email"},
-                        {"data":"user_type"},
-                        {"data":"status"},
-                        {"data":"action", "searchable":false,"orderable":false}
-                    ]
+            // $('#userTable').DataTable( {
+            //         "processing": true,
+            //         "serverSide": true,
+            //         "ajax": {
+            //             "url": "{{route('dataProcessing')}}",
+            //             "dataType": "json",
+            //             "type":"POST",
+            //             "data":{"_token":"{{ csrf_token() }}"}
+            //         },
+            //         "columns":[
+            //             {"data":"id"},
+            //             {"data":"username"},
+            //             {"data":"email"},
+            //             {"data":"user_type"},
+            //             {"data":"status"},
+            //             {"data":"action", "searchable":false,"orderable":false}
+            //         ]
 
-                } );
+            //     } );
 
 
         });
