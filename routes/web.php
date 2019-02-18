@@ -80,7 +80,21 @@ Route::get('admin-user', 'AdminController@getUserView')->name('get.view');
 Route::get('admin-pending', 'AdminController@getPendingView');
 Route::get('admin-history', 'AdminController@getHistoryView');
 Route::get('admin-reports', 'AdminController@getReportsView');
-Route::get('email/{user}', 'AdminController@email')->name('sendEmail');
+Route::get('email/{user}', 'AdminController@welcome')->name('sendWelcome');
+// Route::get('email/{user}', 'AdminController@notice')->name('sendNotice');
 Route::patch('admin-user/{user}', 'AdminController@statusUpdate')->name('admin.status-update');
 
+//table user
+Route::get('admin-user2', 'AdminController@getNewUser')->name('admin.user2');
+Route::post('admin-user2', 'DatatablesController@getUser')->name('dataProcessing');
+
+//testing
+// Route::resource('datatables', 'AdminController', [
+//     'anyData'  => 'datatables.data',
+//     'getIndex' => 'datatables',
+// ]);
+
+
+// Route::resource('datatables', 'AdminController@getIndex');
+// Route::resource('datatables', 'AdminController@anyData');
 

@@ -11,6 +11,8 @@ use App\Mail\NewUserWelcome;
 use Auth;
 use DB;
 use App\Http\Requests\UserRequest;
+use App\Mail\UserExpiryNotice;
+
 
 
 class AdminController extends Controller
@@ -41,15 +43,54 @@ class AdminController extends Controller
     	return view('admin.reports');
     }
 
-    public function email(User $user)
+    public function welcome(User $user)
     { 
         Mail::to($user->email)->send(new NewUserWelcome());
         return redirect()->back();
     }
+
+    // public function notice(User $user)
+    // { 
+    //     Mail::to($user->email)->send(new UserExpiryNotice());
+    //     return redirect()->back();
+    // }
 
     public function statusUpdate(User $user)
     {        
         $user->update(['status' => !$user->status]);
         return redirect()->back();
     }
+
+    public function getNewUser()
+    {        
+        return view('admin.users2');
+    }
+
+    //admin.users2
+    // public function getUserView()
+    // {
+    //     $users = User::all();
+    //     return view('admin.users2', compact('users','newstatus'));
+    // }
+
+    /**
+     * Displays datatables front end view
+     *
+     * @return \Illuminate\View\View
+     */
+    // public function getIndex(User $user)
+    // {
+    //     return view('admin.users2');
+    // }
+
+    /**
+     * Process datatables ajax request.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+     
+    // public function anyData()
+    // {
+    //     return Datatables::of(User::query())->make(true);
+    // }
 }
