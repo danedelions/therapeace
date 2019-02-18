@@ -78,17 +78,25 @@
               <input type="file" id="itemImage" name="license_image" class="form-control">
               </div>
             </div>
-
           </fieldset>
+          <br>
           <fieldset>
-            <legend>Profile:</legend>
             <div class="form-row">
+              <legend>Profile</legend>
+              <hr>
               <div class="col-md-6">
                   {!! Form::inputGroup('text', 'Username', 'username', Auth::user()->username, ['placeholder' => 'User Name']) !!}
               </div>
             </div>
+            <div class="form-row">
+            <legend>Specialization</legend>
+              <hr>
+              <div class="col-md-6">
+                  <input type="text" name="" class="form-control" placeholder="Add Specialization here...">
+              </div>
+            </div>
           </fieldset>
-
+          <br>
               <input type="reset" href="/therapist-account" class="btn btn-secondary" value="Cancel">
               <button type="submit" class="btn btn-success">Update</button>
         </div> 

@@ -68,15 +68,6 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/booktherapist/{id}', 'BookingController@index')->name('get.booktherapist');
 	Route::post('/doBookTherapist/','BookingController@submitDetails')->name('post.doBook');
 
-// Admin Side
-// Route::get('admin', 'AdminController@getDashboard')->name('get.admin'); 
-// Route::get('admin-user', 'AdminController@getUserView');
-// Route::get('admin-pending', 'AdminController@getPendingView');
-// Route::get('admin-history', 'AdminController@getHistoryView');
-// Route::get('admin-reports', 'AdminController@getReportsView');
-// Route::get('email/{user}', 'AdminController@email')->name('sendEmail');
-// Route::patch('admin-user/{user}', 'AdminController@statusUpdate')->name('admin.status-update'); 
-
 });
 
 

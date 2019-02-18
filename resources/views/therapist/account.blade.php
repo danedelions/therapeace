@@ -40,7 +40,7 @@
                     <div class="form-group row">
                         <label class="col-lg-3">Specialties</label>
                             <div class="col-lg-8">
-                                <a href="{{url('/therapist-specialty/')}}" class="btn btn-sm btn-outline-info">Add Specialties</a>
+                                
                             <br>
                             </div>  
                     </div>
