@@ -53,26 +53,58 @@ function nextPrev(n) {
 
 function validateForm() {
   // This function deals with validation of the form fields
-  // var x, y, i, valid = true;
-  // x = document.getElementsByClassName("tab");
-  // y = x[currentTab].getElementsByTagName("input");
-  // // A loop that checks every input field in the current tab:
-  // for (i = 0; i < y.length; i++) {
-  //   // If a field is empty...
-  //   if (y[i].value == "") {
-  //     // add an "invalid" class to the field:
-  //     // y[i].className += " invalid";
-  //     $(y[i]).addClass('invalid');
-  //     // and set the current valid status to false
-  //     valid = false;
-  //   }
-  // }
-  // // If the valid status is true, mark the step as finished and valid:
-  // if (valid) {
-  //   document.getElementsByClassName("step")[currentTab].classList.add('finish');
-  // }
-  // return valid; // return the valid status
-  return true;
+  var x, y, i, valid = true;
+  x = document.getElementsByClassName("tab");
+  y = $(x[currentTab]).find('.form-control');
+  // A loop that checks every input field in the current tab:
+  for (i = 0; i < y.length; i++) {
+    // If a field is empty...
+    if (y[i].value == "") {
+      $(y[i]).addClass('is-invalid').next('.invalid-feedback').remove();
+      // add an "invalid" class to the field:
+      y[i].className += " invalid";
+      $(y[i]).addClass('is-invalid');
+      $(y[i]).after($('<div/>', {
+        class: 'invalid-feedback',
+        text: $(y[i]).data('validation-message') || 'error'
+      }))
+      // and set the current valid status to false
+      valid = false;
+    }
+    
+    if($(y[i]).data('confirmed')){
+      var password = $(y[i]).val(),
+        cofirmation = $('[name='+$(y[i]).data('confirmed')+']').val();
+
+        if((!password || !cofirmation ) || (password !== cofirmation)){
+
+          $(y[i]).addClass('is-invalid').siblings('.invalid-feedback').remove();
+          $(y[i]).after($('<div/>', {
+            class: 'invalid-feedback',
+            text: 'password do not match'
+          }))
+
+
+          $('[name='+$(y[i]).data('confirmed')+']').addClass('is-invalid').siblings('.invalid-feedback').remove();
+          $('[name='+$(y[i]).data('confirmed')+']').after($('<div/>', {
+            class: 'invalid-feedback',
+            text: 'password do not match'
+          }))
+          
+          valid = false;
+        }else{
+          $(y[i]).removeClass('is-invalid').siblings('.invalid-feedback').remove();
+          $('[name='+$(y[i]).data('confirmed')+']').removeClass('is-invalid').siblings('.invalid-feedback').remove();
+        }
+    }
+  }
+
+  // If the valid status is true, mark the step as finished and valid:
+  if (valid) {
+    document.getElementsByClassName("step")[currentTab].classList.add('finish');
+  }
+  return valid; // return the valid status
+  // return true;
 }
 
 function fixStepIndicator(n) {
