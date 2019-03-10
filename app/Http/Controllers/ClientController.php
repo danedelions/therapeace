@@ -33,35 +33,31 @@ class ClientController extends Controller
     public function store(Request $request)
     {
 
-        User::insert([
-
-            'username' => $request->post('username'),
-            'email' => $request->post('email'),
-            'password' =>Hash::make($request->post('password')),
-            'status' => 0,
-            'user_type' => 'client'
-
+        \DB::transaction (function () use ($request) {
+            User::insert([
+                'username'  => $request->post('username'),
+                'email'     => $request->post('email'),
+                'password'  => Hash::make($request->post('password')),
+                'status'    => 0,
+                'user_type' => 'client'
             ]);
 
+            $users = User::where('username', $request->post('username'))->get();
 
-          $users = User::where('username', $request->post('username'))->get();
-
-        Client::insert([
-
-            'user_id' =>$users[0]['id'],
-            'fname' => $request->post('fname'),
-            'lname' => $request->post('lname'),
-            'contact' => $request->post('number'), 
-            'gender' => $request->post('gender'),
-            'street' => $request->post('street'),
-            'postal_code' => $request->post('postal_code'),
-            'barangay' => $request->post('barangay'),
-            'town' => $request->post('town'),
-            'province' => $request->post('province'),
-            'city' => $request->post('city'),
-
-
-        ]);
+            Client::insert([
+                'user_id'     => $users[0]['id'],
+                'fname'       => $request->post('fname'),
+                'lname'       => $request->post('lname'),
+                'contact'     => $request->post('number'),
+                'gender'      => $request->post('gender'),
+                'street'      => $request->post('street'),
+                'postal_code' => $request->post('postal_code'),
+                'barangay'    => $request->post('barangay'),
+                'town'        => $request->post('town'),
+                'province'    => $request->post('province'),
+                'city'        => $request->post('city'),
+            ]);
+        });
 
          return view('login');
     }

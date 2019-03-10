@@ -39,43 +39,51 @@ class TherapistController extends Controller
     public function store(Request $request)
     {
 
-        User::insert([
+        \DB::transaction (function () use ($request) {
 
-            'username' => $request->post('username'),
-            'email' => $request->post('email'),
-            'password' =>Hash::make($request->post('password')),
-            'user_type' => 'therapist'
+            User::insert([
 
-        ]);
+                'username' => $request->post('username'),
+                'email' => $request->post('email'),
+                'password' =>Hash::make($request->post('password')),
+                'user_type' => 'therapist',
+                'status' => 0
+    
+            ]);
+    
+    
+            $users = User::where('username', $request->post('username'))->get();
 
-
-        $users = User::where('username', $request->post('username'))->get();
-
-
-        Therapist::insert([
-
-            'user_id' =>$users[0]['id'],
-            'image' => $request->post('image'),
-            'fname' => $request->post('fname'),
-            'lname' => $request->post('lname'),
-            'contact' => $request->post('number'), 
-            'gender' => $request->post('gender'), 
-            'streetaddress' => $request->post('streetaddress'),
-            'city' => $request->post('city'),
-            'town' => $request->post('town'),
-            'province' => $request->post('province'), 
-            'barangay' => $request->post('barangay'), 
-            'postal_code' => $request->post('postal_code'), 
-            'longitude' => $request->post('longitude'),
-            'latitude' => $request->post('latitude'),
-            'therapist' => $request->post('therapist'),
-            'license_number' => $request->post('license_number'),
-            'expiry_date' => $request->post('expiry_date'),
-            'license_image' => $request->post('license_image'),
-            'nbi_image' =>$request->post('nbi_image'),
-            'bc_image' => $request->post('bc_image'),
-
-        ]);
+            $image = $request->file('image')->store(
+                "pictures/{$users[0]['username']}", 'public'
+            );
+    
+    
+            Therapist::insert([
+    
+                'user_id' =>$users[0]['id'],
+                'image' => $image,
+                'fname' => $request->post('fname'),
+                'lname' => $request->post('lname'),
+                'contact' => $request->post('number'), 
+                'gender' => $request->post('gender'), 
+                'streetaddress' => $request->post('streetaddress'),
+                'city' => $request->post('city'),
+                'town' => $request->post('town'),
+                'province' => $request->post('province'), 
+                'barangay' => $request->post('barangay'), 
+                'postal_code' => $request->post('postal_code'), 
+                'longitude' => $request->post('longitude'),
+                'latitude' => $request->post('latitude'),
+                'therapist' => $request->post('therapist'),
+                'license_number' => $request->post('license_number'),
+                'expiry_date' => $request->post('expiry_date'),
+                'license_image' => $request->post('license_image'),
+                'nbi_image' =>$request->post('nbi_image'),
+                'bc_image' => $request->post('bc_image'),
+    
+            ]);
+        });
         // $this->getData();
 
         return view('login');
