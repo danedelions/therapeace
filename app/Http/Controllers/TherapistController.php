@@ -91,9 +91,10 @@ class TherapistController extends Controller
 
     public function edit($userId)
     {  
-        $therapist = Therapist::find($userId)->load('user');
+        $specialties = Specialty::select('name')->pluck('name', 'name');
+        $therapist = Therapist::with(['user', 'specialties'])->find($userId);
 
-        return view('therapist.edit', compact('therapist'));
+        return view('therapist.edit', compact('therapist', 'specialties'));
 
     }
 
@@ -106,8 +107,20 @@ class TherapistController extends Controller
      */
     public function update(TherapistRequest $request, $id)
     {
-        // dd($therapist->toArray());
         $therapist = Therapist::find($id);
+        
+        $specialties = collect($request->specialties);
+        if($specialties->isNotEmpty()){
+
+             $ids = $specialties->map(function ($item) {
+                $specialty = Specialty::firstOrCreate(['name' => $item]);
+                return $specialty->id;
+            });
+
+            $therapist->specialties()->sync($ids);
+        }
+
+        
         $request = $request->validated();
         // dd($request);
         if(isset($request['image'])){
@@ -133,7 +146,7 @@ class TherapistController extends Controller
     public function therapistAccount(BookingRequest $bookings)
     {        
 
-        $therapist = Therapist::whereUserId(Auth::id())->with('user')->first();
+        $therapist = Therapist::whereUserId(Auth::id())->with(['user', 'specialties'])->first();
         $bookings = $therapist->bookingRequest()->where('status', 0)->with('therapist')->get();
         return view('therapist.account', compact('therapist', 'bookings'));
     }

@@ -76,4 +76,9 @@ class Therapist extends Model
     {
         return "{$this->streetaddress}, {$this->town}, {$this->barangay}, {$this->city}, {$this->province}";
     }
+
+    public function specialties()
+    {
+        return $this->belongsToMany(Specialty::class, 't_specialties', 'therapist_id', 'spec_id');
+    }
 }
