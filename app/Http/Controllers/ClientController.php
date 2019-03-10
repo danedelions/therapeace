@@ -12,6 +12,7 @@ use App\User;
 use DB;
 use Hash;
 use Auth;
+use App\Specialty;
 
 class ClientController extends Controller
 {
@@ -62,10 +63,20 @@ class ClientController extends Controller
          return view('login');
     }
 
-    public function clientFind(Therapist $therapists)
+    public function clientFind(Therapist $therapists, Request $request)
     {
-        $therapists = Therapist::all();
-        return view('client.find', compact('therapists'));
+        $therapists = Therapist::query()
+            ->when($type = $request->therapist, function ($q) use ($type){
+                $q->where('therapist', $type);
+            })
+            ->when($specialties = $request->t_specialties, function ($q) use ($specialties){
+                $q->whereHas('specialties', function ($q) use ($specialties) {
+                    $q->whereIn('specialties.name', $specialties);
+                });
+            })->get();
+
+        $specialties = Specialty::select('name')->pluck('name', 'name');
+        return view('client.find', compact('therapists', 'specialties'));
     }
     public function clientAccount()
     {

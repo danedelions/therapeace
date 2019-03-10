@@ -40,7 +40,7 @@
                     <div class="form-group row">
                         <label class="col-lg-3">Specialties</label>
                             <div class="col-lg-8">
-                                
+                               <span class="badge badge-success"> {!! optional($therapist->specialties)->pluck('name')->implode('</span ><span class="badge badge-success ml-1">') !!}</span>
                             <br>
                             </div>  
                     </div>

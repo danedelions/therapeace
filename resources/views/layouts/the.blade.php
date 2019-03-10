@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('path/dist/css/select2.min.css')}}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css')}}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('select2/dist/css/select2.min.css')}}">
         <link href="dist/assetsvendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- font awesome -->
         <link rel="stylesheet" type="text/css" href="{{ asset('fontawesome-free-5.1.0-web/css/all.css')}}">
@@ -19,9 +20,9 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/assets/css/main.min.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/assets/vendors/themify-icons/css/themify-icons.css') }}" />
         <!-- JAVASCRIPT -->
-        <script type="text/javascript" src="{{ asset('path/dist/js/select2.min.js') }}"></script>
+        
         <script type="text/javascript" src="{{asset('fullcalendar-3.9.0/fullcalendar.min.js')}}"></script>
-        <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
+        <script src="{{ asset('js/jquery-3.3.1.min.js')}}"></script>
         <script src="{{ asset('jquery/jquery.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('js/main.js') }}"></script>
@@ -41,5 +42,28 @@
 
 
         </main>
+        <script type="text/javascript" src="{{ asset('path/dist/js/select2.min.js') }}"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.select2').select2({
+                    tags: true,
+                    createTag: function (params) {
+                        var term = $.trim(params.term);
+
+                        if (term === '') {
+                            return null;
+                        }
+
+                        return {
+                            id: term,
+                            text: term,
+                            newTag: true // add additional parameters
+                        }
+                    }
+                })
+            })
+        </script>
     </body>
+
+    
 </html>

@@ -42,7 +42,8 @@ class TherapistRequest extends FormRequest
             'license_image' => 'nullable', 
             'nbi_image' => 'nullable', 
             'bc_image' => 'nullable', 
-            'username' => 'sometimes|required'
+            'username' => 'sometimes|required',
+            'specialties' => 'sometimes|nullable|array'
         ];
 
         return $rules;

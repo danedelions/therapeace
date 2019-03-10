@@ -4,7 +4,6 @@
 
       <div class="col-md-12">
       {!! Form::model($therapist, array('url'=> route('therapist.update', ['id'=> $therapist->id]),'method'=>'PATCH', 'files'=>true,'role'=>'form')) !!}
-      {!! csrf_field() !!}
         <legend class="text-center">Update Information</legend>
         <hr>
         <div class="card-body">
@@ -92,7 +91,7 @@
             <legend>Specialization</legend>
               <hr>
               <div class="col-md-6">
-                  <input type="text" name="" class="form-control" placeholder="Add Specialization here...">
+                  {!! Form::selectGroup(null, 'specialties[]', $specialties, optional($therapist->specialties)->pluck('name'), ['class' => 'form-control select2', 'multiple' => true]) !!}
               </div>
             </div>
           </fieldset>
