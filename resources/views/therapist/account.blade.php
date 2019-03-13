@@ -3,49 +3,6 @@
 @section('page-section')
 
 
-
-
-  <div class="row"> <!--  <div class="row">  --><!-- <div class="col-md-5"> -->
-    <div class="col-sm-5 col-md-5 col-lg-5">
-      <div class="card">
-        <div class="card-header">
-          <h5> User Information</h5>
-        </div>
-        <div class="card-body">
-            <div class="form-group">
-              <center>
-              <form action="#" method="#" enctype="multipart/form-data">
-              <center><i class="fas fa-user-circle fa-7x"></i>
-                {!! Form::open(array('url'=>'dashboard/edit','method'=>'POST', 'files'=>true)) !!}
-                {!! csrf_field() !!}
-                 <input type="file" id="itemImage" name="itemImage">
-               
-                  </center>
-              </form>
-            </div>
-            <div class="form-control-labelgroup row">
-              <label class="col-lg-3 col-form-label form-control-label"> Username: </label>
-                <div class="col-lg-9">
-                {{ Auth::user()->username }}
-                </div>
-            </div>
-            <div class="form-group row">
-               <label class="col-lg-3 col-form-label form-control-label">First Name:</label>
-                <div class="col-lg-9"><br>
-                    {{ $therapist->fname }}
-                </div>
-            </div>
-            <div class="form-group row">
-               <label class="col-lg-3 col-form-label form-control-label">Last Name:</label>
-                <div class="col-lg-9">
-                  {{ $therapist->lname }}
-                </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Address:</label>
-                <div class="col-lg-9">
-                  {{ $therapist->streetaddress }}
-
     <div class="row"> <!--  <div class="row">  --><!-- <div class="col-md-5"> -->
         <div class="col-sm-5 col-md-5 col-lg-5">
             <div class="card">
@@ -111,21 +68,6 @@
                     </div>
                 {!! Form::close() !!}  
             </div>
-
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Contact Number:</label>
-                <div class="col-lg-9"><br>
-                   {{ $therapist->contact }}
-                </div> 
-          </div>
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Input Speacialties:</label>
-                <div class="col-lg-9"><br>
-                  
-             </div>  
-          </div>
-          <a  value="Edit Info" class="btn btn-success" href="{{url('/therapist-edit/'. $therapist->id )}}"><i class="far fa-edit"></i>Edit</a>
-
         </div>
     </div>
 
@@ -138,16 +80,16 @@
         <div class="card-body" style="overflow: scroll; height: 200px;">
             <table class="table table-default">
                 <thead>
-                    @foreach($bookings as $data)
+                  
                     <tr>
-                        <td><label><b>{{$data->name}}</b></label></label> wants to connect with you</td>
+                        <td><label><b></b></label></label> wants to connect with you</td>
                         <td>
                             <input type="submit" value="Approve" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
                             <input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
                             <input type="submit" value="Cancel" class="btn btn-danger" >
                         </td>
                     </tr>
-                    @endforeach
+                    
                 </thead>
             </table>
         </div>
@@ -190,4 +132,3 @@
 
 
 @endsection
-

@@ -13,7 +13,7 @@
         <p><input placeholder="First name" name="fname"  type="text" class="form-control"></p>
         <p><input placeholder="Last name" name="lname" type="text" class="form-control"></p>
         <p><input placeholder="Email"  name="email" type="email" class="form-control"></p>
-        <p><input placeholder="Contact Number" type="text" name="number" class="form-control"></p>
+        <p><input placeholder="Contact Number" type="number" name="number" class="form-control"></p>
         <p>
             <select id="gender" class="form-control" name="gender" class="form-control">
                 <option disabled="disabled" selected>Select Gender</option>
