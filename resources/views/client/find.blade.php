@@ -13,6 +13,9 @@
 								{!! Form::inputGroup('text', 'Location', 'location', request()->location, ['placeholder' => 'Your Location here...', 'id'=>'searchTextField'])  !!}
 							</div>
 							<div class="form-group col-md-12">
+								{!! Form::inputGroup('number', 'Search Radius', 'radius', request()->radius, ['placeholder' => 'Search Radius', 'id'=>'radius'])  !!}
+							</div>
+							<div class="form-group col-md-12">
 								<label>Therapist Type</label>
 								{!! Form::select('therapist', array_combine(['Physical Therapist', 'Occupational Therapist'], ['Physical Therapist', 'Occupational Therapist']), request()->therapist,['id'=>'q']) !!}
 							</div>
@@ -87,9 +90,10 @@
 	var infoWindow = null,
 		map = null,
 		marker = null,
-		radius = 5,
+		radius = {{ request()->radius ?: 'null' }},
 		currentLat = {{ request()->latitude ?: 'null' }},
 		currentLong = {{ request()->longitude ?: 'null' }};
+
 	function initMap() {
 		map = new google.maps.Map(document.getElementById('map'), {
 			zoom: 16,
@@ -98,6 +102,7 @@
 				lng: 123.8854
 			}
 		});
+
 		//------------Try HTML5 geolocation.------------//
         if (navigator.geolocation) {
         	navigator.geolocation.getCurrentPosition(function(position) {
@@ -209,9 +214,11 @@
 			var lat1 = $("[name=latitude]").val();
 			var long2 = againstCoords.lng
 			var lat2 = againstCoords.lat
+
 			// var a = parseFloat(long2) - parseFloat(long1) * Math.cos(parseFloat(lat2) + parseFloat(lat1)/2);
 			// var b =	parseFloat(lat2) - parseFloat(lat1);
 			// var dist = (Math.sqrt((a*a) + (b*b)))*R;
+
 			var R = 6371; // metres
 			var a = toRadians(lat1);
 			var a2 = toRadians(lat2);
@@ -223,6 +230,7 @@
 			var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 			var d = R * c;
 			var dist = d.toFixed(2);
+
 			return dist;
 		}
 		function toRadians(Value) {
@@ -230,6 +238,8 @@
 		    return Value * Math.PI / 180;
 		}
 </script>
+
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD85clj7B85QRZPmO6m4Fky0Wi6P0MzVpA&libraries=places&callback=initMap"
 async defer></script>
 @endsection
