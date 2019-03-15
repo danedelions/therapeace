@@ -37,41 +37,51 @@ class TherapistController extends Controller
     public function store(Request $request)
     {
 
-        User::insert([
+        \DB::transaction (function () use ($request) {
 
-            'username' => $request->post('username'),
-            'email' => $request->post('email'),
-            'password' =>Hash::make($request->post('password')),
-            'user_type' => 'therapist'
+            User::insert([
 
-        ]);
+                'username' => $request->post('username'),
+                'email' => $request->post('email'),
+                'password' =>Hash::make($request->post('password')),
+                'user_type' => 'therapist',
+                'status' => 0
+    
+            ]);
+    
+    
+            $users = User::where('username', $request->post('username'))->get();
 
-
-        $users = User::where('username', $request->post('username'))->get();
-
-
-        Therapist::insert([
-
-            'user_id' =>$users[0]['id'],
-            'image' => $request->post('image'),
-            'fname' => $request->post('fname'),
-            'lname' => $request->post('lname'),
-            'contact' => $request->post('number'), 
-            'gender' => $request->post('gender'), 
-            'streetaddress' => $request->post('streetaddress'),
-            'city' => $request->post('city'),
-            'town' => $request->post('town'),
-            'province' => $request->post('province'), 
-            'barangay' => $request->post('barangay'), 
-            'postal_code' => $request->post('postal_code'), 
-            'therapist' => $request->post('therapist'),
-            'license_number' => $request->post('license_number'),
-            'expiry_date' => $request->post('expiry_date'),
-            'license_image' => $request->post('license_image'),
-            'nbi_image' =>$request->post('nbi_image'),
-            'bc_image' => $request->post('bc_image'),
-
-        ]);
+            $image = $request->file('image')->store(
+                "pictures/{$users[0]['username']}", 'public'
+            );
+    
+    
+            Therapist::insert([
+    
+                'user_id' =>$users[0]['id'],
+                'image' => $image,
+                'fname' => $request->post('fname'),
+                'lname' => $request->post('lname'),
+                'contact' => $request->post('number'), 
+                'gender' => $request->post('gender'), 
+                'streetaddress' => $request->post('streetaddress'),
+                'city' => $request->post('city'),
+                'town' => $request->post('town'),
+                'province' => $request->post('province'), 
+                'barangay' => $request->post('barangay'), 
+                'postal_code' => $request->post('postal_code'), 
+                'longitude' => $request->post('longitude'),
+                'latitude' => $request->post('latitude'),
+                'therapist' => $request->post('therapist'),
+                'license_number' => $request->post('license_number'),
+                'expiry_date' => $request->post('expiry_date'),
+                'license_image' => $request->post('license_image'),
+                'nbi_image' =>$request->post('nbi_image'),
+                'bc_image' => $request->post('bc_image'),
+    
+            ]);
+        });
         // $this->getData();
 
         return view('login');
@@ -79,9 +89,10 @@ class TherapistController extends Controller
 
     public function edit($userId)
     {  
-        $therapist = Therapist::find($userId)->load('user');
+        $specialties = Specialty::select('name')->pluck('name', 'name');
+        $therapist = Therapist::with(['user', 'specialties'])->find($userId);
 
-        return view('therapist.edit', compact('therapist'));
+        return view('therapist.edit', compact('therapist', 'specialties'));
 
     }
 
@@ -94,8 +105,20 @@ class TherapistController extends Controller
      */
     public function update(TherapistRequest $request, $id)
     {
-        // dd($therapist->toArray());
         $therapist = Therapist::find($id);
+        
+        $specialties = collect($request->specialties);
+        if($specialties->isNotEmpty()){
+
+             $ids = $specialties->map(function ($item) {
+                $specialty = Specialty::firstOrCreate(['name' => $item]);
+                return $specialty->id;
+            });
+
+            $therapist->specialties()->sync($ids);
+        }
+
+        
         $request = $request->validated();
         // dd($request);
         if(isset($request['image'])){
@@ -125,6 +148,10 @@ class TherapistController extends Controller
         return view('therapist.account', compact('therapist'));
 
         
+
+        $therapist = Therapist::whereUserId(Auth::id())->with(['user', 'specialties'])->first();
+        $bookings = $therapist->bookingRequest()->where('status', 0)->with('therapist')->get();
+        return view('therapist.account', compact('therapist', 'bookings'));
     }
     public function therapistAppoint(){
 
@@ -134,7 +161,9 @@ class TherapistController extends Controller
 
         return view('therapist.history');
     }
-    public function therapistMessage(){
+
+    public function therapistMessage()
+    {
 
         return view('therapist.message');
 
@@ -156,7 +185,11 @@ class TherapistController extends Controller
          return view('therapist.edit');
 
     }
- 
+
+    public function viewChecklist()
+    {
+        return view('therapist.checklist');
+    } 
 }
       
       

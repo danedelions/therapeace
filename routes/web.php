@@ -1,4 +1,4 @@
-	<?php
+q	<?php
 
 
 /*
@@ -45,6 +45,8 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/therapist-edit/{id}' ,'TherapistController@edit');
 	Route::patch('/therapist-update/{id}' ,'TherapistController@update')->name('therapist.update');
 	Route::get('/therapist-specialty/', 'TherapistController@createSpecialties')->name('get.therapist-specialty');
+	Route::patch('/therapist-account/{booking}', 'BookingController@approveRequest')->name('therapist.accept');
+	Route::get('/therapist-checklist/', 'TherapistController@viewChecklist')->name('therapist.checklist');
 // CLIENT
 	Route::get('/client-find', 'ClientController@clientFind')->name('get.client-find');
 	Route::get('/client-account', 'ClientController@clientAccount')->name('get.client-account');
@@ -66,15 +68,6 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/booktherapist/{id}', 'BookingController@index')->name('get.booktherapist');
 	Route::post('/doBookTherapist/','BookingController@submitDetails')->name('post.doBook');
 
-// Admin Side
-// Route::get('admin', 'AdminController@getDashboard')->name('get.admin'); 
-// Route::get('admin-user', 'AdminController@getUserView');
-// Route::get('admin-pending', 'AdminController@getPendingView');
-// Route::get('admin-history', 'AdminController@getHistoryView');
-// Route::get('admin-reports', 'AdminController@getReportsView');
-// Route::get('email/{user}', 'AdminController@email')->name('sendEmail');
-// Route::patch('admin-user/{user}', 'AdminController@statusUpdate')->name('admin.status-update'); 
-
 });
 
 
@@ -87,7 +80,21 @@ Route::get('admin-user', 'AdminController@getUserView')->name('get.view');
 Route::get('admin-pending', 'AdminController@getPendingView');
 Route::get('admin-history', 'AdminController@getHistoryView');
 Route::get('admin-reports', 'AdminController@getReportsView');
-Route::get('email/{user}', 'AdminController@email')->name('sendEmail');
+Route::get('email/{user}', 'AdminController@welcome')->name('sendWelcome');
+// Route::get('email/{user}', 'AdminController@notice')->name('sendNotice');
 Route::patch('admin-user/{user}', 'AdminController@statusUpdate')->name('admin.status-update');
 
+//table user
+Route::get('admin-user2', 'AdminController@getNewUser')->name('admin.user2');
+Route::post('admin-user2', 'DatatablesController@getUser')->name('dataProcessing');
+
+//testing
+// Route::resource('datatables', 'AdminController', [
+//     'anyData'  => 'datatables.data',
+//     'getIndex' => 'datatables',
+// ]);
+
+
+// Route::resource('datatables', 'AdminController@getIndex');
+// Route::resource('datatables', 'AdminController@anyData');
 

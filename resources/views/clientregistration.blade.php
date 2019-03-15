@@ -35,8 +35,8 @@
 
     <div class="tab"> Profile:
         <p><input placeholder="User Name" name="username"  type="text" class="form-control"></p>
-        <p><input placeholder="Password" name="password" type="password" class="form-control"></p>
-        <p><input placeholder="Retype Password"  name="password_confirmation" type="password" class="form-control"></p>
+        <p><input placeholder="Password" name="password" type="password" class="form-control" data-confirmed="re-password"></p>
+        <p><input placeholder="Retype Password"  name="re-password" type="password" class="form-control"></p>
     </div>
 
     <div class="tab">

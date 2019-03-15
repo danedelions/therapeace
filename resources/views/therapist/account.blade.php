@@ -10,63 +10,50 @@
                     <h5> User Information</h5>
 
                 </div>
+<div class="row"> <!-- LABEL->col-form-label INPUT-> form-control -->
+    <div class="col-sm-5 col-md-5 col-lg-5">
+        <div class="card">
+            <div class="card-header bg-info">
+                <h5> User Information</h5>
+            </div>
             <div class="card-body">
-                <div class="form-group">
-                    <center><i class="fas fa-user-circle fa-7x"></i>
-                        <div class="col-lg-8">
-                            <h3>{{$therapist->therapist}}</h3>                     
-                        </div>
+                    <center>
+                        <img src="{{ asset("storage/{$therapist->image}") }}">
+                        <br>
+                            <div class="col-lg-8"><h4>{{$therapist->therapist}}</h4></div>
                     </center>
-                </div>
-                    <div class="form-group row justify-content-center">
-                        <label class="col-lg-3"><b>Username</b></label>
-                            <div class="col-lg-8">
-                                {{ Auth::user()->username }}
-                            </div>
+                    <hr>    
+                    <div class="form-group row">
+                        <label class="col-lg-3">Username</label>
+                            <div class="col-lg-8">{{ Auth::user()->username }}</div>
                     </div>
-                    <div class="form-group row justify-content-center">
-                        <label class="col-lg-3"><b>First Name</b></label>
-                            <div class="col-lg-8">
-                                {{$therapist->fname}}
-                            </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3">Full Name</label>
+                            <div class="col-lg-8">{{$therapist->fullname}}</div>
                     </div>
-                    <div class="form-group row justify-content-center">
-                        <label class="col-lg-3"><b>Last Name</b></label>
-                            <div class="col-lg-8">
-                                {{$therapist->lname}}
-                            </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3">Address</label>
+                            <div class="col-lg-8">{{$therapist->address}}</div>
                     </div>
-                    <div class="form-group row justify-content-center">
-                        <label class="col-lg-3"><b>Address</b></label>
-                            <div class="col-lg-8">
-                                {{$therapist->address}}
-                            </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3">Email</label>
+                            <div class="col-lg-8">{{ Auth::user()->email }}</div>
                     </div>
-                    <div class="form-group row justify-content-center">
-                        <label class="col-lg-3"><b>Email</b></label>
-                            <div class="col-lg-8">
-                                {{ Auth::user()->email }}
-                            </div>
-                    </div>
-                    <div class="form-group row justify-content-center">
-                        <label class="col-lg-3"><b>Contact Number</b></label>
-                            <div class="col-lg-8">
-                                {{$therapist->contact}} 
-                            </div> 
+                    <div class="form-group row">
+                        <label class="col-lg-3">Contact Number</label>
+                            <div class="col-lg-8">{{$therapist->contact}}</div> 
                     </div>
 
-                    <div class="form-group row justify-content-center">
-                        <label class="col-lg-3"><b>Specialties</b></label>
+                    <div class="form-group row">
+                        <label class="col-lg-3">Specialties</label>
                             <div class="col-lg-8">
-                                <a href="{{url('/therapist-specialty/')}}" class="btn btn-sm btn-outline-info">Add Specialties</a>
+                               <span class="badge badge-success"> {!! optional($therapist->specialties)->pluck('name')->implode('</span ><span class="badge badge-success ml-1">') !!}</span>
                             <br>
                             </div>  
                     </div>
-
                     <div style="display:block; width:x; height:y; text-align:right;">
                         <a href="{{url('/therapist-edit/'. $therapist->id )}}"><i class="far fa-edit"></i> Edit</a>
                     </div>
-                {!! Form::close() !!}  
             </div>
         </div>
     </div>
@@ -82,10 +69,13 @@
                 <thead>
                   
                     <tr>
-                        <td><label><b></b></label></label> wants to connect with you</td>
+                        <td><label><b></b></label></label> Wants to connect with you</td>
+                        <td><label><b>{{$data->client->fullname}}</b></label></label> wants to connect with you</td>
                         <td>
-                            <input type="submit" value="Approve" class="btn btn-success" href="#" data-toggle="modal" data-target="#connectModal">
                             <input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
+                            {!!Form::open(['url'=>route('therapist.accept', $data->id), 'method'=>'PATCH'])!!}
+                                <button class="btn btn-sm btn-success">Approve</button>
+                            {!!Form::close()!!}
                             <input type="submit" value="Cancel" class="btn btn-danger" >
                         </td>
                     </tr>

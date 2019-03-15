@@ -16,80 +16,20 @@ class DatabaseSeeder extends Seeder
 
         $this->call(UsersTableSeeder::class);
 
-        // $this->call(UsersTableSeeder::class);
-
         DB::table('users')->insert([
         	'username' => 'peaceadmin',
             'email' => 'therapeace@gmail.com',
             'password' =>bcrypt('12345'),
-
-            'user_type' => 'admin'
-        ]);
-
-
             'user_type' => 'admin',
             'status' => '0',
+
         ]);
 
+        //factory(App\User::class,0)->create();
+       
+        //factory(App\Therapist::class,5)->create();
 
-        factory(App\User::class,0)->create();
-
-        // DB::table('users')->insert([
-        // 	'username' => 'peaceadmin',
-        //     'email' => 'therapeace@gmail.com',
-        //     'password' =>bcrypt('12345'),
-        //     'user_type' => 'admin'
-        // ]);
-
-
-        // factory(App\User::class,0)->create();
         // factory(App\Client::class,5)->create();
-        factory(App\Therapist::class,5)->create();
-        
-
-         // factory(App\User::class,0)->create();
-        //  factory(App\Client::class,5)->create();
-
-        // factory(App\User::class,0)->create();
-
-         factory(App\User::class,0)->create();
-        //  factory(App\Client::class,5)->create();
-
-        factory(App\User::class,0)->create();
-        //factory(App\Client::class,5)->create();
-
-        // factory(App\User::class,0)->create();
-        // factory(App\Client::class,5)->create();
-
-        // factory(App\Therapist::class,5)->create();
-        // factory(App\User::class,0)->create();
-        // factory(App\Client::class,5)->create();
-
-        // factory(App\Therapist::class,5)->create();
-
-
-        factory(App\Therapist::class,5)->create();
-
-        factory(App\User::class,0)->create();
-        factory(App\Client::class,5)->create();
-        // factory(App\Therapist::class,5)->create();
-
-        // // factory(App\User::class,0)->create();
-        // factory(App\Client::class,5)->create();
-
-        // // factory(App\User::class,0)->create();
-        // //factory(App\Client::class,5)->create();
-
-        // // factory(App\User::class,0)->create();
-        // // factory(App\Client::class,5)->create();
-        // factory(App\Therapist::class,5)->create();
-        // factory(App\User::class,5)->create();
-        // // factory(App\Client::class,5)->create();
-
-
-        factory(App\Therapist::class,5)->create();
-
-
 
     }
 }

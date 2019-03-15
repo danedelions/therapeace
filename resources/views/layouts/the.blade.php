@@ -5,68 +5,88 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Therapeace | Therapist</title>       
-
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
-        <!-- <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}"> -->
         <link rel="stylesheet" type="text/css" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" >
-        <link rel="stylesheet" type="text/css" href="{{ asset('fontawesome-free-5.1.0-web/css/all.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{asset('path/dist/css/select2.min.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
-        
-        <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('fontawesome/css/all.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('path/dist/css/select2.min.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('select2/dist/css/select2.min.css')}}">
         <link href="dist/assetsvendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <!-- javascript -->
-        <script type="text/javascript" src="{{asset('path/dist/js/select2.min.js')}}"></script>
         <!-- font awesome -->
-        <link rel="stylesheet" type="text/css" href="{{asset('fontawesome-free-5.1.0-web/css/all.css')}}">
-        <!-- Card and Nav padding -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('fontawesome-free-5.1.0-web/css/all.css')}}">
         <!-- THEME STYLES-->
+<<<<<<< HEAD
 
         <link href="dist/assets/css/main.min.css" rel="stylesheet"/> 
         <link href="dist/assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet"/>
 
 
+=======
+        <link href="dist/assets/css/main.min.css" rel="stylesheet"/> 
+        <link href="dist/assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet"/>
+>>>>>>> fad83b139fb9c42f87bc0fbe264a4820203e9d08
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/assets/css/main.min.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/assets/vendors/themify-icons/css/themify-icons.css') }}" />
-
+        <!-- JAVASCRIPT -->
+        
+        <script type="text/javascript" src="{{asset('fullcalendar-3.9.0/fullcalendar.min.js')}}"></script>
+        <script src="{{ asset('js/jquery-3.3.1.min.js')}}"></script>
         <script src="{{ asset('jquery/jquery.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('js/main.js') }}"></script>
         <script src="https://unpkg.com/popper.js@1.14.3/dist/umd/popper.min.js"></script>
+<<<<<<< HEAD
+=======
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+>>>>>>> fad83b139fb9c42f87bc0fbe264a4820203e9d08
 
     </head>
 
     <body id="therapistBg">
         <main class="container">
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fad83b139fb9c42f87bc0fbe264a4820203e9d08
             @include('partials.therapist.header')
 
             @yield('page-section')
 
             @include('partials.therapist.footer')
 
-<!--         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/bootstrap.bundle.js"></script>
-        <script src="jquery/jquery.min.js"></script>
-        <script src="https://unpkg.com/popper.js@1.14.3/dist/umd/popper.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        </main>
+        <script type="text/javascript" src="{{ asset('path/dist/js/select2.min.js') }}"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.select2').select2({
+                    tags: true,
+                    createTag: function (params) {
+                        var term = $.trim(params.term);
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-       
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+                        if (term === '') {
+                            return null;
+                        }
 
+<<<<<<< HEAD
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
      -->
 
         </main>
+=======
+                        return {
+                            id: term,
+                            text: term,
+                            newTag: true // add additional parameters
+                        }
+                    }
+                })
+            })
+        </script>
+>>>>>>> fad83b139fb9c42f87bc0fbe264a4820203e9d08
     </body>
+
+    
 </html>

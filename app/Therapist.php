@@ -19,6 +19,8 @@ class Therapist extends Model
         'province',
         'barangay',
         'postal_code',
+        'longitude',
+        'latitude',
         'therapist',
         'license_number',
         'expiry_date',
@@ -54,16 +56,14 @@ class Therapist extends Model
     	return $query->where('id', $userId);
     }
 
-    public function scopeSearch($query, $search)
-    {
-        if($query === 'Physical Therapist'){
-            return $query->where('therapist', 'LIKE', '%$search%');
-        }
-    }
-
     public function bookingRequest()
     {
-        return $this->hasMany('App\Booking','therapist_id','user_id');
+        return $this->hasMany('App\BookingRequest','therapist_id','user_id');
+    }
+
+    public function appointment()
+    {
+        return $this->hasMany('App\Appointment', 'therapist_id', 'user_id');
     }
 
     public function getFullNameAttribute()
@@ -75,5 +75,10 @@ class Therapist extends Model
     public function getAddressAttribute()
     {
         return "{$this->streetaddress}, {$this->town}, {$this->barangay}, {$this->city}, {$this->province}";
+    }
+
+    public function specialties()
+    {
+        return $this->belongsToMany(Specialty::class, 't_specialties', 'therapist_id', 'spec_id');
     }
 }

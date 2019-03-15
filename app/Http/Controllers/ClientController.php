@@ -12,6 +12,7 @@ use App\User;
 use DB;
 use Hash;
 use Auth;
+use App\Specialty;
 
 class ClientController extends Controller
 {
@@ -33,49 +34,54 @@ class ClientController extends Controller
     public function store(Request $request)
     {
 
-        User::insert([
-
-            'username' => $request->post('username'),
-            'email' => $request->post('email'),
-            'password' =>Hash::make($request->post('password')),
-            'user_type' => 'client'
-
+        \DB::transaction (function () use ($request) {
+            User::insert([
+                'username'  => $request->post('username'),
+                'email'     => $request->post('email'),
+                'password'  => Hash::make($request->post('password')),
+                //'status'    => 0,
+                'user_type' => 'client'
             ]);
 
+            $users = User::where('username', $request->post('username'))->get();
 
-          $users = User::where('username', $request->post('username'))->get();
-
-        Client::insert([
-
-            'user_id' =>$users[0]['id'],
-            'fname' => $request->post('fname'),
-            'lname' => $request->post('lname'),
-            'contact' => $request->post('number'), 
-            'gender' => $request->post('gender'),
-            'street' => $request->post('street'),
-            'postal_code' => $request->post('postal_code'),
-            'barangay' => $request->post('barangay'),
-            'town' => $request->post('town'),
-            'province' => $request->post('province'),
-            'city' => $request->post('city'),
-
-
-        ]);
+            Client::insert([
+                'user_id'     => $users[0]['id'],
+                'fname'       => $request->post('fname'),
+                'lname'       => $request->post('lname'),
+                'contact'     => $request->post('number'),
+                'gender'      => $request->post('gender'),
+                'street'      => $request->post('street'),
+                'postal_code' => $request->post('postal_code'),
+                'barangay'    => $request->post('barangay'),
+                'town'        => $request->post('town'),
+                'province'    => $request->post('province'),
+                'city'        => $request->post('city'),
+            ]);
+        });
 
          return view('login');
     }
 
-    public function clientFind(Therapist $therapists)
+    public function clientFind(Therapist $therapists, Request $request)
     {
-        $therapists = Therapist::all();
-        return view('client.find', compact('therapists'));
+        $therapists = Therapist::query()
+            ->when($type = $request->therapist, function ($q) use ($type){
+                $q->where('therapist', $type);
+            })
+            ->when($specialties = $request->t_specialties, function ($q) use ($specialties){
+                $q->whereHas('specialties', function ($q) use ($specialties) {
+                    $q->whereIn('specialties.name', $specialties);
+                });
+            })->get();
+
+        $specialties = Specialty::select('name')->pluck('name', 'name');
+        return view('client.find', compact('therapists', 'specialties'));
     }
     public function clientAccount()
     {
-        // $client = Client::where('id', Auth::id())->first();
-        // $client = Client::ofUser(Auth::id())->first();
         $client = Client::whereUserId(Auth::id())->with('user')->first();
-        $bookings = $client->booking()->first(); //unsure about here//
+        $bookings = $client->booking()->with('client')->get(); //unsure about here//
 
         return view('client.account', compact('client','bookings'));
     }

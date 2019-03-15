@@ -5,7 +5,7 @@
 			<div class="row justify-content-center"> <!-- 	<div class="row">  --><!-- <div class="col-md-5"> -->
 				<div class="col-sm-5 col-md-5 col-lg-10">
 					<div class="card">
-						<div class="card-header text-white">
+						<div class="card-header text-black">
 							<h5 class="mb-0">THERAPY INVOICE</h5>
 						</div>
 

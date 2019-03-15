@@ -9,7 +9,7 @@
         <!-- <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}"> -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" >
-        <link rel="stylesheet" type="text/css" href="{{ asset('fontawesome-free-5.1.0-web/css/all.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('fontawesome/css/all.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
         <!-- THEME STYLES-->
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/assets/css/main.min.css') }}" />

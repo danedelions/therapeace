@@ -4,10 +4,10 @@
 
 @include('modals.therapist')
 
-	<div class="row"> <!-- 	<div class="row">  --><!-- <div class="col-md-5"> -->
+	<!-- <div class="row">
 		<div class="col-sm-5 col-md-5 col-lg-12">
 			<div class="card">
-				<div class="card-header bg-info">
+				<div class="card-header bg-primary">
 					<h5>Appointment 
 						<a href="#" data-toggle="modal" data-target="#appoint"><i class="fas fa-plus-circle" style="color:white"></i>
 						</a>
@@ -48,10 +48,20 @@
 				</div>
 			</div>
 		</div>
+	</div> -->
+
+	<div class="container">
+		<div class="card">
+			<div class="card bg-primary white-text">
+				<h3>Appoint a client</h3>
+			</div>
+		</div>
 	</div>
-</div>
 
-
-
+<!-- 	<script type="text/javascript">
+		$(document).ready(function(){
+		    $(".container").find("#calendar");
+		});
+	</script>
+      -->
 @endsection
-
