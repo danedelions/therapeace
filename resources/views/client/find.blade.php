@@ -89,10 +89,8 @@
 		marker = null,
 		radius = 5,
 		currentLat = {{ request()->latitude ?: 'null' }},
-		currentLong = {{ request()->longitude ?: 'null' }}
-
+		currentLong = {{ request()->longitude ?: 'null' }};
 	function initMap() {
-
 		map = new google.maps.Map(document.getElementById('map'), {
 			zoom: 16,
 			center: {
@@ -100,7 +98,6 @@
 				lng: 123.8854
 			}
 		});
-
 		//------------Try HTML5 geolocation.------------//
         if (navigator.geolocation) {
         	navigator.geolocation.getCurrentPosition(function(position) {
@@ -108,19 +105,14 @@
             		lat: currentLat || position.coords.latitude,
             		lng: currentLong || position.coords.longitude
 				};
-
 				$('[name=latitude]').val( pos.lat)
 				$('[name=longitude]').val(pos.lng)
-
 				map.setCenter(pos)
-
 				marker = new google.maps.Marker({
 					map: map,
 					position: pos
 				});
-
 				infoWindow = new google.maps.InfoWindow();
-
             	infoWindow.setPosition(pos);
             	infoWindow.setContent('<b style="color:green;">You are here</b>');
 				infoWindow.open(map);
@@ -135,8 +127,6 @@
           // Browser doesn't support Geolocation
         	handleLocationError(false, infoWindow, map.getCenter());
         }
-
-
       	function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 			infoWindow.setPosition(pos);
 			infoWindow.setContent(browserHasGeolocation ?
@@ -145,7 +135,6 @@
 			infoWindow.open(map);
 		}
 		
-
        //------------search functions------------//
 		var input = document.getElementById('searchTextField');
         var autocomplete = new google.maps.places.Autocomplete(input, {
@@ -167,7 +156,6 @@
 				$('.MapLon').val(place.geometry.location.lng());
 				findNearestTherapist();
          });
-
         // google.maps.event.addListener(map, 'click', function (event) {
         //     $('.MapLat').val(event.latLng.lat());
         //     $('.MapLon').val(event.latLng.lng());
@@ -197,15 +185,12 @@
 							lng: card.find('[data-long]').data('long'),
 							lat: card.find('[data-lat]').data('lat')
 						});
-
 						if(distance > radius){
 							card.addClass('hidden');
 						}else{
 							card.removeClass('hidden');
 						}
-
 						console.log(distance)
-
 						return distance+ " km";
 					})
 				})
@@ -217,39 +202,29 @@
             infowindow.setContent(placeName);
             //infowindow.open(map, marker);
          }
-
 	}
-
 		function distanceCalculator(againstCoords) {
 			// var R = 6371e3;
 			var long1 = $("[name=longitude]").val();
 			var lat1 = $("[name=latitude]").val();
-
 			var long2 = againstCoords.lng
 			var lat2 = againstCoords.lat
-
 			// var a = parseFloat(long2) - parseFloat(long1) * Math.cos(parseFloat(lat2) + parseFloat(lat1)/2);
 			// var b =	parseFloat(lat2) - parseFloat(lat1);
-
 			// var dist = (Math.sqrt((a*a) + (b*b)))*R;
-
 			var R = 6371; // metres
 			var a = toRadians(lat1);
 			var a2 = toRadians(lat2);
 			var b = toRadians(lat2-lat1);
 			var x = toRadians(long2-long1);
-
 			var a = Math.sin(b/2) * Math.sin(b/2) +
 			        Math.cos(a) * Math.cos(a2) *
 			        Math.sin(x/2) * Math.sin(x/2);
 			var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-
 			var d = R * c;
 			var dist = d.toFixed(2);
-
 			return dist;
 		}
-
 		function toRadians(Value) {
 		    /** Converts numeric degrees to radians */
 		    return Value * Math.PI / 180;
