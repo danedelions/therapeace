@@ -13,7 +13,7 @@
 								{!! Form::inputGroup('text', 'Location', 'location', request()->location, ['placeholder' => 'Your Location here...', 'id'=>'searchTextField'])  !!}
 							</div>
 							<div class="form-group col-md-12">
-								{!! Form::inputGroup('number', 'Search Radius', 'radius', request()->radius, ['placeholder' => 'Search Radius', 'id'=>'radius'])  !!}
+								{!! Form::inputGroup('number', 'Search Radius', 'radius', request()->radius, ['placeholder' => 'Search Radius', 'id'=>'radius', 'min' => '5', 'max' => '20'])  !!}
 							</div>
 							<div class="form-group col-md-12">
 								<label>Therapist Type</label>
@@ -52,7 +52,7 @@
 			</div>
 	</div>
 
-	<div class="col-sm-6 col-md-12 col-lg-12">
+	<div class="col-sm-8 col-md-12 col-lg-12">
 		<div class="card">
 			<div class="card-header bg-info">
 			<h5>Therapists Found...</h5>

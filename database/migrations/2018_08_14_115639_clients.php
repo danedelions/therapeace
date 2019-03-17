@@ -20,12 +20,6 @@ class Clients extends Migration
             $table->string('lname');
             $table->string('contact');
             $table->string('gender');
-            $table->string('barangay');
-            $table->string('street');
-            $table->string('province');
-            $table->integer('postal_code');
-            $table->string('town');
-            $table->string('city');
             $table->rememberToken();
             $table->timestamps();
 

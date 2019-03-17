@@ -27,6 +27,10 @@ Route::resource('therapist' ,'TherapistController');
 
 // Route::resource('therapist' ,'RegistrationController');
 
+Route::get('pending', function(){
+	return view('pending');
+});
+
 
 Route::get('transaction', function () {
     return view('transaction');
