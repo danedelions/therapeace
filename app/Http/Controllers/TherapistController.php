@@ -185,6 +185,11 @@ class TherapistController extends Controller
     {
         return view('therapist.checklist');
     } 
+
+    public function viewPending()
+    {
+        return view('therapist.pending');
+    }
 }
       
       

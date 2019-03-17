@@ -27,10 +27,6 @@ Route::resource('therapist' ,'TherapistController');
 
 // Route::resource('therapist' ,'RegistrationController');
 
-Route::get('pending', function(){
-	return view('pending');
-});
-
 
 Route::get('transaction', function () {
     return view('transaction');
@@ -51,6 +47,7 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/therapist-specialty/', 'TherapistController@createSpecialties')->name('get.therapist-specialty');
 	Route::patch('/therapist-account/{booking}', 'BookingController@approveRequest')->name('therapist.accept');
 	Route::get('/therapist-checklist/', 'TherapistController@viewChecklist')->name('therapist.checklist');
+	Route::get('/therapist-pending/', 'TherapistController@viewPending')->name('therapist.pending');
 // CLIENT
 	Route::get('/client-find', 'ClientController@clientFind')->name('get.client-find');
 	Route::get('/client-account', 'ClientController@clientAccount')->name('get.client-account');

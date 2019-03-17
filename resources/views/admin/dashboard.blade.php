@@ -140,7 +140,7 @@
                             <span></span>Admin<i class="fa fa-angle-down m-l-5"></i></a>
                         <ul class="dropdown-menu dropdown-menu-right">
                             <a><h6 class="text-overflow m-0">Welcome !</h6></a>
-                            <a class="dropdown-item" href="login.html"><i class="fa fa-power-off"></i>Logout</a>
+                            <a class="dropdown-item" href="login.php"><i class="fa fa-power-off"></i>Logout</a>
                         </ul>
                     </li>
                 </ul>
