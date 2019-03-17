@@ -82,6 +82,5 @@ Route::patch('admin-user/{user}', 'AdminController@statusUpdate')->name('admin.s
 
 // STATUS OF USER
 
-	Route::patch('/admin-user/{user}', 'AdminController@statusUpdate')->name('admin.status-update');
-});
+Route::patch('/admin-user/{user}', 'AdminController@statusUpdate')->name('admin.status-update');
 
