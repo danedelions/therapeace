@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
-        protected $fillable = [
+    protected $fillable = [
         'user_id',
         'fname',
         'lname',
@@ -20,14 +20,18 @@ class Client extends Model
         'postal_code',
     ] ;
 
+    protected $appends = [
+        'full_name'
+    ];
+
     public function user()
     {
-    	return $this->belongsTo('App\User', 'user_id');
+        return $this->belongsTo('App\User', 'user_id');
     }
-    
+
     public function scopeOfUser($query, $userId)
     {
-    	return $query->where('user_id', $userId);
+        return $query->where('user_id', $userId);
     }
 
     public function booking()
@@ -49,5 +53,4 @@ class Client extends Model
     {
         return "{$this->street}, {$this->town}, {$this->barangay}, {$this->city}, {$this->province}, {$this->postal_code}, {$this->country}";
     }
-
 }

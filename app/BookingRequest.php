@@ -31,5 +31,27 @@ class BookingRequest extends Model
     public function appointment()
     {
     	return $this->hasOne('App\Appointment', 'booking_id');
-    }
+	}
+	
+
+	public function reject()
+	{
+		return $this->update([
+			'status' => 2
+		]);
+	}
+
+	public function approve()
+	{
+		return $this->update([
+			'status' => 1
+		]);
+	}
+
+	public function is($status)
+	{
+		$allStatus = ['pending', 'approved', 'rejected'];
+
+		return array_search(strtolower($status), $allStatus) == $this->status;
+	}
 }
