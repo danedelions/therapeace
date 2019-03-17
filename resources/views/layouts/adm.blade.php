@@ -20,6 +20,7 @@
     <!-- THEME STYLES-->
     <link href="dist/assets/css/main.min.css" rel="stylesheet" />
     <!-- PAGE LEVEL STYLES-->
+    <link rel="stylesheet" type="text/css" href="public/css/admin.css">
 
     <!-- Data Tables -->
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
@@ -94,26 +95,6 @@
                 //     return $(this).data('href').replace('__ID__', btn.data('id'))
                 // })
             })
-
-            // $('#userTable').DataTable( {
-            //         "processing": true,
-            //         "serverSide": true,
-            //         "ajax": {
-            //             "url": "{{route('dataProcessing')}}",
-            //             "dataType": "json",
-            //             "type":"POST",
-            //             "data":{"_token":"{{ csrf_token() }}"}
-            //         },
-            //         "columns":[
-            //             {"data":"id"},
-            //             {"data":"username"},
-            //             {"data":"email"},
-            //             {"data":"user_type"},
-            //             {"data":"status"},
-            //             {"data":"action", "searchable":false,"orderable":false}
-            //         ]
-
-            //     } );
 
 
         });

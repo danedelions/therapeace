@@ -72,33 +72,28 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/booktherapist/{id}', 'BookingController@index')->name('get.booktherapist');
 	Route::post('/doBookTherapist/','BookingController@submitDetails')->name('post.doBook');
 
+// ADMIN LOG IN
+
+	//Route::get('/admin', 'AdminLoginController@getLogin')->name('get.admin');
+
+// ADMIN
+
+	Route::get('/admin-dashboard', 'AdminController@getDashboard')->name('get.dashboard');
+	Route::get('/admin-user', 'AdminController@getUserView')->name('get.view');
+	Route::get('/admin-pending', 'AdminController@getPendingView')->name('get.pending');;
+	Route::get('/admin-history', 'AdminController@getHistoryView')->name('get.history');;
+	Route::get('/admin-reports', 'AdminController@getReportsView')->name('get.reports');;
+
+// EMAIL
+
+	Route::get('/email/{user}', 'AdminController@welcome')->name('sendWelcome');
+	// Route::get('email/{user}', 'AdminController@notice')->name('sendNotice');
+
+// STATUS OF USER
+
+	Route::patch('/admin-user/{user}', 'AdminController@statusUpdate')->name('admin.status-update');
 });
 
 
 
-//PLEASE GROUP YOUR ROUTES//
-
-// Admin Side
-Route::get('admin', 'AdminController@getDashboard')->name('get.admin'); 
-Route::get('admin-user', 'AdminController@getUserView')->name('get.view');
-Route::get('admin-pending', 'AdminController@getPendingView');
-Route::get('admin-history', 'AdminController@getHistoryView');
-Route::get('admin-reports', 'AdminController@getReportsView');
-Route::get('email/{user}', 'AdminController@welcome')->name('sendWelcome');
-// Route::get('email/{user}', 'AdminController@notice')->name('sendNotice');
-Route::patch('admin-user/{user}', 'AdminController@statusUpdate')->name('admin.status-update');
-
-//table user
-Route::get('admin-user2', 'AdminController@getNewUser')->name('admin.user2');
-Route::post('admin-user2', 'DatatablesController@getUser')->name('dataProcessing');
-
-//testing
-// Route::resource('datatables', 'AdminController', [
-//     'anyData'  => 'datatables.data',
-//     'getIndex' => 'datatables',
-// ]);
-
-
-// Route::resource('datatables', 'AdminController@getIndex');
-// Route::resource('datatables', 'AdminController@anyData');
 
