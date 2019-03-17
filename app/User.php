@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Therapist;
 
 class User extends Authenticatable
 {
@@ -32,6 +31,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $appends = [
+        'full_name'
+    ];
+
     public function therapist()
     {
         return $this->hasOne('App\Therapist', 'user_id', 'id');
@@ -45,5 +48,5 @@ class User extends Authenticatable
     public function getFullNameAttribute()
     {
         return "{$this->fname} {$this->lname}";
-    } 
+    }
 }

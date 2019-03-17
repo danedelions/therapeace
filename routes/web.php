@@ -1,6 +1,5 @@
 	<?php
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,21 +11,19 @@
 |
 */
 
-Route::group(['middleware' => 'guest'], function(){
-	Route::get('/', function () {
-    	return view('welcome');
-	});
-	Route::get('/login' ,'LoginController@view')->name('login');
-	Route::post('doLogin','LoginController@doLogin')->name('post:login');
-
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/', function () {
+        return view('welcome');
+    });
+    Route::get('/login', 'LoginController@view')->name('login');
+    Route::post('doLogin', 'LoginController@doLogin')->name('post:login');
 });
 
-Route::get('/logout','LoginController@Logout');
+Route::get('/logout', 'LoginController@Logout');
 
-Route::resource('therapist' ,'TherapistController');
+Route::resource('therapist', 'TherapistController');
 
 // Route::resource('therapist' ,'RegistrationController');
-
 
 Route::get('transaction', function () {
     return view('transaction');
@@ -35,47 +32,46 @@ Route::get('transaction', function () {
 // Route::resource('therapist' ,'TherapistController');
 Route::resource('client', 'ClientController');
 
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => 'auth'], function () {
+    // THERAPIST
+    Route::get('/therapist-account', 'TherapistController@therapistAccount')->name('get.therapist-account');
+    Route::get('/therapist-appoint', 'TherapistController@therapistAppoint')->name('get.therapist-appoint');
+    Route::get('/therapist-history', 'TherapistController@therapistHistory')->name('get.therapist-history');
+    Route::get('/therapist-message', 'TherapistController@therapistMessage');
+    Route::get('/therapist-edit/{id}', 'TherapistController@edit');
+    Route::patch('/therapist-update/{id}', 'TherapistController@update')->name('therapist.update');
+    Route::get('/therapist-specialty/', 'TherapistController@createSpecialties')->name('get.therapist-specialty');
+    Route::patch('/therapist-account/{booking}', 'BookingController@approveRequest')->name('therapist.accept');
+    Route::get('/therapist-checklist/', 'TherapistController@viewChecklist')->name('therapist.checklist');
+    Route::get('therapist-calendar/{bookingRequest}', 'TherapistCalander')->name('therapist.calendar');
+    Route::post('therapist-calendar/{bookingRequest}', 'TherapistCalander@saveAppointment')->name('therapist.book.appointment');
+    Route::delete('therapist-calendar/{bookingRequest}', 'TherapistCalander@rejectAppointment')->name('therapist.reject.appointment');
+    // CLIENT
+    Route::get('/client-find', 'ClientController@clientFind')->name('get.client-find');
+    Route::get('/client-account', 'ClientController@clientAccount')->name('get.client-account');
+    Route::get('/client-edit/{id}', 'ClientController@edit');
+    Route::patch('/client-update/{id}', 'ClientController@update');
+    Route::get('/client-history', 'ClientController@clientHistory')->name('get.client-history');
+    Route::get('/client-message', 'ClientController@clientMessage')->name('get.client-message');
+    Route::get('/client-search/', 'ClientController@search')->name('get.client-search');
 
-// THERAPIST
-	Route::get('/therapist-account', 'TherapistController@therapistAccount')->name('get.therapist-account');
-	Route::get('/therapist-appoint', 'TherapistController@therapistAppoint')->name('get.therapist-appoint');
-	Route::get('/therapist-history', 'TherapistController@therapistHistory')->name('get.therapist-history');
-	Route::get('/therapist-message', 'TherapistController@therapistMessage');
-	Route::get('/therapist-edit/{id}' ,'TherapistController@edit');
-	Route::patch('/therapist-update/{id}' ,'TherapistController@update')->name('therapist.update');
-	Route::get('/therapist-specialty/', 'TherapistController@createSpecialties')->name('get.therapist-specialty');
-	Route::patch('/therapist-account/{booking}', 'BookingController@approveRequest')->name('therapist.accept');
-	Route::get('/therapist-checklist/', 'TherapistController@viewChecklist')->name('therapist.checklist');
-// CLIENT
-	Route::get('/client-find', 'ClientController@clientFind')->name('get.client-find');
-	Route::get('/client-account', 'ClientController@clientAccount')->name('get.client-account');
-	Route::get('/client-edit/{id}', 'ClientController@edit');
-	Route::patch('/client-update/{id}' ,'ClientController@update');
-	Route::get('/client-history', 'ClientController@clientHistory')->name('get.client-history');
-	Route::get('/client-message', 'ClientController@clientMessage')->name('get.client-message');
-	Route::get('/client-search/', 'ClientController@search')->name('get.client-search');
+    //PRINTING
+    Route::get('/client-transaction', 'PrintController@clientTrans');
+    Route::get('/printclient', 'PrintController@printclient');
 
-//PRINTING
-	Route::get('/client-transaction', 'PrintController@clientTrans');
-	Route::get('/printclient','PrintController@printclient');
+    Route::get('/therapist-transaction', 'PrintController@therapistTrans');
+    Route::get('/printtherapist', 'PrintController@printtherapist');
 
-	Route::get('/therapist-transaction', 'PrintController@therapistTrans');
-	Route::get('/printtherapist','PrintController@printtherapist');
+    //BOOKING
 
-//BOOKING
-
-	Route::get('/booktherapist/{id}', 'BookingController@index')->name('get.booktherapist');
-	Route::post('/doBookTherapist/','BookingController@submitDetails')->name('post.doBook');
-
+    Route::get('/booktherapist/{id}', 'BookingController@index')->name('get.booktherapist');
+    Route::post('/doBookTherapist/', 'BookingController@submitDetails')->name('post.doBook');
 });
-
-
 
 //PLEASE GROUP YOUR ROUTES//
 
 // Admin Side
-Route::get('admin', 'AdminController@getDashboard')->name('get.admin'); 
+Route::get('admin', 'AdminController@getDashboard')->name('get.admin');
 Route::get('admin-user', 'AdminController@getUserView')->name('get.view');
 Route::get('admin-pending', 'AdminController@getPendingView');
 Route::get('admin-history', 'AdminController@getHistoryView');
@@ -94,7 +90,5 @@ Route::post('admin-user2', 'DatatablesController@getUser')->name('dataProcessing
 //     'getIndex' => 'datatables',
 // ]);
 
-
 // Route::resource('datatables', 'AdminController@getIndex');
 // Route::resource('datatables', 'AdminController@anyData');
-
