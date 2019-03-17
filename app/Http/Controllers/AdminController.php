@@ -61,10 +61,7 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
-    public function getNewUser()
-    {        
-        return view('admin.users2');
-    }
+    
 
     //admin.users2
     // public function getUserView()

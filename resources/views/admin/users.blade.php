@@ -4,7 +4,16 @@
 <!-- START PAGE CONTENT-->
         <div class="content-wrapper" >
           <!-- search bar should be here -->
-            <h2>Search Bar</h2>
+            <!-- <div class="wrap"> -->
+               <!-- <div class="search">
+                  <input type="text" class="searchTerm" placeholder="What are you looking for?">
+                  <button type="submit" class="searchButton">
+                    <i class="fa fa-search"></i>
+                 </button>
+               </div>
+            </div> -->
+          <!-- end of search bar -->
+          <h2>Search Bar </h2>
             <p>Pending Therapists</p>
             <div class="card-body" style="overflow: scroll; height: 575px;">
                 <div class="table table-default">        
