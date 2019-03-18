@@ -24,7 +24,12 @@ class LoginController extends Controller
             // return "success".Auth::user()->user_type;
             if(Auth::user()->user_type === 'therapist'){
                 // view('therapist');
-                return redirect(route('get.therapist-account'));
+                if(Auth::user()->status === 2){
+                    return redirect('get.therapist.pending');
+                }else if (Auth::user()->status === 0) {
+                    return redirect(route('get.therapist-account'));
+                }
+                
             }else if(Auth::user()->user_type === 'client'){
                 // view('client');
                 return redirect(route('get.client-account'));

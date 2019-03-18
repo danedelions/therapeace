@@ -51,12 +51,6 @@ class ClientController extends Controller
                 'lname'       => $request->post('lname'),
                 'contact'     => $request->post('number'),
                 'gender'      => $request->post('gender'),
-                'street'      => $request->post('street'),
-                'postal_code' => $request->post('postal_code'),
-                'barangay'    => $request->post('barangay'),
-                'town'        => $request->post('town'),
-                'province'    => $request->post('province'),
-                'city'        => $request->post('city'),
             ]);
         });
 

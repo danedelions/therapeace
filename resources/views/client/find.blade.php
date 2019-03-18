@@ -1,58 +1,66 @@
 @extends('layouts.cli')
 @include('modals.client',['therapists'=>'therapists'])
 @section('page-section')
+<div class="col-md-12">
 	<div class="row">
 		<div class="col-sm-4 col-md-4 col-lg-4">
 			<div class="card">
 				<div class="card-header">
-					<h5>Search</h5>
+					<h6>Search a nearby therapist</h6>
 				</div>
 				<div class="card-body">
 						{!!Form::open(['method'=>'GET','url'=> url()->current(),'class'=>'navbar-form navbar-left','role'=>'search'])  !!}
 							<div class="form-group col-md-12">
 								{!! Form::inputGroup('text', 'Location', 'location', request()->location, ['placeholder' => 'Your Location here...', 'id'=>'searchTextField'])  !!}
 							</div>
-							<div class="form-group col-md-12">
-								{!! Form::inputGroup('number', 'Search Radius', 'radius', request()->radius, ['placeholder' => 'Search Radius', 'id'=>'radius'])  !!}
+							<div class="form-row col-md-12">
+								<div class="form-group col-md-6">
+									{!! Form::inputGroup('number', 'Search Radius', 'radius', request()->radius, ['placeholder' => 'Search Radius', 'id'=>'radius', 'min' => '5', 'max' => '20', 'step' => '5', 'value' => '5'])  !!}
+								</div>
+								<div class="form-group col-md-6">
+									{!! Form::inputGroup('number', 'Rate /hr', 'radius', request()->radius, ['placeholder' => 'Rate', 'id'=>'radius', 'min' => '5', 'max' => '20', 'step' => '5', 'value' => '5'])  !!}
+								</div>
 							</div>
 							<div class="form-group col-md-12">
 								<label>Therapist Type</label>
 								{!! Form::select('therapist', array_combine(['Physical Therapist', 'Occupational Therapist'], ['Physical Therapist', 'Occupational Therapist']), request()->therapist,['id'=>'q']) !!}
 							</div>
 							<div class="form-group col-md-12">
-							{!! Form::selectGroup('Specialties', 't_specialties[]', $specialties, request()->t_specialties, ['class' => 'form-control select2', 'multiple' => true]) !!}
+								{!! Form::selectGroup('Specialties', 't_specialties[]', $specialties, request()->t_specialties, ['class' => 'form-control select2', 'multiple' => true]) !!}
 							</div>
 							<div class="form-group col-md-12">
 								<input name="latitude" class="MapLat" value="" type="hidden" placeholder="Latitude" style="width: 161px;" id="lat1" >
 								<input name="longitude" class="MapLon" value="" type="hidden" placeholder="Longitude" style="width: 161px;" id="long1" >
 							</div>
-							<div class="card-footer col-md-12">
-								<button class="btn btn-default" type="submit">
+							<div class="form-group col-md-12">
+								<button class="btn btn-sm btn-success" type="submit">
 					           		 <i class="fa fa-search"></i> Submit
 					    		</button>
 							</div>
+								
 						{!! Form::close() !!}
 				</div>
 			</div>
 		</div>
 
-			<div class="col-sm-4 col-md-8 col-lg-8">
-				<div class="card bg-success mb-3">
-					<div class="card-header">
-						<h5>Who's Nearby</h5>
-					</div>
-					<div class="card-body" style=" height: 400px;">
-						<div class="row">
-							<div class="col-md-12">
-								<div id="map"></div>
-							</div>
+		<div class="col-sm-4 col-md-8 col-lg-8">
+			<div class="card bg-success mb-3">
+				<div class="card-header">
+					<h5>Who's Nearby</h5>
+				</div>
+				<div class="card-body" style=" height: 400px;">
+					<div class="row">
+						<div class="col-md-12">
+							<div id="map"></div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 	</div>
 
-	<div class="col-sm-6 col-md-12 col-lg-12">
+	<div class="row">
+	<div class="col-sm-12 col-md-12 col-lg-12">
 		<div class="card">
 			<div class="card-header bg-info">
 			<h5>Therapists Found...</h5>
@@ -83,7 +91,8 @@
 			</div>
 		</div>    	
 	</div>
-
+	</div>
+</div>
 <br>
 
 <script>
