@@ -34,12 +34,6 @@
             </div>
           </fieldset>
 
-<<<<<<< HEAD
-                  <input type="submit" href="/therapist-account" class="btn btn-secondary" value="Cancel">
-                  <button type="submit" class="btn btn-success">Update</button>
-          </div>
-          {!! Form::close() !!}  
-=======
           <fieldset>
             <legend>Address:</legend>
             <div class="form-row">
@@ -97,7 +91,7 @@
             <legend>Specialization</legend>
               <hr>
               <div class="col-md-6">
-                  {!! Form::selectGroup(null, 'specialties[]', $specialties, optional($therapist->specialties)->pluck('name'), ['class' => 'form-control select2', 'multiple' => true]) !!}
+                 {!! Form::selectGroup('Specialties', 't_specialties[]', $specialties, request()->t_specialties, ['class' => 'form-control select2', 'multiple' => true]) !!}
               </div>
             </div>
           </fieldset>
@@ -106,7 +100,6 @@
               <button type="submit" class="btn btn-success">Update</button>
         </div> 
         {!! Form::close() !!} 
->>>>>>> fad83b139fb9c42f87bc0fbe264a4820203e9d08
       </div>
         
 @endsection

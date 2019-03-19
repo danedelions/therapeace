@@ -15,16 +15,15 @@
         <!-- font awesome -->
         <link rel="stylesheet" type="text/css" href="{{ asset('fontawesome-free-5.1.0-web/css/all.css')}}">
         <!-- THEME STYLES-->
-<<<<<<< HEAD
 
         <link href="dist/assets/css/main.min.css" rel="stylesheet"/> 
         <link href="dist/assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet"/>
 
 
-=======
+
         <link href="dist/assets/css/main.min.css" rel="stylesheet"/> 
         <link href="dist/assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet"/>
->>>>>>> fad83b139fb9c42f87bc0fbe264a4820203e9d08
+
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/assets/css/main.min.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/assets/vendors/themify-icons/css/themify-icons.css') }}" />
         <!-- JAVASCRIPT -->
@@ -35,20 +34,18 @@
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('js/main.js') }}"></script>
         <script src="https://unpkg.com/popper.js@1.14.3/dist/umd/popper.min.js"></script>
-<<<<<<< HEAD
-=======
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
->>>>>>> fad83b139fb9c42f87bc0fbe264a4820203e9d08
+
 
     </head>
 
     <body id="therapistBg">
         <main class="container">
 
-<<<<<<< HEAD
 
-=======
->>>>>>> fad83b139fb9c42f87bc0fbe264a4820203e9d08
+
+
             @include('partials.therapist.header')
 
             @yield('page-section')
@@ -69,13 +66,13 @@
                             return null;
                         }
 
-<<<<<<< HEAD
+
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-     -->
+
 
         </main>
-=======
+
                         return {
                             id: term,
                             text: term,
@@ -85,7 +82,7 @@
                 })
             })
         </script>
->>>>>>> fad83b139fb9c42f87bc0fbe264a4820203e9d08
+
     </body>
 
     

@@ -19,9 +19,9 @@
       <input placeholder="First name..."  name="fname" class="form-control" ><br>
       <input placeholder="Last name..."  name="lname" class="form-control"><br>
       <input placeholder="Email"  name="email" class="form-control"><br>
-      <input placeholder="Contact Number"  type="number" name="number" class="form-control"><br>
+      <input placeholder="Contact Number"  name="number" class="form-control"><br>
           <select id="gender" class="form-control" name="gender">
-              <option value="">Select Gender</option>
+              <option value="">SELECT GENDER</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
           </select>
@@ -106,29 +106,23 @@ Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facili
         country: 'long_name',
         postal_code: 'short_name'
       };
-
       function initAutocomplete() {
         // Create the autocomplete object, restricting the search to geographical
         // location types.
         autocomplete = new google.maps.places.Autocomplete(
             /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
             {types: ['geocode']});
-
         // When the user selects an address from the dropdown, populate the address
         // fields in the form.
         autocomplete.addListener('place_changed', fillInAddress);
-
       }
-
       function fillInAddress() {
         // Get the place details from the autocomplete object.
         var place = autocomplete.getPlace();
-
         for (var component in componentForm) {
           document.getElementById(component).value = '';
           document.getElementById(component).disabled = false;
         }
-
         // Get each component of the address from the place details
         // and fill the corresponding field on the form.
         for (var i = 0; i < place.address_components.length; i++) {
@@ -138,10 +132,8 @@ Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facili
             document.getElementById(addressType).value = val;
           }
         }
-
         document.getElementById('latitude').value = place.geometry.location.lat();
         document.getElementById('longitude').value = place.geometry.location.lng();
-
       }
       google.maps.event.addDomListener(window, "load", initAutocomplete);
       // Bias the autocomplete object to the user's geographical location,
@@ -159,14 +151,10 @@ Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facili
             });
             autocomplete.setBounds(circle.getBounds());
           });
-
         }
-
      }
-
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD85clj7B85QRZPmO6m4Fky0Wi6P0MzVpA&libraries=places&callback=initAutocomplete"
 async defer></script>
 
 @endsection
-
