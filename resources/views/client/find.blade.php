@@ -15,10 +15,10 @@
 							</div>
 							<div class="form-row col-md-12">
 								<div class="form-group col-md-6">
-									{!! Form::inputGroup('number', 'Search Radius', 'radius', request()->radius, ['placeholder' => 'Search Radius', 'id'=>'radius', 'min' => '5', 'max' => '20', 'step' => '5', 'value' => '5'])  !!}
+									{!! Form::inputGroup('number', 'Search Radius', 'radius', request()->radius, ['id'=>'radius', 'min' => '5', 'max' => '20', 'step' => '5'])  !!}
 								</div>
 								<div class="form-group col-md-6">
-									{!! Form::inputGroup('number', 'Rate /hr', 'radius', request()->radius, ['placeholder' => 'Rate', 'id'=>'radius', 'min' => '5', 'max' => '20', 'step' => '5', 'value' => '5'])  !!}
+									{!! Form::inputGroup('number', 'Rate /hr', 'rate', 'rate', ['placeholder' => 'Rate', 'id'=>'radius', 'min' => '5', 'max' => '20', 'step' => '5'])  !!}
 								</div>
 							</div>
 							<div class="form-group col-md-12">
@@ -76,6 +76,8 @@
 							<div class="card-body">
 								<h4>{{$data->fullName}}</h4>
 								<h5 style="font-size: 8pt;">{{$data->therapist}}</h5>
+								<!-- <span><h5 style="font-size: 8pt;">{{!! optional($data->specialties)->pluck('name')->implode('</h5><h5 style="font-size: 8pt">') !!}}</h5></span> -->
+								<h6><span class="badge badge-default ml-1"> {!! optional($data->specialties)->pluck('name')->implode('</span ><span class="badge badge-default ml-1">') !!}</span></h6>
 								<input type="hidden" data-long="{{ $data->longitude }}" />
 								<input type="hidden" data-lat="{{$data->latitude}}" />
 								<h6 data-distance>Distance:</h6>
@@ -99,7 +101,7 @@
 	var infoWindow = null,
 		map = null,
 		marker = null,
-		radius = {{ request()->radius ?: 'null' }},
+		radius = {{ request()->radius ?: 5 }},
 		currentLat = {{ request()->latitude ?: 'null' }},
 		currentLong = {{ request()->longitude ?: 'null' }};
 

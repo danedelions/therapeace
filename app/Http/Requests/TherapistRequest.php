@@ -32,7 +32,6 @@ class TherapistRequest extends FormRequest
             'gender' => 'required',
             'streetaddress'  => 'required',
             'city' => 'required',
-            'town' => 'nullable',
             'province' => 'required', 
             'barangay' => 'required', 
             'postal_code' => 'required', 

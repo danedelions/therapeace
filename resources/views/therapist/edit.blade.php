@@ -46,9 +46,6 @@
             </div>
             <div class="form-row">
               <div class="col-md-6">
-                  {!! Form::inputGroup('text', 'Town', 'town', null, ['placeholder' => 'Town']) !!}
-              </div>
-              <div class="col-md-6">
                    {!! Form::inputGroup('text', 'Province', 'province', null, ['placeholder' => 'Province']) !!}
               </div>
 

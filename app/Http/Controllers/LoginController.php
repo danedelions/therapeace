@@ -32,7 +32,7 @@ class LoginController extends Controller
                 
             }else if(Auth::user()->user_type === 'client'){
                 // view('client');
-                return redirect(route('get.client-account'));
+                return redirect(route('get.client-find'));
             }else if(Auth::user()->user_type === 'admin'){
                 // view('admin');
                 return redirect(route('get.dashboard'));

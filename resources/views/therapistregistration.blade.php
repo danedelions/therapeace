@@ -38,8 +38,8 @@
     <input placeholder="Province"  name="province" id="administrative_area_level_2" class="form-control"><br>
     <input placeholder="Postal Code"  name="postal_code" id="postal_code" class="form-control"><br>
     <input placeholder="Country"  name="country" id="country" class="form-control"><br>
-    <input name="latitude" name="latitude" id="latitude" type="text" placeholder="Latitude" style="width: 161px;">
-    <input name="longitude" name="longitude" id="longitude" type="text" placeholder="Longitude" style="width: 161px;">
+    <input name="latitude" name="latitude" id="latitude" type="text" placeholder="Latitude" style="width: 161px;" hidden>
+    <input name="longitude" name="longitude" id="longitude" type="text" placeholder="Longitude" style="width: 161px;" hidden>
   </div>
 
   <div class="tab">License:
