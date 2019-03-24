@@ -81,7 +81,7 @@
                             
                             <div class="wrapper">
                                 <span class="group-btn"><br></br>   
-                                     <a href="/" type="button" class="btn btn-outline-success btn-md">Cancel <i class="fas fa-ban"></i></a>
+                                     <a href="/" class="btn btn-outline-success btn-md">Cancel <i class="fas fa-ban"></i></a>
                                     <button  class="btn btn-outline-success btn-md">Submit <i class="fas fa-sign-in-alt"></i></button>
                                 </span>
                             </div>

@@ -24,21 +24,18 @@ class LoginController extends Controller
             // return "success".Auth::user()->user_type;
             if(Auth::user()->user_type === 'therapist'){
                 // view('therapist');
-                return redirect(route('get.therapist-account'));
+                if(Auth::user()->status === 2){
+                    return redirect('get.therapist.pending');
+                }else if (Auth::user()->status === 0) {
+                    return redirect(route('get.therapist-account'));
+                }
+                
             }else if(Auth::user()->user_type === 'client'){
                 // view('client');
-                return redirect(route('get.client-account'));
+                return redirect(route('get.client-find'));
             }else if(Auth::user()->user_type === 'admin'){
                 // view('admin');
-
-                print_r('request');
-                return redirect('admin');
-
-                var_dump($request);
-                die();
-                //return redirect('get.admin');
-    
-                //return redirect('get.admin');
+                return redirect(route('get.dashboard'));
             }
 
 

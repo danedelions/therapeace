@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width initial-scale=1.0">
     <title>TheraPeace | Welcome</title>
+    
     <!-- GLOBAL MAINLY STYLES-->
     <link href="dist/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="dist/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -19,17 +20,27 @@
     <!-- THEME STYLES-->
     <link href="dist/assets/css/main.min.css" rel="stylesheet" />
     <!-- PAGE LEVEL STYLES-->
+    <link rel="stylesheet" type="text/css" href="public/css/admin.css">
 
-    
+    <!-- Data Tables -->
+    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Bootstrap CSS -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
     
 </head>
 <body class="fixed-navbar" style="overflow: hidden">
     @include('partials.aheader')
     @yield('dashboard')
-
-    <!-- jquery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
     <!-- CORE PLUGINS-->
     <script src="dist/assets/vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
@@ -48,22 +59,47 @@
     <!-- PAGE LEVEL SCRIPTS-->
     <script src="dist/assets/js/scripts/dashboard_1_demo.js" type="text/javascript"></script>
 
+    <!-- Data Tables -->
+    <script type="text/javascript" src="DataTables/datatables.min.js"></script>
+
+    <!-- jQuery -->
+    <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+    <!-- DataTables -->
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!-- App scripts -->
+<!--     @stack('scripts') -->
+
     <!-- View Modal Script and Ajax -->
     <script type="text/javascript">
         $(document).ready(function(){
 
-            // $('#viewModal').on('show.bs.modal', fucntion(){
-            //     $('#modalView').
-            // })
+            // $('#viewModalc').on('show.bs.modal', fucntion(e){
+            //     var view = $(e.relatedTarget).data('id');            // })
+
+            // $(function () {
+            //         $("#viewModalc").click(function () {
+            //             var my_id_value = $(this).data('id');
+            //             $(".modal-body #hiddenValue").val(my_id_value);
+            //         })
+            //     });
 
             $('#emailModal').on('show.bs.modal', function (e) {
                 var btn = $(e.relatedTarget)
-                $('#sendEmailBtn').attr('href', function () {
+                $('#sendWelcomeBtn').attr('href', function () {
                     return $(this).data('href').replace('__ID__', btn.data('id'))
                 })
+
+                // $('#sendNoticeBtn').attr('href', function () {
+                //     return $(this).data('href').replace('__ID__', btn.data('id'))
+                // })
             })
+
+
         });
     </script>
     
 </body>
 </html>
+

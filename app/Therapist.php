@@ -15,7 +15,6 @@ class Therapist extends Model
         'gender',
         'streetaddress',
         'city',
-        'town',
         'province',
         'barangay',
         'postal_code',
@@ -66,6 +65,11 @@ class Therapist extends Model
         return $this->hasMany('App\Appointment', 'therapist_id', 'user_id');
     }
 
+    public function appointments()
+    {
+        return $this->hasMany('App\Appointment', 'therapist_id', 'user_id');
+    }
+
     public function getFullNameAttribute()
     {
         return "{$this->fname} {$this->lname}";
@@ -75,5 +79,10 @@ class Therapist extends Model
     public function getAddressAttribute()
     {
         return "{$this->streetaddress}, {$this->town}, {$this->barangay}, {$this->city}, {$this->province}";
+    }
+
+    public function specialties()
+    {
+        return $this->belongsToMany(Specialty::class, 't_specialties', 'therapist_id', 'spec_id');
     }
 }

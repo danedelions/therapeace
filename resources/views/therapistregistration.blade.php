@@ -4,7 +4,7 @@
 @section('page-body')
 
  <!--   <link rel="stylesheet" type="text/css" href="css/client.css"> -->
-<form id="regForm" action="{{ route('therapist.store') }}" method="POST">
+<form id="regForm" action="{{ route('therapist.store') }}" method="POST" enctype="multipart/form-data">
   
   @csrf
   <h1>Therapist Registration:</h1>
@@ -12,12 +12,22 @@
 
     <div class="tab">
       <h6>Upload profile picture</h6>
+<<<<<<< HEAD
       <input type="file" name="image" id="fileToUpload" class="form-control"> <br>
       <input placeholder="First name"  name="fname" class="form-control"><br>
       <input placeholder="Last name"  name="lname" class="form-control"><br>
+=======
+        
+      <input type="file" accept="image/x-png,image/gif,image/jpeg" name="image" id="fileToUpload" class="form-control" data-validation-message="Please gill thois up"> 
+      <br>
+      Name:
+      <input placeholder="First name..."  name="fname" class="form-control" ><br>
+      <input placeholder="Last name..."  name="lname" class="form-control"><br>
+>>>>>>> 76ccb4a5c490736836afe62e25bf10d9bf9f51a2
       <input placeholder="Email"  name="email" class="form-control"><br>
       <input placeholder="Contact Number"  name="number" class="form-control"><br>
           <select id="gender" class="form-control" name="gender">
+              <option value="">SELECT GENDER</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
           </select>
@@ -33,8 +43,8 @@
     <input placeholder="Province"  name="province" id="administrative_area_level_2" class="form-control"><br>
     <input placeholder="Postal Code"  name="postal_code" id="postal_code" class="form-control"><br>
     <input placeholder="Country"  name="country" id="country" class="form-control"><br>
-    <input name="latitude" name="latitude" id="latitude" type="text" placeholder="Latitude" style="width: 161px;">
-    <input name="longitude" name="longitude" id="longitude" type="text" placeholder="Longitude" style="width: 161px;">
+    <input name="latitude" name="latitude" id="latitude" type="text" placeholder="Latitude" style="width: 161px;" hidden>
+    <input name="longitude" name="longitude" id="longitude" type="text" placeholder="Longitude" style="width: 161px;" hidden>
   </div>
 
   <div class="tab">License:
@@ -55,7 +65,7 @@
  </div>
   <div class="tab">Profile:
     <input placeholder="User Name"  name="username" class="form-control"><br>
-    <input placeholder="Password"  name="password" type="password" class="form-control"><br>
+    <input placeholder="Password"  name="password" type="password" class="form-control" data-confirmed="re-password"><br>
     <input placeholder="Re-type Password"  name="re-password" type="password" class="form-control"><br>
   </div>
 

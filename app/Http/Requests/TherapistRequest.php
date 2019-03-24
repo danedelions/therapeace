@@ -32,7 +32,6 @@ class TherapistRequest extends FormRequest
             'gender' => 'required',
             'streetaddress'  => 'required',
             'city' => 'required',
-            'town' => 'nullable',
             'province' => 'required', 
             'barangay' => 'required', 
             'postal_code' => 'required', 
@@ -42,7 +41,8 @@ class TherapistRequest extends FormRequest
             'license_image' => 'nullable', 
             'nbi_image' => 'nullable', 
             'bc_image' => 'nullable', 
-            'username' => 'sometimes|required'
+            'username' => 'sometimes|required',
+            'specialties' => 'sometimes|nullable|array'
         ];
 
         return $rules;

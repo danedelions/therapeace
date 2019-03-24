@@ -1,72 +1,79 @@
 @extends('layouts.adm')
 
 @section('dashboard')
-        <!-- START SIDEBAR-->
-        <nav class="page-sidebar" id="sidebar">
-            <div id="sidebar-collapse">
-                <div class="admin-block d-flex">
-                    <div>
-                        <img src="dist/assets/img/admin-avatar.png" width="45px" />
-                    </div>
-                    <div class="admin-info">
-                        <div class="font-strong">Chin China</div><small>Administrator</small></div>
+    <div class="content-wrapper">
+    <!-- START PAGE CONTENT-->
+      <!-- search bar should be here -->
+        <h2>Search Bar</h2>
+        <p>Reports for Abuse </p>          
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Session ID</th>
+            <th>Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td></td>
+            <td></td>
+            <td>
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" data-id=""
+                        type="button" id="dropdownMenu1" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"> 
+                  Actions
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <a class="dropdown-item" data-toggle="modal" data-target="#viewModal""><i class="far fa-eye"></i>&nbspView</a>
                 </div>
-                <ul class="side-menu metismenu">
-                    <li>
-                        <a class="active" href="/admin"><i class="sidebar-item-icon fa fa-th-large"></i>
-                            <span class="nav-label">Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="heading">PAGES</li>
-                    
-                    <li>
-                        <a href="/admin-user"><i class="sidebar-item-icon fa fa-table"></i>
-                        <span class="nav-label">Users</span></a>
-                    </li>
-                    <li>
-                        <a href="/admin-pending"><i class="sidebar-item-icon fa fa-edit"></i><span class="nav-label">Pending Applicants</span></a>
-                    </li>
-                    <li>
-                        <a href="/admin-history"><i class="sidebar-item-icon fa fa-map"></i><span class="nav-label">History</span></a>
-                    </li>
-                    <li>
-                        <a href="/admin-reports"><i class="sidebar-item-icon fa fa-envelope"></i><span class="nav-label">Reports of Abuse</span></a>
-                    </li>
+              </div>
 
-                </ul>
-            </div>
-        </nav>
-        <!-- END SIDEBAR-->
-        <div class="content-wrapper">
-        <!-- START PAGE CONTENT-->
-          <h2>Search Bar</h2>
-          <p>Reports of Abuse</p>           
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Session ID</th>
-                <th>Date</th>
-                <th>Info</th>
-                
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>100010</td>
-                <td>MM-DD-YYYY</td>
-                <td><a class="btn btn-outline-info" href="#"><i style="color:black;" class="far fa-eye"></i></a> </td>
-                
-              </tr>        
-            </tbody>
-          </table>
-        </div>
-        
-                
-            
-        <!-- END PAGE CONTENT-->
-            
-        </div>
+              <!-- View Modal-->
+                <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Report Information</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body" id="modalView">
+                        <div class="col-sm-12">
+                            <label>Report ID: </label><br>
+                            <label>Sender: </label>
+                        </div>
+                        <br>
+                        <div class="col-sm-12" style="font-weight: bold;">
+                            <div class="card">
+                                <div class="card-body">
+                                  <label>Date:</label><br>
+                                  <label>Therapist ID:</label><br>
+                                  <label>Therapist Name:</label><br>
+                                  <label>Client ID:</label><br>
+                                  <label>Client Name:</label><br>
+                                  <label>Message:</label> 
+                                </div>
+                            </div>
+                        </div>                    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <!-- end of view modal -->
+            </td>
+          </tr>
+    
+        </tbody>
+      </table>
     </div>
+    
+            
+        
+    <!-- END PAGE CONTENT-->
+        
+    </div>
+</div>
 @endsection

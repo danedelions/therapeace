@@ -9,9 +9,11 @@ use App\BookingRequest;
 use App\Client;
 use App\Therapist;
 use App\User;
+use App\UserAddress;
 use DB;
 use Hash;
 use Auth;
+use App\Specialty;
 
 class ClientController extends Controller
 {
@@ -61,18 +63,58 @@ class ClientController extends Controller
             'city' => $request->post('city'),
         ]);
 
+        \DB::transaction (function () use ($request) {
+            User::insert([
+                'username'  => $request->post('username'),
+                'email'     => $request->post('email'),
+                'password'  => Hash::make($request->post('password')),
+                'status'    => 0,
+                'user_type' => 'client'
+            ]);
+
+            $users = User::where('username', $request->post('username'))->get();
+
+            $client = Client::insert([
+                'user_id'     => $users[0]['id'],
+                'fname'       => $request->post('fname'),
+                'lname'       => $request->post('lname'),
+                'contact'     => $request->post('number'),
+                'gender'      => $request->post('gender'),
+                'city'       => $request->post('city'),
+                'province'       => $request->post('province'),
+                'res_detail'     => $request->post('res_detail'),
+                'street'      => $request->post('street'),
+                'brgy'      => $request->post('brgy'),
+                'building'      => $request->post('building'),
+                'landmark'      => $request->post('landmark'),
+                'address_remarks'      => $request->post('address_remarks'),
+            ]);
+
+
+        });
+
          return view('login');
     }
 
-    public function clientFind(Therapist $therapists)
+    public function clientFind(Therapist $therapists, Request $request)
     {
-        $therapists = Therapist::all();
-        return view('client.find', compact('therapists'));
+        $therapists = Therapist::query()
+            ->when($type = $request->therapist, function ($q) use ($type){
+                $q->where('therapist', $type);
+            })
+            ->when($specialties = $request->t_specialties, function ($q) use ($specialties){
+                $q->whereHas('specialties', function ($q) use ($specialties) {
+                    $q->whereIn('specialties.name', $specialties);
+                });
+            })->get();
+
+        $specialties = Specialty::select('name')->pluck('name', 'name');
+        return view('client.find', compact('therapists', 'specialties'));
     }
     public function clientAccount()
     {
         $client = Client::whereUserId(Auth::id())->with('user')->first();
-        $bookings = $client->booking()->with('client')->get(); //unsure about here//
+        $bookings = $client->booking()->with('client')->where('status', 0)->get(); //unsure about here//
 
         return view('client.account', compact('client','bookings'));
     }

@@ -4,7 +4,6 @@
 
       <div class="col-md-12">
       {!! Form::model($therapist, array('url'=> route('therapist.update', ['id'=> $therapist->id]),'method'=>'PATCH', 'files'=>true,'role'=>'form')) !!}
-      {!! csrf_field() !!}
         <legend class="text-center">Update Information</legend>
         <hr>
         <div class="card-body">
@@ -30,6 +29,7 @@
             <div class="col-md-6">
                  {!! Form::inputGroup('number', 'Contact Number', 'contact', null, ['placeholder' => 'Contact Number']) !!}
             </div>
+<<<<<<< HEAD
     
             <div class="col-md-6">
                 {!! Form::label('gender', 'Gender') !!}
@@ -38,6 +38,12 @@
           </div>
        
           <legend>Address</legend>
+=======
+            <div class="form-row">
+              <div class="col-md-6">
+                   {!! Form::inputGroup('text', 'Province', 'province', null, ['placeholder' => 'Province']) !!}
+              </div>
+>>>>>>> 76ccb4a5c490736836afe62e25bf10d9bf9f51a2
 
           <div class="form-row">
             <div class="col-md-6">
@@ -61,6 +67,7 @@
             <div class="col-md-6">
                 {!! Form::inputGroup('number', 'Postal Code', 'postal_code', null, ['placeholder' => 'Postal Code']) !!}
             </div>
+<<<<<<< HEAD
           </div>
 
           <legend>License</legend>
@@ -81,6 +88,28 @@
           <hr>
           <div class="form-group col-md-6">
               <a href="/therapist-account" class="btn btn-secondary">Cancel</a>
+=======
+          </fieldset>
+          <br>
+          <fieldset>
+            <div class="form-row">
+              <legend>Profile</legend>
+              <hr>
+              <div class="col-md-6">
+                  {!! Form::inputGroup('text', 'Username', 'username', Auth::user()->username, ['placeholder' => 'User Name']) !!}
+              </div>
+            </div>
+            <div class="form-row">
+            <legend>Specialization</legend>
+              <hr>
+              <div class="col-md-6">
+                  {!! Form::selectGroup(null, 'specialties[]', $specialties, optional($therapist->specialties)->pluck('name'), ['class' => 'form-control select2', 'multiple' => true]) !!}
+              </div>
+            </div>
+          </fieldset>
+          <br>
+              <input type="reset" href="/therapist-account" class="btn btn-secondary" value="Cancel">
+>>>>>>> 76ccb4a5c490736836afe62e25bf10d9bf9f51a2
               <button type="submit" class="btn btn-success">Update</button>
           </div>
         </div> 
