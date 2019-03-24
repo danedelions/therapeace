@@ -84,7 +84,6 @@ class TherapistController extends Controller
     public function edit($userId)
     {  
         $therapist = Therapist::find($userId)->load('user');
-
         return view('therapist.edit', compact('therapist'));
 
     }

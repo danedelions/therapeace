@@ -3,9 +3,9 @@
     <a class="navbar-brand" href="#">
       <img src="{{ asset('img/logo.png') }}" alt="Logo" style="width:130px;">
     </a>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav ml-auto"> <!-- ml-auto (navbar items on the right side)-->
-        <li class="active nav-item">
+    <div class="navbar-collapse">
+      <ul class="nav ml-auto"> <!-- mr-auto =left; ml-auto =right-->
+        <li class="nav-item">
           <a class="nav-link" href="/client-find"><i class="fas fa-search"></i> Find</a>
         </li>
         

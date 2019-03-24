@@ -4,7 +4,7 @@
 
 @include('modals.therapist')
 
-	<!-- <div class="row">
+	<div class="row">
 		<div class="col-sm-5 col-md-5 col-lg-12">
 			<div class="card">
 				<div class="card-header bg-primary">
@@ -46,23 +46,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</div> -->
-
-	<div class="container">
-		<div class='calendar'>
-			
-
-
-
-
-
-
-
-		<div class="card">
-			<div class="card bg-primary white-text">
-				<h3>Appoint a client</h3>
 			</div>
 		</div>
 	</div>

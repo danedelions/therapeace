@@ -96,7 +96,7 @@
 								</div>
 								<div class="col-6 col-md-4">
 								  		<label class="control-label">Therapist: </label>
-										<a>{{ $therapist->fname }} {{ $therapist->lname }}</a>
+										<a></a>
 								</div>
 							</div>
 

@@ -27,7 +27,6 @@ Route::resource('therapist' ,'TherapistController');
 
 // Route::resource('therapist' ,'RegistrationController');
 
-
 Route::get('transaction', function () {
     return view('transaction');
 });

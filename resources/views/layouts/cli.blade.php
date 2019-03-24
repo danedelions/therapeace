@@ -26,7 +26,7 @@
         @stack('js')
     </head>
     
-    <body id="clientBg">
+    <body id="userBg">
         <main class="container">
 
         @include('partials.client.header')
