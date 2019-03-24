@@ -18,12 +18,13 @@
               </tr>
             </thead>
             <tbody>
+              @foreach($users as $user)
               <tr>
-                <td>1</td>
-                <td>Mary Mary</td>
-                <td>mary@example.com</td>
-                <td>00000000002</td>
-                <td>Physical</td>
+                <td>{{$user->id}}</td>
+                <td>{{$user->therapist->fullName}}</td>
+                <td>{{$user->email}}</td>
+                <td>{{$user->therapist->contact}}</td>
+                <td>{{$user->therapist->therapist}}</td>
                 <td>
                   <div class="dropdown">
                     <button class="btn btn-default dropdown-toggle" data-id=""
@@ -36,7 +37,7 @@
 
                       <a class="dropdown-item"><i class="far fa-check-circle"></i></i>&nbsp&nbspAccept</a>
 
-                      <a class="dropdown-item"><i class="far fa-trash-alt"></i>&nbsp&nbspDelete</a>
+                      <!-- <a class="dropdown-item"><i class="far fa-trash-alt"></i>&nbsp&nbspDelete</a> -->
                     </div>
                   </div>
 
@@ -76,6 +77,7 @@
                           <!-- end of view modal -->
                 </td>
               </tr>
+              @endforeach
             </tbody>
           </table>
         </div>

@@ -24,13 +24,24 @@ class AdminController extends Controller
 
     public function getUserView()
     {
-        $users = User::all();
+        // if (request()->has('status' != 2)) {
+        //     $users = User::where('status', request('status'))
+        //         ->paginate(10)->appends('status', request('status'));
+        // } else {
+        //     $users = User::paginate(10);
+        // }
+
+        $users = User::where('status', !2)->paginate(5);
+        
+
     	return view('admin.users', compact('users','newstatus'));
     }
 
     public function getPendingView()
     {
-    	return view('admin.pending');
+        $users = User::all()->where('status',2);
+
+    	return view('admin.pending', compact('users'));
     }
 
     public function getHistoryView()
@@ -59,7 +70,9 @@ class AdminController extends Controller
     {        
         $user->update(['status' => !$user->status]);
         return redirect()->back();
+
     }
+
 
     
 

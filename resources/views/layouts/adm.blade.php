@@ -75,9 +75,12 @@
     <script type="text/javascript">
         $(document).ready(function(){
 
-            // $('#viewModalc').on('show.bs.modal', fucntion(e){
-            //     var view = $(e.relatedTarget).data('id');            // })
+            $('#viewModalc').on('show.bs.modal', fucntion(e){
+                var view = $(e.relatedTarget).data('id');            // })
 
+            $('#viewModalt').on('show.bs.modal', fucntion(e){
+                var view = $(e.relatedTarget).data('id');
+                
             // $(function () {
             //         $("#viewModalc").click(function () {
             //             var my_id_value = $(this).data('id');

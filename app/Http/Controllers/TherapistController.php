@@ -62,7 +62,6 @@ class TherapistController extends Controller
                 'gender'         => $request->post('gender'),
                 'streetaddress'  => $request->post('streetaddress'),
                 'city'           => $request->post('city'),
-                'town'           => $request->post('town'),
                 'province'       => $request->post('province'),
                 'barangay'       => $request->post('barangay'),
                 'postal_code'    => $request->post('postal_code'),

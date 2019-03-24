@@ -39,15 +39,17 @@ Route::group(['middleware' => 'auth'], function(){
 
 	//Route::get('/admin', 'AdminLoginController@getLogin')->name('get.admin');
 
-// ADMIN
+	// ADMIN
 
 	Route::get('/admin-dashboard', 'AdminController@getDashboard')->name('get.dashboard');
 	Route::get('/admin-user', 'AdminController@getUserView')->name('get.view');
-	Route::get('/admin-pending', 'AdminController@getPendingView')->name('get.pending');;
-	Route::get('/admin-history', 'AdminController@getHistoryView')->name('get.history');;
-	Route::get('/admin-reports', 'AdminController@getReportsView')->name('get.reports');;
-
-Route::group(['middleware' => 'auth'], function () {
+	Route::get('/admin-pending', 'AdminController@getPendingView')->name('get.pending');
+	Route::get('/admin-history', 'AdminController@getHistoryView')->name('get.history');
+	Route::get('/admin-reports', 'AdminController@getReportsView')->name('get.reports');
+	Route::patch('/status-update/{user}', 'AdminController@statusUpdate')->name('get.update');
+	Route::get('/sendWelcome', 'AdminController@welcome')->name('get.welcome');
+	// Route::delete('/user-delete', 'AdminController@destroy')->name('get.delete');
+	
     // THERAPIST
     Route::get('/therapist-account', 'TherapistController@therapistAccount')->name('get.therapist-account');
     Route::get('/therapist-appoint', 'TherapistController@therapistAppoint')->name('get.therapist-appoint');
@@ -61,7 +63,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('therapist-calendar/{bookingRequest}', 'TherapistCalander')->name('therapist.calendar');
     Route::post('therapist-calendar/{bookingRequest}', 'TherapistCalander@saveAppointment')->name('therapist.book.appointment');
     Route::delete('therapist-calendar/{bookingRequest}', 'TherapistCalander@rejectAppointment')->name('therapist.reject.appointment');
-    Route::get('/therapist-pending/', 'TherapistController@viewPending')->name('therapist.pending')
+    Route::get('/therapist-pending/', 'TherapistController@viewPending')->name('therapist.pending');
     // CLIENT
     Route::get('/client-find', 'ClientController@clientFind')->name('get.client-find');
     Route::get('/client-account', 'ClientController@clientAccount')->name('get.client-account');

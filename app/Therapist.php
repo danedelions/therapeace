@@ -15,7 +15,6 @@ class Therapist extends Model
         'gender',
         'streetaddress',
         'city',
-        'town',
         'province',
         'barangay',
         'postal_code',
