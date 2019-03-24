@@ -50,7 +50,7 @@
                               </button>
                               <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                 @if ($row['user_type'] == 'client')
-                                    <a class="dropdown-item" data-toggle="modal" data-target="#viewModalc""><i class="far fa-eye"></i>&nbspView</a>
+                                    <a class="dropdown-item" data-toggle="modal" data-target="#view-modalc-{{ $row->id }}""><i class="far fa-eye"></i>&nbspView</a>
                                 @elseif ($row['user_type'] == 'therapist')
                                     <a class="dropdown-item" data-toggle="modal" data-target="#viewModalt""><i class="far fa-eye"></i>&nbspView</a>
                                 @endif
@@ -59,9 +59,9 @@
 
                                 {!! Form::open(['url' => route('get.update', $row->id), 'method' => 'PATCH']) !!}
                                 @if ($row['status'] == 0)
-                                  <a class="dropdown-item"><i class="fas fa-ban"></i>&nbsp&nbspBlock</a>
+                                  <button type="submit" class="dropdown-item"><i class="fas fa-ban"></i>&nbsp;&nbsp;Block</button>
                                 @else
-                                  <a class="dropdown-item"><i class="fas fa-ban"></i>&nbsp&nbspUnblock</a>
+                                  <button type="submit" class="dropdown-item"><i class="fas fa-ban"></i>&nbsp;&nbsp;Unblock</button>
                                 @endif
                                 {!! Form::close() !!}
                                 
@@ -72,7 +72,7 @@
                         </tr>
 
                         <!-- View Modal client-->
-                        <div class="modal fade" id="viewModalc" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="view-modalc-{{ $row->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
@@ -89,14 +89,17 @@
                                 <div class="col-sm-12" style="font-weight: bold;">
                                     <div class="card">
                                         <div class="card-body">
-                                          <label>Name :</label><br>
-                                          <label>Email: </label><br>
-                                          <label>Contact #: </label>
+                                          <label>Name :</label>{{ $row->client->fname }}<br>
+                                          <label>Email: </label>{{ $row->email }}<br>
+                                          <label>Contact #: </label>{{ $row->contact }}<br>
+                                          <label>Gender:</label>{{ $row->gender }}<br>
+                                          <hr>
+                                          <label>Home Address</label>
                                           <label>Barangay:</label><br>
                                           <label>Town/Municipality:</label><br>
                                           <label>Street:</label><br>
                                           <label>Province:</label><br>
-                                          <!-- <label>ZIP Code:</h5> -->  
+                                          <label>ZIP Code:</label>  
                                         </div>
                                     </div>
                                 </div>                    

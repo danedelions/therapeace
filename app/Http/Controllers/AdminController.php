@@ -24,17 +24,11 @@ class AdminController extends Controller
 
     public function getUserView()
     {
-        // if (request()->has('status' != 2)) {
-        //     $users = User::where('status', request('status'))
-        //         ->paginate(10)->appends('status', request('status'));
-        // } else {
-        //     $users = User::paginate(10);
-        // }
 
-        $users = User::where('status', !2)->paginate(5);
+        $users = User::where('status', '!=', '2')->paginate(8);
         
 
-    	return view('admin.users', compact('users','newstatus'));
+    	return view('admin.users', compact('users'));
     }
 
     public function getPendingView()
@@ -56,8 +50,17 @@ class AdminController extends Controller
 
     public function welcome(User $user)
     { 
-        Mail::to($user->email)->send(new NewUserWelcome());
-        return redirect()->back();
+        $to_name = 'TO_NAME';
+        $to_email = 'chino.boss31@gmail.com';
+        $data = array('name'=>"Sam Jose", "body" => "Test mail");
+            
+        Mail::send('admin.mail', $data, function($message) use ($to_name, $to_email) {
+            $message->to($to_email, $to_name)
+                    ->subject('Artisans Web Testing Mail');
+            $message->from('therapeacemaker@gmail.com','Artisans Web');
+        });
+        // Mail::to($user->email)->send(new NewUserWelcome());
+        // return redirect()->back();
     }
 
     // public function notice(User $user)

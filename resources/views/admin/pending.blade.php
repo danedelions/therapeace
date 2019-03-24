@@ -33,16 +33,18 @@
                       Actions
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                      <a class="dropdown-item" data-toggle="modal" data-target="#viewModalt""><i class="far fa-eye"></i>&nbspView</a>
+                      <a class="dropdown-item" data-toggle="modal" data-target="#view-modal-{{ $user->id }}"><i class="far fa-eye"></i>&nbspView</a>
 
-                      <a class="dropdown-item"><i class="far fa-check-circle"></i></i>&nbsp&nbspAccept</a>
-
+                      <a class="dropdown-item accept-therapist"><i class="far fa-check-circle"></i></i>&nbsp&nbspAccept</a>
+                      <form method="post" action="{{ url("{$user->therapist->id}/accept") }}">
+                        {{ csrf_field() }}
+                      </form>
                       <!-- <a class="dropdown-item"><i class="far fa-trash-alt"></i>&nbsp&nbspDelete</a> -->
                     </div>
                   </div>
 
                   <!-- View Modal therapist-->
-                          <div class="modal fade" id="viewModalt" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal fade" id="view-modal-{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                               <div class="modal-content">
                                 <div class="modal-header">
@@ -53,20 +55,23 @@
                                 </div>
                                 <div class="modal-body" id="modalView">
                                   <div class="col-sm-12">
-                                      <label>Date Joined: </label>
+                                      <label>Therapist: </label>{{ $user->therapist }}<br>
+                                      <label>Licence Number: </label>{{ $user->licence_number }}<br>
+                                      <label>Expiry Date: </label>{{ $user->expiry_date }}<br>
                                   </div>
                                   <br>
                                   <div class="col-sm-12" style="font-weight: bold;">
                                       <div class="card">
                                           <div class="card-body">
-                                            <label>Name : </label><br>
-                                            <label>Email: </label><br>
-                                            <label>Contact #:</label>
-                                            <label>Barangay:</label><br>
+                                            <label>Name : </label> {{ $user->therapist->fullName }}<br>
+                                            <label>Email: </label>  {{ $user->email }}<br>
+                                            <label>Contact #:</label>{{ $user->contact }}<br>
+                                            <label>Barangay:</label> {{ $user->barangay }}<br>
                                             <label>Town/Municipality:</label><br>
-                                            <label>Street:</label><br>
-                                            <label>Province:</label><br>
-                                            <label>Image</label>  
+                                            <label>Street:</label> {{ $user->streetaddress }}<br>
+                                            <label>Province:</label> {{ $user->province }}<br>
+                                            <label>Postal Code:</label> {{ $user->postal_code }}
+                                            <label>Documents:</label>  
                                           </div>
                                       </div>
                                   </div>                    

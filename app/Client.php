@@ -24,7 +24,7 @@ class Client extends Model
     ] ;
 
     protected $appends = [
-        'full_name'
+        'fullName'
     ];
 
     public function user()
@@ -45,11 +45,6 @@ class Client extends Model
     public function appointment()
     {
         return $this->hasMany('App\Appointment', 'client_id', 'user_id');
-    }
-
-    public function address()
-    {
-        return $this->hasMany('App\UserAddress', 'client_id', 'user_id'); 
     }
 
     public function getFullNameAttribute()
