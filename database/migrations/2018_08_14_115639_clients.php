@@ -20,6 +20,14 @@ class Clients extends Migration
             $table->string('lname');
             $table->string('contact');
             $table->string('gender');
+            $table->string('city');
+            $table->string('province');
+            $table->string('res_detail');
+            $table->string('street');
+            $table->string('brgy');
+            $table->string('building');
+            $table->string('landmark');
+            $table->string('address_remarks');
             $table->rememberToken();
             $table->timestamps();
 

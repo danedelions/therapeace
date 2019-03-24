@@ -26,15 +26,17 @@ class ClientRequest extends FormRequest
             'fname' =>  'required', 
             'lname' => 'required', 
             'email' => 'required', 
-            'contact' => 'required',
+            'contact' => 'required|numeric',
             'gender' => 'required',
-            'street' => 'required',
-            'barangay' => 'required',
-            'town' => 'nullable',
-            'province' => 'required', 
+            'username' => 'sometimes|required',
             'city' => 'required',
-            'postal_code' => 'required',
-            'username' => 'sometimes|required'
+            'province' => 'required',
+            'res_detail' => 'nullable',
+            'street' => 'required',
+            'brgy' => 'required',
+            'building' => 'nullable',
+            'landmark' => 'nullable',
+            'address_remarks' => 'nullable',
         ];
 
         return $rules;

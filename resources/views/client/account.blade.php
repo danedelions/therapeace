@@ -54,7 +54,7 @@
 			<div class="card-body" style="overflow: scroll; height: 200px;">
 				<table class="table table-default">
 					<thead>
-						@foreach($bookings as $row)
+						@forelse($bookings as $row)
 						<tr>
 							<td><i class="fas fa-user-circle fa-5x"></i></td>
 							<td>You sent a request to <b>{{$row->therapist->fullname}}</b></td>
@@ -63,7 +63,11 @@
 								<input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
 							</td>
 						</tr>
-						@endforeach
+						@empty
+						<tr>
+							<td colspan="4" class="text-center">No requests</td>
+						</tr>
+						@endforelse
 					</thead>
 				</table>
 			</div>
