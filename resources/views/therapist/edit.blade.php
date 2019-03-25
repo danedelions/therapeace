@@ -93,7 +93,7 @@
             </div>
           </fieldset>
           <br>
-              <input type="reset" href="/therapist-account" class="btn btn-secondary" value="Cancel">
+              <a class="btn btn-secondary" href="/therapist-account">Cancel</a>
               <button type="submit" class="btn btn-success">Update</button>
         </div> 
         {!! Form::close() !!} 

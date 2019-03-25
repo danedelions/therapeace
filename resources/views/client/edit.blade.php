@@ -65,7 +65,7 @@
         </div>
         <hr>
         <div class="form-group col-md-6">
-            <a href="/client-account" class="btn btn-secondary">Cancel</a>
+            <a class="btn btn-secondary" href="/client-account">Cancel</a>
             <button type="submit" class="btn btn-success">Update</button>
         </div>
     </div>
