@@ -81,11 +81,6 @@ class TherapistController extends Controller
     }
 
     public function edit($userId)
-
-    {  
-        $therapist = Therapist::find($userId)->load('user');
-        return view('therapist.edit', compact('therapist'));
-
     {
         $specialties = Specialty::select('name')->pluck('name', 'name');
         $therapist   = Therapist::with(['user', 'specialties'])->find($userId);
@@ -146,11 +141,11 @@ class TherapistController extends Controller
         return view('therapist.account', compact('therapist'));
     }
 
-    public function therapistAppoint(Client $clients)
-    {
-        $clients = Client::all();
-        return view('therapist.appoint', compact('clients'));
-    }
+    // public function therapistAppoint(Client $clients)
+    // {
+    //     $clients = Client::all();
+    //     return view('therapist.appoint', compact('clients'));
+    // }
 
     public function therapistHistory(Client $clients)
     {

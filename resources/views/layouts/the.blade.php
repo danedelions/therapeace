@@ -9,17 +9,6 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('path/dist/css/select2.min.css')}}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css')}}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css')}}">
-<<<<<<< HEAD
-        <link href="dist/assetsvendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <!-- javascript -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/fullcalendar/stylesheets/fullcalendar.css') }}"/>
-        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/fullcalendar/stylesheets/fullcalendar.min.css') }}"/>
-        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/fullcalendar/stylesheets/fullcalendar.print.css') }}"/>
-        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/fullcalendar/stylesheets/fullcalendar.print.min.css') }}"/>
-        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/fullcalendar/stylesheets/daterangepicker.css') }}"/>
-
-=======
->>>>>>> 76ccb4a5c490736836afe62e25bf10d9bf9f51a2
         <!-- font awesome -->
 
         <!-- THEME STYLES-->
@@ -45,14 +34,7 @@
 
             @include('partials.therapist.footer')
 
-        <script type="text/javascript" src="{{ asset('vendor/fullcalendar/javascripts/daterangepicker.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('vendor/fullcalendar/javascripts/moment.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('vendor/fullcalendar/javascripts/fullcalendar.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('vendor/fullcalendar/javascripts/fullcalendar.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('vendor/fullcalendar/javascripts/fullcalendar/gcal.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('vendor/fullcalendar/javascripts/fullcalendar/gcal.min.js') }}"></script>
-       
-        <script type="text/javascript" src="{{ asset('path/dist/js/select2.min.js') }}"></script>
+
         </main>
         @stack('modals')
         <script type="text/javascript" src="{{ asset('path/dist/js/select2.min.js') }}"></script>

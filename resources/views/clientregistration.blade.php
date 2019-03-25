@@ -31,18 +31,6 @@
             </div>
         </div>
 
-<!--     <div class="tab">
-            <input placeholder="First name" name="fname"  type="text" class="form-control"><br>
-            <input placeholder="Last name" name="lname" type="text" class="form-control"><br>
-            <input placeholder="Email"  name="email" type="email" class="form-control"><br>
-            <input placeholder="Contact Number" type="text" name="number" class="form-control"><br> 
-            <select id="gender" class="form-control" name="gender">
-                <option disabled="disabled" selected>Select Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-            </select> <br>
-    </div> -->
-
         <div class="tab form-group"> Location
             <div class="form-group col-md-12">
                 <input placeholder="City*" name="city" type="text" class="form-control">
@@ -115,4 +103,3 @@
     </div>
 </div>
 @endsection
-

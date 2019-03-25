@@ -5,9 +5,6 @@
     </a>
     <div class="navbar-collapse">
       <ul class="nav ml-auto"> <!-- mr-auto =left; ml-auto =right-->
-        <li class="nav-item">
-          <a class="nav-link" href="/therapist-appoint"><i class="fas fa-search"></i> Appoint</a>
-        </li>
         
         <li class="nav-item">
           <a class="nav-link" href="/therapist-account"><i class="fas fa-user"></i> Account</a>

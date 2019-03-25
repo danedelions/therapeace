@@ -82,19 +82,7 @@
                             @endif
                         </td>
                         <td>
-<<<<<<< HEAD
-                            <input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
-                        </td>
-                        <td>
-                            {!!Form::open(['url'=>route('therapist.accept', $data->id), 'method'=>'PATCH'])!!}
-                            <button class="btn btn-success">Approve</button>
-                            {!!Form::close()!!}
-                        </td>
-                        <td>
-                            <input type="submit" value="Cancel" class="btn btn-danger" >
-=======
                             <a class="btn btn-sm btn-info" href="{{ route('therapist.calendar', $request) }}">View</a>
->>>>>>> 76ccb4a5c490736836afe62e25bf10d9bf9f51a2
                         </td>
                     </tr>
                     @empty
