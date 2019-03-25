@@ -75,9 +75,6 @@
     <script type="text/javascript">
         $(document).ready(function(){
 
-            // $('#viewModalc').on('show.bs.modal', fucntion(e){
-            //     var view = $(e.relatedTarget).data('id');            // })
-
             // $(function () {
             //         $("#viewModalc").click(function () {
             //             var my_id_value = $(this).data('id');
@@ -96,6 +93,14 @@
                 // })
             })
 
+
+            $('.accept-therapist').click(function(e) {
+                e.preventDefault();
+
+                if(confirm('Are you sure?')){
+                    $(this).siblings('form:first').submit();
+                }
+            })
 
         });
     </script>

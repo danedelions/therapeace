@@ -16,10 +16,9 @@
 					<hr>	
 						<label><b>Name: </b>{{$therapist->fullName}}</label><br>
 						<label><b>Gender: </b>{{$therapist->gender}}</label><br>
-						<label><b>Email: </b>{{$therapist->user->email}}</label><br>
 						<label><b>Contact #: </b>{{$therapist->contact}}</label><br>
 						<label><b>Address: </b>{{$therapist->address}}</label><br>
-						<label><b>Specializations:</b></label><br>
+						<label><b>Specializations: </b><h6><span class="badge badge-default ml-1"> {!! optional($therapist->specialties)->pluck('name')->implode('</span ><span class="badge badge-default ml-1">') !!}</span></h6></label><br>
 				</div>
 			</div>
 		</div>

@@ -32,7 +32,7 @@ class User extends Authenticatable
     ];
 
     protected $appends = [
-        'full_name'
+        'fullName'
     ];
 
     public function therapist()

@@ -3,9 +3,13 @@
     <a class="navbar-brand" href="#">
       <img src="{{ asset('img/logo.png') }}" alt="Logo" style="width:130px;">
     </a>
-    <div class="navbar-collapse">
-      <ul class="nav ml-auto"> <!-- mr-auto =left; ml-auto =right-->
         
+    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav ml-auto"> <!-- ml-auto (navbar items on the right side)-->
         <li class="nav-item">
           <a class="nav-link" href="/therapist-account"><i class="fas fa-user"></i> Account</a>
         </li>

@@ -73,12 +73,13 @@ class ClientController extends Controller
         $therapists = Therapist::query()
             ->when($type = $request->therapist, function ($q) use ($type){
                 $q->where('therapist', $type);
-            })
+            }) 
             ->when($specialties = $request->t_specialties, function ($q) use ($specialties){
                 $q->whereHas('specialties', function ($q) use ($specialties) {
                     $q->whereIn('specialties.name', $specialties);
                 });
             })->get();
+
 
         $specialties = Specialty::select('name')->pluck('name', 'name');
         return view('client.find', compact('therapists', 'specialties'));
@@ -127,7 +128,7 @@ class ClientController extends Controller
         $query = $request->get('q');
         if($query)
         {
-            $therapists = $query ? Therapist::search($query)->orderBy('id','desc')->paginate(7):Therapist::all();
+            $therapists = $query ? Therapist::search($query)->orderBy('id', 'desc')->paginate(7):Therapist::all();
             return view('client.find', compact('therapists'));
         }
     }
