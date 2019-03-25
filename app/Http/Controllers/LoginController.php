@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Redirect;
 use Auth;
-use app\User;
+use App\User;
+use Illuminate\Validation\Rule;
 
 
 class LoginController extends Controller
@@ -17,9 +18,22 @@ class LoginController extends Controller
 
     public function doLogin(Request $request)
     {
-        
-        print_r($request->post('success'));
-        if (Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')))){
+        $credentials = $request->validate([
+            'username' => [
+                'required',
+                Rule::exists('users')->where(function ($q) {
+                    $q->where('status', '!=', '2');
+                })
+            ],
+            'password' => 'required',
+        ], [
+            'username.exists' => 'Username does not exist or is not yet accepted.'
+        ]);
+
+
+        $loggedIn = Auth::attempt($credentials);
+
+        if ($loggedIn){
 
             // return "success".Auth::user()->user_type;
             if(Auth::user()->user_type === 'therapist'){
@@ -35,7 +49,7 @@ class LoginController extends Controller
                 return redirect(route('get.client-find'));
             }else if(Auth::user()->user_type === 'admin'){
                 // view('admin');
-                return redirect(route('get.dashboard'));
+                return redirect(route('get.view'));
             }
 
 

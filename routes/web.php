@@ -39,13 +39,17 @@ Route::group(['middleware' => 'auth'], function(){
 
 	//Route::get('/admin', 'AdminLoginController@getLogin')->name('get.admin');
 
-// ADMIN
+	// ADMIN
 
 	Route::get('/admin-dashboard', 'AdminController@getDashboard')->name('get.dashboard');
 	Route::get('/admin-user', 'AdminController@getUserView')->name('get.view');
-	Route::get('/admin-pending', 'AdminController@getPendingView')->name('get.pending');;
-	Route::get('/admin-history', 'AdminController@getHistoryView')->name('get.history');;
-	Route::get('/admin-reports', 'AdminController@getReportsView')->name('get.reports');;
+	Route::get('/admin-pending', 'AdminController@getPendingView')->name('get.pending');
+	Route::get('/admin-history', 'AdminController@getHistoryView')->name('get.history');
+	Route::get('/admin-reports', 'AdminController@getReportsView')->name('get.reports');
+	Route::patch('/status-update/{user}', 'AdminController@statusUpdate')->name('get.update');
+	Route::get('/admin-mail', 'AdminController@welcome')->name('get.welcome');
+    Route::post('{therapist}/accept', 'AcceptTherapistController');	
+
     // THERAPIST
     Route::get('/therapist-account', 'TherapistController@therapistAccount')->name('get.therapist-account');
     Route::get('/therapist-appoint', 'TherapistController@therapistAppoint')->name('get.therapist-appoint');
@@ -80,6 +84,8 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::get('/booktherapist/{id}', 'BookingController@index')->name('get.booktherapist');
     Route::post('/doBookTherapist/', 'BookingController@submitDetails')->name('post.doBook');
+
+    
 });
 
 

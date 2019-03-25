@@ -28,6 +28,9 @@ class Therapist extends Model
         'bc_image'
     ] ;
 
+    protected $appends = [
+        'full_name'
+    ];
     /**
      * 
      */
@@ -48,6 +51,11 @@ class Therapist extends Model
     	// return $this->belongsTo('App\User', 'id');
     	// // return $this->belongsTo('App\User', 'user_id');
 
+    }
+
+    public function associatedUser() 
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function scopeOfUser($query, $userId)
@@ -84,5 +92,12 @@ class Therapist extends Model
     public function specialties()
     {
         return $this->belongsToMany(Specialty::class, 't_specialties', 'therapist_id', 'spec_id');
+    }
+
+    public function accept()
+    {
+        return $this->associatedUser()->update([
+            'status' => 0
+        ]);
     }
 }
