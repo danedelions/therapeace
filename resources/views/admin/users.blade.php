@@ -63,8 +63,8 @@
                                   <div class="col-sm-12" style="font-weight: bold;">
                                       <div class="card">
                                           <div class="card-body">
-                                            <label>Name : </label><br>
-                                            <label>Email: </label><br>
+                                            <label>Name : {{$row->fullname}}</label><br>
+                                            <label>Email: {{$row->client->email}}</label><br>
                                             <label>Contact #:</label>
                                             <label>Barangay:</label><br>
                                             <label>Town/Municipality:</label><br>
