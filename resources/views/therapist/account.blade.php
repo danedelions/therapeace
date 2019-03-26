@@ -121,7 +121,7 @@
                                 <label class = "full" for="star2" title="2 stars"></label></label>
                                 <input type="radio" id="star1" name="rating" value="1" />
                                 <label class = "full" for="star1" title="1 star"></label></label>
-                                </fieldset>
+                            </fieldset>
                         </td>  
                     </tr>          
                 </thead>

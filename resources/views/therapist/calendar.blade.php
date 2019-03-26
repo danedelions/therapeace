@@ -8,7 +8,7 @@
             <div class="card-body">
                 <h3 class="card-title ">Booking Details</h3>
                     <div class="form-group">
-                        <label for="staticEmail" class="font-weight-bold">Client</label>
+                        <label for="staticEmail" class="font-weight-bold">Client Name</label>
                         <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ $bookingRequest->client->fullname }}">
                     </div>
                     <div class="form-group">

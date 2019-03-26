@@ -25,12 +25,18 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
+        factory(App\User::class,0)->create();
+        factory(App\Client::class,5)->create();
+        factory(App\Therapist::class,5)->create();
+
+
+        ]);
+
         //factory(App\User::class,0)->create();
        
         //factory(App\Therapist::class,5)->create();
 
         // factory(App\Client::class,5)->create();
-
     }
 }
 

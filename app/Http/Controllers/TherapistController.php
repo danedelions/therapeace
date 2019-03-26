@@ -141,11 +141,11 @@ class TherapistController extends Controller
         return view('therapist.account', compact('therapist'));
     }
 
-    public function therapistAppoint(Client $clients)
-    {
-        $clients = Client::all();
-        return view('therapist.appoint', compact('clients'));
-    }
+    // public function therapistAppoint(Client $clients)
+    // {
+    //     $clients = Client::all();
+    //     return view('therapist.appoint', compact('clients'));
+    // }
 
     public function therapistHistory(Client $clients)
     {

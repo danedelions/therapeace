@@ -12,7 +12,7 @@
 
     <div class="tab">
       <h6>Upload profile picture</h6>
-        
+
       <input type="file" accept="image/x-png,image/gif,image/jpeg" name="image" id="fileToUpload" class="form-control" data-validation-message="Please gill thois up"> 
       <br>
       Name:
@@ -25,7 +25,7 @@
               <option value="Male">Male</option>
               <option value="Female">Female</option>
           </select>
-  
+          
     </div>
   <br>
 

@@ -25,7 +25,7 @@
 
     </head>
 
-    <body id="therapistBg">
+    <body id="userBg">
         <main class="container">
 
             @include('partials.therapist.header')
