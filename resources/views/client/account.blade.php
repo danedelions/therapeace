@@ -59,7 +59,12 @@
 							<td><i class="fas fa-user-circle fa-5x"></i></td>
 							<td>You sent a request to <b>{{$row->therapist->fullname}}</b></td>
 							<td>
-								<input type="submit" value="Cancel" class="btn btn-danger" href="#" data-toggle="modal" data-target="#connectModal">
+								<form action="{{route('post.cancelbooking', ['id' => $row->id])}}" method="POST">
+									{{ csrf_field() }}
+                                	{{ method_field('DELETE')}}
+									<input type="submit" value="Cancel" class="btn btn-danger">
+									
+								</form>
 								<input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
 							</td>
 						</tr>

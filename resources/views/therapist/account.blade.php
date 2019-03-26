@@ -78,7 +78,9 @@
                             @elseif($request->status == 1)
                                 <span class="badge badge-success">Approved</span>  
                             @elseif($request->status == 2)
-                            <span class="badge badge-danger">Rejected</span>  
+                            <span class="badge badge-danger">Rejected</span>
+                            @elseif($request->status ==3)
+                            <span class="badge badge-default">Finished</span>  
                             @endif
                         </td>
                         <td>
