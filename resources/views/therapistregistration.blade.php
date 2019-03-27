@@ -75,10 +75,7 @@ Te graeco imperdiet per, pri ea summo voluptatibus. Fierent voluptua pri ea, nam
 Nisl elit epicuri id vis, sea alterum commune deterruisset cu. Ea vel rebum fabulas deseruisse, mei cu nulla minim munere. Offendit placerat iracundia cum id, mea at brute vocent quaeque. Rebum feugait oportere at pro, sit regione persecuti eu, vel explicari accusamus splendide in. Sea at blandit ponderum.
 
 Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facilis antiopam. Fastidii nominati contentiones duo ea. Has ne corpora albucius voluptaria.</p>
-     </p>
-     <div>
-    <label><input type="checkbox" />  I accept the terms and conditions.</label>
-     </div>  
+    <label><input type="checkbox" />  I accept the terms and conditions.</label> 
   </div>
 
   <div style="overflow:auto;">

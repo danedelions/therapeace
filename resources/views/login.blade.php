@@ -56,7 +56,7 @@
                             
                             <i class="fas fa-user"></i>
                             <label class="label">Username</label>   
-                            <input type="text" id="userName" name="username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" placeholder="Username" required/>
+                            <input type="text" id="userName" name="username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" data-validation-message="Please fill this up" placeholder="Username" required/>
 
                             @if($errors->any())
                                 <span class="invalid-feedback">
@@ -68,7 +68,7 @@
                             
                             <i class="fas fa-key"></i>
                             <label class="label">Password</label>
-                            <input type="password" id="userPassword" name="password" class="form-control input-sm chat-input" placeholder="Password" required/>
+                            <input type="password" id="userPassword" name="password" class="form-control input-sm chat-input" data-validation-message="Please fill this up"  placeholder="Password" required/>
 
                             </br>
 
