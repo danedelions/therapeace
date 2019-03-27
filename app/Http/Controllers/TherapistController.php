@@ -97,7 +97,7 @@ class TherapistController extends Controller
      */
     public function update(TherapistRequest $request, $id)
     {
-        $therapist = Therapist::find($id);
+        $therapist = Therapist::find($id)->load('user');
 
         $specialties = collect($request->specialties);
         if ($specialties->isNotEmpty()) {
@@ -110,14 +110,15 @@ class TherapistController extends Controller
         }
 
         $request = $request->validated();
+        
         // dd($request);
-        if (isset($request['image'])) {
-            $request['image'] = request()->file('image')->store('image', 'public');
+
+         $users = User::where('username', $request['username'])->first();
+
+        if(isset($request['image'])) {
+            $image = request()->file('image')->move("pictures/{$users[0]['username']}", 'public');
         }
 
-        if (isset($request['license_image'])) {
-            $request['license_image'] = request()->file('license_image')->store('image', 'public');
-        }
 
         $therapist->fill($request)->save();
 

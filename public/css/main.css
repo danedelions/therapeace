@@ -39,13 +39,12 @@
 
 .texts{
   color: white;
-  padding: 5px;
 }
 
 .description{
   color: white;
   text-align: justify;
-  padding: 5px;
+  font-size: 12pt;
 }
 
 main {
@@ -210,3 +209,7 @@ body {
     letter-spacing: 4px;
 }
 
+.th-image{
+  height: 150px;
+  border-radius: 50px;
+}

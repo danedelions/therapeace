@@ -3,11 +3,11 @@
 @section('page-section')
 
      <div class="col-md-12">
-      {!! Form::model($therapist, array('url'=> route('therapist.update', ['id'=> $therapist->id]),'method'=>'PATCH', 'files'=>true,'role'=>'form')) !!}
+      {!! Form::model($therapist, array('url'=> route('therapist.update', ['id'=> $therapist->id]),'method'=>'PATCH', 'files'=>true,'role'=>'form', 'enctype'=>'multipart/form-data')) !!}
         <legend class="text-center">Update Information</legend>
         <hr>
         <div class="card-body">
-          <input type="file" id="itemImage" name="image" class="form-control">
+            {!! Form::file('image') !!}
           <br>
           <fieldset>  
             <div class="form-row">
