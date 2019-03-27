@@ -9,7 +9,7 @@
          {{ csrf_field() }}
         <h1>Client Registration</h1>
         <hr>
-        <div class="tab form-group">Name
+        <div class="tab form-group">
             <div class="form-group col-md-12">
                 <input placeholder="First name" name="fname" type="text" class="form-control">
             </div>
@@ -103,4 +103,3 @@
     </div>
 </div>
 @endsection
-

@@ -7,7 +7,7 @@
 @include('modals.client')
 
 <div class="row"> <!-- LABEL->col-form-label INPUT-> form-control -->
-	<div class="col-sm-5 col-md-5 col-lg-5">
+	<div class="col-lg-5">
 		<div class="card">
 			<div class="card-header bg-info">
 				<h5>User Information</h5>
@@ -45,9 +45,9 @@
 		</div>
 	</div>
 
-	<div class="col-sm-5 col-md-5 col-lg-7">
+	<div class="col-lg">
 		<div class="card">
-
+			
 			<div class="card-header bg-info">
 				<h5>Sent Requests</h5>
 			</div>
@@ -59,7 +59,12 @@
 							<td><i class="fas fa-user-circle fa-5x"></i></td>
 							<td>You sent a request to <b>{{$row->therapist->fullname}}</b></td>
 							<td>
-								<input type="submit" value="Cancel" class="btn btn-danger" href="#" data-toggle="modal" data-target="#connectModal">
+								<form action="{{route('post.cancelbooking', ['id' => $row->id])}}" method="POST">
+									{{ csrf_field() }}
+                                	{{ method_field('DELETE')}}
+									<input type="submit" value="Cancel" class="btn btn-danger">
+									
+								</form>
 								<input type="submit" value="View" class="btn btn-info" href="#" data-toggle="modal" data-target="#viewConnection">
 							</td>
 						</tr>
@@ -77,7 +82,7 @@
 
 		<div class="card">
 			<div class="card-header bg-info">
-			<h5>Comments and Ratings</h5>
+				<h5>Comments and Ratings</h5>
 			</div>
 			<div class="card-body" style="overflow: scroll; height: 250px;">
 				<table class="table table-default">
@@ -154,7 +159,5 @@
 		</div>
 	</div>
 </div>
-
-
 
 @endsection

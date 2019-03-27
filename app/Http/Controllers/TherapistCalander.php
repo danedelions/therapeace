@@ -88,4 +88,13 @@ class TherapistCalander extends Controller
 
         return redirect()->back()->with('rejectStatus', true);
     }
+
+    public function finishedAppointment(Request $request, BookingRequest $bookingRequest)
+    {
+
+        $endDate = Carbon::parse("{$request->end_date} {$request->end_date_time}");
+
+        $bookingRequest->appointment->end_date->isPast()->update(['status' => 3]);
+
+    }
 }

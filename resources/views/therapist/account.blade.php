@@ -11,7 +11,7 @@
             </div>
             <div class="card-body">
                     <center>
-                        <img src="{{ asset('storage/pictures/{$therapist->image}') }}">
+                        <img class="th-image" src="{{ asset('img/di.png') }}">
                         <br>
                             <div class="col-lg-8"><h4>{{$therapist->therapist}}</h4></div>
                     </center>
@@ -78,7 +78,9 @@
                             @elseif($request->status == 1)
                                 <span class="badge badge-success">Approved</span>  
                             @elseif($request->status == 2)
-                            <span class="badge badge-danger">Rejected</span>  
+                            <span class="badge badge-danger">Rejected</span>
+                            @elseif($request->status ==3)
+                            <span class="badge badge-default">Finished</span>  
                             @endif
                         </td>
                         <td>
@@ -119,7 +121,7 @@
                                 <label class = "full" for="star2" title="2 stars"></label></label>
                                 <input type="radio" id="star1" name="rating" value="1" />
                                 <label class = "full" for="star1" title="1 star"></label></label>
-                                </fieldset>
+                            </fieldset>
                         </td>  
                     </tr>          
                 </thead>

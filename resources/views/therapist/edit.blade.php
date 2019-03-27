@@ -2,12 +2,12 @@
 
 @section('page-section')
 
-      <div class="col-md-12">
-      {!! Form::model($therapist, array('url'=> route('therapist.update', ['id'=> $therapist->id]),'method'=>'PATCH', 'files'=>true,'role'=>'form')) !!}
+     <div class="col-md-12">
+      {!! Form::model($therapist, array('url'=> route('therapist.update', ['id'=> $therapist->id]),'method'=>'PATCH', 'files'=>true,'role'=>'form', 'enctype'=>'multipart/form-data')) !!}
         <legend class="text-center">Update Information</legend>
         <hr>
         <div class="card-body">
-          <input type="file" id="itemImage" name="image" class="form-control">
+            {!! Form::file('image') !!}
           <br>
           <fieldset>  
             <div class="form-row">
@@ -93,7 +93,7 @@
             </div>
           </fieldset>
           <br>
-              <input type="reset" href="/therapist-account" class="btn btn-secondary" value="Cancel">
+              <a class="btn btn-secondary" href="/therapist-account">Cancel</a>
               <button type="submit" class="btn btn-success">Update</button>
         </div> 
         {!! Form::close() !!} 

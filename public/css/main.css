@@ -39,13 +39,12 @@
 
 .texts{
   color: white;
-  padding: 5px;
 }
 
 .description{
   color: white;
   text-align: justify;
-  padding: 5px;
+  font-size: 12pt;
 }
 
 main {
@@ -53,7 +52,7 @@ main {
 }
 
 
-#therapistBg{
+#userBg{
   /*    background-image: url("/img/14.png");
     background-position: absolute;
     background-repeat: no-repeat;
@@ -63,7 +62,7 @@ main {
 
 }
 
-/*css for the therapsit dashboard*/
+/*css for the therapist dashboard*/
  .navbar {
       margin-bottom: 0;
       border-radius: 0;
@@ -117,14 +116,6 @@ main {
 
 /*CLIENT DASHBOARD*/
 
-#clientBg {
-/*    background-image: url("/img/14.png");
-    background-position: absolute;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;*/
-    background-color: #dcdcdc;
-  }
 #transaction a {
     font-weight: bold;
 }
@@ -218,3 +209,7 @@ body {
     letter-spacing: 4px;
 }
 
+.th-image{
+  height: 150px;
+  border-radius: 50px;
+}

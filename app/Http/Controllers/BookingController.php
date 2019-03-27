@@ -44,5 +44,13 @@ class BookingController extends Controller
         $booking->update(['status' => 1]);
         return redirect()->back();
     }
+
+    public function clientDeleteRequest(BookingRequest $booking, $id)
+    {
+        $toDelete = $booking->where('id', $id)->where('client_id', Auth::id())->first();
+        $toDelete->delete();
+
+        return redirect()->back();
+    }
  
 }

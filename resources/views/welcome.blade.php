@@ -38,7 +38,7 @@
                       <p>This is a description for the third slide.</p>
                     </div> -->
                     <div class="slider-caption">
-                        <h1 class="caption">Find the nearest therapist</h1>  
+                        <h1 class="caption" style="font-size: 50px;">Find the nearest therapist</h1>  
                     </div>
                   </div>
                 </div>
