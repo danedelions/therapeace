@@ -11,7 +11,7 @@
             </div>
             <div class="card-body">
                     <center>
-                        <img src="{{ asset('storage/pictures/{$therapist->image}') }}">
+                        <img src="{{ asset('storage/app/public/{$therapist->image}') }}">
                         <br>
                             <div class="col-lg-8"><h4>{{$therapist->therapist}}</h4></div>
                     </center>
@@ -109,6 +109,7 @@
                         <td><label>Client1</label></label></td>
                         <td>
                             <fieldset class="rating">  
+                                
                                 <input type="radio" id="star5" name="rating" value="5" />
                                 <label class = "full" for="star5" title="5 stars"></label></label>
                                 <input type="radio" id="star4" name="rating" value="4" />
@@ -189,3 +190,4 @@
     })
 </script>
 @endpush
+    

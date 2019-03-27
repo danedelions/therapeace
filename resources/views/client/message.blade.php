@@ -6,9 +6,9 @@
 
 @include('modals.client')
 
-<<<<<<< HEAD
+
 <link rel="stylesheet" type="text/css" href="{{ asset('css/chat.css') }}">
-=======
+
 <div class="row"> <!-- 	<div class="row">  --><!-- <div class="col-md-5"> -->
 	<div class="col-sm-5 col-md-5 col-lg-12">
 		<div class="card">
@@ -46,7 +46,7 @@
 		</div>
 	</div>
 </div>
->>>>>>> fad83b139fb9c42f87bc0fbe264a4820203e9d08
+
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>

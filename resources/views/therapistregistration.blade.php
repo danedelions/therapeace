@@ -13,7 +13,7 @@
     <div class="tab">
       <h6>Upload profile picture</h6>
         
-      <input type="file" accept="image/x-png,image/gif,image/jpeg" name="image" id="fileToUpload" class="form-control" data-validation-message="Please gill thois up"> 
+      <input type="file" accept="image/x-png,image/gif,image/jpeg" name="image" id="fileToUpload" class="form-control" data-validation-message="Please fill this up"> 
       <br>
       Name:
       <input placeholder="First name..."  name="fname" class="form-control" ><br>
@@ -30,7 +30,7 @@
   <br>
 
   <div class="tab">Address:
-    <input id="autocomplete" placeholder="Enter Your Address " onfocus="geolocate()" type="text" class="form-control"><br>
+    <input id="autocomplete" placeholder="Enter you Nearest Landmark " onfocus="geolocate()" type="text" class="form-control"><br>
     <input placeholder="Street Address"  name="streetaddress" id="route" class="form-control"><br>
     <input placeholder="Barangay"  name="barangay" id="sublocality" class="form-control"><br>
     <input placeholder="City"  class="form-control" name="city" id="locality"><br>

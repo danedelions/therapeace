@@ -1,9 +1,7 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
 class Clients extends Migration
 {
     /**
@@ -20,15 +18,16 @@ class Clients extends Migration
             $table->string('lname');
             $table->string('contact');
             $table->string('gender');
-            $table->string('barangay');
-            $table->string('street');
-            $table->string('province');
-            $table->integer('postal_code');
-            $table->string('town');
             $table->string('city');
+            $table->string('province');
+            $table->string('res_detail');
+            $table->string('street');
+            $table->string('brgy');
+            $table->string('building');
+            $table->string('landmark');
+            $table->string('address_remarks');
             $table->rememberToken();
             $table->timestamps();
-
            
            
         });
@@ -36,7 +35,6 @@ class Clients extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
-
     /**
      * Reverse the migrations.
      *
