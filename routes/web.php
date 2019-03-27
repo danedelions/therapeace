@@ -35,9 +35,6 @@ Route::resource('client', 'ClientController');
 
 Route::group(['middleware' => 'auth'], function(){
 
-// ADMIN LOG IN
-
-	//Route::get('/admin', 'AdminLoginController@getLogin')->name('get.admin');
 
 	// ADMIN
 
@@ -47,7 +44,7 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/admin-history', 'AdminController@getHistoryView')->name('get.history');
 	Route::get('/admin-reports', 'AdminController@getReportsView')->name('get.reports');
 	Route::patch('/status-update/{user}', 'AdminController@statusUpdate')->name('get.update');
-	Route::get('/admin-mail', 'AdminController@welcome')->name('get.welcome');
+	Route::get('/admin-notice', 'AdminController@notice')->name('get.notice');
     Route::post('{therapist}/accept', 'AcceptTherapistController');	
 
     // THERAPIST

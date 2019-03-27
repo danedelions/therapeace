@@ -17,6 +17,6 @@ class AcceptTherapistController extends Controller
     {
         $therapist->accept();
 
-        return redirect()->back()->with('message', 'Successfully accecpted the therapist!');
+        return redirect()->back()->with('message', 'Successfully accepted the therapist!');
     }
 }

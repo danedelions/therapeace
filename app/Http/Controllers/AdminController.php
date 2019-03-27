@@ -48,26 +48,20 @@ class AdminController extends Controller
     	return view('admin.reports');
     }
 
-    public function welcome(User $user)
+    public function notice(User $user)
     { 
         $to_name = 'TO_NAME';
         $to_email = 'chino.boss31@gmail.com';
-        $data = array('name'=>"Sam Jose", "body" => "Test mail");
+        $data = array('name'=>"Peace keepers", "body" => "Test mail");
             
-        Mail::send('admin.mail', $data, function($message) use ($to_name, $to_email) {
+        Mail::send('admin.notice', $data, function($message) use ($to_name, $to_email) {
             $message->to($to_email, $to_name)
-                    ->subject('Artisans Web Testing Mail');
-            $message->from('therapeacemaker@gmail.com','Artisans Web');
+                    ->subject('Notice of Renewal');
+            $message->from('therapeacemaker@gmail.com','PeaceMakers');
         });
-        // Mail::to($user->email)->send(new NewUserWelcome());
-        // return redirect()->back();
-    }
 
-    // public function notice(User $user)
-    // { 
-    //     Mail::to($user->email)->send(new UserExpiryNotice());
-    //     return redirect()->back();
-    // }
+        return redirect()->back()->with('message', 'Successfully sent mail to therapist!');
+    }
 
     public function statusUpdate(User $user)
     {        

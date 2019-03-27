@@ -43,7 +43,7 @@ class TherapistController extends Controller
                 'email'     => $request->post('email'),
                 'password'  => Hash::make($request->post('password')),
                 'user_type' => 'therapist',
-                'status' => 0
+                'status' => 2
             ]);
 
             $users = User::where('username', $request->post('username'))->get();
