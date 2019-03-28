@@ -11,6 +11,107 @@
 >>>>>>> 07d9cd4fa923939e290ee7f493f60fdb63c7ef35
    <form id="regForm" action="{{ route('therapist.store') }}" method="POST" enctype="multipart/form-data">
   
+<<<<<<< HEAD
+  @csrf
+  <h1>Therapist Registration:</h1>
+  <!-- One "tab" for each step in the form: -->
+    <div class="tab form-group">
+      <h6>Upload profile picture</h6>
+        
+      <input type="file" accept="image/x-png,image/gif,image/jpeg" name="image" id="fileToUpload" class="form-control required" data-validation-message="Please upload picture"> </input>
+      <br>
+      Name:
+      <div class="form-group col-md-12">
+          <input placeholder="First name..."  name="fname" class="form-control required" >
+      </div>
+       <div class="form-group col-md-12">
+          <input placeholder="Last name..."  name="lname" class="form-control required">
+       </div>
+       <div class="form-group col-md-12">
+          <input placeholder="Email"  name="email" class="form-control required">
+        </div>
+      <div class="form-group col-md-12">
+         <input placeholder="Contact Number"  name="number" class="form-control required">
+       </div>
+     <div class="form-group col-md-12">
+          <select id="gender" class="form-control required" name="gender">
+              <option value="">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+          </select>
+    </div>
+    </div>
+  </div>
+
+<div class="tab form-group">Address:
+  <div class="form-group col-md-12">
+    <input id="autocomplete" placeholder="Enter you Nearest Landmark " onfocus="geolocate()" type="text" class="form-control required">
+   </div>
+  <div class="form-group col-md-12">
+    <input placeholder="Street Address"  name="streetaddress" id="route" class="form-control required">
+  </div>
+  <div class="form-group col-md-12">
+    <input placeholder="Barangay"  name="barangay" id="sublocality" class="form-control required">
+  </div>
+  <div class="form-group col-md-12">
+   <input placeholder="City"  class="form-control required" name="city" id="locality">
+ </div>
+  <div class="form-group col-md-12">
+    <input placeholder="Town"  name="town" id="town" class="form-control required">
+  </div>
+  <div class="form-group col-md-12">
+    <input placeholder="Province"  name="province" id="administrative_area_level_2" class="form-control required">
+  </div>
+  <div class="form-group col-md-12">
+    <input placeholder="Postal Code"  name="postal_code" id="postal_code" class="form-control required">
+  </div>
+  <div class="form-group col-md-12">
+    <input placeholder="Country"  name="country" id="country" class="form-control required">
+  </div>
+ 
+    <input name="latitude" name="latitude" id="latitude" type="text" placeholder="Latitude" style="width: 161px;">
+    <input name="longitude" name="longitude" id="longitude" type="text" placeholder="Longitude" style="width: 161px;">
+</div>
+
+ <div class="tab form-group">License:
+   <div class="form-group col-md-12">
+          <select id="gender" class="form-control required" name="gender">
+              <option value="">Select Therapist</option>
+              <option value="Physical Therapis">Physical Therapist</option>
+              <option value="Occupational Therapist">Occupational Therapist</option>
+          </select>
+    </div>
+     <div class="form-group col-md-12">
+          <input placeholder="License Number"  name="license_number" type="number" class="form-control required">
+    </div>
+    <div class="form-group col-md-12">
+          <input class="form-control required" placeholder="Expriry Date"  name="expiry_date" type="date">
+    </div>
+    <div class="form-group col-md-12">
+          <label>License Image</label>
+          <input type="file" name="license_image" id="fileUpload2" class="form-control required">
+    </div>
+    <div class="form-group col-md-12">
+          <label>NBI Imgae</label>
+          <input type="file" name="nbi_image" id="fileUpload3" class="form-control required">
+    </div>
+    <div class="form-group col-md-12">
+          <label>Barangay Clearance Imgae</label>
+         <input type="file" name="bc_image" id="fileUpload4" class="form-control required">
+    </div>
+ </div>
+   <div class="tab form-group">Profile:
+      <div class="form-group col-md-12">
+        <input placeholder="User Name"  name="username" class="form-control required">
+      </div>
+        <div class="form-group col-md-12">
+          <input placeholder="Password"  name="password" type="password" class="form-control required" data-confirmed="re-password">
+        </div>
+         <div class="form-group col-md-12">
+             <input placeholder="Re-type Password"  name="re-password" type="password" class="form-control required">
+        </div>
+    </div>
+=======
     @csrf
     <h1>Therapist Registration</h1>
     <hr>
@@ -72,6 +173,7 @@
         <input name="longitude" name="longitude" id="longitude" type="text" placeholder="Longitude" style="width: 161px;" hidden>
       </div>  
     </div>
+>>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
 
     <div class="tab form-group">License
       <div class="form-group col-md-12">
@@ -159,7 +261,12 @@
       <div class="col-md-12">
         <p style="text-align: justify;">Lorem ipsum dolor sit amet, sea harum delenit in. Ut omnis affert mel. Vel ea tantas labores officiis. Ignota noster elaboraret cum ad. No pri munere vocent interpretaris, ei sea mandamus laboramus tincidunt.
 
+<<<<<<< HEAD
+ <div class="tab form-group">Done:
+    <p>Lorem ipsum dolor sit amet, sea harum delenit in. Ut omnis affert mel. Vel ea tantas labores officiis. Ignota noster elaboraret cum ad. No pri munere vocent interpretaris, ei sea mandamus laboramus tincidunt.
+=======
         Cum magna fuisset sadipscing in. Delenit labores quo ea, et est autem minim copiosae. Ea error utroque omnesque nam, facer tincidunt ut est, quis dicant aliquid ut vel. Cum at possim eleifend. Fuisset consetetur cu eum, scripserit persequeris cu vel.
+>>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
 
         Te graeco imperdiet per, pri ea summo voluptatibus. Fierent voluptua pri ea, nam ex causae audire nominati. Eirmod aliquid gloriatur quo ne. Sed ea petentium philosophia, nibh pericula quaerendum vel at. Homero causae persius cum id. At pri natum error, ei vel dicant nostrud scriptorem.
 
@@ -167,12 +274,20 @@
 
         Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facilis antiopam. Fastidii nominati contentiones duo ea. Has ne corpora albucius voluptaria.</p>
 
+<<<<<<< HEAD
+Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facilis antiopam. Fastidii nominati contentiones duo ea. Has ne corpora albucius voluptaria.</p>
+    <div>
+        <label><input type="checkbox" class="form-control required" style= "width: auto">  </label>I accept the terms and conditions.
+    </div>  
+  </div>
+=======
       </div>
       
        <div class="col-md-4 radio-inline">
         <span><input type="checkbox" style="float: left;">I accept the terms and conditions.</span>
        </div>  
     </div>
+>>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
 
     <div style="overflow:auto;">
       <div style="float:right;">
@@ -202,7 +317,10 @@
         country: 'long_name',
         postal_code: 'short_name'
       };
+<<<<<<< HEAD
+=======
       
+>>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
       function initAutocomplete() {
         // Create the autocomplete object, restricting the search to geographical
         // location types.
@@ -212,18 +330,26 @@
         // When the user selects an address from the dropdown, populate the address
         // fields in the form.
         autocomplete.addListener('place_changed', fillInAddress);
+<<<<<<< HEAD
+=======
      
+>>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
       }
-
       function fillInAddress() {
         // Get the place details from the autocomplete object.
         var place = autocomplete.getPlace();
+<<<<<<< HEAD
+=======
      
+>>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
         for (var component in componentForm) {
           document.getElementById(component).value = '';
           document.getElementById(component).disabled = false;
         }
+<<<<<<< HEAD
+=======
         
+>>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
         // Get each component of the address from the place details
         // and fill the corresponding field on the form.
         for (var i = 0; i < place.address_components.length; i++) {
@@ -233,10 +359,15 @@
             document.getElementById(addressType).value = val;
           }
         }
+<<<<<<< HEAD
+        document.getElementById('latitude').value = place.geometry.location.lat();
+        document.getElementById('longitude').value = place.geometry.location.lng();
+=======
       
         document.getElementById('latitude').value = place.geometry.location.lat();
         document.getElementById('longitude').value = place.geometry.location.lng();
       
+>>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
       }
       google.maps.event.addDomListener(window, "load", initAutocomplete);
       // Bias the autocomplete object to the user's geographical location,
@@ -254,13 +385,20 @@
             });
             autocomplete.setBounds(circle.getBounds());
           });
+<<<<<<< HEAD
+        }
+=======
         
         }
      
+>>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
      }
-
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD85clj7B85QRZPmO6m4Fky0Wi6P0MzVpA&libraries=places&callback=initAutocomplete"
 async defer></script>
 
+<<<<<<< HEAD
 @endsection
+=======
+@endsection
+>>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f

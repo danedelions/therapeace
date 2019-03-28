@@ -102,7 +102,7 @@
             <legend>Specialization</legend>
               <hr>
               <div class="col-md-6">
-                  {!! Form::selectGroup(null, 'specialties[]', $specialties, optional($therapist->specialties)->pluck('name'), ['class' => 'form-control select2', 'multiple' => true]) !!}
+                 {!! Form::selectGroup('Specialties', 't_specialties[]', $specialties, request()->t_specialties, ['class' => 'form-control select2', 'multiple' => true]) !!}
               </div>
             </div>
           </fieldset>

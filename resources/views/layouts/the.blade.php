@@ -15,6 +15,10 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/assets/css/main.min.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/assets/vendors/themify-icons/css/themify-icons.css') }}" />
         <!-- JAVASCRIPT -->
+<<<<<<< HEAD
+        
+=======
+>>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
         <script src="{{ asset('js/jquery-3.3.1.min.js')}}"></script>
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 
@@ -41,11 +45,9 @@
                     tags: true,
                     createTag: function (params) {
                         var term = $.trim(params.term);
-
                         if (term === '') {
                             return null;
                         }
-
                         return {
                             id: term,
                             text: term,

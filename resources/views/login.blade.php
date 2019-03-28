@@ -20,9 +20,15 @@
         <br>
         <div class="container">
             <div class="row">
+<<<<<<< HEAD
+                <div class="col-md-4 col-md-offset-6">
+                    <div class="form-login">
+                        <form class="" action="{{ route('post:login') }}" method="POST">
+=======
                 <div class="col-md-5 col-sm-2">
                     <div class="form-login col-md-12">
                         <form class="form-group" action="{{ route('post:login') }}" method="POST">
+>>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
 
                             {{ csrf_field() }}
                             <h4>Login</h4>
@@ -34,18 +40,36 @@
                                 <input type="text" id="userName" name="username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" placeholder="Username" required/>
                             </div>
                             
+<<<<<<< HEAD
+                            <i class="fas fa-user"></i>
+                            <label class="label">Username</label>   
+                            <input type="text" id="userName" name="username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" data-validation-message="Please fill this up" placeholder="Username" required/>
+
+=======
+>>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
                             @if($errors->any())
                                 <span class="invalid-feedback">
                                     <strong>{{ $errors->first('username') }}</strong>
                                 </span>
                             @endif
 
+<<<<<<< HEAD
+                            </br>
+                            
+                            <i class="fas fa-key"></i>
+                            <label class="label">Password</label>
+                            <input type="password" id="userPassword" name="password" class="form-control input-sm chat-input" data-validation-message="Please fill this up"  placeholder="Password" required/>
+
+                      
+                            <div class="wrapper">
+=======
                             <div class="form-group col-md-12">   
                                 <i class="fas fa-key"></i>
                                 <label class="label">Password</label>
                                 <input type="password" id="userPassword" name="password" class="form-control input-sm chat-input" placeholder="Password" required/>
                             </div>
                             <div class="col-md-12 form-group wrapper">
+>>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
                                 <span class="group-btn"><br></br>   
                                      <a href="/" class="btn btn-outline-danger btn-md">Cancel <i class="fas fa-ban"></i></a>
                                     <button  class="btn btn-outline-success btn-md">Submit <i class="fas fa-sign-in-alt"></i></button>
