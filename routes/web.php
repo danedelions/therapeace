@@ -70,6 +70,9 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/client-message', 'ClientController@clientMessage')->name('get.client-message');
     Route::get('/client-search/', 'ClientController@search')->name('get.client-search');
 
+    //TRANSACTION
+    // Route::get('/client-transaction', 'TransactionController@clientTrans');
+    // Route::get('/therapist-transaction', 'TransactionController@therapistTrans');
 
     //PRINTING
     Route::get('/client-transaction', 'PrintController@clientTrans');

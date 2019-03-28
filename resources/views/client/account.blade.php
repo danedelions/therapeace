@@ -7,10 +7,10 @@
 @include('modals.client')
 
 <div class="row"> <!-- LABEL->col-form-label INPUT-> form-control -->
-	<div class="col-lg-5">
+	<div class="col-md-5">
 		<div class="card">
 			<div class="card-header bg-info">
-				<h5>User Information</h5>
+				User Information
 			</div>
 			<div class="card-body">
 						<div class="form-group row">
@@ -49,7 +49,7 @@
 		<div class="card">
 			
 			<div class="card-header bg-info">
-				<h5>Sent Requests</h5>
+				Sent Requests
 			</div>
 			<div class="card-body" style="overflow: scroll; height: 200px;">
 				<table class="table table-default">
@@ -94,6 +94,7 @@
 		<div class="card">
 			<div class="card-header bg-info">
 				<h5>Therapist's Notes</h5>
+				Comments and Ratings
 			</div>
 			<div class="card-body" style="overflow: scroll; height: 250px;">
 				<table class="table table-default">

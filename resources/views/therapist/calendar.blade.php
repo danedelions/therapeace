@@ -2,31 +2,36 @@
 
 @section('page-section')
 @json($errors->all())
+
 <div class="row">
     <div class="col-md-4">
-        <div class="card  mb-2">
+        <div class="card mb-2">
+            <div class="card-header bg-info">
+                Booking Details
+            </div>
             <div class="card-body">
-                <h3 class="card-title ">Booking Details</h3>
-                    <div class="form-group">
-                        <label for="staticEmail" class="font-weight-bold">Client Name</label>
-                        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ $bookingRequest->client->fullname }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="staticEmail" class="font-weight-bold">Address</label>
-                        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ $bookingRequest->bookingDetails->user_address }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="staticEmail" class="font-weight-bold">Notes</label>
-                        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ $bookingRequest->bookingDetails->notes }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="staticEmail" class="font-weight-bold">Contact</label>
-                        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ $bookingRequest->bookingDetails->contact }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="staticEmail" class="font-weight-bold">Diagnosis</label>
-                        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ $bookingRequest->bookingDetails->diagnosis }}">
-                    </div>
+                <div class="form-group">
+                    <label for="staticEmail" class="font-weight-bold">Client Name</label>
+                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ $bookingRequest->client->fullname }}">
+                </div>
+                <div class="form-group">
+                    <label for="staticEmail" class="font-weight-bold">Address</label>
+                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ $bookingRequest->bookingDetails->user_address }}">
+                </div>
+                <div class="form-group">
+                    <label for="staticEmail" class="font-weight-bold">Notes</label>
+                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ $bookingRequest->bookingDetails->notes }}">
+                </div>
+                <div class="form-group">
+                    <label for="staticEmail" class="font-weight-bold">Contact</label>
+                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ $bookingRequest->bookingDetails->contact }}">
+                </div>
+                <div class="form-group">
+                    <label for="staticEmail" class="font-weight-bold">Diagnosis</label>
+                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ $bookingRequest->bookingDetails->diagnosis }}">
+                    <!-- <div class="form-control">{{ $bookingRequest->bookingDetails->diagnosis }}</div> -->
+                </div>
+
                     <hr>
                 @if($bookingRequest->is('approved') || $bookingRequest->is('pending'))
                 {!! Form::open(['url' => route('therapist.reject.appointment', $bookingRequest), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
@@ -47,8 +52,10 @@
         </div>
         @if(!$bookingRequest->is('rejected'))
         <div class="card">
-            <div class="card-body">
-                <h3 class="card-title ">Set Appointment Details</h3>
+            <div class="card-header bg-info">
+                Set Appointment Details
+            </div>
+                <div class="card-body">
                 @if($bookingRequest->appointment)
                     {!! Form::model($bookingRequest->appointment, ['url' => route('therapist.book.appointment', $bookingRequest)]) !!}
                 @else
@@ -80,7 +87,7 @@
     </div>
     <div class="col-md-8">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header bg-info">
                 Appointment Calendar
             </div>
             <div class="card-body" id="calendar"></div>

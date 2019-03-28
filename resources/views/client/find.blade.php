@@ -1,5 +1,5 @@
 @extends('layouts.cli')
-@include('modals.client',['therapists'=>'therapists'])
+
 @section('page-section')
 <div class="col-md-12">
 	<div class="row">

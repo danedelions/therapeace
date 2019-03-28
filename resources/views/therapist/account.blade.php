@@ -44,6 +44,11 @@
                             <a href="{{url('/therapist-edit/'. $therapist->id )}}"><i class="far fa-edit"></i> Edit</a>
                         </div>
                 </div>
+<div class="row"> <!-- LABEL->col-form-label INPUT-> form-control -->
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-header bg-info">
+                User Information
             </div>
         </div>
 
@@ -123,82 +128,11 @@
                             </div>
                         </div>
                     </div>
-
-                </div>
-
-            </div>
-
-
-    </div>
-</div>
-                    <!-- <div class="row">
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-header bg-info">
-                                    <h5>Ratings</h5>
-                                </div>
-                                <div class="card-body" style="overflow: scroll; height: 250px;">
-                                    <table class="table table-default">
-                                        <thead>   
-                                            <tr>
-                                                <td><label>Client1</label></label></td>
-                                                <td>
-                                                    <fieldset class="rating">  
-                                                        <input type="radio" id="star5" name="rating" value="5" />
-                                                        <label class = "full" for="star5" title="5 stars"></label></label>
-                                                        <input type="radio" id="star4" name="rating" value="4" />
-                                                        <label class = "full" for="star4" title="4 stars"></label></label>
-                                                        <input type="radio" id="star3" name="rating" value="3" />
-                                                        <label class = "full" for="star3" title="3 stars"></label></label>
-                                                        <input type="radio" id="star2" name="rating" value="2" />
-                                                        <label class = "full" for="star2" title="2 stars"></label></label>
-                                                        <input type="radio" id="star1" name="rating" value="1" />
-                                                        <label class = "full" for="star1" title="1 star"></label></label>
-                                                    </fieldset>
-                                                </td>  
-                                            </tr>          
-                                        </thead>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-header bg-info">
-                                    <h5>Ratings</h5>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table table-default">
-                                        <thead>   
-                                            <tr>
-                                                <td><label>Client1</label></label></td>
-                                                <td>
-                                                    <fieldset class="rating">  
-                                                        <input type="radio" id="star5" name="rating" value="5" />
-                                                        <label class = "full" for="star5" title="5 stars"></label></label>
-                                                        <input type="radio" id="star4" name="rating" value="4" />
-                                                        <label class = "full" for="star4" title="4 stars"></label></label>
-                                                        <input type="radio" id="star3" name="rating" value="3" />
-                                                        <label class = "full" for="star3" title="3 stars"></label></label>
-                                                        <input type="radio" id="star2" name="rating" value="2" />
-                                                        <label class = "full" for="star2" title="2 stars"></label></label>
-                                                        <input type="radio" id="star1" name="rating" value="1" />
-                                                        <label class = "full" for="star1" title="1 star"></label></label>
-                                                    </fieldset>
-                                                </td>  
-                                            </tr>          
-                                        </thead>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div> -->
-
+</div>
 
 @endsection
 
