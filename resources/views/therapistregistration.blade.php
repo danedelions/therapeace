@@ -83,7 +83,10 @@
         <input class="form-control" placeholder="Expriry Date"  name="expiry_date" type="date">
       </div>
       <div class="form-group col-md-12">
-        <label>License Imgae</label>
+        <label>License Imgae</label><br>
+        <sub>Front Image</sub>
+        <input type="file" name="license_image" id="fileUpload2" class="form-control">
+        <sub>Back Image</sub>
         <input type="file" name="license_image" id="fileUpload2" class="form-control">
       </div>
       <div class="form-group col-md-12">
@@ -110,7 +113,9 @@
     </div>
 
 
-    <div class="tab form-group">Done
+    <div class="tab form-group">
+      <center><b>Terms and Conditions</b></center>
+      <hr>
       <div class="col-md-12">
         <p style="text-align: justify;">Lorem ipsum dolor sit amet, sea harum delenit in. Ut omnis affert mel. Vel ea tantas labores officiis. Ignota noster elaboraret cum ad. No pri munere vocent interpretaris, ei sea mandamus laboramus tincidunt.
 
@@ -123,10 +128,9 @@
         Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facilis antiopam. Fastidii nominati contentiones duo ea. Has ne corpora albucius voluptaria.</p>
 
       </div>
-      
-       <div class="col-md-4 radio-inline">
-        <span><input type="checkbox" style="float: left;">I accept the terms and conditions.</span>
-       </div>  
+      <hr>
+      <!-- I agree to terms and conditions <input type="checkbox" name=""> -->
+      <div class="form form-group"> <label for="HTML news"> <input type="checkbox" id="html_news" value="html-news" name="user-age" class="form-control"> HTML News </label> </div>
     </div>
 
     <div style="overflow:auto;">

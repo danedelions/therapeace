@@ -11,7 +11,6 @@
         <link rel="stylesheet" type="text/css" href="{{ asset ('css/main.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('fontawesome/css/all.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/full-slider.css') }}" >
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/login.css') }}">
      <!--    <link rel="stylesheet" type="text/css" href="{{ asset('css/client.css') }}"> -->
         <link rel="stylesheet" type="text/css" href="css/client.css">
         <script src="{{ asset('jquery/jquery.min.js') }}"></script>

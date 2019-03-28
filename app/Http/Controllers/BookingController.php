@@ -16,6 +16,7 @@ class BookingController extends Controller
     {
     	$therapist = Therapist::ofUser($id)->first();
     	$client = Client::ofUser(Auth::id())->first();
+
         return view('client.book', compact('therapist','client'));
     }
 

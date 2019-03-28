@@ -84,12 +84,16 @@ class ClientController extends Controller
         $specialties = Specialty::select('name')->pluck('name', 'name');
         return view('client.find', compact('therapists', 'specialties'));
     }
-    public function clientAccount()
+    public function clientAccount(BookingRequest $bookings)
     {
         $client = Client::whereUserId(Auth::id())->with('user')->first();
-        $bookings = $client->booking()->with('client')->where('status', 0)->get(); //unsure about here//
+        $client->load([
+            'booking',
+            'booking.therapist.user',
+            'booking.bookingDetails'
+        ]);
 
-        return view('client.account', compact('client','bookings'));
+        return view('client.account', compact('client'));
     }
     public function edit($userId)
     {

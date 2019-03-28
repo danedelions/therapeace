@@ -70,8 +70,12 @@
             </div>
             <div class="form-row">
               <div class="col-md-6">
-                <label>License Image</label>
-              <input type="file" id="itemImage" name="license_image" class="form-control">
+                <label>License Image (Front)</label>
+                  <input type="file" id="itemImage" name="license_image" class="form-control">
+              </div>
+              <div class="col-md-6">
+                <label>License Image (Back)</label>
+                  <input type="file" id="itemImage"  class="form-control">
               </div>
             </div>
           </fieldset>
@@ -82,6 +86,16 @@
               <hr>
               <div class="col-md-6">
                   {!! Form::inputGroup('text', 'Username', 'username', Auth::user()->username, ['placeholder' => 'User Name']) !!}
+              </div>
+              <div class="col-md-6 form-group">
+                <label>Personal Rate</label>
+                  <input type="number" name="rate" placeholder="Personal Rate" class="form-control">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-12">
+                <label>Bio</label>
+                  <textarea class="form-control" rows="2" placeholder="Enter short bio here" maxlength="150"></textarea>
               </div>
             </div>
             <div class="form-row">

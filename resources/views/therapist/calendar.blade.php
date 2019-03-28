@@ -39,6 +39,10 @@
                     </p>
                 </div>
                 @endif
+                <div class="form-group">
+                   <button type="submit" class="btn btn-info btn-block">Discharge</button> 
+                </div>
+                
             </div>
         </div>
         @if(!$bookingRequest->is('rejected'))
