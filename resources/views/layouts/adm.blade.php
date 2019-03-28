@@ -20,6 +20,7 @@
     <!-- THEME STYLES-->
     <link href="dist/assets/css/main.min.css" rel="stylesheet" />
     <!-- PAGE LEVEL STYLES-->
+    <link rel="stylesheet" type="text/css" href="public/css/admin.css">
 
     <!-- Data Tables -->
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
@@ -74,9 +75,6 @@
     <script type="text/javascript">
         $(document).ready(function(){
 
-            // $('#viewModalc').on('show.bs.modal', fucntion(e){
-            //     var view = $(e.relatedTarget).data('id');            // })
-
             // $(function () {
             //         $("#viewModalc").click(function () {
             //             var my_id_value = $(this).data('id');
@@ -95,26 +93,14 @@
                 // })
             })
 
-            // $('#userTable').DataTable( {
-            //         "processing": true,
-            //         "serverSide": true,
-            //         "ajax": {
-            //             "url": "{{route('dataProcessing')}}",
-            //             "dataType": "json",
-            //             "type":"POST",
-            //             "data":{"_token":"{{ csrf_token() }}"}
-            //         },
-            //         "columns":[
-            //             {"data":"id"},
-            //             {"data":"username"},
-            //             {"data":"email"},
-            //             {"data":"user_type"},
-            //             {"data":"status"},
-            //             {"data":"action", "searchable":false,"orderable":false}
-            //         ]
 
-            //     } );
+            $('.accept-therapist').click(function(e) {
+                e.preventDefault();
 
+                if(confirm('Are you sure?')){
+                    $(this).siblings('form:first').submit();
+                }
+            })
 
         });
     </script>

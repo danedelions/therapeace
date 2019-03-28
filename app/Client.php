@@ -6,28 +6,35 @@ use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
-        protected $fillable = [
+    protected $fillable = [
         'user_id',
         'fname',
         'lname',
         'contact',
         'gender',
-        'street',
-        'barangay',
-        'town',
-        'province',
         'city',
-        'postal_code',
+        'province',
+        'street',
+        'res_detail',
+        'brgy',
+        'building',
+        'landmark',
+        'address_remarks',
+
     ] ;
+
+    protected $appends = [
+        'fullName'
+    ];
 
     public function user()
     {
-    	return $this->belongsTo('App\User', 'user_id');
+        return $this->belongsTo('App\User', 'user_id');
     }
-    
+
     public function scopeOfUser($query, $userId)
     {
-    	return $query->where('user_id', $userId);
+        return $query->where('user_id', $userId);
     }
 
     public function booking()
@@ -47,7 +54,6 @@ class Client extends Model
 
     public function getAddressAttribute()
     {
-        return "{$this->street}, {$this->town}, {$this->barangay}, {$this->city}, {$this->province}, {$this->postal_code}, {$this->country}";
+        return "{$this->res_detail} {$this->building} {$this->street} {$this->brgy} {$this->city} {$this->province} {$this->landmark} {$this->address_remarks} ";
     }
-
 }

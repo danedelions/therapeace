@@ -1,0 +1,27 @@
+body {
+	background-image: url("/img/20.JPG");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+/*.bg {
+	background-image: url("/img/20.JPG");
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+*/
+.paragraph {
+	font-weight: bold;
+	font-size: 40pt;
+	padding: 2em;
+}
+
+.text {
+	text-align: center;
+}

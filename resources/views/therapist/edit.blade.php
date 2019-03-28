@@ -2,12 +2,12 @@
 
 @section('page-section')
 
-      <div class="col-md-12">
-      {!! Form::model($therapist, array('url'=> route('therapist.update', ['id'=> $therapist->id]),'method'=>'PATCH', 'files'=>true,'role'=>'form')) !!}
+     <div class="col-md-12">
+      {!! Form::model($therapist, array('url'=> route('therapist.update', ['id'=> $therapist->id]),'method'=>'PATCH', 'files'=>true,'role'=>'form', 'enctype'=>'multipart/form-data')) !!}
         <legend class="text-center">Update Information</legend>
         <hr>
         <div class="card-body">
-          <input type="file" id="itemImage" name="image" class="form-control">
+            {!! Form::file('image') !!}
           <br>
           <fieldset>  
             <div class="form-row">
@@ -46,9 +46,6 @@
             </div>
             <div class="form-row">
               <div class="col-md-6">
-                  {!! Form::inputGroup('text', 'Town', 'town', null, ['placeholder' => 'Town']) !!}
-              </div>
-              <div class="col-md-6">
                    {!! Form::inputGroup('text', 'Province', 'province', null, ['placeholder' => 'Province']) !!}
               </div>
 
@@ -73,8 +70,12 @@
             </div>
             <div class="form-row">
               <div class="col-md-6">
-                <label>License Image</label>
-              <input type="file" id="itemImage" name="license_image" class="form-control">
+                <label>License Image (Front)</label>
+                  <input type="file" id="itemImage" name="license_image" class="form-control">
+              </div>
+              <div class="col-md-6">
+                <label>License Image (Back)</label>
+                  <input type="file" id="itemImage"  class="form-control">
               </div>
             </div>
           </fieldset>
@@ -86,6 +87,16 @@
               <div class="col-md-6">
                   {!! Form::inputGroup('text', 'Username', 'username', Auth::user()->username, ['placeholder' => 'User Name']) !!}
               </div>
+              <div class="col-md-6 form-group">
+                <label>Personal Rate</label>
+                  <input type="number" name="rate" placeholder="Personal Rate" class="form-control">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-12">
+                <label>Bio</label>
+                  <textarea class="form-control" rows="2" placeholder="Enter short bio here" maxlength="150"></textarea>
+              </div>
             </div>
             <div class="form-row">
             <legend>Specialization</legend>
@@ -96,7 +107,7 @@
             </div>
           </fieldset>
           <br>
-              <input type="reset" href="/therapist-account" class="btn btn-secondary" value="Cancel">
+              <a class="btn btn-secondary" href="/therapist-account">Cancel</a>
               <button type="submit" class="btn btn-success">Update</button>
         </div> 
         {!! Form::close() !!} 

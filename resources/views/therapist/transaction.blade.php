@@ -51,16 +51,8 @@
 				<div class="col-sm-5 col-md-5 col-lg-10">
 					<div class="card">
 						<div class="card-header">
-							<h5 class="mb-0">THERAPY INVOICE 
-								<a class="btnprn btn" href="{{ url('/printtherapist') }}"><i class="fas fa-print"></i></a>		
-							</h5>
+							<h5 class="mb-0">THERAPY INVOICE</h5>
 						</div>
-
-						<script type="text/javascript">
-						     $(document).ready(function(){
-						              $('.btnprn').printPage();
-						     });
-						</script>
 
 						<div class="card-body" id="transaction">
 							<div class="row">
@@ -96,7 +88,7 @@
 								</div>
 								<div class="col-6 col-md-4">
 								  		<label class="control-label">Therapist: </label>
-										<a>{{ $therapist->fname }} {{ $therapist->lname }}</a>
+										<a></a>
 								</div>
 							</div>
 

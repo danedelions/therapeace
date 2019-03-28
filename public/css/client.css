@@ -1,4 +1,3 @@
-<style>
 * {
   box-sizing: border-box;
 }
@@ -12,8 +11,6 @@ body {
   margin: 100px auto;
   font-family: Arial;
   padding: 40px;
-  width: 70%;
-  min-width: 300px;
 }
 
 h1 {
@@ -23,9 +20,9 @@ h1 {
 input {
   padding: 10px;
   width: 100%;
-  font-size: 17px;
-  font-family: Raleway;
-  border: 1px solid #aaaaaa;
+  font-size: 10px;
+  font-family: Arial;
+  
 }
 
 /* Mark input boxes that gets an error on validation: */
@@ -76,7 +73,3 @@ button:hover {
 .step.finish {
   background-color: #4CAF50;
 }
-
-
-
-</style>

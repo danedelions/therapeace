@@ -16,6 +16,7 @@ class BookingController extends Controller
     {
     	$therapist = Therapist::ofUser($id)->first();
     	$client = Client::ofUser(Auth::id())->first();
+
         return view('client.book', compact('therapist','client'));
     }
 
@@ -42,6 +43,14 @@ class BookingController extends Controller
     public function approveRequest(BookingRequest $booking)
     {
         $booking->update(['status' => 1]);
+        return redirect()->back();
+    }
+
+    public function clientDeleteRequest(BookingRequest $booking, $id)
+    {
+        $toDelete = $booking->where('id', $id)->where('client_id', Auth::id())->first();
+        $toDelete->delete();
+
         return redirect()->back();
     }
  

@@ -1,65 +1,73 @@
 @extends('layouts.cli')
-@include('modals.client',['therapists'=>'therapists'])
+
 @section('page-section')
+<div class="col-md-12">
 	<div class="row">
 		<div class="col-sm-4 col-md-4 col-lg-4">
 			<div class="card">
 				<div class="card-header">
-					<h5>Search</h5>
+					<h6>Search a nearby therapist</h6>
 				</div>
 				<div class="card-body">
 						{!!Form::open(['method'=>'GET','url'=> url()->current(),'class'=>'navbar-form navbar-left','role'=>'search'])  !!}
 							<div class="form-group col-md-12">
 								{!! Form::inputGroup('text', 'Location', 'location', request()->location, ['placeholder' => 'Your Location here...', 'id'=>'searchTextField'])  !!}
 							</div>
-							<div class="form-group col-md-12">
-								{!! Form::inputGroup('number', 'Search Radius', 'radius', request()->radius, ['placeholder' => 'Search Radius', 'id'=>'radius'])  !!}
+							<div class="form-row col-md-12">
+								<div class="form-group col-md-6">
+									{!! Form::inputGroup('number', 'Search Radius', 'radius', request()->radius, ['id'=>'radius', 'min' => '5', 'max' => '20', 'step' => '5'])  !!}
+								</div>
+								<div class="form-group col-md-6">
+									{!! Form::inputGroup('number', 'Rate /hr', 'rate', 'rate', ['placeholder' => 'Rate', 'id'=>'radius', 'min' => '5', 'max' => '20', 'step' => '5'])  !!}
+								</div>
 							</div>
 							<div class="form-group col-md-12">
 								<label>Therapist Type</label>
-								{!! Form::select('therapist', array_combine(['Physical Therapist', 'Occupational Therapist'], ['Physical Therapist', 'Occupational Therapist']), request()->therapist,['id'=>'q']) !!}
+								{!! Form::select('therapist', array_combine([null,'Physical Therapist', 'Occupational Therapist'], ['SELECT TYPE','Physical Therapist', 'Occupational Therapist']), request()->therapist,['id'=>'q']) !!}
 							</div>
 							<div class="form-group col-md-12">
-							{!! Form::selectGroup('Specialties', 't_specialties[]', $specialties, request()->t_specialties, ['class' => 'form-control select2', 'multiple' => true]) !!}
+								{!! Form::selectGroup('Specialties', 't_specialties[]', $specialties, request()->t_specialties, ['class' => 'form-control select2', 'multiple' => true]) !!}
 							</div>
 							<div class="form-group col-md-12">
 								<input name="latitude" class="MapLat" value="" type="hidden" placeholder="Latitude" style="width: 161px;" id="lat1" >
 								<input name="longitude" class="MapLon" value="" type="hidden" placeholder="Longitude" style="width: 161px;" id="long1" >
 							</div>
-							<div class="card-footer col-md-12">
-								<button class="btn btn-default" type="submit">
+							<div class="form-group col-md-12">
+								<button class="btn btn-sm btn-success" type="submit">
 					           		 <i class="fa fa-search"></i> Submit
 					    		</button>
 							</div>
+								
 						{!! Form::close() !!}
 				</div>
 			</div>
 		</div>
 
-			<div class="col-sm-4 col-md-8 col-lg-8">
-				<div class="card bg-success mb-3">
-					<div class="card-header">
-						<h5>Who's Nearby</h5>
-					</div>
-					<div class="card-body" style=" height: 400px;">
-						<div class="row">
-							<div class="col-md-12">
-								<div id="map"></div>
-							</div>
+		<div class="col-sm-4 col-md-8 col-lg-8">
+			<div class="card bg-success mb-3">
+				<div class="card-header">
+					<h5>Who's Nearby</h5>
+				</div>
+				<div class="card-body" style=" height: 400px;">
+					<div class="row">
+						<div class="col-md-12">
+							<div id="map"></div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 	</div>
 
-	<div class="col-sm-6 col-md-12 col-lg-12">
+	<div class="row">
+	<div class="col-sm-12 col-md-12 col-lg-12">
 		<div class="card">
 			<div class="card-header bg-info">
 			<h5>Therapists Found...</h5>
 			</div>
 			<div class="card-body" style="overflow-y: hidden; overflow-x: scroll;">
 				<table>
-					<tr>
+					<tr id="container-t">
 						@foreach($therapists as $data)
 						<td>
 						<div class="card therapist-card" style="width: 20em; padding: 5px;">
@@ -68,11 +76,15 @@
 							<div class="card-body">
 								<h4>{{$data->fullName}}</h4>
 								<h5 style="font-size: 8pt;">{{$data->therapist}}</h5>
+								<!-- <span><h5 style="font-size: 8pt;">{{!! optional($data->specialties)->pluck('name')->implode('</h5><h5 style="font-size: 8pt">') !!}}</h5></span> -->
+								<h6><span class="badge badge-default ml-1"> {!! optional($data->specialties)->pluck('name')->implode('</span ><span class="badge badge-default ml-1">') !!}</span></h6>
 								<input type="hidden" data-long="{{ $data->longitude }}" />
 								<input type="hidden" data-lat="{{$data->latitude}}" />
-								<h6 data-distance>Distance:</h6>
+								<span><h6 data-distance name="distance">Distance:</h6></span>
 
 								<a href='{{url("/booktherapist/{$data->id}")}}' class="btn btn-sm btn-success">Book</a>
+								<a href='#' class="btn btn-sm btn-info">View</a>
+
 							</div>									
 						</center>
 						</div>
@@ -83,14 +95,15 @@
 			</div>
 		</div>    	
 	</div>
-
+	</div>
+</div>
 <br>
 
 <script>
 	var infoWindow = null,
 		map = null,
 		marker = null,
-		radius = {{ request()->radius ?: 'null' }},
+		radius = {{ request()->radius ?: 10 }},
 		currentLat = {{ request()->latitude ?: 'null' }},
 		currentLong = {{ request()->longitude ?: 'null' }};
 
@@ -185,20 +198,31 @@
 		function findNearestTherapist() {
 			$('.therapist-card').each(function () {
 					var card = $(this);
+
 					card.find('[data-distance]').text(function () {
 						var distance =  distanceCalculator({
 							lng: card.find('[data-long]').data('long'),
 							lat: card.find('[data-lat]').data('lat')
 						});
+						card.attr('data-distance', distance)
 						if(distance > radius){
 							card.addClass('hidden');
 						}else{
 							card.removeClass('hidden');
 						}
-						console.log(distance)
-						return distance+ " km";
+						// var sortedDist = $card.sort(distance);
+						// console.log(sortedDist)
+						return distance+ " km away";
 					})
 				})
+			var elements = []
+			$('.therapist-card:not(.hidden)').parent().each(function () {
+				elements.push($(this))
+			})
+			 $('#container-t').html(function () {
+			 	return elements.sort((a,b) => $(a).find('.therapist-card').data('distance') - $(b).find('.therapist-card').data('distance'))
+			 })
+			
 		}
         
         function moveMarker(placeName, latlng) {

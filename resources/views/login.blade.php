@@ -8,61 +8,52 @@
         
         <link rel="icon" href="img/logo.png" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="css/main.css">
-        <link href="css/full-slider.css" rel="stylesheet">
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/login.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
-
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+      
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/bootstrap.bundle.js"></script>
         <script src="jquery/jquery.min.js"></script>
-        <script src="https://unpkg.com/popper.js@1.14.3/dist/umd/popper.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <!------ Include the above in your HEAD tag ---------->
-
-
-        <link rel="stylesheet" type="text/css" href="css/login.css">
         
-
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
     </head>
 
     <body background="img/bg.jpg" id="batay">
         <br>
         <div class="container">
             <div class="row">
+<<<<<<< HEAD
                 <div class="col-md-4 col-md-offset-6">
                     <div class="form-login">
                         <form class="" action="{{ route('post:login') }}" method="POST">
+=======
+                <div class="col-md-5 col-sm-2">
+                    <div class="form-login col-md-12">
+                        <form class="form-group" action="{{ route('post:login') }}" method="POST">
+>>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
 
                             {{ csrf_field() }}
-                        <h4>Login</h4>
+                            <h4>Login</h4>
+                            <hr>    
                             <br>
+                            <div class="form-group col-md-12">
+                                <i class="fas fa-user"></i>
+                                <label class="label">Username</label>   
+                                <input type="text" id="userName" name="username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" placeholder="Username" required/>
+                            </div>
                             
+<<<<<<< HEAD
                             <i class="fas fa-user"></i>
                             <label class="label">Username</label>   
                             <input type="text" id="userName" name="username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" data-validation-message="Please fill this up" placeholder="Username" required/>
 
+=======
+>>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
                             @if($errors->any())
                                 <span class="invalid-feedback">
                                     <strong>{{ $errors->first('username') }}</strong>
                                 </span>
                             @endif
 
+<<<<<<< HEAD
                             </br>
                             
                             <i class="fas fa-key"></i>
@@ -71,11 +62,25 @@
 
                       
                             <div class="wrapper">
+=======
+                            <div class="form-group col-md-12">   
+                                <i class="fas fa-key"></i>
+                                <label class="label">Password</label>
+                                <input type="password" id="userPassword" name="password" class="form-control input-sm chat-input" placeholder="Password" required/>
+                            </div>
+                            
+                            <div class="col-md-12 form-group">   
+                                    <span class="psw">Forgot <a href="#">password?</a></span>
+                            </div>
+                            
+                            <div class="col-md-12 form-group wrapper">
+>>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
                                 <span class="group-btn"><br></br>   
-                                     <a href="/" class="btn btn-outline-success btn-md">Cancel <i class="fas fa-ban"></i></a>
+                                     <a href="/" class="btn btn-outline-danger btn-md">Cancel <i class="fas fa-ban"></i></a>
                                     <button  class="btn btn-outline-success btn-md">Submit <i class="fas fa-sign-in-alt"></i></button>
                                 </span>
                             </div>
+
                         </form>
                     </div>
                 </div>

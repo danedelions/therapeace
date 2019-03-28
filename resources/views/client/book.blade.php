@@ -16,10 +16,9 @@
 					<hr>	
 						<label><b>Name: </b>{{$therapist->fullName}}</label><br>
 						<label><b>Gender: </b>{{$therapist->gender}}</label><br>
-						<label><b>Email: </b>{{$therapist->user->email}}</label><br>
 						<label><b>Contact #: </b>{{$therapist->contact}}</label><br>
 						<label><b>Address: </b>{{$therapist->address}}</label><br>
-						<label><b>Specializations:</b></label><br>
+						<label><b>Specializations: </b><h6><span class="badge badge-default ml-1"> {!! optional($therapist->specialties)->pluck('name')->implode('</span ><span class="badge badge-default ml-1">') !!}</span></h6></label><br>
 				</div>
 			</div>
 		</div>
@@ -29,8 +28,16 @@
 					Your Details
 				</div>
 				<div class="card-body">
-					<form method="POST" action="{{url('/doBookTherapist/')}}">
+					<form method="POST" action="{{url('/doBookTherapist/')}}" enctype="multipart/form-data">
 						{{csrf_field()}}
+						<div class="form-row">
+							<div class="form-group col-md-4">
+						     	<label for="inputPatient"><b>Are you the patient?</b></label>
+						     	<br>
+						     	<input type="radio" name="patient" value = "1"> Yes <br>
+						     	<input type="radio" name="patient" value = "0"> No <br>
+						    </div>
+						</div>
 					  <div class="form-row">
 					    <div class="form-group col-md-6">
 					     	<label for="inputEmail4"><b>Name</b></label>
@@ -59,7 +66,9 @@
 									<label for="inputAddress">What's your diagnosis?</label>
 								</div>
 								<div class="card-body">
-									<textarea class="form-control" rows="4" name="diagnosis"></textarea>
+									<input type="text" name="diagnosis" class="form-control" placeholder="What's your diagnosis?">
+									<br>
+									<input type="file" accept="image/x-png,image/gif,image/jpeg" name="referral" id="fileToUpload" class="form-control"> 
 								</div>
 							</div>
 						</div>

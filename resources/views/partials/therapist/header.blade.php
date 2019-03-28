@@ -9,10 +9,6 @@
 
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav ml-auto"> <!-- ml-auto (navbar items on the right side)-->
-        <li class="nav-item active">
-          <a class="nav-link" href="/therapist-appoint"><i class="fas fa-search"></i> Appoint</a>
-        </li>
-        
         <li class="nav-item">
           <a class="nav-link" href="/therapist-account"><i class="fas fa-user"></i> Account</a>
         </li>

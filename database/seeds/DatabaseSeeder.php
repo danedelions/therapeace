@@ -18,10 +18,17 @@ class DatabaseSeeder extends Seeder
 
         DB::table('users')->insert([
         	'username' => 'peaceadmin',
-            'email' => 'therapeace@gmail.com',
-            'password' =>bcrypt('12345'),
+            'email' => 'therapeacemaker@gmail.com',
+            'password' =>bcrypt('peacemaker'),
             'user_type' => 'admin',
             'status' => '0',
+
+        ]);
+
+        factory(App\User::class,0)->create();
+        factory(App\Client::class,5)->create();
+        factory(App\Therapist::class,5)->create();
+
 
         ]);
 
@@ -30,7 +37,6 @@ class DatabaseSeeder extends Seeder
         //factory(App\Therapist::class,5)->create();
 
         // factory(App\Client::class,5)->create();
-
     }
 }
 
