@@ -125,8 +125,6 @@ class TherapistController extends Controller
         if(isset($request['image'])) {
             $image = request()->file('image')->move("pictures/{$users[0]['username']}", 'public');
         }
->>>>>>> 07d9cd4fa923939e290ee7f493f60fdb63c7ef35
-
 
         $therapist->fill($request)->save();
         
