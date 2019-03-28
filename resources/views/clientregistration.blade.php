@@ -23,7 +23,7 @@
             </div>
             <div class="form-group col-md-12">
             <select id="gender" class="form-control required" name="gender">
-              <option value="">Select Gende</option>
+              <option value="">Select Gender</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
           </select>

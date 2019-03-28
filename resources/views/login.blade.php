@@ -69,15 +69,7 @@
                             <label class="label">Password</label>
                             <input type="password" id="userPassword" name="password" class="form-control input-sm chat-input" data-validation-message="Please fill this up"  placeholder="Password" required/>
 
-                            </br>
-
-                            <label>
-                            <input id="checki" type="checkbox" checked="checked" name="remember"> Remember me</label>
-
-                            <br>
-                            
-                            <span class="psw">Forgot <a href="#">password?</a></span>
-                            
+                      
                             <div class="wrapper">
                                 <span class="group-btn"><br></br>   
                                      <a href="/" class="btn btn-outline-success btn-md">Cancel <i class="fas fa-ban"></i></a>
