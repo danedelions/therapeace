@@ -12,12 +12,9 @@
         <!-- font awesome -->
 
         <!-- THEME STYLES-->
-        <link href="dist/assets/css/main.min.css" rel="stylesheet"/> 
-        <link href="dist/assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet"/>
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/assets/css/main.min.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/assets/vendors/themify-icons/css/themify-icons.css') }}" />
         <!-- JAVASCRIPT -->
-        
         <script src="{{ asset('js/jquery-3.3.1.min.js')}}"></script>
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 

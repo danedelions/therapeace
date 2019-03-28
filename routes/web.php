@@ -35,10 +35,6 @@ Route::resource('client', 'ClientController');
 
 Route::group(['middleware' => 'auth'], function(){
 
-// ADMIN LOG IN
-
-	//Route::get('/admin', 'AdminLoginController@getLogin')->name('get.admin');
-
 	// ADMIN
 
 	Route::get('/admin-dashboard', 'AdminController@getDashboard')->name('get.dashboard');
@@ -75,14 +71,20 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/client-search/', 'ClientController@search')->name('get.client-search');
 
     //TRANSACTION
-    Route::get('/client-transaction', 'TransactionController@clientTrans');
-    Route::get('/therapist-transaction', 'TransactionController@therapistTrans');
+    // Route::get('/client-transaction', 'TransactionController@clientTrans');
+    // Route::get('/therapist-transaction', 'TransactionController@therapistTrans');
+
+    //PRINTING
+    Route::get('/client-transaction', 'PrintController@clientTrans');
+    Route::get('/printclient', 'PrintController@printclient');
+    Route::get('/therapist-transaction', 'PrintController@therapistTrans');
+    Route::get('/printtherapist', 'PrintController@printtherapist');
 
     //BOOKING
 
     Route::get('/booktherapist/{id}', 'BookingController@index')->name('get.booktherapist');
     Route::post('/doBookTherapist/', 'BookingController@submitDetails')->name('post.doBook');
-
+    Route::delete('/deleteBooking/{id}','BookingController@clientDeleteRequest')->name('post.cancelbooking');
     
 });
 

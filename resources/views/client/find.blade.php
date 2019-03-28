@@ -23,7 +23,7 @@
 							</div>
 							<div class="form-group col-md-12">
 								<label>Therapist Type</label>
-								{!! Form::select('therapist', array_combine(['Physical Therapist', 'Occupational Therapist'], ['Physical Therapist', 'Occupational Therapist']), request()->therapist,['id'=>'q']) !!}
+								{!! Form::select('therapist', array_combine([null,'Physical Therapist', 'Occupational Therapist'], ['SELECT TYPE','Physical Therapist', 'Occupational Therapist']), request()->therapist,['id'=>'q']) !!}
 							</div>
 							<div class="form-group col-md-12">
 								{!! Form::selectGroup('Specialties', 't_specialties[]', $specialties, request()->t_specialties, ['class' => 'form-control select2', 'multiple' => true]) !!}
@@ -101,7 +101,7 @@
 	var infoWindow = null,
 		map = null,
 		marker = null,
-		radius = {{ request()->radius ?: 5 }},
+		radius = {{ request()->radius ?: 10 }},
 		currentLat = {{ request()->latitude ?: 'null' }},
 		currentLong = {{ request()->longitude ?: 'null' }};
 
