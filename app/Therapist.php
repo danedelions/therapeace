@@ -25,6 +25,9 @@ class Therapist extends Model
         'nbi_image',
         'bc_image'
     ] ;
+    protected $appends = [
+        'photo_url'
+    ];
     /**
      * 
      */

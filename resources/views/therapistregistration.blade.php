@@ -9,63 +9,105 @@
   @csrf
   <h1>Therapist Registration:</h1>
   <!-- One "tab" for each step in the form: -->
-
-    <div class="tab">
+    <div class="tab form-group">
       <h6>Upload profile picture</h6>
         
-      <input type="file" accept="image/x-png,image/gif,image/jpeg" name="image" id="fileToUpload" class="form-control" data-validation-message="Please fill this up"> 
+      <input type="file" accept="image/x-png,image/gif,image/jpeg" name="image" id="fileToUpload" class="form-control required" data-validation-message="Please upload picture"> </input>
       <br>
       Name:
-      <input placeholder="First name..."  name="fname" class="form-control" ><br>
-      <input placeholder="Last name..."  name="lname" class="form-control"><br>
-      <input placeholder="Email"  name="email" class="form-control"><br>
-      <input placeholder="Contact Number"  name="number" class="form-control"><br>
-          <select id="gender" class="form-control" name="gender">
-              <option value="">SELECT GENDER</option>
+      <div class="form-group col-md-12">
+          <input placeholder="First name..."  name="fname" class="form-control required" >
+      </div>
+       <div class="form-group col-md-12">
+          <input placeholder="Last name..."  name="lname" class="form-control required">
+       </div>
+       <div class="form-group col-md-12">
+          <input placeholder="Email"  name="email" class="form-control required">
+        </div>
+      <div class="form-group col-md-12">
+         <input placeholder="Contact Number"  name="number" class="form-control required">
+       </div>
+     <div class="form-group col-md-12">
+          <select id="gender" class="form-control required" name="gender">
+              <option value="">Select Gender</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
           </select>
-  
     </div>
-  <br>
+    </div>
+  </div>
 
-  <div class="tab">Address:
-    <input id="autocomplete" placeholder="Enter you Nearest Landmark " onfocus="geolocate()" type="text" class="form-control"><br>
-    <input placeholder="Street Address"  name="streetaddress" id="route" class="form-control"><br>
-    <input placeholder="Barangay"  name="barangay" id="sublocality" class="form-control"><br>
-    <input placeholder="City"  class="form-control" name="city" id="locality"><br>
-    <input placeholder="Town"  name="town" id="town" class="form-control"><br>
-    <input placeholder="Province"  name="province" id="administrative_area_level_2" class="form-control"><br>
-    <input placeholder="Postal Code"  name="postal_code" id="postal_code" class="form-control"><br>
-    <input placeholder="Country"  name="country" id="country" class="form-control"><br>
+<div class="tab form-group">Address:
+  <div class="form-group col-md-12">
+    <input id="autocomplete" placeholder="Enter you Nearest Landmark " onfocus="geolocate()" type="text" class="form-control required">
+   </div>
+  <div class="form-group col-md-12">
+    <input placeholder="Street Address"  name="streetaddress" id="route" class="form-control required">
+  </div>
+  <div class="form-group col-md-12">
+    <input placeholder="Barangay"  name="barangay" id="sublocality" class="form-control required">
+  </div>
+  <div class="form-group col-md-12">
+   <input placeholder="City"  class="form-control required" name="city" id="locality">
+ </div>
+  <div class="form-group col-md-12">
+    <input placeholder="Town"  name="town" id="town" class="form-control required">
+  </div>
+  <div class="form-group col-md-12">
+    <input placeholder="Province"  name="province" id="administrative_area_level_2" class="form-control required">
+  </div>
+  <div class="form-group col-md-12">
+    <input placeholder="Postal Code"  name="postal_code" id="postal_code" class="form-control required">
+  </div>
+  <div class="form-group col-md-12">
+    <input placeholder="Country"  name="country" id="country" class="form-control required">
+  </div>
+ 
     <input name="latitude" name="latitude" id="latitude" type="text" placeholder="Latitude" style="width: 161px;">
     <input name="longitude" name="longitude" id="longitude" type="text" placeholder="Longitude" style="width: 161px;">
-  </div>
+</div>
 
-  <div class="tab">License:
-    <br><br>
-    <select select class="form-control select2" name="therapist" class="form-control">
-       <option value="Physical Therapist" style="width:250px">Physical Therapist</option>
-       <option value="Occupational Therapist" style="width:250px">Occupational therapy</option>
-    </select><br>
-      <input placeholder="License Number"  name="license_number" type="number" class="form-control"><br>
-      <input class="form-control" placeholder="Expriry Date"  name="expiry_date" type="date"><br>
-      <label>License Imgae</label>
-      <input type="file" name="license_image" id="fileUpload2" class="form-control"><br>
-      <label>NBI Imgae</label>
-      <input type="file" name="nbi_image" id="fileUpload3" class="form-control"><br>
-      <label>Barangay Clearance Imgae</label>
-      <input type="file" name="bc_image" id="fileUpload4" class="form-control"><br>
-   <br><br>
+ <div class="tab form-group">License:
+   <div class="form-group col-md-12">
+          <select id="gender" class="form-control required" name="gender">
+              <option value="">Select Therapist</option>
+              <option value="Physical Therapis">Physical Therapist</option>
+              <option value="Occupational Therapist">Occupational Therapist</option>
+          </select>
+    </div>
+     <div class="form-group col-md-12">
+          <input placeholder="License Number"  name="license_number" type="number" class="form-control required">
+    </div>
+    <div class="form-group col-md-12">
+          <input class="form-control required" placeholder="Expriry Date"  name="expiry_date" type="date">
+    </div>
+    <div class="form-group col-md-12">
+          <label>License Image</label>
+          <input type="file" name="license_image" id="fileUpload2" class="form-control required">
+    </div>
+    <div class="form-group col-md-12">
+          <label>NBI Imgae</label>
+          <input type="file" name="nbi_image" id="fileUpload3" class="form-control required">
+    </div>
+    <div class="form-group col-md-12">
+          <label>Barangay Clearance Imgae</label>
+         <input type="file" name="bc_image" id="fileUpload4" class="form-control required">
+    </div>
  </div>
-  <div class="tab">Profile:
-    <input placeholder="User Name"  name="username" class="form-control"><br>
-    <input placeholder="Password"  name="password" type="password" class="form-control" data-confirmed="re-password"><br>
-    <input placeholder="Re-type Password"  name="re-password" type="password" class="form-control"><br>
-  </div>
+   <div class="tab form-group">Profile:
+      <div class="form-group col-md-12">
+        <input placeholder="User Name"  name="username" class="form-control required">
+      </div>
+        <div class="form-group col-md-12">
+          <input placeholder="Password"  name="password" type="password" class="form-control required" data-confirmed="re-password">
+        </div>
+         <div class="form-group col-md-12">
+             <input placeholder="Re-type Password"  name="re-password" type="password" class="form-control required">
+        </div>
+    </div>
 
 
-  <div class="tab">Done:
+ <div class="tab form-group">Done:
     <p>Lorem ipsum dolor sit amet, sea harum delenit in. Ut omnis affert mel. Vel ea tantas labores officiis. Ignota noster elaboraret cum ad. No pri munere vocent interpretaris, ei sea mandamus laboramus tincidunt.
 
 Cum magna fuisset sadipscing in. Delenit labores quo ea, et est autem minim copiosae. Ea error utroque omnesque nam, facer tincidunt ut est, quis dicant aliquid ut vel. Cum at possim eleifend. Fuisset consetetur cu eum, scripserit persequeris cu vel.
@@ -75,7 +117,9 @@ Te graeco imperdiet per, pri ea summo voluptatibus. Fierent voluptua pri ea, nam
 Nisl elit epicuri id vis, sea alterum commune deterruisset cu. Ea vel rebum fabulas deseruisse, mei cu nulla minim munere. Offendit placerat iracundia cum id, mea at brute vocent quaeque. Rebum feugait oportere at pro, sit regione persecuti eu, vel explicari accusamus splendide in. Sea at blandit ponderum.
 
 Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facilis antiopam. Fastidii nominati contentiones duo ea. Has ne corpora albucius voluptaria.</p>
-    <label><input type="checkbox" />  I accept the terms and conditions.</label> 
+    <div>
+        <label><input type="checkbox" class="form-control required" style= "width: auto">  </label>I accept the terms and conditions.
+    </div>  
   </div>
 
   <div style="overflow:auto;">
