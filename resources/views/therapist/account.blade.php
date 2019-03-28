@@ -4,10 +4,10 @@
 
 
 <div class="row"> <!-- LABEL->col-form-label INPUT-> form-control -->
-    <div class="col-sm-5 col-md-5 col-lg-5">
+    <div class="col-md-5">
         <div class="card">
             <div class="card-header bg-info">
-                <h5> User Information</h5>
+                User Information
             </div>
             <div class="card-body">
                     <center>
@@ -78,7 +78,9 @@
                             @elseif($request->status == 1)
                                 <span class="badge badge-success">Approved</span>  
                             @elseif($request->status == 2)
-                            <span class="badge badge-danger">Rejected</span>  
+                            <span class="badge badge-danger">Rejected</span>
+                            @elseif($request->status ==3)
+                            <span class="badge badge-default">Finished</span>  
                             @endif
                         </td>
                         <td>
@@ -100,7 +102,7 @@
 
     <div class="card">
         <div class="card-header bg-info">
-            <h5>Ratings</h5>
+            Ratings
         </div>
         <div class="card-body" style="overflow: scroll; height: 250px;">
             <table class="table table-default">

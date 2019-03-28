@@ -95,10 +95,10 @@ class TherapistController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(TherapistRequest $request, $id)
+        public function update(TherapistRequest $request, $id)
     {
-        $therapist = Therapist::find($id);
-
+        $therapist = Therapist::find($id)->load('user');
+        
         $specialties = collect($request->specialties);
         if ($specialties->isNotEmpty()) {
             $ids = $specialties->map(function ($item) {
@@ -110,19 +110,20 @@ class TherapistController extends Controller
         }
 
         $request = $request->validated();
+        
         // dd($request);
-        if (isset($request['image'])) {
-            $request['image'] = request()->file('image')->store('image', 'public');
+        
+         $users = User::where('username', $request['username'])->first();
+        
+        if(isset($request['image'])) {
+            $image = request()->file('image')->move("pictures/{$users[0]['username']}", 'public');
         }
 
-        if (isset($request['license_image'])) {
-            $request['license_image'] = request()->file('license_image')->store('image', 'public');
-        }
 
         $therapist->fill($request)->save();
-
+        
         User::where('id', Auth::id())->update(['username' => $request['username'], 'email' => $request['email']]);
-
+        
         return redirect()->route('get.therapist-account');
     }
 
@@ -147,7 +148,7 @@ class TherapistController extends Controller
     //     return view('therapist.appoint', compact('clients'));
     // }
 
-    public function therapistHistory(Client $clients)
+    public function therapistHistory(BookingRequest $bookingRequest)
     {
         $clients = Client::all();
         return view('therapist.history', compact('clients'));

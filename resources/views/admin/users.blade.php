@@ -89,7 +89,7 @@
                                 <div class="col-sm-12" style="font-weight: bold;">
                                     <div class="card">
                                         <div class="card-body">
-                                          <label>Name :</label>{{ $row->client->fname }}<br>
+                                          <label>Name :</label><br>
                                           <label>Email: </label>{{ $row->email }}<br>
                                           <label>Contact #: </label>{{ $row->contact }}<br>
                                           <label>Gender:</label>{{ $row->gender }}<br>

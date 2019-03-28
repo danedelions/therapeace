@@ -7,19 +7,29 @@ use Illuminate\Http\Request;
 use App\Client;
 use App\Therapist;
 use App\User;
+use App\BookingRequest;
 use Auth;
 
-class PrintController extends Controller
+class TransactionController extends Controller
 {
 	public function index()
       {
               // $client = Client::ofUser(Auth::id())->first();
               // return view('client.printtransaction', compact('client'));
      }
-     public function clientTrans()
+     public function clientTrans(BookingRequest $bookingRequest)
      {
           $client = Client::ofUser(Auth::id())->first();
-          return view('client.transaction', compact('client'));
+          $bookingRequest->load([
+            'client.user',
+            'bookingDetails',
+            'appointment'
+        ]);       
+
+          return view('client.transaction', [
+            'bookingRequest' => $bookingRequest,
+            'client' => $client
+        ]);
      }
      public function printClient()
      {
