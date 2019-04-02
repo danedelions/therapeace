@@ -38,10 +38,7 @@ class ClientController extends Controller
                 'user_type' => 'client'
             ]);
             $users = User::where('username', $request->post('username'))->get();
-<<<<<<< HEAD
-=======
 
->>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
             $client = Client::insert([
                 'user_id'     => $users[0]['id'],
                 'fname'       => $request->post('fname'),
@@ -73,21 +70,15 @@ class ClientController extends Controller
                     $q->whereIn('specialties.name', $specialties);
                 });
             })->get();
-<<<<<<< HEAD
-=======
 
-
->>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
         $specialties = Specialty::select('name')->pluck('name', 'name');
         return view('client.find', compact('therapists', 'specialties'));
     }
     public function clientAccount(BookingRequest $bookings)
     {
         $client = Client::whereUserId(Auth::id())->with('user')->first();
-<<<<<<< HEAD
         $bookings = $client->booking()->with('client')->where('status', 0)->get(); //unsure about here//
         return view('client.account', compact('client','bookings'));
-=======
         $client->load([
             'booking',
             'booking.therapist.user',
@@ -95,7 +86,7 @@ class ClientController extends Controller
         ]);
 
         return view('client.account', compact('client'));
->>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
+
     }
     public function edit($userId)
     {
