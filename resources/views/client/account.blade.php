@@ -4,7 +4,7 @@
 
 @section('page-section')
 
-@include('modals.client')
+
 
 <div class="row"> <!-- LABEL->col-form-label INPUT-> form-control -->
 	<div class="col-lg-5">

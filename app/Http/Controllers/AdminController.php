@@ -7,11 +7,11 @@ use App\Client;
 use App\Therapist;
 use App\User;
 use Mail;
-use App\Mail\NewUserWelcome;
 use Auth;
 use DB;
 use App\Http\Requests\UserRequest;
 use App\Mail\UserExpiryNotice;
+use App\Http\Requests\TherapistRequest;
 
 
 
@@ -33,7 +33,7 @@ class AdminController extends Controller
 
     public function getPendingView()
     {
-        $users = User::all()->where('status',2);
+        $users = User::where('status',2)->paginate(8);
 
     	return view('admin.pending', compact('users'));
     }
@@ -48,17 +48,16 @@ class AdminController extends Controller
     	return view('admin.reports');
     }
 
-    public function notice(User $user)
+    public function notice(TherapistRequest $request)
     { 
-        $to_name = 'TO_NAME';
-        $to_email = 'chino.boss31@gmail.com';
-        $data = array('name'=>"Peace keepers", "body" => "Test mail");
+        
+        Mail::send(new UserExpiryNotice());
             
-        Mail::send('admin.notice', $data, function($message) use ($to_name, $to_email) {
-            $message->to($to_email, $to_name)
-                    ->subject('Notice of Renewal');
-            $message->from('therapeacemaker@gmail.com','PeaceMakers');
-        });
+        // Mail::send('admin.notice', function($message) use ($to_name, $to_email) {
+        //     $message->to($to_email, $to_name)
+        //             ->subject('Notice of Renewal');
+        //     $message->from('therapeacemaker@gmail.com','PeaceMakers');
+        // });
 
         return redirect()->back()->with('message', 'Successfully sent mail to therapist!');
     }
@@ -73,31 +72,16 @@ class AdminController extends Controller
 
     
 
-    //admin.users2
-    // public function getUserView()
-    // {
-    //     $users = User::all();
-    //     return view('admin.users2', compact('users','newstatus'));
-    // }
+  /*$username = User::where('username',$request['username'])->first();
+        $email = User::where('email', $request['email'])->first();
 
-    /**
-     * Displays datatables front end view
-     *
-     * @return \Illuminate\View\View
-     */
-    // public function getIndex(User $user)
-    // {
-    //     return view('admin.users2');
-    // }
-
-    /**
-     * Process datatables ajax request.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-     
-    // public function anyData()
-    // {
-    //     return Datatables::of(User::query())->make(true);
-    // }
+        $to_name = $username[0]['username'];
+        $to_email = $email[0]['email'];
+        // $data = array('name'=>"Peace keepers", "body" => "Test mail");
+            
+        Mail::send('admin.notice', function($message) use ($to_name, $to_email) {
+            $message->to($to_email, $to_name)
+                    ->subject('Notice of Renewal');
+            $message->from('therapeacemaker@gmail.com','PeaceMakers');
+        });*/
 }

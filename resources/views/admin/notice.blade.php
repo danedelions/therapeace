@@ -25,7 +25,7 @@ width: 100% !important; height: 100%; margin: 0; line-height: 1.4; background-co
   }
 }
 </style>
-    <span class="preheader" style="box-sizing: border-box; display: none !important; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 1px; line-height: 1px; max-height: 0; max-width: 0; mso-hide: all; opacity: 0; overflow: hidden; visibility: hidden;">Your PRC License Expiry Date for TheraPEACE Inc. is about expired. Please contact immediately the nearest PRC Office for renewal application.</span>
+    <span class="preheader" style="box-sizing: border-box; display: none !important; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 1px; line-height: 1px; max-height: 0; max-width: 0; mso-hide: all; opacity: 0; overflow: hidden; visibility: hidden;">Dear Mr/ Ms. {{ $username }}, Your PRC License Expiry Date for TheraPEACE Inc. is about expired. Please contact immediately the nearest PRC Office for renewal application.</span>
     <table class="email-wrapper" width="100%" cellpadding="0" cellspacing="0" style="box-sizing: border-box; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; margin: 0; padding: 0; width: 100%;" bgcolor="#F2F4F6">
       <tr>
         <td align="center" style="box-sizing: border-box; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; word-break: break-word;">
@@ -69,7 +69,7 @@ width: 100% !important; height: 100%; margin: 0; line-height: 1.4; background-co
                      </table>
                       <p style="box-sizing: border-box; color: #74787E; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px; line-height: 1.5em; margin-top: 0;" align="left">Regardless of your choice, we want to say thank you for trying TheraPEACE Inc. We know it's an investment of your time, and we appreciate you giving us a chance.</p>
                       <p style="box-sizing: border-box; color: #74787E; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px; line-height: 1.5em; margin-top: 0;" align="left">Thanks,
-                        <br />Peace Keepers and the TheraPEACE Inc. Team</p>
+                        <br />{{ $username }} and the TheraPEACE Inc. Team</p>
                       <p style="box-sizing: border-box; color: #74787E; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px; line-height: 1.5em; margin-top: 0;" align="left"><strong style="box-sizing: border-box; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;">P.S.</strong> If you have any questions or need any help, please don't hesitate to reach out. You can reply to this email or join us on live chat during business hours.</p>
                     </td>
                   </tr>
