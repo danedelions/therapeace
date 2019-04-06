@@ -44,41 +44,8 @@
                             <a href="{{url('/therapist-edit/'. $therapist->id )}}"><i class="far fa-edit"></i> Edit</a>
                         </div>
                 </div>
-<div class="row"> <!-- LABEL->col-form-label INPUT-> form-control -->
-    <div class="col-md-5">
-        <div class="card">
-            <div class="card-header bg-info">
-                User Information
             </div>
-            <div class="card-body">
-                    <center>
-                        <img src='{{ asset("storage/{$therapist->image}") }}'>
-                        <br>
-                            <div class="col-lg-8"><h4>{{$therapist->therapist}}</h4></div>
-                    </center>
-                    <hr>    
-                    <div class="form-group row">
-                        <label class="col-lg-3">Username</label>
-                            <div class="col-lg-8">{{ Auth::user()->username }}</div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3">Full Name</label>
-                            <div class="col-lg-8">{{$therapist->fullname}}</div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3">Address</label>
-                            <div class="col-lg-8">{{$therapist->address}}</div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3">Email</label>
-                            <div class="col-lg-8">{{ Auth::user()->email }}</div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3">Contact Number</label>
-                            <div class="col-lg-8">{{$therapist->contact}}</div> 
-                    </div>
         </div>
-
 
         <div class="col-md-7">
             <div class="col-sm-5 col-md-5 col-lg-12">
@@ -158,7 +125,7 @@
                     </div>
                 </div>
             </div>
-
+</div>
 @endsection
 
 

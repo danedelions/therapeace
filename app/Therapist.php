@@ -38,20 +38,6 @@ class Therapist extends Model
         return $this->belongsToMany('App\Specialty', 't_specialties', 'therapist_id', 'spec_id');
     }
 
-    public function user(){
-
-        return $this->belongsTo('App\User', 'id');
-        // return $this->belongsTo('App\User', 'user_id');
-        // return $this->belongsTo('App\User', 'id');
-        // return $this->belongsTo('App\User', 'user_id');
-        // return $this->belongsTo('App\User', 'id');
-        // // return $this->belongsTo('App\User', 'user_id');
-
-
-
-    	return $this->belongsTo('App\User', 'id');
-
-
     public function user()
     {
         return $this->belongsTo('App\User', 'id');
@@ -78,13 +64,13 @@ class Therapist extends Model
         return $this->hasMany('App\Appointment', 'therapist_id', 'user_id');
     }
 
-    public function appointments(){
-
+    public function appointments()
     {
         return $this->hasMany('App\Appointment', 'therapist_id', 'user_id');
     }
 
     public function getFullNameAttribute()
+    {
             return "{$this->fname} {$this->lname}";
     }
 
@@ -97,7 +83,7 @@ class Therapist extends Model
     {
         return $this->belongsToMany(Specialty::class, 't_specialties', 'therapist_id', 'spec_id');
     }
-    
+
     public function accept()
     {
         return $this->associatedUser()->update([

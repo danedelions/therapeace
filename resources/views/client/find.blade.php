@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-sm-4 col-md-4 col-lg-4">
 			<div class="card">
-				<div class="card-header">
+				<div class="card-header bg-info">
 					<h6>Search a nearby therapist</h6>
 				</div>
 				<div class="card-body">
@@ -58,12 +58,12 @@
 			</div>
 		</div>
 	</div>
-
+	<br>
 	<div class="row">
 	<div class="col-sm-12 col-md-12 col-lg-12">
 		<div class="card">
 			<div class="card-header bg-info">
-			<h5>Therapists Found...</h5>
+				Therapists Found...
 			</div>
 			<div class="card-body" style="overflow-y: hidden; overflow-x: scroll;">
 				<table>
@@ -94,7 +94,7 @@
 						<div class="modal fade" id="view-modal-{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 						  <div class="modal-dialog" role="document">
 						    <div class="modal-content">
-						      <div class="modal-header">
+						      <div class="modal-header bg-info">
 						        <h5 class="modal-title" id="exampleModalLabel">User Information</h5>
 						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						          <span aria-hidden="true">&times;</span>
