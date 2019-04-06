@@ -76,19 +76,48 @@
 							<div class="card-body">
 								<h4>{{$data->fullName}}</h4>
 								<h5 style="font-size: 8pt;">{{$data->therapist}}</h5>
-								<!-- <span><h5 style="font-size: 8pt;">{{!! optional($data->specialties)->pluck('name')->implode('</h5><h5 style="font-size: 8pt">') !!}}</h5></span> -->
 								<h6><span class="badge badge-default ml-1"> {!! optional($data->specialties)->pluck('name')->implode('</span ><span class="badge badge-default ml-1">') !!}</span></h6>
 								<input type="hidden" data-long="{{ $data->longitude }}" />
 								<input type="hidden" data-lat="{{$data->latitude}}" />
 								<span><h6 data-distance name="distance">Distance:</h6></span>
 
 								<a href='{{url("/booktherapist/{$data->id}")}}' class="btn btn-sm btn-success">Book</a>
-								<a href='#' class="btn btn-sm btn-info">View</a>
+								<a class="btn btn-sm btn-info" data-toggle="modal" data-target="#view-modal-{{ $data->id }}">View</a>
+								
 
 							</div>									
 						</center>
 						</div>
 						</td>
+
+						<!-- View Modal client-->
+						<div class="modal fade" id="view-modal-{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						  <div class="modal-dialog" role="document">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <h5 class="modal-title" id="exampleModalLabel">User Information</h5>
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						          <span aria-hidden="true">&times;</span>
+						        </button>
+						      </div>
+						      <div class="modal-body" id="modalView">
+						        <br>
+						        <div class="col-sm-12"">
+						            <div class="card">
+						                <div class="card-body">
+						                  <center><label>Profile</label></center><br>
+						                  <label>Name: </label> {{ $data['fullName'] }} <br>
+						                  <label>Email: </label> <br>
+						                  <label>Contact #: </label><br>
+						                  
+						                </div>
+						            </div>
+						        </div>                    
+						      </div>
+						    </div>
+						  </div>
+						</div>
+						<!-- end of view modal -->
 						@endforeach
 					</tr>
 				</table>

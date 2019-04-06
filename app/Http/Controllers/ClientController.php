@@ -86,7 +86,7 @@ class ClientController extends Controller
         ]);
 
         return view('client.account', compact('client'));
-        
+
     }
     public function edit($userId)
     {
