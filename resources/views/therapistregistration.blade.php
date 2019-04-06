@@ -105,48 +105,6 @@
         </div>
     </div>
 
-
-   <div class="tab form-group">Profile
-      <div class="form-group col-md-12">
-        <input placeholder="User Name"  name="username" class="form-control">
-      </div>
-      <div class="form-group col-md-12">
-         <input placeholder="Password"  name="password" type="password" class="form-control" data-confirmed="re-password">
-      </div>
-      <div class="form-group col-md-12">
-        <input placeholder="Re-type Password"  name="re-password" type="password" class="form-control">
-      </div>
-
-    </div>
-
-
-    <div class="tab form-group">
-      <center><b>Terms and Conditions</b></center>
-      <hr>
-      <div class="col-md-12">
-        <p style="text-align: justify;">Lorem ipsum dolor sit amet, sea harum delenit in. Ut omnis affert mel. Vel ea tantas labores officiis. Ignota noster elaboraret cum ad. No pri munere vocent interpretaris, ei sea mandamus laboramus tincidunt.
-
-        Cum magna fuisset sadipscing in. Delenit labores quo ea, et est autem minim copiosae. Ea error utroque omnesque nam, facer tincidunt ut est, quis dicant aliquid ut vel. Cum at possim eleifend. Fuisset consetetur cu eum, scripserit persequeris cu vel.
-
-        Te graeco imperdiet per, pri ea summo voluptatibus. Fierent voluptua pri ea, nam ex causae audire nominati. Eirmod aliquid gloriatur quo ne. Sed ea petentium philosophia, nibh pericula quaerendum vel at. Homero causae persius cum id. At pri natum error, ei vel dicant nostrud scriptorem.
-
-        Nisl elit epicuri id vis, sea alterum commune deterruisset cu. Ea vel rebum fabulas deseruisse, mei cu nulla minim munere. Offendit placerat iracundia cum id, mea at brute vocent quaeque. Rebum feugait oportere at pro, sit regione persecuti eu, vel explicari accusamus splendide in. Sea at blandit ponderum.
-
-        Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facilis antiopam. Fastidii nominati contentiones duo ea. Has ne corpora albucius voluptaria.</p>
-
-      </div>
-      <hr>
-      <!-- I agree to terms and conditions <input type="checkbox" name=""> -->
-      <div class="form form-group"> <label for="HTML news"> <input type="checkbox" id="html_news" value="html-news" name="user-age" class="form-control"> HTML News </label> </div>
-    </div>
-
-    <div style="overflow:auto;">
-      <div style="float:right;">
-        <button class="btn btn-sm-success" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-        <button class="btn btn-sm-success" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-        <button class="btn btn-sm-success" type="submit" id="subBtn" style="display:none">Submit</button>
-      </div>
-    </div>
     <!-- Circles which indicates the steps of the form: -->
     <div style="text-align:center;margin-top:40px;">
       <span class="step"></span>
@@ -170,11 +128,6 @@
     </div>  
   </div>
       </div>
-      
-       <div class="col-md-4 radio-inline">
-        <span><input type="checkbox" style="float: left;">I accept the terms and conditions.</span>
-       </div>  
-    </div>
 
     <div style="overflow:auto;">
       <div style="float:right;">

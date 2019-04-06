@@ -50,7 +50,6 @@
             <div class="card-header bg-info">
                 User Information
             </div>
-<<<<<<< HEAD
             <div class="card-body">
                     <center>
                         <img src='{{ asset("storage/{$therapist->image}") }}'>
@@ -78,9 +77,8 @@
                         <label class="col-lg-3">Contact Number</label>
                             <div class="col-lg-8">{{$therapist->contact}}</div> 
                     </div>
-=======
         </div>
->>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
+
 
         <div class="col-md-7">
             <div class="col-sm-5 col-md-5 col-lg-12">
@@ -160,83 +158,10 @@
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-        <div class="card-body p-0" style="overflow: scroll; height: 200px;">
-            <table class="table table-hover mb-0">
-                <thead>
-                    <tr>
-                        <th>Client Name</th>
-                        <th>Diagnosis</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse($therapist->bookingRequest as $request)
-                    <tr>
-                        <td>{{$request->client->fullname}}</td>
-                        <td>{{$request->bookingDetails->diagnosis}} </td>
-                        <td>
-                            @if($request->status == 0)
-                                <span class="badge badge-secondary">Pending</span>  
-                            @elseif($request->status == 1)
-                                <span class="badge badge-success">Approved</span>  
-                            @elseif($request->status == 2)
-                            <span class="badge badge-danger">Rejected</span>  
-                            @endif
-                        </td>
-                        <td>
-                            <a class="btn btn-sm btn-info" href="{{ route('therapist.calendar', $request) }}">View</a>
-                        </td>
-                    </tr>
-                    @empty
-                        <tr>
-                            <td colspan="4" class="text-center">No requests</td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
-=======
->>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
-        </div>
-    </div>
-</div>
 
 @endsection
 
-<<<<<<< HEAD
-    <br>
 
-    <div class="card">
-        <div class="card-header bg-info">
-            <h5>Ratings</h5>
-        </div>
-        <div class="card-body" style="overflow: scroll; height: 250px;">
-            <table class="table table-default">
-                <thead>   
-                    <tr>
-                        <td><label>Client1</label></label></td>
-                        <td>
-                            <fieldset class="rating">  
-                                
-                                <input type="radio" id="star5" name="rating" value="5" />
-                                <label class = "full" for="star5" title="5 stars"></label></label>
-                                <input type="radio" id="star4" name="rating" value="4" />
-                                <label class = "full" for="star4" title="4 stars"></label></label>
-                                <input type="radio" id="star3" name="rating" value="3" />
-                                <label class = "full" for="star3" title="3 stars"></label></label>
-                                <input type="radio" id="star2" name="rating" value="2" />
-                                <label class = "full" for="star2" title="2 stars"></label></label>
-                                <input type="radio" id="star1" name="rating" value="1" />
-                                <label class = "full" for="star1" title="1 star"></label></label>
-                                </fieldset>
-                        </td>  
-                    </tr>          
-                </thead>
-            </table>
-        </div>
-    </div>
-=======
 @push('modals')
 <div class="modal fade" id="show-request-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -272,7 +197,6 @@
               </div>
           </div>
       </div>
->>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
     </div>
   </div>
 </div>

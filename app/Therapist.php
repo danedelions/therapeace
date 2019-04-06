@@ -23,15 +23,14 @@ class Therapist extends Model
         'license_image',
         'nbi_image',
         'bc_image'
-    ] ;
-<<<<<<< HEAD
+    ];
+
     protected $appends = [
         'photo_url'
-=======
+    ];
 
     protected $appends = [
         'full_name'
->>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
     ];
     /**
      * 
@@ -40,25 +39,14 @@ class Therapist extends Model
     {
         return $this->belongsToMany('App\Specialty', 't_specialties', 'therapist_id', 'spec_id');
     }
-    public function user(){
-<<<<<<< HEAD
+    public function user()
+    {
         return $this->belongsTo('App\User', 'id');
-        // return $this->belongsTo('App\User', 'user_id');
-        // return $this->belongsTo('App\User', 'id');
-        // return $this->belongsTo('App\User', 'user_id');
-        // return $this->belongsTo('App\User', 'id');
-        // // return $this->belongsTo('App\User', 'user_id');
-=======
-
-
-    	return $this->belongsTo('App\User', 'id');
-
     }
 
     public function associatedUser() 
     {
         return $this->belongsTo(User::class, 'user_id');
->>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
     }
     public function scopeOfUser($query, $userId)
     {
@@ -72,18 +60,10 @@ class Therapist extends Model
     {
         return $this->hasMany('App\Appointment', 'therapist_id', 'user_id');
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
     public function appointments()
     {
         return $this->hasMany('App\Appointment', 'therapist_id', 'user_id');
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
     public function getFullNameAttribute()
     {
         return "{$this->fname} {$this->lname}";
@@ -96,10 +76,6 @@ class Therapist extends Model
     {
         return $this->belongsToMany(Specialty::class, 't_specialties', 'therapist_id', 'spec_id');
     }
-<<<<<<< HEAD
-}
-=======
-
     public function accept()
     {
         return $this->associatedUser()->update([
@@ -107,4 +83,4 @@ class Therapist extends Model
         ]);
     }
 }
->>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
+

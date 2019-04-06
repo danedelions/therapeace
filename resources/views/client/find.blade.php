@@ -76,7 +76,6 @@
 							<div class="card-body">
 								<h4>{{$data->fullName}}</h4>
 								<h5 style="font-size: 8pt;">{{$data->therapist}}</h5>
-								<!-- <span><h5 style="font-size: 8pt;">{{!! optional($data->specialties)->pluck('name')->implode('</h5><h5 style="font-size: 8pt">') !!}}</h5></span> -->
 								<h6><span class="badge badge-default ml-1"> {!! optional($data->specialties)->pluck('name')->implode('</span ><span class="badge badge-default ml-1">') !!}</span></h6>
 								<input type="hidden" data-long="{{ $data->longitude }}" />
 								<input type="hidden" data-lat="{{$data->latitude}}" />
