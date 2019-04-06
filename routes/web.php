@@ -1,4 +1,4 @@
-	<?php
+<?php
 
 /*
 |--------------------------------------------------------------------------
@@ -73,12 +73,6 @@ Route::group(['middleware' => 'auth'], function(){
     //TRANSACTION
     // Route::get('/client-transaction', 'TransactionController@clientTrans');
     // Route::get('/therapist-transaction', 'TransactionController@therapistTrans');
-
-    //PRINTING
-    Route::get('/client-transaction', 'PrintController@clientTrans');
-    Route::get('/printclient', 'PrintController@printclient');
-    Route::get('/therapist-transaction', 'PrintController@therapistTrans');
-    Route::get('/printtherapist', 'PrintController@printtherapist');
 
     //BOOKING
 

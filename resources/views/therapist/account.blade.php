@@ -2,7 +2,6 @@
 
 @section('page-section')
 
-
 <div class="row"> <!-- LABEL->col-form-label INPUT-> form-control -->
     <div class="col-md-5">
         <div class="card">
@@ -10,43 +9,43 @@
                 User Information
             </div>
             <div class="card-body">
-                    <center>
-                        <img class="th-image" src="{{ asset('img/di.png') }}">
-                        <br>
-                            <div class="col-lg-8"><h4>{{$therapist->therapist}}</h4></div>
-                    </center>
-                    <hr>    
-                    <div class="form-group row">
-                        <label class="col-lg-3">Username</label>
-                            <div class="col-lg-8">{{ Auth::user()->username }}</div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3">Full Name</label>
-                            <div class="col-lg-8">{{$therapist->fullname}}</div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3">Address</label>
-                            <div class="col-lg-8">{{$therapist->address}}</div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3">Email</label>
-                            <div class="col-lg-8">{{ Auth::user()->email }}</div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3">Contact Number</label>
-                            <div class="col-lg-8">{{$therapist->contact}}</div> 
-                    </div>
+                <center>
+                    <img class="th-image" src="{{ asset('img/di.png') }}">
+                    <br>
+                        <div class="col-lg-8"><h4>{{$therapist->therapist}}</h4></div>
+                </center>
+                <hr>    
+                <div class="form-group row">
+                    <label class="col-lg-3">Username</label>
+                        <div class="col-lg-8">{{ Auth::user()->username }}</div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3">Full Name</label>
+                        <div class="col-lg-8">{{$therapist->fullname}}</div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3">Address</label>
+                        <div class="col-lg-8">{{$therapist->address}}</div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3">Email</label>
+                        <div class="col-lg-8">{{ Auth::user()->email }}</div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3">Contact Number</label>
+                        <div class="col-lg-8">{{$therapist->contact}}</div> 
+                </div>
 
-                    <div class="form-group row">
-                        <label class="col-lg-3">Specialties</label>
-                            <div class="col-lg-8">
-                               <span class="badge badge-success"> {!! optional($therapist->specialties)->pluck('name')->implode('</span ><span class="badge badge-success ml-1">') !!}</span>
-                            <br>
-                            </div>  
-                    </div>
-                    <div style="display:block; width:x; height:y; text-align:right;">
-                        <a href="{{url('/therapist-edit/'. $therapist->id )}}"><i class="far fa-edit"></i> Edit</a>
-                    </div>
+                <div class="form-group row">
+                    <label class="col-lg-3">Specialties</label>
+                        <div class="col-lg-8">
+                           <span class="badge badge-success"> {!! optional($therapist->specialties)->pluck('name')->implode('</span ><span class="badge badge-success ml-1">') !!}</span>
+                        <br>
+                        </div>  
+                </div>
+                <div style="display:block; width:x; height:y; text-align:right;">
+                    <a href="{{url('/therapist-edit/'. $therapist->id )}}"><i class="far fa-edit"></i> Edit</a>
+                </div>
             </div>
         </div>
     </div>
@@ -55,7 +54,7 @@
     <div class="col-sm-5 col-md-5 col-lg-7">
         <div class="card">
             <div class="card-header bg-info">
-                <h5>Client Requests</h5>
+                Client Requests
             </div>
         <div class="card-body p-0" style="overflow: scroll; height: 200px;">
             <table class="table table-hover mb-0">
@@ -71,7 +70,8 @@
                     @forelse($therapist->bookingRequest as $request)
                     <tr>
                         <td>{{$request->client->fullname}}</td>
-                        <td>{{$request->bookingDetails->diagnosis}} </td>
+                        <td>{{$request->bookingDetails->diagnosis}}</td> 
+                        <!-- {{ substr($request->bookingDetails->diagnosis, 0, 5)}} {{strlen($request->bookingDetails->diagnosis)>5 ? "..." : ""}}-->
                         <td>
                             @if($request->status == 0)
                                 <span class="badge badge-secondary">Pending</span>  
@@ -94,6 +94,9 @@
                     @endforelse
                 </tbody>
             </table>
+            <div>
+                    <!-- {!! $therapist->bookingRequest !!}    -->
+            </div>
         </div>
     </div>
 

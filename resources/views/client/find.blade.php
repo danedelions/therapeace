@@ -83,6 +83,8 @@
 								<span><h6 data-distance name="distance">Distance:</h6></span>
 
 								<a href='{{url("/booktherapist/{$data->id}")}}' class="btn btn-sm btn-success">Book</a>
+								<a href='#' class="btn btn-sm btn-info">View</a>
+
 							</div>									
 						</center>
 						</div>
