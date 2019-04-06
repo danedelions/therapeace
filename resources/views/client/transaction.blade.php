@@ -51,22 +51,14 @@
 				<div class="col-sm-5 col-md-5 col-lg-10">
 					<div class="card">
 						<div class="card-header">
-							<h5 class="mb-0">THERAPY INVOICE 
-								<a class="btnprn btn" href="{{ url('/printclient') }}"><i class="fas fa-print"></i></a>		
-							</h5>
+							<h5 class="mb-0">THERAPY INVOICE</h5>
 						</div>
-
-						<script type="text/javascript">
-						     $(document).ready(function(){
-						              $('.btnprn').printPage();
-						     });
-						</script>
 
 						<div class="card-body" id="transaction">
 							<div class="row">
 							  	<div class="col-12 col-md-6">
 							  		<label class="control-label">Patient Name: </label>
-									<a>{{ $client->fname }} {{ $client->lname }}</a>
+									<a>{{ $client->fullname }}</a>
 							  	</div>
 							  	<div class="col-6 col-md-2">
 							  		<label class="control-label">Gender: </label>
@@ -81,11 +73,7 @@
 							<div class="row">
 								<div class="col-6 col-md-6">
 								  		<label class="control-label">Address: </label>
-										<a>{{ $client->street }},
-											{{ $client->barangay }},
-											{{ $client->town }},
-											{{ $client->province }},
-											{{ $client->city }}</a>
+										<a>{{$client->address }}</a>
 								</div>
 								<div class="col-6 col-md-4">
 								  		<label class="control-label">Email Address: </label>
@@ -96,7 +84,7 @@
 							<div class="row">
 								<div class="col-6 col-md-6">
 								  		<label class="control-label">Diagnosis: </label>
-										<a></a>
+										<a>{{ $bookingRequest->bookingDetails->diagnosis }}</a>
 								</div>
 								<div class="col-6 col-md-4">
 								  		<label class="control-label">Therapist: </label>

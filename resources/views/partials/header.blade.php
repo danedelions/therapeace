@@ -14,9 +14,6 @@
                 <li class="nav-item">
                         <a class="nav-link nav-text" href="#">FAQ</a>
                 </li>
-                <li class="nav-item"> 
-                    <a href="/safety" class="nav-link nav-text" >Safety</a>
-                </li>
             </ul>
                 <div class="dropdown">
                     <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

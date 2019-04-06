@@ -28,8 +28,16 @@
 					Your Details
 				</div>
 				<div class="card-body">
-					<form method="POST" action="{{url('/doBookTherapist/')}}">
+					<form method="POST" action="{{url('/doBookTherapist/')}}" enctype="multipart/form-data">
 						{{csrf_field()}}
+						<div class="form-row">
+							<div class="form-group col-md-4">
+						     	<label for="inputPatient"><b>Are you the patient?</b></label>
+						     	<br>
+						     	<input type="radio" name="patient" value = "1"> Yes <br>
+						     	<input type="radio" name="patient" value = "0"> No <br>
+						    </div>
+						</div>
 					  <div class="form-row">
 					    <div class="form-group col-md-6">
 					     	<label for="inputEmail4"><b>Name</b></label>
@@ -58,7 +66,9 @@
 									<label for="inputAddress">What's your diagnosis?</label>
 								</div>
 								<div class="card-body">
-									<textarea class="form-control" rows="4" name="diagnosis"></textarea>
+									<input type="text" name="diagnosis" class="form-control" placeholder="What's your diagnosis?">
+									<br>
+									<input type="file" accept="image/x-png,image/gif,image/jpeg" name="referral" id="fileToUpload" class="form-control"> 
 								</div>
 							</div>
 						</div>

@@ -8,7 +8,7 @@
 	<div class="col-sm-3 col-md-3 col-lg-3">
 		<div class="card">
 			<div class="card-header bg-info">
-				<h5>Search</h5>
+					Search
 			</div>
 			<div class="card-body">
 				<form action="#">
@@ -37,7 +37,7 @@
  	<div class="col-sm-7 col-md-7 col-lg-9">
 		<div class="card">
 			<div class="card-header bg-info">
-				<h5>Transactions</h5>
+				Transactions
 			</div>
 			<div class="card-body" style="overflow: scroll; height: 500px;">
 				<div class="row">
@@ -57,8 +57,8 @@
 								@foreach($clients as $row)
 								<tr>
 									<td>mm-dd-yyyy</td>
-									<td>00:00:00</td>
-									<td>{{$row->fname}} {{$row->lname}}</td>
+									<td></td>
+									<td>{{$row->fullname}}</td>
 									<td>0000</td>
 									<td>
 										<a class="btn btn-outline-info" href="/therapist-transaction"><i style="color:black;" class="fas fa-eye"></i></a>

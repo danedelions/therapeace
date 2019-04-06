@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('page-body')
-        
-      <!--   <link rel="stylesheet" type="text/css" href="css/client.css"> -->
+
 <div class="col-md-10 offset-1">
     <div class="col-md-12 form-group">
     <form id="regForm" action="{{ route('client.store') }}" class="form-group" method="POST">
@@ -80,10 +79,9 @@
             Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facilis antiopam. Fastidii nominati contentiones duo ea. Has ne corpora albucius voluptaria.
             </p>
         <div>
-        <label><input type="checkbox" />  I accept the terms and conditions.</label>
-         </div>  
+        <label><input type="checkbox" class="form-control required" style= "width: auto">  </label>I accept the terms and conditions.
+    </div> 
       </div>
-
         <div style="overflow:auto;">
             <div style="float:right;">
                 <button class="btn btn-sm-success" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
@@ -102,4 +100,7 @@
     </form>
     </div>
 </div>
+
 @endsection
+
+

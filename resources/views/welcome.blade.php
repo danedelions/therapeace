@@ -1,4 +1,4 @@
-@extends('layouts.app')
+  @extends('layouts.app')
 
 @section('page-body')
         <div class="slider">
@@ -54,11 +54,13 @@
         </div>
         <div class="parallax section-1">
             <div class="container">
+              <br><br>
                     <div class="text-container">
                         <center>
                             <h1 class="texts">What to know before booking?</h1>
                         </center>
                     </div>
+                <br>
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="description">
@@ -107,6 +109,7 @@
         </div>
         <body>
     <section id="contact">
+      <br>
        <div class="container">
            <h3 class="text-center text-uppercase">contact us</h3>
            <p class="text-center w-75 m-auto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum purus at sem ornare sodales. Morbi leo nulla, pharetra vel felis nec, ullamcorper condimentum quam.</p>

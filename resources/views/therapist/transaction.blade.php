@@ -51,16 +51,8 @@
 				<div class="col-sm-5 col-md-5 col-lg-10">
 					<div class="card">
 						<div class="card-header">
-							<h5 class="mb-0">THERAPY INVOICE 
-								<a class="btnprn btn" href="{{ url('/printtherapist') }}"><i class="fas fa-print"></i></a>		
-							</h5>
+							<h5 class="mb-0">THERAPY INVOICE</h5>
 						</div>
-
-						<script type="text/javascript">
-						     $(document).ready(function(){
-						              $('.btnprn').printPage();
-						     });
-						</script>
 
 						<div class="card-body" id="transaction">
 							<div class="row">
