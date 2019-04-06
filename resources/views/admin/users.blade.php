@@ -25,7 +25,7 @@
                       </thead>
                       <tbody>
                       @foreach($users as $row)
-                          <tr @if ($loop->first) class="hidden" @endif >
+                          <tr>
                           <td>{{$row['id']}}</td>
                           <td>{{$row['username']}}</td>
                           <td>{{$row['email']}}</td>
@@ -89,18 +89,16 @@
                                 <div class="col-sm-12"">
                                     <div class="card">
                                         <div class="card-body">
-<<<<<<< HEAD
                                           <center><label>Profile</label></center><br>
                                           <label>Name: </label>{{ $row->client['fullName'] }} <br>
                                           <label>Email: </label> {{ $row['email'] }}<br>
                                           <label>Contact #: </label> {{ $row->client['contact'] }}<br>
                                           <label>Gender:</label> {{ $row->client['gender'] }}<br>
-=======
+
                                           <label>Name :</label><br>
                                           <label>Email: </label>{{ $row->email }}<br>
                                           <label>Contact #: </label>{{ $row->contact }}<br>
                                           <label>Gender:</label>{{ $row->gender }}<br>
->>>>>>> 76f793fccde1a5b12316281cc686c884b3010012
                                           <hr>
                                           <center><label>Home Address</label></center><br>
                                           <label>Barangay:</label> {{ $row->client['brgy'] }}<br>
@@ -200,8 +198,8 @@
                     
                       </tbody>
                     </table>
-<!-- 
-                    {{ $users->links() }} -->
+
+                    {{ $users->links() }}
                 </div>
             </div>
         </div>
