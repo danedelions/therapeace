@@ -44,7 +44,7 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/admin-reports', 'AdminController@getReportsView')->name('get.reports');
 
 	Route::patch('/status-update/{user}', 'AdminController@statusUpdate')->name('get.update');
-	Route::get('/admin-mail', 'AdminController@welcome')->name('get.welcome');
+	Route::get('/admin-notice', 'AdminController@notice')->name('get.notice');
     Route::post('{therapist}/accept', 'AcceptTherapistController');	
 
     // THERAPIST

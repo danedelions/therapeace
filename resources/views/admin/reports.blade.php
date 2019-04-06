@@ -4,8 +4,8 @@
     <div class="content-wrapper">
     <!-- START PAGE CONTENT-->
       <!-- search bar should be here -->
-        <h2>Search Bar</h2>
-        <p>Reports for Abuse </p>          
+        
+        <h3>Reports for Abuse </h3>          
       <table class="table table-hover">
         <thead>
           <tr>
@@ -16,8 +16,8 @@
         </thead>
         <tbody>
             <tr>
-            <td></td>
-            <td></td>
+            <td>2</td>
+            <td>2019-03-05</td>
             <td>
               <div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" data-id=""

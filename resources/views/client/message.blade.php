@@ -4,11 +4,14 @@
 
 @section('page-section')
 
+<<<<<<< HEAD
+=======
 @include('modals.client')
 
 
 <link rel="stylesheet" type="text/css" href="{{ asset('css/chat.css') }}">
 
+>>>>>>> 76f793fccde1a5b12316281cc686c884b3010012
 <div class="row"> <!-- 	<div class="row">  --><!-- <div class="col-md-5"> -->
 	<div class="col-sm-5 col-md-5 col-lg-12">
 		<div class="card">

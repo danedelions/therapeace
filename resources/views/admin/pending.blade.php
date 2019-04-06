@@ -4,8 +4,8 @@
         <div class="content-wrapper">
         <!-- START PAGE CONTENT-->
         <!-- search bar should be here -->
-          <h2>Search Bar</h2>
-          <p>Pending Applications</p>           
+          
+          <h3>Pending Applications</h3>           
           <table class="table table-hover">
             <thead>
               <tr>
@@ -39,7 +39,7 @@
                       <form method="post" action="{{ url("{$user->therapist->id}/accept") }}">
                         {{ csrf_field() }}
                       </form>
-                      <!-- <a class="dropdown-item"><i class="far fa-trash-alt"></i>&nbsp&nbspDelete</a> -->
+                      
                     </div>
                   </div>
 
@@ -55,23 +55,25 @@
                                 </div>
                                 <div class="modal-body" id="modalView">
                                   <div class="col-sm-12">
-                                      <label>Therapist: </label>{{ $user->therapist }}<br>
-                                      <label>Licence Number: </label>{{ $user->licence_number }}<br>
-                                      <label>Expiry Date: </label>{{ $user->expiry_date }}<br>
+                                    <center><label>Profile</label></center><br>
+                                    <label>Name : </label> {{ $user->therapist->fullName }}<br>
+                                    <label>Therapist: </label> {{ $user->therapist->therapist }}<br>
+                                    <label>Gender:</label> {{ $user->therapist->gender }}<br>
+                                    <label>Licence Number: </label> {{ $user->therapist->license_number }}<br>
+                                    <label>Expiry Date: </label> {{ $user->therapist->expiry_date }}<br>
                                   </div>
                                   <br>
-                                  <div class="col-sm-12" style="font-weight: bold;">
+                                  <div class="col-sm-12" >
                                       <div class="card">
                                           <div class="card-body">
-                                            <label>Name : </label> {{ $user->therapist->fullName }}<br>
-                                            <label>Email: </label>  {{ $user->email }}<br>
-                                            <label>Contact #:</label>{{ $user->contact }}<br>
-                                            <label>Barangay:</label> {{ $user->barangay }}<br>
-                                            <label>Town/Municipality:</label><br>
-                                            <label>Street:</label> {{ $user->streetaddress }}<br>
-                                            <label>Province:</label> {{ $user->province }}<br>
-                                            <label>Postal Code:</label> {{ $user->postal_code }}
-                                            <label>Documents:</label>  
+                                            <center><label>Home Address</label></center>
+                                            <label>Barangay:</label> {{ $user->therapist->barangay }}<br>
+                                            <label>Street:</label> {{ $user->therapist->streetaddress }}<br>
+                                            <label>City:</label> {{ $user->therapist->city }}<br>
+                                            <label>Province:</label> {{ $user->therapist->province }}<br>
+                                            <label>Postal Code:</label> {{ $user->therapist->postal_code }} <br>
+                                            <center><label>Legal Documents</label></center>
+                                            <hr>  
                                           </div>
                                       </div>
                                   </div>                    

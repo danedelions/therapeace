@@ -6,6 +6,8 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Http\request;
+use App\User;
 
 class UserExpiryNotice extends Mailable
 {
@@ -26,8 +28,10 @@ class UserExpiryNotice extends Mailable
      *
      * @return $this
      */
-    public function build()
+    public function build(Request $request)
     {
-        return $this->markdown('emails.user.userexpirynotice');
+        $user = User::find();
+
+        return $this->view('admin.notice', ['username'=>$user->username])->to($user->email);
     }
 }
