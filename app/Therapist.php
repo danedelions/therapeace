@@ -60,13 +60,18 @@ class Therapist extends Model
         return $this->hasMany('App\BookingRequest','therapist_id','user_id');
     }
 
-    public function appointments(){
+    public function appointment()
+    {
+        return $this->hasMany('App\Appointment', 'therapist_id', 'user_id');
+    }
 
+    public function appointments()
     {
         return $this->hasMany('App\Appointment', 'therapist_id', 'user_id');
     }
 
     public function getFullNameAttribute()
+    {
             return "{$this->fname} {$this->lname}";
     }
 

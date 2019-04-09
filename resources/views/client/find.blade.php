@@ -5,34 +5,34 @@
 	<div class="row">
 		<div class="col-sm-4 col-md-4 col-lg-4">
 			<div class="card">
-				<div class="card-header">
-					<h6>Search a nearby therapist</h6>
+				<div class="card-header bg-info">
+					Search a nearby therapist
 				</div>
-				<div class="card-body">
+				<div class="card-body" style=" height: 400px;">
 						{!!Form::open(['method'=>'GET','url'=> url()->current(),'class'=>'navbar-form navbar-left','role'=>'search'])  !!}
-							<div class="form-group col-md-12">
+							<div class="col-md-12">
 								{!! Form::inputGroup('text', 'Location', 'location', request()->location, ['placeholder' => 'Your Location here...', 'id'=>'searchTextField'])  !!}
 							</div>
 							<div class="form-row col-md-12">
-								<div class="form-group col-md-6">
+								<div class="col-md-6">
 									{!! Form::inputGroup('number', 'Search Radius', 'radius', request()->radius, ['id'=>'radius', 'min' => '5', 'max' => '20', 'step' => '5'])  !!}
 								</div>
-								<div class="form-group col-md-6">
+								<div class="col-md-6">
 									{!! Form::inputGroup('number', 'Rate /hr', 'rate', 'rate', ['placeholder' => 'Rate', 'id'=>'radius', 'min' => '5', 'max' => '20', 'step' => '5'])  !!}
 								</div>
 							</div>
-							<div class="form-group col-md-12">
+							<div class="col-md-12">
 								<label>Therapist Type</label>
 								{!! Form::select('therapist', array_combine([null,'Physical Therapist', 'Occupational Therapist'], ['SELECT TYPE','Physical Therapist', 'Occupational Therapist']), request()->therapist,['id'=>'q']) !!}
 							</div>
-							<div class="form-group col-md-12">
+							<div class="col-md-12">
 								{!! Form::selectGroup('Specialties', 't_specialties[]', $specialties, request()->t_specialties, ['class' => 'form-control select2', 'multiple' => true]) !!}
 							</div>
-							<div class="form-group col-md-12">
+							<div class="col-md-12">
 								<input name="latitude" class="MapLat" value="" type="hidden" placeholder="Latitude" style="width: 161px;" id="lat1" >
 								<input name="longitude" class="MapLon" value="" type="hidden" placeholder="Longitude" style="width: 161px;" id="long1" >
 							</div>
-							<div class="form-group col-md-12">
+							<div class="col-md-12">
 								<button class="btn btn-sm btn-success" type="submit">
 					           		 <i class="fa fa-search"></i> Submit
 					    		</button>
@@ -46,7 +46,7 @@
 		<div class="col-sm-4 col-md-8 col-lg-8">
 			<div class="card bg-success mb-3">
 				<div class="card-header">
-					<h5>Who's Nearby</h5>
+					Who's Nearby
 				</div>
 				<div class="card-body" style=" height: 400px;">
 					<div class="row">
@@ -63,7 +63,7 @@
 	<div class="col-sm-12 col-md-12 col-lg-12">
 		<div class="card">
 			<div class="card-header bg-info">
-			<h5>Therapists Found...</h5>
+				Therapists Found...
 			</div>
 			<div class="card-body" style="overflow-y: hidden; overflow-x: scroll;">
 				<table>
@@ -83,8 +83,6 @@
 
 								<a href='{{url("/booktherapist/{$data->id}")}}' class="btn btn-sm btn-success">Book</a>
 								<a class="btn btn-sm btn-info" data-toggle="modal" data-target="#view-modal-{{ $data->id }}">View</a>
-								
-
 							</div>									
 						</center>
 						</div>
@@ -94,7 +92,7 @@
 						<div class="modal fade" id="view-modal-{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 						  <div class="modal-dialog" role="document">
 						    <div class="modal-content">
-						      <div class="modal-header">
+						      <div class="modal-header bg-info">
 						        <h5 class="modal-title" id="exampleModalLabel">User Information</h5>
 						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						          <span aria-hidden="true">&times;</span>

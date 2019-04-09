@@ -40,7 +40,9 @@
     
 </head>
 <body class="fixed-navbar" style="overflow: hidden">
-    @include('partials.aheader')
+    <div class="page-wrapper">
+    @include('partials.admin.header')
+    @include('partials.admin.sidebars')
     @yield('dashboard')
 
     <!-- CORE PLUGINS-->
@@ -86,7 +88,7 @@
 
         });
     </script>
-    
+    </div>
 </body>
 </html>
 

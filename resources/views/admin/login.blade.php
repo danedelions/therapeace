@@ -1,7 +1,7 @@
 @extends('layouts.adlog')
 
 @section('login')
-<center><img src="img/therapeace.png" alt="usc" height="200px" width="400px"></center>
+<center><img src="img/therapeace.png" alt="usc" height="50px" width="100px"></center>
   
 <div class="container">   
     <div class="login-form">
@@ -23,7 +23,6 @@
         </form>
         <!-- <p class="text-center"><a href="#">Create an Account</a></p> -->
     </div>
-      
 </div>
 
 <div class="footer">

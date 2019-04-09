@@ -4,37 +4,36 @@
 
 <div class="col-md-12">
     <div class="row"> <!-- LABEL->col-form-label INPUT-> form-control -->
-
         <div class="col-sm-4 col-md-4 col-lg-5">
             <div class="card">
                 <div class="card-header bg-info">
-                    <h5> User Information</h5>
+                    User Information
                 </div>
                 <div class="card-body">
                         <center>
                             <img class="th-image" src="{{ asset('img/di.png') }}">
                             <br>
-                                <div class="col-lg-8"><h4>{{$therapist->therapist}}</h4></div>
+                                <div><h4>{{$therapist->therapist}}</h4></div>
                         </center>
                         <hr>    
-                        <div class="form-group row">
-                            <label class="col-lg-3">Full Name</label>
-                                <div class="col-lg-8">{{$therapist->fullname}}</div>
+                        <div class="form-row">
+                            <label class="col-lg-4"><b>Full Name</b></label>
+                            <div class="col-lg-8">{{$therapist->fullname}}</div>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3">Email</label>
-                                <div class="col-lg-8">{{ Auth::user()->email }}</div>
+                        <div class="form-row">
+                            <label class="col-lg-4"><b>Email</b></label>
+                            <div class="col-lg-8">{{ Auth::user()->email }}</div>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3">Contact Number</label>
-                                <div class="col-lg-8">{{$therapist->contact}}</div> 
+                        <div class="form-row">
+                            <label class="col-lg-4"><b>Contact Number</b></label>
+                            <div class="col-lg-8">{{$therapist->contact}}</div> 
                         </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3">Bio</label>
-                                <div class="col-lg-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra rhoncus ex, id egestas sem ultrices sit amet. Nulla a venenatis libero, vel suscipit libero. Vivamus laoreet quam luctus ligula sollicitudin, sagittis varius quam pulvinar. Curabitur euismod tortor leo, sit amet convallis urna elementum vitae.</div>
+                        <div class="form-row">
+                            <label class="col-lg-4"><b>Bio</b></label>
+                            <div class="col-lg-8"   >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra rhoncus ex, id egestas sem ultrices sit amet. Nulla a venenatis libero, vel suscipit libero. Vivamus laoreet quam luctus ligula sollicitudin, sagittis varius quam pulvinar. Curabitur euismod tortor leo, sit amet convallis urna elementum vitae.</div>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3">Specialties</label>
+                        <div class="form-row">
+                            <label class="col-lg-4"><b>Specialties</b></label>
                                 <div class="col-lg-8">
                                    <span class="badge badge-success"> {!! optional($therapist->specialties)->pluck('name')->implode('</span ><span class="badge badge-success ml-1">') !!}</span>
                                 <br>
@@ -44,14 +43,16 @@
                             <a href="{{url('/therapist-edit/'. $therapist->id )}}"><i class="far fa-edit"></i> Edit</a>
                         </div>
                 </div>
+            </div>
+        </div>
 
         <div class="col-md-7">
             <div class="col-sm-5 col-md-5 col-lg-12">
                 <div class="card">
                     <div class="card-header bg-info">
-                        <h5>Client Requests</h5>
+                        Client Requests
                     </div>
-                    <div class="card-body p-0" style="overflow: scroll; height: 200px;">
+                    <div class="card-body p-0" style="overflow: scroll; height: 300px;">
                         <table class="table table-hover mb-0">
                             <thead>
                                 <tr>
@@ -91,39 +92,40 @@
                     </div>
                 </div>
             </div>
+
             <br>
 
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="card-header bg-info">
-                                    <h5>Ratings</h5>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table table-default">
-                                        <thead>
-                                            <tr>
-                                                <th>Client Name</th>
-                                                <th>Rating</th>
-                                                <th>Comments</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Joshua Samson</td>
-                                                <td>Really cool and awesome!</td>
-                                                <td>4.5 stars</td>
-                                            </tr>
-                                        </tbody> 
-                                    </table>
-                                </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header bg-info">
+                                Ratings
+                            </div>
+                            <div class="card-body" style="overflow: scroll; height: 200px;">
+                                <table class="table table-default">
+                                    <thead>
+                                        <tr>
+                                            <th>Client Name</th>
+                                            <th>Rating</th>
+                                            <th>Comments</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Joshua Samson</td>
+                                            <td>Really cool and awesome!</td>
+                                            <td>4.5 stars</td>
+                                        </tr>
+                                    </tbody> 
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
+        </div>
+    </div>
 @endsection
 
 
@@ -182,4 +184,6 @@
         })
     })
 </script>
+
 @endpush
+

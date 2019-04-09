@@ -4,8 +4,6 @@
 
 @section('page-section')
 
-
-
 <div class="row"> <!-- LABEL->col-form-label INPUT-> form-control -->
 	<div class="col-md-5">
 		<div class="card">
@@ -44,6 +42,7 @@
 			</div>
 		</div>
 	</div>
+
 	<div class="col-sm-5 col-md-5 col-lg-7">
 		<div class="card">
 			<div class="card-header bg-info">
@@ -75,7 +74,7 @@
                                 <span class="badge badge-default">Finished</span>  
                                 @endif
                             </td>
-							<td><input type="submit" value="View" class="btn btn-sm btn-info" href="#" data-toggle="modal" data-target="#viewConnection"></td>
+							<td><button class="btn btn-sm btn-danger">Cancel</button></td>
 						</tr>
 						@empty
 						<tr>
@@ -91,8 +90,7 @@
 
 		<div class="card">
 			<div class="card-header bg-info">
-				<h5>Therapist's Notes</h5>
-				Comments and Ratings
+				Therapist's Notes
 			</div>
 			<div class="card-body" style="overflow: scroll; height: 250px;">
 				<table class="table table-default">
