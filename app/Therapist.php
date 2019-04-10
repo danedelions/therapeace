@@ -23,9 +23,7 @@ class Therapist extends Model
         'license_image',
         'nbi_image',
         'bc_image'
-
     ];
-
     protected $appends = [
         'photo_url',
         'full_name'
