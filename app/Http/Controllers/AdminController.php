@@ -25,7 +25,7 @@ class AdminController extends Controller
     public function getUserView()
     {
 
-        $users = User::where('status', '!=', '2')->paginate(8);
+        $users = User::where([['status', '!=', '2'], ['user_type', '!=', 'admin']])->paginate(7);
         
 
     	return view('admin.users', compact('users'));
@@ -33,7 +33,7 @@ class AdminController extends Controller
 
     public function getPendingView()
     {
-        $users = User::where('status',2)->paginate(8);
+        $users = User::where('status',2)->paginate(7);
 
     	return view('admin.pending', compact('users'));
     }
@@ -52,6 +52,7 @@ class AdminController extends Controller
     { 
         
         Mail::send(new UserExpiryNotice());
+
             
         // Mail::send('admin.notice', function($message) use ($to_name, $to_email) {
         //     $message->to($to_email, $to_name)

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width initial-scale=1.0">
-    <title>TheraPeace Inc.</title>
+    <title>TheraPeace Inc. | Admin</title>
     
     <!-- GLOBAL MAINLY STYLES-->
     
@@ -40,7 +40,9 @@
     
 </head>
 <body class="fixed-navbar" style="overflow: hidden">
-    @include('partials.aheader')
+    <div class="page-wrapper">
+    @include('partials.admin.header')
+    @include('partials.admin.sidebars')
     @yield('dashboard')
 
     <!-- CORE PLUGINS-->
@@ -86,7 +88,7 @@
 
         });
     </script>
-    
+    </div>
 </body>
 </html>
 

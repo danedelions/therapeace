@@ -1,6 +1,6 @@
 <?php
-namespace App\Http\Controllers;
 
+namespace App\Http\Controllers;
 
 use Auth;
 use Hash;
@@ -28,6 +28,7 @@ class TherapistController extends Controller
     {
         return view('therapistregistration');
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -45,19 +46,16 @@ class TherapistController extends Controller
                 'status' => 2,
             ]);
 
-
             $users = User::where('username', $request->post('username'))->get();
 
             $image = $request->file('image')->store(
                 "pictures/{$users[0]['username']}",
                 'public'
             );
-
             $license_image = $request->file('license_image')->store(
                 "pictures/{$users[0]['username']}",
                 'public'
             );
-
             $nbi_image = $request->file('nbi_image')->store(
                 "pictures/{$users[0]['username']}",
                 'public'
@@ -77,7 +75,6 @@ class TherapistController extends Controller
                 'gender'         => $request->post('gender'),
                 'streetaddress'  => $request->post('streetaddress'),
                 'city'           => $request->post('city'),
-                'town'           => $request->post('town'),
                 'province'       => $request->post('province'),
                 'barangay'       => $request->post('barangay'),
                 'postal_code'    => $request->post('postal_code'),
@@ -88,15 +85,15 @@ class TherapistController extends Controller
                 'expiry_date'    => $request->post('expiry_date'),
                 'license_image'  => $license_image,
                 'nbi_image'      => $nbi_image,
-                'bc_image'       => $bc_image
+                'bc_image'       => $bc_image,
             ]);
 
         });
     
         // $this->getData();
+
         return view('login');
     }
-
 
     public function edit($userId)
     {
@@ -105,6 +102,7 @@ class TherapistController extends Controller
 
         return view('therapist.edit', compact('therapist', 'specialties'));
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -114,7 +112,6 @@ class TherapistController extends Controller
      */
     public function update(TherapistRequest $request, $id)
     {
-
         $therapist = Therapist::find($id)->load('user');
 
         $specialties = collect($request->specialties);
@@ -123,12 +120,14 @@ class TherapistController extends Controller
                 $specialty = Specialty::firstOrCreate(['name' => $item]);
                 return $specialty->id;
             });
+
             $therapist->specialties()->sync($ids);
         }
 
         $request = $request->validated();
         
         // dd($request);
+        
         if (isset($request['image'])) {
             $request['image'] = request()->file('image')->store('image', 'public');
         }
@@ -138,6 +137,7 @@ class TherapistController extends Controller
         $therapist->fill($request)->save();
         User::where('id', Auth::id())->update(['username' => $request['username'], 'email' => $request['email']]);
         
+
          $users = User::where('username', $request['username'])->first();
         
         if(isset($request['image'])) {
@@ -160,15 +160,17 @@ class TherapistController extends Controller
             'bookingRequest.client.user',
             'bookingRequest.bookingDetails'
         ]);
+
         // dd($therapist->toArray());
+
         return view('therapist.account', compact('therapist'));
     }
+
     public function therapistAppoint(Client $clients)
     {
         $clients = Client::all();
         return view('therapist.appoint', compact('clients'));
     }
-
 
     public function therapistHistory(BookingRequest $bookingRequest)
     {
@@ -176,10 +178,12 @@ class TherapistController extends Controller
         return view('therapist.history', compact('clients'));
         // return view('client.book');
     }
+
     public function therapistMessage()
     {
         return view('therapist.message');
     }
+
     public function createSpecialties()
     {
         return view('therapist.specialty');
@@ -189,6 +193,7 @@ class TherapistController extends Controller
     {
         $specialties;
     }
+
     public function viewChecklist()
     {
         return view('therapist.checklist');
@@ -198,7 +203,4 @@ class TherapistController extends Controller
     {
         return view('therapist.pending');
     }
-
 }
-
-

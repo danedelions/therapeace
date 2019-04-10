@@ -31,14 +31,13 @@ class ClientRequest extends FormRequest
             'username' => 'sometimes|required',
             'city' => 'required',
             'province' => 'required',
-            'res_detail' => 'nullable',
             'street' => 'required',
-            'brgy' => 'nullable',
+            'brgy' => 'required',
+            'res_detail' => 'nullable',
             'building' => 'nullable',
             'landmark' => 'nullable',
             'address_remarks' => 'nullable',
         ];
-
         return $rules;
     }
 }

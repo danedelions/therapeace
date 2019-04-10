@@ -4,50 +4,34 @@
 @json($errors->all())
 
 <div class="row">
-    <div class="col-md-4">
-        <div class="card mb-2">
+    <div class="col-md-12">
+        <div class="card">
             <div class="card-header bg-info">
                 Booking Details
             </div>
             <div class="card-body">
-                <div class="form-group">
-                    <label for="staticEmail" class="font-weight-bold">Client Name</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ $bookingRequest->client->fullname }}">
-                </div>
-                <div class="form-group">
-                    <label for="staticEmail" class="font-weight-bold">Address</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ $bookingRequest->bookingDetails->user_address }}">
-                </div>
-                <div class="form-group">
-                    <label for="staticEmail" class="font-weight-bold">Notes</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ $bookingRequest->bookingDetails->notes }}">
-                </div>
-                <div class="form-group">
-                    <label for="staticEmail" class="font-weight-bold">Contact</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ $bookingRequest->bookingDetails->contact }}">
-                </div>
-                <div class="form-group">
-                    <label for="staticEmail" class="font-weight-bold">Diagnosis</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ $bookingRequest->bookingDetails->diagnosis }}">
-                    <!-- <div class="form-control">{{ $bookingRequest->bookingDetails->diagnosis }}</div> -->
-                </div>
-
-                    <hr>
-                @if($bookingRequest->is('approved') || $bookingRequest->is('pending'))
-                {!! Form::open(['url' => route('therapist.reject.appointment', $bookingRequest), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
-                    <button type="submit" class="btn btn-warning btn-block">Reject this appointment</button>
-                {!! Form::close() !!}
-                @elseif($bookingRequest->is('rejected'))
-                <div class="alert alert-warning">
-                    <p class="mb-0 text-center">
-                        <i class="fa fa-notice"></i> This booking request is rejected!
-                    </p>
-                </div>
-                @endif
-                <div class="form-group">
-                   <button type="submit" class="btn btn-info btn-block">Discharge</button> 
+                <div class="form-row">
+                    <div class="col-md-3">
+                        <label for="staticEmail" class="font-weight-bold">Client Name</label>
+                        <div class="form-control-plaintext" id="staticEmail">
+                            {{ $bookingRequest->client->fullname }}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="staticEmail" class="font-weight-bold">Address</label>
+                        <div class="form-control-plaintext" id="staticEmail">
+                            {{ $bookingRequest->bookingDetails->user_address }}
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <label for="staticEmail" class="font-weight-bold">Notes</label>
+                        <div class="form-control-plaintext" id="staticEmail">
+                            {{ $bookingRequest->bookingDetails->notes }}
+                        </div>
+                    </div>
                 </div>
                 
+<<<<<<< HEAD
             </div>
         </div>
         @if(!$bookingRequest->is('rejected'))
@@ -73,28 +57,135 @@
                     <div class="form-row">
                         <div class="col-6">
                             {!! Form::inputGroup('time', 'Time of Session', 'start_date_time') !!}
+=======
+                <div class="form-row">
+                    <div class="col-md-3">
+                        <label for="staticEmail" class="font-weight-bold">Contact</label>
+                        <div class="form-control-plaintext" id="staticEmail">
+                            {{ $bookingRequest->bookingDetails->contact }}
                         </div>
-                        <div class="col-6">
-                            {!! Form::inputGroup('time', '&nbsp;', 'end_date_time') !!}
-                        </div>
-                        
                     </div>
-                    {!! Form::inputGroup('text', 'Other Services Applied', 'other_services') !!}
-                    {!! Form::inputGroup('number', 'Fee', 'other_services_fee') !!}
-                    <button type="submit" class="btn btn-success">Submit</button>
-                {!! Form::close() !!}
+                    
+                    <div class="col-md-4">
+                        <label for="staticEmail" class="font-weight-bold">Diagnosis</label>
+                        <div class="form-control-plaintext" id="staticEmail">
+                            {{ $bookingRequest->bookingDetails->diagnosis }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="staticEmail" class="font-weight-bold">IMAGE</label>
+                        <div class="form-control-plaintext" id="staticEmail">
+                            PHOTO HERE...
+>>>>>>> 8f8960a79dda9a63023c4860c5837ede1605ec96
+                        </div>
+                    </div>
+                </div>
+                
+                <hr>
+                <div class="row col-md-8 offset-7   ">
+                        <div class="col-md-4">
+                            @if($bookingRequest->is('approved') || $bookingRequest->is('pending'))
+                            {!! Form::open(['url' => route('therapist.reject.appointment', $bookingRequest), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
+                                <button type="submit" class="btn btn-warning btn-block">Reject this appointment</button>
+                            {!! Form::close() !!}
+                            @elseif($bookingRequest->is('rejected'))
+                                <div class="alert alert-warning">
+                                    <p class="mb-0 text-center">
+                                        <i class="fa fa-notice"></i> This booking request is rejected!
+                                    </p>
+                                </div>
+                            @endif
+                        </div>
+<<<<<<< HEAD
+                        
+=======
+                        <div class="col-md-4">
+                           <a data-toggle="modal" data-target="#view-modal-{{ $bookingRequest->id }}"><button type="submit" class="btn btn-info btn-block">Discharge</button> </a>
+                        </div>
+                </div>
+                
+                
+                <!-- View Modal client-->
+                <div class="modal fade" id="view-modal-{{ $bookingRequest->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Wait...</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body" id="modalView">
+                        <br>
+                        <div class="col-sm-12">
+                            <center><h5>Do you want to set another appointment with this patient?</h5></center><br>
+                            <center>
+                                <button class="btn btn-danger">No</button>
+                                <button class="btn btn-success">Yes</button>
+                            </center>
+                        </div>                    
+                      </div>
+>>>>>>> 8f8960a79dda9a63023c4860c5837ede1605ec96
+                    </div>
+                  </div>
+                </div>
+                <!-- end of view modal -->
             </div>
         </div>
-        @endif
     </div>
-    <div class="col-md-8">
-        <div class="card">
-            <div class="card-header bg-info">
-                Appointment Calendar
+</div>
+<br>
+    <div class="row">
+        <div class="col-md-4">
+            @if(!$bookingRequest->is('rejected'))
+            <div class="card">
+                <div class="card-header bg-info">
+                    Set Appointment Details
+                </div>
+                    <div class="card-body">
+                    @if($bookingRequest->appointment)
+                        {!! Form::model($bookingRequest->appointment, ['url' => route('therapist.book.appointment', $bookingRequest)]) !!}
+                    @else
+                        {!! Form::open(['url' => route('therapist.book.appointment', $bookingRequest)]) !!}
+                    @endif
+                        <div class="form-row">
+                            <div class="col-6">
+                                {!! Form::inputGroup('date', 'Starting', 'start_date') !!}
+                            </div>
+                            <div class="col-6">
+                                {!! Form::inputGroup('time', '&nbsp;', 'start_date_time') !!}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-6">
+                                {!! Form::inputGroup('date', 'Until', 'end_date') !!}
+                            </div>
+                            <div class="col-6">
+                                {!! Form::inputGroup('time', '&nbsp;', 'end_date_time') !!}
+                            </div>
+                        </div>
+                        {!! Form::inputGroup('text', 'Other Services Applied', 'other_services') !!}
+                        {!! Form::inputGroup('number', 'Fee', 'other_services_fee') !!}
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    {!! Form::close() !!}
+                </div>
             </div>
-            <div class="card-body" id="calendar"></div>
+            @endif
+        </div>
+
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-info">
+                    Appointment Calendar
+                </div>
+                <div class="card-body" id="calendar"></div>
+            </div>
         </div>
     </div>
+        
+    
+    
 </div>
 
 @endsection

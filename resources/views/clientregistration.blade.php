@@ -3,11 +3,10 @@
 @section('page-body')
 
 <div class="col-md-10 offset-1">
-    <div class="col-md-12 form-group">
     <form id="regForm" action="{{ route('client.store') }}" class="form-group" method="POST">
          {{ csrf_field() }}
         <h1>Client Registration</h1>
-        <hr>
+        <hr><!-- One "tab" for each step in the form: -->
         <div class="tab form-group">
             <div class="form-group col-md-12">
                 <input placeholder="First name" name="fname" type="text" class="form-control">
@@ -30,7 +29,7 @@
             </div>
         </div>
 
-        <div class="tab form-group"> Location
+        <div class="tab form-group">Location:
             <div class="form-group col-md-12">
                 <input placeholder="City*" name="city" type="text" class="form-control">
             </div>
@@ -57,15 +56,20 @@
             </div>
         </div>
 
-        <div class="tab form-group"> Profile
-            <p><input placeholder="User Name" name="username"  type="text" class="form-control"></p>
-            <p><input placeholder="Password" name="password" type="password" class="form-control" data-confirmed="re-password"></p>
-            <p><input placeholder="Retype Password"  name="re-password" type="password" class="form-control"></p>
+        <div class="tab form-group">Profile:
+            <div class="form-group col-md-12">
+                <input placeholder="User Name" name="username"  type="text" class="form-control">
+            </div>
+            <div class="form-group col-md-12">
+                <input placeholder="Password" name="password" type="password" class="form-control" data-confirmed="re-password">
+            </div>
+            <div class="form-group col-md-12">
+                <input placeholder="Retype Password"  name="re-password" type="password" class="form-control">
+            </div>
         </div>
 
         
-
-        <div class="tab">
+        <div class="tab form-group">
             Done:   
             <p style="text-align: justify;">
             Lorem ipsum dolor sit amet, sea harum delenit in. Ut omnis affert mel. Vel ea tantas labores officiis. Ignota noster elaboraret cum ad. No pri munere vocent interpretaris, ei sea mandamus laboramus tincidunt.
@@ -78,10 +82,15 @@
 
             Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facilis antiopam. Fastidii nominati contentiones duo ea. Has ne corpora albucius voluptaria.
             </p>
-        <div>
-        <label><input type="checkbox" class="form-control required" style= "width: auto">  </label>I accept the terms and conditions.
-    </div> 
-      </div>
+            <div>
+                <label>
+                    <input type="checkbox" class="form-control required" style= "width: auto">
+                </label>I accept the terms and conditions.
+            </div> 
+        </div>
+
+    <!-- Buttons -->
+
         <div style="overflow:auto;">
             <div style="float:right;">
                 <button class="btn btn-sm-success" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
@@ -96,11 +105,8 @@
             <span class="step"></span>
             <span class="step"></span>
         </div>
-        
-    </form>
-    </div>
+    <!-- End of Buttons -->
+    </form><!-- End of Form -->
 </div>
 
 @endsection
-
-
