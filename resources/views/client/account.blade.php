@@ -61,8 +61,8 @@
 					<tbody>
 						@forelse($client->booking as $row)
 						<tr>
-							<td><b>{{$row->therapist->fullname}}</b></td>
-							<td>{{$row->bookingDetails->diagnosis}}</td>
+							<td><b>{{ $row->therapist->fullname }}</b></td>
+							<td>{{ $row->bookingDetails->diagnosis }}</td>
 							<td>
                                 @if($row->status == 0)
                                     <span class="badge badge-secondary">Pending</span>  
@@ -92,7 +92,7 @@
 			<div class="card-header bg-info">
 				Therapist's Notes
 			</div>
-			<div class="card-body" style="overflow: scroll; height: 250px;">
+			<div class="card-body" style="overflow: scroll; height: 200px;">
 				<table class="table table-default">
 					<thead>
 						<th>Therapist Name</th>
@@ -105,7 +105,11 @@
 							<td><b>Jude Canete</b></td>
 							<td>March 29 - March 30</td>
 							<td>Scoliosis</td>
-							<td><input type="submit" value="View" class="btn btn-sm btn-info" href="#" data-toggle="modal" data-target="#viewConnection"></td>
+							<td>
+								<button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#viewModal">
+									View
+								</button>
+							</td>
 						</tr>
 					</tbody>
 				</table>
@@ -114,4 +118,46 @@
 	</div>
 </div>
 
+
+<!-- START OF MODAL -->
+<div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  	<div class="modal-dialog" role="document">
+    	<div class="modal-content">
+      		<div class="modal-header text-center">
+        		<h4 class="modal-title w-100 font-weight-bold">Notes</h4>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          	<span aria-hidden="true">&times;</span>
+		        </button>
+      		</div>
+
+      		<div class="modal-body mx-3">
+      			<div class="form-group">
+					<label class="col-lg" >Diagnosis</label>
+					<div class="col-lg-8">Full information of the diagnosis, notes or dates of therapy</div>
+      			</div>
+      			
+      			<hr>
+      			
+      			<h6 font-weight-bold>Do you have any concern? Write to us!</h6>
+		        
+		        <br>
+
+		        <div class="form-group">
+		          	<h6><i class="fas fa-tag prefix grey-text"></i> Subject</h6>
+		          	<input type="text" placeholder="" class="form-control validate">
+		        </div>
+
+		        <div class="form-group">
+		          	<h6><i class="fas fa-envelope prefix grey-text"></i> Write a report</h6>
+		          	<textarea type="text" placeholder="" class="md-textarea form-control" rows="4"></textarea>
+		        </div>
+    		</div>    
+    	<div class="modal-footer d-flex justify-content-center">
+        	<button class="btn btn-unique">Send Report<i class="fas fa-paper-plane-o ml-1"></i></button>
+    	</div>
+	</div>
+</div>
+<!-- END OF MODAL -->
 @endsection
+	
