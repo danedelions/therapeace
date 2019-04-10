@@ -52,7 +52,7 @@
                     <div class="card-header bg-info">
                         Client Requests
                     </div>
-                    <div class="card-body p-0" style="overflow: scroll; height: 300px;">
+                    <div class="card-body p-0" style="overflow: scroll; height: 200px;">
                         <table class="table table-hover mb-0">
                             <thead>
                                 <tr>
@@ -65,8 +65,8 @@
                             <tbody>
                                 @forelse($therapist->bookingRequest as $request)
                                 <tr>
-                                    <td>{{$request->client->fullname}}</td>
-                                    <td>{{$request->bookingDetails->diagnosis}} </td>
+                                    <td>{{ $request->client->fullname }}</td>
+                                    <td>{{ $request->bookingDetails->diagnosis }} </td>
                                     <td>
                                         @if($request->status == 0)
                                             <span class="badge badge-secondary">Pending</span>  
@@ -131,41 +131,41 @@
 
 @push('modals')
 <div class="modal fade" id="show-request-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header align-items-center">
-        <h5 class="modal-title client-name" id="exampleModalLabel"></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <dl class="row">
-            <dt class="col-sm-3">Client Name</dt>
-            <dd class="col-sm-9 client-name"></dd>
-            <dt class="col-sm-3">Address</dt>
-            <dd class="col-sm-9 client-address"></dd>
-            <dt class="col-sm-3">Notes</dt>
-            <dd class="col-sm-9 client-notes"></dd>
-            <dt class="col-sm-3">Contact</dt>
-            <dd class="col-sm-9 client-contact"></dd>
-            <dt class="col-sm-3">Diagnosis</dt>
-            <dd class="col-sm-9 client-diagnosis"></dd>
-        </dl>
-      </div>
-      <div class="modal-footer d-block">
-          <div class="row">
-              <div class="col-6 text-left">
-                <button type="button" class="btn btn-success">Approve</button>
-                <button type="button" class="btn btn-warning">Cancel</button>
-              </div>
-              <div class="col-6 text-right">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-          </div>
-      </div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header align-items-center">
+                <h5 class="modal-title client-name" id="exampleModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+            <div class="modal-body">
+                <dl class="row">
+                    <dt class="col-sm-3">Client Name</dt>
+                    <dd class="col-sm-9 client-name"></dd>
+                    <dt class="col-sm-3">Address</dt>
+                    <dd class="col-sm-9 client-address"></dd>
+                    <dt class="col-sm-3">Notes</dt>
+                    <dd class="col-sm-9 client-notes"></dd>
+                    <dt class="col-sm-3">Contact</dt>
+                    <dd class="col-sm-9 client-contact"></dd>
+                    <dt class="col-sm-3">Diagnosis</dt>
+                    <dd class="col-sm-9 client-diagnosis"></dd>
+                </dl>
+            </div>
+            <div class="modal-footer d-block">
+                <div class="row">
+                    <div class="col-6 text-left">
+                        <button type="button" class="btn btn-success">Approve</button>
+                        <button type="button" class="btn btn-warning">Cancel</button>
+                    </div>
+                    <div class="col-6 text-right">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 @endpush
 
