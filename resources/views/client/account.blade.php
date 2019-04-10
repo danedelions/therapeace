@@ -35,7 +35,11 @@
 					<label class="col-lg-3">Address</label>
 						<div class="col-lg-8">{{$client->address}}</div>
 				</div>
+<<<<<<< HEAD
+            
+=======
 	            
+>>>>>>> 8f8960a79dda9a63023c4860c5837ede1605ec96
 				<div style="display:block; width:x; height:y; text-align:right;">
 					<a href="{{url('/client-edit/'. $client->id )}}"><i class="far fa-edit"></i> Edit</a>
 				</div>
@@ -73,7 +77,23 @@
                                 <span class="badge badge-default">Finished</span>  
                                 @endif
                             </td>
+<<<<<<< HEAD
+							<td>
+								<div class="dropdown">
+								  <button class="btn btn-sm btn-info dropdown-toggle" data-id="{{ $row['id'] }}"
+								          type="button" id="dropdownMenu1" data-toggle="dropdown"
+								          aria-haspopup="true" aria-expanded="false">
+								    Actions
+								  </button>
+								  <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+								    <a class="dropdown-item" data-toggle="modal" data-target="#view-modalc-{{ $row->id }}">View</a>
+								    <a class="dropdown-item">Cancel</a>
+								  </div>
+								</div>
+							</td>
+=======
 							<td><button class="btn btn-sm btn-danger">Cancel</button></td>
+>>>>>>> 8f8960a79dda9a63023c4860c5837ede1605ec96
 						</tr>
 						@empty
 						<tr>
@@ -104,13 +124,50 @@
 							<td><b>Jude Canete</b></td>
 							<td>March 29 - March 30</td>
 							<td>Scoliosis</td>
-							<td><input type="submit" value="View" class="btn btn-sm btn-info" href="#" data-toggle="modal" data-target="#viewConnection"></td>
+							<td><a data-toggle="modal" data-target="#view-modal"><button class="btn btn-sm btn-info">View</button></a></td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
+<<<<<<< HEAD
+
+		<!-- View Modal-->
+		<div class="modal fade" id="view-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header bg-info">
+		        <h5 class="modal-title" id="exampleModalLabel">User Information</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body" id="modalView">
+		        <br>
+		        <div class="col-sm-12"">
+		            <div class="card">
+		                <div class="card-body">
+		                  <center><label>Profile</label></center><br>
+		                  <label>Name: </label>  <br>
+		                  <label>Email: </label> <br>
+		                  <label>Contact #: </label><br>
+		                  
+		                </div>
+		            </div>
+		        </div>                    
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- end of view modal -->
+
+=======
+>>>>>>> 8f8960a79dda9a63023c4860c5837ede1605ec96
 	</div>
 </div>
 
 @endsection
+<<<<<<< HEAD
+
+=======
+>>>>>>> 8f8960a79dda9a63023c4860c5837ede1605ec96
