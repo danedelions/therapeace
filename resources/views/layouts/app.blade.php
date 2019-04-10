@@ -21,5 +21,6 @@
 <body>
         @include('partials.header')
         @yield('page-body')
+        @include('partials.footer')
 </body>
 </html>

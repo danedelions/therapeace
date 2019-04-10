@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width initial-scale=1.0">
-    <title>TheraPeace | Welcome</title>
+    <title>TheraPeace Inc. | Admin</title>
     
     <!-- GLOBAL MAINLY STYLES-->
+    
     <link href="dist/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="dist/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
@@ -39,7 +40,9 @@
     
 </head>
 <body class="fixed-navbar" style="overflow: hidden">
-    @include('partials.aheader')
+    <div class="page-wrapper">
+    @include('partials.admin.header')
+    @include('partials.admin.sidebars')
     @yield('dashboard')
 
     <!-- CORE PLUGINS-->
@@ -74,37 +77,14 @@
     <!-- View Modal Script and Ajax -->
     <script type="text/javascript">
         $(document).ready(function(){
-
-            // $(function () {
-            //         $("#viewModalc").click(function () {
-            //             var my_id_value = $(this).data('id');
-            //             $(".modal-body #hiddenValue").val(my_id_value);
-            //         })
-            //     });
-
-            $('#emailModal').on('show.bs.modal', function (e) {
-                var btn = $(e.relatedTarget)
-                $('#sendWelcomeBtn').attr('href', function () {
-                    return $(this).data('href').replace('__ID__', btn.data('id'))
-                })
-
-                // $('#sendNoticeBtn').attr('href', function () {
-                //     return $(this).data('href').replace('__ID__', btn.data('id'))
-                // })
-            })
-
-
             $('.accept-therapist').click(function(e) {
                 e.preventDefault();
-
                 if(confirm('Are you sure?')){
                     $(this).siblings('form:first').submit();
                 }
             })
-
         });
     </script>
-    
+    </div>
 </body>
 </html>
-

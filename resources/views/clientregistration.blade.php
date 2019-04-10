@@ -9,35 +9,35 @@
         <hr><!-- One "tab" for each step in the form: -->
         <div class="tab form-group">
             <div class="form-group col-md-12">
-                <input placeholder="First name" name="fname" type="text" class="form-control required">
+                <input placeholder="First name" name="fname" type="text" class="form-control">
             </div>
             <div class="form-group col-md-12">
-                <input placeholder="Last name" name="lname" type="text" class="form-control required">
+                <input placeholder="Last name" name="lname" type="text" class="form-control">
             </div>
             <div class="form-group col-md-12">
-                <input placeholder="Email"  name="email" type="email" class="form-control required">
+                <input placeholder="Email"  name="email" type="email" class="form-control">
             </div>
             <div class="form-group col-md-12">
-                <input placeholder="Contact Number" type="text" name="number" class="form-control required">
+                <input placeholder="Contact Number" type="text" name="number" class="form-control">
             </div>
             <div class="form-group col-md-12">
-            <select id="gender" class="form-control required" name="gender">
-                <option value="">Select Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-            </select>
-          </div>
+                <select id="gender" class="form-control" name="gender" class="form-control">
+                    <option disabled="disabled" selected>Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
         </div>
 
         <div class="tab form-group">Location:
             <div class="form-group col-md-12">
-                <input placeholder="City*" name="city" type="text" class="form-control required">
+                <input placeholder="City*" name="city" type="text" class="form-control">
             </div>
             <div class="form-group col-md-12">
-                <input placeholder="Province*" name="province" type="text" class="form-control required">
+                <input placeholder="Province*" name="province" type="text" class="form-control">
             </div>
             <div class="form-group col-md-12">
-                <input placeholder="Street*" name="street" type="text" class="form-control required">
+                <input placeholder="Street*" name="street" type="text" class="form-control">
             </div>
             <div class="form-group col-md-12">
                 <input placeholder="Village/Barangay" name="brgy" type="text" class="form-control">
@@ -58,13 +58,13 @@
 
         <div class="tab form-group">Profile:
             <div class="form-group col-md-12">
-                <input placeholder="User Name" name="username"  type="text" class="form-control required">
+                <input placeholder="User Name" name="username"  type="text" class="form-control">
             </div>
             <div class="form-group col-md-12">
-                <input placeholder="Password" name="password" type="password" class="form-control required" data-confirmed="re-password">
+                <input placeholder="Password" name="password" type="password" class="form-control" data-confirmed="re-password">
             </div>
             <div class="form-group col-md-12">
-                <input placeholder="Retype Password"  name="re-password" type="password" class="form-control required">
+                <input placeholder="Retype Password"  name="re-password" type="password" class="form-control">
             </div>
         </div>
 

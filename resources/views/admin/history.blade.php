@@ -4,8 +4,8 @@
     <div class="content-wrapper">
     <!-- START PAGE CONTENT-->
     <!-- search bar should be here -->
-      <h2>Search Bar</h2>
-      <p>Appointment History</p>          
+      
+      <h3>Appointment History</h3>          
       <table class="table table-hover">
         <thead>
           <tr>
