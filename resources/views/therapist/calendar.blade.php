@@ -31,6 +31,33 @@
                     </div>
                 </div>
                 
+<<<<<<< HEAD
+            </div>
+        </div>
+        @if(!$bookingRequest->is('rejected'))
+        <div class="card">
+            <div class="card-header bg-info">
+                Set Appointment Details
+            </div>
+                <div class="card-body">
+                @if($bookingRequest->appointment)
+                    {!! Form::model($bookingRequest->appointment, ['url' => route('therapist.book.appointment', $bookingRequest)]) !!}
+                @else
+                    {!! Form::open(['url' => route('therapist.book.appointment', $bookingRequest)]) !!}
+                @endif
+                    <div class="form-row">
+                        <div class="col-6">
+                            {!! Form::inputGroup('date', 'Dates of Session', 'start_date') !!}
+                        </div>
+                        
+                        <div class="col-6">
+                            {!! Form::inputGroup('date', '&nbsp;', 'end_date') !!}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-6">
+                            {!! Form::inputGroup('time', 'Time of Session', 'start_date_time') !!}
+=======
                 <div class="form-row">
                     <div class="col-md-3">
                         <label for="staticEmail" class="font-weight-bold">Contact</label>
@@ -50,6 +77,7 @@
                         <label for="staticEmail" class="font-weight-bold">IMAGE</label>
                         <div class="form-control-plaintext" id="staticEmail">
                             PHOTO HERE...
+>>>>>>> 8f8960a79dda9a63023c4860c5837ede1605ec96
                         </div>
                     </div>
                 </div>
@@ -69,6 +97,9 @@
                                 </div>
                             @endif
                         </div>
+<<<<<<< HEAD
+                        
+=======
                         <div class="col-md-4">
                            <a data-toggle="modal" data-target="#view-modal-{{ $bookingRequest->id }}"><button type="submit" class="btn btn-info btn-block">Discharge</button> </a>
                         </div>
@@ -95,6 +126,7 @@
                             </center>
                         </div>                    
                       </div>
+>>>>>>> 8f8960a79dda9a63023c4860c5837ede1605ec96
                     </div>
                   </div>
                 </div>
