@@ -1,5 +1,4 @@
-  @extends('layouts.app')
-
+@extends('layouts.app')
 @section('page-body')
         <div class="slider">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

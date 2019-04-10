@@ -6,13 +6,10 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href=""class="nav-link nav-text" href="/">Home</a>
+                    <a class="nav-link nav-text" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-text" href="/about">About</a>
-                </li>
-                <li class="nav-item">
-                        <a class="nav-link nav-text" href="#">FAQ</a>
+                        <a class="nav-link nav-text" href="/FAQs">FAQs</a>
                 </li>
             </ul>
                 <div class="dropdown">

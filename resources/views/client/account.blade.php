@@ -35,7 +35,11 @@
 					<label class="col-lg-3">Address</label>
 						<div class="col-lg-8">{{$client->address}}</div>
 				</div>
+<<<<<<< HEAD
             
+=======
+	            
+>>>>>>> 8f8960a79dda9a63023c4860c5837ede1605ec96
 				<div style="display:block; width:x; height:y; text-align:right;">
 					<a href="{{url('/client-edit/'. $client->id )}}"><i class="far fa-edit"></i> Edit</a>
 				</div>
@@ -74,6 +78,7 @@
                                 <span class="badge badge-default">Finished</span>  
                                 @endif
                             </td>
+<<<<<<< HEAD
 							<td>
 								<div class="dropdown">
 								  <button class="btn btn-sm btn-info dropdown-toggle" data-id="{{ $row['id'] }}"
@@ -87,6 +92,9 @@
 								  </div>
 								</div>
 							</td>
+=======
+							<td><button class="btn btn-sm btn-danger">Cancel</button></td>
+>>>>>>> 8f8960a79dda9a63023c4860c5837ede1605ec96
 						</tr>
 						@empty
 						<tr>
@@ -123,6 +131,7 @@
 				</table>
 			</div>
 		</div>
+<<<<<<< HEAD
 
 		<!-- View Modal-->
 		<div class="modal fade" id="view-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -153,8 +162,13 @@
 		</div>
 		<!-- end of view modal -->
 
+=======
+>>>>>>> 8f8960a79dda9a63023c4860c5837ede1605ec96
 	</div>
 </div>
 
 @endsection
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8f8960a79dda9a63023c4860c5837ede1605ec96
