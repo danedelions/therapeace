@@ -42,30 +42,31 @@ class TherapistController extends Controller
                 'email'     => $request->post('email'),
                 'password'  => Hash::make($request->post('password')),
                 'user_type' => 'therapist',
-                'status' => 2
+                'status' => 2,
             ]);
 
 
             $users = User::where('username', $request->post('username'))->get();
+
             $image = $request->file('image')->store(
                 "pictures/{$users[0]['username']}",
                 'public'
             );
 
-             $license_image = $request->file('license_image')->store(
-                "pictures/{$users[0]['username']}",
-                'public'
-            );
-                $nbi_image = $request->file('nbi_image')->store(
-                "pictures/{$users[0]['username']}",
-                'public'
-            );
-                $bc_image = $request->file('bc_image')->store(
+            $license_image = $request->file('license_image')->store(
                 "pictures/{$users[0]['username']}",
                 'public'
             );
 
+            $nbi_image = $request->file('nbi_image')->store(
+                "pictures/{$users[0]['username']}",
+                'public'
+            );
 
+            $bc_image = $request->file('bc_image')->store(
+                "pictures/{$users[0]['username']}",
+                'public'
+            );
 
             Therapist::insert([
                 'user_id'        => $users[0]['id'],
@@ -86,17 +87,17 @@ class TherapistController extends Controller
                 'license_number' => $request->post('license_number'),
                 'expiry_date'    => $request->post('expiry_date'),
                 'license_image'  => $license_image,
-                'nbi_image'      => $nbi_image,    
-                'bc_image'       => $bc_image,
-
-                'license_image'  => $request->post('license_image'),
-                'nbi_image'      => $request->post('nbi_image'),
-                'bc_image'       => $request->post('bc_image'),
+                'nbi_image'      => $nbi_image,
+                'bc_image'       => $bc_image
             ]);
+
         });
+    
         // $this->getData();
         return view('login');
     }
+
+
     public function edit($userId)
     {
         $specialties = Specialty::select('name')->pluck('name', 'name');
@@ -111,9 +112,9 @@ class TherapistController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-        public function update(TherapistRequest $request, $id)
+    public function update(TherapistRequest $request, $id)
     {
-        $therapist = Therapist::find($id);
+
         $therapist = Therapist::find($id)->load('user');
 
         $specialties = collect($request->specialties);
@@ -143,21 +144,13 @@ class TherapistController extends Controller
             $image = request()->file('image')->move("pictures/{$users[0]['username']}", 'public');
         }
 
-
-        //  $users = User::where('username', $request['username'])->first();
-
-        // if(isset($request['image'])) {
-        //     $image = request()->file('image')->move("pictures/{$users[0]['username']}", 'public');
-        // }
-
-
-
         $therapist->fill($request)->save();
         
         User::where('id', Auth::id())->update(['username' => $request['username'], 'email' => $request['email']]);
         
         return redirect()->route('get.therapist-account');
     }
+
     public function therapistAccount(BookingRequest $bookings)
     {
         $therapist = Therapist::whereUserId(Auth::id())->with(['user', 'specialties'])->first();
@@ -175,11 +168,7 @@ class TherapistController extends Controller
         $clients = Client::all();
         return view('therapist.appoint', compact('clients'));
     }
-    // public function therapistAppoint(Client $clients)
-    // {
-    //     $clients = Client::all();
-    //     return view('therapist.appoint', compact('clients'));
-    // }
+
 
     public function therapistHistory(BookingRequest $bookingRequest)
     {

@@ -33,7 +33,7 @@ class ClientRequest extends FormRequest
             'province' => 'required',
             'res_detail' => 'nullable',
             'street' => 'required',
-            'brgy' => 'required',
+            'brgy' => 'nullable',
             'building' => 'nullable',
             'landmark' => 'nullable',
             'address_remarks' => 'nullable',

@@ -26,12 +26,10 @@ class Therapist extends Model
     ];
 
     protected $appends = [
-        'photo_url'
-    ];
-
-    protected $appends = [
+        'photo_url',
         'full_name'
     ];
+
     /**
      * 
      */

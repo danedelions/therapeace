@@ -32,9 +32,9 @@
               <option value="Male">Male</option>
               <option value="Female">Female</option>
           </select>
+      </div>
     </div>
-    </div>
-  </div>
+
 
 <div class="tab form-group">Address:
   <div class="form-group col-md-12">
@@ -105,14 +105,6 @@
         </div>
     </div>
 
-    <!-- Circles which indicates the steps of the form: -->
-    <div style="text-align:center;margin-top:40px;">
-      <span class="step"></span>
-      <span class="step"></span>
-      <span class="step"></span>
-      <span class="step"></span>
-    </div>
-
     <div class="tab form-group">Done
       <div class="col-md-12">
         <p style="text-align: justify;">Lorem ipsum dolor sit amet, sea harum delenit in. Ut omnis affert mel. Vel ea tantas labores officiis. Ignota noster elaboraret cum ad. No pri munere vocent interpretaris, ei sea mandamus laboramus tincidunt.
@@ -127,7 +119,7 @@
         <label><input type="checkbox" class="form-control required" style= "width: auto">  </label>I accept the terms and conditions.
     </div>  
   </div>
-      </div>
+</div>  
 
     <div style="overflow:auto;">
       <div style="float:right;">
@@ -182,10 +174,6 @@
             document.getElementById(addressType).value = val;
           }
         }
-        document.getElementById('latitude').value = place.geometry.location.lat();
-        document.getElementById('longitude').value = place.geometry.location.lng();
-
-      
         document.getElementById('latitude').value = place.geometry.location.lat();
         document.getElementById('longitude').value = place.geometry.location.lng();
       
