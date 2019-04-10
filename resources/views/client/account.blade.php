@@ -47,15 +47,11 @@
 			</div>
 		</div>
 	</div>
-<<<<<<< HEAD
-	<div class="col-sm-5 col-md-5 col-lg-7">
-=======
 
+	<div class="col-sm-5 col-md-5 col-lg-7">
 	<div class="col-lg">
->>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
 		<div class="card">
-			
-			<div class="card-header bg-info">
+				<div class="card-header bg-info">
 				Sent Requests
 			</div>
 			<div class="card-body" style="overflow: scroll; height: 200px;">
@@ -125,12 +121,5 @@
 	</div>
 </div>
 
-<<<<<<< HEAD
-
-
-
-
 @endsection
-=======
-@endsection
->>>>>>> b16711d16651a32f4ab082ad76622699dce84f5f
+

@@ -23,6 +23,7 @@ class Therapist extends Migration
             $table->string('gender');
             $table->string('streetaddress');
             $table->string('city');
+            $table->string('town');
             $table->string('province');
             $table->string('barangay');
             $table->string('postal_code');
