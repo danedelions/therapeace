@@ -38,19 +38,20 @@ Route::group(['middleware' => 'auth'], function(){
 	// ADMIN
 
 	Route::get('/admin-dashboard', 'AdminController@getDashboard')->name('get.dashboard');
+    Route::get('/admin-login', 'AdminController@login')->name('get.login');
 	Route::get('/admin-user', 'AdminController@getUserView')->name('get.view');
 	Route::get('/admin-pending', 'AdminController@getPendingView')->name('get.pending');
 	Route::get('/admin-history', 'AdminController@getHistoryView')->name('get.history');
 	Route::get('/admin-reports', 'AdminController@getReportsView')->name('get.reports');
 
 	Route::patch('/status-update/{user}', 'AdminController@statusUpdate')->name('get.update');
-	Route::get('/admin-notice', 'AdminController@notice')->name('get.notice');
+	Route::get('/admin-notice/{id}', 'AdminController@notice')->name('get.notice');
     Route::post('{therapist}/accept', 'AcceptTherapistController');	
 
     // THERAPIST
     Route::get('/therapist-account', 'TherapistController@therapistAccount')->name('get.therapist-account');
     // Route::get('/therapist-appoint', 'TherapistController@therapistAppoint')->name('get.therapist-appoint');
-    Route::get('/therapist-history', 'TherapistController@therapistHistory')->name('get.therapist-history');
+    
     Route::get('/therapist-message', 'TherapistController@therapistMessage');
     Route::get('/therapist-edit/{id}', 'TherapistController@edit');
     Route::patch('/therapist-update/{id}', 'TherapistController@update')->name('therapist.update');
@@ -66,7 +67,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/client-account', 'ClientController@clientAccount')->name('get.client-account');
     Route::get('/client-edit/{id}', 'ClientController@edit');
     Route::patch('/client-update/{id}', 'ClientController@update');
-    Route::get('/client-history', 'ClientController@clientHistory')->name('get.client-history');
+    
     Route::get('/client-message', 'ClientController@clientMessage')->name('get.client-message');
     Route::get('/client-search/', 'ClientController@search')->name('get.client-search');
 

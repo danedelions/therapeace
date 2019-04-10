@@ -13,14 +13,15 @@ class UserExpiryNotice extends Mailable
 {
     use Queueable, SerializesModels;
 
+    protected $id; 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($id)
     {
-        //
+        $this->id = $id;
     }
 
     /**
@@ -30,7 +31,9 @@ class UserExpiryNotice extends Mailable
      */
     public function build(Request $request)
     {
-        $user = User::find();
+        $user = User::find($this->id);
+
+        // dd($user);
 
         return $this->view('admin.notice', ['username'=>$user->username])->to($user->email);
     }

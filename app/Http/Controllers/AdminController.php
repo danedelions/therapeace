@@ -48,10 +48,11 @@ class AdminController extends Controller
     	return view('admin.reports');
     }
 
-    public function notice(TherapistRequest $request)
+    public function notice(Request $request, $id)
     { 
         
-        Mail::send(new UserExpiryNotice());
+        // dd($id);
+        Mail::send(new UserExpiryNotice($id));
 
             
         // Mail::send('admin.notice', function($message) use ($to_name, $to_email) {
@@ -68,6 +69,10 @@ class AdminController extends Controller
         $user->update(['status' => !$user->status]);
         return redirect()->back();
 
+    }
+
+    public function login(){
+        return view('admin.login');
     }
 
 
