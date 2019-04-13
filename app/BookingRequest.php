@@ -55,9 +55,16 @@ class BookingRequest extends Model
 		]);
 	}
 
+	public function cancelled()
+	{
+		return $this->update([
+			'status' => 4
+		]);
+	}
+
 	public function is($status)
 	{
-		$allStatus = ['pending', 'approved', 'rejected', 'finished'];
+		$allStatus = ['pending', 'approved', 'rejected', 'finished', 'canceled'];
 
 		return array_search(strtolower($status), $allStatus) == $this->status;
 	}

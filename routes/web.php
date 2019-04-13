@@ -93,7 +93,7 @@ Route::group(['middleware' => 'guest'], function () {
 
     Route::get('/booktherapist/{id}', 'BookingController@index')->name('get.booktherapist');
     Route::post('/doBookTherapist/', 'BookingController@submitDetails')->name('post.doBook');
-    Route::delete('/deleteBooking/{id}','BookingController@clientDeleteRequest')->name('post.cancelbooking');
+    Route::delete('/deleteBooking/{id}','BookingController@clientDeleteRequest');
     
 });
 

@@ -35,6 +35,13 @@
             </div>
         </div>
     </div>
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+            Message
+            </div>
+        </div>
+    </div>
 </div>
 @elseif($booking->is('finished'))
 <!-- display transaction only -->
