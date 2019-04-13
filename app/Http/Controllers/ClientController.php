@@ -122,4 +122,8 @@ class ClientController extends Controller
             return view('client.find', compact('therapists'));
         }
     }
+    public function getView()
+    {
+        return view('client.view');
+    }
 }
