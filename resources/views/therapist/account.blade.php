@@ -11,7 +11,7 @@
                 </div>
                 <div class="card-body">
                         <center>
-                            <img src='{{ asset("storage/{$therapist->image}") }}'>
+                            <img src='{{ asset("storage/{$therapist->image}") }}' style="width:150px;height:250px;">
                             <br>
                                 <div><h4>{{$therapist->therapist}}</h4></div>
                         </center>
@@ -184,11 +184,7 @@
         })
     })
 </script>
-<<<<<<< HEAD
-
-@endpush
-=======
 
 @endpush
 
->>>>>>> 6042d753e5c7e99bdec3eecc72e120b274a2a8c3
+

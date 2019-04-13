@@ -121,8 +121,6 @@
 									View
 								</button>
 							</td>
-							<td><a data-toggle="modal" data-target="#view-modal"><button class="btn btn-sm btn-info">View</button></a></td>
-
 						</tr>
 					</tbody>
 				</table>
@@ -143,7 +141,7 @@
 		      </div>
 		      <div class="modal-body" id="modalView">
 		        <br>
-		        <div class="col-sm-12"">
+		        <div class="col-sm-12">
 		            <div class="card">
 		                <div class="card-body">
 		                  <center><label>Profile</label></center><br>
@@ -204,4 +202,3 @@
 </div>
 <!-- END OF MODAL -->
 @endsection
->>>>>>> a4177272f3611f678419ace897cc273024acd004

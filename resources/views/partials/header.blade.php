@@ -38,7 +38,7 @@
                 </button>
             </div>
 
-            <div class="modal-body" style="overflow: scroll; height: 550px;"">
+            <div class="modal-body" style="overflow: scroll; height: 550px;">
                 <label style="font: Times New Roman; font-style: italic;">Question 1?</label>
                 <div>Lorem ipsum dolor sit amet, posuere elementum a, eleifend at, ipsum a. Ridiculus lorem, ultrices in donec, viverra pede. Vulputate tincidunt, augue commodo diam. Quam lacus. Amet ac dignissim. Massa orci.</div>
                 

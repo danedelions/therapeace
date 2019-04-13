@@ -109,7 +109,7 @@
       </div>
     </div>
 
-<<<<<<< HEAD
+
     <div class="tab form-group">Done
       <div class="col-md-12">
         <p style="text-align: justify;">Lorem ipsum dolor sit amet, sea harum delenit in. Ut omnis affert mel. Vel ea tantas labores officiis. Ignota noster elaboraret cum ad. No pri munere vocent interpretaris, ei sea mandamus laboramus tincidunt.
@@ -118,9 +118,11 @@
       Te graeco imperdiet per, pri ea summo voluptatibus. Fierent voluptua pri ea, nam ex causae audire nominati. Eirmod aliquid gloriatur quo ne. Sed ea petentium philosophia, nibh pericula quaerendum vel at. Homero causae persius cum id. At pri natum error, ei vel dicant nostrud scriptorem.
 
         Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facilis antiopam. Fastidii nominati contentiones duo ea. Has ne corpora albucius voluptaria.</p>
-    <div>
-        <label><input type="checkbox" class="form-control required" style= "width: auto">  </label>I accept the terms and conditions.
-    </div>  
+            <div>
+                <label>
+                    <input type="checkbox" class="form-control" style= "width: auto" required/>
+                </label>I accept the terms and conditions.
+            </div> 
   </div>
 </div>  
 
