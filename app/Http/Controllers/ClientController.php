@@ -124,6 +124,13 @@ class ClientController extends Controller
     }
     public function getView()
     {
-        return view('client.view');
+        $client = Client::whereUserId(Auth::id())->with('user')->first();
+        
+        $client->load([
+            'booking',
+            'booking.therapist.user',
+            'booking.bookingRequest'
+        ]);
+        return view('client.view', compact('client'));
     }
 }

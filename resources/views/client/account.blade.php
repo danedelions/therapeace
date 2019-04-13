@@ -77,10 +77,10 @@
 								  <button class="btn btn-sm btn-info dropdown-toggle" data-id="{{ $row['id'] }}"
 								          type="button" id="dropdownMenu1" data-toggle="dropdown"
 								          aria-haspopup="true" aria-expanded="false">
-								    Actions
+								    Actons
 								  </button>
 								  <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-								    <a class="dropdown-item" data-toggle="modal" data-target="#view-modalc-{{ $row->id }}"><i class="far fa-eye" href="{{route('get.client-view')}}"></i>&nbspView</a>
+								    <a class="dropdown-item" href="{{url('/client-view/')}}"><i class="far fa-eye"></i>&nbspView</a>
 								    <a class="dropdown-item"><i class="fas fa-ban"></i>&nbspCancel</a>
 								  </div>
 								</div>
@@ -116,11 +116,11 @@
 							<td>March 29 - March 30</td>
 							<td>Scoliosis</td>
 							<td>
-								<button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#viewModal">
-									View
+								<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#viewModal">
+									Info
 								</button>
 							</td>
-							<td><a data-toggle="modal" data-target="#view-modal"><button class="btn btn-sm btn-info">View</button></a></td>
+							<td><a data-toggle="modal" data-target="#view-modal"><button class="btn btn-sm btn-secondary">Notes</button></a></td>
 						</tr>
 					</tbody>
 				</table>
@@ -131,7 +131,7 @@
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
 		      <div class="modal-header bg-info">
-		        <h5 class="modal-title" id="exampleModalLabel">User Information</h5>
+		        <h5 class="modal-title" id="exampleModalLabel">Therapist Notes</h5>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          <span aria-hidden="true">&times;</span>
 		        </button>
@@ -158,8 +158,6 @@
 	</div>
 </div>
 
-@endsection
-
 	</div>
 </div>
 
@@ -170,7 +168,7 @@
   	<div class="modal-dialog" role="document">
     	<div class="modal-content">
       		<div class="modal-header text-center">
-        		<h4 class="modal-title w-100 font-weight-bold">Notes</h4>
+        		<h4 class="modal-title w-100 font-weight-bold">Session Information</h4>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          	<span aria-hidden="true">&times;</span>
 		        </button>

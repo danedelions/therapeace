@@ -31,7 +31,6 @@
                     </div>
                 </div>
                 
-<<<<<<< HEAD
             </div>
         </div>
         @if(!$bookingRequest->is('rejected'))
@@ -57,27 +56,6 @@
                     <div class="form-row">
                         <div class="col-6">
                             {!! Form::inputGroup('time', 'Time of Session', 'start_date_time') !!}
-=======
-                <div class="form-row">
-                    <div class="col-md-3">
-                        <label for="staticEmail" class="font-weight-bold">Contact</label>
-                        <div class="form-control-plaintext" id="staticEmail">
-                            {{ $bookingRequest->bookingDetails->contact }}
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <label for="staticEmail" class="font-weight-bold">Diagnosis</label>
-                        <div class="form-control-plaintext" id="staticEmail">
-                            {{ $bookingRequest->bookingDetails->diagnosis }}
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <label for="staticEmail" class="font-weight-bold">IMAGE</label>
-                        <div class="form-control-plaintext" id="staticEmail">
-                            PHOTO HERE...
->>>>>>> 8f8960a79dda9a63023c4860c5837ede1605ec96
                         </div>
                     </div>
                 </div>
@@ -97,36 +75,7 @@
                                 </div>
                             @endif
                         </div>
-<<<<<<< HEAD
                         
-=======
-                        <div class="col-md-4">
-                           <a data-toggle="modal" data-target="#view-modal-{{ $bookingRequest->id }}"><button type="submit" class="btn btn-info btn-block">Discharge</button> </a>
-                        </div>
-                </div>
-                
-                
-                <!-- View Modal client-->
-                <div class="modal fade" id="view-modal-{{ $bookingRequest->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Wait...</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body" id="modalView">
-                        <br>
-                        <div class="col-sm-12">
-                            <center><h5>Do you want to set another appointment with this patient?</h5></center><br>
-                            <center>
-                                <button class="btn btn-danger">No</button>
-                                <button class="btn btn-success">Yes</button>
-                            </center>
-                        </div>                    
-                      </div>
->>>>>>> 8f8960a79dda9a63023c4860c5837ede1605ec96
                     </div>
                   </div>
                 </div>
