@@ -82,8 +82,10 @@
 								    Actons
 								  </button>
 								  <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-								    <a class="dropdown-item" href="{{url('/client-view/')}}"><i class="far fa-eye"></i>&nbspView</a>
-								    <a class="dropdown-item"><i class="fas fa-ban" href="url{{url('/deleteBooking/{id}')}}"></i>&nbspCancel</a>
+								    <a class="dropdown-item" href="{{url('/client-view/'.$row->id)}}"><i class="far fa-eye"></i>&nbspView</a>
+								    <a class="dropdown-item"><i class="fas fa-ban"></i>
+                      &nbspCancel
+										</a>
 								  </div>
 								</div>
 							</td>

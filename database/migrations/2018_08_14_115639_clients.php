@@ -20,12 +20,12 @@ class Clients extends Migration
             $table->string('gender');
             $table->string('city');
             $table->string('province');
-            $table->string('res_detail');
+            $table->string('res_detail')->nullable();
             $table->string('street');
-            $table->string('brgy');
-            $table->string('building');
-            $table->string('landmark');
-            $table->string('address_remarks');
+            $table->string('brgy')->nullable();
+            $table->string('building')->nullable();
+            $table->string('landmark')->nullable();
+            $table->string('address_remarks')->nullable();
             $table->rememberToken();
             $table->timestamps();
            

@@ -72,8 +72,8 @@
     <div class="tab form-group">License:
       <div class="form-group col-md-12">
         <select class="form-control required" name="therapist">
-          <option value="">Select Therapist</option>
-          <option value="Physical Therapis">Physical Therapist</option>
+          <option value="">SELECT TYPE</option>
+          <option value="Physical Therapist">Physical Therapist</option>
           <option value="Occupational Therapist">Occupational Therapist</option>
         </select>
       </div>
@@ -109,7 +109,6 @@
       </div>
     </div>
 
-<<<<<<< HEAD
     <div class="tab form-group">Done
       <div class="col-md-12">
         <p style="text-align: justify;">Lorem ipsum dolor sit amet, sea harum delenit in. Ut omnis affert mel. Vel ea tantas labores officiis. Ignota noster elaboraret cum ad. No pri munere vocent interpretaris, ei sea mandamus laboramus tincidunt.

@@ -34,6 +34,8 @@ class Therapist extends Migration
             $table->string('license_image');
             $table->string('nbi_image');
             $table->string('bc_image');
+            $table->text('user_bio')->nullable();
+            $table->decimal('personal_rate', 5,2)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

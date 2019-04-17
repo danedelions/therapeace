@@ -83,7 +83,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::patch('/client-update/{id}', 'ClientController@update');
     Route::get('/client-message', 'ClientController@clientMessage')->name('get.client-message');
     Route::get('/client-search/', 'ClientController@search')->name('get.client-search');
-    Route::get('/client-view', 'ClientController@getView')->name('get.client-view');
+    Route::get('/client-view/{id}', 'ClientController@getView')->name('get.client-view');
 
     //TRANSACTION
     // Route::get('/client-transaction', 'TransactionController@clientTrans');

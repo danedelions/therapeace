@@ -86,6 +86,8 @@ class TherapistController extends Controller
                 'license_image'  => $license_image,
                 'nbi_image'      => $nbi_image,
                 'bc_image'       => $bc_image,
+                'user_bio'       => "Please insert bio here...",
+                'personal_rate'  => 000.00
             ]);
 
         });

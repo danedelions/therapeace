@@ -22,7 +22,9 @@ class Therapist extends Model
         'expiry_date',
         'license_image',
         'nbi_image',
-        'bc_image'
+        'bc_image',
+        'user_bio',
+        'personal_rate',
     ];
     protected $appends = [
         'photo_url',

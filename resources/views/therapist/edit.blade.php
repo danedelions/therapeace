@@ -89,13 +89,13 @@
               </div>
               <div class="col-md-6 form-group">
                 <label>Personal Rate</label>
-                  <input type="number" name="rate" placeholder="Personal Rate" class="form-control">
+                  <input type="number" name="rate" placeholder="Personal Rate" class="form-control" min="200.00" step="50.00">
               </div>
             </div>
             <div class="form-row">
               <div class="col-md-12">
                 <label>Bio</label>
-                  <textarea class="form-control" rows="2" placeholder="Enter short bio here" maxlength="150"></textarea>
+                  <textarea class="form-control" name="user_bio" rows="2" placeholder="Enter short bio here" maxlength="150"></textarea>
               </div>
             </div>
             <div class="form-row">

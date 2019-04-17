@@ -33,6 +33,10 @@ class BookingRequest extends Model
     	return $this->hasOne('App\Appointment', 'booking_id');
 	}
 	
+	public function scopeOfBooking($query, $bookingID)
+	{
+		return $this->where('id', $bookingID);
+	}
 
 	public function reject()
 	{

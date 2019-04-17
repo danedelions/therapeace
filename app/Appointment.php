@@ -27,6 +27,10 @@ class Appointment extends Model
 		'other_services_fee' => 'float',
 	];	
 
+	protected $appends = [
+		'Duration'
+	];
+
 	public function booking()
 	{
 		return $this->belongsTo('App\BookingRequest', 'booking_id');
@@ -50,5 +54,10 @@ class Appointment extends Model
 	public function getEndDateTimeAttribute($val)
 	{
 			return $val ? Carbon::parse($val)->format('H:i')  : $val;
+	}
+
+	public function getDurationAttribute()
+	{
+		return "{$this->start_date}-{$this->end_date}";
 	}
 }

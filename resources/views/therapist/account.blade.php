@@ -30,7 +30,11 @@
                         </div>
                         <div class="form-row">
                             <label class="col-lg-4"><b>Bio</b></label>
-                            <div class="col-lg-8"   >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra rhoncus ex, id egestas sem ultrices sit amet. Nulla a venenatis libero, vel suscipit libero. Vivamus laoreet quam luctus ligula sollicitudin, sagittis varius quam pulvinar. Curabitur euismod tortor leo, sit amet convallis urna elementum vitae.</div>
+                            <div class="col-lg-8">{{$therapist->user_bio}}</div>
+                        </div>
+                        <div class="form-row">
+                            <label class="col-lg-4"><b>Personal Rate</b></label>
+                            <div class="col-lg-8">{{$therapist->personal_rate}}</div>
                         </div>
                         <div class="form-row">
                             <label class="col-lg-4"><b>Specialties</b></label>
