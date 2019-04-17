@@ -128,4 +128,15 @@ class ClientController extends Controller
 
         return view('client.view', compact('bookings'));
     }
+
+    {
+        $client = Client::whereUserId(Auth::id())->with('user')->first();
+        
+        $client->load([
+            'booking',
+            'booking.therapist.user',
+            'booking.bookingRequest'
+        ]);
+        return view('client.view', compact('client'));
+    }
 }

@@ -20,7 +20,6 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('doLogin', 'LoginController@doLogin')->name('post:login');
 });
 
-
     Route::get('/logout', 'LoginController@Logout');
 
     Route::resource('therapist', 'TherapistController');
@@ -38,8 +37,6 @@ Route::group(['middleware' => 'guest'], function () {
     Route::group(['middleware' => 'auth'], function(){
 
     // ADMIN
-
-
 	Route::get('/admin-dashboard', 'AdminController@getDashboard')->name('get.dashboard');
     Route::get('/admin-login', 'AdminController@login')->name('get.login');
 	Route::get('/admin-user', 'AdminController@getUserView')->name('get.view');
@@ -49,17 +46,9 @@ Route::group(['middleware' => 'guest'], function () {
 
 	Route::patch('/status-update/{user}', 'AdminController@statusUpdate')->name('get.update');
 	Route::get('/admin-notice/{id}', 'AdminController@notice')->name('get.notice');
+    Route::post('{therapist}/accept', 'AcceptTherapistController');
+    Route::any('/search', 'AdminController@search')->name('get.search');
     Route::post('{therapist}/accept', 'AcceptTherapistController');	
-
-    Route::get('/admin-dashboard', 'AdminController@getDashboard')->name('get.dashboard');
-    Route::get('/admin-user', 'AdminController@getUserView')->name('get.view');
-    Route::get('/admin-pending', 'AdminController@getPendingView')->name('get.pending');
-    Route::get('/admin-history', 'AdminController@getHistoryView')->name('get.history');
-    Route::get('/admin-reports', 'AdminController@getReportsView')->name('get.reports');
-
-    Route::patch('/status-update/{user}', 'AdminController@statusUpdate')->name('get.update');
-    Route::get('/admin-notice', 'AdminController@notice')->name('get.notice');
-    Route::post('{therapist}/accept', 'AcceptTherapistController'); 
 
 
     // THERAPIST

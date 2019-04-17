@@ -120,6 +120,18 @@
 							<td>March 29 - March 30</td>
 							<td>Scoliosis</td>
 							<td>
+								<div class="dropdown">
+								  <button class="btn btn-sm btn-info dropdown-toggle" data-id="{{ $row['id'] }}"
+								          type="button" id="dropdownMenu1" data-toggle="dropdown"
+								          aria-haspopup="true" aria-expanded="false">
+								    Actons
+								  </button>
+								  <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+								    <a class="dropdown-item" data-toggle="modal" data-target="#viewModal">&nbsp<i class="fas fa-info"></i>&nbsp&nbspInfo</a>
+								    <a class="dropdown-item" data-toggle="modal" data-target="#view-modal"><i class="fas fa-sticky-note"></i>&nbspNotes</a>
+								  </div>
+								</div>
+							</td>
 								<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#viewModal">
 									Info
 								</button>
@@ -130,41 +142,34 @@
 				</table>
 			</div>
 		</div>
-		<!-- View Modal-->
-		<div class="modal fade" id="view-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header bg-info">
-		        <h5 class="modal-title" id="exampleModalLabel">Therapist Notes</h5>
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true">&times;</span>
-		        </button>
-		      </div>
-		      <div class="modal-body" id="modalView">
-		        <br>
-		        <div class="col-sm-12"">
-		            <div class="card">
-		                <div class="card-body">
-		                  <center><label>Profile</label></center><br>
-		                  <label>Name: </label>  <br>
-		                  <label>Email: </label> <br>
-		                  <label>Contact #: </label><br>
-		                  
-		                </div>
-		            </div>
-		        </div>                    
-		      </div>
-		    </div>
-		  </div>
+
+<!-- View Modal-->
+<div class="modal fade" id="view-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header bg-info">
+				<h5 class="modal-title" id="exampleModalLabel">Therapist Notes</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+			</div>
+			<div class="modal-body" id="modalView">
+				<br>
+				<div class="col-sm-12"">
+					<div class="card">
+						<div class="card-body">
+							<center><label>Profile</label></center><br>
+							<label>Name: </label>  <br>
+							<label>Email: </label> <br>
+							<label>Contact #: </label><br>
+						</div>
+					</div>
+				</div>                    
+			</div>
 		</div>
-		<!-- end of view modal -->
-
 	</div>
 </div>
-
-	</div>
-</div>
-
+<!-- end of view modal -->
 
 <!-- START OF MODAL -->
 <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -173,11 +178,18 @@
     	<div class="modal-content">
       		<div class="modal-header text-center">
         		<h4 class="modal-title w-100 font-weight-bold">Session Information</h4>
+
+		<!-- View Modal-->
+		<div class="modal fade" id="view-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header bg-info">
+		        <h5 class="modal-title" id="exampleModalLabel">Therapist Notes</h5>
+
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          	<span aria-hidden="true">&times;</span>
 		        </button>
       		</div>
-
       		<div class="modal-body mx-3">
       			<div class="form-group">
 					<label class="col-lg" >Diagnosis</label>
@@ -189,12 +201,10 @@
       			<h6 font-weight-bold>Do you have any concern? Write to us!</h6>
 		        
 		        <br>
-
 		        <div class="form-group">
 		          	<h6><i class="fas fa-tag prefix grey-text"></i> Subject</h6>
 		          	<input type="text" placeholder="" class="form-control validate">
 		        </div>
-
 		        <div class="form-group">
 		          	<h6><i class="fas fa-envelope prefix grey-text"></i> Write a report</h6>
 		          	<textarea type="text" placeholder="" class="md-textarea form-control" rows="4"></textarea>
@@ -207,4 +217,3 @@
 </div>
 <!-- END OF MODAL -->
 @endsection
-
