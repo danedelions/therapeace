@@ -47,6 +47,9 @@
 				Sent Requests
 			</div>
 			<div class="card-body" style="overflow: scroll; height: 200px;">
+				<div class="form-group">
+					<input type="text" name="search" class="form-control" placeholder="Search.." id="search"></input>
+				</div>
 				<table class="table table-default">
 					<thead>
 						<tr>
@@ -77,15 +80,14 @@
 								  <button class="btn btn-sm btn-info dropdown-toggle" data-id="{{ $row['id'] }}"
 								          type="button" id="dropdownMenu1" data-toggle="dropdown"
 								          aria-haspopup="true" aria-expanded="false">
-								    Actions
+								    Actons
 								  </button>
 								  <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-								    <a class="dropdown-item" data-toggle="modal" data-target="#view-modalc-{{ $row->id }}">View</a>
-								    <a class="dropdown-item">Cancel</a>
+								    <a class="dropdown-item" href="{{url('/client-view/')}}"><i class="far fa-eye"></i>&nbspView</a>
+								    <a class="dropdown-item"><i class="fas fa-ban"></i>&nbspCancel</a>
 								  </div>
 								</div>
 							</td>
-							<td><button class="btn btn-sm btn-danger">Cancel</button></td>
 						</tr>
 						@empty
 						<tr>
@@ -117,11 +119,11 @@
 							<td>March 29 - March 30</td>
 							<td>Scoliosis</td>
 							<td>
-								<button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#viewModal">
-									View
+								<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#viewModal">
+									Info
 								</button>
 							</td>
-							<td><a data-toggle="modal" data-target="#view-modal"><button class="btn btn-sm btn-info">View</button></a></td>
+							<td><a data-toggle="modal" data-target="#view-modal"><button class="btn btn-sm btn-secondary">Notes</button></a></td>
 						</tr>
 					</tbody>
 				</table>
@@ -132,7 +134,7 @@
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
 		      <div class="modal-header bg-info">
-		        <h5 class="modal-title" id="exampleModalLabel">User Information</h5>
+		        <h5 class="modal-title" id="exampleModalLabel">Therapist Notes</h5>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          <span aria-hidden="true">&times;</span>
 		        </button>
@@ -157,20 +159,19 @@
 		<!-- end of view modal -->
 	</div>
 </div>
-
-
+	</div>
+</div>
 <!-- START OF MODAL -->
 <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   	<div class="modal-dialog" role="document">
     	<div class="modal-content">
       		<div class="modal-header text-center">
-        		<h4 class="modal-title w-100 font-weight-bold">Notes</h4>
+        		<h4 class="modal-title w-100 font-weight-bold">Session Information</h4>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          	<span aria-hidden="true">&times;</span>
 		        </button>
       		</div>
-
       		<div class="modal-body mx-3">
       			<div class="form-group">
 					<label class="col-lg" >Diagnosis</label>
@@ -182,12 +183,10 @@
       			<h6 font-weight-bold>Do you have any concern? Write to us!</h6>
 		        
 		        <br>
-
 		        <div class="form-group">
 		          	<h6><i class="fas fa-tag prefix grey-text"></i> Subject</h6>
 		          	<input type="text" placeholder="" class="form-control validate">
 		        </div>
-
 		        <div class="form-group">
 		          	<h6><i class="fas fa-envelope prefix grey-text"></i> Write a report</h6>
 		          	<textarea type="text" placeholder="" class="md-textarea form-control" rows="4"></textarea>
