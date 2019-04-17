@@ -20,8 +20,12 @@
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Welcome  {{Auth::user()->username}}</a>
+<<<<<<< HEAD
           <div class="dropdown-menu">
             <a class="dropdown-item" href="{{ url('logout') }}" style="color: red; "><i class="fas fa-sign-out-alt"></i> Logout</a>
+=======
+            <a class="dropdown-item" href="{{ url('logout') }}" style="color: red;"><i class="fas fa-sign-out-alt" style="color: red;"></i> Logout</a>
+>>>>>>> 78cd1e279f350e92379eec8f4482fbd7e1fec6a7
           </div>
         </li>
       </ul>
