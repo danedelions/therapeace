@@ -5,10 +5,20 @@
         <div class="content-wrapper" >
             <h3>List of TheraPeace Users</h3>
 
-            <!-- <h5>Filters:</h5>
-            <a href="/?status=0">Unblocked</a> |
-            <a href="/?status=1">Blocked</a> |
-            <a href="/">Reset</a> | -->
+            <!-- <div class="container">
+              <form action="{{ route('/search') }}" method="POST" role="search">
+                {{ csrf_field() }}
+                <div class="input-group">
+                  <input type="text" class="form-control" name="bar" placeholder="Search...">
+                    <span class="input-group-btn">
+                      <button type="submit" class="btn btn-default">
+                        <span class="glyphicon glyphicon-search"></span>
+                      </button>
+                    </span>
+                  </input>
+                </div>
+              </form>
+            </div> -->
 
             <div class="card-body" style="overflow: hidden; height: 575px;">
                 <div class="table table-default">        
@@ -193,10 +203,7 @@
                       </tbody>
                     </table>
 
-
-                    <!-- {{ $users->links() }} -->
-
-                    {{ $users->links() }}
+                    <center>{{ $users->links() }}</center>
 
                 </div>
             </div>

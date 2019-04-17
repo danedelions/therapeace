@@ -95,7 +95,7 @@ class TherapistController extends Controller
     }
 
     public function edit($userId)
-    {
+    {  
         $specialties = Specialty::select('name')->pluck('name', 'name');
         $therapist   = Therapist::with(['user', 'specialties'])->find($userId);
 

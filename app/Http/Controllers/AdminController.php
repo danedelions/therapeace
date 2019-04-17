@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use App\Client;
 use App\Therapist;
 use App\User;
@@ -17,18 +18,18 @@ use App\Http\Requests\TherapistRequest;
 
 class AdminController extends Controller
 {
-	public function getDashboard()
+	public function getUserView(Request $request)
     {
-    	return view('admin.dashboard'); 
+        $users = User::where([['status', '!=', '2'], ['user_type', '!=', 'admin']])->paginate(7);
+    
+    	return view('admin.users', compact('users'));
     }
 
-    public function getUserView()
+    public function search()
     {
+        // dd(Input::get('bar'));
 
-        $users = User::where([['status', '!=', '2'], ['user_type', '!=', 'admin']])->paginate(7);
-        
-
-    	return view('admin.users', compact('users'));
+        return view('admin.users');
     }
 
     public function getPendingView()
@@ -49,12 +50,9 @@ class AdminController extends Controller
     }
 
     public function notice(Request $request, $id)
-    { 
-        
-        // dd($id);
+    {         
         Mail::send(new UserExpiryNotice($id));
 
-            
         // Mail::send('admin.notice', function($message) use ($to_name, $to_email) {
         //     $message->to($to_email, $to_name)
         //             ->subject('Notice of Renewal');
@@ -70,11 +68,6 @@ class AdminController extends Controller
         return redirect()->back();
 
     }
-
-    public function login(){
-        return view('admin.login');
-    }
-
 
     
 
