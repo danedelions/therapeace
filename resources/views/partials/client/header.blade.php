@@ -20,9 +20,6 @@
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Welcome  {{Auth::user()->username}}</a>
-          <div class="dropdown-menu">            
-            <a class="dropdown-item" href="/client-message"><i class="fas fa-envelope"></i> Messages</a>
-            <a class="dropdown-item" href="/client-report"><i class="fas fa-file"></i> Report an Abuse</a>
             <a class="dropdown-item" href="{{ url('logout') }}" style="color: red;"><i class="fas fa-sign-out-alt" style="color: red;"></i> Logout</a>
           </div>
         </li>

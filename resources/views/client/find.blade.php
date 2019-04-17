@@ -88,34 +88,33 @@
 						</div>
 						</td>
 
-						<!-- View Modal client-->
-						<div class="modal fade" id="view-modal-{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-						  <div class="modal-dialog" role="document">
-						    <div class="modal-content">
-						      <div class="modal-header bg-info">
-						        <h5 class="modal-title" id="exampleModalLabel">User Information</h5>
-						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						          <span aria-hidden="true">&times;</span>
-						        </button>
-						      </div>
-						      <div class="modal-body" id="modalView">
-						        <br>
-						        <div class="col-sm-12"">
-						            <div class="card">
-						                <div class="card-body">
-						                  <center><label>Profile</label></center><br>
-						                  <label>Name: </label> {{ $data['fullName'] }} <br>
-						                  <label>Email: </label> <br>
-						                  <label>Contact #: </label><br>
-						                  
-						                </div>
-						            </div>
-						        </div>                    
-						      </div>
-						    </div>
-						  </div>
-						</div>
-						<!-- end of view modal -->
+<!-- View Modal client-->
+<div class="modal fade" id="view-modal-{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  	<div class="modal-dialog" role="document">
+    	<div class="modal-content">
+      		<div class="modal-header bg-info">
+        		<h6 class="modal-title" id="exampleModalLabel">Profile</h6>
+        			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          				<span aria-hidden="true">&times;</span>
+        			</button>
+      		</div>
+      		<div class="modal-body" id="modalView">
+        	<br>
+        		<div class="col-sm-12"">
+            		<div class="card">
+                		<div class="card-body">
+			                <label><b>Name: </b>{{ $data['fullName'] }}</label><br>
+							<label><b>Gender: </b>{{ $data['gender'] }}</label><br>
+							<label><b>Contact #: </b>{{ $data['contact'] }}</label><br>
+							<label><b>Address: </b>{{ $data['address'] }}</label><br>                  
+                		</div>
+            		</div>
+        		</div>                    
+      		</div>
+    	</div>
+  	</div>
+</div>
+<!-- end of view modal -->
 						@endforeach
 					</tr>
 				</table>

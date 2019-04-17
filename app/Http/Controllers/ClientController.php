@@ -40,21 +40,20 @@ class ClientController extends Controller
             $users = User::where('username', $request->post('username'))->get();
 
             $client = Client::insert([
-                'user_id'     => $users[0]['id'],
-                'fname'       => $request->post('fname'),
-                'lname'       => $request->post('lname'),
-                'contact'     => $request->post('number'),
-                'gender'      => $request->post('gender'),
-                'city'       => $request->post('city'),
-                'province'       => $request->post('province'),
-                'res_detail'     => $request->post('res_detail'),
-                'street'      => $request->post('street'),
-                'brgy'      => $request->post('brgy'),
-                'building'      => $request->post('building'),
-                'landmark'      => $request->post('landmark'),
-                'address_remarks'      => $request->post('address_remarks'),
+                'user_id'=> $users[0]['id'],
+                'fname'=> $request->post('fname'),
+                'lname'=> $request->post('lname'),
+                'contact'=> $request->post('number'),
+                'gender'=> $request->post('gender'),
+                'city'=> $request->post('city'),
+                'province'=> $request->post('province'),
+                'res_detail'=> $request->post('res_detail'),
+                'street'=> $request->post('street'),
+                'brgy'=> $request->post('brgy'),
+                'building'=> $request->post('building'),
+                'landmark'=> $request->post('landmark'),
+                'address_remarks'=> $request->post('address_remarks')
             ]);
-
 
         });
          return view('login');
@@ -124,14 +123,25 @@ class ClientController extends Controller
         }
     }
     public function getView()
-        {
-            $client = Client::whereUserId(Auth::id())->with('user')->first();
-            
-            $client->load([
-                'booking',
-                'booking.therapist.user',
-                'booking.bookingRequest'
-            ]);
-            return view('client.view', compact('client'));
-        }
+    {
+        $client = Client::whereUserId(Auth::id())->with('user')->first();
+        
+        $client->load([
+            'booking',
+            'booking.therapist.user',
+            'booking.bookingRequest'
+        ]);
+        return view('client.view', compact('client'));
+    }
+
+    {
+        $client = Client::whereUserId(Auth::id())->with('user')->first();
+        
+        $client->load([
+            'booking',
+            'booking.therapist.user',
+            'booking.bookingRequest'
+        ]);
+        return view('client.view', compact('client'));
+    }
 }

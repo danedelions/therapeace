@@ -37,7 +37,8 @@ Route::group(['middleware' => 'guest'], function () {
     Route::group(['middleware' => 'auth'], function(){
 
     // ADMIN
-    //Route::get('/admin-login', 'AdminController@login')->name('get.login');
+	Route::get('/admin-dashboard', 'AdminController@getDashboard')->name('get.dashboard');
+    Route::get('/admin-login', 'AdminController@login')->name('get.login');
 	Route::get('/admin-user', 'AdminController@getUserView')->name('get.view');
 	Route::get('/admin-pending', 'AdminController@getPendingView')->name('get.pending');
 	Route::get('/admin-history', 'AdminController@getHistoryView')->name('get.history');
@@ -47,6 +48,7 @@ Route::group(['middleware' => 'guest'], function () {
 	Route::get('/admin-notice/{id}', 'AdminController@notice')->name('get.notice');
     Route::post('{therapist}/accept', 'AcceptTherapistController');
     Route::any('/search', 'AdminController@search')->name('get.search');
+    Route::post('{therapist}/accept', 'AcceptTherapistController');	
 
 
     // THERAPIST

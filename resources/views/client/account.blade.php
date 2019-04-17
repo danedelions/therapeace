@@ -128,6 +128,11 @@
 								  </div>
 								</div>
 							</td>
+								<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#viewModal">
+									Info
+								</button>
+							</td>
+							<td><a data-toggle="modal" data-target="#view-modal"><button class="btn btn-sm btn-secondary">Notes</button></a></td>
 						</tr>
 					</tbody>
 				</table>
@@ -169,6 +174,14 @@
     	<div class="modal-content">
       		<div class="modal-header text-center">
         		<h4 class="modal-title w-100 font-weight-bold">Session Information</h4>
+
+		<!-- View Modal-->
+		<div class="modal fade" id="view-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header bg-info">
+		        <h5 class="modal-title" id="exampleModalLabel">Therapist Notes</h5>
+
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          	<span aria-hidden="true">&times;</span>
 		        </button>

@@ -26,7 +26,7 @@
                   Actions
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <a class="dropdown-item" data-toggle="modal" data-target="#viewModal""><i class="far fa-eye"></i>&nbspView</a>
+                  <a class="dropdown-item" data-toggle="modal" data-target="#viewModal"><i class="far fa-eye"></i>&nbsp;View</a>
                 </div>
               </div>
 
