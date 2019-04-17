@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
@@ -7,6 +8,7 @@
         <title>Therapeace | @yield('title')</title>       
         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
         <!-- <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}"> -->
+        <link rel="icon" href="img/logo.png" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('fontawesome/css/all.css') }}">
         <!-- THEME STYLES-->
@@ -43,7 +45,6 @@
                             if (term === '') {
                                 return null;
                             }
-
                             return {
                                 id: term,
                                 text: term,

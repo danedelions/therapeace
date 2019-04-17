@@ -47,10 +47,7 @@
       </div>
       <div class="form-group col-md-12">
        <input placeholder="City"  class="form-control required" name="city" id="locality">
-      </div>  
-      <div class="form-group col-md-12">
-        <input placeholder="Town"  name="town" id="town" class="form-control required">
-      </div>
+      </div> 
       <div class="form-group col-md-12">
         <input placeholder="Province"  name="province" id="administrative_area_level_2" class="form-control required">
       </div>
@@ -109,18 +106,80 @@
       </div>
     </div>
 
-<<<<<<< HEAD
-    <div class="tab form-group">Done
+    <div  id="overflowTest" class="tab form-group">Done:
       <div class="col-md-12">
-        <p style="text-align: justify;">Lorem ipsum dolor sit amet, sea harum delenit in. Ut omnis affert mel. Vel ea tantas labores officiis. Ignota noster elaboraret cum ad. No pri munere vocent interpretaris, ei sea mandamus laboramus tincidunt.
-        Cum magna fuisset sadipscing in. Delenit labores quo ea, et est autem minim copiosae. Ea error utroque omnesque nam, facer tincidunt ut est, quis dicant aliquid ut vel. Cum at possim eleifend. Fuisset consetetur cu eum, scripserit persequeris cu vel.
+        <p style="text-align: justify;">
 
-      Te graeco imperdiet per, pri ea summo voluptatibus. Fierent voluptua pri ea, nam ex causae audire nominati. Eirmod aliquid gloriatur quo ne. Sed ea petentium philosophia, nibh pericula quaerendum vel at. Homero causae persius cum id. At pri natum error, ei vel dicant nostrud scriptorem.
+            Welcome to therapeace.com please read these terms carefully. By using the Service (as defined below), 
+            you agree that you have read, understood, accepted and agreed with the Terms of Use. 
+            You further agree to the representations made by yourself below.
+             If you do not agree to or fall within the Terms of Use of the Service and wish to discontinue using the Service, 
+             please do not continue using the Webiste (as defined below) or the Service. In order to use the Service you must agree to the Terms of Use that are set out below
+           </p>
 
-        Essent accusamus scripserit per ad. Prima iracundia in nam, et qui graece facilis antiopam. Fastidii nominati contentiones duo ea. Has ne corpora albucius voluptaria.</p>
-    <div>
-        <label><input type="checkbox" class="form-control required" style= "width: auto">  </label>I accept the terms and conditions.
-    </div>  
+    <p>
+            Please note that therapeace.com provides a public service to individual consumers who may access the theraPeace.com website (“Users”) for mental health information,
+            to find a mental health provider. 
+    </p>
+    <p>
+        1.) Acceptance of Terms 
+    </p>
+    <p>  
+            By accessing or using this Site or any of the Services, 
+            you agree to be legally bound and to abide by the terms herein as if you had physically signed this Agreement. 
+    </p>
+    <p>
+        2.) Use of this Site and Services
+    </p>
+    <p>
+            Subject to your compliance with this Agreement, theraPeace grants you a limited, nonexclusive, 
+            non-transferable and revocable license to use our Website for your personal use on your own personal device that you own or control, 
+            and to use the Site and Services solely for your own personal use in accordance with the terms and conditions of this Agreement.
+    </p>
+    <p>
+
+            You consent to our collection, use and disclosure of your individual information in accordance with our Privacy Policy.
+            While we have taken practical precautions—including password protection, secured sessions, dedicated servers—to keep your personal information secure and confidential, you acknowledge that the internet, 
+            the Site and the Services may not be completely secure and messages to and from us may be observed by others. 
+            While we have taken precautions to protect your privacy, we accept no responsibility for security of information submitted, delivered or transmitted on or over the internet.
+            It is up to you to take steps to ensure that information you select for your use is free of viruses and other items of a destructive nature.
+            Please note that email correspondence that you may send to us may not be secure. For that reason, 
+            we ask that you do not send confidential or sensitive information to us through an unsecured email.
+    </p>
+    <p>
+            You agree to provide Company only true, accurate, current, and complete information, 
+            and shall update that information to keep it true, accurate, current and complete.
+    </p>
+    <p>      
+            You must be at least 13 years old to use the Site and Services. If you are between the ages of 13 and 18 you must use the Site and Services under the supervision of a parent or legal guardian. 
+            You agree to use the Site and Services only for lawful purposes and to comply with all applicable laws, statutes, ordinances and regulations in your use of the Site and Services. 
+            The Site and Services shall not be used in a manner that would violate or infringe any copyright, trademark, trade secret, right of publicity, right of privacy, or any other right of any third party, or for the purpose of transmitting, uploading or storing material that is obscene or defamatory. 
+            You are prohibited from posting on, uploading, or transmitting through the Site or Services, any unlawful, infringing, harmful, threatening, abusive, harassing, defamatory, vulgar, obscene, profane, hateful, racially, ethnically or otherwise objectionable material of any kind, including without 
+            limitation any material that encourages conduct that would constitute a criminal offense, give rise to civil liability, or otherwise violate any applicable local, state, national, or international law.
+            You remain solely responsible for all of the content that you post.
+    </p>
+    <p>
+     4.) Cancellation and Account Termination
+
+                        We have the right, if we determine it is best, to terminate, suspend and/or deactivate your account immediately, 
+                        without notice, if there has been a violation of this Agreement or other policies and terms posted on the Site or through the Services by you or by someone using your credentials.
+                        We may also terminate,suspend or deactivate your account for any other reason, including inactivity for an extended period.
+    </p>
+    <p>
+                        You may cancel your account at any time by sending a request to therapeacemaker@gmail.com.  
+                        If you would like us to delete your account in its entirety (meaning deleting all of your user data), 
+                        please send your request to therapeacemaker@gmail.com.
+     </p>
+     <p>
+     5.) Contact
+          Please contact therapeacemaker@gmail.com with any questions regarding this Agreement.
+    </p>
+        </p>
+            <div>
+                <label>
+                    <input type="checkbox" class="form-control" style= "width: auto" required/>
+                </label>I accept the terms and conditions.
+            </div> 
   </div>
 </div>  
 

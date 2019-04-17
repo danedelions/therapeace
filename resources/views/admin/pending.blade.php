@@ -87,7 +87,7 @@
               @endforeach
             </tbody>
           </table>
-          {{ $users->links() }}
+          <center>{{ $users->links() }}</center>
         </div>
         
                 

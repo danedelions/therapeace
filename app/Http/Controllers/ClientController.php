@@ -129,29 +129,5 @@ class ClientController extends Controller
         return view('client.view', compact('client'));
     }
 
-    // public function clientRequest()
-    // {
-    //     return view('client.account');
-    // }
-    // public function liveSearch(Request $request)
-    // {
-    //     if($request->ajax())
-    //     {
-    //         $output="";
-    //         $client = Client::whereUserId(Auth::id())->with('user')->first();
-    //         $bookings = $client->booking()->with('client')->where('status', 'LIKE', '%' .$request->search. '%')->get(); 
 
-    //         if($bookings)
-    //         {
-    //             $output 
-    //         }//unsure about here//
-    //         return view('client.account', compact('client','bookings'));
-    //         $client->load([
-    //             'booking',
-    //             'booking.therapist.user',
-    //             'booking.bookingDetails'
-    //         ]);
-    //         return view('client.account', compact('client'));
-    //     }
-    // }
 }
