@@ -18,7 +18,7 @@
 									{!! Form::inputGroup('number', 'Search Radius', 'radius', request()->radius, ['id'=>'radius', 'min' => '5', 'max' => '20', 'step' => '5'])  !!}
 								</div>
 								<div class="col-md-6">
-									{!! Form::inputGroup('number', 'Rate /hr', 'rate', 'rate', ['placeholder' => 'Rate', 'id'=>'radius', 'min' => '5', 'max' => '20', 'step' => '5'])  !!}
+									{!! Form::inputGroup('number', 'Rate /hr', 'rate', 'personal_rate', ['placeholder' => 'Rate', 'id'=>'radius', 'min' => '5', 'max' => '20', 'step' => '5'])  !!}
 								</div>
 							</div>
 							<div class="col-md-12">
@@ -100,7 +100,7 @@
       		</div>
       		<div class="modal-body" id="modalView">
         	<br>
-        		<div class="col-sm-12"">
+        		<div class="col-sm-12">
             		<div class="card">
                 		<div class="card-body">
 			                <label><b>Name: </b>{{ $data['fullName'] }}</label><br>

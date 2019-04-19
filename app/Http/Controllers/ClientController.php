@@ -62,7 +62,10 @@ class ClientController extends Controller
     {
         $therapists = Therapist::query()
             ->when($type = $request->therapist, function ($q) use ($type){
-                $q->where('therapist', $type);
+                $q->where(['therapist', $type]);
+            })
+            ->when($rate = $request->personal_rate, function ($q) use ($rate){
+                $q->where('personal_rate', $rate);
             }) 
             ->when($specialties = $request->t_specialties, function ($q) use ($specialties){
                 $q->whereHas('specialties', function ($q) use ($specialties) {
@@ -115,6 +118,9 @@ class ClientController extends Controller
     }
     public function search(Request $request, Therapist $therapists)
     {
+
+        
+
         $query = $request->get('q');
         if($query)
         {
@@ -127,16 +133,5 @@ class ClientController extends Controller
         $bookings = BookingRequest::find($bookingID);
 
         return view('client.view', compact('bookings'));
-    }
-
-    {
-        $client = Client::whereUserId(Auth::id())->with('user')->first();
-        
-        $client->load([
-            'booking',
-            'booking.therapist.user',
-            'booking.bookingRequest'
-        ]);
-        return view('client.view', compact('client'));
     }
 }

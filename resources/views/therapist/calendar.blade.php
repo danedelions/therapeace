@@ -82,6 +82,7 @@
                 <!-- end of view modal -->
             </div>
         </div>
+        @endif
     </div>
 </div>
 <br>

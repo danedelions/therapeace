@@ -28,7 +28,8 @@ class Appointment extends Model
 	];	
 
 	protected $appends = [
-		'Duration'
+		'Duration',
+		'timeDuration'
 	];
 
 	public function booking()
@@ -59,5 +60,10 @@ class Appointment extends Model
 	public function getDurationAttribute()
 	{
 		return "{$this->start_date}-{$this->end_date}";
+	}
+
+	public function getTimeDurationAttribute()
+	{
+		return "{$this->start_date_time}-{$this->end_date_time}";
 	}
 }

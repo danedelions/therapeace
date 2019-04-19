@@ -75,19 +75,23 @@
                                 @endif
                             </td>
 							<td>
+								@if($row->status == 1 || $row->status == 0)
 								<div class="dropdown">
 								  <button class="btn btn-sm btn-info dropdown-toggle" data-id="{{ $row['id'] }}"
 								          type="button" id="dropdownMenu1" data-toggle="dropdown"
 								          aria-haspopup="true" aria-expanded="false">
 								    Actons
-								  </button>
+									</button>
 								  <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-								    <a class="dropdown-item" href="{{url('/client-view/'.$row->id)}}"><i class="far fa-eye"></i>&nbspView</a>
-								    <a class="dropdown-item"><i class="fas fa-ban"></i>
+								    <a class="dropdown-item" style="color:green;"href="{{url('/client-view/'.$row->id)}}"><i class="far fa-eye" style="color:green;"></i>&nbspView</a>
+								    <a class="dropdown-item" style="color:red;"><i class="fas fa-ban" style="color:red;"></i>
                       &nbspCancel
 										</a>
-								  </div>
+									</div>
 								</div>
+								@empty
+
+								@endif
 							</td>
 						</tr>
 						@empty
@@ -132,12 +136,7 @@
 								  </div>
 								</div>
 							</td>
-								<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#viewModal">
-									Info
-								</button>
-							</td>
-							<td><a data-toggle="modal" data-target="#view-modal"><button class="btn btn-sm btn-secondary">Notes</button></a></td>
-						</tr>
+							</tr>
 					</tbody>
 				</table>
 			</div>

@@ -28,6 +28,14 @@
                     @else
                         <div class="col-lg-7">No dates added yet!</div>
                     @endif
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-4">Session Times</label>
+                    @if(!empty($bookings->appointment->timeDuration))
+                        <div class="col-lg-7">{{$bookings->appointment->timeDuration}}</div>
+                    @else
+                        <div class="col-lg-7">No times added yet!</div>
+                    @endif
 				</div>
             </div>
         </div>
