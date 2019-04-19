@@ -32,7 +32,7 @@
       		</li>
 
       		<li class="nav-item mx-0 mx-lg-1">
-        		<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#faqs">How to Book?</a>
+        		<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#howtobook">How to Book?</a>
       		</li>
 
       		<li class="nav-item mx-0 mx-lg-1">
@@ -110,7 +110,7 @@
 
 <!-- Therapist Registration Section -->
 
-<section id="howtoregisterTherapist">
+<section id="howtoregisterTherapist" style="padding-top: 90px;">
     <div class="container">
       	    <hr class="mb-5">
       	    <h5 class="text-left text-secondary mb-0">Therapist Registration</h5>
@@ -201,7 +201,7 @@
 
 
  <!-- How to Book Section -->
-<section class="text-white mb-0" id="faqs" style="padding-top: 90px;">
+<section id="howtobook" style="padding-top: 90px;">
     <div class="container">
       	<h2 class="text-center text-uppercase text-secondary mb-0">How to Book?</h2>
   		<hr class="mb-5">
