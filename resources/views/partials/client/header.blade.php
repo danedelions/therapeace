@@ -23,7 +23,6 @@
           <div class="dropdown-menu">
             <a class="dropdown-item" href="{{ url('logout') }}" style="color: red;"><i class="fas fa-sign-out-alt" style="color: red;"></i> Logout</a>
           </div>
-          
         </li>
       </ul>
     </div>

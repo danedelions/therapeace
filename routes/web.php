@@ -9,9 +9,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+    Route::get('/faqs', 'HomeController@index')->name('faqs');
+    
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/', function () {
-        Route::get('/FAQs', 'HomeController@faqs')->name('FAQs');
+        
         return view('welcome');
     });
     Route::get('/login', 'LoginController@view')->name('login');
@@ -27,7 +29,6 @@ Route::group(['middleware' => 'guest'], function () {
     Route::resource('client', 'ClientController');
     Route::group(['middleware' => 'auth'], function(){
     // ADMIN
-
     Route::get('/admin-dashboard', 'AdminController@getDashboard')->name('get.dashboard');
     Route::get('/admin-login', 'AdminController@login')->name('get.login');
     Route::get('/admin-user', 'AdminController@getUserView')->name('get.view');
@@ -37,13 +38,17 @@ Route::group(['middleware' => 'guest'], function () {
     Route::patch('/status-update/{user}', 'AdminController@statusUpdate')->name('get.update');
     Route::get('/admin-notice/{id}', 'AdminController@notice')->name('get.notice');
     Route::post('{therapist}/accept', 'AcceptTherapistController'); 
-    Route::any('/search', 'AdminController@search')->name('get.search');
-    Route::post('{therapist}/accept', 'AcceptTherapistController');	
-
+    Route::get('/admin-dashboard', 'AdminController@getDashboard')->name('get.dashboard');
+    Route::get('/admin-user', 'AdminController@getUserView')->name('get.view');
+    Route::get('/admin-pending', 'AdminController@getPendingView')->name('get.pending');
+    Route::get('/admin-history', 'AdminController@getHistoryView')->name('get.history');
+    Route::get('/admin-reports', 'AdminController@getReportsView')->name('get.reports');
+    Route::patch('/status-update/{user}', 'AdminController@statusUpdate')->name('get.update');
+    Route::get('/admin-notice', 'AdminController@notice')->name('get.notice');
+    Route::post('{therapist}/accept', 'AcceptTherapistController'); 
     // THERAPIST
     Route::get('/therapist-account', 'TherapistController@therapistAccount')->name('get.therapist-account');
     // Route::get('/therapist-appoint', 'TherapistController@therapistAppoint')->name('get.therapist-appoint');
-
     Route::get('/therapist-message', 'TherapistController@therapistMessage');
     Route::get('/therapist-edit/{id}', 'TherapistController@edit');
     Route::patch('/therapist-update/{id}', 'TherapistController@update')->name('therapist.update');
@@ -59,12 +64,9 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/client-account', 'ClientController@clientAccount')->name('get.client-account');
     Route::get('/client-edit/{id}', 'ClientController@edit');
     Route::patch('/client-update/{id}', 'ClientController@update');
-
     Route::get('/client-message', 'ClientController@clientMessage')->name('get.client-message');
     Route::get('/client-search/', 'ClientController@search')->name('get.client-search');
     Route::get('/client-view', 'ClientController@getView')->name('get.client-view');
-
-
     //TRANSACTION
     // Route::get('/client-transaction', 'TransactionController@clientTrans');
     // Route::get('/therapist-transaction', 'TransactionController@therapistTrans');
@@ -74,3 +76,4 @@ Route::group(['middleware' => 'guest'], function () {
     Route::delete('/deleteBooking/{id}','BookingController@clientDeleteRequest')->name('post.cancelbooking');
     
 });
+

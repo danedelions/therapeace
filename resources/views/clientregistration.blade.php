@@ -1,6 +1,5 @@
 @extends('layouts.app')
-
-@section('page-body')
+@section('page-welcome')
 
 <div class="col-md-10 offset-1">
     <form id="regForm" action="{{ route('client.store') }}" class="form-group" method="POST">

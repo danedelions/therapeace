@@ -119,8 +119,6 @@
 							<td>March 29 - March 30</td>
 							<td>Scoliosis</td>
 							<td>
-<<<<<<< HEAD
-=======
 								<div class="dropdown">
 								  <button class="btn btn-sm btn-info dropdown-toggle" data-id="{{ $row['id'] }}"
 								          type="button" id="dropdownMenu1" data-toggle="dropdown"
@@ -133,62 +131,20 @@
 								  </div>
 								</div>
 							</td>
->>>>>>> 22568256d137a8e0c9702210ae54ebae65724083
-								<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#viewModal">
-									Info
-								</button>
-							</td>
-<<<<<<< HEAD
-							<td><a data-toggle="modal" data-target="#view-modal"><button class="btn btn-sm btn-secondary">Notes</button></a></td>
-=======
-<<<<<<< HEAD
-=======
-							<td><a data-toggle="modal" data-target="#view-modal"><button class="btn btn-sm btn-secondary">Notes</button></a></td>
->>>>>>> 78cd1e279f350e92379eec8f4482fbd7e1fec6a7
->>>>>>> 22568256d137a8e0c9702210ae54ebae65724083
 						</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
-<<<<<<< HEAD
 	</div>
 </div>
-
-		<!-- View Modal-->
-		<div class="modal fade" id="view-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header bg-info">
-		        <h5 class="modal-title" id="exampleModalLabel">Therapist Notes</h5>
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true">&times;</span>
-		        </button>
-		      </div>
-		      <div class="modal-body" id="modalView">
-		        <br>
-		        <div class="col-sm-12">
-		            <div class="card">
-		                <div class="card-body">
-		                  <center><label>Profile</label></center><br>
-		                  <label>Name: </label>  <br>
-		                  <label>Email: </label> <br>
-		                  <label>Contact #: </label><br>
-		                  
-		                </div>
-		            </div>
-		        </div>                    
-		      </div>
-		    </div>
-		  </div>
-=======
 
 <!-- View Modal-->
 <div class="modal fade" id="view-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header bg-info">
-				<h5 class="modal-title" id="exampleModalLabel">Therapist Notes</h5>
+				<h5 class="modal-title">Therapist Notes</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -206,38 +162,21 @@
 					</div>
 				</div>                    
 			</div>
->>>>>>> 78cd1e279f350e92379eec8f4482fbd7e1fec6a7
 		</div>
 	</div>
 </div>
-<<<<<<< HEAD
-	</div>
-</div>
-=======
 <!-- end of view modal -->
 
->>>>>>> 22568256d137a8e0c9702210ae54ebae65724083
 <!-- START OF MODAL -->
 <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   	<div class="modal-dialog" role="document">
     	<div class="modal-content">
-      		<div class="modal-header text-center">
-        		<h4 class="modal-title w-100 font-weight-bold">Session Information</h4>
-<<<<<<< HEAD
-=======
-
-		<!-- View Modal-->
-		<div class="modal fade" id="view-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header bg-info">
-		        <h5 class="modal-title" id="exampleModalLabel">Therapist Notes</h5>
-
->>>>>>> 22568256d137a8e0c9702210ae54ebae65724083
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          	<span aria-hidden="true">&times;</span>
-		        </button>
+      		<div class="modal-header bg-info">
+        		<h5 class="modal-title">Session Information</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          	<span aria-hidden="true">&times;</span>
+			        </button>
       		</div>
       		<div class="modal-body mx-3">
       			<div class="form-group">
