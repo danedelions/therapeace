@@ -36,7 +36,7 @@
       		</li>
 
       		<li class="nav-item mx-0 mx-lg-1">
-        		<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">FAQs</a>
+        		<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#faqs">FAQs</a>
       		</li>
     	</ul>
 	</div>
@@ -272,7 +272,7 @@
 
 
 <!-- FAQS Section -->
-<section style="padding-top: 90px;">
+<section id="faqs" style="padding-top: 90px;">
     <div class="container">
 	    <h2 class="text-center text-uppercase text-secondary mb-0">FAQs</h2>
 	    <hr class="star-dark mb-5">
