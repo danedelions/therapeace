@@ -54,6 +54,7 @@ class LoginController extends Controller
 
 
         }else{
+            
              return view ('login').Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
         }
 
