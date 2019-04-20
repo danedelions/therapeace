@@ -50,7 +50,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/admin-user/?status={status}', 'AdminController@filterUsers');
 
-
     // THERAPIST
     Route::get('/therapist-account', 'TherapistController@therapistAccount')->name('get.therapist-account');
     // Route::get('/therapist-appoint', 'TherapistController@therapistAppoint')->name('get.therapist-appoint');
