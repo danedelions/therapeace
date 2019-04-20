@@ -99,9 +99,7 @@
 									</button>
 								  <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
 								    <a class="dropdown-item" style="color:green;"href="{{url('/client-view/'.$row->id)}}"><i class="far fa-eye" style="color:green;"></i>&nbspView</a>
-								    <a class="dropdown-item" style="color:red;"><i class="fas fa-ban" style="color:red;"></i>
-                      &nbspCancel
-										</a>
+								    <a class="dropdown-item" style="color:red;"><i class="fas fa-ban" style="color:red;"></i>&nbspCancel</a>
 									</div>
 								</div>
 								@else
@@ -151,14 +149,13 @@
 								    Actons
 								  </button>
 								  <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-								    <a class="dropdown-item" data-toggle="modal" data-target="#viewModal">&nbsp<i class="fas fa-info"></i>&nbsp&nbspInfo</a>
-								    <a class="dropdown-item" data-toggle="modal" data-target="#view-modal"><i class="fas fa-sticky-note"></i>&nbspNotes</a>
+								    <a class="dropdown-item" data-toggle="modal" data-target="#viewModal">&nbsp<i class="fas fa-info"></i>&nbsp;&nbsp;Info</a>
+								    <a class="dropdown-item" data-toggle="modal" data-target="#view-modal"><i class="fas fa-sticky-note"></i>&nbsp;&nbsp;Notes</a>
 								  </div>
 								</div>
 							</td>
 						</tr>
 
-						@endforeach
 					</tbody>
 				</table>
 			</div>
@@ -205,31 +202,37 @@
 			          	<span aria-hidden="true">&times;</span>
 			        </button>
       		</div>
-      		<div class="modal-body mx-3">
+      		<div class="modal-body">
+      			<LABEL>Rate <b>{{$row->therapist->fullname}}</b></LABEL>
       			<div class="form-group">
-					<label class="col-lg" >Diagnosis</label>
-					<div class="col-lg-8"></div>
+					<div class="stars">
+					  <form action="">
+					    <input class="star star-5" id="star-5" type="radio" name="star"/>
+					    <label class="star star-5" for="star-5"></label>
+					    <input class="star star-4" id="star-4" type="radio" name="star"/>
+					    <label class="star star-4" for="star-4"></label>
+					    <input class="star star-3" id="star-3" type="radio" name="star"/>
+					    <label class="star star-3" for="star-3"></label>
+					    <input class="star star-2" id="star-2" type="radio" name="star"/>
+					    <label class="star star-2" for="star-2"></label>
+					    <input class="star star-1" id="star-1" type="radio" name="star"/>
+					    <label class="star star-1" for="star-1"></label>
+					  </form>
+					</div>
       			</div>
       			
-      			<hr>
-      			
       			<h6 font-weight-bold>Do you have any concern? Write to us!</h6>
-		        
-		        <br>
+		   
 		        <div class="form-group">
-		          	<h6><i class="fas fa-tag prefix grey-text"></i> Subject</h6>
-		          	<input type="text" placeholder="" class="form-control validate">
-		        </div>
-		        <div class="form-group">
-		          	<h6><i class="fas fa-envelope prefix grey-text"></i> Write a report</h6>
 		          	<textarea type="text" placeholder="" class="md-textarea form-control" rows="4"></textarea>
 		        </div>
     		</div>    
 	    	<div class="modal-footer d-flex justify-content-center">
-	        	<button class="btn btn-unique">Send Report<i class="fas fa-paper-plane-o ml-1"></i></button>
+	        	<button class="btn btn-unique">Send Report&nbsp;&nbsp;<i class="far fa-paper-plane"></i></button>
 	    	</div>
 		</div>
 	</div>
 </div>
+		@endforeach
 <!-- END OF MODAL -->
 @endsection

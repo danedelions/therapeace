@@ -15,8 +15,6 @@
         
         <li class="nav-item">
 
-          <a class="nav-link" href="/chat"><i class="fas fa-envelope"></i> Messages</a>
-
           <a class="nav-link" href="{{url('chat')}}"><i class="fas fa-envelope"></i> Messages</a>
 
         </li>
