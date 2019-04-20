@@ -30,7 +30,6 @@ class LoginController extends Controller
             'username.exists' => 'Username does not exist or is not yet accepted.'
         ]);
 
-
         $loggedIn = Auth::attempt($credentials);
 
         if ($loggedIn){
@@ -60,49 +59,23 @@ class LoginController extends Controller
 
           }      // user::where('username', 'name');
 
-        
+        if ($loggedIn) {
 
-      // }
-
-
-               // user::where('username', 'name');
-
-
-
-             //    user::where('username', 'name');
-
-
-             // return "sakto".Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
-   
-             //    user::where('username', 'name');
-
-       
-             // user::where('username', 'name');
-
-        // if(Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('post')))){
-
-        //     if(Auth::user()->user_type == 'therapist'){
-        //         return "success";
-        //     } else {
-        //         return "wrong";
-        //     }
-
-    // protected function credentials(Request $request){
-
-    //     // $status = $request->status;
-
-    //     // DB::table('users')->where('id', $id)->update(['status' => $status]);
-    // }
-
-    
-    public function Logout(Request $request)
-    {
-    Auth::logout();
-
-    session()->flash('message', 'Some goodbye message');
-
-    return redirect('/');
+            return Auth::user()->homepage();
+        } else {
+            return redirect()->back()->withErrors();
+        }
     }
 
-    
+
+    public function Logout(Request $request)
+    {
+        Auth::logout();
+
+        session()->flash('message', 'Some goodbye message');
+
+        return redirect('/');
+    }
+
+
 }
