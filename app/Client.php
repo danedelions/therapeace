@@ -21,7 +21,7 @@ class Client extends Model
         'landmark',
         'address_remarks',
 
-    ] ;
+    ];
 
     protected $appends = [
         'fullName'
@@ -55,5 +55,17 @@ class Client extends Model
     public function getAddressAttribute()
     {
         return "{$this->res_detail} {$this->building} {$this->street} {$this->brgy} {$this->city} {$this->province} {$this->landmark} {$this->address_remarks} ";
+    }
+
+    public static  function ofTherapist(int $therapistId)
+    {
+        $bookingRequests = BookingRequest::query()
+                                         ->select('client_id')
+                                         ->where([
+                                             ['therapist_id', '=', $therapistId],
+                                             ['status', '=', 1]
+                                         ])->pluck('client_id');
+
+        return $bookingRequests->count() ? parent::find($bookingRequests->all()) : collect();
     }
 }

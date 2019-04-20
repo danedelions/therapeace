@@ -209,5 +209,5 @@
             </div>
         </div>
     </body>
-    
+    </section>
 @endsection

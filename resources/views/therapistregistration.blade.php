@@ -70,7 +70,7 @@
       <div class="form-group col-md-12">
         <select class="form-control required" name="therapist">
           <option value="">Select Therapist</option>
-          <option value="Physical Therapis">Physical Therapist</option>
+          <option value="Physical Therapist">Physical Therapist</option>
           <option value="Occupational Therapist">Occupational Therapist</option>
         </select>
       </div>

@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use Auth;
 use Hash;
 use App\User;
@@ -9,12 +11,14 @@ use App\Therapist;
 use App\BookingRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\TherapistRequest;
+
 class TherapistController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth')->except(['index', 'store']);
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -24,10 +28,11 @@ class TherapistController extends Controller
     {
         return view('therapistregistration');
     }
+
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -38,10 +43,10 @@ class TherapistController extends Controller
                 'email'     => $request->post('email'),
                 'password'  => Hash::make($request->post('password')),
                 'user_type' => 'therapist',
-                'status' => 2,
+                'status'    => 2,
             ]);
-            $users = User::where('username', $request->post('username'))->get();
-            $image = $request->file('image')->store(
+            $users         = User::where('username', $request->post('username'))->get();
+            $image         = $request->file('image')->store(
                 "pictures/{$users[0]['username']}",
                 'public'
             );
@@ -49,11 +54,11 @@ class TherapistController extends Controller
                 "pictures/{$users[0]['username']}",
                 'public'
             );
-            $nbi_image = $request->file('nbi_image')->store(
+            $nbi_image     = $request->file('nbi_image')->store(
                 "pictures/{$users[0]['username']}",
                 'public'
             );
-            $bc_image = $request->file('bc_image')->store(
+            $bc_image      = $request->file('bc_image')->store(
                 "pictures/{$users[0]['username']}",
                 'public'
             );
@@ -77,40 +82,46 @@ class TherapistController extends Controller
                 'license_image'  => $license_image,
                 'nbi_image'      => $nbi_image,
                 'bc_image'       => $bc_image,
+                'user_bio'       => $request->post('user_bio'),
+                'personal_rate'  => 000.00
             ]);
         });
-    
+
         // $this->getData();
         return view('login');
     }
+
     public function edit($userId)
-    {  
+    {
         $specialties = Specialty::select('name')->pluck('name', 'name');
         $therapist   = Therapist::with(['user', 'specialties'])->find($userId);
+
         return view('therapist.edit', compact('therapist', 'specialties'));
     }
+
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int                      $id
      * @return \Illuminate\Http\Response
      */
     public function update(TherapistRequest $request, $id)
     {
-        $therapist = Therapist::find($id)->load('user');
+        $therapist   = Therapist::find($id)->load('user');
         $specialties = collect($request->specialties);
         if ($specialties->isNotEmpty()) {
             $ids = $specialties->map(function ($item) {
                 $specialty = Specialty::firstOrCreate(['name' => $item]);
+
                 return $specialty->id;
             });
             $therapist->specialties()->sync($ids);
         }
         $request = $request->validated();
-        
+
         // dd($request);
-        
+
         if (isset($request['image'])) {
             $request['image'] = request()->file('image')->store('image', 'public');
         }
@@ -119,18 +130,19 @@ class TherapistController extends Controller
         }
         $therapist->fill($request)->save();
         User::where('id', Auth::id())->update(['username' => $request['username'], 'email' => $request['email']]);
-        
-         $users = User::where('username', $request['username'])->first();
-        
-        if(isset($request['image'])) {
+
+        $users = User::where('username', $request['username'])->first();
+
+        if (isset($request['image'])) {
             $image = request()->file('image')->move("pictures/{$users[0]['username']}", 'public');
         }
         $therapist->fill($request)->save();
-        
+
         User::where('id', Auth::id())->update(['username' => $request['username'], 'email' => $request['email']]);
-        
+
         return redirect()->route('get.therapist-account');
     }
+
     public function therapistAccount(BookingRequest $bookings)
     {
         $therapist = Therapist::whereUserId(Auth::id())->with(['user', 'specialties'])->first();
@@ -139,35 +151,39 @@ class TherapistController extends Controller
             'bookingRequest.client.user',
             'bookingRequest.bookingDetails'
         ]);
+
         // dd($therapist->toArray());
         return view('therapist.account', compact('therapist'));
     }
+
     public function therapistAppoint(Client $clients)
     {
         $clients = Client::all();
+
         return view('therapist.appoint', compact('clients'));
     }
+
     public function therapistHistory(BookingRequest $bookingRequest)
     {
         $clients = Client::all();
+
         return view('therapist.history', compact('clients'));
         // return view('client.book');
     }
-    public function therapistMessage()
-    {
-        return view('therapist.message');
-    }
+
     public function createSpecialties()
     {
         return view('therapist.specialty');
     }
+
     public function storeSpecialties()
     {
         $specialties;
     }
-    public function viewChecklist()
+    public function viewChecklist($bookingID)
     {
-        return view('therapist.checklist');
+        $booking = BookingRequest::find($bookingID);
+        return view('therapist.checklist', compact('booking'));
     } 
     public function viewPending()
     {

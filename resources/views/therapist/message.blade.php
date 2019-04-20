@@ -1,157 +1,118 @@
- @extends('layouts.the')
+@extends('layouts.the')
 
 @section('title', 'Messaging')
 
 @section('page-section')
+    @php $recipient = request()->route('recipientId') @endphp
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/chat.css') }}">
+    <!------ Include the above in your HEAD tag ---------->
 
-<link rel="stylesheet" type="text/css" href="{{ asset('css/chat.css') }}">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet">
-
-<div class="messaging-below">
-  <h3 class="text-center">Messaging</h3>
-  <div class="messaging">
-    <div class="inbox_msg">
-      <div class="inbox_people">
-        <div class="headind_srch">
-          <div class="recent_heading">
-              <h4>Recent</h4>
-          </div>
-          <div class="srch_bar">
-            <div class="stylish-input-group">
-              <input type="text" class="search-bar"  placeholder="Search" >
-              <span class="input-group-addon">
+    <div class="messaging-below">
+        <h3 class="text-center">Messaging</h3>
+        <div class="messaging">
+            <div class="inbox_msg">
+                <div class="inbox_people">
+                    <div class="headind_srch">
+                        <div class="recent_heading">
+                            <h4>Recent</h4>
+                        </div>
+                        <div class="srch_bar">
+                            <div class="stylish-input-group">
+                                <input type="text" class="search-bar" placeholder="Search">
+                                <span class="input-group-addon">
               <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
-              </span> </div>
-          </div>
+              </span></div>
+                        </div>
+                    </div>
+                    <div class="inbox_chat">
+                        @foreach($contacts AS $contact)
+                            <div class="chat_list {{ $recipient == $contact->user_id ? 'active_chat' : '' }}"
+                                 style="cursor:pointer;"
+                                 onclick="javascript:window.location.href = '{{ route('messaging.index', $contact->user_id) }}'">
+                                <div class="chat_people align-items-center d-flex">
+                                    <div class="chat_img text-info">
+                                        <i class="fa fa-user-circle fa-2x"></i>
+                                    </div>
+                                    <div class="chat_ib">
+                                        <h5 class="">{{ $contact->fullname }}
+                                            @if(optional($threadList->get($contact->user_id))->unseen_count)
+                                                <span class="badge badge-pill badge-secondary chat_date">{{ optional($threadList->get($contact->user_id))->unseen_count  }}</span>
+                                            @endif
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+
+                <div class="mesgs bg-white h-100">
+                    @if($recipient)
+                        <div class="msg_history" id="message-history">
+                            @foreach($thread as $message)
+                                @if($message->sent_from == Auth::id())
+                                    <div class="outgoing_msg">
+                                        <div class="sent_msg">
+                                            <p>{{ $message->message  }}</p>
+                                            <span class="time_date">{{ $message->created_at->diffForHumans(Carbon\Carbon::now())  }}</span>
+                                        </div>
+                                    </div>
+                                @else
+                                    <div class="incoming_msg">
+                                        <div class="incoming_msg_img"> <i class="fa fa-user-circle fa-2x"></i></div>
+                                        <div class="received_msg">
+                                            <div class="received_withd_msg">
+                                                <p>{{ $message->message  }}</p>
+                                                <span class="time_date">{{ $message->created_at->diffForHumans(Carbon\Carbon::now()) }}</span></div>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+
+                        </div>
+                        <div class="type_msg">
+                            {!! Form::open(['url' => route('messaging.send', $recipient), 'method' => 'post']) !!}
+                            <div class="input_msg_write">
+                                {!! Form::inputGroup('text', null, 'message', null, ['placeholder' => 'Type a message...']) !!}
+
+                                <button class="msg_send_btn" type="submit"><i class="fa fa-paper-plane"></i></button>
+
+                            </div>
+                            {!! Form::close() !!}
+                        </div>
+                    @else
+                        <p class="text-info text-center">Choose a recipient from the left</p>
+                    @endif
+                </div>
+
+
+            </div>
         </div>
-          <div class="inbox_chat">
-          <div class="chat_list active_chat">
-            <div class="chat_people">
-              <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-              <div class="chat_ib">
-                <h5>Daniela Echavez<span class="chat_date">Dec 25</span></h5>
-                <p>Test, which is a new approach to have all solutions 
-                  astrology under one roof.</p>
-              </div>
-            </div>
-          </div>
-          <div class="chat_list">
-            <div class="chat_people">
-              <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-              <div class="chat_ib">
-                <h5>Tiffany Centillas<span class="chat_date">Dec 25</span></h5>
-                <p>Test, which is a new approach to have all solutions 
-                  astrology under one roof.</p>
-              </div>
-            </div>
-          </div>
-          <div class="chat_list">
-            <div class="chat_people">
-              <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-              <div class="chat_ib">
-                <h5>Chino Lopez<span class="chat_date">Dec 25</span></h5>
-                <p>Test, which is a new approach to have all solutions 
-                  astrology under one roof.</p>
-              </div>
-            </div>
-          </div>
-          <div class="chat_list">
-            <div class="chat_people">
-              <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-              <div class="chat_ib">
-                <h5>Jude Nino Canete<span class="chat_date">Dec 25</span></h5>
-                <p>Test, which is a new approach to have all solutions 
-                  astrology under one roof.</p>
-              </div>
-            </div>
-          </div>
-          <div class="chat_list">
-            <div class="chat_people">
-              <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-              <div class="chat_ib">
-                <h5>Daniela Echavez<span class="chat_date">Dec 25</span></h5>
-                <p>Test, which is a new approach to have all solutions 
-                  astrology under one roof.</p>
-              </div>
-            </div>
-          </div>
-          <div class="chat_list">
-            <div class="chat_people">
-              <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-              <div class="chat_ib">
-                <h5>Tiffany Centillas<span class="chat_date">Dec 25</span></h5>
-                <p>Test, which is a new approach to have all solutions 
-                  astrology under one roof.</p>
-              </div>
-            </div>
-          </div>
-          <div class="chat_list">
-            <div class="chat_people">
-              <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-              <div class="chat_ib">
-                <h5>Chino Lopez<span class="chat_date">Dec 25</span></h5>
-                <p>Test, which is a new approach to have all solutions 
-                  astrology under one roof.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="mesgs">
-        <div class="msg_history">
-          <div class="incoming_msg">
-            <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-            <div class="received_msg">
-              <div class="received_withd_msg">
-                <p>Test which is a new approach to have all
-                  solutions</p>
-                <span class="time_date"> 11:01 AM    |    June 9</span></div>
-            </div>
-          </div>
-          <div class="outgoing_msg">
-            <div class="sent_msg">
-              <p>Test which is a new approach to have all
-                solutions</p>
-              <span class="time_date"> 11:01 AM    |    June 9</span> </div>
-          </div>
-          <div class="incoming_msg">
-            <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-            <div class="received_msg">
-              <div class="received_withd_msg">
-                <p>Test, which is a new approach to have</p>
-                <span class="time_date"> 11:01 AM    |    Yesterday</span></div>
-            </div>
-          </div>
-          <div class="outgoing_msg">
-            <div class="sent_msg">
-              <p>Apollo University, Delhi, India Test</p>
-              <span class="time_date"> 11:01 AM    |    Today</span> </div>
-          </div>
-          <div class="incoming_msg">
-            <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-            <div class="received_msg">
-              <div class="received_withd_msg">
-                <p>We work directly with our designers and suppliers,
-                  and sell direct to you, which means quality, exclusive
-                  products, at a price anyone can afford.</p>
-                <span class="time_date"> 11:01 AM    |    Today</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="type_msg">
-          <div class="input_msg_write">
-            <input type="text" class="write_msg" placeholder="Type a message" />
-            <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-          </div>
-        </div>
-      </div>
-    </div>    
-  </div>
-</div>
+    </div>
 
 
 @endsection
+
+@push('scripts')
+    <script type="text/javascript">
+
+      $(document).ready(function(){
+
+        var objDiv = document.getElementById("message-history");
+        if(objDiv){
+          objDiv.scrollTop = objDiv.scrollHeight;
+        }
+
+        $('.submit').click(function (e){
+          e.preventDefault();
+          var $this = $(this)
+          $this.closest('form').attr('action', $(this).data('url'));
+          $this.closest('form').submit();
+        })
+        // $('.update-appointment').submit(function(e) {
+        //     e.preventDefault();
+        //     console.log(e);
+        // })
+      })
+    </script>
+@endpush
