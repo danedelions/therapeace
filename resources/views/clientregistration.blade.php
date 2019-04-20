@@ -69,7 +69,7 @@
         </div>
 
         <div id="overflowTest" class="tab form-group">
-            Done:   
+            <h1>Terms and Conditions </h1>
             <p style="text-align: justify;">
            
                  Welcome to therapeace.com please read these terms carefully. By using the Service (as defined below), 

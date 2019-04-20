@@ -157,7 +157,7 @@
                                         <center>
                                            <h3>Call us</h3>    
                                                <i class="fa fa-phone fa-5x mb-3" aria-hidden="true"></i>
-                                                     <p>+8801683615582,+8801750603409</p>
+                                                     <p>+09177735668</p>
                                                            <i class="fab fa-facebook-square"></i>
                                     </div>
                                 </div>
@@ -173,7 +173,7 @@
                                         <center>
                                            <h3>Office Location</h3> 
                                               <i class="fa fa-map-marker fa-5x mb-3" aria-hidden="true"></i>
-                                                     <address>Suite 02, Level 12, Sahera Tropical Center </address>
+                                                     <address>Talamban Campus, Nasipit, Talamban, Cebu City, Philippines </address>
                                                         <i class="fab fa-instagram"></i>
                                         </center>
                                     </div>
