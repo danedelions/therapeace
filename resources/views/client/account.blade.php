@@ -198,7 +198,7 @@
       		<div class="modal-body mx-3">
       			<div class="form-group">
 					<label class="col-lg" >Diagnosis</label>
-					<div class="col-lg-8">{{$row->diagnosis}}</div>
+					<div class="col-lg-8"></div>
       			</div>
       			
       			<hr>
