@@ -29,7 +29,8 @@ class Appointment extends Model
 
     protected $appends = [
         'start_timestamp',
-        'end_timestamp'
+        'end_timestamp',
+        'durationDate'
     ];
 
     public function booking()
@@ -67,5 +68,9 @@ class Appointment extends Model
         return Carbon::createFromFormat('Y-m-d H:i', "{$this->end_date} {$this->end_date_time}");
     }
 
+    public function getDurationDateAttribute()
+    {
+        return "{$this->start_date} - {$this->end_date}";
+    }
 
 }

@@ -6,7 +6,7 @@
     <div class="col-md-5">
         <div class="card">
             <div class="card-header bg-info">
-                Session Details
+                Session Basic Information
             </div>
             <div class="card-body">
                 <div class="form-group row">
@@ -23,20 +23,12 @@
                 </div>
                 <div class="form-group row">
                     <label class="col-lg-4">Session Dates</label>
-                    @if(!empty($bookings->appointment->Duration))
-                        <div class="col-lg-7">{{$bookings->appointment->Duration}}</div>
+                    @if(!empty($bookings->appointment->durationDate))
+                        <div class="col-lg-7">{{$bookings->appointment->durationDate}}</div>
                     @else
                         <div class="col-lg-7">No dates added yet!</div>
                     @endif
                 </div>
-                <div class="form-group row">
-                    <label class="col-lg-4">Session Times</label>
-                    @if(!empty($bookings->appointment->timeDuration))
-                        <div class="col-lg-7">{{$bookings->appointment->timeDuration}}</div>
-                    @else
-                        <div class="col-lg-7">No times added yet!</div>
-                    @endif
-				</div>
             </div>
         </div>
     </div>

@@ -78,7 +78,7 @@
                                 @endif
                             </td>
 							<td>
-								@if($row->status == 1 || $row->status == 0)
+								@if($row->status == 1)
 								<div class="dropdown">
 								  <button class="btn btn-sm btn-info dropdown-toggle" data-id="{{ $row['id'] }}"
 								          type="button" id="dropdownMenu1" data-toggle="dropdown"
@@ -92,7 +92,9 @@
 										</a>
 									</div>
 								</div>
-								@empty
+								@else
+
+								<button class="btn btn-sm btn-outline-danger">Cancel</button>
 
 								@endif
 							</td>

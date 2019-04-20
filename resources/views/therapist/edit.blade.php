@@ -89,7 +89,7 @@
               </div>
               <div class="col-md-6 form-group">
                 <label>Personal Rate</label>
-                  <input type="number" name="rate" placeholder="Personal Rate" class="form-control" min="200.00" step="50.00">
+                  <input type="number" name="personal_rate" placeholder="Personal Rate" class="form-control" min="200.00" step="50.00">
               </div>
             </div>
             <div class="form-row">

@@ -144,16 +144,10 @@ class ClientController extends Controller
         }
     }
 
-    public function getView()
+    public function getView($bookingID)
     {
-        $client = Client::whereUserId(Auth::id())->with('user')->first();
+        $bookings = BookingRequest::find($bookingID);
 
-        $client->load([
-            'booking',
-            'booking.therapist.user',
-            'booking.bookingRequest'
-        ]);
-
-        return view('client.view', compact('client'));
+        return view('client.view', compact('bookings'));
     }
 }
