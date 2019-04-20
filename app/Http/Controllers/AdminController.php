@@ -21,10 +21,32 @@ class AdminController extends Controller
 {
 	public function getUserView(Request $request)
     {
-        $users = User::where([['status', '!=', '2'], ['user_type', '!=', 'admin']])->paginate(7);     
 
-    	return view('admin.users', compact('users'));
+        $query = User::query();
+
+        $this->beforeIndex($query);
+
+        $users = $query->where([['status', '!=', '2'], ['user_type', '!=', 'admin']])->paginate(7);
+
+        return view('admin.users', compact('users'));
     }
+
+    public function beforeIndex($query)
+     {   
+         $request = request();
+
+         $query->when($request->username, function ($q) use ($request) {
+             $q->where('username', 'like', "%{$request->username}%");
+         });
+
+         $query->when($request->email, function ($q) use ($request) {
+             $q->where('email', 'like', "%{$request->email}%");
+         });
+
+         $query->when($request->status, function ($q) use ($request) {
+            $q->where('status', 'like', "%{$request->status}%");
+         });
+     }
 
     public function getPendingView()
     {
@@ -69,17 +91,5 @@ class AdminController extends Controller
         return view('admin.users', compact('users'));
     }
     
-
-  /*$username = User::where('username',$request['username'])->first();
-        $email = User::where('email', $request['email'])->first();
-
-        $to_name = $username[0]['username'];
-        $to_email = $email[0]['email'];
-        // $data = array('name'=>"Peace keepers", "body" => "Test mail");
-            
-        Mail::send('admin.notice', function($message) use ($to_name, $to_email) {
-            $message->to($to_email, $to_name)
-                    ->subject('Notice of Renewal');
-            $message->from('therapeacemaker@gmail.com','PeaceMakers');
-        });*/
+      
 }

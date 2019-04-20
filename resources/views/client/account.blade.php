@@ -46,10 +46,21 @@
 			<div class="card-header bg-info">
 				Sent Requests
 			</div>
+	        {!! Form::open(['url' => url()->current(), 'method' => 'get']) !!} 
+			<div class="row">
+		         <div class="col-md-4">
+		             {!! Form::inputGroup('text', null, 'name', request()->name ?? null, ['placeholder' => 'Therapist Name']) !!}
+		         </div>
+		         <div class="col-md-4">
+		             {!! Form::selectGroup(null, 'status', ['' => 'Select Status', '0' => 'Pending', '1' => 'Approved', '2' => 'Rejected', '3' => 'Finished', '4' => 'Cancelled'], request()->status ?? null, ['class' => 'form-control']) !!}
+		         </div>
+		         <div class="col-md-4">
+		           <button type="submit" class="btn btn-info pull-right"><i class="ti-search"></i> Search</button>
+		         </div>
+	        </div>
+	        {!! Form::close() !!}
+	        
 			<div class="card-body" style="overflow: scroll; height: 200px;">
-				<div class="form-group">
-					<input type="text" name="search" class="form-control" placeholder="Search.." id="search"></input>
-				</div>
 				<table class="table table-default">
 					<thead>
 						<tr>
@@ -130,7 +141,7 @@
 							<td>Scoliosis</td>
 							<td>
 								<div class="dropdown">
-								  <button class="btn btn-sm btn-info dropdown-toggle" data-id="{{ $row['id'] }}"
+								  <button class="btn btn-sm btn-info dropdown-toggle" data-id=""
 								          type="button" id="dropdownMenu1" data-toggle="dropdown"
 								          aria-haspopup="true" aria-expanded="false">
 								    Actons

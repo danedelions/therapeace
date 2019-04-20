@@ -25,7 +25,7 @@
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>
-      </div>
+        </div>
         </div>
 
         <div class="tab form-group">Location:
