@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('page-body')
+@section('page-welcome')
         <div class="slider">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -139,6 +139,7 @@
            </div>
        </div>
     </section>
+<<<<<<< HEAD
       <div class="parallax section-1">
             <div class="container">
               <br><br>
@@ -201,4 +202,7 @@
             </div>
         </div>
     
+=======
+
+>>>>>>> 3d35b64c5cce1bb3d5735e00f5f01beaa02aede5
 @endsection

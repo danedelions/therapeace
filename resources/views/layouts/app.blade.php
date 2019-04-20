@@ -20,7 +20,8 @@
 </head>
 <body>
         @include('partials.header')
-        @yield('page-body')
+        @yield('page-faqs')
+        @yield('page-welcome')
         @include('partials.footer')
 </body>
 </html>

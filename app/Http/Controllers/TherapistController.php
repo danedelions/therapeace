@@ -53,12 +53,10 @@ class TherapistController extends Controller
                 "pictures/{$users[0]['username']}",
                 'public'
             );
-
             $bc_image = $request->file('bc_image')->store(
                 "pictures/{$users[0]['username']}",
                 'public'
             );
-
             Therapist::insert([
                 'user_id'        => $users[0]['id'],
                 'image'          => $image,
@@ -80,7 +78,6 @@ class TherapistController extends Controller
                 'nbi_image'      => $nbi_image,
                 'bc_image'       => $bc_image,
             ]);
-
         });
     
         // $this->getData();
@@ -128,7 +125,6 @@ class TherapistController extends Controller
         if(isset($request['image'])) {
             $image = request()->file('image')->move("pictures/{$users[0]['username']}", 'public');
         }
-
         $therapist->fill($request)->save();
         
         User::where('id', Auth::id())->update(['username' => $request['username'], 'email' => $request['email']]);

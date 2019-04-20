@@ -32,8 +32,8 @@ width: 100% !important; height: 100%; margin: 0; line-height: 1.4; background-co
           <table class="email-content" width="100%" cellpadding="0" cellspacing="0" style="box-sizing: border-box; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; margin: 0; padding: 0; width: 100%;">
             <tr>
               <td class="email-masthead" style="box-sizing: border-box; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; padding: 25px 0; word-break: break-word;" align="center">
-                <a href="https://example.com" class="email-masthead_name" style="box-sizing: border-box; color: #bbbfc3; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px; font-weight: bold; text-decoration: none; text-shadow: 0 1px 0 white;">
-                <img src="dist/assets/img/logo.png" width="70px">
+                <a href="localhost:8000" class="email-masthead_name" style="box-sizing: border-box; color: #bbbfc3; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px; font-weight: bold; text-decoration: none; text-shadow: 0 1px 0 white;">
+                <img src="{{ asset('img/logo.png')}}" alt="Logo" width="70px">
       </a>
               </td>
             </tr>
@@ -47,8 +47,7 @@ width: 100% !important; height: 100%; margin: 0; line-height: 1.4; background-co
                       <h1 style="box-sizing: border-box; color: #2F3133; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 19px; font-weight: bold; margin-top: 0;" align="left">Dear Mr./Ms. {{$username}}, Your PRC License expires in 30 days. </h1>
                       <p style="box-sizing: border-box; color: #74787E; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px; line-height: 1.5em; margin-top: 0;" align="left">Thanks for trying TheraPEACE Inc. You've added a lot of data, so here are several options for you to consider going forward.</p>
                       
-                      
-                      <p style="box-sizing: border-box; color: #74787E; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px; line-height: 1.5em; margin-top: 0;" align="left">Regardless of your choice, we want to say thank you for trying TheraPEACE Inc. We know it's an investment of your time, and we appreciate you giving us a chance.</p>
+                      <p style="box-sizing: border-box; color: #74787E; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px; line-height: 1.5{em; margin-top: 0;" align="left">Regardless of your choice, we want to say thank you for trying TheraPEACE Inc. We know it's an investment of your time, and we appreciate you giving us a chance.</p>
                       <p style="box-sizing: border-box; color: #74787E; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px; line-height: 1.5em; margin-top: 0;" align="left">Thanks,
                         <br />{{ $username }} and the TheraPEACE Inc. Team</p>
                       <p style="box-sizing: border-box; color: #74787E; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px; line-height: 1.5em; margin-top: 0;" align="left"><strong style="box-sizing: border-box; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;">P.S.</strong> If you have any questions or need any help, please don't hesitate to reach out. You can reply to this email or join us on live chat during business hours.</p>

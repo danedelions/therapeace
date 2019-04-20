@@ -1,7 +1,7 @@
 <!-- oninput="this.className = ''" -->
 @extends('layouts.app')
 
-@section('page-body')
+@section('page-welcome')
 
 <div class="col-md-10 offset-1">
   <form id="regForm" action="{{ route('therapist.store') }}" method="POST" enctype="multipart/form-data"> <!-- Start of Form -->
