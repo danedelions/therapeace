@@ -16,11 +16,16 @@ class MessagingController extends Controller
 
         if (Auth::user()->isRole('therapist')) {
             $contacts = Client::ofTherapist(data_get(Auth::user(), 'therapist.user_id'));
+<<<<<<< HEAD
         } elseif (Auth::user()->isRole('client')) {
             $contacts = Therapist::whereIn('user_id',$threadList->pluck('sender_id'))->get();
+=======
+        } else if (Auth::user()->isRole('client')) {
+            $contacts = Therapist::whereIn('user_id', $threadList->pluck('sender_id'))->get();
+>>>>>>> fc0efe799d7768d5397e2d27b0152b4102a4bc6c
         }
 
-//        dd($threadList->toArray());
+       // dd($threadList->toArray());
 
         $thread = [];
         if ($recipientId) {

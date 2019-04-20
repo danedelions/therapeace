@@ -42,7 +42,9 @@ class TherapistRequest extends FormRequest
             'nbi_image' => 'nullable', 
             'bc_image' => 'nullable', 
             'username' => 'sometimes|required',
-            'specialties' => 'sometimes|nullable|array'
+            'specialties' => 'sometimes|nullable|array',
+            'user_bio' => 'nullable',
+            'personal_rate' => 'nullable|numeric|between:0,9999.99'
         ];
 
         return $rules;

@@ -69,7 +69,11 @@
     <div class="tab form-group">License:
       <div class="form-group col-md-12">
         <select class="form-control required" name="therapist">
+<<<<<<< HEAD
           <option value="">Select Therapist</option>
+=======
+          <option value="">SELECT TYPE</option>
+>>>>>>> fc0efe799d7768d5397e2d27b0152b4102a4bc6c
           <option value="Physical Therapist">Physical Therapist</option>
           <option value="Occupational Therapist">Occupational Therapist</option>
         </select>

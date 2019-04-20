@@ -38,6 +38,7 @@ class ClientRequest extends FormRequest
             'landmark' => 'nullable',
             'address_remarks' => 'nullable'
         ];
+        
         return $rules;
     }
 }

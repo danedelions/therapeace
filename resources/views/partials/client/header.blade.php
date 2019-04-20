@@ -14,7 +14,11 @@
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="/client-message"><i class="fas fa-envelope"></i> Messages</a>
+<<<<<<< HEAD
+          <a class="nav-link" href="chat"><i class="fas fa-envelope"></i> Messages</a>
+=======
+          <a class="nav-link" href="{{url('chat')}}"><i class="fas fa-envelope"></i> Messages</a>
+>>>>>>> c0022c5875174c298a9370ae2cb7344bdca91336
         </li>
 
 

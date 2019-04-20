@@ -31,19 +31,44 @@ class LoginController extends Controller
         ]);
 
 
+<<<<<<< HEAD
         $loggedIn = Auth::attempt($credentials);
 
 //        die(json_encode($credentials));
+=======
+        if ($loggedIn){
+
+            // return "success".Auth::user()->user_type;
+            if(Auth::user()->user_type === 'therapist'){
+                // view('therapist');
+                if(Auth::user()->status === 2){
+                    return redirect('get.therapist.pending');
+                }else if (Auth::user()->status === 0) {
+                    return redirect(route('get.therapist-account'));
+                }
+
+            }else if(Auth::user()->user_type === 'client'){
+                // view('client');
+                return redirect(route('get.client-find'));
+            }else if(Auth::user()->user_type === 'admin'){
+                // view('admin');
+                return redirect(route('get.view'));
+            }
+        }else{
+            
+             return view ('login').Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
+        }
+
+            // user::where('username', 'name');
+>>>>>>> fc0efe799d7768d5397e2d27b0152b4102a4bc6c
 
         if ($loggedIn) {
-
             return Auth::user()->homepage();
         } else {
             return redirect()->back()->withErrors();
         }
 
     }
-
 
     public function Logout(Request $request)
     {

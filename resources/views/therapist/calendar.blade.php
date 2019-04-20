@@ -93,7 +93,7 @@
                 <div class="col-sm-12">
                     <center><h5>Do you want to set another appointment with this patient?</h5></center><br>
                     <center>
-                        <a class="btn btn-danger" href="/therapist-checklist">No</a>
+                        <a class="btn btn-danger" href="{{url('/therapist-checklist/'.$bookingRequest->id)}}">No</a>
                         <button class="btn btn-success">Yes</button>
                     </center>
                 </div>                    

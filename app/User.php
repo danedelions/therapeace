@@ -43,11 +43,7 @@ class User extends Authenticatable
         'fullName'
     ];
 
-    protected $status = [
-        '0' => 'unblocked',
-        '1' => 'blocked',
-        '2' => 'approved'
-    ];
+   
 
 
     public function therapist()
@@ -63,11 +59,6 @@ class User extends Authenticatable
     public function getFullNameAttribute()
     {
         return "{$this->fname} {$this->lname}";
-    }
-
-    public function getStatusAttribute($value)
-    {
-        return $this->status[$value];
     }
 
     public function isRole($role)

@@ -80,7 +80,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::patch('/therapist-update/{id}', 'TherapistController@update')->name('therapist.update');
     Route::get('/therapist-specialty/', 'TherapistController@createSpecialties')->name('get.therapist-specialty');
     Route::patch('/therapist-account/{booking}', 'BookingController@approveRequest')->name('therapist.accept');
-    Route::get('/therapist-checklist/', 'TherapistController@viewChecklist')->name('therapist.checklist');
+    Route::get('/therapist-checklist/{id}', 'TherapistController@viewChecklist')->name('therapist.checklist');
     Route::get('therapist-calendar/{bookingRequest}', 'TherapistCalander')->name('therapist.calendar');
     Route::post('therapist-calendar/{bookingRequest}',
         'TherapistCalander@saveAppointment')->name('therapist.book.appointment');
@@ -96,7 +96,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/client-message', 'ClientController@clientMessage')->name('get.client-message');
     Route::get('/client-search/', 'ClientController@search')->name('get.client-search');
-    Route::get('/client-view', 'ClientController@getView')->name('get.client-view');
+    Route::get('/client-view/{id}', 'ClientController@getView')->name('get.client-view');
 
     //TRANSACTION
     // Route::get('/client-transaction', 'TransactionController@clientTrans');

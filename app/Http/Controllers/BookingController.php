@@ -48,8 +48,7 @@ class BookingController extends Controller
 
     public function clientDeleteRequest(BookingRequest $booking, $id)
     {
-        $toDelete = $booking->where('id', $id)->where('client_id', Auth::id())->first();
-        $toDelete->delete();
+        $booking->update(['status' => 4]);
 
         return redirect()->back();
     }
