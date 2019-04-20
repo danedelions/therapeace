@@ -46,21 +46,22 @@
 			<div class="card-header bg-info">
 				Sent Requests
 			</div>
-	        {!! Form::open(['url' => url()->current(), 'method' => 'get']) !!} 
-			<div class="row">
-		         <div class="col-md-4">
-		             {!! Form::inputGroup('text', null, 'name', request()->name ?? null, ['placeholder' => 'Therapist Name']) !!}
-		         </div>
-		         <div class="col-md-4">
-		             {!! Form::selectGroup(null, 'status', ['' => 'Select Status', '0' => 'Pending', '1' => 'Approved', '2' => 'Rejected', '3' => 'Finished', '4' => 'Cancelled'], request()->status ?? null, ['class' => 'form-control']) !!}
-		         </div>
-		         <div class="col-md-4">
-		           <button type="submit" class="btn btn-info pull-right"><i class="ti-search"></i> Search</button>
-		         </div>
-	        </div>
-	        {!! Form::close() !!}
-	        
 			<div class="card-body" style="overflow: scroll; height: 200px;">
+				<div class="form-group">
+					{!! Form::open(['url' => url()->current(), 'method' => 'get']) !!} 
+					<div class="row">
+				        <div class="col-md-4">
+				             {!! Form::inputGroup('text', null, 'name', request()->name ?? null, ['placeholder' => 'Therapist Name']) !!}
+				        </div>
+				        <div class="col-md-4">
+				            {!! Form::selectGroup(null, 'status', ['' => 'Select Status', '0' => 'Pending', '1' => 'Approved', '2' => 'Rejected', '3' => 'Finished', '4' => 'Cancelled'], request()->status ?? null, ['class' => 'form-control']) !!}
+				        </div>
+				        <div class="col-md-4">
+				           <button type="submit" class="btn btn-info pull-right"><i class="ti-search"></i> Search</button>
+				        </div>
+			        </div>
+			        {!! Form::close() !!}
+				</div>
 				<table class="table table-default">
 					<thead>
 						<tr>
@@ -119,19 +120,22 @@
 			<div class="card-body" style="overflow: scroll; height: 200px;">
 				<table class="table table-default">
 					<thead>
-						<th>Therapist Name</th>
-						<th>Dates of Session</th>
-						<th>Diagnosis</th>	
-						<th>Action</th>				
+						<tr>
+							<th>Therapist Name</th>
+							<th>Dates of Session</th>
+							<th>Diagnosis</th>	
+							<th>Action</th>		
+						</tr>
 					</thead>
 					<tbody>
+						@foreach($client->booking as $row)
 						<tr>
-							<td><b>Jude Canete</b></td>
-							<td>March 29 - March 30</td>
-							<td>Scoliosis</td>
+							<td><b>{{$row->therapist->fullName}}</b></td>
+							<td>{{$row->diagnosis}}</td>
+							<td>{{$row->diagnosis}}</td>
 							<td>
 								<div class="dropdown">
-								  <button class="btn btn-sm btn-info dropdown-toggle" data-id=""
+								  <button class="btn btn-sm btn-info dropdown-toggle" data-id="{{ $row['id'] }}"
 								          type="button" id="dropdownMenu1" data-toggle="dropdown"
 								          aria-haspopup="true" aria-expanded="false">
 								    Actons
@@ -143,6 +147,8 @@
 								</div>
 							</td>
 						</tr>
+
+						@endforeach
 					</tbody>
 				</table>
 			</div>
@@ -192,7 +198,7 @@
       		<div class="modal-body mx-3">
       			<div class="form-group">
 					<label class="col-lg" >Diagnosis</label>
-					<div class="col-lg-8">Full information of the diagnosis, notes or dates of therapy</div>
+					<div class="col-lg-8">{{$row->diagnosis}}</div>
       			</div>
       			
       			<hr>
@@ -209,9 +215,10 @@
 		          	<textarea type="text" placeholder="" class="md-textarea form-control" rows="4"></textarea>
 		        </div>
     		</div>    
-    	<div class="modal-footer d-flex justify-content-center">
-        	<button class="btn btn-unique">Send Report<i class="fas fa-paper-plane-o ml-1"></i></button>
-    	</div>
+	    	<div class="modal-footer d-flex justify-content-center">
+	        	<button class="btn btn-unique">Send Report<i class="fas fa-paper-plane-o ml-1"></i></button>
+	    	</div>
+		</div>
 	</div>
 </div>
 <!-- END OF MODAL -->

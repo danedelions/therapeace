@@ -14,7 +14,7 @@
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="/client-message"><i class="fas fa-envelope"></i> Messages</a>
+          <a class="nav-link" href="/chat"><i class="fas fa-envelope"></i> Messages</a>
         </li>
         
         <li class="nav-item dropdown">

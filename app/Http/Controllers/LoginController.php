@@ -57,7 +57,7 @@ class LoginController extends Controller
              return view ('login').Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
         }
 
-          }      // user::where('username', 'name');
+       // user::where('username', 'name');
 
         if ($loggedIn) {
 
@@ -66,7 +66,6 @@ class LoginController extends Controller
             return redirect()->back()->withErrors();
         }
     }
-
 
     public function Logout(Request $request)
     {
