@@ -8,7 +8,8 @@
     <title>TheraPeace Inc. | Admin</title>
     
     <!-- GLOBAL MAINLY STYLES-->
-    
+
+    <link rel="icon" href="img/logo.png" crossorigin="anonymous">
     <link href="dist/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="dist/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
