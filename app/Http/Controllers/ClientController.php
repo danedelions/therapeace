@@ -82,6 +82,31 @@ class ClientController extends Controller
         return view('client.find', compact('therapists', 'specialties'));
     }
 
+    public function clientAccount(Request $request)
+    {
+        $query = Client::query();
+
+        $client = $query->whereUserId(Auth::id())->with('user');
+
+        $client->with([
+            'booking' => function ($q) use ($request){
+                $q->when($request->status, function ($q) use ($request)  {
+                    $q->where('status', $request->status);
+                })
+                ->when($request->name, function ($q) use ($request) {
+                    $q->whereHas('therapist', function ($q) use($request) {
+                        $q->whereRaw('CONCAT(fname, " ", lname) LIKE "%'.$request->name.'%"');
+                    });
+                })
+                ->with(['therapist.user', 'bookingDetails']);
+            },
+        ]);
+
+        $client = $client->first();
+
+        return view('client.account', compact('client'));
+    }  
+
     public function clientAccount(BookingRequest $bookings)
     {
         $client   = Client::whereUserId(Auth::id())->with('user')->first();
