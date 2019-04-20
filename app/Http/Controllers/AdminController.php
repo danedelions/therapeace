@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Input;
 use App\Client;
 use App\Therapist;
 use App\User;
+use App\Admin;
 use Mail;
 use Auth;
 use DB;
@@ -20,16 +21,9 @@ class AdminController extends Controller
 {
 	public function getUserView(Request $request)
     {
-        $users = User::where([['status', '!=', '2'], ['user_type', '!=', 'admin']])->paginate(7);
-    
+        $users = User::where([['status', '!=', '2'], ['user_type', '!=', 'admin']])->paginate(7);     
+
     	return view('admin.users', compact('users'));
-    }
-
-    public function search()
-    {
-        // dd(Input::get('bar'));
-
-        return view('admin.users');
     }
 
     public function getPendingView()
@@ -53,12 +47,6 @@ class AdminController extends Controller
     {         
         Mail::send(new UserExpiryNotice($id));
 
-        // Mail::send('admin.notice', function($message) use ($to_name, $to_email) {
-        //     $message->to($to_email, $to_name)
-        //             ->subject('Notice of Renewal');
-        //     $message->from('therapeacemaker@gmail.com','PeaceMakers');
-        // });
-
         return redirect()->back()->with('message', 'Successfully sent mail to therapist!');
     }
 
@@ -69,6 +57,17 @@ class AdminController extends Controller
 
     }
 
+    public function filterUsers(User $users, $status)
+    {
+       
+        if(request()->has('status')){
+            $users = User::where([['status', request('status')], ['user_type', '!=', 'admin']])->paginate(7);    
+        }else{
+            $users = User::where([['status', '!=', '2'], ['user_type', '!=', 'admin']])->paginate(7);
+        }        
+
+        return view('admin.users', compact('users'));
+    }
     
 
   /*$username = User::where('username',$request['username'])->first();

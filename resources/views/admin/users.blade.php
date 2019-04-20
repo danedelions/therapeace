@@ -5,8 +5,6 @@
         <div class="content-wrapper" >
             <h3>List of TheraPeace Users</h3>
 
-
-
             <div class="card-body" style="overflow: hidden; height: 575px;">
                 <div class="table table-default">        
                     <table class="table table-hover">
@@ -151,41 +149,7 @@
                         </div>
                         <!-- end of view modal -->
 
-                        <!-- Mail Modal -->
-                        <div class="modal fade" id="emailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                          <div class="modal-dialog" role="document" >
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Send Your Mail</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                              <div class="modal-body" id="modalView">
-                                <div class="row">
-                                    <div class="col-sm-12 pull-center" style="font-weight: bold;">
-                                        <div class="card">
-                                            <div class="card-body text-center">
-                                              <p><center>Send An Email</center></p>
-
-                                              <a id="sendWelcomeBtn" data-href="{{route('get.notice', '__ID__')}}" class="col-sm-5 btn btn-success">Send Welcome</a>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- end of email modal --> 
-                      @endforeach
-
-                      
+                      @endforeach 
                     
                       </tbody>
                     </table>
@@ -202,3 +166,18 @@
     </div>
 
 @endsection
+
+ <!-- <div class="container">
+              <form method="POST" role="search">
+                {{ csrf_field() }}
+                <div class="input-group">
+                  <input type="text" class="form-control" name="bar" placeholder="Search...">
+                    <span class="input-group-btn">
+                      <button type="submit" class="btn btn-default">
+                        <span class="glyphicon glyphicon-search"></span>
+                      </button>
+                    </span>
+                  </input>
+                </div>
+              </form>
+            </div> -->
