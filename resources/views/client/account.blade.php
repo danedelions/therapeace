@@ -46,6 +46,7 @@
 			<div class="card-header bg-info">
 				Sent Requests
 			</div>
+			<div class="card-body" style="overflow: scroll; height: 200px;">
 	        {!! Form::open(['url' => url()->current(), 'method' => 'get']) !!} 
 			<div class="row">
 		         <div class="col-md-4">
@@ -60,7 +61,7 @@
 	        </div>
 	        {!! Form::close() !!}
 	        
-			<div class="card-body" style="overflow: scroll; height: 200px;">
+			
 				<table class="table table-default">
 					<thead>
 						<tr>
@@ -83,21 +84,31 @@
                                 @elseif($row->status == 2)
                                 <span class="badge badge-danger">Rejected</span>
                                 @elseif($row->status == 3)
-                                <span class="badge badge-default">Finished</span>  
+                                <span class="badge badge-primary">Finished</span>  
+																@elseif($row->status == 4)
+                                <span class="badge badge-default">Cancelled</span> 
                                 @endif
                             </td>
 							<td>
+								@if($row->status == 1)
 								<div class="dropdown">
 								  <button class="btn btn-sm btn-info dropdown-toggle" data-id="{{ $row['id'] }}"
 								          type="button" id="dropdownMenu1" data-toggle="dropdown"
 								          aria-haspopup="true" aria-expanded="false">
 								    Actons
-								  </button>
+									</button>
 								  <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-								    <a class="dropdown-item" href="{{url('/client-view/')}}"><i class="far fa-eye"></i>&nbspView</a>
-								    <a class="dropdown-item"><i class="fas fa-ban"></i>&nbspCancel</a>
-								  </div>
+								    <a class="dropdown-item" style="color:green;"href="{{url('/client-view/'.$row->id)}}"><i class="far fa-eye" style="color:green;"></i>&nbspView</a>
+								    <a class="dropdown-item" style="color:red;"><i class="fas fa-ban" style="color:red;"></i>
+                      &nbspCancel
+										</a>
+									</div>
 								</div>
+								@else
+
+								<button class="btn btn-sm btn-outline-danger">Cancel</button>
+
+								@endif
 							</td>
 						</tr>
 						@empty
@@ -142,7 +153,7 @@
 								  </div>
 								</div>
 							</td>
-						</tr>
+							</tr>
 					</tbody>
 				</table>
 			</div>

@@ -82,6 +82,8 @@ class TherapistController extends Controller
                 'license_image'  => $license_image,
                 'nbi_image'      => $nbi_image,
                 'bc_image'       => $bc_image,
+                'user_bio'       => $request->post('user_bio'),
+                'personal_rate'  => 500.00
             ]);
         });
 
@@ -178,12 +180,11 @@ class TherapistController extends Controller
     {
         $specialties;
     }
-
-    public function viewChecklist()
+    public function viewChecklist($bookingID)
     {
-        return view('therapist.checklist');
-    }
-
+        $booking = BookingRequest::find($bookingID);
+        return view('therapist.checklist', compact('booking'));
+    } 
     public function viewPending()
     {
         return view('therapist.pending');

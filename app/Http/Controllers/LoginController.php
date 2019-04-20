@@ -55,6 +55,8 @@ class LoginController extends Controller
              return view ('login').Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
         }
 
+            // user::where('username', 'name');
+
         if ($loggedIn) {
             return Auth::user()->homepage();
         } else {

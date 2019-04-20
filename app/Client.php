@@ -24,7 +24,8 @@ class Client extends Model
     ];
 
     protected $appends = [
-        'fullName'
+        'fullName',
+        'address'
     ];
 
     public function user()
