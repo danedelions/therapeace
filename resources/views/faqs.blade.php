@@ -301,11 +301,6 @@
                 <div>The therapy will be offered at your desired locations.</div> 
 				
 				<hr>
-
-                <h6>What is Physical therapy?</h6>
-                <div>Physical therapy is a medical, hands-on approach to relieving pain and restoring function. Physical therapists are medical experts in musculoskeletal and neurological conditions and work closely with physicians. Our physical therapists evaluate your movement patterns, identify the cause of your pain, and work to eliminate it.</div>
-                
-                <hr>
                 
                 <h6>How do I know if physical therapy will help me?</h6>
                 <div>Working with you through our chat feature, you can discuss your options and help determine if physical therapy will be the right choice for you. Book your desired therapist today and get the chance to discuss your current condition and even set up an appointment with the available therapist. </div>
@@ -322,8 +317,6 @@
 
                 <hr>
 
-                <h6>What is Occupational Therapy?</h6>
-                <div>Occupational therapy practitioners are health professionals who help individuals live as fully and independently as possible. They specialize in helping individuals who are sick, disabled, or developmentally challenged develop the skills they need for everyday life. OT Intervention focuses on occupations that can be as basic as getting dressed and eating or as complex as socializing and holding a job.</div>    
       		</div>
       	</div>
     </div>

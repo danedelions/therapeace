@@ -129,8 +129,4 @@ class ClientController extends Controller
         return view('client.view', compact('client'));
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 3d35b64c5cce1bb3d5735e00f5f01beaa02aede5
 }
