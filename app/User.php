@@ -5,6 +5,13 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * Class User
+ * @package App
+ *
+ * @property $user_type string
+ *
+ */
 class User extends Authenticatable
 {
     use Notifiable;
@@ -28,18 +35,19 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     protected $appends = [
         'fullName'
     ];
 
-      protected $status = array(
+    protected $status = [
         '0' => 'unblocked',
         '1' => 'blocked',
         '2' => 'approved'
-    );
+    ];
 
 
     public function therapist()
@@ -60,5 +68,17 @@ class User extends Authenticatable
     public function getStatusAttribute($value)
     {
         return $this->status[$value];
+    }
+
+    public function homepage()
+    {
+        switch ($this->user_type) {
+            case 'therapist':
+                return redirect(route('get.therapist-account'));
+            case 'client':
+                return redirect(route('get.client-find'));
+            case 'admin':
+                return redirect(route('get.view'));
+        }
     }
 }
