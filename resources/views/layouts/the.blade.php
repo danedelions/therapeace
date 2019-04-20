@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Therapeace | @yield('title')</title>       
+        <link rel="icon" href="img/logo.png" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="{{ asset('fontawesome/css/all.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('path/dist/css/select2.min.css')}}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css')}}">

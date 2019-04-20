@@ -50,7 +50,7 @@
                                     <a class="dropdown-item" data-toggle="modal" data-target="#view-modalt-{{ $row->id }}"><i class="far fa-eye"></i>&nbspView</a>
                                 @endif
 
-                                {!! Form::open(['url' => route('get.notice', ['id' => $row->id]), 'method' => 'GET', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
+                                {!! Form::open(['url' => route('get.notice', $row->id), 'method' => 'GET', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
                                   <button type="submit" class="dropdown-item"><i class="far fa-envelope"></i>&nbsp&nbspMail</button>
                                 {!! Form::close() !!}
 

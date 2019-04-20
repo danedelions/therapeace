@@ -47,12 +47,6 @@ class AdminController extends Controller
     {         
         Mail::send(new UserExpiryNotice($id));
 
-        // Mail::send('admin.notice', function($message) use ($to_name, $to_email) {
-        //     $message->to($to_email, $to_name)
-        //             ->subject('Notice of Renewal');
-        //     $message->from('therapeacemaker@gmail.com','PeaceMakers');
-        // });
-
         return redirect()->back()->with('message', 'Successfully sent mail to therapist!');
     }
 

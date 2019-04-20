@@ -213,3 +213,15 @@ body {
   height: 150px;
   border-radius: 50px;
 }
+
+/* drop down in registration */
+
+    #overflowTest {
+      background: white;
+      color: black;
+      padding: 5px;
+      width: 100%;
+      height: 400px;
+      overflow: scroll;
+      border: 0px solid #ccc;
+    }
