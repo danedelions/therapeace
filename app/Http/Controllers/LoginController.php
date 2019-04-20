@@ -42,7 +42,7 @@ class LoginController extends Controller
                 }else if (Auth::user()->status === 0) {
                     return redirect(route('get.therapist-account'));
                 }
-                
+
             }else if(Auth::user()->user_type === 'client'){
                 // view('client');
                 return redirect(route('get.client-find'));
@@ -50,8 +50,6 @@ class LoginController extends Controller
                 // view('admin');
                 return redirect(route('get.view'));
             }
-
-
         }else{
             
              return view ('login').Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
@@ -60,13 +58,11 @@ class LoginController extends Controller
             // user::where('username', 'name');
 
         if ($loggedIn) {
-
             return Auth::user()->homepage();
         } else {
             return redirect()->back()->withErrors();
         }
     }
-
 
     public function Logout(Request $request)
     {

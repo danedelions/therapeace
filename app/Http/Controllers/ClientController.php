@@ -51,9 +51,9 @@ class ClientController extends Controller
                 'gender'          => $request->post('gender'),
                 'city'            => $request->post('city'),
                 'province'        => $request->post('province'),
-                'res_detail'      => $request->post('res_detail'),
                 'street'          => $request->post('street'),
                 'brgy'            => $request->post('brgy'),
+                'res_detail'      => $request->post('res_detail'),
                 'building'        => $request->post('building'),
                 'landmark'        => $request->post('landmark'),
                 'address_remarks' => $request->post('address_remarks')

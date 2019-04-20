@@ -69,27 +69,14 @@ class AdminController extends Controller
     {         
         Mail::send(new UserExpiryNotice($id));
 
-        return redirect()->back()->with('message', 'Successfully sent mail to therapist!');
+        return redirect()->back();
     }
 
     public function statusUpdate(User $user)
     {        
         $user->update(['status' => !$user->status]);
+
         return redirect()->back();
-
-    }
-
-    public function filterUsers(User $users, $status)
-    {
-       
-        if(request()->has('status')){
-            $users = User::where([['status', request('status')], ['user_type', '!=', 'admin']])->paginate(7);    
-        }else{
-            $users = User::where([['status', '!=', '2'], ['user_type', '!=', 'admin']])->paginate(7);
-        }        
-
-        return view('admin.users', compact('users'));
-    }
-    
+    }    
       
 }
