@@ -24,14 +24,15 @@
                         <div id="align" class="form-group">
                             <i class="fas fa-user"></i>
                             <label class="label">Username</label>   
-                            <input type="text" id="userName" name="username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" placeholder="Enter your username" required/>
+                            <input type="text" id="userName" name="username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" placeholder="Enter your username" value="{{ old('username') }}" required/>
+                            @if($errors->has('username'))
+                                <div class="invalid-feedback">
+                                    <strong>{{ $errors->first('username') }}</strong>
+                                </div>
+                            @endif
                         </div>
 
-                        @if($errors->any())
-                            <span class="invalid-feedback">
-                                <strong>{{ $errors->first('username') }}</strong>
-                            </span>
-                        @endif
+
 
                             <div id="align" class="form-group">   
                                  <i class="fas fa-key"></i>
