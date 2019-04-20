@@ -9,9 +9,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-    Route::get('/faqs', 'HomeController@index')->name('faqs');
+    Route::view('/faqs', 'faqs')->name('faqs');
     
-Route::group(['middleware' => 'guest'], function () {
+    Route::group(['middleware' => 'guest'], function () {
     Route::get('/', function () {
         
         return view('welcome');
@@ -37,14 +37,6 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/admin-reports', 'AdminController@getReportsView')->name('get.reports');
     Route::patch('/status-update/{user}', 'AdminController@statusUpdate')->name('get.update');
     Route::get('/admin-notice/{id}', 'AdminController@notice')->name('get.notice');
-    Route::post('{therapist}/accept', 'AcceptTherapistController'); 
-    Route::get('/admin-dashboard', 'AdminController@getDashboard')->name('get.dashboard');
-    Route::get('/admin-user', 'AdminController@getUserView')->name('get.view');
-    Route::get('/admin-pending', 'AdminController@getPendingView')->name('get.pending');
-    Route::get('/admin-history', 'AdminController@getHistoryView')->name('get.history');
-    Route::get('/admin-reports', 'AdminController@getReportsView')->name('get.reports');
-    Route::patch('/status-update/{user}', 'AdminController@statusUpdate')->name('get.update');
-    Route::get('/admin-notice', 'AdminController@notice')->name('get.notice');
     Route::post('{therapist}/accept', 'AcceptTherapistController'); 
     // THERAPIST
     Route::get('/therapist-account', 'TherapistController@therapistAccount')->name('get.therapist-account');
