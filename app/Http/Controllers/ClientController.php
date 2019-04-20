@@ -66,6 +66,9 @@ class ClientController extends Controller
     public function clientFind(Therapist $therapists, Request $request)
     {
         $therapists  = Therapist::query()
+                                ->whereHas('user', function ($q) {
+                                    $q->where('status', '=', '0');
+                                })
                                 ->when($type = $request->therapist, function ($q) use ($type) {
                                     $q->where('therapist', $type);
                                 })
