@@ -49,6 +49,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('{therapist}/accept', 'AcceptTherapistController');
     Route::any('/search', 'AdminController@search')->name('get.search');
     Route::post('{therapist}/accept', 'AcceptTherapistController');	
+    Route::get('/admin-user/?status={status}', 'AdminController@filterUsers');
 
 
     // THERAPIST
