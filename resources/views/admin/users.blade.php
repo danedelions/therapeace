@@ -3,26 +3,28 @@
 @section('dashboard')
 <!-- START PAGE CONTENT-->
         <div class="content-wrapper" >
-          <h3>List of TheraPeace Users</h3>
-            
           <div class="row">
-            {!! Form::open(['url' => url()->current(), 'method' => 'get']) !!} 
-              <div class="tab form-group">
-                  <div class="form-group col-md-3">
-                      {!! Form::inputGroup('text', null, 'username', request()->username ?? null, ['placeholder' => 'Username']) !!}
-                  </div>
-                  <div class="form-group col-md-3">
-                      {!! Form::inputGroup('text', null, 'email', request()->email ?? null, ['placeholder' => 'E-mail address']) !!}
-                  </div>
-                  <div class="form-group col-md-3">
-                      {!! Form::selectGroup(null, 'status', ['' => 'Select Status', '0' => 'Unblocked', '1' => 'Blocked'], request()->status ?? null, ['class' => 'form-control']) !!}
-                  </div>
-                  <div class="form-group col-md-3">
-                    <button type="submit" class="btn btn-info pull-right"><i class="ti-search"></i> Search</button>
-                  </div>
-              </div>    
-
-            {!! Form::close() !!}
+            <div class="col-md-4">
+              <h3>List of TheraPeace Users</h3>
+            </div>
+            <div class="col-md-8">
+              {!! Form::open(['url' => url()->current(), 'method' => 'get']) !!} 
+                <div class="tab form-group">
+                    <div class="form-group col-md-3">
+                        {!! Form::inputGroup('text', null, 'username', request()->username ?? null, ['placeholder' => 'Username']) !!}
+                    </div>
+                    <div class="form-group col-md-3">
+                        {!! Form::inputGroup('text', null, 'email', request()->email ?? null, ['placeholder' => 'E-mail address']) !!}
+                    </div>
+                    <div class="form-group col-md-3">
+                        {!! Form::selectGroup(null, 'status', ['' => 'Select Status', '0' => 'Unblocked', '1' => 'Blocked'], request()->status ?? null, ['class' => 'form-control']) !!}
+                    </div>
+                    <div class="form-group col-md-3">
+                      <button type="submit" class="btn btn-info pull-right"><i class="ti-search"></i> Search</button>
+                    </div>
+                </div>    
+              {!! Form::close() !!}
+            </div>
           </div>
             
           <div class="row">

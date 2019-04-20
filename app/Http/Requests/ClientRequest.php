@@ -32,12 +32,17 @@ class ClientRequest extends FormRequest
             'city' => 'required',
             'province' => 'required',
             'street' => 'required',
+<<<<<<< HEAD
             'brgy' => 'required',
+=======
+            'brgy' => 'nullable',
+>>>>>>> fc0efe799d7768d5397e2d27b0152b4102a4bc6c
             'res_detail' => 'nullable',
             'building' => 'nullable',
             'landmark' => 'nullable',
             'address_remarks' => 'nullable'
         ];
+        
         return $rules;
     }
 }

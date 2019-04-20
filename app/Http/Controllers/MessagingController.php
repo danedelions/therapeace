@@ -20,7 +20,7 @@ class MessagingController extends Controller
             $contacts = Therapist::whereIn('user_id',$threadList->pluck('sender_id'))->get();
         }
 
-//        dd($threadList->toArray());
+       // dd($threadList->toArray());
 
         $thread = [];
         if ($recipientId) {

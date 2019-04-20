@@ -51,13 +51,14 @@ class ClientController extends Controller
                 'gender'          => $request->post('gender'),
                 'city'            => $request->post('city'),
                 'province'        => $request->post('province'),
-                'res_detail'      => $request->post('res_detail'),
                 'street'          => $request->post('street'),
                 'brgy'            => $request->post('brgy'),
+                'res_detail'      => $request->post('res_detail'),
                 'building'        => $request->post('building'),
                 'landmark'        => $request->post('landmark'),
                 'address_remarks' => $request->post('address_remarks')
             ]);
+
         });
 
         return view('login');
@@ -143,6 +144,7 @@ class ClientController extends Controller
 
     public function search(Request $request, Therapist $therapists)
     {
+
         $query = $request->get('q');
         if ($query) {
             $therapists = $query ? Therapist::search($query)->orderBy('id', 'desc')->paginate(7) : Therapist::all();
@@ -151,16 +153,10 @@ class ClientController extends Controller
         }
     }
 
-    public function getView()
+    public function getView($bookingID)
     {
-        $client = Client::whereUserId(Auth::id())->with('user')->first();
+        $bookings = BookingRequest::find($bookingID);
 
-        $client->load([
-            'booking',
-            'booking.therapist.user',
-            'booking.bookingRequest'
-        ]);
-
-        return view('client.view', compact('client'));
+        return view('client.view', compact('bookings'));
     }
 }
