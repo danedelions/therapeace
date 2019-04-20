@@ -106,7 +106,8 @@
       </div>
     </div>
 
-    <div class="tab form-group">Done
+    <div  id="overflowTest" class="tab form-group"> 
+      <h1>Terms and Conditions </h1>
       <div class="col-md-12">
         <p style="text-align: justify;">
 
