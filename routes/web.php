@@ -55,7 +55,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/therapist-account', 'TherapistController@therapistAccount')->name('get.therapist-account');
     // Route::get('/therapist-appoint', 'TherapistController@therapistAppoint')->name('get.therapist-appoint');
 
-    Route::get('/therapist-message', 'TherapistController@therapistMessage');
+    Route::get('chat/{recipientId?}', 'MessagingController@index')->name('messaging.index');
+    Route::post('chat/{recipientId}', 'MessagingController@sendMessage')->name('messaging.send');
+
     Route::get('/therapist-edit/{id}', 'TherapistController@edit');
     Route::patch('/therapist-update/{id}', 'TherapistController@update')->name('therapist.update');
     Route::get('/therapist-specialty/', 'TherapistController@createSpecialties')->name('get.therapist-specialty');

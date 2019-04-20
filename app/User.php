@@ -70,6 +70,11 @@ class User extends Authenticatable
         return $this->status[$value];
     }
 
+    public function isRole($role)
+    {
+        return $this->user_type === $role;
+    }
+
     public function homepage()
     {
         switch ($this->user_type) {
@@ -80,5 +85,48 @@ class User extends Authenticatable
             case 'admin':
                 return redirect(route('get.view'));
         }
+    }
+
+    public function conversationWith($partner, $lastMessageId = false)
+    {
+        Message::query()
+               ->where([
+                   ['sent_to', '=', $this->id],
+                   ['sent_from', '=', $partner],
+               ])
+               ->whereNull('seen_at')
+               ->update([
+                   'seen_at' => date_create(null)->format('Y-m-d H:i:s')
+               ]);
+
+        $data = Message::query()
+                       ->where(function ($query) USE ($partner) {
+                           $query->where(function ($q) USE ($partner) {
+                               $q->where('sent_from', $this->id)->where('sent_to', $partner);
+                           })->orWhere(function ($q) USE ($partner) {
+                               $q->where('sent_from', $partner)->where('sent_to', $this->id);
+                           });
+                       })
+                       ->orderBy('created_at');
+
+        if ($lastMessageId) {
+            $data->where('id', '>', $lastMessageId);
+        } else {
+            $data->limit(20);
+        }
+
+        return $data->get();
+    }
+
+    public function getConversationList()
+    {
+        return \DB::table('messages')
+                 ->select(
+                     'messages.sent_from AS sender_id',
+                     \DB::raw('SUM(CASE WHEN messages.seen_at IS NULL THEN 1 ELSE 0 END) AS unseen_count')
+                 )
+                 ->where('messages.sent_to', $this->id)
+                 ->groupBy('messages.sent_from')
+                 ->get();
     }
 }

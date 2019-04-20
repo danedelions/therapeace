@@ -74,7 +74,7 @@ class ClientController extends Controller
                                 })
                                 ->when($specialties = $request->t_specialties, function ($q) use ($specialties) {
                                     $q->whereHas('specialties', function ($q) use ($specialties) {
-                                        $q->whereIn('specialties.name', $specialties);
+                                        $wq->whereIn('specialties.name', $specialties);
                                     });
                                 })->get();
         $specialties = Specialty::select('name')->pluck('name', 'name');
