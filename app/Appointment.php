@@ -49,7 +49,7 @@ class Appointment extends Model
 
 	public function getStartDateTimeAttribute($val)
 	{
-			return $val ? Carbon::parse($val)->format('H:i') : $val;
+			return $val ? Carbon::parse($val)->format('H:i') : $val; //translate words whenever possible (months, day names, etc.)
 	}
 
 	public function getEndDateTimeAttribute($val)

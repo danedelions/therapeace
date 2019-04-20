@@ -77,18 +77,14 @@
     <!-- View Modal Script and Ajax -->
     <script type="text/javascript">
         $(document).ready(function(){
-
             $('.accept-therapist').click(function(e) {
                 e.preventDefault();
-
                 if(confirm('Are you sure?')){
                     $(this).siblings('form:first').submit();
                 }
             })
-
         });
     </script>
     </div>
 </body>
 </html>
-

@@ -119,8 +119,6 @@ class ClientController extends Controller
     public function search(Request $request, Therapist $therapists)
     {
 
-        
-
         $query = $request->get('q');
         if($query)
         {

@@ -20,9 +20,15 @@ class Clients extends Migration
             $table->string('gender');
             $table->string('city');
             $table->string('province');
+<<<<<<< HEAD
             $table->string('res_detail')->nullable();
             $table->string('street');
             $table->string('brgy')->nullable();
+=======
+            $table->string('street');
+            $table->string('brgy')->nullable();
+            $table->string('res_detail')->nullable();
+>>>>>>> bf39d025bab8832db1bccb8e79fe70e9b2163399
             $table->string('building')->nullable();
             $table->string('landmark')->nullable();
             $table->string('address_remarks')->nullable();

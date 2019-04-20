@@ -47,6 +47,9 @@
 				Sent Requests
 			</div>
 			<div class="card-body" style="overflow: scroll; height: 200px;">
+				<div class="form-group">
+					<input type="text" name="search" class="form-control" placeholder="Search.." id="search"></input>
+				</div>
 				<table class="table table-default">
 					<thead>
 						<tr>
@@ -141,13 +144,15 @@
 				</table>
 			</div>
 		</div>
+	</div>
+</div>
 
 <!-- View Modal-->
 <div class="modal fade" id="view-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header bg-info">
-				<h5 class="modal-title" id="exampleModalLabel">Therapist Notes</h5>
+				<h5 class="modal-title">Therapist Notes</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -175,19 +180,11 @@
   aria-hidden="true">
   	<div class="modal-dialog" role="document">
     	<div class="modal-content">
-      		<div class="modal-header text-center">
-        		<h4 class="modal-title w-100 font-weight-bold">Session Information</h4>
-
-		<!-- View Modal-->
-		<div class="modal fade" id="view-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header bg-info">
-		        <h5 class="modal-title" id="exampleModalLabel">Therapist Notes</h5>
-
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          	<span aria-hidden="true">&times;</span>
-		        </button>
+      		<div class="modal-header bg-info">
+        		<h5 class="modal-title">Session Information</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          	<span aria-hidden="true">&times;</span>
+			        </button>
       		</div>
       		<div class="modal-body mx-3">
       			<div class="form-group">

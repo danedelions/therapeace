@@ -7,14 +7,14 @@
 		<div class="col-sm-12 col-md-12 col-lg-12">
 			<div class="card">
 				<h3 class="card-header">
-					Client Checklist
+					{{$booking->client->fullName}}'s Checklist
 				</h3>
 				<div class="card-body">
 					{!! Form::model(null,['method' => 'POST', 'class' => 'form-group']) !!}
 						<fieldset>
 							<div class="form-row">
 								<div class="col-md-6">
-									 {!! Form::inputGroup('text', '/S/: Chief Complaint', 'complaint', null, ['placeholder' => 'Chief Complaint']) !!}
+									 {!! Form::inputGroup('text', '/S/: Chief Complaint', 'chief_complaint', null, ['placeholder' => 'Chief Complaint']) !!}
 								</div>
 							</div>
 						</fieldset>
@@ -25,11 +25,11 @@
 									<label>/O/: Vital Signs</label>
 									&nbsp;
 									<label>
-										<input type="radio" name="vital" value="a"/> a
+										<input type="radio" name="vital_sign" value="a"/> a
 									</label>
 									&nbsp;
 									<label>
-										<input type="radio" name="vital" value="p"/> p
+										<input type="radio" name="vital_sign" value="p"/> p
 									</label>
 								</div>
 								<div class="col-md-6">
@@ -59,22 +59,22 @@
 									<label>/P/:</label>
 									&nbsp;
 									<label>
-										<input type="checkbox" name="area" value="UE"/> UE
+										<input type="checkbox" name="area_ue" value="UE"/> UE
 									</label>
 									&nbsp;
 									<label>
-										<input type="checkbox" name="area" value="LE"/> LE
+										<input type="checkbox" name="area_le" value="LE"/> LE
 									</label>
 								</div>
 								<div class="col-md-6 form-group">
 									 <label class="form-control">
-										<input type="checkbox" name="activities" value="p"/> AROM
+										<input type="checkbox" name="arom" value="AROM"/> AROM
 									</label>
 									<label class="form-control">
-										<input type="checkbox" name="activities" value="p"/> PROM
+										<input type="checkbox" name="prom" value="PROM"/> PROM
 									</label>
 									<label class="form-control">
-										<input type="checkbox" name="activities" value="p"/> Massage
+										<input type="checkbox" name="massage" value="Massage"/> Massage
 										<div class="form-row">
 											<div class="col-md-6">
 												<input type="text" name="massage_area" class=" form-control" placeholder="Area">
@@ -85,7 +85,7 @@
 										</div>
 									</label>
 									<label class="form-control">
-										<input type="checkbox" name="activities" value="p"/> Stretching
+										<input type="checkbox" name="stretching" value="p"/> Stretching
 										<div class="form-row">
 											<div class="col-md-6">
 												<input type="text" name="stretching_hold" class=" form-control" placeholder="Hold">
@@ -98,7 +98,7 @@
 								</div>
 								<div class="col-md-6 form-group">
 									 <label class="form-control">
-										<input type="checkbox" name="activities" value="p"/> ES/TENS
+										<input type="checkbox" name="es_tens" value="ES/TENS"/> ES/TENS
 										<div class="form-row">
 											<div class="col-md-6">
 												<input type="text" name="estens_area" class=" form-control" placeholder="Area">
@@ -109,7 +109,7 @@
 										</div>
 									</label>
 									<label class="form-control">
-										<input type="checkbox" name="activities" value="p"/> Resistance
+										<input type="checkbox" name="resistance" value="Resistance"/> Resistance
 										<div class="form-row">
 											<div class="col-md-6">
 												<input type="text" name="resistance_weight" class=" form-control" placeholder="Weight">
@@ -126,8 +126,8 @@
 										</div>
 									</label>
 									<label class="form-control">
-										<input type="checkbox" name="activities" value="p"/> Other
-										<input type="text" name="other" class="form-control" placeholder="Activity...">
+										<input type="checkbox" name="other" value="Others"/> Other
+										<input type="text" name="other_text" class="form-control" placeholder="Activity...">
 									</label>
 								</div>
 							</div>

@@ -1,9 +1,6 @@
 <?php
-
 namespace App;
-
 use Illuminate\Database\Eloquent\Model;
-
 class BookingRequest extends Model
 {
 	protected $fillable = [
@@ -12,30 +9,36 @@ class BookingRequest extends Model
 		'name',
 		'status',
 	];
-
 	public function client()
 	{
 		return $this->belongsTo('App\Client', 'client_id', 'user_id');
 	}
-
 	public function therapist()
 	{
 		return $this->belongsTo('App\Therapist', 'therapist_id', 'user_id');
 	}
-
     public function bookingDetails()
     {
     	return $this->hasOne('App\BookingDetail', 'booking_id');
     }
-
     public function appointment()
     {
     	return $this->hasOne('App\Appointment', 'booking_id');
+	}
+
+	public function checklist()
+	{
+		return $this->hasOne('App\Checklist', 'booking_id');
 	}
 	
 	public function scopeOfBooking($query, $bookingID)
 	{
 		return $this->where('id', $bookingID);
+	}
+
+	public function scopeOfClient($query, $clientID)
+	{
+		return $this->where('client_id', $clientID);
 	}
 
 	public function reject()
@@ -44,14 +47,12 @@ class BookingRequest extends Model
 			'status' => 2
 		]);
 	}
-
 	public function approve()
 	{
 		return $this->update([
 			'status' => 1
 		]);
 	}
-
 	public function finish()
 	{
 		return $this->update([
@@ -68,7 +69,7 @@ class BookingRequest extends Model
 
 	public function is($status)
 	{
-		$allStatus = ['pending', 'approved', 'rejected', 'finished', 'canceled'];
+		$allStatus = ['pending', 'approved', 'rejected', 'finished', 'cancelled'];
 
 		return array_search(strtolower($status), $allStatus) == $this->status;
 	}
