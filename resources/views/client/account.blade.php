@@ -46,6 +46,7 @@
 			<div class="card-header bg-info">
 				Sent Requests
 			</div>
+			<div class="card-body" style="overflow: scroll; height: 200px;">
 	        {!! Form::open(['url' => url()->current(), 'method' => 'get']) !!} 
 			<div class="row">
 		         <div class="col-md-4">
@@ -60,7 +61,7 @@
 	        </div>
 	        {!! Form::close() !!}
 	        
-			<div class="card-body" style="overflow: scroll; height: 200px;">
+			
 				<table class="table table-default">
 					<thead>
 						<tr>

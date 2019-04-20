@@ -88,14 +88,16 @@
                   {!! Form::inputGroup('text', 'Username', 'username', Auth::user()->username, ['placeholder' => 'User Name']) !!}
               </div>
               <div class="col-md-6 form-group">
-                <label>Personal Rate</label>
-                  <input type="number" name="personal_rate" placeholder="Personal Rate" class="form-control" min="200.00" step="50.00">
+                {!! Form::inputGroup('number', 'Personal Rate', 'personal_rate', $therapist->personal_rate, ['placeholder' => 'Personal Rate', 'min' => '200', 'step' => '50']) !!}
+                <!-- <label>Personal Rate</label> -->
+                  <!-- <input type="number" name="personal_rate" placeholder="Personal Rate" class="form-control" min="200.00" step="50.00"> -->
               </div>
             </div>
             <div class="form-row">
               <div class="col-md-12">
-                <label>Bio</label>
-                  <textarea class="form-control" name="user_bio" rows="2" placeholder="Enter short bio here" maxlength="150"></textarea>
+                <!-- <label>Bio</label>
+                  <textarea class="form-control" name="user_bio" rows="2" placeholder="Enter short bio here" maxlength="150"></textarea> -->
+                  {!! Form::inputGroup('text', 'Personal Bio', 'user_bio', $therapist->user_bio, ['placeholder' => 'Personal Bio']) !!}
               </div>
             </div>
             <div class="form-row">
