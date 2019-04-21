@@ -22,7 +22,7 @@
     <!-- THEME STYLES-->
     <link href="dist/assets/css/main.min.css" rel="stylesheet" />
     <!-- PAGE LEVEL STYLES-->
-    <link rel="stylesheet" type="text/css" href="public/css/admin.css">
+    <link rel="stylesheet" type="text/css" media="print, handheld" href="public/css/admin.css">
 
     <!-- Data Tables -->
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
@@ -31,8 +31,6 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
 
-    <!-- print -->
-    <link rel="stylesheet" type="text/css" href="print.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -66,13 +64,9 @@
     <!-- PAGE LEVEL SCRIPTS-->
     <script src="dist/assets/js/scripts/dashboard_1_demo.js" type="text/javascript"></script>
 
-    <!-- Data Tables -->
-    <script type="text/javascript" src="DataTables/datatables.min.js"></script>
-
     <!-- jQuery -->
     <script src="//code.jquery.com/jquery-3.3.1.js"></script>
-    <!-- DataTables -->
-    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
     <!-- Bootstrap JavaScript -->
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <!-- App scripts -->
@@ -90,7 +84,20 @@
         });
     </script>
 
-     <script src="print.js"></script>
+     <script type="text/javascript">
+         function printData()
+         {
+            var divToPrint=document.getElementById("printTable");
+            newWin= window.open("");
+            newWin.document.write(divToPrint.outerHTML);
+            newWin.print();
+            newWin.close();
+         }
+
+         $('#print').on('click',function(){
+         printData();
+         })
+     </script>
     </div>
 </body>
 </html>

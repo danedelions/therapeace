@@ -4,7 +4,7 @@
         <div class="content-wrapper">
         <div class="row">
           <div class="card-body">
-            <div class="col-sm-4 col-md-4 col-lg-4">
+            <div class="col-sm-4 col-md-4 col-lg-3">
               <h3>Pending Applications</h3>
             </div>
             <div class="col-sm-8 col-md-8 col-lg-8">
@@ -13,14 +13,14 @@
                     <div class="col-sm-3 col-md-3 col-lg-3">
                         {!! Form::inputGroup('text', null, 'username', request()->username ?? null, ['placeholder' => 'Username']) !!}
                     </div>
-                    <div class="col-sm-3 col-md-3 col-lg-3">
+                    <div class="col-sm-4 col-md-4 col-lg-4">
                         {!! Form::inputGroup('text', null, 'email', request()->email ?? null, ['placeholder' => 'E-mail address']) !!}
                     </div>
-                    <div class="col-sm-3 col-md-3 col-lg-3">
-                        {!! Form::selectGroup(null, 'status', ['' => 'Select Therapist', 'Physical Therapist' => 'Physical Therapist', 'Occupational Therapist' => 'Occupational Therapist'], request()->therapist ?? null, ['class' => 'form-control']) !!}
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                        {!! Form::selectGroup(null, 'therapist', ['' => 'Select Therapist', 'Physical Therapist' => 'Physical Therapist', 'Occupational Therapist' => 'Occupational Therapist'], request()->therapist->therapist ?? null, ['class' => 'form-control']) !!}
                     </div>
-                    <div class="col-sm-3 col-md-3 col-lg-3">
-                      <button type="submit" class="btn btn-info pull-right"><i class="ti-search"></i> Search</button>
+                    <div class="col-sm-1 col-md-1 col-lg-1">
+                      <button type="submit" class="btn btn-info pull-right"><i class="ti-search"></i></button>
                     </div>
                 </div>    
               {!! Form::close() !!}

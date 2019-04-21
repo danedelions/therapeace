@@ -12,14 +12,14 @@
               <div class="col-sm-8 col-md-8 col-lg-8">
                 {!! Form::open(['url' => url()->current(), 'method' => 'get']) !!} 
                   <div class="col-sm-12 col-md-12 col-lg-12">
-                      <div class="col-sm-3 col-md-3 col-lg-4">
+                      <div class="col-sm-5 col-md-5 col-lg-5">
                           {!! Form::inputGroup('text', null, 'username', request()->username ?? null, ['placeholder' => 'Username']) !!}
                       </div>
-                      <div class="col-sm-3 col-md-3 col-lg-4">
+                      <div class="col-sm-6 col-md-6 col-lg-6">
                           {!! Form::inputGroup('text', null, 'email', request()->email ?? null, ['placeholder' => 'E-mail address']) !!}
                       </div>
-                      <div class="col-sm-3 col-md-3 col-lg-3">
-                        <button type="submit" class="btn btn-info pull-right"><i class="ti-search"></i> Search</button>
+                      <div class="col-sm-1 col-md-1 col-lg-1">
+                        <button type="submit" class="btn btn-info pull-right"><i class="ti-search"></i> </button>
                       </div>
                   </div>    
                 {!! Form::close() !!}
