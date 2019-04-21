@@ -31,6 +31,9 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
 
+    <!-- print -->
+    <link rel="stylesheet" type="text/css" href="print.css">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -86,6 +89,8 @@
             })
         });
     </script>
+
+     <script src="print.js"></script>
     </div>
 </body>
 </html>

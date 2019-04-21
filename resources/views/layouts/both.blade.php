@@ -19,17 +19,21 @@
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 
         @stack('styles')
-
     </head>
     <body id="userBg">
         <main class="container">
-
+            <nav class="navbar navbar-expand-md bg-white fixed-top">
+                <div class="container">    
+                    <a class="navbar-brand" href="#">
+                      <img src="{{ asset('img/logo.png') }}" alt="Logo" style="width:130px;">
+                    </a>
+                    <a href="/" ><i class="far fa-arrow-alt-circle-left"></i>&nbsp;Go Back</a></h4>
+                </div>
+            </nav>
             @yield('page-section')
-
             @include('partials.therapist.footer')
-
-
         </main>
+
         @stack('modals')
         <script type="text/javascript" src="{{ asset('path/dist/js/select2.min.js') }}"></script>
         <script type="text/javascript">

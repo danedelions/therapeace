@@ -118,6 +118,7 @@
                     <img class="text-uppercase mb-5" src="img/pic1.gif" width="220">  
                   </div>
                   <h5>Patients request appointment</h5>
+
              </div>
              <div class="col-sm-12 col-md-6 col-lg-3 my-5">
                   <div class="card-body text-center">

@@ -9,6 +9,7 @@ class BookingDetail extends Model
 	protected $fillable = [
 		'booking_id',
 		'diagnosis',
+		'image',
 		'notes',
 		'user_address',
 		'contact',

@@ -21,13 +21,20 @@
                 <span class="nav-label">Users</span></a>
             </li>
             <li>
-                <a href="/admin-pending"><i class="sidebar-item-icon fa fa-edit"></i><span class="nav-label">Pending Applicants</span></a>
+                <a href="/admin-pending"><i class="sidebar-item-icon fa fa-edit"></i>
+                <span class="nav-label">Pending Applicants</span></a>
             </li>
             <li>
-                <a href="/admin-history"><i class="sidebar-item-icon fa fa-map"></i><span class="nav-label">History</span></a>
+                <a href="/admin-history"><i class="sidebar-item-icon fa fa-map"></i>
+                <span class="nav-label">History</span></a>
             </li>
             <li>
-                <a href="/admin-reports"><i class="sidebar-item-icon fa fa-envelope"></i><span class="nav-label">Reports of Abuse</span></a>
+                <a href="/admin-reports"><i class="sidebar-item-icon fa fa-envelope"></i>
+                <span class="nav-label">Reports of Abuse</span></a>
+            </li>
+            <li>
+                <a href="/admin-blockusers"><i class="sidebar-item-icon fas fa-user-lock"></i>
+                <span class="nav-label">Blocked Users</span></a>
             </li>
 
         </ul>

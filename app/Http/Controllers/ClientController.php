@@ -150,6 +150,10 @@ class ClientController extends Controller
         return view('client.view', compact('bookings'));
     }
 
+    public function report(Therapist $therapist)
+    {
+        
+    }
     public function cancelAppointment(Request $request, BookingRequest $bookingRequest)
     {
 
