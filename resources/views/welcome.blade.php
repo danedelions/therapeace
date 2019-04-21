@@ -90,16 +90,37 @@
   </div>
 </div>
 
-<div class="row"> 
-  <br>
-  <div class="container">
-     <h3 class="text-center text-uppercase">How theraPeace works</h3>
-     <div class="row">
-       <div class="col-sm-12 col-md-6 col-lg-3 my-5">
-            <div class="card-body text-center">
-              <img class="text-uppercase mb-5"> <img src="img/pic1.gif" width="220">  
-            </div>
-            <h5>Patients request appointment</h5>
+  <body>
+      <br>
+       <div class="container">
+           <h3 class="text-center text-uppercase">How theraPeace works</h3>
+           <div class="row">
+             <div class="col-sm-12 col-md-6 col-lg-3 my-5">
+                  <div class="card-body text-center">
+                    <img class="text-uppercase mb-5" src="img/pic1.gif" width="220">  
+                  </div>
+                  <h5>Patients request appointment</h5>
+
+             </div>
+             <div class="col-sm-12 col-md-6 col-lg-3 my-5">
+                  <div class="card-body text-center">
+                    <img class="text-uppercase mb-5" src="img/wi.gif" width="200">
+                   <h5>Communicate</h5>
+                  </div>
+             </div>
+             <div class="col-sm-12 col-md-6 col-lg-3 my-5">
+                  <div class="card-body text-center">
+                    <img class="text-uppercase mb-5" src="img/wa.gif" width="190"> 
+                     <h5>Start Session</h5>
+                  </div> 
+             </div>
+             <div class="col-sm-12 col-md-6 col-lg-3 my-5">
+                  <div class="card-body text-center">
+                    <img class="text-uppercase mb-5" src="img/we.gif" width="190">  
+                  </div>
+                  <h5>Patients get better</h5>
+             </div>
+           </div>
 
        </div>
        <div class="col-sm-12 col-md-6 col-lg-3 my-5">

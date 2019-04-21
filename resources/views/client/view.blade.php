@@ -39,12 +39,47 @@
             </div>
             <div class="card-body">
                 <div class="form-group row">
-					<label class="col-lg-4">Therapist Rate</label>
-					<div class="col-lg-7">{{$bookings->therapist->personal_rate}}</div>
+					<label class="col-lg-4"><b>Therapist Rate</b></label>
+					<div class="col-lg-7">{{$bookings->therapist->personal_rate}} per hour</div>
+                </div>
+                <div class="form-group row">
+					<label class="col-lg-4">Session Dates</label>
+					<div class="col-lg-7">{{$bookings->appointment->durationDate}}</div>
+                </div>
+                <div class="form-group row">
+					<label class="col-lg-4">Number of Days</label>
+					<div class="col-lg-7">{{$bookings->appointment->numberDays}}</div>
                 </div>
                 <div class="form-group row">
 					<label class="col-lg-4">Hours per day</label>
-					<div class="col-lg-7">{{$bookings->therapist->personal_rate}}</div>
+					<div class="col-lg-7">{{$bookings->appointment->dailyHours}}</div>
+                </div>
+                <div class="form-group row">
+					<label class="col-lg-4">Services Availed</label>
+					<div class="col-lg-7">
+                    @if(!empty($bookings->appointment->other_services))
+                        {{$bookings->appointment->other_services}}
+                    @else
+                        None availed
+                    @endif
+                    </div>
+                </div>
+                <div class="form-group row">
+					<label class="col-lg-4">Services Availed Fees</label>
+					<div class="col-lg-7">
+                    @if(!empty($bookings->appointment->other_services_fee))
+                        {{$bookings->appointment->other_services_fee}}
+                    @else
+                        None availed
+                    @endif
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group row">
+					<label class="col-lg-4">Total Price of Session/s</label>
+					<div class="col-lg-7">
+                        {{$bookings->appointment->totalPrice}}
+                    </div>
                 </div>
             </div>
         </div>
