@@ -41,17 +41,4 @@ class BookingController extends Controller
     	return redirect()->route('get.client-find');
     }
 
-    public function approveRequest(BookingRequest $booking)
-    {
-        $booking->update(['status' => 1]);
-        return redirect()->back();
-    }
-
-    public function clientDeleteRequest(BookingRequest $booking, $id)
-    {
-        $booking->update(['status' => 4]);
-
-        return redirect()->back();
-    }
- 
 }

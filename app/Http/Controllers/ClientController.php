@@ -162,22 +162,13 @@ class ClientController extends Controller
 
     public function report(Therapist $therapist)
     {
-        $bookingRequest = BookingRequest::create([
-            'therapist_id' => $request->post('therapist_id'),
-            'client_id' => Auth::id(),
-            'name' => $request->post('name'),
-            'status' => 0,
-        ]);
+        
+    }
+    public function cancelAppointment(Request $request, BookingRequest $bookingRequest)
+    {
 
-        $bookingRequest->bookingDetails()->create([
-                'diagnosis' => $request->post('diagnosis'),
-                'image' => $request->post('image'),
-                'notes' => $request->post('notes'),
-                'user_address' => $request->post('user_address'),
-                'email' => $request->post('email'),
-                'contact' => $request->post('contact'),
-        ]);
+        $bookingRequest->cancel();
 
-        return redirect()->route('get.client-find');
+        return redirect()->back()->with('cancelStatus', true);
     }
 }

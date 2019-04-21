@@ -64,14 +64,20 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/therapist-edit/{id}', 'TherapistController@edit');
     Route::patch('/therapist-update/{id}', 'TherapistController@update')->name('therapist.update');
-    Route::get('/therapist-specialty/', 'TherapistController@createSpecialties')->name('get.therapist-specialty');
     Route::patch('/therapist-account/{booking}', 'BookingController@approveRequest')->name('therapist.accept');
     Route::get('/therapist-checklist/{id}', 'TherapistController@viewChecklist')->name('therapist.checklist');
     Route::get('therapist-calendar/{bookingRequest}', 'TherapistCalander')->name('therapist.calendar');
     Route::post('therapist-calendar/{bookingRequest}',
         'TherapistCalander@saveAppointment')->name('therapist.book.appointment');
+
     Route::delete('therapist-calendar/{bookingRequest}',
         'TherapistCalander@rejectAppointment')->name('therapist.reject.appointment');
+
+    Route::patch('therapist-calendar/{bookingRequest}', 
+        'TherapistCalander@finishedAppointment')->name('therapist.finish.appointment');
+
+    Route::delete('therapist-calendar/{bookingRequest}', 
+        'TherapistCalander@cancelAppointment')->name('therapist.cancel.appointment');
     Route::get('/therapist-pending/', 'TherapistController@viewPending')->name('therapist.pending');
 
     // CLIENT
@@ -94,7 +100,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/deleteBooking/{id}', 'BookingController@clientDeleteRequest')->name('post.cancelbooking');
 
     // REPORT
-    Route::post('/doReport/', 'ClientController@report')->name('post.doReport');
 
 });
 

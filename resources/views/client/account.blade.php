@@ -205,8 +205,6 @@
       		</div>
 			@foreach($client->booking as $row)
       		<div class="modal-body">
-				<form method="POST" action="" enctype="multipart/form-data">
-				{{csrf_field()}}
       			<LABEL>Rate <b>{{$row->therapist->fullname}}</b></LABEL>
       			
       			<div class="form-group">
@@ -227,14 +225,14 @@
       			</div>
       			
       			<h6 font-weight-bold>Do you have any concern? Write to us!</h6>
+		   
 		        <div class="form-group">
 		          	<textarea type="text" placeholder="" class="md-textarea form-control" rows="4"></textarea>
-		        </div>   
-		    	<div class="modal-footer d-flex justify-content-center">
-		        	<button type="Submit" class="btn btn-unique">Send Report&nbsp;&nbsp;<i class="far fa-paper-plane"></i></button>
-		    	</div>
-				</form>
-			</div>
+		        </div>
+    		</div>    
+	    	<div class="modal-footer d-flex justify-content-center">
+	        	<button type="Submit" class="btn btn-unique">Send Report&nbsp;&nbsp;<i class="far fa-paper-plane"></i></button>
+	    	</div>
 	    	@endforeach
 		</div>
 	</div>
