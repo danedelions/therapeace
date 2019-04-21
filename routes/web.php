@@ -86,7 +86,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('therapist-calendar/{bookingRequest}',
         'TherapistCalander@saveAppointment')->name('therapist.book.appointment');
 
-    Route::delete('therapist-calendar/{bookingRequest}',
+    Route::delete('doReject/{bookingRequest}',
         'TherapistCalander@rejectAppointment')->name('therapist.reject.appointment');
 
     Route::patch('therapist-calendar/{bookingRequest}', 
