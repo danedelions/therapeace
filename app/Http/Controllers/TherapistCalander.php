@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\BookingRequest;
-use App\Appointment;
 use Illuminate\Http\Request;
+use App\Appointment;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
