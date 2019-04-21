@@ -65,13 +65,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('therapist-calendar/{bookingRequest}',
         'TherapistCalander@saveAppointment')->name('therapist.book.appointment');
 
-    Route::delete('therapist-calendar/{bookingRequest}',
+    Route::delete('doReject/{bookingRequest}',
         'TherapistCalander@rejectAppointment')->name('therapist.reject.appointment');
 
     Route::patch('therapist-calendar/{bookingRequest}', 
         'TherapistCalander@finishedAppointment')->name('therapist.finish.appointment');
 
-    Route::delete('therapist-calendar/{bookingRequest}', 
+    Route::delete('doCancel/{bookingRequest}', 
         'TherapistCalander@cancelAppointment')->name('therapist.cancel.appointment');
     Route::get('/therapist-pending/', 'TherapistController@viewPending')->name('therapist.pending');
 
@@ -85,9 +85,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/client-search/', 'ClientController@search')->name('get.client-search');
     Route::get('/client-view/{id}', 'ClientController@getView')->name('get.client-view');
 
-    //TRANSACTION
-    // Route::get('/client-transaction', 'TransactionController@clientTrans');
-    // Route::get('/therapist-transaction', 'TransactionController@therapistTrans');
+    //PRINTING
+    
 
     //BOOKING
     Route::get('/booktherapist/{id}', 'BookingController@index')->name('get.booktherapist');

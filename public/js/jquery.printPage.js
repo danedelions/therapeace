@@ -12,22 +12,50 @@
     var pluginOptions = {
       attr : "href",
       url : false,
-      message: "Please wait while we create your document" 
+      showMessage: true,
+      message: "Please wait while we create your document" ,
+      afterCallback: null,
+      beforeCallBack: null,
+      urlCallBack: false
     };
     $.extend(pluginOptions, options);
 
-    this.on("click", function(){  loadPrintDocument(this, pluginOptions); return false;  });
-    
+    this.on("click",
+    function(){  loadPrintDocument(this, pluginOptions); return false;  });
+
     /**
      * Load & show message box, call iframe
      * @param {jQuery} el - The button calling the plugin
      * @param {Object} pluginOptions - options for this print button
-     */   
+     */
     function loadPrintDocument(el, pluginOptions){
+      if($.isFunction(pluginOptions.beforeCallback))
+      {
+          $.call(this,pluginOptions.beforeCallback);
+      }
+      if(pluginOptions.showMessage){
       $("body").append(components.messageBox(pluginOptions.message));
       $("#printMessageBox").css("opacity", 0);
       $("#printMessageBox").animate({opacity:1}, 300, function() { addIframeToPage(el, pluginOptions); });
+      } else {
+        addIframeToPage(el, pluginOptions);
+      }
     }
+
+      /**
+       * Fire function to getting print url if is defined in options
+       *
+       * @param {jQuery} el - The button calling the plugin
+       * @param {Object} pluginOptions - options for this print button
+       */
+    function getURL(el, pluginOptions) {
+      if ($.isFunction(pluginOptions.urlCallBack)) {
+        return pluginOptions.urlCallBack();
+      } else {
+        return (pluginOptions.url) ? pluginOptions.url : $(el).attr(pluginOptions.attr);
+      }
+    }
+
     /**
      * Inject iframe into document and attempt to hide, it, can't use display:none
      * You can't print if the element is not dsplayed
@@ -36,11 +64,14 @@
      */
     function addIframeToPage(el, pluginOptions){
 
-        var url = (pluginOptions.url) ? pluginOptions.url : $(el).attr(pluginOptions.attr);
+        var url = getURL(el, pluginOptions);
+        pluginOptions.id = (pluginOptions.id) ? pluginOptions.id : $(el).attr('id');
+			  if (pluginOptions.id == 'undefined')
+				    pluginOptions.id = '';
 
         if(!$('#printPage')[0]){
           $("body").append(components.iframe(url));
-          $('#printPage').on("load",function() {  printit();  })
+          $('#printPage').on("load",function() {  printit(pluginOptions);  });
         }else{
           $('#printPage').attr("src", url);
         }
@@ -49,9 +80,20 @@
      * Call the print browser functionnality, focus is needed for IE
      */
     function printit(){
-      frames["printPage"].focus();
-      frames["printPage"].print();
-      unloadMessage();
+
+      var selector = 'printPage' + pluginOptions.id;
+
+      frames.printPage.focus();
+      frames.printPage.print();
+      if(pluginOptions.showMessage){
+        unloadMessage();
+      }
+
+      if($.isFunction(pluginOptions.afterCallback))
+      {
+          $.call(this,pluginOptions.afterCallback);
+      }
+
     }
     /*
      * Hide & Delete the message box with a small delay
@@ -66,7 +108,8 @@
      */
     var components = {
       iframe: function(url){
-        return '<iframe id="printPage" name="printPage" src='+url+' style="position:absolute;top:0px; left:0px;width:0px; height:0px;border:0px;overfow:none; z-index:-1"></iframe>';
+          return '<iframe id="printPage" name="printPage'+pluginOptions.id+'" src='+url+' style="position: absolute; top: -1000px; @media print { display: block; }"></iframe>';
+
       },
       messageBox: function(message){
         return "<div id='printMessageBox' style='\
@@ -82,6 +125,6 @@
           box-shadow:0px 0px 10px #888; -webkit-box-shadow:0px 0px 10px #888; -moz-box-shadow:0px 0px 10px #888'>\
           "+message+"</div>";
       }
-    }
+    };
   };
 })( jQuery );
