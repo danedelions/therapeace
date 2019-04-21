@@ -49,6 +49,13 @@
                     <div class="col-sm-2 col-md-2 col-lg-2">
                         <label for="staticEmail" class="font-weight-bold">Diagnosis Image</label>
                        <a data-toggle="modal" data-target="#view-image-{{ $bookingRequest->id }}"><button type="submit" class="btn btn-sm btn-info btn-block"><i class="far fa-eye"></i>&nbsp;View Diagnosis</button></a>
+
+                    <div class="col-md-4">
+                        <label for="staticEmail" class="font-weight-bold">IMAGE</label>
+                        <div class="form-control-plaintext" id="staticEmail">
+                            <img src='{{ asset("storage/{$bookingRequest->bookingDetails->image}") }}' style="width:150px;height:150px;">
+                        </div>
+
                     </div>
                 </div>
                 
