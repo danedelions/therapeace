@@ -31,11 +31,10 @@ class LoginController extends Controller
         ]);
 
 
-<<<<<<< HEAD
         $loggedIn = Auth::attempt($credentials);
 
 //        die(json_encode($credentials));
-=======
+
         if ($loggedIn){
 
             // return "success".Auth::user()->user_type;
@@ -43,6 +42,7 @@ class LoginController extends Controller
                 // view('therapist');
                 if(Auth::user()->status === 2){
                     return redirect('get.therapist.pending');
+
                 }else if (Auth::user()->status === 0) {
                     return redirect(route('get.therapist-account'));
                 }
@@ -60,7 +60,7 @@ class LoginController extends Controller
         }
 
             // user::where('username', 'name');
->>>>>>> fc0efe799d7768d5397e2d27b0152b4102a4bc6c
+
 
         if ($loggedIn) {
             return Auth::user()->homepage();

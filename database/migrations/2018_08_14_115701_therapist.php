@@ -33,11 +33,7 @@ class Therapist extends Migration
             $table->string('nbi_image');
             $table->string('bc_image');
             $table->text('user_bio')->nullable();
-<<<<<<< HEAD
             $table->decimal('personal_rate',5,2)->nullable();
-=======
-            $table->decimal('personal_rate', 5,2)->nullable();
->>>>>>> fc0efe799d7768d5397e2d27b0152b4102a4bc6c
             $table->rememberToken();
             $table->timestamps();
         });

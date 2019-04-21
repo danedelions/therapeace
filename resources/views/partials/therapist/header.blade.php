@@ -13,11 +13,7 @@
           <a class="nav-link" href="/therapist-account"><i class="fas fa-user"></i> Account</a>
         </li>
         <li class="nav-item">
-<<<<<<< HEAD
-          <a class="nav-link" href="/chat"><i class="fas fa-envelope"></i> Messages</a>
-=======
           <a class="nav-link" href="{{url('chat')}}"><i class="fas fa-envelope"></i> Messages</a>
->>>>>>> fc0efe799d7768d5397e2d27b0152b4102a4bc6c
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Welcome {{ Auth::user()->username}}</a>

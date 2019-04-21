@@ -21,7 +21,7 @@
 
                     
                   <!-- Slide Two - Set the background image for this slide in the line below -->
-                  <div class="carousel-item" style="background-image: url('{{asset('img/2.jpg')}}')">
+                  <div class="carousel-item bg-size-cover" style="background-image: url('{{asset('img/6.jpg')}}')">
 <!--                     <div class="carousel-caption">
                       <h1>Second Slide</h1>
                       <p>This is a description for the second slide.</p>
