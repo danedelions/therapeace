@@ -21,16 +21,20 @@
                       <div class="col-sm-3 col-md-3 col-lg-3">
                         <button type="submit" class="btn btn-info pull-right"><i class="ti-search"></i> Search</button>
                       </div>
+                      <div class="col-sm-3 col-md-3 col-lg-3">
+                        <button type="button" value="Print" onclick="printDiv('printableArea')" class="btn btn-info pull-right"/><i class="fas fa-print"></i>Print</button>
+                      </div>
+
                   </div>    
                 {!! Form::close() !!}
               </div>
             </div>
           </div>
-            
+          <div id="printableArea">
           <div class="row">
           <div class="card-body" style="overflow: hidden; height: 575px;">
             <div class="table table-default">        
-              <table class="table table-hover">
+              <table class="table table-hover" id="print-content">
                 <thead>
                   <tr>
                     <th>#</th>
@@ -38,7 +42,7 @@
                     <th>Email</th>
                     <th>Role</th>
                     <th>Status</th>
-                    <th>Action</th>
+                    <th class="hidden-print">Action</th>
                   </tr>
                 </thead>
 
@@ -61,9 +65,9 @@
                       <td>
                         <!-- dropdown -->
                         <div class="dropdown">
-                          <button class="btn btn-default dropdown-toggle" data-id="{{ $row['id'] }}"
+                          <button class="btn btn-default dropdown-toggle hidden-print" data-id="{{ $row['id'] }}"
                                   type="button" id="dropdownMenu1" data-toggle="dropdown"
-                                  aria-haspopup="true" aria-expanded="false">
+                                  aria-haspopup="true" aria-expanded="false" >
                             Actions
                           </button>
                           <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -87,6 +91,7 @@
                             
                           </div>
                         </div>
+                      </div>
                       </td>
                     </tr>
 
@@ -237,13 +242,33 @@
                 </tbody>
               </table>
               <center>{{ $users->links() }}</center>
-
           </div>
-
         </div>
+      </div>
+    </div>
+        <script>
+        function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+    var reenterButton = document.getElementById("reenterthenews");
 
-            
-        <!-- END PAGE CONTENT-->
-            
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+
+    reenterButton.style.visibility = 'hidden';
+  
+}
+    </script>  
+
+    <script type="text/javascript">
+        function print_page() {
+            var ButtonControl = document.getElementById("btnprint");
+            ButtonControl.style.visibility = "hidden";
+            window.print();
+        }
+    </script>      
 @endsection
 

@@ -50,13 +50,6 @@
                         <label for="staticEmail" class="font-weight-bold">Diagnosis Image</label>
                        <a data-toggle="modal" data-target="#view-image-{{ $bookingRequest->id }}"><button type="submit" class="btn btn-sm btn-info btn-block"><i class="far fa-eye"></i>&nbsp;View Diagnosis</button></a>
 
-                    <div class="col-md-4">
-                        <label for="staticEmail" class="font-weight-bold">IMAGE</label>
-                        <div class="form-control-plaintext" id="staticEmail">
-                            <img src='{{ asset("storage/{$bookingRequest->bookingDetails->image}") }}' style="width:150px;height:150px;">
-                        </div>
-
-                    </div>
                 </div>
                 
                 <hr>
@@ -86,7 +79,7 @@
                         <div class="col-md-4">
                             @if($bookingRequest->is('approved') || $bookingRequest->is('pending'))
                             {!! Form::open(['url' => route('therapist.reject.appointment', $bookingRequest), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
-                                <button type="submit" class="btn btn-warning btn-block">Reject this appointment</button>
+                            
                             {!! Form::close() !!}
                             @elseif($bookingRequest->is('rejected'))
                                 <div class="alert alert-warning">

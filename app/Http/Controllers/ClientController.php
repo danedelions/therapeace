@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -14,14 +13,12 @@ use DB;
 use Hash;
 use Auth;
 use App\Specialty;
-
 class ClientController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth')->except(['index', 'store']);
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -31,7 +28,6 @@ class ClientController extends Controller
     {
         return view('clientregistration');
     }
-
     public function store(Request $request)
     {
         \DB::transaction(function () use ($request) {
@@ -58,12 +54,9 @@ class ClientController extends Controller
                 'landmark'        => $request->post('landmark'),
                 'address_remarks' => $request->post('address_remarks')
             ]);
-
         });
-
         return view('login');
     }
-
     public function clientFind(Therapist $therapists, Request $request)
     {
         $therapists  = Therapist::query()
@@ -79,86 +72,65 @@ class ClientController extends Controller
                                     });
                                 })->get();
         $specialties = Specialty::select('name')->pluck('name', 'name');
-
         return view('client.find', compact('therapists', 'specialties'));
     }
-
     public function clientAccount(BookingRequest $bookings)
     {
         $client   = Client::whereUserId(Auth::id())->with('user')->first();
         $bookings = $client->booking()->with('client')->where('status', 0)->get(); //unsure about here//
-
         return view('client.account', compact('client', 'bookings'));
         $client->load([
             'booking',
             'booking.therapist.user',
             'booking.bookingDetails'
         ]);
-
         return view('client.account', compact('client'));
     }
-
     public function edit($userId)
     {
         $client = Client::find($userId);
-
         return view('client.edit', compact('client'));
     }
-
     public function update(ClientRequest $request, $id)
     {
         // dd($therapist->toArray());
         $client  = Client::find($id);
         $request = $request->validated();
         // dd($request);
-
         $client->fill($request)->save();
         User::where('id', Auth::id())->update(['username' => $request['username'], 'email' => $request['email']]);
-
         return redirect()->route('get.client-account');
     }
-
     public function clientHistory(Therapist $therapists)
     {
         $therapists = Therapist::all();
-
         return view('client.history', compact('therapists'));
     }
-
     public function clientMessage()
     {
         $therapists = Therapist::all();
-
         return view('client.message', compact('therapists'));
     }
-
     public function search(Request $request, Therapist $therapists)
     {
-
         $query = $request->get('q');
         if ($query) {
             $therapists = $query ? Therapist::search($query)->orderBy('id', 'desc')->paginate(7) : Therapist::all();
-
             return view('client.find', compact('therapists'));
         }
     }
-
     public function getView($bookingID)
     {
         $bookings = BookingRequest::find($bookingID);
-
         return view('client.view', compact('bookings'));
     }
-
     public function report(Therapist $therapist)
     {
         
     }
     public function cancelAppointment(Request $request, BookingRequest $bookingRequest)
     {
-
         $bookingRequest->cancel();
-
         return redirect()->back()->with('cancelStatus', true);
     }
 }
