@@ -1,4 +1,4 @@
-@extends('layouts.the')
+@extends('layouts.both')
 
 @section('title', 'Messaging')
 
@@ -14,7 +14,7 @@
                 <div class="inbox_people">
                     <div class="headind_srch">
                         <div class="recent_heading">
-                            <h4>Recent</h4>
+                            <h4><a href="/" <i class="far fa-arrow-alt-circle-left"></i></a>&nbspBack</h4>
                         </div>
                         <div class="srch_bar">
                             <div class="stylish-input-group">

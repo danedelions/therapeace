@@ -20,6 +20,12 @@ class Clients extends Migration
             $table->string('gender');
             $table->string('city');
             $table->string('province');
+<<<<<<< HEAD
+            $table->string('res_detail')->nullable();
+            $table->string('street');
+            $table->string('brgy')->nullable();
+=======
+>>>>>>> a2144741c20a560ee2b667b428db11146ff12179
             $table->string('street');
             $table->string('brgy')->nullable();
             $table->string('res_detail')->nullable();

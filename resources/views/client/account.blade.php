@@ -176,7 +176,7 @@
 			</div>
 			<div class="modal-body" id="modalView">
 				<br>
-				<div class="col-sm-12"">
+				<div class="col-sm-12">
 					<div class="card">
 						<div class="card-body">
 							<center><label>Profile</label></center><br>

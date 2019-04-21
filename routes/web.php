@@ -36,6 +36,21 @@ Route::resource('client', 'ClientController');
 Route::group(['middleware' => 'auth'], function () {
     // ADMIN
 
+	Route::get('/admin-dashboard', 'AdminController@getDashboard')->name('get.dashboard');
+    Route::get('/admin-login', 'AdminController@login')->name('get.login');
+
+	Route::get('/admin-user', 'AdminController@getUserView')->name('get.view');
+	Route::get('/admin-pending', 'AdminController@getPendingView')->name('get.pending');
+	Route::get('/admin-history', 'AdminController@getHistoryView')->name('get.history');
+	Route::get('/admin-reports', 'AdminController@getReportsView')->name('get.reports');
+
+	Route::patch('/status-update/{user}', 'AdminController@statusUpdate')->name('get.update');
+	Route::get('/admin-notice/{id}', 'AdminController@notice')->name('get.notice');
+    Route::post('{therapist}/accept', 'AcceptTherapistController');
+
+    Route::any('/search', 'AdminController@search')->name('get.search');
+    Route::post('{therapist}/accept', 'AcceptTherapistController');	
+
 
     Route::get('/admin-dashboard', 'AdminController@getDashboard')->name('get.dashboard');
     Route::get('/admin-login', 'AdminController@login')->name('get.login');
@@ -56,6 +71,7 @@ Route::group(['middleware' => 'auth'], function () {
     // THERAPIST
     Route::get('/therapist-account', 'TherapistController@therapistAccount')->name('get.therapist-account');
     // Route::get('/therapist-appoint', 'TherapistController@therapistAppoint')->name('get.therapist-appoint');
+
 
     Route::get('/therapist-message', 'TherapistController@therapistMessage');
 
