@@ -27,6 +27,7 @@
                     <a class="navbar-brand" href="#">
                       <img src="{{ asset('img/logo.png') }}" alt="Logo" style="width:130px;">
                     </a>
+                    <a href="/" ><i class="far fa-arrow-alt-circle-left"></i>&nbsp;Go Back</a></h4>
                 </div>
             </nav>
             @yield('page-section')
