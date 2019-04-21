@@ -73,4 +73,14 @@ class Appointment extends Model
         return "{$this->start_date} - {$this->end_date}";
     }
 
+    public function getTotalPriceAttribute()
+    {
+        $numOfDays = Carbon::parse(request("{$this->start_date}"))->diffInDays(Carbon::parse(request("{$this->end_date}")));
+        
+        $timeIn = Carbon::createFromFormat('H:i', "{$this->start_date_time}");
+        $timeOut = Carbon::createFromFormat('H:i', "{$this->end_date_time}");
+        $numOfHours = $timeIn->diffInHours($timeOut);
+
+    }
+
 }

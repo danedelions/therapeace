@@ -70,7 +70,17 @@
                             @endif
                         </div>
                         <div class="col-md-4">
-                           <a data-toggle="modal" data-target="#view-modal-{{ $bookingRequest->id }}"><button type="submit" class="btn btn-info btn-block">Discharge</button> </a>
+                        @if($bookingRequest->is('approved'))
+                            {!! Form::open(['url' => route('therapist.finish.appointment', $bookingRequest), 'method' => 'patch', 'onsubmit' => 'javascript:return confirm("Are you sure you want to end?")']) !!}
+                                <button type="submit" class="btn btn-info btn-block">Discharge</button>
+                            {!! Form::close() !!}
+                        @elseif($bookingRequest->is('finished'))
+                            <div class="alert alert-success">
+                                <p class="mb-0 text-center">
+                                    <i class="fa fa-notice"></i> This booking request is finished!
+                                </p>
+                            </div>      
+                        @endif
                         </div>
                 </div>
             </div>
@@ -107,7 +117,7 @@
 
     <div class="row">
         <div class="col-md-4">
-            @if(!$bookingRequest->is('rejected'))
+            @if(!$bookingRequest->is('rejected') && !$bookingRequest->is('finished'))
             <div class="card">
                 <div class="card-header bg-info">
                     Set Appointment Details

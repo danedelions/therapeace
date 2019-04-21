@@ -160,4 +160,12 @@ class ClientController extends Controller
 
         return view('client.view', compact('bookings'));
     }
+
+    public function cancelAppointment(Request $request, BookingRequest $bookingRequest)
+    {
+
+        $bookingRequest->cancel();
+
+        return redirect()->back()->with('cancelStatus', true);
+    }
 }

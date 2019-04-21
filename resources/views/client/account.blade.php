@@ -56,7 +56,7 @@
 		             {!! Form::selectGroup(null, 'status', ['' => 'Select Status', '0' => 'Pending', '1' => 'Approved', '2' => 'Rejected', '3' => 'Finished', '4' => 'Cancelled'], request()->status ?? null, ['class' => 'form-control']) !!}
 		         </div>
 		         <div class="col-md-4">
-		           <button type="submit" class="btn btn-info pull-right"><i class="ti-search"></i> Search</button>
+		           <button type="submit" class="btn btn-sm btn-info pull-right"><i class="ti-search"></i> Search</button>
 		         </div>
 	        </div>
 	        {!! Form::close() !!}
@@ -104,10 +104,15 @@
 										</a>
 									</div>
 								</div>
-								@else
+								@elseif($row->status == 0)
 
-								<button class="btn btn-sm btn-outline-danger">Cancel</button>
+								{!! Form::open(['url' => route('therapist.cancel.appointment', $row->id), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure you want to end?")']) !!}
+											<button class="btn btn-sm btn-outline-danger">Cancel</button>
+                {!! Form::close() !!}
+									
+								@elseif($row->status == 3)
 
+								<a href="{{url('/client-view/'.$row->id)}}"><button class="btn btn-sm btn-info">View</button></a>
 								@endif
 							</td>
 						</tr>
