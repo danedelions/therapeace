@@ -4,26 +4,26 @@
 <!-- START PAGE CONTENT-->
         <div class="content-wrapper" >
           <div class="row">
-            <div class="col-md-4">
-              <h3>List of TheraPeace Users</h3>
-            </div>
-            <div class="col-md-8">
-              {!! Form::open(['url' => url()->current(), 'method' => 'get']) !!} 
-                <div class="tab form-group">
-                    <div class="form-group col-md-3">
-                        {!! Form::inputGroup('text', null, 'username', request()->username ?? null, ['placeholder' => 'Username']) !!}
-                    </div>
-                    <div class="form-group col-md-3">
-                        {!! Form::inputGroup('text', null, 'email', request()->email ?? null, ['placeholder' => 'E-mail address']) !!}
-                    </div>
-                    <div class="form-group col-md-3">
-                        {!! Form::selectGroup(null, 'status', ['' => 'Select Status', '0' => 'Unblocked', '1' => 'Blocked'], request()->status ?? null, ['class' => 'form-control']) !!}
-                    </div>
-                    <div class="form-group col-md-3">
-                      <button type="submit" class="btn btn-info pull-right"><i class="ti-search"></i> Search</button>
-                    </div>
-                </div>    
-              {!! Form::close() !!}
+            <div class="card-body">
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <h3>TheraPeace Users</h3>
+              </div>
+
+              <div class="col-sm-8 col-md-8 col-lg-8">
+                {!! Form::open(['url' => url()->current(), 'method' => 'get']) !!} 
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                      <div class="col-sm-3 col-md-3 col-lg-4">
+                          {!! Form::inputGroup('text', null, 'username', request()->username ?? null, ['placeholder' => 'Username']) !!}
+                      </div>
+                      <div class="col-sm-3 col-md-3 col-lg-4">
+                          {!! Form::inputGroup('text', null, 'email', request()->email ?? null, ['placeholder' => 'E-mail address']) !!}
+                      </div>
+                      <div class="col-sm-3 col-md-3 col-lg-3">
+                        <button type="submit" class="btn btn-info pull-right"><i class="ti-search"></i> Search</button>
+                      </div>
+                  </div>    
+                {!! Form::close() !!}
+              </div>
             </div>
           </div>
             
@@ -145,6 +145,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                       <center><label>Profile</label></center><br>
+                                      <center><img src='{{ asset("storage/{$row->therapist['image']}") }}' style="width:150px;height:250px;"><br></center>
                                       <label>Name: </label> {{ $row->therapist['fullName'] }}<br>
                                       <label>Therapist: </label> {{ $row->therapist['therapist'] }}<br>
                                       <label>Licence Number: </label> {{ $row->therapist['license_number'] }}<br>
@@ -161,6 +162,68 @@
                                       <label>Postal Code:</label> {{ $row->therapist['postal_code'] }}<br>
                                       <hr>
                                       <center><label>Legal Documents</label></center><br>
+                                      <div class="col-sm-12" style="overflow: auto; white-space: nowrap;">
+                                        <center>
+                                        <a data-toggle="modal" data-target="#view-modalLis-{{ $row->id }}"><button class="btb btn-sm btn-info" data-id="{{ $row['id'] }}" type="button"><i class="far fa-eye"></i>&nbspView License</button></a>
+
+                                        <a data-toggle="modal" data-target="#view-modalNbi-{{ $row->id }}"><button class="btb btn-sm btn-info" data-id="{{ $row['id'] }}" type="button"><i class="far fa-eye"></i>&nbspView NBI</button></a>
+
+                                        <a data-toggle="modal" data-target="#view-modalBC-{{ $row->id }}"><button class="btb btn-sm btn-info" data-id="{{ $row['id'] }}" type="button"><i class="far fa-eye"></i>&nbspView BC</button></a>
+                                        </center>
+
+                                      </div>
+
+                                      <!-- View License image-->
+                                      <div class="modal fade" id="view-modalLis-{{ $row->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-body" id="modalView">
+                                              <br>
+                                              <div class="col-sm-12 col-md-12 col-lg-12">
+                                                  <div class="card">
+                                                      <img src='{{ asset("storage/{$row->therapist['license_image']}") }}' style="width:412px;height:732px; text-align: center; ">
+                                                  </div>
+                                              </div>                    
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <!-- end of view modal -->
+
+                                      <!-- View nbi image-->
+                                      <div class="modal fade" id="view-modalNbi-{{ $row->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-body" id="modalView">
+                                              <br>
+                                              <div class="col-sm-12 col-md-12 col-lg-12">
+                                                  <div class="card">
+                                                      <img src='{{ asset("storage/{$row->therapist['nbi_image']}") }}' style="width:412px;height:732px; text-align: center; ">
+                                                  </div>
+                                              </div>                    
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <!-- end of view modal -->
+
+                                      <!-- View BC image-->
+                                      <div class="modal fade" id="view-modalBC-{{ $row->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-body" id="modalView">
+                                              <br>
+                                              <div class="col-sm-12 col-md-12 col-lg-12">
+                                                  <div class="card">
+                                                      <img src='{{ asset("storage/{$row->therapist['bc_image']}") }}' style="width:412px;height:732px; text-align: center; ">
+                                                  </div>
+                                              </div>                    
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <!-- end of view modal -->
+                                      
                                     </div>
                                 </div>
                             </div>                    
@@ -175,7 +238,6 @@
               </table>
               <center>{{ $users->links() }}</center>
 
-            </div>
           </div>
 
         </div>

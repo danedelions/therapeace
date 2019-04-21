@@ -114,5 +114,4 @@ class Appointment extends Model
         return number_format($totalPrice,2);
 
     }
-
 }

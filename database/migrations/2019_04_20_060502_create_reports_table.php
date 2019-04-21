@@ -21,7 +21,7 @@ class CreateReportsTable extends Migration
             $table->integer('rating');
             $table->text('reports');
             $table->timestamps();
-        });
+        }); 
     }
 
     /**

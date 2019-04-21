@@ -83,7 +83,8 @@ class TherapistController extends Controller
                 'nbi_image'      => $nbi_image,
                 'bc_image'       => $bc_image,
                 'user_bio'       => $request->post('user_bio'),
-                'personal_rate'  => 500.00
+                'personal_rate'  => 000.00
+
             ]);
         });
 
@@ -143,16 +144,29 @@ class TherapistController extends Controller
         return redirect()->route('get.therapist-account');
     }
 
-    public function therapistAccount(BookingRequest $bookings)
+    public function therapistAccount(Request $request)
     {
-        $therapist = Therapist::whereUserId(Auth::id())->with(['user', 'specialties'])->first();
-        $therapist->load([
-            'bookingRequest',
-            'bookingRequest.client.user',
-            'bookingRequest.bookingDetails'
+
+        $query = Therapist::query();
+
+        $therapist = $query->whereUserId(Auth::id())->with(['user', 'specialties']);
+
+        $therapist->with([
+            'bookingRequest' => function ($q) use ($request){
+                $q->when($request->status, function ($q) use ($request)  {
+                    $q->where('status', $request->status);
+                })
+                ->when($request->name, function ($q) use ($request) {
+                    $q->whereHas('client', function ($q) use($request) {
+                        $q->whereRaw('CONCAT(fname, " ", lname) LIKE "%'.$request->name.'%"');
+                    });
+                })
+                ->with(['client.user', 'bookingDetails']);
+            },
         ]);
 
-        // dd($therapist->toArray());
+        $therapist = $therapist->first();
+
         return view('therapist.account', compact('therapist'));
     }
 

@@ -22,7 +22,7 @@ class LoginController extends Controller
             'username' => [
                 'required',
                 Rule::exists('users')->where(function ($q) {
-                    $q->where('status', '!=', '2');
+                    $q->where([['status', '!=', '1'],['status', '!=', '2']]);
                 })
             ],
             'password' => 'required',
@@ -30,7 +30,10 @@ class LoginController extends Controller
             'username.exists' => 'Username does not exist or is not yet accepted.'
         ]);
 
+
         $loggedIn = Auth::attempt($credentials);
+
+//        die(json_encode($credentials));
 
         if ($loggedIn){
 
@@ -39,6 +42,7 @@ class LoginController extends Controller
                 // view('therapist');
                 if(Auth::user()->status === 2){
                     return redirect('get.therapist.pending');
+
                 }else if (Auth::user()->status === 0) {
                     return redirect(route('get.therapist-account'));
                 }
@@ -57,11 +61,13 @@ class LoginController extends Controller
 
        // user::where('username', 'name');
 
+
         if ($loggedIn) {
             return Auth::user()->homepage();
         } else {
             return redirect()->back()->withErrors();
         }
+
     }
 
     public function Logout(Request $request)
@@ -75,3 +81,4 @@ class LoginController extends Controller
 
 
 }
+
