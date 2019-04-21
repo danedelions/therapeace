@@ -14,13 +14,8 @@
         </li>
         
         <li class="nav-item">
-<<<<<<< HEAD
-          <a class="nav-link" href="chat"><i class="fas fa-envelope"></i> Messages</a>
-=======
           <a class="nav-link" href="{{url('chat')}}"><i class="fas fa-envelope"></i> Messages</a>
->>>>>>> c0022c5875174c298a9370ae2cb7344bdca91336
         </li>
-
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Welcome  {{Auth::user()->username}}</a>

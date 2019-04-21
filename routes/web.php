@@ -40,6 +40,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin-pending', 'AdminController@getPendingView')->name('get.pending');
     Route::get('/admin-history', 'AdminController@getHistoryView')->name('get.history');
     Route::get('/admin-reports', 'AdminController@getReportsView')->name('get.reports');
+    Route::get('/admin-blockusers', 'AdminController@getBlockUserView')->name('get.blockuser');
 
     Route::patch('/status-update/{user}', 'AdminController@statusUpdate')->name('get.update');
     Route::get('/admin-notice/{id}', 'AdminController@notice')->name('get.notice');
@@ -49,6 +50,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('{therapist}/accept', 'AcceptTherapistController');
 
     Route::get('/admin-user/?status={status}', 'AdminController@filterUsers');
+
+
 
     // THERAPIST
     Route::get('/therapist-account', 'TherapistController@therapistAccount')->name('get.therapist-account');
