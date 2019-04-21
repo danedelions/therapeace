@@ -78,8 +78,15 @@
                 <div class="row col-md-8 offset-7">
                         <div class="col-md-4">
                             @if($bookingRequest->is('approved') || $bookingRequest->is('pending'))
+<<<<<<< HEAD
                             {!! Form::open(['url' => route('therapist.reject.appointment', $bookingRequest), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
                             
+=======
+                            {!! Form::open(['url' => route('therapist.reject.appointment',['bookingRequest' => $bookingRequest]), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
+                                {{csrf_field()}}
+                                <button type="submit" class="btn btn-warning btn-block">Reject this appointment</button>
+                                
+>>>>>>> e048906614cedcfd0ac358e4698902b77046eb49
                             {!! Form::close() !!}
                             @elseif($bookingRequest->is('rejected'))
                                 <div class="alert alert-warning">
@@ -91,8 +98,9 @@
                         </div>
                         <div class="col-md-4">
                         @if($bookingRequest->is('approved'))
-                            {!! Form::open(['url' => route('therapist.finish.appointment', $bookingRequest), 'method' => 'patch', 'onsubmit' => 'javascript:return confirm("Are you sure you want to end?")']) !!}
+                            {!! Form::open(['url' => route('therapist.finish.appointment',['bookingRequest' => $bookingRequest]), 'method' => 'patch', 'onsubmit' => 'javascript:return confirm("Are you sure you want to end?")']) !!}
                                 <button type="submit" class="btn btn-info btn-block">Discharge</button>
+                                {{csrf_field()}}
                             {!! Form::close() !!}
                         @elseif($bookingRequest->is('finished'))
                             <div class="alert alert-success">
