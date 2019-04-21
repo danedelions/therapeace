@@ -143,16 +143,31 @@ class TherapistController extends Controller
         return redirect()->route('get.therapist-account');
     }
 
-    public function therapistAccount(BookingRequest $bookings)
+    public function therapistAccount(Request $request)
     {
-        $therapist = Therapist::whereUserId(Auth::id())->with(['user', 'specialties'])->first();
-        $therapist->load([
-            'bookingRequest',
-            'bookingRequest.client.user',
-            'bookingRequest.bookingDetails'
+
+// TRY THIS PART
+
+        $query = Therapist::query();
+
+        $therapist = $query->whereUserId(Auth::id())->with('user');
+
+        $therapist->with([
+            'bookingRequest' => function ($q) use ($request){
+                $q->when($request->status, function ($q) use ($request)  {
+                    $q->where('status', $request->status);
+                })
+                ->when($request->name, function ($q) use ($request) {
+                    $q->whereHas('client', function ($q) use($request) {
+                        $q->whereRaw('CONCAT(fname, " ", lname) LIKE "%'.$request->name.'%"');
+                    });
+                })
+                ->with(['client.user', 'bookingDetails']);
+            },
         ]);
 
-        // dd($therapist->toArray());
+        $therapist = $therapist->first();
+
         return view('therapist.account', compact('therapist'));
     }
 

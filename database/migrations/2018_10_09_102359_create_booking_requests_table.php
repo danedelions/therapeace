@@ -33,6 +33,7 @@ class CreateBookingRequestsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('booking_id');
             $table->string('diagnosis');
+            $table->string('image')->nullable();
             $table->text('notes');
             $table->text('user_address');
             $table->string('email');

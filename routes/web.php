@@ -93,5 +93,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/doBookTherapist/', 'BookingController@submitDetails')->name('post.doBook');
     Route::delete('/deleteBooking/{id}', 'BookingController@clientDeleteRequest')->name('post.cancelbooking');
 
+    // REPORT
+    Route::post('/doReport/', 'ClientController@report')->name('post.doReport');
+
 });
 

@@ -49,7 +49,7 @@
                     <div class="col-md-4">
                         <label for="staticEmail" class="font-weight-bold">IMAGE</label>
                         <div class="form-control-plaintext" id="staticEmail">
-                            PHOTO HERE...
+                            <img src='{{ asset("storage/{$bookingRequest->bookingDetails->image}") }}' style="width:150px;height:150px;">
                         </div>
                     </div>
                 </div>

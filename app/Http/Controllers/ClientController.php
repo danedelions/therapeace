@@ -159,4 +159,25 @@ class ClientController extends Controller
 
         return view('client.view', compact('bookings'));
     }
+
+    public function report(Therapist $therapist)
+    {
+        $bookingRequest = BookingRequest::create([
+            'therapist_id' => $request->post('therapist_id'),
+            'client_id' => Auth::id(),
+            'name' => $request->post('name'),
+            'status' => 0,
+        ]);
+
+        $bookingRequest->bookingDetails()->create([
+                'diagnosis' => $request->post('diagnosis'),
+                'image' => $request->post('image'),
+                'notes' => $request->post('notes'),
+                'user_address' => $request->post('user_address'),
+                'email' => $request->post('email'),
+                'contact' => $request->post('contact'),
+        ]);
+
+        return redirect()->route('get.client-find');
+    }
 }

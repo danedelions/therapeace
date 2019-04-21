@@ -22,7 +22,7 @@ class LoginController extends Controller
             'username' => [
                 'required',
                 Rule::exists('users')->where(function ($q) {
-                    $q->where('status', '!=', '2');
+                    $q->where([['status', '!=', '2'],['status', '!=', '1']] );
                 })
             ],
             'password' => 'required',
