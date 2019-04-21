@@ -2,142 +2,149 @@
 
 @section('page-section')
 
-<div class="row"> <!-- LABEL->col-form-label INPUT-> form-control -->
-    <div class="col-md-5">
-        <div class="card">
-            <div class="card-header bg-info">
-                User Information
-            </div>
-            <div class="card-body center">
-                    <center>
-                        <img src='{{ asset("storage/{$therapist->image}") }}' style="width:150px;height:150px;">
-                        <br>
-                            <div><h4>{{$therapist->therapist}}</h4></div>
-                    </center>
-                <hr>    
-                <div class="form-row">
-                    <label class="col-md-4"><b>Full Name</b></label>
-                    <div class="col-md-8">{{$therapist->fullname}}</div>
+<div class="col-md-12">
+    <div class="row"> <!-- LABEL->col-form-label INPUT-> form-control -->
+        <div class="col-sm-4 col-md-4 col-lg-5">
+            <div class="card">
+                <div class="card-header bg-info">
+                    User Information
                 </div>
-                <div class="form-row">
-                    <label class="col-md-4"><b>Email</b></label>
-                    <div class="col-md-8">{{ Auth::user()->email }}</div>
-                </div>
-                <div class="form-row">
-                    <label class="col-md-4"><b>Contact Number</b></label>
-                    <div class="col-md-8">{{$therapist->contact}}</div> 
-                </div>
-                <div class="form-row">
-                    <label class="col-md-4"><b>Bio</b></label>
-                    <div class="col-md-8">{{$therapist->user_bio}}</div>
-                </div>
-                <div class="form-row">
-                    <label class="col-md-4"><b>Personal Rate</b></label>
-                    <div class="col-md-8">{{$therapist->personal_rate}}</div>
-                </div>
-                <div class="form-row">
-                    <label class="col-md-4"><b>Specialties</b></label>
-                        <div class="col-md-8">
-                           <span class="badge badge-success"> {!! optional($therapist->specialties)->pluck('name')->implode('</span ><span class="badge badge-success ml-1">') !!}</span>
-                        <br>
-                        </div>  
-                </div>
-                <div style="display:block; width:x; height:y; text-align:right;">
-                    <a href="{{url('/therapist-edit/'. $therapist->id )}}"><i class="far fa-edit"></i> Edit</a>
+                <div class="card-body">
+                        <center>
+                            <img src='{{ asset("storage/{$therapist->image}") }}' style="width:150px;height:150px;">
+                            <br>
+                                <div><h4>{{$therapist->therapist}}</h4></div>
+                        </center>
+                        <hr>    
+                        <div class="form-row">
+                            <label class="col-lg-4"><b>Full Name</b></label>
+                            <div class="col-lg-8">{{$therapist->fullname}}</div>
+                        </div>
+                        <div class="form-row">
+                            <label class="col-lg-4"><b>Email</b></label>
+                            <div class="col-lg-8">{{ Auth::user()->email }}</div>
+                        </div>
+                        <div class="form-row">
+                            <label class="col-lg-4"><b>Contact Number</b></label>
+                            <div class="col-lg-8">{{$therapist->contact}}</div> 
+                        </div>
+                        <div class="form-row">
+                            <label class="col-lg-4"><b>Bio</b></label>
+                            <div class="col-lg-8">{{$therapist->user_bio}}</div>
+                        </div>
+                        <div class="form-row">
+                            <label class="col-lg-4"><b>Personal Rate</b></label>
+                            <div class="col-lg-8">{{$therapist->personal_rate}}</div>
+                        </div>
+                        <div class="form-row">
+                            <label class="col-lg-4"><b>Specialties</b></label>
+                                <div class="col-lg-8">
+                                   <span class="badge badge-success"> {!! optional($therapist->specialties)->pluck('name')->implode('</span ><span class="badge badge-success ml-1">') !!}</span>
+                                <br>
+                                </div>  
+                        </div>
+                        <div style="display:block; width:x; height:y; text-align:right;">
+                            <a href="{{url('/therapist-edit/'. $therapist->id )}}"><i class="far fa-edit"></i> Edit</a>
+                        </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="col-md-7">
-        <div class="card">
-            <div class="card-header bg-info">
-                Client Requests
+        <div class="col-md-7">
+            <div class="col-sm-5 col-md-5 col-lg-12">
+                <div class="card">
+                    <div class="card-header bg-info">
+                        Client Requests
+                    </div>
+                    <div class="card-body" style="overflow: scroll; height: 200px;">
+                        <div class="form-group">
+                            {!! Form::open(['url' => url()->current(), 'method' => 'get']) !!} 
+                            <div class="row">
+                                <div class="col-md-4">
+                                     {!! Form::inputGroup('text', null, 'name', request()->name ?? null, ['placeholder' => 'Client Name']) !!}
+                                </div>
+                                <div class="col-md-4">
+                                    {!! Form::selectGroup(null, 'status', ['' => 'Select Status', '0' => 'Pending', '1' => 'Approved', '2' => 'Rejected', '3' => 'Finished', '4' => 'Cancelled'], request()->status ?? null, ['class' => 'form-control']) !!}
+                                </div>
+                                <div class="col-md-4">
+                                   <button type="submit" class="btn btn-info pull-right"><i class="ti-search"></i> Search</button>
+                                </div>
+                            </div>
+                            {!! Form::close() !!}
+                        </div>
+                        <table class="table table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Client Name</th>
+                                    <th>Diagnosis</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse($therapist->bookingRequest as $request)
+                                <tr>
+                                    <td>{{ $request->client->fullname }}</td>
+                                    <td>{{ $request->bookingDetails->diagnosis }} </td>
+                                    <td>
+                                        @if($request->status == 0)
+                                            <span class="badge badge-secondary">Pending</span>  
+                                        @elseif($request->status == 1)
+                                            <span class="badge badge-success">Approved</span>  
+                                        @elseif($request->status == 2)
+                                        <span class="badge badge-danger">Rejected</span>
+                                        @elseif($request->status == 3)
+                                        <span class="badge badge-default">Finished</span>  
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-sm btn-info" href="{{ route('therapist.calendar', $request) }}">View</a>
+                                    </td>
+                                </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="4" class="text-center">No requests</td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-            <div class="card-body" style="overflow: scroll; height: 250px;">
-                <div class="form-group">
-                    {!! Form::open(['url' => url()->current(), 'method' => 'get']) !!} 
-                    <div class="row">
-                        <div class="col-md-4">
-                             {!! Form::inputGroup('text', null, 'name', request()->name ?? null, ['placeholder' => 'Client Name']) !!}
-                        </div>
-                        <div class="col-md-4">
-                            {!! Form::selectGroup(null, 'status', ['' => 'Select Status', '0' => 'Pending', '1' => 'Approved', '2' => 'Rejected', '3' => 'Finished', '4' => 'Cancelled'], request()->status ?? null, ['class' => 'form-control']) !!}
-                        </div>
-                        <div class="col-md-4">
-                           <button type="submit" class="btn btn-info pull-left"><i class="ti-search"></i> Search</button>
+
+            <br>
+
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header bg-info">
+                                Ratings
+                            </div>
+                            <div class="card-body" style="overflow: scroll; height: 200px;">
+                                <table class="table table-default">
+                                    <thead>
+                                        <tr>
+                                            <th>Client Name</th>
+                                            <th>Rating</th>
+                                            <th>Comments</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Joshua Samson</td>
+                                            <td>Really cool and awesome!</td>
+                                            <td>4.5 stars</td>
+                                        </tr>
+                                    </tbody> 
+                                </table>
+                            </div>
                         </div>
                     </div>
-                    {!! Form::close() !!}
                 </div>
-                <table class="table table-default">
-                    <thead>
-                        <tr>
-                            <th>Client Name</th>
-                            <th>Diagnosis</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse($therapist->bookingRequest as $request)
-                        <tr>
-                            <td>{{ $request->client->fullname }}</td>
-                            <td>{{ $request->bookingDetails->diagnosis }} </td>
-                            <td>
-                                @if($request->status == 0)
-                                    <span class="badge badge-secondary">Pending</span>  
-                                @elseif($request->status == 1)
-                                    <span class="badge badge-success">Approved</span>  
-                                @elseif($request->status == 2)
-                                <span class="badge badge-danger">Rejected</span>
-                                @elseif($request->status == 3)
-                                <span class="badge badge-default">Finished</span> 
-                                @elseif($request->status == 4)
-                                <span class="badge badge-default">Cancelled</span>   
-                                @endif
-                            </td>
-                            <td>
-                                <a class="btn btn-sm btn-info" href="{{ route('therapist.calendar', $request) }}">View</a>
-                            </td>
-                        </tr>
-                        @empty
-                            <tr>
-                                <td colspan="4" class="text-center">No requests</td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <br>
-
-        <div class="card">
-            <div class="card-header bg-info">
-                Ratings
-            </div>
-            <div class="card-body" style="overflow: scroll; height: 250px;">
-                <table class="table table-default">
-                    <thead>
-                        <tr>
-                            <th>Client Name</th>
-                            <th>Rating</th>
-                            <th>Comments</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Joshua Samson</td>
-                            <td>Really cool and awesome!</td>
-                            <td>4.5 stars</td>
-                        </tr>
-                    </tbody> 
-                </table>
             </div>
         </div>
     </div>
-</div>
 @endsection
 
 
@@ -198,5 +205,3 @@
 </script>
 
 @endpush
-
-

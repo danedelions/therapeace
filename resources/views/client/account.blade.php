@@ -205,7 +205,7 @@
       		</div>
 			@foreach($client->booking as $row)
       		<div class="modal-body">
-				<form method="POST" action="{{url('/doReport/')}}" enctype="multipart/form-data">
+				<form method="POST" action="" enctype="multipart/form-data">
 				{{csrf_field()}}
       			<LABEL>Rate <b>{{$row->therapist->fullname}}</b></LABEL>
       			

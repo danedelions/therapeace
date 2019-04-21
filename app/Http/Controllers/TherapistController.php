@@ -146,11 +146,9 @@ class TherapistController extends Controller
     public function therapistAccount(Request $request)
     {
 
-// TRY THIS PART
-
         $query = Therapist::query();
 
-        $therapist = $query->whereUserId(Auth::id())->with('user');
+        $therapist = $query->whereUserId(Auth::id())->with(['user', 'specialties']);
 
         $therapist->with([
             'bookingRequest' => function ($q) use ($request){
