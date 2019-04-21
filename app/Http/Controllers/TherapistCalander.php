@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\BookingRequest;
-use Illuminate\Http\Request;
 use App\Appointment;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
@@ -120,5 +120,13 @@ class TherapistCalander extends Controller
         $bookingRequest->finish();
 
         return redirect()->back()->with('finishStatus', true);
+    }
+
+    public function cancelAppointment(Request $request, BookingRequest $bookingRequest)
+    {
+
+        $bookingRequest->cancel();
+
+        return redirect()->back()->with('cancelStatus', true);
     }
 }

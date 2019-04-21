@@ -9,9 +9,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/faqs', 'HomeController@index')->name('faqs');
+    Route::view('/faqs', 'faqs')->name('faqs');
+    
+    Route::group(['middleware' => 'guest'], function () {
 
-Route::group(['middleware' => 'guest'], function () {
     Route::get('/', function () {
 
         return view('welcome');
@@ -51,20 +52,21 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('{therapist}/accept', 'AcceptTherapistController');	
 
 
+    Route::get('/admin-dashboard', 'AdminController@getDashboard')->name('get.dashboard');
+    Route::get('/admin-login', 'AdminController@login')->name('get.login');
     Route::get('/admin-user', 'AdminController@getUserView')->name('get.view');
     Route::get('/admin-pending', 'AdminController@getPendingView')->name('get.pending');
     Route::get('/admin-history', 'AdminController@getHistoryView')->name('get.history');
     Route::get('/admin-reports', 'AdminController@getReportsView')->name('get.reports');
-
     Route::patch('/status-update/{user}', 'AdminController@statusUpdate')->name('get.update');
     Route::get('/admin-notice/{id}', 'AdminController@notice')->name('get.notice');
-    Route::post('{therapist}/accept', 'AcceptTherapistController');
+
+    Route::post('{therapist}/accept', 'AcceptTherapistController'); 
 
     Route::any('/search', 'AdminController@search')->name('get.search');
-    Route::post('{therapist}/accept', 'AcceptTherapistController');
+    Route::post('{therapist}/accept', 'AcceptTherapistController');	
 
     Route::get('/admin-user/?status={status}', 'AdminController@filterUsers');
-
 
     // THERAPIST
     Route::get('/therapist-account', 'TherapistController@therapistAccount')->name('get.therapist-account');
@@ -78,14 +80,20 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/therapist-edit/{id}', 'TherapistController@edit');
     Route::patch('/therapist-update/{id}', 'TherapistController@update')->name('therapist.update');
-    Route::get('/therapist-specialty/', 'TherapistController@createSpecialties')->name('get.therapist-specialty');
     Route::patch('/therapist-account/{booking}', 'BookingController@approveRequest')->name('therapist.accept');
     Route::get('/therapist-checklist/{id}', 'TherapistController@viewChecklist')->name('therapist.checklist');
     Route::get('therapist-calendar/{bookingRequest}', 'TherapistCalander')->name('therapist.calendar');
     Route::post('therapist-calendar/{bookingRequest}',
         'TherapistCalander@saveAppointment')->name('therapist.book.appointment');
+
     Route::delete('therapist-calendar/{bookingRequest}',
         'TherapistCalander@rejectAppointment')->name('therapist.reject.appointment');
+
+    Route::patch('therapist-calendar/{bookingRequest}', 
+        'TherapistCalander@finishedAppointment')->name('therapist.finish.appointment');
+
+    Route::delete('therapist-calendar/{bookingRequest}', 
+        'TherapistCalander@cancelAppointment')->name('therapist.cancel.appointment');
     Route::get('/therapist-pending/', 'TherapistController@viewPending')->name('therapist.pending');
 
     // CLIENT
