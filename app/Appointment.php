@@ -25,12 +25,15 @@ class Appointment extends Model
     protected $casts = [
         'num_hours_per_day'  => 'float',
         'other_services_fee' => 'float',
+        'totalPrice' => 'float',
     ];
 
     protected $appends = [
         'start_timestamp',
         'end_timestamp',
-        'durationDate'
+        'durationDate',
+        'dailyHours' => 'float',
+        'numberDays'
     ];
 
     public function booking()
@@ -73,13 +76,42 @@ class Appointment extends Model
         return "{$this->start_date} - {$this->end_date}";
     }
 
-    public function getTotalPriceAttribute()
+    public function getDailyHoursAttribute()
     {
-        $numOfDays = Carbon::parse(request("{$this->start_date}"))->diffInDays(Carbon::parse(request("{$this->end_date}")));
-        
         $timeIn = Carbon::createFromFormat('H:i', "{$this->start_date_time}");
         $timeOut = Carbon::createFromFormat('H:i', "{$this->end_date_time}");
         $numOfHours = $timeIn->diffInHours($timeOut);
+
+        return $numOfHours;
+    }
+
+    public function getNumberDaysAttribute()
+    {
+        $startDate = Carbon::createFromFormat('Y-m-d H:i', "{$this->start_date} {$this->start_date_time}");
+        $endDate = Carbon::createFromFormat('Y-m-d H:i', "{$this->end_date} {$this->end_date_time}");
+        $numOfDays = $startDate->diffInDays($endDate);
+
+        return $numOfDays += 1;
+        
+        
+    }
+
+    public function getTotalPriceAttribute() 
+    {
+        $startDate = Carbon::createFromFormat('Y-m-d H:i', "{$this->start_date} {$this->start_date_time}");
+        $endDate = Carbon::createFromFormat('Y-m-d H:i', "{$this->end_date} {$this->end_date_time}");
+        $numOfDays = $startDate->diffInDays($endDate);
+        $numOfDays += 1;
+       
+
+        $timeIn = Carbon::createFromFormat('H:i', "{$this->start_date_time}");
+        $timeOut = Carbon::createFromFormat('H:i', "{$this->end_date_time}");
+        $numOfHours = $timeIn->diffInHours($timeOut);
+        $totalPrice = 0;
+        $therapistRate = number_format($this->booking->therapist->personal_rate, 2);
+        $totalPrice = (($therapistRate * $numOfHours) * $numOfDays) + number_format($this->other_services_fee, 2);
+
+        return number_format($totalPrice,2);
 
     }
 }
