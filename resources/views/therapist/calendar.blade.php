@@ -55,7 +55,7 @@
                 </div>
                 
                 <hr>
-                <div class="row col-md-8 offset-7   ">
+                <div class="row col-md-8 offset-7">
                         <div class="col-md-4">
                             @if($bookingRequest->is('approved') || $bookingRequest->is('pending'))
                             {!! Form::open(['url' => route('therapist.reject.appointment', $bookingRequest), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}

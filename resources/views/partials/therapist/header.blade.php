@@ -13,11 +13,12 @@
           <a class="nav-link" href="/therapist-account"><i class="fas fa-user"></i> Account</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url('chat')}}"><i class="fas fa-envelope"></i> Messages</a>
+          <a class="nav-link" href="/chat"><i class="fas fa-envelope"></i> Messages</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Welcome {{ Auth::user()->username}}</a>
           <div class="dropdown-menu">
+
             <a class="dropdown-item" href="{{ url('logout') }}" style="color: red;"><i class="fas fa-sign-out-alt" style="color: red;"></i> Logout</a>
           </div>
         </li>

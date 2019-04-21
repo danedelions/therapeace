@@ -72,6 +72,7 @@ class Appointment extends Model
     {
         return "{$this->start_date} - {$this->end_date}";
     }
+<<<<<<< HEAD
 
     public function getTotalPriceAttribute()
     {
@@ -83,4 +84,6 @@ class Appointment extends Model
 
     }
 
+=======
+>>>>>>> 6c0270b8544fb84d3a133968d91b8e36a673837b
 }

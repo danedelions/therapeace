@@ -56,7 +56,22 @@
                     <div class="card-header bg-info">
                         Client Requests
                     </div>
-                    <div class="card-body p-0" style="overflow: scroll; height: 200px;">
+                    <div class="card-body" style="overflow: scroll; height: 200px;">
+                        <div class="form-group">
+                            {!! Form::open(['url' => url()->current(), 'method' => 'get']) !!} 
+                            <div class="row">
+                                <div class="col-md-4">
+                                     {!! Form::inputGroup('text', null, 'name', request()->name ?? null, ['placeholder' => 'Client Name']) !!}
+                                </div>
+                                <div class="col-md-4">
+                                    {!! Form::selectGroup(null, 'status', ['' => 'Select Status', '0' => 'Pending', '1' => 'Approved', '2' => 'Rejected', '3' => 'Finished', '4' => 'Cancelled'], request()->status ?? null, ['class' => 'form-control']) !!}
+                                </div>
+                                <div class="col-md-4">
+                                   <button type="submit" class="btn btn-info pull-right"><i class="ti-search"></i> Search</button>
+                                </div>
+                            </div>
+                            {!! Form::close() !!}
+                        </div>
                         <table class="table table-hover mb-0">
                             <thead>
                                 <tr>
