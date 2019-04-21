@@ -21,7 +21,7 @@
 
                     
                   <!-- Slide Two - Set the background image for this slide in the line below -->
-                  <div class="carousel-item" style="background-image: url('{{asset('img/2.jpg')}}')">
+                  <div class="carousel-item bg-size-cover" style="background-image: url('{{asset('img/6.jpg')}}')">
 <!--                     <div class="carousel-caption">
                       <h1>Second Slide</h1>
                       <p>This is a description for the second slide.</p>
@@ -117,25 +117,26 @@
                   <div class="card-body text-center">
                     <class="text-uppercase mb-5"> <img src="img/pic1.gif" width="220">  
                   </div>
-                  <h1>Patients request appointment</h1>
+                  <h5>Patients request appointment</h5>
+
              </div>
              <div class="col-sm-12 col-md-6 col-lg-3 my-5">
                   <div class="card-body text-center">
                     <class="text-uppercase mb-5"> <img src="img/wi.gif" width="200">
-                   <h1>Communicate</h1>
+                   <h5>Communicate</h5>
                   </div>
              </div>
              <div class="col-sm-12 col-md-6 col-lg-3 my-5">
                   <div class="card-body text-center">
                     <class="text-uppercase mb-5"><img src="img/wa.gif" width="190"> 
-                     <h1>Start Session</h1>
+                     <h5>Start Session</h5>
                   </div> 
              </div>
              <div class="col-sm-12 col-md-6 col-lg-3 my-5">
                   <div class="card-body text-center">
                     <class="text-uppercase mb-5"> <img src="img/we.gif" width="190">  
                   </div>
-                  <h1>Patients get better</h1>
+                  <h5>Patients get better</h5>
              </div>
            </div>
        </div>

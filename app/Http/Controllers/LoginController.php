@@ -30,7 +30,10 @@ class LoginController extends Controller
             'username.exists' => 'Username does not exist or is not yet accepted.'
         ]);
 
+
         $loggedIn = Auth::attempt($credentials);
+
+//        die(json_encode($credentials));
 
         if ($loggedIn){
 
@@ -39,6 +42,7 @@ class LoginController extends Controller
                 // view('therapist');
                 if(Auth::user()->status === 2){
                     return redirect('get.therapist.pending');
+
                 }else if (Auth::user()->status === 0) {
                     return redirect(route('get.therapist-account'));
                 }
@@ -55,13 +59,15 @@ class LoginController extends Controller
              return view ('login').Auth::attempt(array('username' => $request->post('username'), 'password' => $request->post('password')));
         }
 
-            // user::where('username', 'name');
+       // user::where('username', 'name');
+
 
         if ($loggedIn) {
             return Auth::user()->homepage();
         } else {
             return redirect()->back()->withErrors();
         }
+
     }
 
     public function Logout(Request $request)
@@ -75,3 +81,4 @@ class LoginController extends Controller
 
 
 }
+

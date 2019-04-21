@@ -51,9 +51,9 @@ class ClientController extends Controller
                 'gender'          => $request->post('gender'),
                 'city'            => $request->post('city'),
                 'province'        => $request->post('province'),
+                'res_detail'      => $request->post('res_detail'),
                 'street'          => $request->post('street'),
                 'brgy'            => $request->post('brgy'),
-                'res_detail'      => $request->post('res_detail'),
                 'building'        => $request->post('building'),
                 'landmark'        => $request->post('landmark'),
                 'address_remarks' => $request->post('address_remarks')
@@ -75,7 +75,7 @@ class ClientController extends Controller
                                 })
                                 ->when($specialties = $request->t_specialties, function ($q) use ($specialties) {
                                     $q->whereHas('specialties', function ($q) use ($specialties) {
-                                        $wq->whereIn('specialties.name', $specialties);
+                                        $q->whereIn('specialties.name', $specialties);
                                     });
                                 })->get();
         $specialties = Specialty::select('name')->pluck('name', 'name');
@@ -83,31 +83,20 @@ class ClientController extends Controller
         return view('client.find', compact('therapists', 'specialties'));
     }
 
-    public function clientAccount(Request $request)
+    public function clientAccount(BookingRequest $bookings)
     {
-        $query = Client::query();
+        $client   = Client::whereUserId(Auth::id())->with('user')->first();
+        $bookings = $client->booking()->with('client')->where('status', 0)->get(); //unsure about here//
 
-        $client = $query->whereUserId(Auth::id())->with('user');
-
-        $client->with([
-            'booking' => function ($q) use ($request){
-                $q->when($request->status, function ($q) use ($request)  {
-                    $q->where('status', $request->status);
-                })
-                ->when($request->name, function ($q) use ($request) {
-                    $q->whereHas('therapist', function ($q) use($request) {
-                        $q->whereRaw('CONCAT(fname, " ", lname) LIKE "%'.$request->name.'%"');
-                    });
-                })
-                ->with(['therapist.user', 'bookingDetails']);
-            },
+        return view('client.account', compact('client', 'bookings'));
+        $client->load([
+            'booking',
+            'booking.therapist.user',
+            'booking.bookingDetails'
         ]);
 
-        $client = $client->first();
-
         return view('client.account', compact('client'));
-    }  
-
+    }
 
     public function edit($userId)
     {
@@ -159,5 +148,13 @@ class ClientController extends Controller
         $bookings = BookingRequest::find($bookingID);
 
         return view('client.view', compact('bookings'));
+    }
+
+    public function cancelAppointment(Request $request, BookingRequest $bookingRequest)
+    {
+
+        $bookingRequest->cancel();
+
+        return redirect()->back()->with('cancelStatus', true);
     }
 }

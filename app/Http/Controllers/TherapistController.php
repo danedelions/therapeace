@@ -83,7 +83,8 @@ class TherapistController extends Controller
                 'nbi_image'      => $nbi_image,
                 'bc_image'       => $bc_image,
                 'user_bio'       => $request->post('user_bio'),
-                'personal_rate'  => 500.00
+                'personal_rate'  => 000.00
+
             ]);
         });
 

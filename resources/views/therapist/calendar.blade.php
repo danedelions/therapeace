@@ -53,6 +53,7 @@
                 </div>
                 
                 <hr>
+
                 <div class="row col-md-8 offset-4">
                     <div class="col-sm-4 col-md-4 col-lg-4">
                        <a data-toggle="modal" data-target="#view-progress-{{ $bookingRequest->id }}"><button type="submit" class="btn btn-sm btn-info btn-block"><i class="far fa-eye"></i>&nbsp;View Progress</button> </a>
@@ -73,6 +74,35 @@
                     <div class="col-sm-4 col-md-4 col-lg-4">
                        <a data-toggle="modal" data-target="#view-modal-{{ $bookingRequest->id }}"><button type="submit" class="btn btn-sm btn-info btn-block"><i class="fas fa-eject"></i>&nbsp;Discharge</button> </a>
                     </div>
+
+                <div class="row col-md-8 offset-7">
+                        <div class="col-md-4">
+                            @if($bookingRequest->is('approved') || $bookingRequest->is('pending'))
+                            {!! Form::open(['url' => route('therapist.reject.appointment', $bookingRequest), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
+                                <button type="submit" class="btn btn-warning btn-block">Reject this appointment</button>
+                            {!! Form::close() !!}
+                            @elseif($bookingRequest->is('rejected'))
+                                <div class="alert alert-warning">
+                                    <p class="mb-0 text-center">
+                                        <i class="fa fa-notice"></i> This booking request is rejected!
+                                    </p>
+                                </div>
+                            @endif
+                        </div>
+                        <div class="col-md-4">
+                        @if($bookingRequest->is('approved'))
+                            {!! Form::open(['url' => route('therapist.finish.appointment', $bookingRequest), 'method' => 'patch', 'onsubmit' => 'javascript:return confirm("Are you sure you want to end?")']) !!}
+                                <button type="submit" class="btn btn-info btn-block">Discharge</button>
+                            {!! Form::close() !!}
+                        @elseif($bookingRequest->is('finished'))
+                            <div class="alert alert-success">
+                                <p class="mb-0 text-center">
+                                    <i class="fa fa-notice"></i> This booking request is finished!
+                                </p>
+                            </div>      
+                        @endif
+                        </div>
+
                 </div>
             </div>
         </div>
@@ -205,7 +235,7 @@
 
     <div class="row">
         <div class="col-md-4">
-            @if(!$bookingRequest->is('rejected'))
+            @if(!$bookingRequest->is('rejected') && !$bookingRequest->is('finished'))
             <div class="card">
                 <div class="card-header bg-info">
                     Set Appointment Details
