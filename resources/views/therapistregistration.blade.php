@@ -178,7 +178,8 @@
         </p>
             <div>
                 <label>
-                    <input type="checkbox" style= "width: auto" required/>
+
+         <input type="checkbox" style= "width: auto" required/>
                 </label>I accept the terms and conditions.
             </div> 
   </div>

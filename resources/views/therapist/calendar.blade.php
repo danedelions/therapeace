@@ -226,7 +226,7 @@
                 <div class="card-header bg-info">
                     Set Appointment Details
                 </div>
-                <div class="card-body dynamic" id="dynamic"  style="overflow: scroll;height: 605px;">
+                <div class="card-body"  style="overflow: scroll;height: 605px;">
                         @if($bookingRequest->appointment)
                             {!! Form::model($bookingRequest->appointment, ['url' => route('therapist.book.appointment', $bookingRequest)]) !!}
                         @else
@@ -235,7 +235,7 @@
                     <table class="table dyanmic" id="dynamic">
                         <thead>
                             <tr>
-                                <td><button type="button" class="btn btn-sm btn-outline-primary add-line">
+                                <td><button type="button" class="btn btn-sm btn-outline-primary add-line" id="add-line">
                                 <i class="fa fa-plus"></i> Add new session</button></td>
                             </tr>
                         </thead>
@@ -313,6 +313,31 @@
     $(document).ready(function(){
       
         var postURL = "<?php echo url('/therapist-calendar')?>";
+        var table = $(this).closest('table.dynamic');
+        var i = 1;
+
+        $('#add-line').click(function (){
+            i++;
+
+            $('#dynamic').append(
+                ''+
+                '<tr id="row'+i+'" class="dynamic-added">'+
+                '<td><button type="button" class="btn btn-sm btn-outline-primary add-line" id="add-line">' +
+                '<i class="fa fa-plus"></i> Add new session</button></td>'+
+                '</tr>' +
+                ''+
+                '<tr id="row'+i+'" class="dynamic-added">'+
+                '<td><div class="form-row data"><div class="col-6">{!! Form::inputGroup("date", "Starting", "start_date[]") !!}</div>' +
+                '<div class="col-6">{!! Form::inputGroup("date", "Until", "end_date[]") !!}</div></div></td>'+
+                '</tr>' +
+                ''+
+                '<tr id="row'+i+'" class="dynamic-added">'+
+                '<td><div class="form-row data"><div class="col-6">{!! Form::inputGroup("time", "&nbsp;", "start_date_time[]") !!}</div>' +
+                '<div class="col-6">{!! Form::inputGroup("time", "&nbsp;", "end_date_time[]") !!}</div></div></td>'+
+                '</tr>' +
+               
+            );
+        });
 
          });
     </script>

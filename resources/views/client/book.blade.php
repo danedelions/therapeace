@@ -32,10 +32,10 @@
 						{{csrf_field()}}
 						<div class="form-row">
 							<div class="form-group col-md-4">
-						     	<label for="inputPatient"><b>Are you the patient?</b></label>
+						     	<label for="inputPatient" ><b>Are you the patient?</b></label>
 						     	<br>
-						     	<input type="radio" name="patient" value = "1"> Yes <br>
-						     	<input type="radio" name="patient" value = "0"> No <br>
+						     	<input name="patient" type="radio" value ="yes"> Yes <br>
+						     	<input name="patient" type="radio" value ="no"> No <br>
 						    </div>
 						</div>
 					  <div class="form-row">

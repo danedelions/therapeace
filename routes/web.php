@@ -28,6 +28,10 @@ Route::resource('client', 'ClientController');
 
 Route::group(['middleware' => 'auth'], function () {
     // ADMIN
+
+    Route::get('/admin-dashboard', 'AdminController@getDashboard')->name('get.dashboard');
+    Route::get('/admin-login', 'AdminController@login')->name('get.login');
+
     Route::get('/admin-user', 'AdminController@getUserView')->name('get.view');
     Route::get('/admin-pending', 'AdminController@getPendingView')->name('get.pending');
     Route::get('/admin-history', 'AdminController@getHistoryView')->name('get.history');
