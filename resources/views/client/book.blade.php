@@ -58,7 +58,7 @@
 						</div>
 						<div class="form-group col-md-12">
 							<label for="inputAddress"><b>Notes to your therapist</b></label>
-						    <input type="text" class="form-control" name="notes">
+						    <input type="text" class="form-control" name="notes" required="required">
 						</div>
 						<div class="form-group col-md-12">
 							<div class="card">

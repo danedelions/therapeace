@@ -132,7 +132,6 @@ class TherapistController extends Controller
         //dd($request);
         $users = User::where('username', $request['username'])->first();
 
-<<<<<<< HEAD
         if (isset($request['image'])) {
             $image = request()->file('image')->move("profilepic/{$users[0]['username']}", 'public');
         }
@@ -144,17 +143,6 @@ class TherapistController extends Controller
         }
         $therapist->fill($request)->save();
         User::where('id', Auth::id())->update(['username' => $request['username'], 'email' => $request['email']]);
-=======
-        if (isset($request['license_image'])) {
-            $request['license_image'] = request()->file('license_image')->store('image', 'public');
-        }
-
-        if (isset($request['image'])) {
-            $image = request()->file('image')->move("pictures/{$users[0]['username']}", 'public');
-        }
-
-        $users = User::where('username', $request['username'])->first();
->>>>>>> d3f9e8875f6dc17210fac2a59f8b275417cb1fd2
 
         
         $therapist->fill($request)->save();

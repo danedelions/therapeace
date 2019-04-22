@@ -65,10 +65,6 @@
                                 {{csrf_field()}}
                                 <button type="submit" class="btn btn-warning btn-block">Reject this appointment</button>
 
-                            {!! Form::open(['url' => route('therapist.reject.appointment',['bookingRequest' => $bookingRequest]), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
-                                {{csrf_field()}}
-                                <button type="submit" class="btn btn-warning btn-block">Reject this appointment</button>
-                        
                             {!! Form::close() !!}
                             @elseif($bookingRequest->is('rejected'))
                                 <div class="alert alert-warning">
@@ -132,71 +128,6 @@
                 <div class="card-header bg-info">
                     Set Appointment Details
                 </div>
-<<<<<<< HEAD
-                <div class="card-body"  style="overflow: scroll;height: 605px;">
-                        @if($bookingRequest->appointment)
-                            {!! Form::model($bookingRequest->appointment, ['url' => route('therapist.book.appointment', $bookingRequest)]) !!}
-                        @else
-                            {!! Form::open(['url' => route('therapist.book.appointment', $bookingRequest)]) !!}
-                        @endif  
-                    <table class="table dyanmic" id="dynamic">
-                        <thead>
-                            <tr>
-                                <td><button type="button" class="btn btn-sm btn-outline-primary add-line" id="add-line">
-                                <i class="fa fa-plus"></i> Add new session</button></td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div class="form-row data">
-                                        <div class="col-6">
-                                            {!! Form::inputGroup('date', 'Starting', 'start_date[]') !!}
-                                        </div>
-                                        <div class="col-6">
-                                            {!! Form::inputGroup('date', 'Until', 'end_date[]') !!}
-                                        </div>
-                                    </div>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form-row data">
-                                        <div class="col-6">
-                                            {!! Form::inputGroup('time', '&nbsp;', 'start_date_time[]') !!}
-                                        </div>
-                                        <div class="col-6">
-                                            {!! Form::inputGroup('time', '&nbsp;', 'end_date_time[]') !!}
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    {!! Form::inputGroup('text', 'Other Services Applied', 'other_services[]') !!}
-                                    {!! Form::inputGroup('number', 'Fee', 'other_services_fee[]') !!}
-                                </td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <td>
-                                <div class="form-row form-group data">
-                                    <div class="col-8">
-                                        <button class="btn btn-sm btn-danger remove-line"><i class="fa fa-times"></i></button>
-                                        
-                                    </div>
-                                </div>
-                            </td>
-                        </tfoot>
-                    </table>
-                    
-                        
-                        
-                        
-                        
-                        
-=======
                     <div class="card-body">
                     @if($bookingRequest->appointment)
                         {!! Form::model($bookingRequest->appointment, ['url' => route('therapist.book.appointment', $bookingRequest)]) !!}
@@ -221,7 +152,6 @@
                         </div>
                         {!! Form::inputGroup('text', 'Other Services Applied', 'other_services') !!}
                         {!! Form::inputGroup('number', 'Fee', 'other_services_fee') !!}
->>>>>>> 820df5608914ff7b9d0717888ad2c620e22f7461
                         <button type="submit" class="btn btn-success">Submit</button>
                     {!! Form::close() !!}
                 </div>
@@ -241,44 +171,8 @@
 </div>
 
 @endsection
-<<<<<<< HEAD
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function(){
-      
-        var postURL = "<?php echo url('/therapist-calendar')?>";
-        var table = $(this).closest('table.dynamic');
-        var i = 1;
-
-        $('#add-line').click(function (){
-            i++;
-
-            $('#dynamic').append(
-                ''+
-                '<tr id="row'+i+'" class="dynamic-added">'+
-                '<td><button type="button" class="btn btn-sm btn-outline-primary add-line" id="add-line">' +
-                '<i class="fa fa-plus"></i> Add new session</button></td>'+
-                '</tr>' +
-                ''+
-                '<tr id="row'+i+'" class="dynamic-added">'+
-                '<td><div class="form-row data"><div class="col-6">{!! Form::inputGroup("date", "Starting", "start_date[]") !!}</div>' +
-                '<div class="col-6">{!! Form::inputGroup("date", "Until", "end_date[]") !!}</div></div></td>'+
-                '</tr>' +
-                ''+
-                '<tr id="row'+i+'" class="dynamic-added">'+
-                '<td><div class="form-row data"><div class="col-6">{!! Form::inputGroup("time", "&nbsp;", "start_date_time[]") !!}</div>' +
-                '<div class="col-6">{!! Form::inputGroup("time", "&nbsp;", "end_date_time[]") !!}</div></div></td>'+
-                '</tr>' +
-               
-            );
-        });
-
-         });
-    </script>
-=======
 
 
->>>>>>> 820df5608914ff7b9d0717888ad2c620e22f7461
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('fullcalendar/fullcalendar.min.css') }}">    
