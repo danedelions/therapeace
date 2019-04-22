@@ -220,10 +220,9 @@
                         @endif  
                     <table class="table dyanmic" id="dynamic">
                         <thead>
-                            <tr>
-                                <td><button type="button" class="btn btn-sm btn-outline-primary add-line" id="add-line">
-                                <i class="fa fa-plus"></i> Add new session</button></td>
-                            </tr>
+                            <th>
+                                Session
+                            </th>
                         </thead>
                         <tbody>
                             <tr>
@@ -262,8 +261,9 @@
                             <td>
                                 <div class="form-row form-group data">
                                     <div class="col-8">
-                                        <button class="btn btn-sm btn-danger remove-line"><i class="fa fa-times"></i></button>
-                                        
+                                        <button class="btn btn-sm btn-danger remove-line" id="remove-line" type="button"><i class="fa fa-times"></i></button>
+                                        <button type="button" class="btn btn-sm btn-outline-primary add-line" id="add-line">
+                                        <i class="fa fa-plus"></i> Add new session</button>
                                     </div>
                                 </div>
                             </td>
@@ -275,7 +275,7 @@
                         
                         
                         
-                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button type="submit" class="btn btn-success" name="submit" id="submit">Submit</button>
                     {!! Form::close() !!}
                 </div>
             </div>
@@ -306,11 +306,9 @@
             i++;
 
             $('#dynamic').append(
-                ''+
                 '<tr id="row'+i+'" class="dynamic-added">'+
-                '<td><button type="button" class="btn btn-sm btn-outline-primary add-line" id="add-line">' +
-                '<i class="fa fa-plus"></i> Add new session</button></td>'+
-                '</tr>' +
+                '<th>Add another session</th>'+
+                '</tr>'+
                 ''+
                 '<tr id="row'+i+'" class="dynamic-added">'+
                 '<td><div class="form-row data"><div class="col-6">{!! Form::inputGroup("date", "Starting", "start_date[]") !!}</div>' +
@@ -318,14 +316,33 @@
                 '</tr>' +
                 ''+
                 '<tr id="row'+i+'" class="dynamic-added">'+
-                '<td><div class="form-row data"><div class="col-6">{!! Form::inputGroup("time", "&nbsp;", "start_date_time[]") !!}</div>' +
-                '<div class="col-6">{!! Form::inputGroup("time", "&nbsp;", "end_date_time[]") !!}</div></div></td>'+
+                '<td><div class="form-row data"><div class="col-6">{!! Form::inputGroup("time", "Start Time", "start_date_time[]") !!}</div>' +
+                '<div class="col-6">{!! Form::inputGroup("time", "End Time", "end_date_time[]") !!}</div></div></td>'+
                 '</tr>' +
+                ''+
+                '<tr id="row'+i+'" class="dynamic-added">'+
+                '<td>{!! Form::inputGroup("text", "Other Services Applied", "other_services[]") !!}' +
+                '{!! Form::inputGroup("number", "Fee", "other_services_fee[]") !!}</td>'+
+                '</tr>' 
                
             );
         });
 
-         });
+        $(document).on('click', '.remove-line', function (){
+
+            var button_id = $(this).attr("id");
+
+            $('#row'+button_id+'').remove();
+        });
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        
+    });
     </script>
 
 @push('styles')
