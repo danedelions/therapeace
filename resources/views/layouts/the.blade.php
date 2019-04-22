@@ -14,10 +14,8 @@
         <!-- THEME STYLES-->
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/assets/vendors/themify-icons/css/themify-icons.css') }}" />
         <!-- JAVASCRIPT -->
-        
         <script src="{{ asset('js/jquery-3.3.1.min.js')}}"></script>
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-        
 
         @stack('styles')
 
