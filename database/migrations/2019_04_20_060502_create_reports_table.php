@@ -15,10 +15,10 @@ class CreateReportsTable extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('booking_id');
+            $table->integer('booking_id');  
             $table->integer('client_id');
             $table->integer('therapist_id');
-            $table->integer('rating');
+            $table->enum('rating',['1','2','3','4','5']); 
             $table->text('reports');
             $table->timestamps();
         }); 

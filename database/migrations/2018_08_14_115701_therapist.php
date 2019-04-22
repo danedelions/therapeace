@@ -29,7 +29,8 @@ class Therapist extends Migration
             $table->string('therapist');
             $table->string('license_number');
             $table->string('expiry_date');
-            $table->string('license_image');
+            $table->string('licenseimage_front');
+            $table->string('licenseimage_back');
             $table->string('nbi_image');
             $table->string('bc_image');
             $table->text('user_bio')->nullable();

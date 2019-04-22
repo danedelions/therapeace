@@ -55,7 +55,7 @@ class ClientController extends Controller
                 'address_remarks' => $request->post('address_remarks')
             ]);
         });
-        return view('login');
+        return view('/login');
     }
     public function clientFind(Therapist $therapists, Request $request)
     {

@@ -285,7 +285,7 @@
       			
       			<div class="form-group">
 					<div class="stars">
-					  	<form action=""> 
+					  	<forms>	
 						    <input class="star star-5" id="star-5" type="radio" name="star" value="1" />
 						    <label class="star star-5" for="star-5"></label>
 						    <input class="star star-4" id="star-4" type="radio" name="star" value="2"/>
@@ -299,12 +299,12 @@
 					  	</form>
 					</div>
       			</div>
- 
+
       			
       			<h6 font-weight-bold>Do you have any concern? Write to us!</h6>
 		   
 		        <div class="form-group">
-		          	<textarea type="text" placeholder="" class="md-textarea form-control" rows="4"></textarea>
+		          	<textarea type="text" class="md-textarea form-control"  name="reports" rows="4"></textarea>
 		        </div>
     		</div>    
 	    	<div class="modal-footer d-flex justify-content-center">

@@ -13,18 +13,21 @@
     
     Route::group(['middleware' => 'guest'], function () {
 
+    Route::get('/login', 'LoginController@view')->name('login');
+    Route::post('doLogin', 'LoginController@doLogin')->name('post:login');
     Route::get('/', function () {
 
         return view('welcome');
     });
 
-    Route::get('/login', 'LoginController@view')->name('login');
-    Route::post('doLogin', 'LoginController@doLogin')->name('post:login');
 });
 
 Route::get('/logout', 'LoginController@Logout');
+
+
 Route::resource('therapist', 'TherapistController');
 Route::resource('client', 'ClientController');
+
 
 Route::group(['middleware' => 'auth'], function () {
     // ADMIN
@@ -91,6 +94,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/doBookTherapist/', 'BookingController@submitDetails')->name('post.doBook');
 
     // REPORT
+
+
 
 });
 
