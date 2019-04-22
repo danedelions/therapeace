@@ -9,7 +9,7 @@
 				</div>
 				<div class="card-body">
 					<center>
-						<i class="fas fa-user-circle fa-8x"></i>
+						<img src='{{ asset("storage/{$therapist->image}") }}' style="width:150px;height:150px;">
 						<br>
 						<h4>{{$therapist->therapist}}</h4>
 					</center>

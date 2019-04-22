@@ -56,7 +56,7 @@
                     <div class="card-header bg-info">
                         Client Requests
                     </div>
-                    <div class="card-body" style="overflow: scroll; height: 200px;">
+                    <div class="card-body" style="overflow: scroll; height: 250px;">
                         <div class="form-group">
                             {!! Form::open(['url' => url()->current(), 'method' => 'get']) !!} 
                             <div class="row">
@@ -121,7 +121,7 @@
                             <div class="card-header bg-info">
                                 Ratings
                             </div>
-                            <div class="card-body" style="overflow: scroll; height: 200px;">
+                            <div class="card-body" style="overflow: scroll; height: 250px;">
                                 <table class="table table-default">
                                     <thead>
                                         <tr>

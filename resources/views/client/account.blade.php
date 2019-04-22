@@ -48,7 +48,7 @@
 				Sent Requests
 			</div>
 
-			<div class="card-body" style="overflow: scroll; height: 200px;">
+			<div class="card-body" style="overflow: scroll; height: 250px;">
 		        {!! Form::open(['url' => url()->current(), 'method' => 'get']) !!} 
 					<div class="row">
 				         <div class="col-md-4">
@@ -129,7 +129,7 @@
 				Therapist's Notes
 			</div>
 			
-			<div class="card-body" style="overflow: scroll; height: 200px;">
+			<div class="card-body" style="overflow: scroll; height: 250px;">
 
 				<table class="table table-default">
 					<thead>

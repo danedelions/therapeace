@@ -178,14 +178,8 @@
         </p>
             <div>
                 <label>
-<<<<<<< HEAD
-                  <input type="checkbox" name="vehicle" value="Bike" class="form-control" style= "width: auto"> I accept the terms and conditions.<br>
                     <input type="checkbox" class="form-control" style= "width: auto" required/>I accept the terms and conditions.
                  </label>
-=======
-                    <input type="checkbox" style= "width: auto" required/>
-                </label>I accept the terms and conditions.
->>>>>>> e048906614cedcfd0ac358e4698902b77046eb49
             </div> 
   </div>
 </div>  
