@@ -183,8 +183,9 @@
             <div>
                 <label>
 
-         <input type="checkbox" style= "width: auto" required/>
-                </label>I accept the terms and conditions.
+                <input type="checkbox" class="form-control" style= "width: auto" required/>I accept the terms and conditions.
+                 </label>
+
             </div> 
   </div>
 </div>  

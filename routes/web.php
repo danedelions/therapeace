@@ -9,19 +9,29 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-    Route::view('/faqs', 'faqs')->name('faqs');
     
     Route::group(['middleware' => 'guest'], function () {
 
+<<<<<<< HEAD
     Route::get('/login', 'LoginController@view')->name('login');
     Route::post('doLogin', 'LoginController@doLogin')->name('post:login');
     Route::get('/', function () {
+=======
+        Route::get('/', function () {
+>>>>>>> d3f9e8875f6dc17210fac2a59f8b275417cb1fd2
 
-        return view('welcome');
+            return view('welcome');
+        });
+        Route::view('/faqs', 'faqs')->name('faqs');
+        Route::get('/login', 'LoginController@view')->name('login');
+        Route::post('doLogin', 'LoginController@doLogin')->name('post:login');
     });
 
+<<<<<<< HEAD
 });
 
+=======
+>>>>>>> d3f9e8875f6dc17210fac2a59f8b275417cb1fd2
 Route::get('/logout', 'LoginController@Logout');
 
 
@@ -31,9 +41,6 @@ Route::resource('client', 'ClientController');
 
 Route::group(['middleware' => 'auth'], function () {
     // ADMIN
-
-    Route::get('/admin-dashboard', 'AdminController@getDashboard')->name('get.dashboard');
-    Route::get('/admin-login', 'AdminController@login')->name('get.login');
 
     Route::get('/admin-user', 'AdminController@getUserView')->name('get.view');
     Route::get('/admin-pending', 'AdminController@getPendingView')->name('get.pending');
@@ -69,7 +76,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('doReject/{bookingRequest}',
         'TherapistCalander@rejectAppointment')->name('therapist.reject.appointment');
     
-    Route::patch('therapist-calendar/{bookingRequest}', 
+    Route::patch('doFinish/{bookingRequest}', 
         'TherapistCalander@finishedAppointment')->name('therapist.finish.appointment');
         
     Route::delete('doCancel/{bookingRequest}', 

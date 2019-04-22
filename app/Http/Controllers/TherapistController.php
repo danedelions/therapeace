@@ -89,7 +89,7 @@ class TherapistController extends Controller
                 'nbi_image'      => $nbi_image,
                 'bc_image'       => $bc_image,
                 'user_bio'       => $request->post('user_bio'),
-                'personal_rate'  => 000.00
+                'personal_rate'  => 500.00
 
             ]);
         });
@@ -115,21 +115,24 @@ class TherapistController extends Controller
      */
     public function update(TherapistRequest $request, $id)
     {
-        $therapist   = Therapist::find($id)->load('user');
+        $therapist = Therapist::find($id);
+        
         $specialties = collect($request->specialties);
-        if ($specialties->isNotEmpty()) {
-            $ids = $specialties->map(function ($item) {
+        if($specialties->isNotEmpty()){
+             $ids = $specialties->map(function ($item) {
                 $specialty = Specialty::firstOrCreate(['name' => $item]);
-
                 return $specialty->id;
             });
             $therapist->specialties()->sync($ids);
         }
+
+
         $request = $request->validated();
 
         //dd($request);
         $users = User::where('username', $request['username'])->first();
 
+<<<<<<< HEAD
         if (isset($request['image'])) {
             $image = request()->file('image')->move("profilepic/{$users[0]['username']}", 'public');
         }
@@ -141,6 +144,17 @@ class TherapistController extends Controller
         }
         $therapist->fill($request)->save();
         User::where('id', Auth::id())->update(['username' => $request['username'], 'email' => $request['email']]);
+=======
+        if (isset($request['license_image'])) {
+            $request['license_image'] = request()->file('license_image')->store('image', 'public');
+        }
+
+        if (isset($request['image'])) {
+            $image = request()->file('image')->move("pictures/{$users[0]['username']}", 'public');
+        }
+
+        $users = User::where('username', $request['username'])->first();
+>>>>>>> d3f9e8875f6dc17210fac2a59f8b275417cb1fd2
 
         
         $therapist->fill($request)->save();
