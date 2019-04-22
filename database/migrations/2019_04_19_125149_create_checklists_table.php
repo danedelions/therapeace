@@ -15,8 +15,9 @@ class CreateChecklistsTable extends Migration
     {
         Schema::create('checklists', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('therapist_id');
-            $table->integer('client_id');
+            $table->unsignedInteger('booking_id');
+            $table->unsignedInteger('therapist_id');
+            $table->unsignedInteger('client_id');
             $table->string('chief_complaint');
             $table->enum('vital_sign',['a','p']);
             $table->string('bp');
@@ -27,22 +28,24 @@ class CreateChecklistsTable extends Migration
             $table->enum('area_le', ['le',null])->nullable();
             $table->enum('arom', ['arom',null])->nullable();
             $table->enum('prom',['prom',null])->nullable();
-            $table->enum('massage', ['massage',null])->nullable();
             $table->string('massage_area')->nullable();
             $table->string('massage_min')->nullable();
-            $table->enum('stretching',['stretching',null])->nullable();
             $table->string('stretching_hold')->nullable();
             $table->string('stretching_sets')->nullable();
-            $table->enum('es_tens',['es_tens',null])->nullable();
             $table->string('estens_area')->nullable();
             $table->string('estens_min')->nullable();
             $table->string('resistance_weight')->nullable();
             $table->string('resistance_motion')->nullable();
             $table->string('resistance_reps')->nullable();
             $table->string('resistance_sets')->nullable();
-            $table->enum('other',['other',null])->nullable();
             $table->string('other_text')->nullable();
             $table->timestamps();
+        });
+
+        Schema::table('checklists', function (Blueprint $table){
+            $table->foreign('therapist_id')->references('user_id')->on('therapists')->onDelete('cascade');
+            $table->foreign('client_id')->references('user_id')->on('clients')->onDelete('cascade');
+            $table->foreign('booking_id')->references('id')->on('booking_requests')->onDelete('cascade');
         });
     }
 

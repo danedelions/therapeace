@@ -48,7 +48,7 @@
         Sent Requests
       </div>
 
-      <div class="card-body" style="overflow: scroll; height: 200px;">
+      <div class="card-body" style="overflow: scroll; height: 250px;">
             {!! Form::open(['url' => url()->current(), 'method' => 'get']) !!} 
           <div class="row">
                  <div class="col-md-4">
@@ -161,7 +161,7 @@
                     Actons
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <a class="dropdown-item" data-toggle="modal" data-target="#viewModal" >&nbsp<i class="fas fa-info"></i>&nbsp;&nbsp;Info</a>
+                    <a class="dropdown-item" data-toggle="modal" data-target="#viewModal" >&nbsp<i class="fas fa-info"></i>&nbsp;&nbsp;Rate</a>
                     <a class="dropdown-item" data-toggle="modal" data-target="#view-modal"><i class="fas fa-sticky-note"></i>&nbsp;&nbsp;Notes</a>
                   </div>
                 </div>
@@ -191,9 +191,221 @@
           <div class="card">
             <div class="card-body">
               <center><label>Profile</label></center><br>
-              <label>Name: </label>  <br>
-              <label>Email: </label> <br>
-              <label>Contact #: </label><br>
+              <div class="form-row">
+                <div class="col">
+                  <label><b>Chief Complaint:</b></label>
+                  <a>
+                  @if(!empty($bookingRequest->checklist->chief_complaint))
+                      {{$bookingRequest->checklist->chief_complaint}}
+                  @else
+                                    ...
+                  @endif
+                  </a>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col">
+                <label><b>Vital Signs:</b></label>
+                @if(!empty($bookingRequest->checklist->vital_sign))
+                    {{$bookingRequest->checklist->vital_sign}}
+                @else
+                    ...
+                @endif
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-sm-4">
+                  <label><b>BP:</b></label>
+                  @if(!empty($bookingRequest->checklist->bp))
+                                    {{$bookingRequest->checklist->bp}}
+                                @else
+                                    ...
+                                @endif
+                </div>
+                <div class="col-sm-4">
+                  <label><b>PR:</b></label>
+                  @if(!empty($bookingRequest->checklist->pp))
+                                    {{$bookingRequest->checklist->pp}}
+                                @else
+                                    ...
+                                @endif
+                </div>
+                <div class="col-sm-4">
+                  <label><b>RR:</b></label>
+                  @if(!empty($bookingRequest->checklist->rr))
+                                    {{$bookingRequest->checklist->rr}}
+                                @else
+                                    ...
+                                @endif
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                <label><b>Assessment:</b></label>
+                @if(!empty($bookingRequest->checklist->assessment))
+                                    {{$bookingRequest->checklist->assessment}}
+                                @else
+                                    ...
+                                @endif
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                <label><b>/P/:</b></label>
+                @if(!empty($bookingRequest->checklist->area_ue))
+                                    {{$bookingRequest->checklist->area_ue}}
+                                @else
+                                    ...
+                                @endif
+                </div>
+              </div>
+              <div class="row">
+              <div class="col">
+                <label><b>AROM:</b></label>
+                @if(!empty($bookingRequest->checklist->arom))
+                                    {{$bookingRequest->checklist->arom}}
+                                @else
+                                    ...
+                                @endif
+                </div>
+              </div>
+              <div class="row">
+              <div class="col">
+                <label><b>PROM:</b></label>
+                @if(!empty($bookingRequest->checklist->prom))
+                                    {{$bookingRequest->checklist->prom}}
+                                @else
+                                    ...
+                                @endif
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                <label><b>Massage Area:</b></label>
+                @if(!empty($bookingRequest->checklist->massage_area))
+                                    {{$bookingRequest->checklist->massage_area}}
+                                @else
+                                    ...
+                                @endif
+                </div>
+                <div class="col-sm-6">
+                <label><b>Min:</b></label>
+                @if(!empty($bookingRequest->checklist->massage_min))
+                                    {{$bookingRequest->checklist->massage_min}}
+                                @else
+                                    ...
+                                @endif
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                <label><b>Stretching Hold:</b></label>
+                @if(!empty($bookingRequest->checklist->stretching_hold))
+                                    {{$bookingRequest->checklist->stretching_hold}}
+                                @else
+                                    ...
+                                @endif
+                </div>
+                <div class="col-sm-6">
+                <label><b>Sets:</b></label>
+                @if(!empty($bookingRequest->checklist->stretching_sets))
+                                    {{$bookingRequest->checklist->stretching_sets}}
+                                @else
+                                    ...
+                                @endif
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                <label><b>ES/TENS:</b></label>
+                @if(!empty($bookingRequest->checklist->estens_area))
+                                    {{$bookingRequest->checklist->estens_area}}
+                                @else
+                                    ...
+                                @endif
+                </div>
+                <div class="col-sm-6">
+                <label><b>Min:</b></label>
+                @if(!empty($bookingRequest->checklist->estens_min))
+                                    {{$bookingRequest->checklist->estens_min}}
+                                @else
+                                    ...
+                                @endif
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                <label><b>Resistance Weight:</b></label>
+                @if(!empty($bookingRequest->checklist->resistance_weight))
+                                    {{$bookingRequest->checklist->resistance_weight}}
+                                @else
+                                    ...
+                                @endif
+                </div>
+                <div class="col-sm-6">
+                <label><b>Motion:</b></label>
+                @if(!empty($bookingRequest->checklist->resistance_motion))
+                                    {{$bookingRequest->checklist->resistance_motion}}
+                                @else
+                                    ...
+                                @endif
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                <label><b>Resistance Reps:</b></label>
+                @if(!empty($bookingRequest->checklist->resistance_reps))
+                                    {{$bookingRequest->checklist->resistance_reps}}
+                                @else
+                                    ...
+                                @endif
+                </div>
+                <div class="col-sm-6">
+                <label><b>Sets:</b></label>
+                @if(!empty($bookingRequest->checklist->resistance_sets))
+                                    {{$bookingRequest->checklist->resistance_sets}}
+                                @else
+                                    ...
+                                @endif
+                </div>
+              </div>
+              <div class="row">
+              <div class="col">
+                <label><b>Other:</b></label>
+                @if(!empty($bookingRequest->checklist->other_text))
+                                    {{$bookingRequest->checklist->other_text}}
+                                @else
+                                    ...
+                                @endif
+              </div>
+              </div>
+              <div class="row">
+                                <label class="label col-sm-4"><b>Progress Notes</b></label>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    @if(!empty($bookingRequest->progress))
+                                    <table class="table col-sm-12">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Progress</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><div class="col">{!! optional($bookingRequest->progress)->pluck('session_date')->implode('</div>') !!}</td>
+                                                <td><div class="col">{!! optional($bookingRequest->progress)->pluck('progress')->implode('</div>') !!}</td>
+                                            </tr>
+                                        </tbody>
+                                            
+                                    </table>
+                                    
+                                    @else
+                                        ...
+                                    @endif
+                                </div>
+                            </div>
             </div>
           </div>
         </div>                    
@@ -215,36 +427,53 @@
 			        </button>
       		</div>
 			@foreach($client->booking as $row)
+
+        @if(empty($row->report))
       		<div class="modal-body">
       			<LABEL>Rate <b>{{$row->therapist->fullname}}</b></LABEL>
       			
       			<div class="form-group">
 					<div class="stars">
-					  	<form action=""> 
-						    <input class="star star-5" id="star-5" type="radio" name="star" value="1" />
+              {!! Form::open(['url' => route('post.rate-session'), 'method' => 'post']) !!} 
+              {{ csrf_field() }}
+                <input type="hidden" name="booking_id" value="{{$row->id}}">
+                <input type="hidden" name="therapist_id" value="{{$row->therapist_id}}">
+                <input type="hidden" name="client_id" value="{{$row->client_id}}">
+						    <input class="star star-5" id="star-5" type="radio" name="rating" value="1" />
 						    <label class="star star-5" for="star-5"></label>
-						    <input class="star star-4" id="star-4" type="radio" name="star" value="2"/>
+						    <input class="star star-4" id="star-4" type="radio" name="rating" value="2"/>
 						    <label class="star star-4" for="star-4"></label>
-						    <input class="star star-3" id="star-3" type="radio" name="star" value="3"/>
+						    <input class="star star-3" id="star-3" type="radio" name="rating" value="3"/>
 						    <label class="star star-3" for="star-3"></label>
-						    <input class="star star-2" id="star-2" type="radio" name="star" value="4"/>
+						    <input class="star star-2" id="star-2" type="radio" name="rating" value="4"/>
 						    <label class="star star-2" for="star-2"></label>
-						    <input class="star star-1" id="star-1" type="radio" name="star" value="5"/>
+						    <input class="star star-1" id="star-1" type="radio" name="rating" value="5"/>
 						    <label class="star star-1" for="star-1"></label>
-					  	</form>
-					</div>
-      			</div>
- 
-      			
-      			<h6 font-weight-bold>Do you have any concern? Write to us!</h6>
+
+                <h6 font-weight-bold>Do you have any concern? Write to us!</h6>
 		   
-		        <div class="form-group">
-		          	<textarea type="text" placeholder="" class="md-textarea form-control" rows="4"></textarea>
-		        </div>
-    		</div>    
-	    	<div class="modal-footer d-flex justify-content-center">
-	        	<button type="Submit" class="btn btn-unique">Send Report&nbsp;&nbsp;<i class="far fa-paper-plane"></i></button>
-	    	</div>
+                <div class="form-group">
+                    <textarea  name="reports" placeholder="Add a comment/complaint here..." class="md-textarea form-control" rows="4"></textarea>
+                </div>
+
+                <div class="modal-footer d-flex justify-content-center">
+                  <button type="Submit" class="btn btn-success">Send Report&nbsp;&nbsp;<i class="far fa-paper-plane"></i></button>
+                </div>
+            {!! Form::close() !!}
+
+            @else
+
+            <div class="col-md-12">
+              <div class="card-body col-md-12">
+                Thank you for rating! Rest assured we will read what you've written.
+              </div>
+             
+            </div>
+
+            @endif
+					</div>
+      	</div>  
+	    	
 	    	@endforeach
 		</div>
 	</div>

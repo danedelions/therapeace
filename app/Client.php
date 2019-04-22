@@ -43,6 +43,16 @@ class Client extends Model
         return $this->hasMany('App\BookingRequest', 'client_id', 'user_id');
     }
 
+    public function report()
+    {
+        return $this->hasMany('App\Report', 'client_id', 'user_id');
+    }
+
+    public function progress()
+    {
+        return $this->hasMany('App\Progress', 'client_id', 'user_id');
+    }
+
     public function appointment()
     {
         return $this->hasMany('App\Appointment', 'client_id', 'user_id');

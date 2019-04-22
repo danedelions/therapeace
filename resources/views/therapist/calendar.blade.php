@@ -55,67 +55,370 @@
                 </div>
                 
                 <hr>
-                <div class="row col-md-8 offset-7">
-                        <div class="col-md-4">
-                            @if($bookingRequest->is('approved') || $bookingRequest->is('pending'))
-                            {!! Form::open(['url' => route('therapist.reject.appointment',['bookingRequest' => $bookingRequest]), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
-                                {{csrf_field()}}
-                                <button type="submit" class="btn btn-warning btn-block">Reject this appointment</button>
-                                
-                            {!! Form::close() !!}
-                            @elseif($bookingRequest->is('rejected'))
-                                <div class="alert alert-warning">
-                                    <p class="mb-0 text-center">
-                                        <i class="fa fa-notice"></i> This booking request is rejected!
-                                    </p>
-                                </div>
-                            @endif
-                        </div>
-                        <div class="col-md-4">
+                <div class="row col-md-8 offset-4">
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                       <a data-toggle="modal" data-target="#view-progress-{{ $bookingRequest->id }}"><button type="submit" class="btn btn-sm btn-info btn-block"><i class="far fa-eye"></i>&nbsp;View Progress</button> </a>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                        @if($bookingRequest->is('approved') || $bookingRequest->is('pending'))
+                        {!! Form::open(['url' => route('therapist.reject.appointment', $bookingRequest), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
+                            <button type="submit" class="btn btn-sm btn-warning btn-block"><i class="fas fa-ban"></i>&nbsp;Reject appointment</button>
+                        {!! Form::close() !!}
+                        @elseif($bookingRequest->is('rejected'))
+                            <div class="alert alert-warning">
+                                <p class="mb-0 text-center">
+                                    <i class="fa fa-notice"></i> This booking request is rejected!
+                                </p>
+                            </div>
+                        @endif
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4">
                         @if($bookingRequest->is('approved'))
-                            {!! Form::open(['url' => route('therapist.finish.appointment',['bookingRequest' => $bookingRequest]), 'method' => 'patch', 'onsubmit' => 'javascript:return confirm("Are you sure you want to end?")']) !!}
-                                <button type="submit" class="btn btn-info btn-block">Discharge</button>
-                                {{csrf_field()}}
+                            {!! Form::open(['url' => route('therapist.finish.appointment', $bookingRequest), 'method' => 'patch', 'onsubmit' => 'javascript:return confirm("Are you sure you want to end?")']) !!}
+                            <button type="submit" class="btn btn-sm btn-info btn-block"><i class="fas fa-eject"></i>&nbsp;Discharge</button>
                             {!! Form::close() !!}
                         @elseif($bookingRequest->is('finished'))
-                            <div class="alert alert-success">
-                                <p class="mb-0 text-center">
-                                    <i class="fa fa-notice"></i> This booking request is finished!
-                                </p>
-                            </div>      
+                            @if(empty($bookingRequest->checklist))
+                                <a href="{{url('/therapist-checklist/'.$bookingRequest->id)}}">
+                                <button type="submit" class="btn btn-sm btn-info btn-warning">
+                                <i class="fas fa-plus"></i>&nbsp;Fill Progress Checklist</button></a>
+                            @else
+                                <div class="alert alert-success">
+                                    <p class="mb-0 text-center">
+                                        <i class="fa fa-notice"></i> This booking request is finished!
+                                    </p>
+                                </div>
+                            
+                            @endif
+                                  
                         @endif
+                      
+                    </div>
+
+                        
                         </div>
+
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- View Modal client-->
-<div class="modal fade" id="view-modal-{{ $bookingRequest->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- View progress-->
+<div class="modal fade" id="view-progress-{{ $bookingRequest->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Wait...</h5>
+            <div class="modal-header col-sm-12 col-md-12 col-lg-12">
+                <div class="col-sm-7">
+                    <h5 class="modal-title" id="exampleModalLabel">Progress Report</h5>
+                </div>
+                <div class="col-sm-4">
+                @if($bookingRequest->is('finished'))
+
+                @else
+                    <a data-toggle="modal" data-target="#add-progress-{{ $bookingRequest->id }}">
+                    <button type="submit" class="btn btn-sm btn-success btn-block">
+                    <i class="far fa-plus-square"></i>&nbsp;Add Progress</button></a>
+                @endif
+                </div>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body" id="modalView">
-            <br>
-                <div class="col-sm-12">
-                    <center><h5>Do you want to set another appointment with this patient?</h5></center><br>
-                    <center>
-                        <a class="btn btn-danger" href="{{url('/therapist-checklist/'.$bookingRequest->id)}}">No</a>
-                        <button class="btn btn-success">Yes</button>
-                    </center>
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="row">
+                        <div class="card col-sm-12 col-md-12 col-lg-12" style="overflow: scroll; height:400px">
+                            <div class="row">
+                                <label class="label col-sm-4"><b>Chief Complaint</b></label>
+                                <div class="col-sm-8">
+                                @if(!empty($bookingRequest->checklist->chief_complaint))
+                                    {{$bookingRequest->checklist->chief_complaint}}
+                                @else
+                                    ...
+                                @endif
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="label col-sm-4"><b>Vital Signs</b></label>
+                                <div class="col-sm-8">
+                                @if(!empty($bookingRequest->checklist->vital_sign))
+                                    {{$bookingRequest->checklist->vital_sign}}
+                                @else
+                                    ...
+                                @endif
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col label"><b>BP</b></label>
+                                <div class="col">
+                                @if(!empty($bookingRequest->checklist->bp))
+                                    {{$bookingRequest->checklist->bp}}
+                                @else
+                                    ...
+                                @endif
+                                </div>
+                                <label class="col label"><b>PR</b></label>
+                                <div class="col">
+                                @if(!empty($bookingRequest->checklist->pp))
+                                    {{$bookingRequest->checklist->pp}}
+                                @else
+                                    ...
+                                @endif
+                                </div>
+                                <label class="col label"><b>RR</b></label>
+                                <div class="col">
+                                @if(!empty($bookingRequest->checklist->rr))
+                                    {{$bookingRequest->checklist->rr}}
+                                @else
+                                    ...
+                                @endif
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="label col-sm-4"><b>Assessment</b></label>
+                                <div class="col-sm-8">
+                                @if(!empty($bookingRequest->checklist->assessment))
+                                    {{$bookingRequest->checklist->assessment}}
+                                @else
+                                    ...
+                                @endif
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="label col-sm-4"><b>/P/:</b></label>
+                                <div class="col-sm-8">
+                                @if(!empty($bookingRequest->checklist->area_ue))
+                                    {{$bookingRequest->checklist->area_ue}}
+                                @else
+                                    ...
+                                @endif
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="label col-sm-4"><b>AROM</b></label>
+                                <div class="col-sm-8">
+                                @if(!empty($bookingRequest->checklist->arom))
+                                    {{$bookingRequest->checklist->arom}}
+                                @else
+                                    ...
+                                @endif
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="label col-sm-4"><b>PROM</b></label>
+                                <div class="col-sm-8">
+                                @if(!empty($bookingRequest->checklist->prom))
+                                    {{$bookingRequest->checklist->prom}}
+                                @else
+                                    ...
+                                @endif
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="label col"><b>Massage Area</b></label>
+                                <div class="col">
+                                @if(!empty($bookingRequest->checklist->massage_area))
+                                    {{$bookingRequest->checklist->massage_area}}
+                                @else
+                                    ...
+                                @endif
+                                </div>
+                                <label class="label col"><b>Min</b></label>
+                                <div class="col">
+                                @if(!empty($bookingRequest->checklist->massage_min))
+                                    {{$bookingRequest->checklist->massage_min}}
+                                @else
+                                    ...
+                                @endif
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="label col"><b>Stretching Hold</b></label>
+                                <div class="col">
+                                @if(!empty($bookingRequest->checklist->stretching_hold))
+                                    {{$bookingRequest->checklist->stretching_hold}}
+                                @else
+                                    ...
+                                @endif
+                                </div>
+                                <label class="label col"><b>Sets</b></label>
+                                <div class="col">
+                                @if(!empty($bookingRequest->checklist->stretching_sets))
+                                    {{$bookingRequest->checklist->stretching_sets}}
+                                @else
+                                    ...
+                                @endif
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="label col"><b>ES/TENS</b></label>
+                                <div class="col">
+                                @if(!empty($bookingRequest->checklist->estens_area))
+                                    {{$bookingRequest->checklist->estens_area}}
+                                @else
+                                    ...
+                                @endif
+                                </div>
+                                <label class="label col"><b>Min</b></label>
+                                <div class="col">
+                                @if(!empty($bookingRequest->checklist->estens_min))
+                                    {{$bookingRequest->checklist->estens_min}}
+                                @else
+                                    ...
+                                @endif
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="label col"><b>Resistance Weight</b></label>
+                                <div class="col">
+                                @if(!empty($bookingRequest->checklist->resistance_weight))
+                                    {{$bookingRequest->checklist->resistance_weight}}
+                                @else
+                                    ...
+                                @endif
+                                </div>
+                                <label class="label col"><b>Motion</b></label>
+                                <div class="col">
+                                @if(!empty($bookingRequest->checklist->resistance_motion))
+                                    {{$bookingRequest->checklist->resistance_motion}}
+                                @else
+                                    ...
+                                @endif
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="label col"><b>Resistance Reps</b></label>
+                                <div class="col">
+                                @if(!empty($bookingRequest->checklist->resistance_reps))
+                                    {{$bookingRequest->checklist->resistance_reps}}
+                                @else
+                                    ...
+                                @endif
+                                </div>
+                                <label class="label col"><b>Sets</b></label>
+                                <div class="col">
+                                @if(!empty($bookingRequest->checklist->resistance_sets))
+                                    {{$bookingRequest->checklist->resistance_sets}}
+                                @else
+                                    ...
+                                @endif
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="label col-sm-4"><b>Other</b></label>
+                                <div class="col-sm-8">
+                                @if(!empty($bookingRequest->checklist->other_text))
+                                    {{$bookingRequest->checklist->other_text}}
+                                @else
+                                    ...
+                                @endif
+                                </div>
+                            </div>
+
+                            <hr>
+                            <div class="row">
+                                <label class="label col-sm-4"><b>Progress Notes</b></label>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    @if(!empty($bookingRequest->progress))
+                                    <table class="table col-sm-12">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Progress</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><div class="col">{!! optional($bookingRequest->progress)->pluck('session_date')->implode('</div>') !!}</td>
+                                                <td><div class="col">{!! optional($bookingRequest->progress)->pluck('progress')->implode('</div>') !!}</td>
+                                            </tr>
+                                        </tbody>
+                                            
+                                    </table>
+                                    
+                                    @else
+                                        ...
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>                    
+            </div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+<!-- end of view modal -->
+
+<!-- Add progress-->
+<div class="modal fade" id="add-progress-{{ $bookingRequest->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header col-sm-12 col-md-12 col-lg-12">
+                <h5 class="modal-title" id="exampleModalLabel">New Progress</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+            <div class="modal-body" id="modalView">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <label>Add to {{$bookingRequest->client->fullName}}'s progress</label>
+                            {!! Form::open(['url' => route('post.store-progress'), 'method' => 'post']) !!} 
+                             {{ csrf_field() }}
+                                    <input type="hidden" name="booking_id" value="{{$bookingRequest->id}}">
+                                    <input type="hidden" name="client_id" value="{{$bookingRequest->client->user_id}}">
+                                    <input type="hidden" name="therapist_id" value="{{$bookingRequest->therapist->user_id}}">
+                            <div class="form-group col-sm-12 col-md-12 col-lg-12">
+                                <label>Progress Date:</label>
+                                <input class="form-control required" placeholder="Progress Date"  name="session_date" type="date">
+                            </div>
+                            <div class="form-group col-sm-12 col-md-12 col-lg-12">
+                                <label>New Detail:</label><br>
+                                    <textarea class="form-control" name="progress">    
+                                    </textarea>
+                            </div>
+                            <button type="submit" class="btn btn-sm btn-success btn-block pull-right"><i class="fas fa-check-square"></i>&nbsp;Done Progress</button>
+                            {!! Form::close() !!}
+                        </div>
+                    </div>
+                </div>                    
+            </div>
+            <div class="modal-footer">
+                
             </div>
         </div>
     </div>
 </div>
 <!-- end of view modal -->
 
+
+
+<!-- View License image-->
+<div class="modal fade" id="view-image-{{ $bookingRequest->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+        </div>
+      <div class="modal-body" id="modalView">
+        <br>
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="card">
+                <!-- <img src='{{ asset("storage/{$bookingRequest->bookingDetails->image['license_image']}") }}' style="width:412px;height:732px; text-align: center; "> -->
+            </div>
+        </div>                    
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of view modal -->
 <br>
 
     <div class="row">
@@ -133,15 +436,16 @@
                     @endif
                         <div class="form-row">
                             <div class="col-6">
-                                {!! Form::inputGroup('date', 'Starting', 'start_date') !!}
+                                {!! Form::inputGroup('date', 'From', 'start_date') !!}
                             </div>
                             <div class="col-6">
-                                {!! Form::inputGroup('time', '&nbsp;', 'start_date_time') !!}
+                                {!! Form::inputGroup('date', 'To', 'end_date') !!}
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-6">
-                                {!! Form::inputGroup('date', 'Until', 'end_date') !!}
+                                
+                                {!! Form::inputGroup('time', '&nbsp;', 'start_date_time') !!}
                             </div>
                             <div class="col-6">
                                 {!! Form::inputGroup('time', '&nbsp;', 'end_date_time') !!}

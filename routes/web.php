@@ -56,9 +56,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/therapist-edit/{id}', 'TherapistController@edit');
     Route::patch('/therapist-update/{id}', 'TherapistController@update')->name('therapist.update');
     Route::patch('/therapist-account/{booking}', 'BookingController@approveRequest')->name('therapist.accept');
-    Route::get('/therapist-checklist/{id}', 'TherapistController@viewChecklist')->name('therapist.checklist');
+    Route::get('/therapist-checklist/{bookingRequest}', 'ChecklistController@viewChecklist')->name('get.therapist.checklist');
     Route::get('therapist-calendar/{bookingRequest}', 'TherapistCalander')->name('therapist.calendar');
+    Route::resource('checklist', 'ChecklistController');
     
+    Route::post('/giveProgress', 'ProgressController@storeProgress')->name('post.store-progress');
+
     Route::post('therapist-calendar/{bookingRequest}',
         'TherapistCalander@saveAppointment')->name('therapist.book.appointment');
 
@@ -80,6 +83,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/client-message', 'ClientController@clientMessage')->name('get.client-message');
     Route::get('/client-search/', 'ClientController@search')->name('get.client-search');
     Route::get('/client-view/{id}', 'ClientController@getView')->name('get.client-view');
+    Route::post('/rateSession', 'ReportsController@storeRating')->name('post.rate-session');
 
     //TRANSACTION
     // Route::get('/client-transaction', 'TransactionController@clientTrans');
