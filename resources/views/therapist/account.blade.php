@@ -84,7 +84,7 @@
                             <tbody>
                                 @forelse($therapist->bookingRequest as $request)
                                 <tr>
-                                    <td>{{ $request->client->fullname }}</td>
+                                    <td>{{ $request->client->fullName }}</td>
                                     <td>{{ $request->bookingDetails->diagnosis }} </td>
                                     <td>
                                         @if($request->status == 0)

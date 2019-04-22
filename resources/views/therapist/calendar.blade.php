@@ -139,12 +139,12 @@
                                 {!! Form::inputGroup('date', 'Starting', 'start_date') !!}
                             </div>
                             <div class="col-6">
-                                {!! Form::inputGroup('time', '&nbsp;', 'start_date_time') !!}
+                                {!! Form::inputGroup('date', 'Until', 'end_date') !!}
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-6">
-                                {!! Form::inputGroup('date', 'Until', 'end_date') !!}
+                                {!! Form::inputGroup('time', '&nbsp;', 'start_date_time') !!}
                             </div>
                             <div class="col-6">
                                 {!! Form::inputGroup('time', '&nbsp;', 'end_date_time') !!}

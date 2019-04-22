@@ -109,8 +109,9 @@ class TherapistController extends Controller
      */
     public function update(TherapistRequest $request, $id)
     {
-        $therapist = Therapist::find($id);
-        
+        $therapist = Therapist::findOrFail($id);
+        $therapist->update($request->all());
+
         $specialties = collect($request->specialties);
         if($specialties->isNotEmpty()){
              $ids = $specialties->map(function ($item) {
@@ -125,6 +126,9 @@ class TherapistController extends Controller
 
         // dd($request);
 
+        $users = User::where('username', $request['username'])->first();
+
+
         if (isset($request['license_image'])) {
             $request['license_image'] = request()->file('license_image')->store('image', 'public');
         }
@@ -133,10 +137,19 @@ class TherapistController extends Controller
             $image = request()->file('image')->move("pictures/{$users[0]['username']}", 'public');
         }
 
-        $users = User::where('username', $request['username'])->first();
-
+        // if ($request->hasFile('image'))
+        //     {
+        //         $file = $request->file('image');
+        //         $name = $file->getClientOriginalName();
+        //         $data->image = $name;
+        //         $file->move(public_path()."/pictures/{$users[0]['username']}", $name);   
+        //         $data->save();                  
+        //     }   
+     
         
         $therapist->fill($request)->save();
+
+        // var_dump($request->hasFile('image'));
 
         User::where('id', Auth::id())->update(['username' => $request['username'], 'email' => $request['email']]);
 

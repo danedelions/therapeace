@@ -49,104 +49,77 @@
       </div>
 
       <div class="card-body" style="overflow: scroll; height: 200px;">
-            {!! Form::open(['url' => url()->current(), 'method' => 'get']) !!} 
+        {!! Form::open(['url' => url()->current(), 'method' => 'get']) !!} 
           <div class="row">
-                 <div class="col-md-4">
-                     {!! Form::inputGroup('text', null, 'name', request()->name ?? null, ['placeholder' => 'Therapist Name']) !!}
-                 </div>
-                 <div class="col-md-4">
-                     {!! Form::selectGroup(null, 'status', ['' => 'Select Status', '0' => 'Pending', '1' => 'Approved', '2' => 'Rejected', '3' => 'Finished', '4' => 'Cancelled'], request()->status ?? null, ['class' => 'form-control']) !!}
-                 </div>
-                 <div class="col-md-4">
-                   <button type="submit" class="btn btn-info pull-right"><i class="ti-search"></i> Search</button>
-                 </div>
-              </div>
-            {!! Form::close() !!}
+             <div class="col-md-4">
+                 {!! Form::inputGroup('text', null, 'name', request()->name ?? null, ['placeholder' => 'Therapist Name']) !!}
+             </div>
+             <div class="col-md-4">
+                 {!! Form::selectGroup(null, 'status', ['' => 'Select Status', '0' => 'Pending', '1' => 'Approved', '2' => 'Rejected', '3' => 'Finished', '4' => 'Cancelled'], request()->status ?? null, ['class' => 'form-control']) !!}
+             </div>
+             <div class="col-md-4">
+               <button type="submit" class="btn btn-info pull-right"><i class="ti-search"></i> Search</button>
+             </div>
+          </div>
+        {!! Form::close() !!}
           
-      <table class="table table-default">
-        <thead>
-          <tr>
-            <th>Therapist Name</th>
-            <th>Your diagnosis</th>
-            <th>Status</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          @forelse($client->booking as $row)
-          <tr>
-            <td><b>{{ $row->therapist->fullname }}</b></td>
-            <td>{{ $row->bookingDetails->diagnosis }}</td>
-            <td>
-                            @if($row->status == 0)
-                                <span class="badge badge-secondary">Pending</span>  
-                            @elseif($row->status == 1)
-                                <span class="badge badge-success">Approved</span>  
-                            @elseif($row->status == 2)
-                            <span class="badge badge-danger">Rejected</span>
-                            @elseif($row->status == 3)
-                            <span class="badge badge-primary">Finished</span>  
-                              @elseif($row->status == 4)
-                            <span class="badge badge-default">Cancelled</span> 
-                            @endif
-                        </td>
-            <td>
-              @if($row->status == 1)
-              <div class="dropdown">
-                <button class="btn btn-sm btn-info dropdown-toggle" data-id="{{ $row['id'] }}"
-                        type="button" id="dropdownMenu1" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                  Actons
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <a class="dropdown-item" style="color:green;"href="{{url('/client-view/'.$row->id)}}"><i class="far fa-eye" style="color:green;"></i>&nbspView</a>
-                  <a class="dropdown-item" style="color:red;"><i class="fas fa-ban" style="color:red;"></i>
-                  &nbspCancel
-                  </a>
-                </div>
-              </div>
-
-              @else
-
-              <button class="btn btn-sm btn-outline-danger">Cancel</button>
-
-              @endif
-            </td>
-          </tr>
-          @empty
-          <tr>
-            <td colspan="4" class="text-center">No requests</td>
-          </tr>
-          @endforelse
-        </tbody>
-      </table>
+        <table class="table table-default">
+          <thead>
+            <tr>
+              <th>Therapist Name</th>
+              <th>Your diagnosis</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            @forelse($client->booking as $row)
+            <tr>
+              <td><b>{{ $row->therapist->fullName }}</b></td>
+              <td>{{ $row->bookingDetails->diagnosis }}</td>
+              <td>
+                  @if($row->status == 0)
+                      <span class="badge badge-secondary">Pending</span>  
+                  @elseif($row->status == 1)
+                      <span class="badge badge-success">Approved</span>  
+                  @elseif($row->status == 2)
+                  <span class="badge badge-danger">Rejected</span>
+                  @elseif($row->status == 3)
+                  <span class="badge badge-primary">Finished</span>  
+                    @elseif($row->status == 4)
+                  <span class="badge badge-default">Cancelled</span> 
+                  @endif
+              </td>
+              <td>
+                @if($row->status == 1)
+                  <div class="dropdown">
+                    <button class="btn btn-sm btn-info dropdown-toggle" data-id="{{ $row['id'] }}"
+                            type="button" id="dropdownMenu1" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                      Actons
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                      <a class="dropdown-item" style="color:green;"href="{{url('/client-view/'.$row->id)}}"><i class="far fa-eye" style="color:green;"></i>&nbspView</a>
+                      <a class="dropdown-item" style="color:red;"><i class="fas fa-ban" style="color:red;"></i>
+                      &nbspCancel
+                      </a>
+                    </div>
+                  </div>
+                  @else
+                  
+                  <button class="btn btn-sm btn-outline-danger">Cancel</button>
+                @endif
+              </td>
+            </tr>
+            @empty
+            <tr>
+              <td colspan="4" class="text-center">No requests</td>
+            </tr>
+            @endforelse
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
-
-              @elseif($row->status == 0)
-								{!! Form::open(['url' => route('therapist.cancel.appointment', $row->id), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
-              		<button class="btn btn-sm btn-outline-danger">Cancel</button>
-									{!! Form::close() !!}
-							@elseif($row->status == 3)
-								<a href="{{url('/client-view/'.$row->id)}}"><button class="btn btn-sm btn-outline-info">View</button></a>
-							
-							@elseif($row->status == 4)
-
-							
-
-              @endif
-            </td>
-          </tr>
-          @empty
-          <tr>
-            <td colspan="4" class="text-center">No requests</td>
-          </tr>
-          @endforelse
-        </tbody>
-      </table>
-    </div>
-  </div>
-
 
     <br>
 
@@ -170,13 +143,12 @@
             @foreach($client->booking as $row)
             <tr>
               <td><b>{{$row->therapist->fullName}}</b></td>
-<<<<<<< HEAD
+
               <td>{{$row->diagnosis}}</td>
-              <td>{{$row->diagnosis}}</td>
-=======
+
               <td>{{$row->appointment->durationDate}}</td>
               <td>{{$row->bookingDetails->diagnosis}}</td>
->>>>>>> 1c6369f48225642c38bb5eed32e60c52ef3812ad
+
               <td>
                 <div class="dropdown">
                   <button class="btn btn-sm btn-info dropdown-toggle" data-id="{{ $row['id'] }}"
@@ -185,11 +157,9 @@
                     Actons
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-<<<<<<< HEAD
+
                     <a class="dropdown-item" data-toggle="modal" data-target="#viewModal">&nbsp<i class="fas fa-info"></i>&nbsp;&nbsp;Info</a>
-=======
-                    <a class="dropdown-item" data-toggle="modal" data-target="#viewModal" >&nbsp<i class="fas fa-info"></i>&nbsp;&nbsp;Info</a>
->>>>>>> 1c6369f48225642c38bb5eed32e60c52ef3812ad
+
                     <a class="dropdown-item" data-toggle="modal" data-target="#view-modal"><i class="fas fa-sticky-note"></i>&nbsp;&nbsp;Notes</a>
                   </div>
                 </div>
@@ -234,7 +204,6 @@
 <!-- START OF MODAL -->
 <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
-<<<<<<< HEAD
     <div class="modal-dialog" role="document">
       <div class="modal-content">
           <div class="modal-header bg-info">
@@ -276,7 +245,7 @@
         @endforeach
     </div>
   </div>
-=======
+
   	<div class="modal-dialog" role="document">
     	<div class="modal-content">
       		<div class="modal-header bg-info">
@@ -319,7 +288,7 @@
 	    	@endforeach
 		</div>
 	</div>
->>>>>>> 1c6369f48225642c38bb5eed32e60c52ef3812ad
+
 </div>
 <!-- END OF MODAL -->
 @endsection

@@ -11,6 +11,7 @@ use App\Client;
 use App\Therapist;
 use App\User;
 use App\Admin;
+use App\BookingRequest;
 use Mail;
 use Auth;
 use DB;
@@ -54,9 +55,8 @@ class AdminController extends Controller
     public function getPendingView(Request $request)
     {
         $query = User::query();
-        $query2 = Therapist::query();
 
-        $this->beforeIndex($query,$query2);
+        $this->beforeIndex($query);
 
         $users = $query->where('status',2)->paginate(7);
 
@@ -65,12 +65,18 @@ class AdminController extends Controller
 
     public function getHistoryView()
     {
-    	return view('admin.history');
+        $bookrequest = BookingRequest::where('status',3)->paginate(7);
+
+        // $users = $query->where([['status', '!=', '1'],['status', '!=', '2'], ['user_type', '!=', 'admin']])->paginate(7);
+
+    	return view('admin.history', compact('bookrequest'));
     }
 
     public function getReportsView()
-    {
-    	return view('admin.reports');
+    {   
+        $bookrequest = BookingRequest::where('status',3)->paginate(7);
+
+    	return view('admin.reports', compact('bookrequest'));
     }
 
     public function notice(Request $request, $id)
