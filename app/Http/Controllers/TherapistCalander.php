@@ -43,12 +43,12 @@ class TherapistCalander extends Controller
     public function saveAppointment(Request $request, BookingRequest $bookingRequest)
     {
         $validator = \Validator::make($request->all(), [
-            'start_date'         => 'required|date|after:yesterday',
-            'end_date'           => 'required|date|after_or_equal:start_date',
-            'start_date_time'    => 'required|date_format:H:i',
-            'end_date_time'      => 'required|date_format:H:i',
-            'other_services'     => 'sometimes|nullable|string',
-            'other_services_fee' => 'sometimes|nullable|numeric',
+            'start_date.*'         => 'required|date|after:yesterday',
+            'end_date.*'           => 'required|date|after_or_equal:start_date',
+            'start_date_time.*'    => 'required|date_format:H:i',
+            'end_date_time.*'      => 'required|date_format:H:i',
+            'other_services.*'     => 'sometimes|nullable|string',
+            'other_services_fee.*' => 'sometimes|nullable|numeric',
         ]);
 
         $bookingRequest->load('appointment');
@@ -58,24 +58,50 @@ class TherapistCalander extends Controller
 
         $validator->after(function ($v) use ($request, $bookingRequest) {
             if ($v->errors()) {
-                $startDateTime = Carbon::parse("{$request->start_date} {$request->start_date_time}");
-                $endDateTime   = Carbon::parse("{$request->end_date} {$request->end_date_time}");
 
+                $request = $request->all();
+                $input = array();
+
+                foreach($request['start_date'] as $key => $startDate){
+                    foreach($request['start_date_time'] as $key => $startDateTime){
+
+                        $input[$key]['start_date'] = $startDate;
+                        $input[$key]['start_date_time'] = $startDateTime;
+
+                        $startDateTimeDuration = Carbon::parse("{$startDate} {$startDateTime}");
+                    }
+                }
+
+                
+
+                foreach($request['end_date_time'] as $key => $endDateTime){
+                    foreach($request['end_date'] as $key => $endDate){
+                        $input[$key]['end_date'] = $endDate;
+                        $input[$key]['end_date_time'] = $endDateTime;
+
+                        $endDateTimeDuration = Carbon::parse("{$endDate} {$endDateTime}");
+                    }
+                    
+                }
+
+                
+                    
+                
                 /** @NOTE: lte => Less than or equal */
-                if ($endDateTime->lte($startDateTime)) {
+                if ($endDateTimeDuration->lte($startDateTimeDuration)) {
                     $v->errors()->add('end_date_time', 'This should be after start date and time');
 
                     return;
-                }
+                 }
 
                 $conflicts = data_get(Auth::user(), 'therapist.approvedAppointments')
-                    ->filter(function ($existingAppointment) use ($startDateTime, $bookingRequest) {
+                    ->filter(function ($existingAppointment) use ($startDateTimeDuration, $bookingRequest) {
                         // ignore the same appointments
                         if(optional($bookingRequest->appointment)->id === $existingAppointment->id){
                             return false;
                         }
 
-                        return $startDateTime->between($existingAppointment->start_timestamp, $existingAppointment->end_timestamp);
+                        return $startDateTimeDuration->between($existingAppointment->start_timestamp, $existingAppointment->end_timestamp);
                     });
 
                 if($conflicts->isNotEmpty()){
