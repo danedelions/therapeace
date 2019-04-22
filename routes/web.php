@@ -28,11 +28,6 @@ Route::resource('client', 'ClientController');
 
 Route::group(['middleware' => 'auth'], function () {
     // ADMIN
-<<<<<<< HEAD
-    Route::get('/admin-dashboard', 'AdminController@getDashboard')->name('get.dashboard');
-    Route::get('/admin-login', 'AdminController@login')->name('get.login');
-=======
->>>>>>> 1561b589c174871de5e6e6ea44f5827fcc2a5d21
     Route::get('/admin-user', 'AdminController@getUserView')->name('get.view');
     Route::get('/admin-pending', 'AdminController@getPendingView')->name('get.pending');
     Route::get('/admin-history', 'AdminController@getHistoryView')->name('get.history');
@@ -67,7 +62,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('doReject/{bookingRequest}',
         'TherapistCalander@rejectAppointment')->name('therapist.reject.appointment');
     
-    Route::patch('therapist-calendar/{bookingRequest}', 
+    Route::patch('doFinish/{bookingRequest}', 
         'TherapistCalander@finishedAppointment')->name('therapist.finish.appointment');
         
     Route::delete('doCancel/{bookingRequest}', 
