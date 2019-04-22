@@ -83,7 +83,7 @@ class TherapistController extends Controller
                 'nbi_image'      => $nbi_image,
                 'bc_image'       => $bc_image,
                 'user_bio'       => $request->post('user_bio'),
-                'personal_rate'  => 000.00
+                'personal_rate'  => 500.00
 
             ]);
         });
@@ -109,34 +109,33 @@ class TherapistController extends Controller
      */
     public function update(TherapistRequest $request, $id)
     {
-        $therapist   = Therapist::find($id)->load('user');
+        $therapist = Therapist::find($id);
+        
         $specialties = collect($request->specialties);
-        if ($specialties->isNotEmpty()) {
-            $ids = $specialties->map(function ($item) {
+        if($specialties->isNotEmpty()){
+             $ids = $specialties->map(function ($item) {
                 $specialty = Specialty::firstOrCreate(['name' => $item]);
-
                 return $specialty->id;
             });
             $therapist->specialties()->sync($ids);
         }
+
+
         $request = $request->validated();
 
         // dd($request);
 
-        if (isset($request['image'])) {
-            $request['image'] = request()->file('image')->store('image', 'public');
-        }
         if (isset($request['license_image'])) {
             $request['license_image'] = request()->file('license_image')->store('image', 'public');
         }
-        $therapist->fill($request)->save();
-        User::where('id', Auth::id())->update(['username' => $request['username'], 'email' => $request['email']]);
-
-        $users = User::where('username', $request['username'])->first();
 
         if (isset($request['image'])) {
             $image = request()->file('image')->move("pictures/{$users[0]['username']}", 'public');
         }
+
+        $users = User::where('username', $request['username'])->first();
+
+        
         $therapist->fill($request)->save();
 
         User::where('id', Auth::id())->update(['username' => $request['username'], 'email' => $request['email']]);

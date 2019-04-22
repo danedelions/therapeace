@@ -9,18 +9,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-    Route::view('/faqs', 'faqs')->name('faqs');
     
     Route::group(['middleware' => 'guest'], function () {
 
-    Route::get('/', function () {
+        Route::get('/', function () {
 
-        return view('welcome');
+            return view('welcome');
+        });
+        Route::view('/faqs', 'faqs')->name('faqs');
+        Route::get('/login', 'LoginController@view')->name('login');
+        Route::post('doLogin', 'LoginController@doLogin')->name('post:login');
     });
-
-    Route::get('/login', 'LoginController@view')->name('login');
-    Route::post('doLogin', 'LoginController@doLogin')->name('post:login');
-});
 
 Route::get('/logout', 'LoginController@Logout');
 Route::resource('therapist', 'TherapistController');
@@ -28,6 +27,7 @@ Route::resource('client', 'ClientController');
 
 Route::group(['middleware' => 'auth'], function () {
     // ADMIN
+
     Route::get('/admin-user', 'AdminController@getUserView')->name('get.view');
     Route::get('/admin-pending', 'AdminController@getPendingView')->name('get.pending');
     Route::get('/admin-history', 'AdminController@getHistoryView')->name('get.history');
@@ -62,7 +62,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('doReject/{bookingRequest}',
         'TherapistCalander@rejectAppointment')->name('therapist.reject.appointment');
     
-    Route::patch('therapist-calendar/{bookingRequest}', 
+    Route::patch('doFinish/{bookingRequest}', 
         'TherapistCalander@finishedAppointment')->name('therapist.finish.appointment');
         
     Route::delete('doCancel/{bookingRequest}', 

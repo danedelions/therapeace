@@ -1,13 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\BookingRequest;
 use Illuminate\Http\Request;
 use App\Appointment;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
-
 class TherapistCalander extends Controller
 {
     public function __invoke(Request $request, BookingRequest $bookingRequest)
@@ -17,7 +14,6 @@ class TherapistCalander extends Controller
             'bookingDetails',
             'appointment'
         ]);
-
         Auth::user()->load([
             'therapist.appointments' => function ($q) {
                 $q->with(['booking', 'client'])->whereHas('booking', function ($booking) {
@@ -25,7 +21,6 @@ class TherapistCalander extends Controller
                 });
             }
         ]);
-
         $events = Auth::user()->therapist->appointments->map(function ($item) {
             return [
                 'title' => $item->booking->client->full_name,
@@ -33,13 +28,11 @@ class TherapistCalander extends Controller
                 'end'   => "{$item->end_date} {$item->end_date_time}"
             ];
         });
-
         return view('therapist.calendar', [
             'bookingRequest' => $bookingRequest,
             'events'         => $events
         ]);
     }
-
     public function saveAppointment(Request $request, BookingRequest $bookingRequest)
     {
         $validator = \Validator::make($request->all(), [
@@ -50,34 +43,27 @@ class TherapistCalander extends Controller
             'other_services'     => 'sometimes|nullable|string',
             'other_services_fee' => 'sometimes|nullable|numeric',
         ]);
-
         $bookingRequest->load('appointment');
         Auth::user()->load([
             'therapist.appointments'
         ]);
-
         $validator->after(function ($v) use ($request, $bookingRequest) {
             if ($v->errors()) {
                 $startDateTime = Carbon::parse("{$request->start_date} {$request->start_date_time}");
                 $endDateTime   = Carbon::parse("{$request->end_date} {$request->end_date_time}");
-
                 /** @NOTE: lte => Less than or equal */
                 if ($endDateTime->lte($startDateTime)) {
                     $v->errors()->add('end_date_time', 'This should be after start date and time');
-
                     return;
                 }
-
                 $conflicts = data_get(Auth::user(), 'therapist.approvedAppointments')
                     ->filter(function ($existingAppointment) use ($startDateTime, $bookingRequest) {
                         // ignore the same appointments
                         if(optional($bookingRequest->appointment)->id === $existingAppointment->id){
                             return false;
                         }
-
                         return $startDateTime->between($existingAppointment->start_timestamp, $existingAppointment->end_timestamp);
                     });
-
                 if($conflicts->isNotEmpty()){
                     $v->errors()->add('start_date', 'Conflict');
                     $v->errors()->add('end_date', 'Conflict');
@@ -86,15 +72,12 @@ class TherapistCalander extends Controller
                 }
             }
         });
-
         $input = $validator->validate();
-
         $appointment = array_merge(
             $input,
             $bookingRequest->only(['client_id', 'therapist_id']),
             ['name' => '-', 'address' => '-']
         );
-
         \DB::transaction(function () use ($bookingRequest, $appointment) {
             if ($bookingRequest->appointment()->exists()) {
                 $bookingRequest->appointment()->update($appointment);
@@ -103,30 +86,21 @@ class TherapistCalander extends Controller
                 $bookingRequest->appointment()->create($appointment);
             }
         });
-
         return redirect()->back()->with('message', 'Booking successful');
     }
-
     public function rejectAppointment(Request $request, BookingRequest $bookingRequest)
     {
         $bookingRequest->reject();
-
         return redirect()->back()->with('rejectStatus', true);
     }
-
     public function finishedAppointment(Request $request, BookingRequest $bookingRequest)
     {
-
         $bookingRequest->finish();
-
         return redirect()->back()->with('finishStatus', true);
     }
-
     public function cancelAppointment(Request $request, BookingRequest $bookingRequest)
     {
-
         $bookingRequest->cancel();
-
         return redirect()->back()->with('cancelStatus', true);
     }
 }
