@@ -45,13 +45,18 @@ class TherapistController extends Controller
                 'user_type' => 'therapist',
                 'status'    => 2,
             ]);
-            $users         = User::where('username', $request->post('username'))->get();
-            $image         = $request->file('image')->store(
-                "pictures/{$users[0]['username']}",
+            $users = User::where('username', $request->post('username'))->get();
+    
+            $image = $request->file('image')->store(
+                "profilepic/{$users[0]['username']}",
                 'public'
             );
-            $license_image = $request->file('license_image')->store(
-                "pictures/{$users[0]['username']}",
+            $licenseimage_front = $request->file('licenseimage_front')->store(
+                "licensepicture/front/{$users[0]['username']}",
+                'public'
+            );
+             $licenseimage_back = $request->file('licenseimage_back')->store(
+                "licensepicture/back/{$users[0]['username']}",
                 'public'
             );
             $nbi_image     = $request->file('nbi_image')->store(
@@ -79,7 +84,8 @@ class TherapistController extends Controller
                 'therapist'      => $request->post('therapist'),
                 'license_number' => $request->post('license_number'),
                 'expiry_date'    => $request->post('expiry_date'),
-                'license_image'  => $license_image,
+                'licenseimage_front'  => $licenseimage_front,
+                'licenseimage_back'  => $licenseimage_back,
                 'nbi_image'      => $nbi_image,
                 'bc_image'       => $bc_image,
                 'user_bio'       => $request->post('user_bio'),
@@ -89,7 +95,7 @@ class TherapistController extends Controller
         });
 
         // $this->getData();
-        return view('login');
+        return view('/login');
     }
 
     public function edit($userId)
@@ -109,34 +115,48 @@ class TherapistController extends Controller
      */
     public function update(TherapistRequest $request, $id)
     {
-        $therapist   = Therapist::find($id)->load('user');
+        $therapist = Therapist::find($id);
+        
         $specialties = collect($request->specialties);
-        if ($specialties->isNotEmpty()) {
-            $ids = $specialties->map(function ($item) {
+        if($specialties->isNotEmpty()){
+             $ids = $specialties->map(function ($item) {
                 $specialty = Specialty::firstOrCreate(['name' => $item]);
-
                 return $specialty->id;
             });
             $therapist->specialties()->sync($ids);
         }
+
+
         $request = $request->validated();
 
-        // dd($request);
+        //dd($request);
+        $users = User::where('username', $request['username'])->first();
 
+<<<<<<< HEAD
         if (isset($request['image'])) {
-            $request['image'] = request()->file('image')->store('image', 'public');
+            $image = request()->file('image')->move("profilepic/{$users[0]['username']}", 'public');
         }
-        if (isset($request['license_image'])) {
-            $request['license_image'] = request()->file('license_image')->store('image', 'public');
+        if (isset($request['licenseimage_front'])) {
+            $request['licenseimage_front'] = request()->file('licenseimage_front')->store("licensepicture/front/{$users[0]['username']}", 'public');
+        }
+        if (isset($request['licenseimage_back'])) {
+            $request['licenseimage_back'] = request()->file('licenseimage_back')->store("licensepicture/back/{$users[0]['username']}", 'public');
         }
         $therapist->fill($request)->save();
         User::where('id', Auth::id())->update(['username' => $request['username'], 'email' => $request['email']]);
-
-        $users = User::where('username', $request['username'])->first();
+=======
+        if (isset($request['license_image'])) {
+            $request['license_image'] = request()->file('license_image')->store('image', 'public');
+        }
 
         if (isset($request['image'])) {
             $image = request()->file('image')->move("pictures/{$users[0]['username']}", 'public');
         }
+
+        $users = User::where('username', $request['username'])->first();
+>>>>>>> d3f9e8875f6dc17210fac2a59f8b275417cb1fd2
+
+        
         $therapist->fill($request)->save();
 
         User::where('id', Auth::id())->update(['username' => $request['username'], 'email' => $request['email']]);

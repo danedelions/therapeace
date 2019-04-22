@@ -25,6 +25,8 @@ class LoginController extends Controller
                     $q->where([['status', '!=', '1'],['status', '!=', '2']]);
                 })
             ],
+
+
             'password' => 'required',
         ], [
             'username.exists' => 'Username does not exist or is not yet accepted.'
@@ -41,7 +43,7 @@ class LoginController extends Controller
             if(Auth::user()->user_type === 'therapist'){
                 // view('therapist');
                 if(Auth::user()->status === 2){
-                    return redirect('get.therapist.pending');
+                    return redirect()->back();
 
                 }else if (Auth::user()->status === 0) {
                     return redirect(route('get.therapist-account'));

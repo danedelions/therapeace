@@ -9,18 +9,20 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-    Route::view('/faqs', 'faqs')->name('faqs');
     
     Route::group(['middleware' => 'guest'], function () {
 
-    Route::get('/', function () {
-
-        return view('welcome');
-    });
-
     Route::get('/login', 'LoginController@view')->name('login');
     Route::post('doLogin', 'LoginController@doLogin')->name('post:login');
-});
+    Route::get('/', function () {
+
+            return view('welcome');
+        });
+        Route::view('/faqs', 'faqs')->name('faqs');
+        Route::get('/login', 'LoginController@view')->name('login');
+        Route::post('doLogin', 'LoginController@doLogin')->name('post:login');
+    });
+
 
     Route::get('/logout', 'LoginController@Logout');
     Route::resource('therapist', 'TherapistController');
@@ -89,6 +91,8 @@
     Route::post('/doBookTherapist/', 'BookingController@submitDetails')->name('post.doBook');
 
     // REPORT
+
+
 
 });
 
