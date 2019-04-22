@@ -65,107 +65,123 @@
                       </div>
                     </div>
 
-                    <!-- View Modal therapist-->
-                            <div class="modal fade" id="view-modal-{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                              <div class="modal-dialog" role="document" style="overflow-y: scroll; max-height:85%;  margin-top: 50px; margin-bottom:50px;">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">User Information</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                    </button>
+              <!-- View Modal therapist-->
+                      <div class="modal fade" id="view-modal-{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document" style="overflow-y: scroll; max-height:85%;  margin-top: 50px; margin-bottom:50px;">
+                          <div class="modal-content">
+                            <div class="modal-header bg-info">
+                              <h5 class="modal-title" id="exampleModalLabel">User Information</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body" id="modalView">
+                              <div class="card">
+                                <div class="card-body">
+                                  <center><label>Profile</label></center><br>
+                                  <center><img src='{{ asset("storage/{$user->therapist['image']}") }}' style="width:150px;height:250px;"><br></center>
+                                  <label>Name : </label> {{ $user->therapist->fullName }}<br>
+                                  <label>Therapist: </label> {{ $user->therapist->therapist }}<br>
+                                  <label>Gender:</label> {{ $user->therapist->gender }}<br>
+                                  <label>Licence Number: </label> {{ $user->therapist->license_number }}<br>
+                                  <label>Expiry Date: </label> {{ $user->therapist->expiry_date }}<br>
+                                  <hr>
+                                  <center><label>Home Address</label></center>
+                                  <label>Barangay:</label> {{ $user->therapist->barangay }}<br>
+                                  <label>Street:</label> {{ $user->therapist->streetaddress }}<br>
+                                  <label>City:</label> {{ $user->therapist->city }}<br>
+                                  <label>Province:</label> {{ $user->therapist->province }}<br>
+                                  <label>Postal Code:</label> {{ $user->therapist->postal_code }} <br>
+                                  <hr>
+                                  <center><label>Legal Documents</label></center>
+                                  <div class="col-sm-12" style="overflow: auto; white-space: nowrap;">
+                                    <center>
+                                    <a data-toggle="modal" data-target="#view-modalFLis-{{ $user->id }}"><button class="btb btn-sm btn-info" data-id="{{ $user['id'] }}" type="button"><i class="far fa-eye"></i>&nbsp;Front License</button></a>
+
+                                    <a data-toggle="modal" data-target="#view-modalBLis-{{ $user->id }}"><button class="btb btn-sm btn-info" data-id="{{ $user['id'] }}" type="button"><i class="far fa-eye"></i>&nbsp;Back License</button></a>
+
+                                    <a data-toggle="modal" data-target="#view-modalNbi-{{ $user->id }}"><button class="btb btn-sm btn-info" data-id="{{ $user['id'] }}" type="button"><i class="far fa-eye"></i>&nbspView NBI</button></a>
+
+                                    <a data-toggle="modal" data-target="#view-modalBC-{{ $user->id }}"><button class="btb btn-sm btn-info" data-id="{{ $user['id'] }}" type="button"><i class="far fa-eye"></i>&nbspView BgryClr</button></a>
+                                    </center>
                                   </div>
-                                  <div class="modal-body" id="modalView">
-                                    <div class="col-sm-12">
-                                      <center><label>Profile</label></center><br>
-                                      <center><img src='{{ asset("storage/{$user->therapist['image']}") }}' style="width:150px;height:250px;"><br></center>
-                                      <label>Name : </label> {{ $user->therapist->fullName }}<br>
-                                      <label>Therapist: </label> {{ $user->therapist->therapist }}<br>
-                                      <label>Gender:</label> {{ $user->therapist->gender }}<br>
-                                      <label>Licence Number: </label> {{ $user->therapist->license_number }}<br>
-                                      <label>Expiry Date: </label> {{ $user->therapist->expiry_date }}<br>
-                                    </div>
-                                    <br>
-                                    <div class="col-sm-12" >
-                                        <div class="card">
-                                            <div class="card-body">
-                                              <center><label>Home Address</label></center>
-                                              <label>Barangay:</label> {{ $user->therapist->barangay }}<br>
-                                              <label>Street:</label> {{ $user->therapist->streetaddress }}<br>
-                                              <label>City:</label> {{ $user->therapist->city }}<br>
-                                              <label>Province:</label> {{ $user->therapist->province }}<br>
-                                              <label>Postal Code:</label> {{ $user->therapist->postal_code }} <br>
-                                              <center><label>Legal Documents</label></center>
-                                              <div class="col-sm-12" style="overflow: auto; white-space: nowrap;">
-                                                <center>
-                                                <a data-toggle="modal" data-target="#view-modalLis-{{ $user->id }}"><button class="btb btn-sm btn-info" data-id="{{ $user['id'] }}" type="button"><i class="far fa-eye"></i>&nbspView License</button></a>
 
-                                                <a data-toggle="modal" data-target="#view-modalNbi-{{ $user->id }}"><button class="btb btn-sm btn-info" data-id="{{ $user['id'] }}" type="button"><i class="far fa-eye"></i>&nbspView NBI</button></a>
-
-                                                <a data-toggle="modal" data-target="#view-modalBC-{{ $user->id }}"><button class="btb btn-sm btn-info" data-id="{{ $user['id'] }}" type="button"><i class="far fa-eye"></i>&nbspView Bgry Clearance</button></a>
-                                                </center>
-
+                                  <!-- View Front License image-->
+                                  <div class="modal fade" id="view-modalFLis-{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-body" id="modalView">
+                                          <br>
+                                          <div class="col-sm-12 col-md-12 col-lg-12">
+                                              <div class="card">
+                                                  <img src='{{ asset("storage/{$user->therapist['license_image']}") }}' style="width:412px;height:732px; text-align: center; ">
                                               </div>
-
-                                              <!-- View License image-->
-                                              <div class="modal fade" id="view-modalLis-{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                  <div class="modal-content">
-                                                    <div class="modal-body" id="modalView">
-                                                      <br>
-                                                      <div class="col-sm-12 col-md-12 col-lg-12">
-                                                          <div class="card">
-                                                              <img src='{{ asset("storage/{$user->therapist['license_image']}") }}' style="width:412px;height:732px; text-align: center; ">
-                                                          </div>
-                                                      </div>                    
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                              <!-- end of view modal -->
-
-                                              <!-- View nbi image-->
-                                              <div class="modal fade" id="view-modalNbi-{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                  <div class="modal-content">
-                                                    <div class="modal-body" id="modalView">
-                                                      <br>
-                                                      <div class="col-sm-12 col-md-12 col-lg-12">
-                                                          <div class="card">
-                                                              <img src='{{ asset("storage/{$user->therapist['nbi_image']}") }}' style="width:412px;height:732px; text-align: center; ">
-                                                          </div>
-                                                      </div>                    
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                              <!-- end of view modal -->
-
-                                              <!-- View BC image-->
-                                              <div class="modal fade" id="view-modalBC-{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                  <div class="modal-content">
-                                                    <div class="modal-body" id="modalView">
-                                                      <br>
-                                                      <div class="col-sm-12 col-md-12 col-lg-12">
-                                                          <div class="card">
-                                                              <img src='{{ asset("storage/{$user->therapist['bc_image']}") }}' style="width:412px;height:732px; text-align: center; ">
-                                                          </div>
-                                                      </div>                    
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                              <!-- end of view modal -->
-                                              <hr>  
-                                            </div>
+                                          </div>                    
                                         </div>
-                                    </div>                    
+                                      </div>
+                                    </div>
                                   </div>
-                                </div>
+                                  <!-- end of view modal -->
+
+                                  <!-- View Back License image-->
+                                  <div class="modal fade" id="view-modalBLis-{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-body" id="modalView">
+                                          <br>
+                                          <div class="col-sm-12 col-md-12 col-lg-12">
+                                              <div class="card">
+                                                  <img src='{{ asset("storage/{$user->therapist['license_image']}") }}' style="width:412px;height:732px; text-align: center; ">
+                                              </div>
+                                          </div>                    
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- end of view modal -->
+
+                                  <!-- View nbi image-->
+                                  <div class="modal fade" id="view-modalNbi-{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-body" id="modalView">
+                                          <br>
+                                          <div class="col-sm-12 col-md-12 col-lg-12">
+                                              <div class="card">
+                                                  <img src='{{ asset("storage/{$user->therapist['nbi_image']}") }}' style="width:412px;height:732px; text-align: center; ">
+                                              </div>
+                                          </div>                    
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- end of view modal -->
+
+                                  <!-- View BC image-->
+                                  <div class="modal fade" id="view-modalBC-{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-body" id="modalView">
+                                          <br>
+                                          <div class="col-sm-12 col-md-12 col-lg-12">
+                                              <div class="card">
+                                                  <img src='{{ asset("storage/{$user->therapist['bc_image']}") }}' style="width:412px;height:732px; text-align: center; ">
+                                              </div>
+                                          </div>                    
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- end of view modal -->
+                               
+                                      </div>
+                                  </div>
+                                </div>                    
                               </div>
                             </div>
-                            <!-- end of view modal -->
+                          </div>
+                        </div>  
+                      <!-- end of view modal -->
                   </td>
                 </tr>
                 @endforeach
@@ -174,8 +190,6 @@
           </div>           
           <center>{{ $users->links() }}</center>
         </div>
-        
-                
             
         <!-- END PAGE CONTENT-->
             

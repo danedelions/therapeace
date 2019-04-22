@@ -165,17 +165,37 @@
                                     <center><label>Legal Documents</label></center><br>
                                     <div class="col-sm-12" style="overflow: auto; white-space: nowrap;">
                                       <center>
-                                      <a data-toggle="modal" data-target="#view-modalLis-{{ $row->id }}"><button class="btb btn-sm btn-info" data-id="{{ $row['id'] }}" type="button"><i class="far fa-eye"></i>&nbspView License</button></a>
+                                      <a data-toggle="modal" data-target="#view-modalFLis-{{ $row->id }}"><button class="btb btn-sm btn-info" data-id="{{ $row['id'] }}" type="button"><i class="far fa-eye"></i>&nbsp;Front License</button></a>
 
-                                      <a data-toggle="modal" data-target="#view-modalNbi-{{ $row->id }}"><button class="btb btn-sm btn-info" data-id="{{ $row['id'] }}" type="button"><i class="far fa-eye"></i>&nbspView NBI</button></a>
+                                      <a data-toggle="modal" data-target="#view-modalBLis-{{ $row->id }}"><button class="btb btn-sm btn-info" data-id="{{ $row['id'] }}" type="button"><i class="far fa-eye"></i>&nbsp;Back License</button></a>
 
-                                      <a data-toggle="modal" data-target="#view-modalBC-{{ $row->id }}"><button class="btb btn-sm btn-info" data-id="{{ $row['id'] }}" type="button"><i class="far fa-eye"></i>&nbspView Bgry Clearance</button></a>
+                                      <a data-toggle="modal" data-target="#view-modalNbi-{{ $row->id }}"><button class="btb btn-sm btn-info" data-id="{{ $row['id'] }}" type="button"><i class="far fa-eye"></i>&nbsp;View NBI</button></a>
+
+                                      <a data-toggle="modal" data-target="#view-modalBC-{{ $row->id }}"><button class="btb btn-sm btn-info" data-id="{{ $row['id'] }}" type="button"><i class="far fa-eye"></i>&nbsp;View BgryClr</button></a>
                                       </center>
 
                                     </div>
 
-                                    <!-- View License image-->
-                                    <div class="modal fade" id="view-modalLis-{{ $row->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <!-- View Front License image-->
+                                    <div class="modal fade" id="view-modalFLis-{{ $row->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                      <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                          <div class="modal-body" id="modalView">
+                                            <br>
+                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                <div class="card">
+                                                    <img src='{{ asset("storage/{$row->therapist['license_image']}") }}' style="width:412px;height:732px; text-align: center; ">
+                                                </div>
+                                            </div>                    
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <!-- end of view modal -->
+
+
+                                    <!-- View Back License image-->
+                                    <div class="modal fade" id="view-modalBLis-{{ $row->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                       <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                           <div class="modal-body" id="modalView">

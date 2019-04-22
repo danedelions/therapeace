@@ -1,7 +1,7 @@
 @extends('layouts.the')
 
 @section('page-section')
-@json($errors->all())
+<!-- @json($errors->all()) -->
 
 <div class="row">
     <div class="col-md-12">
@@ -60,10 +60,6 @@
                             @if($bookingRequest->is('approved') || $bookingRequest->is('pending'))
 
                             {!! Form::open(['url' => route('therapist.reject.appointment', $bookingRequest), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
-
-                            {!! Form::open(['url' => route('therapist.reject.appointment',['bookingRequest' => $bookingRequest]), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
-                                {{csrf_field()}}
-                                <button type="submit" class="btn btn-warning btn-block">Reject this appointment</button>
 
                             {!! Form::open(['url' => route('therapist.reject.appointment',['bookingRequest' => $bookingRequest]), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
                                 {{csrf_field()}}
