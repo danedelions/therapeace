@@ -30,12 +30,13 @@ class BookingController extends Controller
     	]);
 
         $bookingRequest->bookingDetails()->create([
+                'patient'=> $request->post('patient'),
                 'diagnosis' => $request->post('diagnosis'),
                 'image' => $request->post('image'),
                 'notes' => $request->post('notes'),
                 'user_address' => $request->post('user_address'),
                 'email' => $request->post('email'),
-                'contact' => $request->post('contact'),
+                'contact' => $request->post('contact')
         ]);
 
     	return redirect()->route('get.client-find');

@@ -5,48 +5,48 @@
 @section('page-section')
 
 <div class="row"> <!-- LABEL->col-form-label INPUT-> form-control -->
-	<div class="col-md-5">
-		<div class="card">
-			<div class="card-header bg-info">
-				User Information
-			</div>
-			<div class="card-body">
-				<div class="form-row">
-					<label class="col-md-4"><b>Username</b></label>
-					<div class="col-md-8">{{ Auth::user()->username }}</div>
-				</div>
-				<div class="form-row">
-					<label class="col-md-4"><b>Name</b></label>
-					<div class="col-md-8">{{ $client->fullname }}</div>
-				</div>
-				<div class="form-row">
-					<label class="col-md-4"><b>Email</b></label>
-					<div class="col-md-8">{{ Auth::user()->email }}</div>
-				</div>
-				<div class="form-row">
-					<label class="col-md-4"><b>Contact Number</b></label>
-					<div class="col-md-8">{{ $client->contact }}</div>
-				</div>
-				<div class="form-row">
-					<label class="col-md-4"><b>Gender</b></label>
-					<div class="col-md-8">{{ $client->gender }}</div>
-				</div>
-				<div class="form-row">
-					<label class="col-md-4"><b>Address</b></label>
-					<div class="col-md-8">{{$client->address}}</div>
-				</div>
-				<div style="display:block; width:x; height:y; text-align:right;">
-					<a href="{{url('/client-edit/'. $client->id )}}"><i class="far fa-edit"></i> Edit</a>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="col-md-5">
+    <div class="card">
+      <div class="card-header bg-info">
+        User Information
+      </div>
+      <div class="card-body">
+        <div class="form-row">
+          <label class="col-md-4"><b>Username</b></label>
+          <div class="col-md-8">{{ Auth::user()->username }}</div>
+        </div>
+        <div class="form-row">
+          <label class="col-md-4"><b>Name</b></label>
+          <div class="col-md-8">{{ $client->fullname }}</div>
+        </div>
+        <div class="form-row">
+          <label class="col-md-4"><b>Email</b></label>
+          <div class="col-md-8">{{ Auth::user()->email }}</div>
+        </div>
+        <div class="form-row">
+          <label class="col-md-4"><b>Contact Number</b></label>
+          <div class="col-md-8">{{ $client->contact }}</div>
+        </div>
+        <div class="form-row">
+          <label class="col-md-4"><b>Gender</b></label>
+          <div class="col-md-8">{{ $client->gender }}</div>
+        </div>
+        <div class="form-row">
+          <label class="col-md-4"><b>Address</b></label>
+          <div class="col-md-8">{{$client->address}}</div>
+        </div>
+        <div style="display:block; width:x; height:y; text-align:right;">
+          <a href="{{url('/client-edit/'. $client->id )}}"><i class="far fa-edit"></i> Edit</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-	<div class="col-md-7">
-		<div class="card">
-			<div class="card-header bg-info">
-				Sent Requests
-			</div>
+  <div class="col-md-7">
+    <div class="card">
+      <div class="card-header bg-info">
+        Sent Requests
+      </div>
 
 			<div class="card-body" style="overflow: scroll; height: 250px;">
 		        {!! Form::open(['url' => url()->current(), 'method' => 'get']) !!} 
@@ -86,28 +86,33 @@
                             <span class="badge badge-danger">Rejected</span>
                             @elseif($row->status == 3)
                             <span class="badge badge-primary">Finished</span>  
-															@elseif($row->status == 4)
+                              @elseif($row->status == 4)
                             <span class="badge badge-default">Cancelled</span> 
                             @endif
                         </td>
-						<td>
-							@if($row->status == 1)
-							<div class="dropdown">
-							  <button class="btn btn-sm btn-info dropdown-toggle" data-id="{{ $row['id'] }}"
-							          type="button" id="dropdownMenu1" data-toggle="dropdown"
-							          aria-haspopup="true" aria-expanded="false">
-							    Actons
-								</button>
-							  <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-							    <a class="dropdown-item" style="color:green;"href="{{url('/client-view/'.$row->id)}}"><i class="far fa-eye" style="color:green;"></i>&nbspView</a>
-							    <a class="dropdown-item" style="color:red;"><i class="fas fa-ban" style="color:red;"></i>
+            <td>
+              @if($row->status == 1)
+              <div class="dropdown">
+                <button class="btn btn-sm btn-info dropdown-toggle" data-id="{{ $row['id'] }}"
+                        type="button" id="dropdownMenu1" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                  Actons
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <a class="dropdown-item" style="color:green;"href="{{url('/client-view/'.$row->id)}}"><i class="far fa-eye" style="color:green;"></i>&nbspView</a>
+                  <a class="dropdown-item" style="color:red;"><i class="fas fa-ban" style="color:red;"></i>
                   &nbspCancel
-									</a>
-								</div>
-							</div>
-							@else
-
-							<button class="btn btn-sm btn-outline-danger">Cancel</button>
+                  </a>
+                </div>
+              </div>
+              @elseif($row->status == 0)
+								{!! Form::open(['url' => route('therapist.cancel.appointment', $row->id), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
+              		<button class="btn btn-sm btn-outline-danger">Cancel</button>
+									{!! Form::close() !!}
+							@elseif($row->status == 3)
+								<a href="{{url('/client-view/'.$row->id)}}"><button class="btn btn-sm btn-outline-info">View</button></a>
+							
+							@elseif($row->status == 4)
 
 							@endif
 						</td>
@@ -122,7 +127,7 @@
 		</div>
 	</div>
 
-		<br>
+    <br>
 
 		<div class="card">
 			<div class="card-header bg-info">
@@ -131,68 +136,68 @@
 			
 			<div class="card-body" style="overflow: scroll; height: 250px;">
 
-				<table class="table table-default">
-					<thead>
-						<tr>
-							<th>Therapist Name</th>
-							<th>Dates of Session</th>
-							<th>Diagnosis</th>	
-							<th>Action</th>		
-						</tr>
-					</thead>
-					<tbody>
-						@foreach($client->booking as $row)
-						<tr>
-							<td><b>{{$row->therapist->fullName}}</b></td>
-							<td>{{$row->diagnosis}}</td>
-							<td>{{$row->diagnosis}}</td>
-							<td>
-								<div class="dropdown">
-								  <button class="btn btn-sm btn-info dropdown-toggle" data-id="{{ $row['id'] }}"
-								          type="button" id="dropdownMenu1" data-toggle="dropdown"
-								          aria-haspopup="true" aria-expanded="false">
-								    Actons
-								  </button>
-								  <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-								    <a class="dropdown-item" data-toggle="modal" data-target="#viewModal">&nbsp<i class="fas fa-info"></i>&nbsp;&nbsp;Info</a>
-								    <a class="dropdown-item" data-toggle="modal" data-target="#view-modal"><i class="fas fa-sticky-note"></i>&nbsp;&nbsp;Notes</a>
-								  </div>
-								</div>
-							</td>
-						</tr>
-						@endforeach	
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
+        <table class="table table-default">
+          <thead>
+            <tr>
+              <th>Therapist Name</th>
+              <th>Dates of Session</th>
+              <th>Diagnosis</th>  
+              <th>Action</th>   
+            </tr>
+          </thead>
+          <tbody>
+            @foreach($client->booking as $row)
+            <tr>
+              <td><b>{{$row->therapist->fullName}}</b></td>
+              <td>{{$row->appointment->durationDate}}</td>
+              <td>{{$row->bookingDetails->diagnosis}}</td>
+              <td>
+                <div class="dropdown">
+                  <button class="btn btn-sm btn-info dropdown-toggle" data-id="{{ $row['id'] }}"
+                          type="button" id="dropdownMenu1" data-toggle="dropdown"
+                          aria-haspopup="true" aria-expanded="false">
+                    Actons
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <a class="dropdown-item" data-toggle="modal" data-target="#viewModal" >&nbsp<i class="fas fa-info"></i>&nbsp;&nbsp;Info</a>
+                    <a class="dropdown-item" data-toggle="modal" data-target="#view-modal"><i class="fas fa-sticky-note"></i>&nbsp;&nbsp;Notes</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            @endforeach 
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- View Modal-->
 <div class="modal fade" id="view-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header bg-info">
-				<h5 class="modal-title">Therapist Notes</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-			</div>
-			<div class="modal-body" id="modalView">
-				<br>
-				<div class="col-sm-12">
-					<div class="card">
-						<div class="card-body">
-							<center><label>Profile</label></center><br>
-							<label>Name: </label>  <br>
-							<label>Email: </label> <br>
-							<label>Contact #: </label><br>
-						</div>
-					</div>
-				</div>                    
-			</div>
-		</div>
-	</div>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-info">
+        <h5 class="modal-title">Therapist Notes</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body" id="modalView">
+        <br>
+        <div class="col-sm-12">
+          <div class="card">
+            <div class="card-body">
+              <center><label>Profile</label></center><br>
+              <label>Name: </label>  <br>
+              <label>Email: </label> <br>
+              <label>Contact #: </label><br>
+            </div>
+          </div>
+        </div>                    
+      </div>
+    </div>
+  </div>
 </div>
 <!-- end of view modal -->
 
@@ -213,20 +218,21 @@
       			
       			<div class="form-group">
 					<div class="stars">
-					  	<form action="">
-						    <input class="star star-5" id="star-5" type="radio" name="star"/>
+					  	<form action=""> 
+						    <input class="star star-5" id="star-5" type="radio" name="star" value="1" />
 						    <label class="star star-5" for="star-5"></label>
-						    <input class="star star-4" id="star-4" type="radio" name="star"/>
+						    <input class="star star-4" id="star-4" type="radio" name="star" value="2"/>
 						    <label class="star star-4" for="star-4"></label>
-						    <input class="star star-3" id="star-3" type="radio" name="star"/>
+						    <input class="star star-3" id="star-3" type="radio" name="star" value="3"/>
 						    <label class="star star-3" for="star-3"></label>
-						    <input class="star star-2" id="star-2" type="radio" name="star"/>
+						    <input class="star star-2" id="star-2" type="radio" name="star" value="4"/>
 						    <label class="star star-2" for="star-2"></label>
-						    <input class="star star-1" id="star-1" type="radio" name="star"/>
+						    <input class="star star-1" id="star-1" type="radio" name="star" value="5"/>
 						    <label class="star star-1" for="star-1"></label>
 					  	</form>
 					</div>
       			</div>
+ 
       			
       			<h6 font-weight-bold>Do you have any concern? Write to us!</h6>
 		   

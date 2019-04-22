@@ -32,6 +32,7 @@ class CreateBookingRequestsTable extends Migration
         Schema::create('booking_details', function (Blueprint $table){
             $table->increments('id');
             $table->unsignedInteger('booking_id');
+            $table->enum('patient', ['Yes','No']);
             $table->string('diagnosis');
             $table->string('image')->nullable();
             $table->text('notes');

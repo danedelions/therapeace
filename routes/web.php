@@ -65,7 +65,7 @@
     Route::delete('doReject/{bookingRequest}',
         'TherapistCalander@rejectAppointment')->name('therapist.reject.appointment');
     
-    Route::patch('therapist-calendar/{bookingRequest}', 
+    Route::patch('doFinish/{bookingRequest}', 
         'TherapistCalander@finishedAppointment')->name('therapist.finish.appointment');
 
     Route::delete('doCancel/{bookingRequest}', 
