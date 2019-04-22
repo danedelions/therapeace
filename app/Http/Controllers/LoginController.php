@@ -25,6 +25,8 @@ class LoginController extends Controller
                     $q->where([['status', '!=', '1'],['status', '!=', '2']]);
                 })
             ],
+
+
             'password' => 'required',
         ], [
             'username.exists' => 'Username does not exist or is not yet accepted.'

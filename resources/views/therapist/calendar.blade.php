@@ -64,7 +64,7 @@
                             {!! Form::open(['url' => route('therapist.reject.appointment',['bookingRequest' => $bookingRequest]), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
                                 {{csrf_field()}}
                                 <button type="submit" class="btn btn-warning btn-block">Reject this appointment</button>
-                        
+
                             {!! Form::close() !!}
                             @elseif($bookingRequest->is('rejected'))
                                 <div class="alert alert-warning">

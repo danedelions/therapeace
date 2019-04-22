@@ -121,14 +121,89 @@
       </div>
     </div>
 
+			<div class="card-body" style="overflow: scroll; height: 250px;">
+		    {!! Form::open(['url' => url()->current(), 'method' => 'get']) !!} 
+					<div class="row">
+				    <div class="col-md-4">
+				      {!! Form::inputGroup('text', null, 'name', request()->name ?? null, ['placeholder' => 'Therapist Name']) !!}
+				    </div>
+				    <div class="col-md-4">
+				      {!! Form::selectGroup(null, 'status', ['' => 'Select Status', '0' => 'Pending', '1' => 'Approved', '2' => 'Rejected', '3' => 'Finished', '4' => 'Cancelled'], request()->status ?? null, ['class' => 'form-control']) !!}
+				    </div>
+				    <div class="col-md-4">
+				      <button type="submit" class="btn btn-info pull-right"><i class="ti-search"></i> Search</button>
+				    </div>
+          </div>
+		    {!! Form::close() !!}
+	        
+			<table class="table table-default">
+				<thead>
+					<tr>
+						<th>Therapist Name</th>
+						<th>Your diagnosis</th>
+						<th>Status</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					@forelse($client->booking as $row)
+					<tr>
+						<td><b>{{ $row->therapist->fullname }}</b></td>
+						<td>{{ $row->bookingDetails->diagnosis }}</td>
+						<td>
+              @if($row->status == 0)
+                  <span class="badge badge-secondary">Pending</span>  
+              @elseif($row->status == 1)
+                  <span class="badge badge-success">Approved</span>  
+              @elseif($row->status == 2)
+              <span class="badge badge-danger">Rejected</span>
+              @elseif($row->status == 3)
+              <span class="badge badge-primary">Finished</span>  
+                @elseif($row->status == 4)
+              <span class="badge badge-default">Cancelled</span> 
+              @endif
+            </td>
+            <td>
+              @if($row->status == 1)
+                <div class="dropdown">
+                  <button class="btn btn-sm btn-info dropdown-toggle" data-id="{{ $row['id'] }}"
+                          type="button" id="dropdownMenu1" data-toggle="dropdown"
+                          aria-haspopup="true" aria-expanded="false">
+                    Actons
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <a class="dropdown-item" style="color:green;"href="{{url('/client-view/'.$row->id)}}"><i class="far fa-eye" style="color:green;"></i>&nbspView</a>
+                    <a class="dropdown-item" style="color:red;"><i class="fas fa-ban" style="color:red;"></i>
+                    &nbspCancel
+                    </a>
+                  </div>
+                </div>
+
+              @else
+
+                <button class="btn btn-sm btn-outline-danger">Cancel</button>
+
+              @endif
+            </td>
+          </tr>
+          @empty
+          <tr>
+            <td colspan="4" class="text-center">No requests</td>
+          </tr>
+          @endforelse
+        </tbody>
+      </table>
+    </div>
+  </div>
+
     <br>
 
-    <div class="card">
-      <div class="card-header bg-info">
-        Therapist's Notes
-      </div>
-      
-      <div class="card-body" style="overflow: scroll; height: 200px;">
+		<div class="card">
+			<div class="card-header bg-info">
+				Therapist's Notes
+			</div>
+			
+			<div class="card-body" style="overflow: scroll; height: 250px;">
 
         <table class="table table-default">
           <thead>
@@ -144,10 +219,14 @@
             <tr>
               <td><b>{{$row->therapist->fullName}}</b></td>
 
+
               <td>{{$row->diagnosis}}</td>
 
               <td>{{$row->appointment->durationDate}}</td>
               <td>{{$row->bookingDetails->diagnosis}}</td>
+
+
+              <td>{{$row->diagnosis}}</td>
 
               <td>
                 <div class="dropdown">
@@ -157,9 +236,7 @@
                     Actons
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-
                     <a class="dropdown-item" data-toggle="modal" data-target="#viewModal">&nbsp<i class="fas fa-info"></i>&nbsp;&nbsp;Info</a>
-
                     <a class="dropdown-item" data-toggle="modal" data-target="#view-modal"><i class="fas fa-sticky-note"></i>&nbsp;&nbsp;Notes</a>
                   </div>
                 </div>
@@ -245,6 +322,7 @@
         @endforeach
     </div>
   </div>
+<<<<<<< HEAD
 
   	<div class="modal-dialog" role="document">
     	<div class="modal-content">
@@ -289,6 +367,8 @@
 		</div>
 	</div>
 
+=======
+>>>>>>> 0af1f64c72971814e14249f69ebbbdefe489e395
 </div>
 <!-- END OF MODAL -->
 @endsection

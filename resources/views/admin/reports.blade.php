@@ -34,7 +34,6 @@
                   <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
                     <a class="dropdown-item" data-toggle="modal" data-target="#view-{{ $row->bookingDetails->booking_id }}"> <i class="far fa-eye"></i>&nbsp;View</a>
                   </div>
-                </div>
 
               <!-- View Modal therapist-->
                 <div class="modal fade" id="view-{{ $row->bookingDetails->booking_id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

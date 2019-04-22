@@ -74,16 +74,16 @@
                                     <td>
                                         <div class="card therapist-card" style="width: 20em; padding: 5px;">
                                             <center>
-                                                <i class="fas fa-user-circle fa-4x" style="padding: 5px;"></i>
                                                 <div class="card-body">
+                                                <img src='{{ asset("storage/{$data->image}") }}' style="width:50px;height:50px;">
                                                     <h4>{{$data->fullName}}</h4>
                                                     <h5 style="font-size: 8pt;">{{$data->therapist}}</h5>
-                                                    <h6>
-                                                        <span class="badge badge-default ml-1"> {!! optional($data->specialties)->pluck('name')->implode('</span ><span class="badge badge-default ml-1">') !!}</span>
-                                                    </h6>
+                                                    
+                                                        <span class="badge badge-default"> {!! optional($data->specialties)->pluck('name')->implode('</span ><span class="badge badge-default">') !!}</span>
+                                                    
                                                     <input type="hidden" data-long="{{ $data->longitude }}"/>
                                                     <input type="hidden" data-lat="{{$data->latitude}}"/>
-                                                    <span><h6 data-distance name="distance">Distance:</h6></span>
+                                                    <h6 data-distance name="distance">Distance:</h6>
 
                                                     <a href='{{url("/booktherapist/{$data->id}")}}'
                                                        class="btn btn-sm btn-success">Book</a>
@@ -111,6 +111,8 @@
                                                     <div class="col-sm-12">
                                                     <div class="card">
                                                         <div class="card-body">
+                                                          <center><img src='{{ asset("storage/{$data->image}") }}' style="width:150px;height:150px;"></center>
+                                                          <br>
                                                             <label><b>Name: </b>{{ $data['fullName'] }}</label><br>
                                                             <label><b>Gender: </b>{{ $data['gender'] }}</label><br>
                                                             <label><b>Contact #: </b>{{ $data['contact'] }}</label><br>
