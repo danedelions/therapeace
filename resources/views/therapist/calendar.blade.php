@@ -1,7 +1,6 @@
 @extends('layouts.the')
 
 @section('page-section')
-@json($errors->all())
 
 <div class="row">
     <div class="col-md-12">
@@ -74,20 +73,7 @@
                     <div class="col-sm-4 col-md-4 col-lg-4">
                        <a data-toggle="modal" data-target="#view-modal-{{ $bookingRequest->id }}"><button type="submit" class="btn btn-sm btn-info btn-block"><i class="fas fa-eject"></i>&nbsp;Discharge</button> </a>
                     </div>
-                        <div class="col-md-4">
-                        @if($bookingRequest->is('approved'))
-                            {!! Form::open(['url' => route('therapist.finish.appointment',['bookingRequest' => $bookingRequest]), 'method' => 'patch', 'onsubmit' => 'javascript:return confirm("Are you sure you want to end?")']) !!}
-                                <button type="submit" class="btn btn-info btn-block">Discharge</button>
-                                {{csrf_field()}}
-                            {!! Form::close() !!}
-                        @elseif($bookingRequest->is('finished'))
-                            <div class="alert alert-success">
-                                <p class="mb-0 text-center">
-                                    <i class="fa fa-notice"></i> This booking request is finished!
-                                </p>
-                            </div>      
-                        @endif
-                        </div>
+                        
 
                 </div>
             </div>
@@ -220,7 +206,7 @@
 <br>
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-5">
             @if(!$bookingRequest->is('rejected') && !$bookingRequest->is('finished'))
             <div class="card">
                 <div class="card-header bg-info">

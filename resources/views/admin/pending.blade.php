@@ -17,9 +17,6 @@
                         {!! Form::inputGroup('text', null, 'email', request()->email ?? null, ['placeholder' => 'E-mail address']) !!}
                     </div>
                     <div class="col-sm-3 col-md-3 col-lg-3">
-                        {!! Form::selectGroup(null, 'status', ['' => 'Select Therapist', 'Physical Therapist' => 'Physical Therapist', 'Occupational Therapist' => 'Occupational Therapist'], request()->therapist ?? null, ['class' => 'form-control']) !!}
-                    </div>
-                    <div class="col-sm-3 col-md-3 col-lg-3">
                       <button type="submit" class="btn btn-info pull-right"><i class="ti-search"></i> Search</button>
                     </div>
                 </div>    
