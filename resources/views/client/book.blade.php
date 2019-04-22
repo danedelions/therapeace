@@ -66,7 +66,7 @@
 									<label for="inputAddress">What's your diagnosis?</label>
 								</div>
 								<div class="card-body">
-									<input type="text" name="diagnosis" class="form-control" placeholder="What's your diagnosis?">
+									<input type="text" name="diagnosis" class="form-control" placeholder="What's your diagnosis?" required="required">
 									<br>
 									<input type="file" accept="image/x-png,image/gif,image/jpeg" name="image" id="fileToUpload" class="form-control"> 
 								</div>
