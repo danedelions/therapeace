@@ -14,29 +14,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        $this->call(UsersTableSeeder::class);
+        // $this->call(UsersTableSeeder::class);
 
-        DB::table('users')->insert([
-        	'username' => 'peaceadmin',
-            'email' => 'therapeacemaker@gmail.com',
-            'password' =>bcrypt('peacemaker'),
-            'user_type' => 'admin',
-            'status' => '0',
-
-        ]);
-
-        factory(App\User::class,0)->create();
-        factory(App\Client::class,5)->create();
-        factory(App\Therapist::class,5)->create();
-
-
-        ]);
-
-        //factory(App\User::class,0)->create();
-       
-        //factory(App\Therapist::class,5)->create();
-
-        // factory(App\Client::class,5)->create();
+        
+    
     }
 }
 

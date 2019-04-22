@@ -46,9 +46,9 @@ class AdminController extends Controller
             $q->where('status', 'like', "%{$request->status}%");
          });
 
-          $query->when($request->therapist, function ($q) use ($request) {
-            $q->where('therapist', 'like', "%{$request->therapist->therapist}%");
-         });
+         //  $query->when($request->therapist, function ($q) use ($request) {
+         //    $q->where('therapist', 'like', "%{$request->therapist->therapist}%");
+         // });
      }
 
     public function getPendingView(Request $request)

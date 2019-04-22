@@ -88,20 +88,31 @@
         });
     </script>
 
-     <script type="text/javascript">
-         function printData()
-         {
-            var divToPrint=document.getElementById("printTable");
-            newWin= window.open("");
-            newWin.document.write(divToPrint.outerHTML);
-            newWin.print();
-            newWin.close();
-         }
+    <script type="text/javascript">
+        function printDiv(divName) {
+            var printContents = document.getElementById(divName).innerHTML;
+            var originalContents = document.body.innerHTML;
+            var reenterButton = document.getElementById("reenterthenews");
 
-         $('#print').on('click',function(){
-         printData();
-         })
-     </script>
+            document.body.innerHTML = printContents;
+
+            window.print();
+
+            document.body.innerHTML = originalContents;
+
+            reenterButton.style.visibility = 'hidden';
+
+        }
+    </script>  
+
+    <script type="text/javascript">
+        function print_page() {
+            var ButtonControl = document.getElementById("btnprint");
+            ButtonControl.style.visibility = "hidden";
+            window.print();
+        }
+    </script>
+        
     </div>
 </body>
 </html>
