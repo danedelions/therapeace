@@ -11,6 +11,7 @@ use App\Client;
 use App\Therapist;
 use App\User;
 use App\Admin;
+use App\BookingRequest;
 use Mail;
 use Auth;
 use DB;
@@ -46,8 +47,8 @@ class AdminController extends Controller
             $q->where('status', 'like', "%{$request->status}%");
          });
 
-         //  $query->when($request->therapists->therapist, function ($q) use ($request) {
-         //    $q->where('therapist', 'like', "%{$request->therapists->therapist}%");
+         //  $query->when($request->therapist, function ($q) use ($request) {
+         //    $q->where('therapist', 'like', "%{$request->therapist->therapist}%");
          // });
      }
 
@@ -64,12 +65,18 @@ class AdminController extends Controller
 
     public function getHistoryView()
     {
-    	return view('admin.history');
+        $bookrequest = BookingRequest::where('status',3)->paginate(7);
+
+        // $users = $query->where([['status', '!=', '1'],['status', '!=', '2'], ['user_type', '!=', 'admin']])->paginate(7);
+
+    	return view('admin.history', compact('bookrequest'));
     }
 
     public function getReportsView()
-    {
-    	return view('admin.reports');
+    {   
+        $bookrequest = BookingRequest::where('status',3)->paginate(7);
+
+    	return view('admin.reports', compact('bookrequest'));
     }
 
     public function notice(Request $request, $id)

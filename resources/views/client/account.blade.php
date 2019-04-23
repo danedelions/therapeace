@@ -190,6 +190,7 @@
         <div class="col-sm-12">
           <div class="card">
             <div class="card-body">
+            @foreach($client->booking as $bookingRequest)
               <center><label>Profile</label></center><br>
               <div class="form-row">
                 <div class="col">
@@ -377,7 +378,7 @@
                                 @else
                                     ...
                                 @endif
-              </div>
+            </div>
               </div>
               <div class="row">
                                 <label class="label col-sm-4"><b>Progress Notes</b></label>
@@ -406,6 +407,7 @@
                                     @endif
                                 </div>
                             </div>
+                            @endforeach
             </div>
           </div>
         </div>                    

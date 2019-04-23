@@ -9,7 +9,7 @@
 				</div>
 				<div class="card-body">
 					<center>
-						<i class="fas fa-user-circle fa-8x"></i>
+						<img src='{{ asset("storage/{$therapist->image}") }}' style="width:150px;height:150px;">
 						<br>
 						<h4>{{$therapist->therapist}}</h4>
 					</center>
@@ -58,7 +58,7 @@
 						</div>
 						<div class="form-group col-md-12">
 							<label for="inputAddress"><b>Notes to your therapist</b></label>
-						    <input type="text" class="form-control" name="notes">
+						    <input type="text" class="form-control" name="notes" required="required">
 						</div>
 						<div class="form-group col-md-12">
 							<div class="card">
@@ -66,9 +66,9 @@
 									<label for="inputAddress">What's your diagnosis?</label>
 								</div>
 								<div class="card-body">
-									<input type="text" name="diagnosis" class="form-control" placeholder="What's your diagnosis?">
+									<input type="text" name="diagnosis" class="form-control" placeholder="What's your diagnosis?" required="required">
 									<br>
-									<input type="file" accept="image/x-png,image/gif,image/jpeg" name="image" id="fileToUpload" class="form-control"> 
+									<input type="file" accept="image/x-png,image/gif,image/jpeg" name="image" id="fileToUpload" class="form-control" required="required"> 
 								</div>
 							</div>
 						</div>

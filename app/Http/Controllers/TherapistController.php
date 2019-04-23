@@ -45,13 +45,18 @@ class TherapistController extends Controller
                 'user_type' => 'therapist',
                 'status'    => 2,
             ]);
-            $users         = User::where('username', $request->post('username'))->get();
-            $image         = $request->file('image')->store(
-                "pictures/{$users[0]['username']}",
+            $users = User::where('username', $request->post('username'))->get();
+    
+            $image = $request->file('image')->store(
+                "profilepic/{$users[0]['username']}",
                 'public'
             );
-            $license_image = $request->file('license_image')->store(
-                "pictures/{$users[0]['username']}",
+            $licenseimage_front = $request->file('licenseimage_front')->store(
+                "licensepicture/front/{$users[0]['username']}",
+                'public'
+            );
+             $licenseimage_back = $request->file('licenseimage_back')->store(
+                "licensepicture/back/{$users[0]['username']}",
                 'public'
             );
             $nbi_image     = $request->file('nbi_image')->store(
@@ -79,7 +84,8 @@ class TherapistController extends Controller
                 'therapist'      => $request->post('therapist'),
                 'license_number' => $request->post('license_number'),
                 'expiry_date'    => $request->post('expiry_date'),
-                'license_image'  => $license_image,
+                'licenseimage_front'  => $licenseimage_front,
+                'licenseimage_back'  => $licenseimage_back,
                 'nbi_image'      => $nbi_image,
                 'bc_image'       => $bc_image,
                 'user_bio'       => $request->post('user_bio'),
@@ -89,7 +95,7 @@ class TherapistController extends Controller
         });
 
         // $this->getData();
-        return view('login');
+        return view('/login');
     }
 
     public function edit($userId)
@@ -109,8 +115,9 @@ class TherapistController extends Controller
      */
     public function update(TherapistRequest $request, $id)
     {
-        $therapist = Therapist::find($id);
-        
+        $therapist = Therapist::findOrFail($id);
+        $therapist->update($request->all());
+
         $specialties = collect($request->specialties);
         if($specialties->isNotEmpty()){
              $ids = $specialties->map(function ($item) {
@@ -123,16 +130,38 @@ class TherapistController extends Controller
 
         $request = $request->validated();
 
-        // dd($request);
 
+        //dd($request);
         $users = User::where('username', $request['username'])->first();
 
-
         if (isset($request['image'])) {
-            $image = request()->file('image')->move("pictures/{$users[0]['username']}", 'public');          
+            $image = request()->file('image')->move("profilepic/{$users[0]['username']}", 'public');
+
         }
 
+
+        // if ($request->hasFile('image'))
+        //     {
+        //         $file = $request->file('image');
+        //         $name = $file->getClientOriginalName();
+        //         $data->image = $name;
+        //         $file->move(public_path()."/pictures/{$users[0]['username']}", $name);   
+        //         $data->save();                  
+        //     }   
+     
+
+        // if (isset($request['licenseimage_front'])) {
+        //     $request['licenseimage_front'] = request()->file('licenseimage_front')->store("licensepicture/front/{$users[0]['username']}", 'public');
+        // }
+        // if (isset($request['licenseimage_back'])) {
+        //     $request['licenseimage_back'] = request()->file('licenseimage_back')->store("licensepicture/back/{$users[0]['username']}", 'public');
+        // }
         $therapist->fill($request)->save();
+        User::where('id', Auth::id())->update(['username' => $request['username'], 'email' => $request['email']]);
+
+        $therapist->fill($request)->save();
+
+        // var_dump($request->hasFile('image'));
 
         User::where('id', Auth::id())->update(['username' => $request['username'], 'email' => $request['email']]);
 

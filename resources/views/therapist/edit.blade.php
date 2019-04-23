@@ -7,7 +7,7 @@
         <legend class="text-center">Update Information</legend>
         <hr>
         <div class="card-body">
-            {!! Form::file('image') !!}
+            {!! Form::file('$image') !!}
           <br>
           <fieldset>  
             <div class="form-row">
@@ -71,11 +71,11 @@
             <div class="form-row">
               <div class="col-md-6">
                 <label>License Image (Front)</label>
-                  <input type="file" id="itemImage" name="license_image" class="form-control">
+                  <input type="file" id="itemImage" name="licenseimage_front" class="form-control">
               </div>
               <div class="col-md-6">
                 <label>License Image (Back)</label>
-                  <input type="file" id="itemImage"  class="form-control">
+                  <input type="file" id="itemImage" ame="licenseimage_back" class="form-control">
               </div>
             </div>
           </fieldset>

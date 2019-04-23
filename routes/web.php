@@ -12,7 +12,9 @@
     
     Route::group(['middleware' => 'guest'], function () {
 
-        Route::get('/', function () {
+    Route::get('/login', 'LoginController@view')->name('login');
+    Route::post('doLogin', 'LoginController@doLogin')->name('post:login');
+    Route::get('/', function () {
 
             return view('welcome');
         });
@@ -21,13 +23,13 @@
         Route::post('doLogin', 'LoginController@doLogin')->name('post:login');
     });
 
-Route::get('/logout', 'LoginController@Logout');
-Route::resource('therapist', 'TherapistController');
-Route::resource('client', 'ClientController');
 
-Route::group(['middleware' => 'auth'], function () {
+    Route::get('/logout', 'LoginController@Logout');
+    Route::resource('therapist', 'TherapistController');
+    Route::resource('client', 'ClientController');
+
+    Route::group(['middleware' => 'auth'], function () {
     // ADMIN
-
     Route::get('/admin-dashboard', 'AdminController@getDashboard')->name('get.dashboard');
     Route::get('/admin-login', 'AdminController@login')->name('get.login');
 
@@ -70,7 +72,7 @@ Route::group(['middleware' => 'auth'], function () {
     
     Route::patch('doFinish/{bookingRequest}', 
         'TherapistCalander@finishedAppointment')->name('therapist.finish.appointment');
-        
+
     Route::delete('doCancel/{bookingRequest}', 
         'TherapistCalander@cancelAppointment')->name('therapist.cancel.appointment');
 
@@ -85,15 +87,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/client-view/{id}', 'ClientController@getView')->name('get.client-view');
     Route::post('/rateSession', 'ReportsController@storeRating')->name('post.rate-session');
 
-    //TRANSACTION
-    // Route::get('/client-transaction', 'TransactionController@clientTrans');
-    // Route::get('/therapist-transaction', 'TransactionController@therapistTrans');
+    //PRINTING
+    
 
     //BOOKING
     Route::get('/booktherapist/{id}', 'BookingController@index')->name('get.booktherapist');
     Route::post('/doBookTherapist/', 'BookingController@submitDetails')->name('post.doBook');
 
     // REPORT
+
+
 
 });
 

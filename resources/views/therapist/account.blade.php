@@ -84,7 +84,7 @@
                             <tbody>
                                 @forelse($therapist->bookingRequest as $request)
                                 <tr>
-                                    <td>{{ $request->client->fullname }}</td>
+                                    <td>{{ $request->client->fullName }}</td>
                                     <td>{{ $request->bookingDetails->diagnosis }} </td>
                                     <td>
                                         @if($request->status == 0)
@@ -121,7 +121,7 @@
                             <div class="card-header bg-info">
                                 Ratings
                             </div>
-                            <div class="card-body" style="overflow: scroll; height: 200px;">
+                            <div class="card-body" style="overflow: scroll; height: 250px;">
                                 <table class="table table-default">
                                     <thead>
                                         <tr>

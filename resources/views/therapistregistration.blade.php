@@ -81,8 +81,12 @@
         <input class="form-control required" placeholder="Expriry Date"  name="expiry_date" type="date">
       </div>
       <div class="form-group col-md-12">
-        <label>License Image</label>
-        <input type="file" name="license_image" id="fileUpload2" class="form-control required">
+        <label>License Image (Front)</label>
+        <input type="file" name="licenseimage_front" id="fileUpload2" class="form-control required">
+      </div>
+      <div class="form-group col-md-12">
+        <label>License Image (Back)</label>
+        <input type="file" name="licenseimage_back" id="fileUpload2" class="form-control required">
       </div>
       <div class="form-group col-md-12">
         <label>NBI Imgae</label>
@@ -178,9 +182,15 @@
         </p>
             <div>
                 <label>
+<<<<<<< HEAD
+                    <input type="checkbox" class="form-control" style= "width: auto" required/>I accept the terms and conditions.
+                 </label>
+=======
 
-         <input type="checkbox" style= "width: auto" required/>
-                </label>I accept the terms and conditions.
+                <input type="checkbox" class="form-control" style= "width: auto" required/>I accept the terms and conditions.
+                 </label>
+
+>>>>>>> 820df5608914ff7b9d0717888ad2c620e22f7461
             </div> 
   </div>
 </div>  
@@ -193,7 +203,7 @@
       <div style="float:right;">
         <button class="btn btn-sm-success" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
         <button class="btn btn-sm-success" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-        <button class="btn btn-sm-success" type="submit" id="subBtn" style="display:none">Submit</button>
+        <button class="btn btn-sm-success" type="submit" id="subBtn" style="display:none">Submit</button></a>
       </div>
     </div>
     <!-- Circles which indicates the steps of the form: -->

@@ -1,7 +1,7 @@
 @extends('layouts.the')
 
 @section('page-section')
-@json($errors->all())
+<!-- @json($errors->all()) -->
 
 <div class="row">
     <div class="col-md-12">
@@ -439,12 +439,19 @@
                                 {!! Form::inputGroup('date', 'From', 'start_date') !!}
                             </div>
                             <div class="col-6">
+<<<<<<< HEAD
                                 {!! Form::inputGroup('date', 'To', 'end_date') !!}
+=======
+                                {!! Form::inputGroup('date', 'Until', 'end_date') !!}
+>>>>>>> 6176bdeca58ab16120d0dd4ee85dfe7a33791df7
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-6">
+<<<<<<< HEAD
                                 
+=======
+>>>>>>> 6176bdeca58ab16120d0dd4ee85dfe7a33791df7
                                 {!! Form::inputGroup('time', '&nbsp;', 'start_date_time') !!}
                             </div>
                             <div class="col-6">
