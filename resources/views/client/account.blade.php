@@ -36,7 +36,7 @@
           <div class="col-md-8">{{$client->address}}</div>
         </div>
         <div style="display:block; width:x; height:y; text-align:right;">
-          <a href="{{url('/client-edit/'. $client->id )}}"><i class="far fa-edit"></i> Edit</a>
+          <a href="{{url('/client-edit/'. $client->id )}}}"><i class="far fa-edit"></i> Edit</a>
         </div>
       </div>
     </div>
@@ -67,7 +67,7 @@
         <thead>
           <tr>
             <th>Therapist Name</th>
-            <th>Your diagnosis</th>
+            <th>Diagnosis</th>
             <th>Status</th>
             <th>Action</th>
           </tr>
@@ -411,7 +411,7 @@
                             @else
                               None
                             @endif
-                            
+
                             @endforeach
             </div>
           </div>
@@ -423,8 +423,7 @@
 <!-- end of view modal -->
 
 <!-- START OF MODAL -->
-<div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
+<div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   	<div class="modal-dialog" role="document">
     	<div class="modal-content">
       		<div class="modal-header bg-info">
@@ -433,57 +432,50 @@
 			          	<span aria-hidden="true">&times;</span>
 			        </button>
       		</div>
-			@foreach($client->booking as $row)
-
-        @if(empty($row->report))
-      		<div class="modal-body">
-      			<LABEL>Rate <b>{{$row->therapist->fullname}}</b></LABEL>
-      			
-      			<div class="form-group">
-					<div class="stars">
-              {!! Form::open(['url' => route('post.rate-session'), 'method' => 'post']) !!} 
-              {{ csrf_field() }}
-                <input type="hidden" name="booking_id" value="{{$row->id}}">
-                <input type="hidden" name="therapist_id" value="{{$row->therapist_id}}">
-                <input type="hidden" name="client_id" value="{{$row->client_id}}">
-						    <input class="star star-5" id="star-5" type="radio" name="rating" value="1" />
-						    <label class="star star-5" for="star-5"></label>
-						    <input class="star star-4" id="star-4" type="radio" name="rating" value="2"/>
-						    <label class="star star-4" for="star-4"></label>
-						    <input class="star star-3" id="star-3" type="radio" name="rating" value="3"/>
-						    <label class="star star-3" for="star-3"></label>
-						    <input class="star star-2" id="star-2" type="radio" name="rating" value="4"/>
-						    <label class="star star-2" for="star-2"></label>
-						    <input class="star star-1" id="star-1" type="radio" name="rating" value="5"/>
-						    <label class="star star-1" for="star-1"></label>
-
-                <h6 font-weight-bold>Do you have any concern? Write to us!</h6>
-		   
-                <div class="form-group">
-                    <textarea  name="reports" placeholder="Add a comment/complaint here..." class="md-textarea form-control" rows="4"></textarea>
-                </div>
-
-                <div class="modal-footer d-flex justify-content-center">
-                  <button type="Submit" class="btn btn-success">Send Report&nbsp;&nbsp;<i class="far fa-paper-plane"></i></button>
-                </div>
-            {!! Form::close() !!}
-
-            @else
-
-            <div class="col-md-12">
-              <div class="card-body col-md-12">
-                Thank you for rating! Rest assured we will read what you've written.
+			  @foreach($client->booking as $row)
+          @if(empty($row->report))
+            <div class="modal-body">
+              <LABEL>Rate <b>{{$row->therapist->fullname}}</b></LABEL>
+              <div class="form-group">
+                    {!! Form::open(['url' => route('post.rate-session'), 'method' => 'post']) !!} 
+                      {{ csrf_field() }}
+                      <div class="stars">
+                        <input type="hidden" name="booking_id" value="{{$row->id}}">
+                        <input type="hidden" name="therapist_id" value="{{$row->therapist_id}}">
+                        <input type="hidden" name="client_id" value="{{$row->client_id}}">
+                        <input class="star star-5" id="star-5" type="radio" name="rating" value="1" />
+                        <label class="star star-5" for="star-5"></label>
+                        <input class="star star-4" id="star-4" type="radio" name="rating" value="2"/>
+                        <label class="star star-4" for="star-4"></label>
+                        <input class="star star-3" id="star-3" type="radio" name="rating" value="3"/>
+                        <label class="star star-3" for="star-3"></label>
+                        <input class="star star-2" id="star-2" type="radio" name="rating" value="4"/>
+                        <label class="star star-2" for="star-2"></label>
+                        <input class="star star-1" id="star-1" type="radio" name="rating" value="5"/>
+                        <label class="star star-1" for="star-1"></label>
+                      </div>
+                        <h6 font-weight-bold>Do you have any concern? Write to us!</h6>
+                      <div class="form-group">
+                          <textarea  name="reports" placeholder="Add a comment/complaint here..." class="md-textarea form-control" rows="4"></textarea>
+                      </div>
+                      <div class="modal-footer d-flex justify-content-center">
+                        <button type="Submit" class="btn btn-success">Send Report&nbsp;&nbsp;<i class="far fa-paper-plane"></i></button>
+                      </div>
+                    {!! Form::close() !!}
               </div>
-             
             </div>
-
-            @endif
-					</div>
-      	</div>  
-	    	
-	    	@endforeach
-		</div>
-	</div>
+          @endif
+	      @endforeach 
+        
+        @if(!empty($client->booking))
+              <div class="col-md-12">
+                  <div class="card-body col-md-12">
+                    Thank you for rating! Rest assured we will read what you've written.
+                  </div>
+                </div>
+        @endif
+		  </div>
+	  </div>
 </div>
 <!-- END OF MODAL -->
 @endsection

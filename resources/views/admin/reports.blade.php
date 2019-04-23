@@ -61,7 +61,7 @@
                             <center><label>Client Details</label></center>
                             <label>Client ID:</label> {{ $row->client->id }}<br>
                             <label>Client Name:</label> {{ $row->client->fullName }}<br>
-                            <label>Report:</label> {{ $row->report }}                           
+                            <label>Report:</label> {{ $row->report->reports }}                           
                           </div>
                         </div>
                       </div>

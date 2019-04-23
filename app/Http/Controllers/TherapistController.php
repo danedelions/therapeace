@@ -45,11 +45,13 @@ class TherapistController extends Controller
                 'user_type' => 'therapist',
                 'status'    => 2,
             ]);
+
             $users = User::where('username', $request->post('username'))->get();
     
             $image = $request->file('image')->store(
-                "profilepic/{$users[0]['username']}",
+                "pictures/{$users[0]['username']}",
                 'public'
+
             );
             $licenseimage_front = $request->file('licenseimage_front')->store(
                 "licensepicture/front/{$users[0]['username']}",
@@ -135,7 +137,7 @@ class TherapistController extends Controller
         $users = User::where('username', $request['username'])->first();
 
         if (isset($request['image'])) {
-            $image = request()->file('image')->move("profilepic/{$users[0]['username']}", 'public');
+            $image = request()->file('image')->move("pictures/{$users[0]['username']}", 'public');
 
         }
 

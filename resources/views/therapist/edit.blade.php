@@ -7,7 +7,7 @@
         <legend class="text-center">Update Information</legend>
         <hr>
         <div class="card-body">
-            {!! Form::file('$image') !!}
+            {!! Form::file('$/image') !!}
           <br>
           <fieldset>  
             <div class="form-row">

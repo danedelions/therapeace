@@ -47,9 +47,11 @@
                     </div>
 
                     <div class="col-md-4">
-                        <label for="staticEmail" class="font-weight-bold">IMAGE</label>
+                        <label for="staticEmail" class="font-weight-bold">Diagnosis Image</label>
                         <div class="form-control-plaintext" id="staticEmail">
-                            PHOTO HERE...
+                        <a data-toggle="modal" data-target="#view-diagnosis-{{ $bookingRequest->bookingDetails->image }}">
+                            <button type="submit" class="btn btn-sm btn-info btn-block">
+                            <i class="fa fa-eyes"></i>&nbsp;View</button></a>
                         </div>
                     </div>
                 </div>
@@ -411,7 +413,7 @@
         <br>
         <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="card">
-                <!-- <img src='{{ asset("storage/{$bookingRequest->bookingDetails->image['license_image']}") }}' style="width:412px;height:732px; text-align: center; "> -->
+                
             </div>
         </div>                    
       </div>
@@ -419,6 +421,30 @@
   </div>
 </div>
 <!-- end of view modal -->
+
+<!-- View Dignosis image-->
+<div class="modal fade" id="view-diagnosis-{{ $bookingRequest->bookingDetails->image }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+        </div>
+      <div class="modal-body" id="modalView">
+        <br>
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="card">
+                <img src='{{    asset("storage/{$bookingRequest->bookingDetails->image}")}}'   
+                 style="width:412px;height:732px; text-align: center; ">
+            </div>
+        </div>                    
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of view modal -->
+
 <br>
 
     <div class="row">
@@ -439,19 +465,12 @@
                                 {!! Form::inputGroup('date', 'From', 'start_date') !!}
                             </div>
                             <div class="col-6">
-<<<<<<< HEAD
                                 {!! Form::inputGroup('date', 'To', 'end_date') !!}
-=======
-                                {!! Form::inputGroup('date', 'Until', 'end_date') !!}
->>>>>>> 6176bdeca58ab16120d0dd4ee85dfe7a33791df7
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-6">
-<<<<<<< HEAD
                                 
-=======
->>>>>>> 6176bdeca58ab16120d0dd4ee85dfe7a33791df7
                                 {!! Form::inputGroup('time', '&nbsp;', 'start_date_time') !!}
                             </div>
                             <div class="col-6">

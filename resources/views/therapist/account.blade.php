@@ -44,7 +44,7 @@
                                 </div>  
                         </div>
                         <div style="display:block; width:x; height:y; text-align:right;">
-                            <a href="{{url('/therapist-edit/'. $therapist->id )}}"><i class="far fa-edit"></i> Edit</a>
+                            <a href="{{url('/therapist-edit/'. $therapist->id )}}}"><i class="far fa-edit"></i> Edit</a>
                         </div>
                 </div>
             </div>
