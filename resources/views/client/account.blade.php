@@ -191,6 +191,7 @@
           <div class="card">
             <div class="card-body">
             @foreach($client->booking as $bookingRequest)
+              @if(!empty($bookingRequest->checklist))
               <center><label>Profile</label></center><br>
               <div class="form-row">
                 <div class="col">
@@ -407,6 +408,10 @@
                                     @endif
                                 </div>
                             </div>
+                            @else
+                              None
+                            @endif
+                            
                             @endforeach
             </div>
           </div>
