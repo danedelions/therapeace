@@ -253,6 +253,7 @@
                     </div>
                   </div>
                   <!-- end of view modal -->
+                  
                 @endforeach        
               </tbody>
             </table>

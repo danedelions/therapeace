@@ -16,13 +16,9 @@
                     <div class="col-sm-4 col-md-4 col-lg-5">
                         {!! Form::inputGroup('text', null, 'email', request()->email ?? null, ['placeholder' => 'E-mail address']) !!}
                     </div>
-<<<<<<< HEAD
-                    <div class="col-sm-3 col-md-3 col-lg-3">
-                      <button type="submit" class="btn btn-info pull-right"><i class="ti-search"></i> Search</button>
-=======
                     <div class="col-sm-1 col-md-1 col-lg-2">
                       <button type="submit" class="btn btn-info pull-right"><i class="ti-search"></i></button>
->>>>>>> 820df5608914ff7b9d0717888ad2c620e22f7461
+
                     </div>
                 </div>    
               {!! Form::close() !!}
@@ -33,7 +29,7 @@
 
         <div id="printableArea">
           <div class="row">
-            <table class="table table-hover" id="print-content">
+            <table class="table table-hover">
               <thead>
                 <tr>
                   <th>#</th>

@@ -30,7 +30,7 @@
 
     <div id="printableArea">
       <div class="row">
-        <div class="card-body" style="overflow: hidden; height: 575px;">
+        <div class="card-body">
           <div class="table table-default">        
             <table class="table table-hover" id="print-content">
               <thead>

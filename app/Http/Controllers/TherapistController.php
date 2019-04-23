@@ -127,10 +127,8 @@ class TherapistController extends Controller
             $therapist->specialties()->sync($ids);
         }
 
-
         $request = $request->validated();
 
-<<<<<<< HEAD
         // dd($request);
 
         $users = User::where('username', $request['username'])->first();
@@ -139,40 +137,23 @@ class TherapistController extends Controller
         if (isset($request['license_image'])) {
             $request['license_image'] = request()->file('license_image')->store('image', 'public');
         }
-=======
-        //dd($request);
-        $users = User::where('username', $request['username'])->first();
->>>>>>> 0af1f64c72971814e14249f69ebbbdefe489e395
-
+        
         if (isset($request['image'])) {
             $image = request()->file('image')->move("profilepic/{$users[0]['username']}", 'public');
-        }
-<<<<<<< HEAD
+        }     
 
-        // if ($request->hasFile('image'))
-        //     {
-        //         $file = $request->file('image');
-        //         $name = $file->getClientOriginalName();
-        //         $data->image = $name;
-        //         $file->move(public_path()."/pictures/{$users[0]['username']}", $name);   
-        //         $data->save();                  
-        //     }   
-     
-=======
         if (isset($request['licenseimage_front'])) {
             $request['licenseimage_front'] = request()->file('licenseimage_front')->store("licensepicture/front/{$users[0]['username']}", 'public');
         }
         if (isset($request['licenseimage_back'])) {
             $request['licenseimage_back'] = request()->file('licenseimage_back')->store("licensepicture/back/{$users[0]['username']}", 'public');
         }
+
         $therapist->fill($request)->save();
         User::where('id', Auth::id())->update(['username' => $request['username'], 'email' => $request['email']]);
 
->>>>>>> 0af1f64c72971814e14249f69ebbbdefe489e395
         
         $therapist->fill($request)->save();
-
-        // var_dump($request->hasFile('image'));
 
         User::where('id', Auth::id())->update(['username' => $request['username'], 'email' => $request['email']]);
 
