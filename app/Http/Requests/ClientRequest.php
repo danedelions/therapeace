@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Requests;
-
+use Auth;
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ClientRequest extends FormRequest
@@ -21,11 +22,11 @@ class ClientRequest extends FormRequest
      * @return array
      */
     public function rules()
-    {
+    {   
         $rules =  [
             'fname' =>  'required', 
             'lname' => 'required', 
-            'email' => 'required', 
+            'email' => ['required', Rule::unique('users','email')->ignore(Auth::id(), 'id')], 
             'contact' => 'required|numeric',
             'gender' => 'required',
             'username' => 'sometimes|required',

@@ -13,6 +13,6 @@ class AppointmentController extends Controller
     	$appointments = Appointment::create([
     		'therapist_id' => Auth::id(),
     		''
-    	])
+    	]);
     }
 }

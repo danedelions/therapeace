@@ -45,12 +45,14 @@ class TherapistController extends Controller
                 'user_type' => 'therapist',
                 'status'    => 2,
             ]);
+
             $users = User::where('username', $request->post('username'))->get();
     
             $image = $request->file('image')->store(
-                "profilepic/{$users[0]['username']}",
+                "pictures/{$users[0]['username']}",
                 'public'
             );
+
             $licenseimage_front = $request->file('licenseimage_front')->store(
                 "licensepicture/front/{$users[0]['username']}",
                 'public'
@@ -114,7 +116,7 @@ class TherapistController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(TherapistRequest $request, $id)
-    {
+    {  
         $therapist = Therapist::findOrFail($id);
         $therapist->update($request->all());
 
@@ -148,6 +150,37 @@ class TherapistController extends Controller
         if (isset($request['licenseimage_back'])) {
             $request['licenseimage_back'] = request()->file('licenseimage_back')->store("licensepicture/back/{$users[0]['username']}", 'public');
         }
+
+        $users = User::where('username', $request['username'])->first();
+
+        if($request->hasFile('$/image')) {
+            $image = $request->file('$/image')->store(
+                "pictures/{$users[0]['username']}",
+                'public'
+            );
+            
+            $therapist->image = $image;
+        }
+
+        if($request->hasFile('licenseimage_front')) {
+            $licenseimage_front = $request->file('licenseimage_front')->store(
+                "licensepicture/front/{$users[0]['username']}",
+                'public'
+            );
+            
+            $therapist->licenseimage_front = $licenseimage_front;
+        }
+        
+        if($request->hasFile('licenseimage_back')) {
+            $licenseimage_back = $request->file('licenseimage_back')->store(
+                "licensepicture/back/{$users[0]['username']}",
+                'public'
+            );
+            
+            $therapist->licenseimage_back = $licenseimage_back;
+        }        
+
+        $request = $request->validated();
 
         $therapist->fill($request)->save();
         User::where('id', Auth::id())->update(['username' => $request['username'], 'email' => $request['email']]);

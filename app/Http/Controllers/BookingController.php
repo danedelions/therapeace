@@ -27,12 +27,18 @@ class BookingController extends Controller
     		'client_id' => Auth::id(),
     		'name' => $request->post('name'),
     		'status' => 0,
-    	]);
+        ]);
+        
+        $users = Auth::id();
+        $image = $request->file('image')->store(
+            "booking/{$users}",
+            'public'
+        );
 
         $bookingRequest->bookingDetails()->create([
                 'patient'=> $request->post('patient'),
                 'diagnosis' => $request->post('diagnosis'),
-                'image' => $request->post('image'),
+                'image' => $image,
                 'notes' => $request->post('notes'),
                 'user_address' => $request->post('user_address'),
                 'email' => $request->post('email'),
