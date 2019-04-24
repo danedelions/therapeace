@@ -21,7 +21,7 @@
         <input placeholder="Last name"  name="lname" class="form-control required">
       </div>
       <div class="form-group col-md-12">
-        <input placeholder="Email"  name="email" class="form-control required">
+        <input type="email" placeholder="Email"  name="email" class="form-control required">
       </div>
       <div class="form-group col-md-12">
         <input placeholder="Contact Number"  name="number" class="form-control required">
@@ -182,15 +182,8 @@
         </p>
             <div>
                 <label>
-<<<<<<< HEAD
                     <input type="checkbox" class="form-control" style= "width: auto" required/>I accept the terms and conditions.
                  </label>
-=======
-
-                <input type="checkbox" class="form-control" style= "width: auto" required/>I accept the terms and conditions.
-                 </label>
-
->>>>>>> 820df5608914ff7b9d0717888ad2c620e22f7461
             </div> 
   </div>
 </div>  

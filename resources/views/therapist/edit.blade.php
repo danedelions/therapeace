@@ -75,7 +75,7 @@
               </div>
               <div class="col-md-6">
                 <label>License Image (Back)</label>
-                  <input type="file" id="itemImage" ame="licenseimage_back" class="form-control">
+                  <input type="file" id="itemImage" name="licenseimage_back" class="form-control">
               </div>
             </div>
           </fieldset>

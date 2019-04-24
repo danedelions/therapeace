@@ -12,9 +12,7 @@ use Auth;
 
 class TransactionController extends Controller
 {
-	public function index()
-      {
+	public function index(){
 
+      }
 }
-
-
