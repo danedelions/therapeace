@@ -13,6 +13,7 @@ use DB;
 use Hash;
 use Auth;
 use App\Specialty;
+use Illuminate\Validation\Rule;
 class ClientController extends Controller
 {
     public function __construct()
@@ -30,6 +31,10 @@ class ClientController extends Controller
     }
     public function store(Request $request)
     {
+        $validatedInput = $request->validate([
+            'email' => 'unique:users,email'
+        ]);
+
         \DB::transaction(function () use ($request) {
             User::insert([
                 'username'  => $request->post('username'),
@@ -92,7 +97,7 @@ class ClientController extends Controller
         return view('client.edit', compact('client'));
     }
     public function update(ClientRequest $request, $id)
-    {
+    {           
         // dd($therapist->toArray());
         $client  = Client::find($id);
         $request = $request->validated();
