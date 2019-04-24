@@ -59,7 +59,13 @@ class AdminController extends Controller
 
         $this->beforeIndex($query);
 
-        $users = $query->where('status',2)->paginate(7);
+        $users = $query->where('status',2)
+        ->when($request->therapist, function($q) use($request){
+            $q->whereHas('therapist', function($q) use($request){
+                $q->where('therapist', '=', $request->therapist);
+            });
+        })
+        ->paginate(7);
 
     	return view('admin.pending', compact('users'));
     }
