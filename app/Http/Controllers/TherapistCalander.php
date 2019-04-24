@@ -88,6 +88,8 @@ class TherapistCalander extends Controller
         });
         return redirect()->back()->with('message', 'Booking successful');
     }
+
+
     public function rejectAppointment(Request $request, BookingRequest $bookingRequest)
     {
         $bookingRequest->reject();
@@ -103,4 +105,6 @@ class TherapistCalander extends Controller
         $bookingRequest->cancel();
         return redirect()->back()->with('cancelStatus', true);
     }
+
+    
 }

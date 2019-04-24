@@ -30,8 +30,17 @@
                     @endif
                 </div>
             </div>
+            <div class="card-footer">
+                <div class="col-lg-6">
+
+                            <a href="{{url('/booktherapist/'. $bookings->therapist_id)}}">
+                                <button class="btn btn-warning">Re-book therapist</button>
+                            </a>     
+                </div>
+            </div>
         </div>
     </div>
+    
     <div class="col-md-6">
         <div class="card">
             <div class="card-header bg-info">
@@ -84,6 +93,8 @@
             </div>
         </div>
     </div>
+    
 </div>
+   
 
 @endsection

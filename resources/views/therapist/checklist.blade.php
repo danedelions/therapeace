@@ -10,11 +10,13 @@
 					{{$booking->client->fullName}}'s Checklist
 				</h3>
 				<div class="card-body">
-					{!! Form::model(null,['method' => 'POST', 'class' => 'form-group']) !!}
-						<fieldset>
+				{!! Form::open(['url' => route('checklist.store'), 'method' => 'post']) !!}
 							<div class="form-row">
 								<div class="col-md-6">
-									 {!! Form::inputGroup('text', '/S/: Chief Complaint', 'chief_complaint', null, ['placeholder' => 'Chief Complaint']) !!}
+									 {!! Form::inputGroup('text', '/S/: Chief Complaint', 'chief_complaint', $booking->bookingDetails->diagnosis, ['placeholder' => 'Chief Complaint']) !!}
+										<input type="hidden" name="booking_id" value="{{$booking->id}}">
+										<input type="hidden" name="client_id" value="{{$booking->client->user_id}}">
+										<input type="hidden" name="therapist_id" value="{{$booking->therapist->user_id}}">
 								</div>
 							</div>
 						</fieldset>
@@ -74,7 +76,7 @@
 										<input type="checkbox" name="prom" value="PROM"/> PROM
 									</label>
 									<label class="form-control">
-										<input type="checkbox" name="massage" value="Massage"/> Massage
+										<label for="">Massage</label>
 										<div class="form-row">
 											<div class="col-md-6">
 												<input type="text" name="massage_area" class=" form-control" placeholder="Area">
@@ -85,7 +87,7 @@
 										</div>
 									</label>
 									<label class="form-control">
-										<input type="checkbox" name="stretching" value="p"/> Stretching
+										<label for="">Stretching</label> 
 										<div class="form-row">
 											<div class="col-md-6">
 												<input type="text" name="stretching_hold" class=" form-control" placeholder="Hold">
@@ -98,7 +100,7 @@
 								</div>
 								<div class="col-md-6 form-group">
 									 <label class="form-control">
-										<input type="checkbox" name="es_tens" value="ES/TENS"/> ES/TENS
+									 	<label for="">ES/TENS</label> 
 										<div class="form-row">
 											<div class="col-md-6">
 												<input type="text" name="estens_area" class=" form-control" placeholder="Area">
@@ -109,7 +111,7 @@
 										</div>
 									</label>
 									<label class="form-control">
-										<input type="checkbox" name="resistance" value="Resistance"/> Resistance
+										<label for="">Resistance</label> 
 										<div class="form-row">
 											<div class="col-md-6">
 												<input type="text" name="resistance_weight" class=" form-control" placeholder="Weight">
@@ -126,7 +128,7 @@
 										</div>
 									</label>
 									<label class="form-control">
-										<input type="checkbox" name="other" value="Others"/> Other
+										<label for="">Other</label>
 										<input type="text" name="other_text" class="form-control" placeholder="Activity...">
 									</label>
 								</div>
@@ -134,7 +136,6 @@
 						</fieldset>
 						<hr>
 						<button class="btn btn-success">Submit</button>
-						<button class="btn btn-danger">Cancel</button>
 					{!! Form::close() !!}
 				</div>
 			</div>

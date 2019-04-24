@@ -152,11 +152,6 @@ class TherapistController extends Controller
         $therapist->fill($request)->save();
         User::where('id', Auth::id())->update(['username' => $request['username'], 'email' => $request['email']]);
 
-        
-        $therapist->fill($request)->save();
-
-        User::where('id', Auth::id())->update(['username' => $request['username'], 'email' => $request['email']]);
-
         return redirect()->route('get.therapist-account');
     }
 

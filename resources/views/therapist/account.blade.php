@@ -131,11 +131,31 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Joshua Samson</td>
-                                            <td>Really cool and awesome!</td>
-                                            <td>4.5 stars</td>
-                                        </tr>
+                                    @foreach($therapist->bookingRequest as $request)
+                                        @if(!empty($request->report))
+                                            <tr>
+                                                <td>{{$request->client->fullName}}</td>
+                                                <td>
+                                                @if(!empty($request->report->rating))
+                                                    {{$request->report->rating}}
+                                                @else
+                                                    n/a
+                                                @endif
+                                                </td>
+                                                <td>
+                                                @if(!empty($request->report->reports))
+                                                    {{$request->report->reports}}
+                                                @else
+                                                    n/a
+                                                @endif
+                                                </td>
+                                            </tr>
+                                        @else
+                                            <tr>
+                                                <td></td>
+                                            </tr>
+                                        @endif
+                                    @endforeach
                                     </tbody> 
                                 </table>
                             </div>

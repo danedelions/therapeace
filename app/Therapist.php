@@ -61,6 +61,11 @@ class Therapist extends Model
         return $this->hasMany('App\BookingRequest', 'therapist_id', 'user_id');
     }
 
+    public function report()
+    {
+        return $this->hasMany('App\Report', 'therapist_id', 'user_id');
+    }
+
     public function appointment()
     {
         return $this->hasMany('App\Appointment', 'therapist_id', 'user_id');

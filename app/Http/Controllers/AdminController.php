@@ -26,7 +26,9 @@ class AdminController extends Controller
 
         $this->beforeIndex($query);
 
-        $users = $query->where([['status', '!=', '1'],['status', '!=', '2'], ['user_type', '!=', 'admin']])->paginate(7);
+        $users = $query->where(function($q){
+            $q->where('status', '==', '0')->where('user_type', '!=', 'admin');
+        })->paginate(7);
 
         return view('admin.users', compact('users'));
     }
@@ -58,7 +60,7 @@ class AdminController extends Controller
 
         $this->beforeIndex($query);
 
-        $users = $query->where('status',2)->paginate(7);
+        $users = $query->where('status', 2)->paginate(7);
 
     	return view('admin.pending', compact('users'));
     }

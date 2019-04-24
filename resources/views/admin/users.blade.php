@@ -70,7 +70,7 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
                           @if ($row['user_type'] == 'client')
-                              <a class="dropdown-item" data-toggle="modal" data-target="#view-modalc-{{ $row->id }}"><i class="far fa-eye"></i>&nbspView</a>
+                              <a class="dropdown-item" data-toggle="modal" data-target="#view-modalalc-{{ $row->id }}"><i class="far fa-eye"></i>&nbspView</a>
                           @elseif ($row['user_type'] == 'therapist')
                               <a class="dropdown-item" data-toggle="modal" data-target="#view-modalt-{{ $row->id }}"><i class="far fa-eye"></i>&nbspView</a>
                           @endif

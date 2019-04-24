@@ -119,18 +119,10 @@ class ClientController extends Controller
             return view('client.find', compact('therapists'));
         }
     }
+
     public function getView($bookingID)
     {
         $bookings = BookingRequest::find($bookingID);
         return view('client.view', compact('bookings'));
-    }
-    public function report(Therapist $therapist)
-    {
-        
-    }
-    public function cancelAppointment(Request $request, BookingRequest $bookingRequest)
-    {
-        $bookingRequest->cancel();
-        return redirect()->back()->with('cancelStatus', true);
     }
 }

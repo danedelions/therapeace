@@ -33,6 +33,21 @@ class BookingRequest extends Model
         return $this->hasOne('App\Appointment', 'booking_id');
     }
 
+    public function checklist()
+    {
+        return $this->hasOne('App\Checklist', 'booking_id');
+    }
+
+    public function progress()
+    {
+        return $this->hasMany('App\Progress', 'booking_id');
+    }
+
+    public function report()
+    {
+        return $this->hasOne('App\Report', 'booking_id');
+    }
+
     public function reject()
     {
         return $this->update([
@@ -71,5 +86,10 @@ class BookingRequest extends Model
     public function scopeApproved($query)
     {
         return $query->where('status', 1);
+    }
+
+    public function scopeOfBooking($query, $bookingID)
+    {
+        return $query->where('id', $bookingId);
     }
 }
