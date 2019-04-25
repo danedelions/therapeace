@@ -11,6 +11,7 @@ use App\Therapist;
 use App\BookingRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\TherapistRequest;
+use Carbon\Carbon;
 
 class TherapistController extends Controller
 {
@@ -37,6 +38,25 @@ class TherapistController extends Controller
      */
     public function store(Request $request)
     {
+        $start_date = Carbon::now()->format('YYYY-MM-DD');
+
+        $validatedInput = $request->validate([
+            'email' => 'unique:users,email',
+            'expiry_date' => "before:{$start_date}"
+
+            // $now = Carbon::now();
+
+            // $start_date = Carbon::parse($request->input('start_date'));
+
+            // $end_date = Carbon::parse($request->input('end_date'));
+
+            // if($now->between($start_date,$end_date)){
+            //     echo 'Coupon is Active';
+            // } else {
+            //     echo 'Coupon is Expired';
+            // }
+        ]);
+
         \DB::transaction(function () use ($request) {
             User::insert([
                 'username'  => $request->post('username'),
