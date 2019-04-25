@@ -149,6 +149,28 @@ class TherapistController extends Controller
             $therapist->specialties()->sync($ids);
         }
 
+        $request = $request->validated();
+
+        // dd($request);
+
+        $users = User::where('username', $request['username'])->first();
+
+
+        if (isset($request['license_image'])) {
+            $request['license_image'] = request()->file('license_image')->store('image', 'public');
+        }
+        
+        if (isset($request['image'])) {
+            $image = request()->file('image')->move("profilepic/{$users[0]['username']}", 'public');
+        }     
+
+        if (isset($request['licenseimage_front'])) {
+            $request['licenseimage_front'] = request()->file('licenseimage_front')->store("licensepicture/front/{$users[0]['username']}", 'public');
+        }
+        if (isset($request['licenseimage_back'])) {
+            $request['licenseimage_back'] = request()->file('licenseimage_back')->store("licensepicture/back/{$users[0]['username']}", 'public');
+        }
+
         $users = User::where('username', $request['username'])->first();
 
         if($request->hasFile('$/image')) {
