@@ -62,32 +62,6 @@
                   <!-- BUTTONS -->    
                     <td>
                       <!-- dropdown -->
-
-                      <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle hidden-print" data-id="{{ $row['id'] }}"
-                                type="button" id="dropdownMenu1" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false" >
-                          Actions
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                          @if ($row['user_type'] == 'client')
-                              <a class="dropdown-item" data-toggle="modal" data-target="#view-modalalc-{{ $row->id }}"><i class="far fa-eye"></i>&nbspView</a>
-                          @elseif ($row['user_type'] == 'therapist')
-                              <a class="dropdown-item" data-toggle="modal" data-target="#view-modalt-{{ $row->id }}"><i class="far fa-eye"></i>&nbspView</a>
-                          @endif
-
-                          {!! Form::open(['url' => route('get.notice', ['id' => $row->id]), 'method' => 'GET', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
-                            <button type="submit" class="dropdown-item"><i class="far fa-envelope"></i>&nbsp&nbspMail</button>
-                          {!! Form::close() !!}
-
-                          {!! Form::open(['url' => route('get.update', $row->id), 'method' => 'PATCH']) !!}
-                          @if ($row['status'] == 0)
-                            <button type="submit" class="dropdown-item"><i class="fas fa-ban"></i>&nbsp;&nbsp;Block</button>
-                          @else
-                            <button type="submit" class="dropdown-item"><i class="fas fa-ban"></i>&nbsp;&nbsp;Unblock</button>
-                          @endif
-                          {!! Form::close() !!}
-
                       <div class="btn-group">
                         <div class="dropdown">
                           <button class="btn btn-default dropdown-toggle hidden-print" data-id="{{ $row['id'] }}"
