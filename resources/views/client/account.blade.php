@@ -100,8 +100,10 @@
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
                   <a class="dropdown-item" style="color:green;"href="{{url('/client-view/'.$row->id)}}"><i class="far fa-eye" style="color:green;"></i>&nbspView</a>
-                  <a class="dropdown-item" style="color:red;"><i class="fas fa-ban" style="color:red;"></i>
+                  {!! Form::open(['url' => route('therapist.cancel.appointment', $row->id), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
+                    <a class="dropdown-item" style="color:red;"><i class="fas fa-ban" style="color:red;"></i>
                   &nbspCancel
+                  {!! Form::close() !!}
                   </a>
                 </div>
               </div>
