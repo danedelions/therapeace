@@ -3,6 +3,10 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Auth;
+use Illuminate\Validation\Rule;
+
+
 
 class TherapistRequest extends FormRequest
 {
@@ -24,10 +28,10 @@ class TherapistRequest extends FormRequest
     public function rules()
     {
         $rules =  [
-            'image' => 'nullable',
+            'irmage' => 'nullable',
             'fname' =>  'required', 
             'lname' => 'required', 
-            'email' => 'required', 
+            'email' => ['required', Rule::unique('users','email')->ignore(Auth::id(), 'id')], 
             'contact' => 'required',
             'gender' => 'required',
             'streetaddress'  => 'required',
@@ -36,8 +40,8 @@ class TherapistRequest extends FormRequest
             'barangay' => 'required', 
             'postal_code' => 'required', 
             'therapist' => 'sometimes|required', 
-            'license_number' => 'nullable', 
-            'expiry_date' => 'nullable', 
+            'license_number' => 'nullable|numeric', 
+            'expiry_date' => 'nullable|date_format:Y-m-d|before:date',
             'license_image' => 'nullable', 
             'nbi_image' => 'nullable', 
             'bc_image' => 'nullable', 

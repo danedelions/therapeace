@@ -12,6 +12,8 @@ use App\BookingRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\TherapistRequest;
 use Carbon\Carbon;
+use Illuminate\Validation\Rule;
+
 
 class TherapistController extends Controller
 {
@@ -38,12 +40,17 @@ class TherapistController extends Controller
      */
     public function store(Request $request)
     {
-        $start_date = Carbon::now()->format('YYYY-MM-DD');
+        $now = Carbon::now();
+        $start_date = Carbon::parse($now)->format('Y-m-d');
 
         $validatedInput = $request->validate([
             'email' => 'unique:users,email',
             'expiry_date' => "before:{$start_date}"
 
+ 
+        ]);
+
+            
             // $now = Carbon::now();
 
             // $start_date = Carbon::parse($request->input('start_date'));
@@ -55,7 +62,6 @@ class TherapistController extends Controller
             // } else {
             //     echo 'Coupon is Expired';
             // }
-        ]);
 
         \DB::transaction(function () use ($request) {
             User::insert([
@@ -147,28 +153,6 @@ class TherapistController extends Controller
                 return $specialty->id;
             });
             $therapist->specialties()->sync($ids);
-        }
-
-        $request = $request->validated();
-
-        // dd($request);
-
-        $users = User::where('username', $request['username'])->first();
-
-
-        if (isset($request['license_image'])) {
-            $request['license_image'] = request()->file('license_image')->store('image', 'public');
-        }
-        
-        if (isset($request['image'])) {
-            $image = request()->file('image')->move("profilepic/{$users[0]['username']}", 'public');
-        }     
-
-        if (isset($request['licenseimage_front'])) {
-            $request['licenseimage_front'] = request()->file('licenseimage_front')->store("licensepicture/front/{$users[0]['username']}", 'public');
-        }
-        if (isset($request['licenseimage_back'])) {
-            $request['licenseimage_back'] = request()->file('licenseimage_back')->store("licensepicture/back/{$users[0]['username']}", 'public');
         }
 
         $users = User::where('username', $request['username'])->first();
