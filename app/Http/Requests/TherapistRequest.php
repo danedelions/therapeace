@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Auth;
 use Illuminate\Validation\Rule;
-
+ 
 
 
 class TherapistRequest extends FormRequest
@@ -41,7 +41,7 @@ class TherapistRequest extends FormRequest
             'postal_code' => 'required', 
             'therapist' => 'sometimes|required', 
             'license_number' => 'nullable|numeric', 
-            'expiry_date' => 'nullable|date_format:Y-m-d|before:date',
+            'expiry_date' => 'nullable|date_format:Y-m-d|after:today',
             'license_image' => 'nullable', 
             'nbi_image' => 'nullable', 
             'bc_image' => 'nullable', 
