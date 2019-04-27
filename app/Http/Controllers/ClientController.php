@@ -79,16 +79,28 @@ class ClientController extends Controller
         $specialties = Specialty::select('name')->pluck('name', 'name');
         return view('client.find', compact('therapists', 'specialties'));
     }
-    public function clientAccount(BookingRequest $bookings)
+    public function clientAccount(Request $request)
     {
-        $client   = Client::whereUserId(Auth::id())->with('user')->first();
-        $bookings = $client->booking()->with('client')->where('status', 0)->get(); //unsure about here//
-        return view('client.account', compact('client', 'bookings'));
-        $client->load([
-            'booking',
-            'booking.therapist.user',
-            'booking.bookingDetails'
+        $query = Client::query();
+
+        $client = $query->whereUserId(Auth::id())->with('user');
+
+        $client->with([
+            'booking' => function ($q) use ($request){
+                $q->when($request->status, function ($q) use ($request)  {
+                    $q->where('status', $request->status);
+                })
+                ->when($request->name, function ($q) use ($request) {
+                    $q->whereHas('therapist', function ($q) use($request) {
+                        $q->whereRaw('CONCAT(fname, " ", lname) LIKE "%'.$request->name.'%"');
+                    });
+                })
+                ->with(['therapist.user', 'bookingDetails']);
+            },
         ]);
+
+        $client = $client->first();
+
         return view('client.account', compact('client'));
     }
     public function edit($userId)

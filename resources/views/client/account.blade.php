@@ -150,21 +150,14 @@
           </thead>
           <tbody>
             @forelse($client->booking as $row)
-              @if(!empty($row->appointment->durationDate && $row->status == 1))
+              @if(!empty($row->appointment->durationDate))
               <tr>
-                <td><b>{{$row->therapist->fullName}}</b></td>
-                <td>{{$row->appointment->durationDate}}</td>
-                <td>{{$row->bookingDetails->diagnosis}}</td>
-                <td>
-                  <div>
-                  </div>
-                </td>
-              </tr>
+                @if($row->status == 1)
+                @endif
 
-              @elseif(!empty($row->appointment->durationDate && $row->status == 3))
-              <tr>
+                @if($row->status == 3)
                 <td><b>{{$row->therapist->fullName}}</b></td>
-                <td>{{$row->appointment->durationDate}}</td>
+                <td>{{date('F j, Y', strtotime($row->appointment->start_date))}} - {{date('F j, Y', strtotime($row->appointment->end_date))}}</td>
                 <td>{{$row->bookingDetails->diagnosis}}</td>
                 <td>
                   <div class="dropdown">
@@ -179,16 +172,18 @@
                     </div>
                   </div>
                 </td>
+                @endif
+
               </tr>
               @elseif(!empty($row->appointment->durationDate))
               <tr>
-                <td colspan="4" class="text-center">No requests</td>
+                <td colspan="4" class="text-center">No Notes</td>
               </tr>
               @endif
 
               @empty
               <tr>
-                <td colspan="4" class="text-center">No requests</td>
+                <td colspan="4" class="text-center">No Notes</td>
               </tr>
             @endforelse
           </tbody>
