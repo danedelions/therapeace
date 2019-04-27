@@ -32,10 +32,11 @@
             </div>
             <div class="card-footer">
                 <div class="col-lg-6">
-
+                @if($bookings->status == 3)
                             <a href="{{url('/booktherapist/'. $bookings->therapist_id)}}">
                                 <button class="btn btn-warning">Re-book therapist</button>
-                            </a>     
+                            </a>    
+                @endif 
                 </div>
             </div>
         </div>
@@ -44,9 +45,10 @@
     <div class="col-md-6">
         <div class="card">
             <div class="card-header bg-info">
-            Session Transaction
+                Session Transaction
             </div>
             <div class="card-body">
+                @if($bookings->status == 3)
                 <div class="form-group row">
 					<label class="col-lg-4"><b>Therapist Rate</b></label>
 					<div class="col-lg-7">{{$bookings->therapist->personal_rate}} per hour</div>
@@ -66,22 +68,22 @@
                 <div class="form-group row">
 					<label class="col-lg-4">Services Availed</label>
 					<div class="col-lg-7">
-                    @if(!empty($bookings->appointment->other_services))
-                        {{$bookings->appointment->other_services}}
-                    @else
-                        None availed
-                    @endif
+                        @if(!empty($bookings->appointment->other_services))
+                            {{$bookings->appointment->other_services}}
+                        @else
+                            None availed
+                        @endif
                     </div>
                 </div>
                 <div class="form-group row">
 					<label class="col-lg-4">Services Availed Fees</label>
-					<div class="col-lg-7">
-                    @if(!empty($bookings->appointment->other_services_fee))
-                        {{$bookings->appointment->other_services_fee}}
-                    @else
-                        None availed
-                    @endif
-                    </div>
+                        <div class="col-lg-7">
+                            @if(!empty($bookings->appointment->other_services_fee))
+                                {{$bookings->appointment->other_services_fee}}
+                            @else
+                                None availed
+                            @endif
+                        </div>
                 </div>
                 <hr>
                 <div class="form-group row">
@@ -90,7 +92,15 @@
                         {{$bookings->appointment->totalPrice}}
                     </div>
                 </div>
+            @else
+            <div class="form-group row">
+                <div class="col-lg-7">
+                    Booking isn't finished yet!
+                </div>
             </div>
+            @endif
+            </div>
+           
         </div>
     </div>
     

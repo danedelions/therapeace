@@ -30,6 +30,15 @@
 				<div class="card-body">
 					<form method="POST" action="{{url('/doBookTherapist/')}}" enctype="multipart/form-data">
 						{{csrf_field()}}
+						@if ($errors->any())
+							<div class="alert alert-danger">
+										<ul>
+												@foreach ($errors->all() as $error)
+														<li>{{ $error  }}</li>
+												@endforeach
+										</ul>
+								</div>
+						@endif 
 						<div class="form-row">
 							<div class="form-group col-md-4">
 						     	<label for="inputPatient" ><b>Are you the patient?</b></label>
