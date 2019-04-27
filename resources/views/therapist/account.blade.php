@@ -18,7 +18,7 @@
                         <hr>    
                         <div class="form-row">
                             <label class="col-lg-4"><b>Full Name</b></label>
-                            <div class="col-lg-8">{{$therapist->fullname}}</div>
+                            <div class="col-lg-8">{{$therapist->fullName}}</div>
                         </div>
                         <div class="form-row">
                             <label class="col-lg-4"><b>Email</b></label>
@@ -44,7 +44,7 @@
                                 </div>  
                         </div>
                         <div style="display:block; width:x; height:y; text-align:right;">
-                            <a href="{{url('/therapist-edit/'. $therapist->id )}}}"><i class="far fa-edit"></i> Edit</a>
+                            <a href="{{url('/therapist-edit/'. $therapist->id )}}"><i class="far fa-edit"></i> Edit</a>
                         </div>
                 </div>
             </div>
@@ -94,11 +94,17 @@
                                         @elseif($request->status == 2)
                                         <span class="badge badge-danger">Rejected</span>
                                         @elseif($request->status == 3)
-                                        <span class="badge badge-default">Finished</span>  
+                                        <span class="badge badge-default">Finished</span>
+                                        @elseif($request->status == 4) 
+                                        <span class="badge badge-default">Cancelled</span>
                                         @endif
                                     </td>
                                     <td>
-                                        <a class="btn btn-sm btn-info" href="{{ route('therapist.calendar', $request) }}">View</a>
+                                        @if($request->status == 0 || $request->status == 1 || $request->status == 2 || $request->status == 3)
+                                            <a class="btn btn-sm btn-info" href="{{ route('therapist.calendar', $request) }}">View</a>
+                                        @else
+
+                                        @endif
                                     </td>
                                 </tr>
                                 @empty
@@ -131,7 +137,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($therapist->bookingRequest as $request)
+                                    @forelse($therapist->bookingRequest as $request)
                                         @if(!empty($request->report))
                                             <tr>
                                                 <td>{{$request->client->fullName}}</td>
@@ -150,12 +156,17 @@
                                                 @endif
                                                 </td>
                                             </tr>
-                                        @else
+                                        @elseif(!empty($request->report))
                                             <tr>
-                                                <td></td>
+                                                <td colspan="4" class="text-center">No Rates</td>
                                             </tr>
                                         @endif
-                                    @endforeach
+
+                                        @empty
+                                            <tr>
+                                                <td colspan="4" class="text-center">No Rates</td>
+                                            </tr>
+                                    @endforelse
                                     </tbody> 
                                 </table>
                             </div>

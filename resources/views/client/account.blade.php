@@ -78,20 +78,26 @@
             <td><b>{{ $row->therapist->fullname }}</b></td>
             <td>{{ $row->bookingDetails->diagnosis }}</td>
             <td>
-                            @if($row->status == 0)
-                                <span class="badge badge-secondary">Pending</span>  
-                            @elseif($row->status == 1)
-                                <span class="badge badge-success">Approved</span>  
-                            @elseif($row->status == 2)
-                            <span class="badge badge-danger">Rejected</span>
-                            @elseif($row->status == 3)
-                            <span class="badge badge-primary">Finished</span>  
-                              @elseif($row->status == 4)
-                            <span class="badge badge-default">Cancelled</span> 
-                            @endif
-                        </td>
+                @if($row->status == 0)
+                    <span class="badge badge-secondary">Pending</span>  
+                @elseif($row->status == 1)
+                    <span class="badge badge-success">Approved</span>  
+                @elseif($row->status == 2)
+                <span class="badge badge-danger">Rejected</span>
+                @elseif($row->status == 3)
+                <span class="badge badge-primary">Finished</span>  
+                  @elseif($row->status == 4)
+                <span class="badge badge-default">Cancelled</span> 
+                @endif
+            </td>
+
             <td>
-              @if($row->status == 1)
+              @if($row->status == 0)
+								{!! Form::open(['url' => route('therapist.cancel.appointment', $row->id), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
+              		<button class="btn btn-sm btn-outline-danger">Cancel</button>
+									{!! Form::close() !!}
+
+              @elseif($row->status == 1)
               <div class="dropdown">
                 <button class="btn btn-sm btn-info dropdown-toggle" data-id="{{ $row['id'] }}"
                         type="button" id="dropdownMenu1" data-toggle="dropdown"
@@ -99,22 +105,17 @@
                   Actons
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <a class="dropdown-item" style="color:green;"href="{{url('/client-view/'.$row->id)}}"><i class="far fa-eye" style="color:green;"></i>&nbspView</a>
-                  <a class="dropdown-item" style="color:red;"><i class="fas fa-ban" style="color:red;"></i>
-                  &nbspCancel
-                  </a>
+                  <a class="dropdown-item" style="color:green;" href="{{url('/client-view/'.$row->id)}}"><i class="far fa-eye" style="color:green;"></i>&nbsp; View</a>
+                  {!! Form::open(['url' => route('therapist.cancel.appointment', $row->id), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
+                  <button class="btn btn-sm btn-outline-danger dropdown-item" style="color:red;"><i class="fas fa-ban" style="color:red;"></i>&nbsp;Cancel</button>
+                  {!! Form::close() !!}
                 </div>
               </div>
-              @elseif($row->status == 0)
-								{!! Form::open(['url' => route('therapist.cancel.appointment', $row->id), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
-              		<button class="btn btn-sm btn-outline-danger">Cancel</button>
-									{!! Form::close() !!}
+
 							@elseif($row->status == 3)
 								<a href="{{url('/client-view/'.$row->id)}}"><button class="btn btn-sm btn-outline-info">View</button></a>
 							
-							@elseif($row->status == 4)
-
-							
+              @elseif($row->status == 4)
 
               @endif
             </td>
@@ -148,26 +149,48 @@
             </tr>
           </thead>
           <tbody>
-            @foreach($client->booking as $row)
-            <tr>
-              <td><b>{{$row->therapist->fullName}}</b></td>
-              <td>{{$row->appointment->durationDate}}</td>
-              <td>{{$row->bookingDetails->diagnosis}}</td>
-              <td>
-                <div class="dropdown">
-                  <button class="btn btn-sm btn-info dropdown-toggle" data-id="{{ $row['id'] }}"
-                          type="button" id="dropdownMenu1" data-toggle="dropdown"
-                          aria-haspopup="true" aria-expanded="false">
-                    Actons
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <a class="dropdown-item" data-toggle="modal" data-target="#viewModal" >&nbsp<i class="fas fa-info"></i>&nbsp;&nbsp;Rate</a>
-                    <a class="dropdown-item" data-toggle="modal" data-target="#view-modal"><i class="fas fa-sticky-note"></i>&nbsp;&nbsp;Notes</a>
+            @forelse($client->booking as $row)
+              @if(!empty($row->appointment->durationDate && $row->status == 1))
+              <tr>
+                <td><b>{{$row->therapist->fullName}}</b></td>
+                <td>{{$row->appointment->durationDate}}</td>
+                <td>{{$row->bookingDetails->diagnosis}}</td>
+                <td>
+                  <div>
                   </div>
-                </div>
-              </td>
-            </tr>
-            @endforeach 
+                </td>
+              </tr>
+
+              @elseif(!empty($row->appointment->durationDate && $row->status == 3))
+              <tr>
+                <td><b>{{$row->therapist->fullName}}</b></td>
+                <td>{{$row->appointment->durationDate}}</td>
+                <td>{{$row->bookingDetails->diagnosis}}</td>
+                <td>
+                  <div class="dropdown">
+                    <button class="btn btn-sm btn-info dropdown-toggle" data-id="{{ $row['id'] }}"
+                            type="button" id="dropdownMenu1" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                      Actons
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                      <a class="dropdown-item" data-toggle="modal" data-target="#viewModal" >&nbsp<i class="fas fa-info"></i>&nbsp;&nbsp;Rate</a>
+                      <a class="dropdown-item" data-toggle="modal" data-target="#view-modal"><i class="fas fa-sticky-note"></i>&nbsp;&nbsp;Notes</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              @elseif(!empty($row->appointment->durationDate))
+              <tr>
+                <td colspan="4" class="text-center">No requests</td>
+              </tr>
+              @endif
+
+              @empty
+              <tr>
+                <td colspan="4" class="text-center">No requests</td>
+              </tr>
+            @endforelse
           </tbody>
         </table>
       </div>
@@ -432,7 +455,7 @@
 			          	<span aria-hidden="true">&times;</span>
 			        </button>
       		</div>
-			  @foreach($client->booking as $row)
+			  @forelse($client->booking as $row)
           @if(empty($row->report))
             <div class="modal-body">
               <LABEL>Rate <b>{{$row->therapist->fullname}}</b></LABEL>
@@ -464,16 +487,16 @@
                     {!! Form::close() !!}
               </div>
             </div>
-          @endif
-	      @endforeach 
         
-        @if(!empty($client->booking))
+        @elseif(!empty($client->booking))
               <div class="col-md-12">
                   <div class="card-body col-md-12">
-                    Thank you for rating! Rest assured we will read what you've written.
+                    Thank you for rating! Rest assured we will read what you've written
                   </div>
                 </div>
         @endif
+        @empty
+	      @endforelse 
 		  </div>
 	  </div>
 </div>

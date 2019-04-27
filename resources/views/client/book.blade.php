@@ -31,7 +31,7 @@
 					<form method="POST" action="{{url('/doBookTherapist/')}}" enctype="multipart/form-data">
 						{{csrf_field()}}
 						<div class="form-row">
-							<div class="form-group col-md-4">
+							<div class="form-group col-md-4" required>
 						     	<label for="inputPatient" ><b>Are you the patient?</b></label>
 						     	<br>
 						     	<input name="patient" type="radio" value ="yes"> Yes <br>

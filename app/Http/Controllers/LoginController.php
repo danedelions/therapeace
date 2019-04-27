@@ -20,7 +20,7 @@ class LoginController extends Controller
     {
         $credentials = $request->validate([
             'username' => [
-                'required',
+            'required',
                 Rule::exists('users')->where(function ($q) {
                     $q->where([['status', '!=', '1'],['status', '!=', '2']]);
                 })

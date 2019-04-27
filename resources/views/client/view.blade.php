@@ -24,7 +24,7 @@
                 <div class="form-group row">
                     <label class="col-lg-4">Session Dates</label>
                     @if(!empty($bookings->appointment->durationDate))
-                        <div class="col-lg-7">{{$bookings->appointment->durationDate}}</div>
+                        <div class="col-lg-7">{{$bookings->appointment->durationDate = date("F j, Y, F j, Y")}}</div>
                     @else
                         <div class="col-lg-7">No dates added yet!</div>
                     @endif
