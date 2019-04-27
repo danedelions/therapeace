@@ -151,6 +151,7 @@
           </thead>
           <tbody>
             @foreach($client->booking as $row)
+              @if($row->status == 3)
             <tr>
               <td><b>{{$row->therapist->fullName}}</b></td>
               <td>{{$row->appointment->durationDate}}</td>
@@ -169,6 +170,7 @@
                 </div>
               </td>
             </tr>
+            @endif
             @endforeach 
           </tbody>
         </table>
