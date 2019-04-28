@@ -5,7 +5,9 @@
     <form id="regForm" action="{{ route('client.store') }}" class="form-group" method="POST">
          {{ csrf_field() }}
         <h1>Client Registration</h1>
-        @if ($errors->any())
+        <hr><!-- One "tab" for each step information the form: -->
+        <div class="tab form-group">
+             @if ($errors->any())
         <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -14,8 +16,6 @@
                 </ul>
             </div>
         @endif
-        <hr><!-- One "tab" for each step information the form: -->
-        <div class="tab form-group">
             <div class="form-group col-md-12">
                 <input placeholder="First name" name="fname" type="text" class="form-control required">
             </div>
@@ -23,7 +23,7 @@
                 <input placeholder="Last name" name="lname" type="text" class="form-control required">
             </div>
             <div class="form-group col-md-12">
-                <input placeholder="Email"  name="email" type="email" class="form-control required">
+                <input placeholder="Email"  name="email" type="email" class="form-control email required">
             </div>
             <div class="form-group col-md-12">
                 <input placeholder="Contact Number" type="text" name="number" class="form-control required">
@@ -173,7 +173,7 @@
         <div style="overflow:auto;">
             <div style="float:right;">
                 <button class="btn btn-sm-success" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                <button class="btn btn-sm-success" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                <button class="btn btn-sm-success" type="button" id="nextBtn" onclick="nextPrev(1)" data-settings="{!! htmlspecialchars(json_encode(['url' => url('client-validation'), 'method' => 'post', 'token' => csrf_token()])) !!}">Next</button>
                 <button href="login" class="btn btn-sm-success" type="submit" id="subBtn" style="display:none">Submit</button>
             </div>
         </div>

@@ -18,20 +18,19 @@
                     @endforeach
                 </ul>
             </div>
-        @endif   
+      @endif   
       <h6>Upload profile picture</h6>   
       <div class="form-group col-md-12">
         <input type="file" accept="image/x-png,image/gif,image/jpeg" name="image" id="fileToUpload" class="form-control required" data-validation-message="Please upload picture">
-        </input>
       </div>
       <div class="form-group col-md-12">
-        <input placeholder="First name"  name="fname" class="form-control required" >
+        <input placeholder="First name"  name="fname" class="form-control required">
       </div>
       <div class="form-group col-md-12">
         <input placeholder="Last name"  name="lname" class="form-control required">
       </div>
       <div class="form-group col-md-12">
-        <input type="email" placeholder="Email"  name="email" class="form-control required" data->
+        <input type="email" placeholder="Email" name="email" class="form-control required">
       </div>
       <div class="form-group col-md-12">
         <input placeholder="Contact Number"  name="number" class="form-control required">
@@ -205,7 +204,7 @@
     <div style="overflow:auto;">
       <div style="float:right;">
         <button class="btn btn-sm-success" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-        <button class="btn btn-sm-success" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+        <button class="btn btn-sm-success" type="button" id="nextBtn" onclick="nextPrev(1)" data-settings="{!! htmlspecialchars(json_encode(['url' => url('therapist-validation'), 'method' => 'post', 'token' => csrf_token()])) !!}">Next</button>
         <button class="btn btn-sm-success" type="submit" id="subBtn" style="display:none">Submit</button></a>
       </div>
     </div>

@@ -29,4 +29,5 @@ class Report extends Model
         return $this->belongsTo('App\Therapist', 'therapist_id', 'user_id');
     }
 
+    
 }

@@ -19,7 +19,7 @@ class ClientController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except(['index', 'store']);
+        $this->middleware('auth')->except(['index', 'store', 'checkClientValidation']);
     }
     /**
      * Display a listing of the resource.
@@ -82,14 +82,15 @@ class ClientController extends Controller
     }
     public function clientAccount(Request $request)
     {
-        $client   = Client::whereUserId(Auth::id())->with('user')->first();
-        $bookings = $client->booking()->with('client')->where('status', 0)->get(); //unsure about here//
-        return view('client.account', compact('client', 'bookings'));
+        $client = Client::whereUserId(Auth::id())->with('user')->first();
+        // $bookings = $client->booking()->with('client')->where('status', 0)->get(); //unsure about here//
+        // return view('client.account', compact('client', 'bookings'));
         $client->load([
             'booking',
             'booking.therapist.user',
-            'booking.bookingDetails'
+            'booking.bookingDetails' 
         ]);
+
         return view('client.account', compact('client'));
     }
     public function edit($userId)
@@ -131,4 +132,19 @@ class ClientController extends Controller
         $bookings = BookingRequest::find($bookingID);
         return view('client.view', compact('bookings', 'current'));
     }
+
+    public function checkClientValidation(Request $request) {
+        $client = User::where('email', $request->email)->first();
+
+        if($client) {
+            $result = true;
+        } else {
+            $result = false;
+        }
+
+        return response()->json([
+            'result' => $result
+        ]);
+    }
+
 }

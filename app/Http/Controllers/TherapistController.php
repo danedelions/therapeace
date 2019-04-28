@@ -19,7 +19,7 @@ class TherapistController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except(['index', 'store']);
+        $this->middleware('auth')->except(['index', 'store', 'checkTherapistValidation']);
     }
 
     /**
@@ -45,7 +45,7 @@ class TherapistController extends Controller
 
         $validatedInput = $request->validate([
             'email' => 'unique:users,email',
-            'expiry_date' => "after:today"
+            'expiry_date' => "aftex`xr:today"
 
  
         ]);
@@ -209,7 +209,8 @@ class TherapistController extends Controller
                         $q->whereRaw('CONCAT(fname, " ", lname) LIKE "%'.$request->name.'%"');
                     });
                 })
-                ->with(['client.user', 'bookingDetails']);
+                ->with(['client.user', 'bookingDetails'])
+                ->latest();
             },
         ]);
 
@@ -250,5 +251,19 @@ class TherapistController extends Controller
     public function viewPending()
     {
         return view('therapist.pending');
+    }
+
+    public function checkTherapistValidation(Request $request) {
+        $therapist = User::where('email', $request->email)->first();
+
+        if($therapist) {
+            $result = true;
+        } else {
+            $result = false;
+        }
+        
+        return response()->json([
+            'result' => $result
+        ]);
     }
 }

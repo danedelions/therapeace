@@ -104,4 +104,5 @@ class Therapist extends Model
             'status' => 0
         ]);
     }
+
 }

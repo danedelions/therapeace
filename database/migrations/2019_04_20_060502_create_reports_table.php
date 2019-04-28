@@ -23,6 +23,7 @@ class CreateReportsTable extends Migration
             $table->timestamps();
         }); 
 
+        
         Schema::table('reports', function (Blueprint $table){
             $table->foreign('therapist_id')->references('user_id')->on('therapists')->onDelete('cascade');
             $table->foreign('client_id')->references('user_id')->on('clients')->onDelete('cascade');
