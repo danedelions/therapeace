@@ -115,7 +115,7 @@
         <input placeholder="Password"  name="password" type="password" class="form-control required" data-confirmed="re-password">
       </div>
       <div class="form-group col-md-12">
-        <input placeholder="Re-type Password"  name="re-password" type="password" class="form-control required">
+        <input placeholder="Re-type Password"  name="re-password" type="password" class="form-control required" data-validation-message="Password does not match">
       </div>
     </div>
 

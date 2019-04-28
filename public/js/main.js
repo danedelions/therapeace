@@ -93,7 +93,7 @@ function validateForm() {
           class: 'invalid-feedback',
           text: 'password do not match'
         }))
-
+        
         $('[name='+$(y[i]).data('confirmed')+']').addClass('is-invalid').siblings('.invalid-feedback').remove();
         $('[name='+$(y[i]).data('confirmed')+']').after($('<div/>', {
           class: 'invalid-feedback',
