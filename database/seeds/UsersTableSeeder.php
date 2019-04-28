@@ -13,11 +13,47 @@ class UsersTableSeeder extends Seeder
     {
         //$this->call(UsersTableSeeder::class);
 
-		// Administrator
+		// Administrators
 	    DB::table('users')->insert([
 	    	'username' => 'PeaceAdmin',
 	        'email' => 'therapeacemaker@gmail.com',
 	        'password' =>bcrypt('peacemaker'),
+	        'user_type' => 'admin',
+	        'status' => '0',
+
+	    ]);
+
+	    DB::table('users')->insert([
+	    	'username' => 'PeaceAdminDaniela',
+	        'email' => 'therapeacemaker_daniela@gmail.com',
+	        'password' =>bcrypt('peacemakerdaniela'),
+	        'user_type' => 'admin',
+	        'status' => '0',
+
+	    ]);
+
+	    DB::table('users')->insert([
+	    	'username' => 'PeaceAdminJude',
+	        'email' => 'therapeacemaker_jude@gmail.com',
+	        'password' =>bcrypt('peacemakerjude'),
+	        'user_type' => 'admin',
+	        'status' => '0',
+
+	    ]);
+
+	    DB::table('users')->insert([
+	    	'username' => 'PeaceAdminTiffany',
+	        'email' => 'therapeacemaker_tiffany@gmail.com',
+	        'password' =>bcrypt('peacemakertiffany'),
+	        'user_type' => 'admin',
+	        'status' => '0',
+
+	    ]);
+
+	    DB::table('users')->insert([
+	    	'username' => 'PeaceAdminChino',
+	        'email' => 'therapeacemaker_chino@gmail.com',
+	        'password' =>bcrypt('peacemakerchino'),
 	        'user_type' => 'admin',
 	        'status' => '0',
 
@@ -35,7 +71,7 @@ class UsersTableSeeder extends Seeder
 	    ]);
 
 	    DB::table('clients')->insert([
-	        'user_id' => '2',
+	        'user_id' => '6',
 	        'fname' => 'Hannah',
 	        'lname' => 'Alag',
 	        'contact' => '09089174215',
@@ -62,7 +98,7 @@ class UsersTableSeeder extends Seeder
 	    ]);
 
 	    DB::table('clients')->insert([
-	        'user_id' => '3',
+	        'user_id' => '7',
 	        'fname' => 'Gilbert',
 	        'lname' => 'Apura',
 	        'contact' => '09089174215',
@@ -89,7 +125,7 @@ class UsersTableSeeder extends Seeder
 	    ]);
 
 	    DB::table('clients')->insert([
-	        'user_id' => '4',
+	        'user_id' => '8',
 	        'fname' => 'Uleah',
 	        'lname' => 'Avila',
 	        'contact' => '09089174215',
@@ -116,7 +152,7 @@ class UsersTableSeeder extends Seeder
 	    ]);
 
 	    DB::table('clients')->insert([
-	        'user_id' => '5',
+	        'user_id' => '9',
 	        'fname' => 'Hezron Donald',
 	        'lname' => 'Bensig',
 	        'contact' => '09089174215',
@@ -143,7 +179,7 @@ class UsersTableSeeder extends Seeder
 	    ]);
 
 	    DB::table('clients')->insert([
-	        'user_id' => '6',
+	        'user_id' => '10',
 	        'fname' => 'Patrick James',
 	        'lname' => 'Camarista',
 	        'contact' => '09089174215',
@@ -170,7 +206,7 @@ class UsersTableSeeder extends Seeder
 	    ]);
 
 	    DB::table('clients')->insert([
-	        'user_id' => '7',
+	        'user_id' => '11',
 	        'fname' => 'Josh Mari',
 	        'lname' => 'Etis',
 	        'contact' => '09089174215',
@@ -197,7 +233,7 @@ class UsersTableSeeder extends Seeder
 	    ]);
 
 	    DB::table('clients')->insert([
-	        'user_id' => '8',
+	        'user_id' => '12',
 	        'fname' => 'Francis Dale',
 	        'lname' => 'Francisco',
 	        'contact' => '09089174215',
@@ -224,7 +260,7 @@ class UsersTableSeeder extends Seeder
 	    ]);
 
 	    DB::table('clients')->insert([
-	        'user_id' => '9',
+	        'user_id' => '13',
 	        'fname' => 'Zsanne',
 	        'lname' => 'Galos',
 	        'contact' => '09089174215',
@@ -251,7 +287,7 @@ class UsersTableSeeder extends Seeder
 	    ]);
 
 	    DB::table('clients')->insert([
-	        'user_id' => '10',
+	        'user_id' => '14',
 	        'fname' => 'Jhin',
 	        'lname' => 'Generans',
 	        'contact' => '09089174215',
@@ -278,7 +314,7 @@ class UsersTableSeeder extends Seeder
 	    ]);
 
 	    DB::table('clients')->insert([
-	        'user_id' => '11',
+	        'user_id' => '15',
 	        'fname' => 'Louie James',
 	        'lname' => 'Jaminal',
 	        'contact' => '09089174215',
@@ -305,7 +341,7 @@ class UsersTableSeeder extends Seeder
 	    ]);
 
 	    DB::table('clients')->insert([
-	        'user_id' => '12',
+	        'user_id' => '16',
 	        'fname' => 'Kit Daniel',
 	        'lname' => 'Lim',
 	        'contact' => '09089174215',

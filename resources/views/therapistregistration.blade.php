@@ -175,25 +175,25 @@
     <p>
      4.) Cancellation and Account Termination
 
-                        We have the right, if we determine it is best, to terminate, suspend and/or deactivate your account immediately, 
-                        without notice, if there has been a violation of this Agreement or other policies and terms posted on the Site or through the Services by you or by someone using your credentials.
-                        We may also terminate,suspend or deactivate your account for any other reason, including inactivity for an extended period.
+          We have the right, if we determine it is best, to terminate, suspend and/or deactivate your account immediately, 
+          without notice, if there has been a violation of this Agreement or other policies and terms posted on the Site or through the Services by you or by someone using your credentials.
+          We may also terminate,suspend or deactivate your account for any other reason, including inactivity for an extended period.
     </p>
     <p>
-                        You may cancel your account at any time by sending a request to therapeacemaker@gmail.com.  
-                        If you would like us to delete your account in its entirety (meaning deleting all of your user data), 
-                        please send your request to therapeacemaker@gmail.com.
+          You may cancel your account at any time by sending a request to therapeacemaker@gmail.com.  
+          If you would like us to delete your account in its entirety (meaning deleting all of your user data), 
+          please send your request to therapeacemaker@gmail.com.
      </p>
      <p>
      5.) Contact
           Please contact therapeacemaker@gmail.com with any questions regarding this Agreement.
     </p>
         </p>
-            <div>
-                <label>
-                    <input type="checkbox" class="form-control" style= "width: auto" required/>I accept the terms and conditions.
-                 </label>
-            </div> 
+    <div>
+        <label>
+            <input type="checkbox" style= "width: auto" required />
+         </label>I accept the terms and conditions.
+    </div> 
   </div>
 </div>  
 

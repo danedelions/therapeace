@@ -132,7 +132,7 @@
                                           <br>
                                           <div class="col-sm-12 col-md-12 col-lg-12">
                                               <div class="card">
-                                                  <img src='{{ asset("storage/{$user->therapist['license_image']}") }}' style="width:412px;height:732px; text-align: center; ">
+                                                  <img src='{{ asset("storage/{$user->therapist['licenseimage_front']}") }}' style="width:412px;height:732px; text-align: center; ">
                                               </div>
                                           </div>                    
                                         </div>
@@ -149,7 +149,7 @@
                                           <br>
                                           <div class="col-sm-12 col-md-12 col-lg-12">
                                               <div class="card">
-                                                  <img src='{{ asset("storage/{$user->therapist['license_image']}") }}' style="width:412px;height:732px; text-align: center; ">
+                                                  <img src='{{ asset("storage/{$user->therapist['licenseimage_back']}") }}' style="width:412px;height:732px; text-align: center; ">
                                               </div>
                                           </div>                    
                                         </div>
