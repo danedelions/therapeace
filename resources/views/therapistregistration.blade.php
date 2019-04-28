@@ -18,7 +18,7 @@
                     @endforeach
                 </ul>
             </div>
-        @endif     
+      @endif   
       <h6>Upload profile picture</h6>   
       <div class="form-group col-md-12">
         <input type="file" accept="image/x-png,image/gif,image/jpeg" name="image" id="fileToUpload" class="form-control required" data-validation-message="Please upload picture">

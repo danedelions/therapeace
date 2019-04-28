@@ -81,14 +81,15 @@ class ClientController extends Controller
     }
     public function clientAccount(BookingRequest $bookings)
     {
-        $client   = Client::whereUserId(Auth::id())->with('user')->first();
-        $bookings = $client->booking()->with('client')->where('status', 0)->get(); //unsure about here//
-        return view('client.account', compact('client', 'bookings'));
+        $client = Client::whereUserId(Auth::id())->with('user')->first();
+        // $bookings = $client->booking()->with('client')->where('status', 0)->get(); //unsure about here//
+        // return view('client.account', compact('client', 'bookings'));
         $client->load([
             'booking',
             'booking.therapist.user',
-            'booking.bookingDetails'
+            'booking.bookingDetails' 
         ]);
+
         return view('client.account', compact('client'));
     }
     public function edit($userId)

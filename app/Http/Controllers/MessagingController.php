@@ -15,7 +15,7 @@ class MessagingController extends Controller
         } elseif (Auth::user()->isRole('client')) {
             $contacts = Therapist::whereIn('user_id',$threadList->pluck('sender_id'));
         }
-//        dd($threadList->toArray());
+    //    dd($contacts->toArray());
         $thread = [];
         if ($recipientId) {
             $thread = Auth::user()->conversationWith($recipientId);

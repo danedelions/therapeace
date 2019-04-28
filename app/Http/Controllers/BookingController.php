@@ -30,7 +30,7 @@ class BookingController extends Controller
             'patient' => 'required'
         ],
         [
-            'diagnosis.alpha' => 'Diagnosis hould not contain numbers!',
+            'diagnosis.alpha' => 'Diagnosis should not contain numbers!',
             'diagnosis.required' => 'Input your diagnosis!'
         ]);
 

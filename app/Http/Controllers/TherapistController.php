@@ -209,7 +209,8 @@ class TherapistController extends Controller
                         $q->whereRaw('CONCAT(fname, " ", lname) LIKE "%'.$request->name.'%"');
                     });
                 })
-                ->with(['client.user', 'bookingDetails']);
+                ->with(['client.user', 'bookingDetails'])
+                ->latest();
             },
         ]);
 
