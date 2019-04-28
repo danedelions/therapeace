@@ -7,8 +7,18 @@
   <form id="regForm" action="{{ route('therapist.store') }}" method="POST" enctype="multipart/form-data"> <!-- Start of Form -->
   {{ csrf_field() }}
     <h1>Therapist Registration:</h1>
+
     <hr><!-- One "tab" for each step in the form: -->
-    <div class="tab form-group">    
+    <div class="tab form-group"> 
+    @if ($errors->any())
+        <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error  }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif   
       <h6>Upload profile picture</h6>   
       <div class="form-group col-md-12">
         <input type="file" accept="image/x-png,image/gif,image/jpeg" name="image" id="fileToUpload" class="form-control required" data-validation-message="Please upload picture">
@@ -20,7 +30,7 @@
         <input placeholder="Last name"  name="lname" class="form-control required">
       </div>
       <div class="form-group col-md-12">
-        <input type="email" placeholder="Email"  name="email" class="form-control required">
+        <input type="email" placeholder="Email"  name="email" class="form-control required" data->
       </div>
       <div class="form-group col-md-12">
         <input placeholder="Contact Number"  name="number" class="form-control required">

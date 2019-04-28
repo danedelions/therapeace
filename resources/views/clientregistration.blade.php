@@ -14,7 +14,7 @@
                 </ul>
             </div>
         @endif
-        <hr><!-- One "tab" for each step in the form: -->
+        <hr><!-- One "tab" for each step information the form: -->
         <div class="tab form-group">
             <div class="form-group col-md-12">
                 <input placeholder="First name" name="fname" type="text" class="form-control required">

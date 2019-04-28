@@ -10,6 +10,7 @@ use App\BookingRequest;
 use App\BookingDetail;
 use Redirect;
 use Auth;
+use Illuminate\Validation\Rule;
 class BookingController extends Controller
 {
     public function index($id)
@@ -22,6 +23,17 @@ class BookingController extends Controller
 
     public function submitDetails(Request $request)
     {
+        $validatedInput = $request->validate([
+            'diagnosis' => 'required|regex:/^[\pL\s\-]+$/u',
+            'therapist_id' => 'required',
+            'name' => 'required',
+            'patient' => 'required'
+        ],
+        [
+            'diagnosis.alpha' => 'Diagnosis hould not contain numbers!',
+            'diagnosis.required' => 'Input your diagnosis!'
+        ]);
+
     	$bookingRequest = BookingRequest::create([
     		'therapist_id' => $request->post('therapist_id'),
     		'client_id' => Auth::id(),
@@ -35,6 +47,7 @@ class BookingController extends Controller
             'public'
         );
 
+        
         $bookingRequest->bookingDetails()->create([
                 'patient'=> $request->post('patient'),
                 'diagnosis' => $request->post('diagnosis'),
@@ -45,7 +58,7 @@ class BookingController extends Controller
                 'contact' => $request->post('contact')
         ]);
 
-    	return redirect()->route('get.client-find');
+    	return redirect()->route('get.client-account');
     }
 
 }
