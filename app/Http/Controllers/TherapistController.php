@@ -19,7 +19,7 @@ class TherapistController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except(['index', 'store']);
+        $this->middleware('auth')->except(['index', 'store', 'checkTherapistValidation']);
     }
 
     /**
@@ -250,5 +250,19 @@ class TherapistController extends Controller
     public function viewPending()
     {
         return view('therapist.pending');
+    }
+
+    public function checkTherapistValidation(Request $request) {
+        $therapist = User::where('email', $request->email)->first();
+
+        if($therapist) {
+            $result = true;
+        } else {
+            $result = false;
+        }
+        
+        return response()->json([
+            'result' => $result
+        ]);
     }
 }

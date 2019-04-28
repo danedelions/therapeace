@@ -18,7 +18,7 @@ class ClientController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except(['index', 'store']);
+        $this->middleware('auth')->except(['index', 'store', 'checkClientValidation']);
     }
     /**
      * Display a listing of the resource.
@@ -138,4 +138,19 @@ class ClientController extends Controller
         $bookings = BookingRequest::find($bookingID);
         return view('client.view', compact('bookings'));
     }
+
+    public function checkClientValidation(Request $request) {
+        $client = User::where('email', $request->email)->first();
+
+        if($client) {
+            $result = true;
+        } else {
+            $result = false;
+        }
+
+        return response()->json([
+            'result' => $result
+        ]);
+    }
+
 }
