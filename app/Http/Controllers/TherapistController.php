@@ -40,15 +40,15 @@ class TherapistController extends Controller
      */
     public function store(Request $request)
     {
-        $now = Carbon::now();
-        $start_date = Carbon::parse($now)->format('Y-m-d');
+        // $now = Carbon::now();
+        // $start_date = Carbon::parse($now)->format('Y-m-d');
 
-        $validatedInput = $request->validate([
-            'email' => 'unique:users,email',
-            'expiry_date' => "aftex`xr:today"
+        // $validatedInput = $request->validate([
+        //     'email' => 'unique:users,email',
+        //     'expiry_date' => "after:today"
 
  
-        ]);
+        // ]);
 
             
             // $now = Carbon::now();
