@@ -266,78 +266,78 @@
                                           @endif
                                         </div>
                                     </div>
-                            <div class="row">
-                                <label class="label col"><b>Massage Area</b></label>
-                                <div class="col">
-                                @if(!empty($row->checklist->massage_area))
-                                    {{$row->checklist->massage_area}}
-                                @else
-                                    ...
-                                @endif
-                                </div>
-                                <label class="label col"><b>Min</b></label>
-                                <div class="col">
-                                @if(!empty($row->checklist->massage_min))
-                                    {{$row->checklist->massage_min}}
-                                @else
-                                    ...
-                                @endif
-                                </div>
-                            </div>
-                            <div class="row">
-                                <label class="label col"><b>Stretching Hold</b></label>
-                                <div class="col">
-                                @if(!empty($row->checklist->stretching_hold))
-                                    {{$row->checklist->stretching_hold}}
-                                @else
-                                    ...
-                                @endif
-                                </div>
-                                <label class="label col"><b>Sets</b></label>
-                                <div class="col">
-                                @if(!empty($row->checklist->stretching_sets))
-                                    {{$row->checklist->stretching_sets}}
-                                @else
-                                    ...
-                                @endif
-                                </div>
-                            </div>
-                            <div class="row">
-                                <label class="label col"><b>ES/TENS</b></label>
-                                <div class="col">
-                                @if(!empty($row->checklist->estens_area))
-                                    {{$row->checklist->estens_area}}
-                                @else
-                                    ...
-                                @endif
-                                </div>
-                                <label class="label col"><b>Min</b></label>
-                                <div class="col">
-                                @if(!empty($row->checklist->estens_min))
-                                    {{$row->checklist->estens_min}}
-                                @else
-                                    ...
-                                @endif
-                                </div>
-                            </div>
-                            <div class="row">
-                                <label class="label col"><b>Resistance Weight</b></label>
-                                <div class="col">
-                                @if(!empty($row->checklist->resistance_weight))
-                                    {{$row->checklist->resistance_weight}}
-                                @else
-                                    ...
-                                @endif
-                                </div>
-                                <label class="label col"><b>Motion</b></label>
-                                <div class="col">
-                                @if(!empty($row->checklist->resistance_motion))
-                                    {{$row->checklist->resistance_motion}}
-                                @else
-                                    ...
-                                @endif
-                                </div>
-                            </div>
+                                    <div class="row">
+                                      <label class="label col"><b>Massage Area</b></label>
+                                        <div class="col">
+                                          @if(!empty($row->checklist->massage_area))
+                                            {{$row->checklist->massage_area}}
+                                          @else
+                                            ...
+                                          @endif
+                                        </div>
+                                      <label class="label col"><b>Min</b></label>
+                                        <div class="col">
+                                          @if(!empty($row->checklist->massage_min))
+                                            {{$row->checklist->massage_min}}
+                                          @else
+                                            ...
+                                          @endif
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                      <label class="label col"><b>Stretching Hold</b></label>
+                                        <div class="col">
+                                          @if(!empty($row->checklist->stretching_hold))
+                                            {{$row->checklist->stretching_hold}}
+                                          @else
+                                            ...
+                                          @endif
+                                        </div>
+                                      <label class="label col"><b>Sets</b></label>
+                                        <div class="col">
+                                          @if(!empty($row->checklist->stretching_sets))
+                                            {{$row->checklist->stretching_sets}}
+                                          @else
+                                            ...
+                                          @endif
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                      <label class="label col"><b>ES/TENS</b></label>
+                                        <div class="col">
+                                          @if(!empty($row->checklist->estens_area))
+                                            {{$row->checklist->estens_area}}
+                                          @else
+                                            ...
+                                          @endif
+                                        </div>
+                                      <label class="label col"><b>Min</b></label>
+                                        <div class="col">
+                                          @if(!empty($row->checklist->estens_min))
+                                            {{$row->checklist->estens_min}}
+                                          @else
+                                            ...
+                                          @endif
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label class="label col"><b>Resistance Weight</b></label>
+                                        <div class="col">
+                                        @if(!empty($row->checklist->resistance_weight))
+                                            {{$row->checklist->resistance_weight}}
+                                        @else
+                                            ...
+                                        @endif
+                                        </div>
+                                        <label class="label col"><b>Motion</b></label>
+                                        <div class="col">
+                                        @if(!empty($row->checklist->resistance_motion))
+                                            {{$row->checklist->resistance_motion}}
+                                        @else
+                                            ...
+                                        @endif
+                                        </div>
+                                    </div>
                             <div class="row">
                                 <label class="label col"><b>Resistance Reps</b></label>
                                 <div class="col">

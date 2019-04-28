@@ -43,13 +43,6 @@ class TherapistController extends Controller
         // $now = Carbon::now();
         // $start_date = Carbon::parse($now)->format('Y-m-d');
 
-        // $validatedInput = $request->validate([
-        //     'email' => 'unique:users,email',
-        //     'expiry_date' => "after:today"
-
- 
-        // ]);
-
             
             // $now = Carbon::now();
 
