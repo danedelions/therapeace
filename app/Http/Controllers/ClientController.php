@@ -130,7 +130,7 @@ class ClientController extends Controller
     public function getView($bookingID)
     {   
         $bookings = BookingRequest::find($bookingID);
-        return view('client.view', compact('bookings', 'current'));
+        return view('client.view', compact('bookings'));
     }
 
     public function checkClientValidation(Request $request) {
