@@ -13,6 +13,7 @@ use DB;
 use Hash;
 use Auth;
 use App\Specialty;
+use Carbon\Carbon;
 use Illuminate\Validation\Rule;
 class ClientController extends Controller
 {
@@ -79,7 +80,7 @@ class ClientController extends Controller
         $specialties = Specialty::select('name')->pluck('name', 'name');
         return view('client.find', compact('therapists', 'specialties'));
     }
-    public function clientAccount(BookingRequest $bookings)
+    public function clientAccount(Request $request)
     {
         $client = Client::whereUserId(Auth::id())->with('user')->first();
         // $bookings = $client->booking()->with('client')->where('status', 0)->get(); //unsure about here//
@@ -127,9 +128,9 @@ class ClientController extends Controller
     }
 
     public function getView($bookingID)
-    {
+    {   
         $bookings = BookingRequest::find($bookingID);
-        return view('client.view', compact('bookings'));
+        return view('client.view', compact('bookings', 'current'));
     }
 
     public function checkClientValidation(Request $request) {
