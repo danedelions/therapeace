@@ -45,7 +45,7 @@ class TherapistController extends Controller
 
         $validatedInput = $request->validate([
             'email' => 'unique:users,email',
-            'expiry_date' => "after:today"
+            'expiry_date' => "aftex`xr:today"
 
  
         ]);

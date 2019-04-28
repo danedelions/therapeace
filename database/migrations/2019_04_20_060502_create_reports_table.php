@@ -18,11 +18,12 @@ class CreateReportsTable extends Migration
             $table->unsignedInteger('booking_id');
             $table->unsignedInteger('client_id');
             $table->unsignedInteger('therapist_id');
-            $table->enum('rating', [1,2,3,4,5])->nullable();
+            $table->enum('rating', ['1','2','3','4','5'])->nullable();
             $table->text('reports')->nullable();
             $table->timestamps();
         }); 
 
+        
         Schema::table('reports', function (Blueprint $table){
             $table->foreign('therapist_id')->references('user_id')->on('therapists')->onDelete('cascade');
             $table->foreign('client_id')->references('user_id')->on('clients')->onDelete('cascade');
