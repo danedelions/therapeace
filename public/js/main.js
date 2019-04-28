@@ -172,7 +172,7 @@ function fixStepIndicator(n) {
   $(x[n]).addClass('active');
 }
 
-<<<<<<< HEAD
+
 // DB Transaction for Insertion of data emailAddress 
   //   function getEmailAddFroDB = function (val) {
 
