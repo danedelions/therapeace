@@ -32,9 +32,9 @@ class ClientController extends Controller
     }
     public function store(Request $request)
     {
-        $validatedInput = $request->validate([
-            'email' => 'unique:users,email'
-        ]);
+        // $validatedInput = $request->validate([
+        //     'email' => 'unique:users,email'
+        // ]);
 
         \DB::transaction(function () use ($request) {
             User::insert([

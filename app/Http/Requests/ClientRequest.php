@@ -26,7 +26,7 @@ class ClientRequest extends FormRequest
         $rules =  [
             'fname' =>  'required', 
             'lname' => 'required', 
-            'email' => ['required', Rule::unique('users','email')->ignore(Auth::id(), 'id')], 
+            'email' => 'required',
             'contact' => 'required|numeric',
             'gender' => 'required',
             'username' => 'sometimes|required',
