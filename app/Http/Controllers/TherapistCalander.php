@@ -36,8 +36,8 @@ class TherapistCalander extends Controller
     public function saveAppointment(Request $request, BookingRequest $bookingRequest)
     {
         $validator = \Validator::make($request->all(), [
-            'start_date'         => 'required|date|after:yesterday',
-            'end_date'           => 'required|date|after_or_equal:start_date',
+            'start_date'         => 'required|date',
+            'end_date'           => 'required|date',
             'start_date_time'    => 'required|date_format:H:i',
             'end_date_time'      => 'required|date_format:H:i',
             'other_services'     => 'sometimes|nullable|string',
