@@ -43,164 +43,164 @@
     </div>
 
     <div class="col-md-7">
-        <div class="card">
-          <div class="card-header bg-info">
-            Sent Requests
-          </div>
-
-          <div class="card-body" style="overflow: scroll; height: 250px;">
-                {!! Form::open(['url' => url()->current(), 'method' => 'get']) !!} 
-                  <div class="row">
-                    <div class="col-md-4">
-                        {!! Form::inputGroup('text', null, 'name', request()->name ?? null, ['placeholder' => 'Therapist Name']) !!}
-                    </div>
-                    <div class="col-md-4">
-                        {!! Form::selectGroup(null, 'status', ['' => 'Select Status', '0' => 'Pending', '1' => 'Approved', '2' => 'Rejected', '3' => 'Finished', '4' => 'Cancelled'], request()->status ?? null, ['class' => 'form-control']) !!}
-                    </div>
-                    <div class="col-md-4">
-                      <button type="submit" class="btn btn-info pull-right"><i class="ti-search"></i> Search</button>
-                    </div>
-                  </div>
-                {!! Form::close() !!}  
-            <table class="table table-default">
-              <thead>
-                <tr>
-                  <th>Therapist Name</th>
-                  <th>Diagnosis</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach($client->booking->sortByDesc('id') as $row)
-                  @if(!empty($row))
-                    <tr>
-                      <td><b>{{ $row->therapist->fullname }}</b></td>
-                      <td>{{ $row->bookingDetails->diagnosis }}</td>
-                      <td>
-                                      @if($row->status == 0)
-                                          <span class="badge badge-secondary">Pending</span>  
-                                      @elseif($row->status == 1)
-                                          <span class="badge badge-success">Approved</span>  
-                                      @elseif($row->status == 2)
-                                      <span class="badge badge-danger">Rejected</span>
-                                      @elseif($row->status == 3)
-                                      <span class="badge badge-primary">Finished</span>  
-                                        @elseif($row->status == 4)
-                                      <span class="badge badge-default">Cancelled</span> 
-                                      @endif
-                                  </td>
-                      <td>
-                        @if($row->status == 1)
-                        <div class="dropdown">
-                          <button class="btn btn-sm btn-info dropdown-toggle" data-id="{{ $row['id'] }}"
-                                  type="button" id="dropdownMenu1" data-toggle="dropdown"
-                                  aria-haspopup="true" aria-expanded="false">
-                            Actons
-                          </button>
-                          <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <a class="dropdown-item" style="color:green;"href="{{url('/client-view/'.$row->id)}}"><i class="far fa-eye" style="color:green;"></i>&nbspView</a>
-                            {!! Form::open(['url' => route('therapist.cancel.appointment', $row->id), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
-                              <a class="dropdown-item" style="color:red;"><i class="fas fa-ban" style="color:red;"></i>
-                            &nbspCancel
-                            {!! Form::close() !!}
-                            </a>
-                          </div>
-                        </div>
-                        @elseif($row->status == 0)
-                          {!! Form::open(['url' => route('therapist.cancel.appointment', $row->id), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
-                            <button class="btn btn-sm btn-outline-danger">Cancel</button>
-                            {!! Form::close() !!}
-                        @elseif($row->status == 3)
-                          <a href="{{url('/client-view/'.$row->id)}}"><button class="btn btn-sm btn-outline-info">View</button></a>
-                        
-                        @elseif($row->status == 4)
-
-                        
-
-                        @endif
-                      </td>
-                    </tr>
-                  @elseif(empty($row))
-                    <tr>
-                      <td colspan="4" class="text-center">No requests</td>
-                    </tr>
-                  @endif
-                @endforeach
-              </tbody>
-            </table>
-          </div>
+      <div class="card">
+        <div class="card-header bg-info">
+          Sent Requests
         </div>
+
+        <div class="card-body" style="overflow: scroll; height: 250px;">
+              {!! Form::open(['url' => url()->current(), 'method' => 'get']) !!} 
+                <div class="row">
+                  <div class="col-md-4">
+                      {!! Form::inputGroup('text', null, 'name', request()->name ?? null, ['placeholder' => 'Therapist Name']) !!}
+                  </div>
+                  <div class="col-md-4">
+                      {!! Form::selectGroup(null, 'status', ['' => 'Select Status', '0' => 'Pending', '1' => 'Approved', '2' => 'Rejected', '3' => 'Finished', '4' => 'Cancelled'], request()->status ?? null, ['class' => 'form-control']) !!}
+                  </div>
+                  <div class="col-md-4">
+                    <button type="submit" class="btn btn-info pull-right"><i class="ti-search"></i> Search</button>
+                  </div>
+                </div>
+              {!! Form::close() !!}  
+          <table class="table table-default">
+            <thead>
+              <tr>
+                <th>Therapist Name</th>
+                <th>Diagnosis</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach($client->booking->sortByDesc('id') as $row)
+                @if(!empty($row))
+                  <tr>
+                    <td><b>{{ $row->therapist->fullname }}</b></td>
+                    <td>{{ $row->bookingDetails->diagnosis }}</td>
+                    <td>
+                                    @if($row->status == 0)
+                                        <span class="badge badge-secondary">Pending</span>  
+                                    @elseif($row->status == 1)
+                                        <span class="badge badge-success">Approved</span>  
+                                    @elseif($row->status == 2)
+                                    <span class="badge badge-danger">Rejected</span>
+                                    @elseif($row->status == 3)
+                                    <span class="badge badge-primary">Finished</span>  
+                                      @elseif($row->status == 4)
+                                    <span class="badge badge-default">Cancelled</span> 
+                                    @endif
+                                </td>
+                    <td>
+                      @if($row->status == 1)
+                      <div class="dropdown">
+                        <button class="btn btn-sm btn-info dropdown-toggle" data-id="{{ $row['id'] }}"
+                                type="button" id="dropdownMenu1" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                          Actons
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                          <a class="dropdown-item" style="color:green;"href="{{url('/client-view/'.$row->id)}}"><i class="far fa-eye" style="color:green;"></i>&nbspView</a>
+                          {!! Form::open(['url' => route('therapist.cancel.appointment', $row->id), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
+                            <a class="dropdown-item" style="color:red;"><i class="fas fa-ban" style="color:red;"></i>
+                          &nbspCancel
+                          {!! Form::close() !!}
+                          </a>
+                        </div>
+                      </div>
+                      @elseif($row->status == 0)
+                        {!! Form::open(['url' => route('therapist.cancel.appointment', $row->id), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
+                          <button class="btn btn-sm btn-outline-danger">Cancel</button>
+                          {!! Form::close() !!}
+                      @elseif($row->status == 3)
+                        <a href="{{url('/client-view/'.$row->id)}}"><button class="btn btn-sm btn-outline-info">View</button></a>
+                      
+                      @elseif($row->status == 4)
+
+                      
+
+                      @endif
+                    </td>
+                  </tr>
+                @elseif(empty($row))
+                  <tr>
+                    <td colspan="4" class="text-center">No requests</td>
+                  </tr>
+                @endif
+              @endforeach
+            </tbody>
+          </table>
+        </div>
+      </div>
         <br>
-        <div class="card">
-          <div class="card-header bg-info">
-            Therapist's Notes
-          </div>          
-          <div class="card-body" style="overflow: scroll; height: 250px;">
-            <table class="table table-default">
-              <thead>
-                <tr>
-                  <th>Therapist Name</th>
-                  <th>Dates of Session</th>
-                  <th>Diagnosis</th>  
-                  <th>Action</th>   
-                </tr>
-              </thead>
-              <tbody>
-                @foreach($client->booking->sortByDesc('id') as $row)
-                  @if($row->status == 3)
-                    <tr>
-                      <td><b>{{$row->therapist->fullName}}</b></td>
-                      <td>{{$row->appointment->durationDate}}</td>
-                      <td>{{$row->bookingDetails->diagnosis}}</td>
-                      <td>
-                        <div class="dropdown">
-                          <button class="btn btn-sm btn-info dropdown-toggle" data-id="{{ $row['id'] }}"
+      <div class="card">
+        <div class="card-header bg-info">
+          Therapist's Notes
+        </div>          
+        <div class="card-body" style="overflow: scroll; height: 250px;">
+          <table class="table table-default">
+            <thead>
+              <tr>
+                <th>Therapist Name</th>
+                <th>Dates of Session</th>
+                <th>Diagnosis</th>  
+                <th>Action</th>   
+              </tr>
+            </thead>
+            <tbody>
+              @foreach($client->booking->sortByDesc('id') as $row)
+                @if($row->status == 3)
+                  <tr>
+                    <td><b>{{$row->therapist->fullName}}</b></td>
+                    <td>{{$row->appointment->durationDate}}</td>
+                    <td>{{$row->bookingDetails->diagnosis}}</td>
+                    <td>
+                      <div class="dropdown">
+                        <button class="btn btn-sm btn-info dropdown-toggle" data-id="{{ $row['id'] }}"
                                   type="button" id="dropdownMenu1" data-toggle="dropdown"
                                   aria-haspopup="true" aria-expanded="false">
                             Actons
-                          </button>
-                          <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <a class="dropdown-item" data-toggle="modal" data-target="#viewModal-{{$row['id']}}" >&nbsp<i class="fas fa-info"></i>&nbsp;&nbsp;Rate</a>
-                            <a class="dropdown-item" data-toggle="modal" data-target="#view-modal-{{$row['id']}}"><i class="fas fa-sticky-note"></i>&nbsp;&nbsp;Notes</a>
-                          </div>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                          <a class="dropdown-item" data-toggle="modal" data-target="#viewModal-{{$row['id']}}" >&nbsp<i class="fas fa-info"></i>&nbsp;&nbsp;Rate</a>
+                          <a class="dropdown-item" data-toggle="modal" data-target="#view-modal-{{$row['id']}}"><i class="fas fa-sticky-note"></i>&nbsp;&nbsp;Notes</a>
                         </div>
+                      </div>
 
-                        <!-- View Modal-->
+                      <!-- View Modal-->
                       <div class="modal fade" id="view-modal-{{ $row['id'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                          <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                              <div class="modal-header bg-info">
-                                  <h5 class="modal-title">Therapist Notes</h5>
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                              </div>
-                              <div class="modal-body" id="modalView">
-                                <div class="col-sm-12 col-md-12 col-lg-12">
-                                  <div class="row">
-                                    <div class="card col-sm-12 col-md-12 col-lg-12" style="overflow: scroll; height:400px">
-                                      <div class="row">
-                                          <label class="label col-sm-4"><b>Chief Complaint</b></label>
-                                          <div class="col-sm-8">
-                                            @if(!empty($row->checklist->chief_complaint))
-                                                {{$row->checklist->chief_complaint}}
-                                            @else
-                                                ...
-                                            @endif
-                                          </div>
-                                      </div>
-                                      <div class="row">
-                                          <label class="label col-sm-4"><b>Vital Sign</b></label>
-                                          <div class="col-sm-8">
-                                            @if(!empty($row->checklist->vital_sign))
-                                                {{$row->checklist->vital_sign}}
-                                            @else
-                                                ...
-                                            @endif
-                                          </div>
-                                      </div>
-                                      <div class="row">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header bg-info">
+                              <h5 class="modal-title">Therapist Notes</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body" id="modalView">
+                              <div class="col-sm-12 col-md-12 col-lg-12">
+                                <div class="row">
+                                  <div class="card col-sm-12 col-md-12 col-lg-12" style="overflow: scroll; height:400px">
+                                    <div class="row">
+                                      <label class="label col-sm-4"><b>Chief Complaint</b></label>
+                                        <div class="col-sm-8">
+                                          @if(!empty($row->checklist->chief_complaint))
+                                            {{$row->checklist->chief_complaint}}
+                                          @else
+                                            ...
+                                          @endif
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                      <label class="label col-sm-4"><b>Vital Sign</b></label>
+                                        <div class="col-sm-8">
+                                          @if(!empty($row->checklist->vital_sign))
+                                            {{$row->checklist->vital_sign}}
+                                          @else
+                                            ...
+                                          @endif
+                                        </div>
+                                    </div>
+                                    <div class="row">
                                           <label class="col label"><b>BP</b></label>
                                           <div class="col">
                                           @if(!empty($row->checklist->bp))
@@ -225,48 +225,47 @@
                                               ...
                                           @endif
                                           </div>
+                                    </div>
+                                    <div class="row">
+                                      <label class="label col-sm-4"><b>Assessment</b></label>
+                                        <div class="col-sm-8">
+                                          @if(!empty($row->checklist->assessment))
+                                            {{$row->checklist->assessment}}
+                                          @else
+                                            ...
+                                          @endif
                                       </div>
-
-                                      <div class="row">
-                                <label class="label col-sm-4"><b>Assessment</b></label>
-                                <div class="col-sm-8">
-                                @if(!empty($row->checklist->assessment))
-                                    {{$row->checklist->assessment}}
-                                @else
-                                    ...
-                                @endif
-                                </div>
-                            </div>
-                            <div class="row">
-                                <label class="label col-sm-4"><b>/P/:</b></label>
-                                <div class="col-sm-8">
-                                @if(!empty($row->checklist->area_ue))
-                                    {{$row->checklist->area_ue}}
-                                @else
-                                    ...
-                                @endif
-                                </div>
-                            </div>
-                            <div class="row">
-                                <label class="label col-sm-4"><b>AROM</b></label>
-                                <div class="col-sm-8">
-                                @if(!empty($row->checklist->arom))
-                                    {{$row->checklist->arom}}
-                                @else
-                                    ...
-                                @endif
-                                </div>
-                            </div>
-                            <div class="row">
-                                <label class="label col-sm-4"><b>PROM</b></label>
-                                <div class="col-sm-8">
-                                @if(!empty($row->checklist->prom))
-                                    {{$row->checklist->prom}}
-                                @else
-                                    ...
-                                @endif
-                                </div>
-                            </div>
+                                    </div>
+                                    <div class="row">
+                                      <label class="label col-sm-4"><b>/P/:</b></label>
+                                        <div class="col-sm-8">
+                                          @if(!empty($row->checklist->area_ue))
+                                            {{$row->checklist->area_ue}}
+                                          @else
+                                            ...
+                                          @endif
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                      <label class="label col-sm-4"><b>AROM</b></label>
+                                        <div class="col-sm-8">
+                                          @if(!empty($row->checklist->arom))
+                                            {{$row->checklist->arom}}
+                                          @else
+                                            ...
+                                          @endif
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                      <label class="label col-sm-4"><b>PROM</b></label>
+                                        <div class="col-sm-8">
+                                          @if(!empty($row->checklist->prom))
+                                            {{$row->checklist->prom}}
+                                          @else
+                                            ...
+                                          @endif
+                                        </div>
+                                    </div>
                             <div class="row">
                                 <label class="label col"><b>Massage Area</b></label>
                                 <div class="col">
