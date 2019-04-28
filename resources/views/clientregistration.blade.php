@@ -23,7 +23,7 @@
                 <input placeholder="Last name" name="lname" type="text" class="form-control required">
             </div>
             <div class="form-group col-md-12">
-                <input placeholder="Email"  name="email" type="email" class="form-control required">
+                <input placeholder="Email"  name="email" type="email" class="form-control email required">
             </div>
             <div class="form-group col-md-12">
                 <input placeholder="Contact Number" type="text" name="number" class="form-control required">
