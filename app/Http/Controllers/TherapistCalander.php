@@ -37,7 +37,7 @@ class TherapistCalander extends Controller
     {
         $validator = \Validator::make($request->all(), [
             'start_date'         => 'required|date',
-            'end_date'           => 'required|date,
+            'end_date'           => 'required|date',
             'start_date_time'    => 'required|date_format:H:i',
             'end_date_time'      => 'required|date_format:H:i',
             'other_services'     => 'sometimes|nullable|string',
