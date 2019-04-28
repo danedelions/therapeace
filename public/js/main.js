@@ -1,6 +1,7 @@
 
 var currentTab = 0;
 var n;
+// var emailAddress[];
 
 $(document).ready(function(){
    // Current tab is set to be the first tab (0)
@@ -68,12 +69,19 @@ function validateForm() {
         class: 'invalid-feedback',
         text: $(y[i]).data('validation-message') || ''
       }))
+
+
+  // if($email == this.emailAddress)
+  // {
+  //   $(y[i]).addClass('is-invalid').next('.invalid-feedback').remove();
+  // }
+
       // and set the current valid status to false
       valid = false;
     }else{
       $(y[i]).removeClass('is-invalid').removeClass('invalid').siblings('.invalid-feedback').remove();
     }
-    
+    //check the confrim password
     if($(y[i]).data('confirmed')){
       var password = $(y[i]).val(),
         cofirmation = $('[name='+$(y[i]).data('confirmed')+']').val();
@@ -163,6 +171,26 @@ function fixStepIndicator(n) {
   // x[n].className += " active";
   $(x[n]).addClass('active');
 }
+
+<<<<<<< HEAD
+// DB Transaction for Insertion of data emailAddress 
+  //   function getEmailAddFroDB = function (val) {
+
+  //   db.transaction(function(transaction){
+  //   transaction.executeSql('SELECT email FROM users', [], selectvalues, errorHandler)
+
+  //  });
+  // };
+  // selectValues = function(transaction, results)
+  // {
+      
+  //     for(var i = 0; i < results.rows.length; i++)
+  //          {
+  //              var row = results.rows.item(i);
+  //              console.log("THIS IS THE ROW FROM Email DB",row)
+  //              row.push(this.emailAddress[i]);
+  //          }
+  //     };
 
 // function to check duplicate
 function checkDuplicateEmail() {

@@ -5,7 +5,9 @@
     <form id="regForm" action="{{ route('client.store') }}" class="form-group" method="POST">
          {{ csrf_field() }}
         <h1>Client Registration</h1>
-        @if ($errors->any())
+        <hr><!-- One "tab" for each step information the form: -->
+        <div class="tab form-group">
+             @if ($errors->any())
         <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -14,8 +16,6 @@
                 </ul>
             </div>
         @endif
-        <hr><!-- One "tab" for each step information the form: -->
-        <div class="tab form-group">
             <div class="form-group col-md-12">
                 <input placeholder="First name" name="fname" type="text" class="form-control required">
             </div>

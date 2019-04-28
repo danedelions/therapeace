@@ -77,6 +77,8 @@ class Client extends Model
                                              ['status', '=', 1]
                                          ])->pluck('client_id');
 
-        return $bookingRequests->count() ? parent::find($bookingRequests->all()) : collect();
+        return $bookingRequests->count() 
+            ? parent::whereIn('user_id', $bookingRequests->all())->get() 
+            : collect();
     }
 }
