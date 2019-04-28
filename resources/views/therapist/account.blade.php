@@ -82,7 +82,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse($therapist->bookingRequest as $request)
+                                @forelse($therapist->bookingRequest->sortByDesc('id') as $request)
                                 <tr>
                                     <td>{{ $request->client->fullName }}</td>
                                     <td>{{ $request->bookingDetails->diagnosis }} </td>
@@ -137,17 +137,34 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @forelse($therapist->bookingRequest as $request)
+                                    @forelse($therapist->bookingRequest->sortByDesc('id') as $request)
                                         @if(!empty($request->report))
                                             <tr>
                                                 <td>{{$request->client->fullName}}</td>
                                                 <td>
                                                 @if(!empty($request->report->rating))
-                                                    {{$request->report->rating}}
+
+                                                        @if($request->report->rating == 5)
+                                                        <img style="width:100px" src="{{ asset('img/rate/5.png') }}">
+
+                                                        @elseif($request->report->rating == 4)
+                                                        <img style="width:100px" src="{{ asset('img/rate/4.png') }}">
+
+                                                        @elseif($request->report->rating == 3)
+                                                        <img style="width:100px" src="{{ asset('img/rate/3.png') }}">
+
+                                                        @elseif($request->report->rating == 2)
+                                                        <img style="width:100px" src="{{ asset('img/rate/2.png') }}">
+
+                                                        @elseif($request->report->rating == 1)
+                                                        <img style="width:100px" src="{{ asset('img/rate/1.png') }}">
+
+                                                        @endif
                                                 @else
-                                                    n/a
+                                                    N/A
                                                 @endif
                                                 </td>
+
                                                 <td>
                                                 @if(!empty($request->report->reports))
                                                     {{$request->report->reports}}
