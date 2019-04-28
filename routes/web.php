@@ -82,6 +82,7 @@
     Route::get('/client-search/', 'ClientController@search')->name('get.client-search');
     Route::get('/client-view/{id}', 'ClientController@getView')->name('get.client-view');
     Route::post('/rateSession', 'ReportsController@storeRating')->name('post.rate-session');
+    
 
     //PRINTING
     
@@ -95,4 +96,8 @@
 
 
 });
+
+    // validation ajax request
+    Route::post('client-validation', 'ClientController@checkClientValidation');
+    Route::post('therapist-validation', 'TherapistController@checkTherapistValidation');
 

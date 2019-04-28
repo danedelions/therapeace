@@ -104,15 +104,74 @@ function validateForm() {
           $(y[i]).removeClass('is-invalid').siblings('.invalid-feedback').remove();
           $('[name='+$(y[i]).data('confirmed')+']').removeClass('is-invalid').siblings('.invalid-feedback').remove();
         }
+      }
     }
-  }
 
-  // If the valid status is true, mark the step as finished and valid:
-  if (valid) {
-    document.getElementsByClassName("step")[currentTab].classList.add('finish');
-  }
-  return valid; // return the valid status
-  // return true;
+    if($('input[name="expiry_date"]').val()) { // if there is an date input
+      var date = new Date($('input[name="expiry_date"]').val()), // convert date input to date string
+          current_date = new Date(); // current date
+          
+      if(date < current_date) { // check both dates if date input is less than current date
+        $('input[name="expiry_date"]').addClass('is-invalid').siblings('.invalid-feedback').remove(); // Add validation error
+        $('input[name="expiry_date"]').after($('<div/>', {
+          class: 'invalid-feedback',
+          text: 'Already Expired'
+        }));
+        
+        valid = false;
+      } else { // if date input > current date
+        $('input[name="expiry_date"]').removeClass('is-invalid').siblings('.invalid-feedback').remove();
+      }
+    }
+    
+    if($('input[name="email"]').val()) { // if there is an email input
+      var settings = $('#nextBtn').data('settings'), // from button data-settings
+          _token = settings.token; // from button data-settings
+
+      var regex = /^([a-zA-Z0-9_.-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/; // email validator
+      
+      if(regex.test($('input[name="email"]').val()) == false) { // check email if valid
+        
+        $('input[name="email"]').addClass('is-invalid').siblings('.invalid-feedback').remove(); // Add validation error
+        $('input[name="email"]').after($('<div/>', {
+          class: 'invalid-feedback',
+          text: 'Invalid Email'
+        }));
+
+        valid = false;
+      }else{
+        $('input[name="email"]').removeClass('is-invalid').siblings('.invalid-feedback').remove();
+      }
+
+      $.ajax({ 
+        method: settings.method,
+        url: settings.url, // from button data-settings - /client-validation or /therapist-validation depending on the form
+        data: { 
+          email : $('input[name="email"]').val(), // email input value
+          _token: _token // from button data-settings
+        },
+        success : function (data) { // get data from controller
+          if(data.result == true) {
+            $('input[name="email"]').addClass('is-invalid').siblings('.invalid-feedback').remove(); // Add validation error
+            $('input[name="email"]').after($('<div/>', {
+              class: 'invalid-feedback',
+              text: 'email already taken'
+            }));
+
+            valid = false;
+          } else {
+            $('input[name="email"]').removeClass('invalid');
+          }
+        }
+      });
+    }
+
+    // If the valid status is true, mark the step as finished and valid:
+    if (valid) {
+      document.getElementsByClassName("step")[currentTab].classList.add('finish');
+    }
+    return valid; // return the valid status
+    // return true;
 }
 
 function fixStepIndicator(n) {
