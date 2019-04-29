@@ -76,7 +76,7 @@ class Client extends Model
                                              ['therapist_id', '=', $therapistId],
                                              ['status', '=', 1]
                                          ])->pluck('client_id');
-
+                                            
         return $bookingRequests->count() 
             ? parent::whereIn('user_id', $bookingRequests->all())->get() 
             : collect();
