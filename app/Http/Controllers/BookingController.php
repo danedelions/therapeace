@@ -43,7 +43,7 @@ class BookingController extends Controller
         
         $users = Auth::id();
         $image = $request->file('image')->store(
-            "booking/{$users}",
+            "booking/{$therapist}",
             'public'
         );
 
