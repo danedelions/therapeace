@@ -86,6 +86,7 @@ class TherapistCalander extends Controller
                 $bookingRequest->appointment()->create($appointment);
             }
         });
+        // session()->flash('successBook', 'Booking successful');
         return redirect()->back()->with('message', 'Booking successful');
     }
 

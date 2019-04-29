@@ -147,7 +147,7 @@
               </tr>
             </thead>
             <tbody>
-              @foreach($client->booking->sortByDesc('id') as $row)
+              @foreach($client->booking->sortByDesc('id') as $row) 
                 @if($row->status == 3)
                   <tr>
                     <td><b>{{$row->therapist->fullName}}</b></td>
