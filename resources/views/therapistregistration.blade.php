@@ -115,8 +115,13 @@
         <input placeholder="Password"  name="password" type="password" class="form-control required" data-confirmed="re-password">
       </div>
       <div class="form-group col-md-12">
-        <input placeholder="Re-type Password"  name="re-password" type="password" class="form-control required"data-confirmed="password" >
+        <input placeholder="Re-type Password"  name="re-password" type="password" id="myInput" class="form-control required"data-confirmed="password" >
       </div>
+       <div class="form-group col-md-12">
+                <label>
+                   <input type="checkbox" style= "width: auto" onclick="myFunction()">Show Password
+                </label>
+            </div> 
     </div>
 
     <div  id="overflowTest" class="tab form-group"> 
@@ -191,7 +196,7 @@
         </p>
     <div>
         <label>
-            <input type="checkbox" style= "width: auto" required />
+            <input type="checkbox" style= "width: auto" required/>
          </label>I accept the terms and conditions.
     </div> 
   </div>
