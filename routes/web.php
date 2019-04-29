@@ -71,6 +71,8 @@
 
     Route::delete('doCancel/{bookingRequest}', 
         'TherapistCalander@cancelAppointment')->name('therapist.cancel.appointment');
+    // Route::delete('doDelete/{bookingRequest}',
+    //     'TherapistCalander@deleteRequest')->name('therapist.delete.appointment');
 
     // CLIENT
     Route::get('/client-find', 'ClientController@clientFind')->name('get.client-find');
@@ -92,7 +94,6 @@
     Route::post('/doBookTherapist/', 'BookingController@submitDetails')->name('post.doBook');
 
     // REPORT
-
 
 
 });
