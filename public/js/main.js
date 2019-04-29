@@ -146,7 +146,25 @@ function validateForm() {
     }
   }
 
-  if($('input[name="username"]').hasClass('duplicate')) { // If email has duplicate
+
+   if($('input[name="username"]').val()) { // if there is an username input
+    var regex = /^([a-zA-Z0-9_.-])+(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,6})+$/; // username validator
+    
+    if(regex.test($('input[name="username"]').val()) == false) { // username email if valid
+      
+      $('input[name="username"]').addClass('is-invalid').siblings('.invalid-feedback').remove(); // Add validation error
+      $('input[name="username"]').after($('<div/>', {
+        class: 'invalid-feedback',
+        text: 'Please Enter Six or more Characters'
+      }));
+
+      valid = false;
+    }else{
+      $('input[name="username"]').removeClass('is-invalid').removeClass('invalid').siblings('.invalid-feedback').remove();
+    }
+  }
+
+  if($('input[name="username"]').hasClass('duplicate')) { // If email has duplicate 
     $('input[name="username"]').addClass('is-invalid').siblings('.invalid-feedback').remove(); // Add validation error
     $('input[name="username"]').after($('<div/>', {
       class: 'invalid-feedback',
@@ -186,25 +204,6 @@ function fixStepIndicator(n) {
   $(x[n]).addClass('active');
 }
 
-
-// DB Transaction for Insertion of data emailAddress 
-  //   function getEmailAddFroDB = function (val) {
-
-  //   db.transaction(function(transaction){
-  //   transaction.executeSql('SELECT email FROM users', [], selectvalues, errorHandler)
-
-  //  });
-  // };
-  // selectValues = function(transaction, results)
-  // {
-      
-  //     for(var i = 0; i < results.rows.length; i++)
-  //          {
-  //              var row = results.rows.item(i);
-  //              console.log("THIS IS THE ROW FROM Email DB",row)
-  //              row.push(this.emailAddress[i]);
-  //          }
-  //     };
 
 // function to check duplicate
 function checkDuplicateEmail() {
@@ -267,4 +266,13 @@ function checkDuplicateUsername() {
       }
     }
   });
+}
+
+function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
 }

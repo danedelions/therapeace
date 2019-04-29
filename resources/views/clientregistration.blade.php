@@ -67,14 +67,19 @@
         <div class="tab form-group">Profile:
            <div class="form-group col-md-12">
             <input placeholder="User Name" name="username"  type="text" class="form-control required">
-        </div>
+        </div> 
             <div class="form-group col-md-12">
-                <input placeholder="Password" name="password" type="password" class="form-control required" data-confirmed="re-password">
+                <input placeholder="Password" name="password" type="password" class="form-control required" pattern=".{6,}" title="Six or more characters" data-confirmed="re-password">
             </div>
             <div class="form-group col-md-12">
-                <input placeholder="Retype Password"  name="re-password" type="password" class="form-control required">
+                <input placeholder="Retype Password"  name="re-password" type="password" id="myInput" class="form-control required" data-confirmed="password">
             </div>
-        </div>
+            <div class="form-group col-md-12">
+                <label>
+                   <input type="checkbox" style= "width: auto" onclick="myFunction()">Show Password
+                </label>
+            </div> 
+    </div>
 
         <div id="overflowTest" class="tab form-group">
             <h1>Terms and Conditions </h1>
