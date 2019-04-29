@@ -111,10 +111,10 @@
         <div class="modal-content">
             <div class="modal-header col-sm-12 col-md-12 col-lg-12">
                 <div class="col-sm-7">
-                    <h5 class="modal-title" id="exampleModalLabel">Progress Report</h5>
+                    <h5 class="modal-title" style="text-align: center" id="exampleModalLabel">PROGRESS NOTES</h5> 
                 </div>
                 <div class="col-sm-4">
-                @if($bookingRequest->is('finished'))
+                @if($bookingRequest->is('finished') || $bookingRequest->is('pending'))
 
                 @else
                     <a data-toggle="modal" data-target="#add-progress-{{ $bookingRequest->id }}">
@@ -130,6 +130,10 @@
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="row">
                         <div class="card col-sm-12 col-md-12 col-lg-12" style="overflow: scroll; height:400px">
+                            @if(!empty($bookingRequest->checklist))
+                            <div class="row">
+                                <label class="label col-sm-4" ><b>Checklist</b></label>
+                            </div>
                             <div class="row">
                                 <label class="label col-sm-4"><b>Chief Complaint</b></label>
                                 <div class="col-sm-8">
@@ -318,10 +322,9 @@
                             </div>
 
                             <hr>
+
                             <div class="row">
-                                <label class="label col-sm-4"><b>Progress Notes</b></label>
-                            </div>
-                            <div class="row">
+                            <label class="label col-sm-4"><b>Progress Notes</b></label>
                                 <div class="col-sm-12">
                                     @if(!empty($bookingRequest->progress))
                                     <table class="table col-sm-12">
@@ -336,8 +339,7 @@
                                                 <td><div class="col">{!! optional($bookingRequest->progress)->pluck('session_date')->implode('</div>') !!}</td>
                                                 <td><div class="col">{!! optional($bookingRequest->progress)->pluck('progress')->implode('</div>') !!}</td>
                                             </tr>
-                                        </tbody>
-                                            
+                                        </tbody>     
                                     </table>
                                     
                                     @else
@@ -345,6 +347,39 @@
                                     @endif
                                 </div>
                             </div>
+
+                            @elseif(empty($bookingRequest->checklist))
+                                <label class="label" style="text-align: center; margin-top: 20px;"><b>NO CHECKLIST</b></label>
+                                
+                                <hr>
+                                
+                                <div class="row">
+                                <label class="label col-sm-4"><b>Progress Notes</b></label>
+                                    <div class="col-sm-12">
+                                        @if(!empty($bookingRequest->progress))
+                                        <table class="table col-sm-12">
+                                            <thead>
+                                                <tr>
+                                                    <th>Date</th>
+                                                    <th>Progress</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><div class="col">{!! optional($bookingRequest->progress)->pluck('session_date')->implode('</div>') !!}</td>
+                                                    <td><div class="col">{!! optional($bookingRequest->progress)->pluck('progress')->implode('</div>') !!}</td>
+                                                </tr>
+                                            </tbody>     
+                                        </table>
+                                        @else
+                                            ...
+                                        @endif
+                                    </div>
+                                </div>
+                            @else
+                                
+                            @endif
+
                         </div>
                     </div>
                 </div>                    
@@ -436,7 +471,7 @@
         <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="card">
                 <img src='{{    asset("storage/{$bookingRequest->bookingDetails->image}")}}'   
-                 style="width:412px;height:732px; text-align: center; ">
+                 style="width:440px;height:550px; text-align: center; ">
             </div>
         </div>                    
       </div>
@@ -454,6 +489,9 @@
                 <div class="card-header bg-info">
                     Set Appointment Details
                 </div>
+                    @if(Session::has('msg'))
+                        <p class="alert alert-success" style="text-align: center">{{ Session::get('msg') }}</p>
+                    @endif
                     <div class="card-body">
                     @if($bookingRequest->appointment)
                         {!! Form::model($bookingRequest->appointment, ['url' => route('therapist.book.appointment', $bookingRequest)]) !!}
