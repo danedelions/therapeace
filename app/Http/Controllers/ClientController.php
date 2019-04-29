@@ -19,7 +19,13 @@ class ClientController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except(['index', 'store', 'checkClientValidation']);
+        $this->middleware('auth')
+                ->except([
+                    'index', 
+                    'store', 
+                    'checkClientValidation', 
+                    'checkClientUsername'
+                ]);
     }
     /**
      * Display a listing of the resource.
@@ -137,6 +143,20 @@ class ClientController extends Controller
         $client = User::where('email', $request->email)->first();
 
         if($client) {
+            $result = true;
+        } else {
+            $result = false;
+        }
+
+        return response()->json([
+            'result' => $result
+        ]);
+    }
+
+    public function checkClientUsername(Request $request) {
+        $username = User::where('username', $request->username)->first();
+
+        if($username) {
             $result = true;
         } else {
             $result = false;

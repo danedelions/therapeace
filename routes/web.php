@@ -101,3 +101,7 @@
     Route::post('client-validation', 'ClientController@checkClientValidation');
     Route::post('therapist-validation', 'TherapistController@checkTherapistValidation');
 
+    Route::post('client-username-validation', 'ClientController@checkClientUsername');
+    Route::post('therapist-username-validation', 'TherapistController@checkTherapistUsername');
+
+

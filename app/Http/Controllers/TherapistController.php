@@ -19,7 +19,13 @@ class TherapistController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except(['index', 'store', 'checkTherapistValidation']);
+        $this->middleware('auth')
+                ->except([
+                    'index', 
+                    'store', 
+                    'checkTherapistValidation', 
+                    'checkTherapistUsername'
+                ]);
     }
 
     /**
@@ -255,6 +261,20 @@ class TherapistController extends Controller
             $result = false;
         }
         
+        return response()->json([
+            'result' => $result
+        ]);
+    }
+
+    public function checkTherapistUsername(Request $request) {
+        $username = User::where('username', $request->username)->first();
+
+        if($username) {
+            $result = true;
+        } else {
+            $result = false;
+        }
+
         return response()->json([
             'result' => $result
         ]);

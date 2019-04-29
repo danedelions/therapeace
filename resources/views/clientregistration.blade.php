@@ -35,6 +35,9 @@
                 <option value="Female">Female</option>
             </select>
         </div>
+        <div class="form-group col-md-12">
+            <input placeholder="User Name" name="username"  type="text" class="form-control required">
+        </div>
         </div>
 
         <div class="tab form-group">Location:
@@ -173,7 +176,7 @@
         <div style="overflow:auto;">
             <div style="float:right;">
                 <button class="btn btn-sm-success" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                <button class="btn btn-sm-success" type="button" id="nextBtn" onclick="nextPrev(1)" data-settings="{!! htmlspecialchars(json_encode(['url' => url('client-validation'), 'method' => 'post', 'token' => csrf_token()])) !!}">Next</button>
+                <button class="btn btn-sm-success" type="button" id="nextBtn" onclick="nextPrev(1)" data-settings="{!! htmlspecialchars(json_encode(['url' => url('client-validation'), 'url2' => url('client-username-validation'),'method' => 'post', 'token' => csrf_token()])) !!}">Next</button>
                 <button href="login" class="btn btn-sm-success" type="submit" id="subBtn" style="display:none">Submit</button>
             </div>
         </div>
