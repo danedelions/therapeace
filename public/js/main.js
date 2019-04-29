@@ -10,6 +10,10 @@ $(document).ready(function(){
   $('input[name="email"]').on('change', function () {
     checkDuplicateEmail();
   });
+
+  $('input[name="username"]').on('change', function () {
+    checkDuplicateUsername();
+  });
 })
 
 function showTab(n) {
@@ -142,6 +146,16 @@ function validateForm() {
     }
   }
 
+  if($('input[name="username"]').hasClass('duplicate')) { // If email has duplicate
+    $('input[name="username"]').addClass('is-invalid').siblings('.invalid-feedback').remove(); // Add validation error
+    $('input[name="username"]').after($('<div/>', {
+      class: 'invalid-feedback',
+      text: 'username already taken'
+    }));
+
+    valid = false;
+  }
+
   if($('input[name="email"]').hasClass('duplicate')) { // If email has duplicate
     $('input[name="email"]').addClass('is-invalid').siblings('.invalid-feedback').remove(); // Add validation error
     $('input[name="email"]').after($('<div/>', {
@@ -216,6 +230,37 @@ function checkDuplicateEmail() {
         return true;
       } else {
         $('input[name="email"]')
+          .removeClass('duplicate')
+          .removeClass('is-invalid')
+          .removeClass('invalid');
+      }
+    }
+  });
+}
+
+function checkDuplicateUsername() {
+  var settings = $('#nextBtn').data('settings'), // from button data-settings
+        _token = settings.token; // from button data-settings
+  
+  $.ajax({ 
+    method: settings.method,
+    url: settings.url2, // from button data-settings - /client-username-validation or /therapist-username-validation depending on the form
+    data: { 
+      username : $('input[name="username"]').val(), // username input value
+      _token: _token // from button data-settings
+    },
+    success : function (data) { // get data from controller
+      if(data.result == true) {
+        $('input[name="username"]').addClass('is-invalid').siblings('.invalid-feedback').remove(); // Add validation error
+        $('input[name="username"]').after($('<div/>', {
+          class: 'invalid-feedback',
+          text: 'username already taken'
+        }));
+
+        $('input[name="username"]').addClass('duplicate');
+        return true;
+      } else {
+        $('input[name="username"]')
           .removeClass('duplicate')
           .removeClass('is-invalid')
           .removeClass('invalid');
