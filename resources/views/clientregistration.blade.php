@@ -35,10 +35,7 @@
                 <option value="Female">Female</option>
             </select>
         </div>
-        <div class="form-group col-md-12">
-            <input placeholder="User Name" name="username"  type="text" class="form-control required">
-        </div>
-        </div>
+    </div>
 
         <div class="tab form-group">Location:
             <div class="form-group col-md-12">
@@ -68,9 +65,9 @@
         </div>
 
         <div class="tab form-group">Profile:
-            <div class="form-group col-md-12">
-                <input placeholder="User Name" name="username"  type="text" class="form-control required">
-            </div>
+           <div class="form-group col-md-12">
+            <input placeholder="User Name" name="username"  type="text" class="form-control required">
+        </div>
             <div class="form-group col-md-12">
                 <input placeholder="Password" name="password" type="password" class="form-control required" data-confirmed="re-password">
             </div>

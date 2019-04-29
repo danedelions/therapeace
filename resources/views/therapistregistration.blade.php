@@ -10,7 +10,7 @@
 
     <hr><!-- One "tab" for each step in the form: -->
     <div class="tab form-group"> 
-    @if ($errors->any())
+  <!--   @if ($errors->any())
         <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -18,7 +18,7 @@
                     @endforeach
                 </ul>
             </div>
-      @endif   
+      @endif  -->  
       <h6>Upload profile picture</h6>   
       <div class="form-group col-md-12">
         <input type="file" accept="image/x-png,image/gif,image/jpeg" name="image" id="fileToUpload" class="form-control required" data-validation-message="Please upload picture">
