@@ -33,7 +33,7 @@
             <div class="card-footer">
                 <div class="col-lg-6">
                 @if($bookings->status == 3)
-                            <a href="{{url('/booktherapist/'. $bookings->therapist_id)}}">
+                            <a href="{{url('/booktherapist/'. $bookings->therapist->id)}}">
                                 <button class="btn btn-warning">Re-book therapist</button>
                             </a>    
                 @endif 
