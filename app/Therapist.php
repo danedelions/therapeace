@@ -105,4 +105,18 @@ class Therapist extends Model
         ]);
     }
 
+    public static  function ofClient(int $clientId)
+    {
+        $bookingRequests = BookingRequest::query()
+                                         ->select('therapist_id')
+                                         ->where([
+                                             ['client_id', '=', $clientId],
+                                             ['status', '=', 1]
+                                         ])->pluck('therapist_id');
+                                            
+        return $bookingRequests->count() 
+            ? parent::whereIn('user_id', $bookingRequests->all())->get() 
+            : collect();
+    }
+
 }
