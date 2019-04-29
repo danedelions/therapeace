@@ -10,12 +10,12 @@ class MessagingController extends Controller
     public function index($recipientId = null)
     {
         $threadList = Auth::user()->getConversationList()->keyBy('sender_id');
-        if (Auth::user()->isRole('therapist')) {  
+        if (Auth::user()->isRole('therapist')) {
             $contacts = Client::ofTherapist(data_get(Auth::user(), 'therapist.id'));
         } elseif (Auth::user()->isRole('client')) {
             $contacts = Therapist::find($threadList->pluck('sender_id'));
         }
-    //    dd($contacts->toArray());
+//        dd($threadList->toArray());
         $thread = [];
         if ($recipientId) {
             $thread = Auth::user()->conversationWith($recipientId);
