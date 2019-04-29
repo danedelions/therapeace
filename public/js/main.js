@@ -148,7 +148,7 @@ function validateForm() {
 
 
    if($('input[name="username"]').val()) { // if there is an username input
-    var regex = /^([a-zA-Z0-9]{6})+$/; // username validator
+    var regex = /^([a-zA-Z0-9]{6,12})+$/; // username validator
     
     if(regex.test($('input[name="username"]').val()) == false) { // username email if valid
       
@@ -276,3 +276,4 @@ function myFunction() {
     x.type = "password";
   }
 }
+
