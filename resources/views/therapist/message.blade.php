@@ -95,14 +95,11 @@
 
 @push('scripts')
     <script type="text/javascript">
-
       $(document).ready(function(){
-
         var objDiv = document.getElementById("message-history");
         if(objDiv){
           objDiv.scrollTop = objDiv.scrollHeight;
         }
-
         $('.submit').click(function (e){
           e.preventDefault();
           var $this = $(this)
