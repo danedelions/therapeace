@@ -147,22 +147,22 @@ function validateForm() {
   }
 
 
-  //  if($('input[name="username"]').val()) { // if there is an username input
-  //   var regex = /^([a-zA-Z0-9_.-])+(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{6,})+$/; // username validator
+   if($('input[name="username"]').val()) { // if there is an username input
+    var regex = /^([a-zA-Z0-9]{6})+$/; // username validator
     
-  //   if(regex.test($('input[name="username"]').val()) == false) { // username email if valid
+    if(regex.test($('input[name="username"]').val()) == false) { // username email if valid
       
-  //     $('input[name="username"]').addClass('is-invalid').siblings('.invalid-feedback').remove(); // Add validation error
-  //     $('input[name="username"]').after($('<div/>', {
-  //       class: 'invalid-feedback',
-  //       text: 'Please Enter Six or more Characters'
-  //     }));
+      $('input[name="username"]').addClass('is-invalid').siblings('.invalid-feedback').remove(); // Add validation error
+      $('input[name="username"]').after($('<div/>', {
+        class: 'invalid-feedback',
+        text: 'Please Enter Six or more Characters'
+      }));
 
-  //     valid = false;
-  //   }else{
-  //     $('input[name="username"]').removeClass('is-invalid').removeClass('invalid').siblings('.invalid-feedback').remove();
-  //   }
-  // }
+      valid = false;
+    }else{
+      $('input[name="username"]').removeClass('is-invalid').removeClass('invalid').siblings('.invalid-feedback').remove();
+    }
+  }
 
   if($('input[name="username"]').hasClass('duplicate')) { // If email has duplicate 
     $('input[name="username"]').addClass('is-invalid').siblings('.invalid-feedback').remove(); // Add validation error
