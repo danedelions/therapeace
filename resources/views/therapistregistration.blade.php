@@ -204,7 +204,7 @@
     <div style="overflow:auto;">
       <div style="float:right;">
         <button class="btn btn-sm-success" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-        <button class="btn btn-sm-success" type="button" id="nextBtn" onclick="nextPrev(1)" data-settings="{!! htmlspecialchars(json_encode(['url' => url('therapist-validation'), 'method' => 'post', 'token' => csrf_token()])) !!}">Next</button>
+        <button class="btn btn-sm-success" type="button" id="nextBtn" onclick="nextPrev(1)" data-settings="{!! htmlspecialchars(json_encode(['url' => url('therapist-validation'), 'url2' => url('therapist-username-validation'), 'method' => 'post', 'token' => csrf_token()])) !!}">Next</button>
         <button class="btn btn-sm-success" type="submit" id="subBtn" style="display:none">Submit</button></a>
       </div>
     </div>
