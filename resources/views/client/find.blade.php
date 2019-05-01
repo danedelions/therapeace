@@ -26,7 +26,9 @@
                             {!! Form::select('therapist', array_combine([null,'Physical Therapist', 'Occupational Therapist'], ['SELECT TYPE','Physical Therapist', 'Occupational Therapist']), request()->therapist,['id'=>'q']) !!}
                         </div>
                         <div class="col-md-12">
-                            {!! Form::selectGroup('Specialties', 't_specialties[]', $specialties, request()->t_specialties, ['class' => 'form-control select2', 'multiple' => true]) !!}
+    
+                        {!! Form::selectGroup('Specialties', 't_specialties[]', $specialties, request()->t_specialties, ['class' => 'form-control']) !!}
+
                         </div>
                         <div class="col-md-12">
                             <input name="latitude" class="MapLat" value="" type="hidden" placeholder="Latitude"

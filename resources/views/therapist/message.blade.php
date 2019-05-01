@@ -62,6 +62,7 @@
                                         <div class="incoming_msg_img"> <i class="fa fa-user-circle fa-2x"></i></div>
                                         <div class="received_msg">
                                             <div class="received_withd_msg">
+                                                <p>{{ $message->sent_from->name}}</p>
                                                 <p>{{ $message->message  }}</p>
                                                 <span class="time_date">{{ $message->created_at->diffForHumans(Carbon\Carbon::now()) }}</span></div>
                                         </div>
