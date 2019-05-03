@@ -14,6 +14,10 @@ class Report extends Model
         'reports',
     ];
 
+    public $appends = [
+        'averageRate' => 'float'
+    ];
+
     public function booking()
     {
         return $this->belongsTo('App\BookingRequest', 'booking_id');
@@ -29,5 +33,4 @@ class Report extends Model
         return $this->belongsTo('App\Therapist', 'therapist_id', 'user_id');
     }
 
-    
 }

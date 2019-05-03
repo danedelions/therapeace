@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Report;
 
 class Therapist extends Model
 {
@@ -118,5 +119,7 @@ class Therapist extends Model
             ? parent::whereIn('user_id', $bookingRequests->all())->get() 
             : collect();
     }
+
+    
 
 }

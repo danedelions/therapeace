@@ -76,8 +76,10 @@
 								</div>
 								<div class="card-body">
 									<input type="text" name="diagnosis" class="form-control" placeholder="What's your diagnosis?" required="required">
+									<sup>*Please type your diagnosis here</sup>
 									<br>
 									<input type="file" accept="image/x-png,image/gif,image/jpeg" name="image" id="fileToUpload" class="form-control" required="required"> 
+									<sup>*Please uload a photo of your doctor's referral</sup>
 								</div>
 							</div>
 						</div>

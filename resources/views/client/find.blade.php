@@ -15,7 +15,7 @@
                         </div>
                         <div class="form-row col-md-12">
                             <div class="col-md-6">
-                                {!! Form::inputGroup('number', 'Search Radius', 'radius', request()->radius, ['id'=>'radius', 'min' => '5', 'max' => '20', 'step' => '5'])  !!}
+                                {!! Form::inputGroup('number', 'Search Km', 'radius', request()->radius, ['id'=>'radius', 'min' => '5', 'max' => '20', 'step' => '5'])  !!}
                             </div>
                             <div class="col-md-6">
                                 {!! Form::inputGroup('number', 'Rate /hr', 'rate', 'rate', ['placeholder' => 'Rate', 'id'=>'radius', 'min' => '500', 'max' => '9999', 'step' => '5'])  !!}
@@ -85,6 +85,10 @@
                                                     
                                                     <input type="hidden" data-long="{{ $data->longitude }}"/>
                                                     <input type="hidden" data-lat="{{$data->latitude}}"/>
+
+                                                    <h6>
+                                                     <b>Rating: </b> {{ empty($data->report->avg('rating')) ? 'not rated' : $data->report->avg('rating') }}
+                                                    </h6>
                                                     <h6 data-distance name="distance">Distance:</h6>
 
                                                     <a href='{{url("/booktherapist/{$data->id}")}}'
