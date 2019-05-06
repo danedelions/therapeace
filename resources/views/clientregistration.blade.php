@@ -17,20 +17,20 @@
             </div>
         @endif
             <div class="form-group col-md-12">
-                <input placeholder="First name" name="fname" type="text" class="form-control required">
+                <input placeholder="First name" name="fname" type="text" class="form-control required" data-validation-message="Please Enter First Name">
             </div>
             <div class="form-group col-md-12">
-                <input placeholder="Last name" name="lname" type="text" class="form-control required">
+                <input placeholder="Last name" name="lname" type="text" class="form-control required" data-validation-message="Please Enter Last Name">
             </div>
             <div class="form-group col-md-12">
-                <input placeholder="Email"  name="email" type="email" class="form-control email required">
+                <input placeholder="Email"  name="email" type="email" class="form-control email required" data-validation-message="Please Enter Email">
             </div>
             <div class="form-group col-md-12">
-                <input placeholder="Contact Number" type="text" name="number" class="form-control required">
+                <input placeholder="Contact Number" type="text" name="number" class="form-control required" data-validation-message="Please Enter Contact Number">
             </div>
         <div class="form-group col-md-12">
-            <select id="gender" class="form-control required" name="gender">
-                <option value="">Select Gender</option>
+            <select id="gender" class="form-control required" name="gender" data-validation-message="Please Enter Gender">
+                <option value=>Select Gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>
@@ -39,37 +39,37 @@
 
         <div class="tab form-group">Location:
             <div class="form-group col-md-12">
-                <input placeholder="City*" name="city" type="text" class="form-control required">
+                <input placeholder="City*" name="city" type="text" class="form-control required" data-validation-message="Please Enter City">
             </div>
             <div class="form-group col-md-12">
-                <input placeholder="Province*" name="province" type="text" class="form-control required">
+                <input placeholder="Province*" name="province" type="text" class="form-control required" data-validation-message="Please Enter Province">
             </div>
             <div class="form-group col-md-12">
-                <input placeholder="Street*" name="street" type="text" class="form-control required">
+                <input placeholder="Street*" name="street" type="text" class="form-control required" data-validation-message="Please Enter Street">
             </div>
             <div class="form-group col-md-12">
-                <input placeholder="Village/Barangay" name="brgy" type="text" class="form-control">
+                <input placeholder="Village/Barangay" name="brgy" type="text" class="form-control" data-validation-message="Please Enter Barangay">
             </div>
             <div class="form-group col-md-12">
-                <input placeholder="House No./Floor No." name="res_detail" type="text" class="form-control">
+                <input placeholder="House No./Floor No." name="res_detail" type="text" class="form-control" data-validation-message="Please Enter House No./Floor No.">
             </div>
             <div class="form-group col-md-12">
-                <input placeholder="Building" name="building" type="text" class="form-control">
+                <input placeholder="c" name="building" type="text" class="form-control" data-validation-message="Please Enter Building">
             </div>
             <div class="form-group col-md-12">
-                <input placeholder="Landmark" name="landmark" type="text" class="form-control">
+                <input placeholder="Landmark" name="landmark" type="text" class="form-control" data-validation-message="Please Enter Landmark">
             </div>
             <div class="form-group col-md-12">
-                <input placeholder="Address Remarks" name="address_remarks" type="text" class="form-control">
+                <input placeholder="Address Remarks" name="address_remarks" type="text" class="form-control" data-validation-message="Please Enter Address Remarks">
             </div>
         </div>
 
         <div class="tab form-group">Profile:
            <div class="form-group col-md-12">
-            <input placeholder="User Name" name="username"  type="text" class="form-control required">
+            <input placeholder="User Name" name="username"  type="text" class="form-control required" data-validation-message="Please Enter Username">
         </div> 
             <div class="form-group col-md-12">
-                <input placeholder="Password" name="password" type="password" class="form-control required"  data-confirmed="re-password">
+                <input placeholder="Password" name="password" type="password" class="form-control required"  data-confirmed="re-password" data-validation-message="Please Enter Password">
             </div>
             <div class="form-group col-md-12">
                 <input placeholder="Retype Password"  name="re-password" type="password" id="myInput" class="form-control required" data-confirmed="password">

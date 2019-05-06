@@ -76,6 +76,7 @@ class TherapistController extends Controller
             $image = $request->file('image')->store(
                 "pictures/{$users[0]['username']}",
                 'public'
+                
             );
 
             $licenseimage_front = $request->file('licenseimage_front')->store(
