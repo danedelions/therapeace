@@ -152,13 +152,13 @@ function validateForm() {
     
     if(regex.test($('input[name="username"]').val()) == false) { // username email if valid
       
-      $('input[name="username"]').addClass('is-invalid').siblings('.invalid-feedback').remove(); // Add validation error
-      $('input[name="username"]').after($('<div/>', {
-        class: 'invalid-feedback',
-        text: 'Please Enter Six or more Characters'
-      }));
+                  $('input[name="username"]').addClass('is-invalid').siblings('.invalid-feedback').remove(); // Add validation error
+                  $('input[name="username"]').after($('<div/>', {
+                    class: 'invalid-feedback',
+                    text: 'Please Enter Six or more Characters'
+                  }));
 
-      valid = false;
+                  valid = false;
     }else{
       $('input[name="username"]').removeClass('is-invalid').removeClass('invalid').siblings('.invalid-feedback').remove();
     }
@@ -184,13 +184,37 @@ function validateForm() {
     valid = false;
   }
 
-  // If the valid status is true, mark the step as finished and valid:
+  // If the valid status is true, mark the step as finished and vald:
   if (valid) {
     document.getElementsByClassName("step")[currentTab].classList.add('finish');
   }
   return valid; // return the valid status
   // return true;
 }
+$.validator.addMethod(
+    "checkPhoto",
+    function (value, element) {
+        if (this.optional(element) || ! element.files || ! element.files[0]) {
+            return true;
+        } else {
+            return element.files[0].size <= 1024 * 1024 * 2;
+        }
+    },
+    'The file size can not exceed 2MB.'
+);
+// function checkPhoto(target) {
+//     if(target.files[0].size < 10240) {
+//         document.getElementById("photoLabel").innerHTML = "Image too big (max 100kb)";
+//       $('input[name="image"]').addClass('is-invalid').siblings('.invalid-feedback').remove(); // Add validation error
+//       $('input[name="image"]').after($('<div/>', {
+//         class: 'invalid-feedback',
+//         text: 'Invalid image'
+//       }));
+//         return false;
+//     }else{
+//       $('input[name="image"]').removeClass('is-invalid').removeClass('invalid').siblings('.invalid-feedback').remove();
+//     }
+// }
 
 function fixStepIndicator(n) {
   // This function removes the "active" class of all steps...
@@ -203,6 +227,7 @@ function fixStepIndicator(n) {
   // x[n].className += " active";
   $(x[n]).addClass('active');
 }
+
 
 
 // function to check duplicate

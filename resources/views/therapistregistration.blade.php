@@ -21,22 +21,22 @@
       @endif  -->  
       <h6>Upload profile picture</h6>   
       <div class="form-group col-md-12">
-        <input type="file" accept="image/x-png,image/gif,image/jpeg" name="image" id="fileToUpload" class="form-control required" data-validation-message="Please upload picture">
+        <input type="file" accept="image/x-png,image/gif,image/jpeg" name="image" id="fileToUpload" onchange="checkPhoto(this)"  class="form-control required" data-validation-message="Please upload picture">
       </div>
       <div class="form-group col-md-12">
-        <input placeholder="First name"  name="fname" class="form-control required">
+        <input placeholder="First name"  name="fname" class="form-control required" data-validation-message="Please Enter First name">
       </div>
       <div class="form-group col-md-12">
-        <input placeholder="Last name"  name="lname" class="form-control required">
+        <input placeholder="Last name"  name="lname" class="form-control required" data-validation-message="Please Enter Last name">
       </div>
       <div class="form-group col-md-12">
-        <input type="email" placeholder="Email" name="email" class="form-control required">
+        <input type="email" placeholder="Email" name="email" class="form-control required" data-validation-message="Please Enter Email">
       </div>
       <div class="form-group col-md-12">
-        <input placeholder="Contact Number"  name="number" class="form-control required">
+        <input placeholder="Contact Number"  name="number" class="form-control required" data-validation-message="Please Enter Contact Number">
       </div>
       <div class="form-group col-md-12">
-        <select id="gender" class="form-control required" name="gender">
+        <select id="gender" class="form-control required" name="gender" data-validation-message="Please Enter Gender">
             <option value="">Select Gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
@@ -46,25 +46,25 @@
 
     <div class="tab form-group">Address:
       <div class="form-group col-md-12">
-        <input id="autocomplete" placeholder="Enter your Nearest Landmark " onfocus="geolocate()" type="text" class="form-control required">
+        <input id="autocomplete" placeholder="Enter your Nearest Landmark " onfocus="geolocate()" type="text" class="form-control required" data-validation-message="Enter your Nearest Landmark">
       </div>
       <div class="form-group col-md-12">
-        <input placeholder="Street Address"  name="streetaddress" id="route" class="form-control required">
+        <input placeholder="Street Address"  name="streetaddress" id="route" class="form-control required" data-validation-message="Please Enter Street Address">
       </div>
       <div class="form-group col-md-12">
-        <input placeholder="Barangay"  name="barangay" id="sublocality" class="form-control required">
+        <input placeholder="Barangay"  name="barangay" id="sublocality" class="form-control required" data-validation-message="Please Enter Barangay">
       </div>
       <div class="form-group col-md-12">
-       <input placeholder="City"  class="form-control required" name="city" id="locality">
+       <input placeholder="City"  class="form-control required" name="city" id="locality" data-validation-message="Please Enter City">
       </div> 
       <div class="form-group col-md-12">
-        <input placeholder="Province"  name="province" id="administrative_area_level_2" class="form-control required">
+        <input placeholder="Province"  name="province" id="administrative_area_level_2" class="form-control required" data-validation-message="Please Enter Province">
       </div>
       <div class="form-group col-md-12">
-        <input placeholder="Postal Code"  name="postal_code" id="postal_code" class="form-control required">
+        <input placeholder="Postal Code"  name="postal_code" id="postal_code" class="form-control required" data-validation-message="Please Enter Postal Code">
       </div>
       <div class="form-group col-md-12">
-        <input placeholder="Country"  name="country" id="country" class="form-control required">
+        <input placeholder="Country"  name="country" id="country" class="form-control required" data-validation-message="Please Enter Country">
       </div>
      
    <div class="form-group col-md-12">
@@ -75,7 +75,7 @@
   </div>  
     </div>
 
-    <div class="tab form-group">License:
+    <div class="tab form-group" data-validation-message="Please Enter License">License:
       <div class="form-group col-md-12">
         <select class="form-control required" name="therapist">
           <option value="">Select Therapist</option>
@@ -84,38 +84,38 @@
         </select>
       </div>
       <div class="form-group col-md-12">
-        <input placeholder="License Number"  name="license_number" type="number" class="form-control required">
+        <input placeholder="License Number"  name="license_number" type="number" class="form-control required" data-validation-message="Please Enter License Number">
       </div>
       <div class="form-group col-md-12">
-        <input class="form-control required" placeholder="Expriry Date"  name="expiry_date" type="date">
+        <input class="form-control required" placeholder="Expriry Date"  name="expiry_date" type="date" data-validation-message="Please Enter Expiry Date">
       </div>
       <div class="form-group col-md-12">
         <label>License Image (Front)</label>
-        <input type="file" name="licenseimage_front" id="fileUpload2" class="form-control required">
+        <input type="file" name="licenseimage_front" id="fileUpload2" class="form-control required" data-validation-message="Please Enter License Image (front)">
       </div>
       <div class="form-group col-md-12">
         <label>License Image (Back)</label>
-        <input type="file" name="licenseimage_back" id="fileUpload2" class="form-control required">
+        <input type="file" name="licenseimage_back" id="fileUpload2" class="form-control required" data-validation-message="Please Enter License Image (Back)">
       </div>
       <div class="form-group col-md-12">
         <label>NBI Imgae</label>
-        <input type="file" name="nbi_image" id="fileUpload3" class="form-control required">
+        <input type="file" name="nbi_image" id="fileUpload3" class="form-control required" data-validation-message="Please Enter NBI Image">
       </div>
       <div class="form-group col-md-12">
         <label>Barangay Clearance Imgae</label>
-        <input type="file" name="bc_image" id="fileUpload4" class="form-control required">
+        <input type="file" name="bc_image" id="fileUpload4" class="form-control required" data-validation-message="Please Enter Barangay Clearance">
       </div>
     </div>
 
     <div class="tab form-group">Profile:
       <div class="form-group col-md-12">
-        <input placeholder="User Name"  name="username" class="form-control required">
+        <input placeholder="User Name"  name="username" class="form-control required" data-validation-message="Please Enter Username">
       </div>
       <div class="form-group col-md-12">
-        <input placeholder="Password"  name="password" type="password" class="form-control required" data-confirmed="re-password">
+        <input placeholder="Password"  name="password" type="password" class="form-control required" data-confirmed="re-password" data-validation-message="Please Enter Password">
       </div>
       <div class="form-group col-md-12">
-        <input placeholder="Re-type Password"  name="re-password" type="password" id="myInput" class="form-control required"data-confirmed="password" >
+        <input placeholder="Re-type Password"  name="re-password" type="password" id="myInput" class="form-control required" data-confirmed="password" >
       </div>
        <div class="form-group col-md-12">
                 <label>

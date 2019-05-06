@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Report;
 
 class Therapist extends Model
 {
@@ -120,5 +121,7 @@ class Therapist extends Model
 
         return $this->belongsTo('App\Message', 'user_id');
     }
+
+    
 
 }
