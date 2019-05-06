@@ -13,32 +13,60 @@
             <div class="inbox_msg">
                 <div class="inbox_people">
                     <div class="headind_srch">
-                        <div class="recent_heading">
-                            Recent
+                        <div class="row">
+                            <div class="col-md-8">
+                                Available Clients...
+                            </div>
+                            <div class="col-md-4" style="margin-bottom: 15px;">
+                               <br>
+                            </div>
                         </div>
-                        <div class="srch_bar">
-                            <div class="stylish-input-group">
-                                <input type="text" class="search-bar" placeholder="Search">
-                                <span class="input-group-addon">
-              <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
-              </span></div>
-                        </div>
+                        <!-- {!! Form::open(['url' => url()->current(), 'method' => 'get']) !!} 
+                            <div class="row">
+                                <div class="col-md-8">
+                                     {!! Form::inputGroup('text', null, 'name', request()->name ?? null, ['placeholder' => 'Client Name']) !!}
+                                </div>
+                                <div class="col-md-4">
+                                   <button type="submit" class="btn pull-right"><i class="ti-search"></i></button>
+                                </div>
+                            </div>
+                        {!! Form::close() !!} -->
                     </div>
                     <div class="inbox_chat">
                         @foreach($contacts AS $contact)
-                            <div class="chat_list {{ $recipient == $contact->user_id ? 'active_chat' : '' }}"
-                                 style="cursor:pointer;"
-                                 onclick="javascript:window.location.href = '{{ route('messaging.index', $contact->user_id) }}'">
-                                <div class="chat_people align-items-center d-flex">
-                                    <div class="chat_img text-info">
-                                        <i class="fa fa-user-circle fa-2x"></i>
+                            <div class="chat_list {{ $recipient == $contact->user_id ? 'active_chat' : '' }}">
+                                <div class="chat_people align-items-center d-flex hover1"> <!--h-->
+                                    <div class="incoming_msg_img" >
+                                        <img src="">
                                     </div>
                                     <div class="chat_ib">
-                                        <h5 class="">{{ $contact->fullname }}
-                                            @if(optional($threadList->get($contact->user_id))->unseen_count)
-                                                <span class="badge badge-pill badge-secondary chat_date">{{ optional($threadList->get($contact->user_id))->unseen_count  }}</span>
-                                            @endif
-                                        </h5>
+                                        <div class="form-row">
+                                            <label onclick="javascript:window.location.href = '{{ route('therapist.index', $contact->user_id) }}'" style="cursor:pointer;">
+                                                {{ $contact->fullname }}
+                                                &nbsp;
+                                                @if(optional($threadList->get($contact->user_id))->unseen_count)
+                                                    <div class="badge badge-pill badge-secondary chat_date">
+                                                        {{ optional($threadList->get($contact->user_id))->unseen_count  }}
+                                                    </div>
+                                                @endif
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="right_side_btn" id="show1"> <!--s-->
+                                        <div class="dropdown" style="cursor:pointer;">
+                                            <a data-id="{{$contact->user_id}}" id="dropdownMenu1{{$contact->user_id}}" data-toggle="dropdown" aria-expanded="false" >
+                                                <i class="fas fa-cog"></i>
+                                            </a>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1{{$contact->user_id }}">
+                                                <li>
+                                                    <a data-toggle="modal" data-target="#view-modal-{{$contact->user_id}}">
+                                                        <button type="submit" style="cursor:pointer; border: none; background-color: white;">
+                                                        Delete thread
+                                                        </button>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>   
                                     </div>
                                 </div>
                             </div>
@@ -51,27 +79,118 @@
                         <div class="msg_history" id="message-history">
                             @foreach($thread as $message)
                                 @if($message->sent_from == Auth::id())
-                                    <div class="outgoing_msg">
-                                        <div class="sent_msg">
-                                            <p>{{ $message->message  }}</p>
-                                            <span class="time_date">{{ $message->created_at->diffForHumans(Carbon\Carbon::now())  }}</span>
+                                    <div class="outgoing_msg" >
+                                        <!-- @if($message->sent_to == Auth::id())
+                                            <div class="incoming_msg_img">
+                                                <img src="{{ asset('storage/{$therapist->image}') }}">
+                                            </div>
+                                        @endif -->
+                                        <div class="sent_msg" >
+                                            <div class="sent_withd_msg hover2"><!--h-->
+                                                <h1>
+                                                    {{ Auth::user()->therapist->fullname }}&nbsp;
+                                                </h1>   
+                                                    <div class="right_side_btn">
+                                                        <div class="dropdown" style="cursor:pointer;">
+                                                            <a data-id="{{ $contact['id'] }}"
+                                                              id="dropdownMenu{{ $contact['id'] }}" data-toggle="dropdown"
+                                                              aria-expanded="false" ><i id="" class="fas fa-bars fa-sm">&nbsp;</i>
+                                                            </a><!--s-->
+
+                                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu{{ $contact['id'] }}">
+                                                                <li>
+                                                                    @if($message->status == 0)
+                                                                        {!! Form::open(['url' => route('therapist.remove.reply', $message->id), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure you want to remove this reply? Client will notice this. ")']) !!}
+                                                                            <button type="submit" style="cursor:pointer; border: none; background-color: white;" center>Remove Reply
+                                                                            </button>
+                                                                    {!! Form::close() !!}
+
+                                                                    @else
+                                                                        {!! Form::open(['url' => route('therapist.delete.reply', $message->id), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure you want to delete? Client will notice this.")']) !!}
+                                                                        <button type="submit" style="cursor:pointer; border: none; background-color: white;" center>Delete Reply
+                                                                        </button>
+                                                                    {!! Form::close() !!}
+                                                                    @endif
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                
+                                                <br>
+
+                                                @if(!empty($message))
+                                                    @if($message->status == 1)
+                                                        <p>This message was removed</p>
+                                                    @else
+                                                    <p >{{ $message->message  }}</p>
+                                                    @endif
+                                                    <span id="show2" class="time_date_right"><!--s-->
+                                                        {{ $message->created_at->diffForHumans(Carbon\Carbon::now()) }}
+                                                    </span>
+                                                @endif
+                                                
+                                            </div>
                                         </div>
                                     </div>
                                 @else
-                                    <div class="incoming_msg">
-                                        <div class="incoming_msg_img"> <i class="fa fa-user-circle fa-2x"></i></div>
+                                    <div class="incoming_msg" ><!--1 FOR PICTURE-->
+                                        <!-- @if($message->sent_to == Auth::id())
+                                            <div class="incoming_msg_img">
+                                                <img src="{{ asset('storage/{$therapist->image}') }}">
+                                            </div>
+                                        @endif -->
                                         <div class="received_msg">
-                                            <div class="received_withd_msg">
-                                                <p>{{ $message->message  }}</p>
-                                                <span class="time_date">{{ $message->created_at->diffForHumans(Carbon\Carbon::now()) }}</span></div>
+                                            <div class="received_withd_msg hover3"><!--h-->
+                                                <h1>
+                                                    {{ $contact->fullname }}&nbsp;
+                                                </h1>
+                                                    <div class="left_side_btn" >
+                                                        <div class="dropdown" style="cursor:pointer;">
+                                                            <a data-id="{{ $contact['id'] }}"
+                                                              id="dropdownMenu{{ $contact['id'] }}" data-toggle="dropdown"
+                                                              aria-expanded="false" ><i id="" class="fas fa-bars fa-sm">&nbsp;</i>
+                                                            </a><!--s-->
+
+                                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu{{ $contact['id'] }}">
+                                                                <li>
+                                                                    @if($message->status == 0)
+                                                                        {!! Form::open(['url' => route('therapist.remove.reply', $message->id), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure you want to remove this reply? Client will notice this")']) !!}
+                                                                            <button type="submit" style="cursor:pointer; border: none; background-color: white;" center>Remove Reply
+                                                                            </button>
+                                                                    {!! Form::close() !!}
+
+                                                                    @else
+                                                                        {!! Form::open(['url' => route('therapist.delete.reply', $message->id), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure you want to delete? Client will notice this.")']) !!}
+                                                                        <button type="submit" style="cursor:pointer; border: none; background-color: white;" center>Delete Reply
+                                                                        </button>
+                                                                    {!! Form::close() !!}
+                                                                    @endif
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+
+                                                <br>
+
+                                                @if(!empty($message))
+                                                    @if($message->status == 1)
+                                                        <p>This message was removed</p>
+                                                    @else
+                                                    <p >{{ $message->message  }}</p>
+                                                    @endif
+                                                    <span id="show3" class="time_date_left"><!--s-->
+                                                        {{ $message->created_at->diffForHumans(Carbon\Carbon::now()) }}
+                                                    </span>
+                                                @endif
+
+                                            </div>
                                         </div>
                                     </div>
                                 @endif
                             @endforeach
-
                         </div>
                         <div class="type_msg">
-                            {!! Form::open(['url' => route('messaging.send', $recipient), 'method' => 'post']) !!}
+                            {!! Form::open(['url' => route('therapist.send', $recipient), 'method' => 'post']) !!}
                             <div class="input_msg_write">
                                 {!! Form::inputGroup('text', null, 'message', null, ['placeholder' => 'Type a message...']) !!}
 
@@ -89,6 +208,31 @@
             </div>
         </div>
     </div>
+
+
+<!-- MODAL -->
+                <div class="modal fade" id="view-modal-{{$contact->user_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Just a reminder...</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        <div class="modal-body" id="modalView">
+                        
+                        <br>
+                        
+                        <div class="col-sm-12">
+                            <center>This thread will only be removed/deleted once your appointment with <b>{{ $contact->fname }}</b> is finished.</center><br>
+                            <center>
+                                <button data-dismiss="modal" class="btn btn-default">Okay</button>
+                            </center>
+                        </div>                    
+                    </div>
+                </div>
+<!-- MODAL -->
 
 
 @endsection

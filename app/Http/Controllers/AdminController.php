@@ -113,6 +113,4 @@ class AdminController extends Controller
         return view('admin.blockusers', compact('users'));
     }    
 
-   
-      
 }

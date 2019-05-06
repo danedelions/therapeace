@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header bg-info">
                         Search a nearby therapist
-                    </div>
+                    </div> 
                     <div class="card-body" style=" height: 400px;">
                         {!!Form::open(['method'=>'GET','url'=> url()->current(),'class'=>'navbar-form navbar-left','role'=>'search'])  !!}
                         <div class="col-md-12">

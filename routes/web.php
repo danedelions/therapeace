@@ -9,6 +9,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use App\Events\FormSubmitted;
     
     Route::group(['middleware' => 'guest'], function () {
 
@@ -21,6 +23,21 @@
         Route::view('/faqs', 'faqs')->name('faqs');
         Route::get('/login', 'LoginController@view')->name('login');
         Route::post('doLogin', 'LoginController@doLogin')->name('post:login');
+
+// PUSHER SAMPLE
+        Route::get('/listener', function(){
+            return view('pusher.listener');
+    });
+        Route::get('/handler', function(){
+            return view('pusher.handler');
+    });
+        Route::post('/handler', function(){
+            //this is the post
+            $notifyTextMessage = request()->notifyTextMessage;
+
+            event(new FormSubmitted($notifyTextMessage));
+    });
+// SAMPLE
     });
 
 
@@ -34,6 +51,7 @@
     Route::get('/admin-login', 'AdminController@login')->name('get.login');
 
     Route::get('/admin-user', 'AdminController@getUserView')->name('get.view');
+
     Route::get('/admin-pending', 'AdminController@getPendingView')->name('get.pending');
     Route::get('/admin-history', 'AdminController@getHistoryView')->name('get.history');
     Route::get('/admin-reports', 'AdminController@getReportsView')->name('get.reports');
@@ -48,8 +66,25 @@
     // THERAPIST
     Route::get('/therapist-account', 'TherapistController@therapistAccount')->name('get.therapist-account');
 
-    Route::get('chat/{recipientId?}', 'MessagingController@index')->name('messaging.index');
-    Route::post('chat/{recipientId}', 'MessagingController@sendMessage')->name('messaging.send');
+    // Route::get('chat/{recipientId?}', 'MessagingController@index')->name('messaging.index');
+    // Route::post('chat/{recipientId}', 'MessagingController@sendMessage')->name('messaging.send');
+
+
+    // MESSAGING CLIENT
+    Route::get('therapist-messages/{recipientId?}', 'MessagingController@therapistindex')->name('therapist.index');
+    Route::post('therapist-messages/{recipientId}', 'MessagingController@therapistsend')->name('therapist.send');
+
+    Route::delete('doDeleteReply/{recipientId}', 'MessagingController@deleteReply')->name('therapist.delete.reply');
+    Route::delete('doRemoveReply/{recipientId}', 'MessagingController@removeReply')->name('therapist.remove.reply');
+
+    // MESSAGING THERAPIST
+    Route::get('client-messages/{recipientId?}', 'MessagingController@clientindex')->name('client.index');
+    Route::post('client-messages/{recipientId}', 'MessagingController@clientsend')->name('client.send');
+
+    Route::delete('doDelete/{recipientId}', 'MessagingController@delete')->name('client.delete.reply');
+    Route::delete('doRemove/{recipientId}', 'MessagingController@remove')->name('client.remove.reply');
+
+
 
     Route::get('/therapist-edit/{id}', 'TherapistController@edit');
     Route::patch('/therapist-update/{id}', 'TherapistController@update')->name('therapist.update');
@@ -71,9 +106,10 @@
 
     Route::delete('doCancel/{bookingRequest}', 
         'TherapistCalander@cancelAppointment')->name('therapist.cancel.appointment');
-    // Route::delete('doDelete/{bookingRequest}',
-    //     'TherapistCalander@deleteRequest')->name('therapist.delete.appointment');
-
+    
+    Route::delete('doDelete/{bookingRequest}',
+        'TherapistCalander@deleteRequest')->name('therapist.delete.appointment');
+    
     // CLIENT
     Route::get('/client-find', 'ClientController@clientFind')->name('get.client-find');
     Route::get('/client-account', 'ClientController@clientAccount')->name('get.client-account');
@@ -106,3 +142,5 @@
     Route::post('therapist-username-validation', 'TherapistController@checkTherapistUsername');
 
 
+
+    Route::delete('doDeleteUser/{id}','AdminController@delete')->name('admin.delete');
