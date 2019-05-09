@@ -36,8 +36,8 @@ class TherapistCalander extends Controller
     public function saveAppointment(Request $request, BookingRequest $bookingRequest)
     {
         $validator = \Validator::make($request->all(), [
-            'start_date'         => 'required|date',
-            'end_date'           => 'required|date',
+            'start_date'         => 'required|date|after:yesterday',
+            'end_date'           => 'required|date|after_or_equal:start_date',
             'start_date_time'    => 'required|date_format:H:i',
             'end_date_time'      => 'required|date_format:H:i',
             'other_services'     => 'sometimes|nullable|string',
@@ -51,6 +51,11 @@ class TherapistCalander extends Controller
             if ($v->errors()) {
                 $startDateTime = Carbon::parse("{$request->start_date} {$request->start_date_time}");
                 $endDateTime   = Carbon::parse("{$request->end_date} {$request->end_date_time}");
+
+                if ($startDateTime->lte(Carbon::now())){
+                    $v->errors()->add('start_date_time', 'This should be after the current time');
+                    return;
+                }
                 /** @NOTE: lte => Less than or equal */
                 if ($endDateTime->lte($startDateTime)) {
                     $v->errors()->add('end_date_time', 'This should be after start date and time');

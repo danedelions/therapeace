@@ -19,6 +19,7 @@ class CreateMessagesTable extends Migration
             $table->unsignedInteger('sent_to');
             $table->timestamp('seen_at')->nullable();
             $table->text('message')->nullable();
+            $table->integer('status');
             $table->timestamps();
             $table->foreign('sent_from')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('sent_to')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');

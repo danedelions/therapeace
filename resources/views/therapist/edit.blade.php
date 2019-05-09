@@ -73,6 +73,7 @@
                 <label>License Image (Front)</label>
                   <input type="file" id="itemImage" name="licenseimage_front" class="form-control">
               </div>
+
               <div class="col-md-6">
                 <label>License Image (Back)</label>
                   <input type="file" id="itemImage" name="licenseimage_back" class="form-control">

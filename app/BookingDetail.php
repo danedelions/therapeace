@@ -16,7 +16,7 @@ class BookingDetail extends Model
 		'email',
 	];
 
-    public function bookingRequest()
+    public function bookingRequest() 
     {
     	return $this->belongsTo('App\BookingRequest', 'id', 'booking_id');
     }

@@ -135,16 +135,6 @@ class AdminController extends Controller
         $users->delete();
 
         return redirect()->back();
-    }    
-
-    public function getClient()
-    {
-        return view('admin.add_client');
-    }
-
-    public function getTherapist()
-    {
-        return view('admin.add_therapist');
     }
     
 }

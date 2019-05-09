@@ -24,9 +24,15 @@
                 <div class="form-group row">
                     <label class="col-lg-4">Session Dates</label>
                     @if(!empty($bookings->appointment->durationDate))
-                        <div class="col-lg-7">{{$bookings->appointment->durationDate = date("F j, Y, F j, Y")}}</div>
+                        <div class="col-lg-7">{{date("F j, Y", strtotime($bookings->appointment->start_date))}} - {{date("F j, Y", strtotime($bookings->appointment->end_date))}}</div>
                     @else
                         <div class="col-lg-7">No dates added yet!</div>
+                    @endif
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-4">Session Time</label>
+                    @if(!empty($bookings->appointment->durationDate))
+                        <div class="col-lg-7">{{date("g:i A", strtotime($bookings->appointment->start_date_time))}} - {{date("g:i A", strtotime($bookings->appointment->end_date_time))}}</div>
                     @endif
                 </div>
             </div>
@@ -55,7 +61,7 @@
                 </div>
                 <div class="form-group row">
 					<label class="col-lg-4">Session Dates</label>
-					<div class="col-lg-7">{{$bookings->appointment->durationDate}}</div>
+					<div class="col-lg-7">{{date("F j, Y", strtotime($bookings->appointment->start_date_time))}} - {{date("F j, Y", strtotime($bookings->appointment->end_date_time))}}</div>
                 </div>
                 <div class="form-group row">
 					<label class="col-lg-4">Number of Days</label>

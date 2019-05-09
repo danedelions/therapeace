@@ -6,7 +6,12 @@
     <div class="row">
       <div class="card-body">
         <div class="col-sm-5 col-md-5 col-lg-4">
-          <h3>TheraPeace Users &nbsp;<button type="button" value="Print" onclick="printDiv('printableArea')" class="btn btn-sm btn-info"/><i class="fas fa-print"></i></button></h3>              
+          <h3>TheraPeace Users &nbsp;<button type="button" value="Print" onclick="printDiv('printableArea')" class="btn btn-sm btn-info"/><i class="fas fa-print"></i></button></h3>
+
+
+          <a href="/add-therapist">The</a> 
+          <a href="/add-client">Cli</a>      
+
         </div>
 
         <div class="col-sm-7 col-md-7 col-lg-8">
@@ -111,6 +116,12 @@
                                 <button type="submit" class="dropdown-item"><i class="fas fa-trash"></i>&nbsp&nbspRemove</button>
                               {!! Form::close() !!}
                             </li>
+                            <li>
+                              {!! Form::open(['url' => route('admin.delete', ['id' => $row->id]), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure you want to delete?")']) !!}
+                                <button type="submit" class="dropdown-item"><i class="far fa-envelope"></i>&nbsp&nbspDelete</button>
+                              {!! Form::close() !!}
+                            </li>
+
                           </ul>
 
                         </div>

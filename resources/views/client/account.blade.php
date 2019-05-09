@@ -99,10 +99,10 @@
                           Actons
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                          <a class="dropdown-item" style="color:green;"href="{{url('/client-view/'.$row->id)}}"><i class="far fa-eye" style="color:green;"></i>&nbspView</a>
+                          <a class="dropdown-item" style="color:green;" href="{{url('/client-view/'.$row->id)}}"><i class="far fa-eye" style="color:green;"></i>&nbsp; View</a>
                           {!! Form::open(['url' => route('therapist.cancel.appointment', $row->id), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
                             <a class="dropdown-item" style="color:red;"><i class="fas fa-ban" style="color:red;"></i>
-                          &nbspCancel
+                          &nbsp; Cancel
                           {!! Form::close() !!}
                           </a>
                         </div>
@@ -115,9 +115,9 @@
                         <a href="{{url('/client-view/'.$row->id)}}"><button class="btn btn-sm btn-outline-info">View</button></a>
                       
                       @elseif($row->status == 4)
-
-                      
-
+                        {!! Form::open(['url' => route('therapist.delete.appointment', $row->id), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure you want to delete this item??")']) !!}
+                          <button class="btn btn-sm btn-outline-danger">Delete</button>
+                          {!! Form::close() !!}
                       @endif
                     </td>
                   </tr>

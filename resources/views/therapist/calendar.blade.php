@@ -150,7 +150,7 @@
                                 @if(!empty($bookingRequest->checklist->vital_sign))
                                     {{$bookingRequest->checklist->vital_sign}}
                                 @else
-                                    ...
+                                    ... 
                                 @endif
                                 </div>
                             </div>
@@ -494,7 +494,7 @@
                     @endif
                     <div class="card-body">
                     @if($bookingRequest->appointment)
-                        {!! Form::model($bookingRequest->appointment, ['url' => route('therapist.book.appointment', $bookingRequest)]) !!}
+                        {!! Form::model($bookingRequest->appointment, ['url' => route('therapist.book.appointment', $bookingRequest), 'action' => 'therapist.sender', 'method' => 'post']) !!}
                     @else
                         {!! Form::open(['url' => route('therapist.book.appointment', $bookingRequest)]) !!}
                     @endif
@@ -518,6 +518,7 @@
                         {!! Form::inputGroup('text', 'Other Services Applied', 'other_services') !!}
                         {!! Form::inputGroup('number', 'Fee', 'other_services_fee') !!}
                         <button type="submit" class="btn btn-success">Submit</button>
+                        {{ csrf_field() }}
                     {!! Form::close() !!}
                 </div>
             </div>
