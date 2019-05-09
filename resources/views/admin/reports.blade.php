@@ -9,7 +9,7 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th>Session ID</th>
+            <!-- <th>Session ID</th> -->
             <th>Clients</th>
             <th>Therapists</th>
             <th>Date</th>
@@ -20,7 +20,7 @@
           @foreach($bookrequest as $row)
             @if(!empty($row->report))
               <tr>
-                <td>{{ $row->bookingDetails->booking_id }}</td>
+                <!-- <td>{{ $row->bookingDetails->booking_id }}</td> -->
                 <td>{{ $row->client->fullName }}</td>
                 <td>{{ $row->therapist->fullName}}</td>
                 <td>{{ $row->appointment->start_date}}</td>

@@ -8,14 +8,14 @@
         <hr><!-- One "tab" for each step information the form: -->
         <div class="tab form-group">
              @if ($errors->any())
-        <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
             </div>
-        @endif
+            @endif
             <div class="form-group col-md-12">
                 <input placeholder="First name" name="fname" type="text" class="form-control required">
             </div>
@@ -28,13 +28,13 @@
             <div class="form-group col-md-12">
                 <input placeholder="Contact Number" type="text" name="number" class="form-control required">
             </div>
-        <div class="form-group col-md-12">
-            <select id="gender" class="form-control required" name="gender">
-                <option value="">Select Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-            </select>
-        </div>
+            <div class="form-group col-md-12">
+                <select id="gender" class="form-control required" name="gender">
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
     </div>
 
         <div class="tab form-group">Location:
@@ -66,8 +66,8 @@
 
         <div class="tab form-group">Profile:
            <div class="form-group col-md-12">
-            <input placeholder="User Name" name="username"  type="text" class="form-control required">
-        </div> 
+                <input placeholder="User Name" name="username"  type="text" class="form-control required">
+            </div> 
             <div class="form-group col-md-12">
                 <input placeholder="Password" name="password" type="password" class="form-control required"  data-confirmed="re-password">
             </div>

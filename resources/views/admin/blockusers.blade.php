@@ -34,11 +34,12 @@
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th>#</th>
+                  <!-- <th>#</th> -->
+                  <th>Full Name</th>
                   <th>Username</th>
                   <th>Email</th>
                   <th>Role</th>
-                  <th>Status</th>
+                  <!-- <th>Status</th> -->
                   <th class="hidden-print">Action</th>
                 </tr>
               </thead>
@@ -46,17 +47,24 @@
               <tbody>
                 @foreach($users as $row)
                   <tr>
-                    <td>{{$row['id']}}</td>
+                    <!-- <td>{{$row['id']}}</td> -->
+                    <td>
+                        @if ($row['user_type'] == 'client')
+                            {{ $row->client['fullName'] }}
+                        @else
+                            {{ $row->therapist['fullName'] }}
+                        @endif
+                    </td>
                     <td>{{$row['username']}}</td>
                     <td>{{$row['email']}}</td>
                     <td>{{$row['user_type']}}</td>
-                    <td>
+                    <!-- <td>
                         @if ($row['status'] == 1)
                             Blocked
                         @else
                             Unblocked
                         @endif
-                    </td>
+                    </td> -->
 
                     <!-- BUTTONS -->    
                     <td>

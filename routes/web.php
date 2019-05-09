@@ -27,6 +27,7 @@
     Route::get('/logout', 'LoginController@Logout');
     Route::resource('therapist', 'TherapistController');
     Route::resource('client', 'ClientController');
+    Route::resource('admin', 'AdminController');
 
     Route::group(['middleware' => 'auth'], function () {
     // ADMIN
@@ -38,11 +39,15 @@
     Route::get('/admin-history', 'AdminController@getHistoryView')->name('get.history');
     Route::get('/admin-reports', 'AdminController@getReportsView')->name('get.reports');
     Route::get('/admin-blockusers', 'AdminController@getBlockUserView')->name('get.blockuser');
-    
+
+    Route::resource('addclient', 'AdminCreateClient');
+    Route::resource('addtherapist', 'AdminCreateTherapist');
+
     Route::get('/admin-user/?status={status}', 'AdminController@filterUsers');
     Route::get('/admin-notice/{id}', 'AdminController@notice')->name('get.notice');    
     Route::patch('/status-update/{user}', 'AdminController@statusUpdate')->name('get.update');
-    Route::post('{therapist}/accept', 'AcceptTherapistController'); 
+    Route::post('{therapist}/accept', 'AcceptTherapistController');
+    Route::delete('/admin-user/{id}', 'AdminController@delete')->name('admin.delete'); 
     // END ADMIN
 
     // THERAPIST

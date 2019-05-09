@@ -25,7 +25,7 @@ width: 100% !important; height: 100%; margin: 0; line-height: 1.4; background-co
   }
 }
 </style>
-    <span class="preheader" style="box-sizing: border-box; display: none !important; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 1px; line-height: 1px; max-height: 0; max-width: 0; mso-hide: all; opacity: 0; overflow: hidden; visibility: hidden;">Dear Mr/ Ms. {{ $username }}, Your PRC License Expiry Date for TheraPEACE Inc. is about expired. Please contact immediately the nearest PRC Office for renewal application.</span>
+    <span class="preheader" style="box-sizing: border-box; display: none !important; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 1px; line-height: 1px; max-height: 0; max-width: 0; mso-hide: all; opacity: 0; overflow: hidden; visibility: hidden;">Dear Mr/ Ms. {{$user->username}}, Your PRC License Expiry Date for TheraPEACE Inc. is about expired. Please contact immediately the nearest PRC Office for renewal application.</span>
     <table class="email-wrapper" width="100%" cellpadding="0" cellspacing="0" style="box-sizing: border-box; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; margin: 0; padding: 0; width: 100%;" bgcolor="#F2F4F6">
       <tr>
         <td align="center" style="box-sizing: border-box; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; word-break: break-word;">
@@ -44,7 +44,7 @@ width: 100% !important; height: 100%; margin: 0; line-height: 1.4; background-co
                   
                   <tr>
                     <td class="content-cell" style="box-sizing: border-box; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; padding: 35px; word-break: break-word;">
-                      <h1 style="box-sizing: border-box; color: #2F3133; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 19px; font-weight: bold; margin-top: 0;" align="left">Dear Mr./Ms. {{$username}}, Your PRC License expires in 30 days. </h1>
+                      <h1 style="box-sizing: border-box; color: #2F3133; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 19px; font-weight: bold; margin-top: 0;" align="left">Dear Mr./Ms. {{$user->username}}, Your PRC License expires in 30 days on {{ date('F j, Y h:iA',strtotime($user->therapist['expiry_date']))}}. </h1>
                       <p style="box-sizing: border-box; color: #74787E; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px; line-height: 1.5em; margin-top: 0;" align="left">Starting today, you may still use your account until your expiry date but then on we will be freezing your account temporarily until your PRC Renewal. Thanks for trying TheraPEACE, You've added a lot of data, so here is an option for you to consider going forward.</p>
 
                       <p style="box-sizing: border-box; color: #74787E; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px; line-height: 1.5em; margin-top: 0;" align="left">Upon Renewal of your
@@ -54,7 +54,7 @@ width: 100% !important; height: 100%; margin: 0; line-height: 1.4; background-co
                       <p style="box-sizing: border-box; color: #74787E; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px; line-height: 1.5{em; margin-top: 0;" align="left">Regardless of your choice, we want to say thank you for trying TheraPEACE Inc. We know it's an investment of your time, and we appreciate you giving us a chance.</p>
 
                       <p style="box-sizing: border-box; color: #74787E; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px; line-height: 1.5em; margin-top: 0;" align="left">Thanks,
-                        <br />{{ $username }} and the TheraPEACE Inc. Team</p>
+                        <br />{{$user->username}} and the TheraPEACE Inc. Team</p>
                       <p style="box-sizing: border-box; color: #74787E; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px; line-height: 1.5em; margin-top: 0;" align="left"><strong style="box-sizing: border-box; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;">P.S.</strong> If you have any questions or need any help, please don't hesitate to reach out. You can reply to this email or join us on live chat during business hours.</p>
                     </td>
                   </tr>

@@ -12,15 +12,15 @@
         <div class="col-sm-7 col-md-7 col-lg-8">
           {!! Form::open(['url' => url()->current(), 'method' => 'get']) !!} 
             <div class="col-sm-12 col-md-12 col-lg-12">
-                <div class="col-sm-5 col-md-5 col-lg-5">
-                    {!! Form::inputGroup('text', null, 'username', request()->username ?? null, ['placeholder' => 'Username']) !!}
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-5">
-                    {!! Form::inputGroup('text', null, 'email', request()->email ?? null, ['placeholder' => 'E-mail address']) !!}
-                </div>
-                <div class="col-sm-1 col-md-1 col-lg-2">
-                  <button type="submit" class="btn btn-info pull-right"><i class="ti-search"></i> </button>
-                </div>
+              <div class="col-sm-5 col-md-5 col-lg-5">
+                {!! Form::inputGroup('text', null, 'username', request()->username ?? null, ['placeholder' => 'Username']) !!}
+              </div>
+              <div class="col-sm-6 col-md-6 col-lg-5">
+                {!! Form::inputGroup('text', null, 'email', request()->email ?? null, ['placeholder' => 'E-mail address']) !!}
+              </div>
+              <div class="col-sm-1 col-md-1 col-lg-2">
+                <button type="submit" class="btn btn-info pull-right"><i class="ti-search"></i> </button>
+              </div>
 
             </div>    
           {!! Form::close() !!}
@@ -36,6 +36,7 @@
               <thead>
                 <tr>
                   <th>#</th>
+                  <th>Full Name</th>
                   <th>Username</th>
                   <th>Email</th>
                   <th>Role</th>
@@ -47,16 +48,23 @@
               <tbody>
                 @foreach($users as $row)
                   <tr>
-                    <td>{{$row['id']}}</td>
+                    <td>{{ $row['id'] }}</td>
+                    <td>
+                      @if ($row['user_type'] == 'client')
+                          {{ $row->client['fullName'] }}
+                      @else
+                          {{ $row->therapist['fullName'] }}
+                      @endif
+                    </td>
                     <td>{{$row['username']}}</td>
                     <td>{{$row['email']}}</td>
                     <td>{{$row['user_type']}}</td>
                     <td>
-                        @if ($row['status'] == 1)
-                            Blocked
-                        @else
-                            Unblocked
-                        @endif
+                      @if ($row['status'] == 1)
+                          Blocked
+                      @else
+                          Unblocked
+                      @endif
                     </td>
 
                   <!-- BUTTONS -->    
@@ -77,6 +85,10 @@
                                   <a class="dropdown-item" data-toggle="modal" data-target="#view-modalt-{{ $row->id }}"><i class="far fa-eye"></i>&nbspView</a>
                               @endif
                             </li>
+
+                            <li>
+                              <a class="dropdown-item" data-toggle="modal" data-target="#edit-modalc-{{ $row->id }}"><i class="fas fa-pen-square"></i>&nbsp&nbspEdit</a>
+                            </li>
                             
                             <li>
                               {!! Form::open(['url' => route('get.notice', ['id' => $row->id]), 'method' => 'GET', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
@@ -85,13 +97,19 @@
                             </li>
                             
                             <li>
-                                {!! Form::open(['url' => route('get.update', $row->id), 'method' => 'PATCH']) !!}
-                                @if ($row['status'] == 0)
-                                  <button type="submit" class="dropdown-item"><i class="fas fa-ban"></i>&nbsp;&nbsp;Block</button>
-                                @else
-                                  <button type="submit" class="dropdown-item"><i class="fas fa-ban"></i>&nbsp;&nbsp;Unblock</button>
-                                @endif
-                                {!! Form::close() !!}
+                              {!! Form::open(['url' => route('get.update', $row->id), 'method' => 'PATCH', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
+                              @if ($row['status'] == 0)
+                                <button type="submit" class="dropdown-item"><i class="fas fa-ban"></i>&nbsp;&nbsp;Block</button>
+                              @else
+                                <button type="submit" class="dropdown-item"><i class="fas fa-ban"></i>&nbsp;&nbsp;Unblock</button>
+                              @endif
+                              {!! Form::close() !!}
+                            </li>
+
+                            <li>
+                              {!! Form::open(['url' => route('admin.delete', ['id' => $row->id]), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure?")']) !!}
+                                <button type="submit" class="dropdown-item"><i class="fas fa-trash"></i>&nbsp&nbspRemove</button>
+                              {!! Form::close() !!}
                             </li>
                           </ul>
 
@@ -99,6 +117,45 @@
                       </div>
                     </td>
                   </tr>
+
+                  <!-- Edit Modal client-->
+                  <div class="modal fade bd-example-modal-lg" id="edit-modalc-{{ $row->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header bg-info">
+                          <h5 class="modal-title" id="exampleModalLabel">User Information</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body" id="modalView">
+                          <br>
+                          <div class="col-sm-12">
+                            <div class="card">
+                              <div class="card-body">
+                                <center><label>Profile</label></center><br>
+                                <label>Name: </label> {{ $row->client['fullName'] }} <br>
+                                <label>Email: </label> {{ $row['email'] }}<br>
+                                <label>Contact #: </label> {{ $row->client['contact'] }}<br>
+                                <label>Gender:</label> {{ $row->client['gender'] }}<br>
+                                <hr>
+                                <center><label>Home Address</label></center><br>
+                                <label>Barangay:</label> {{ $row->client['brgy'] }}<br>
+                                <label>City:</label> {{ $row->client['city'] }}<br>
+                                <label>Street:</label> {{ $row->client['street'] }} <br>
+                                <label>Residence Detail:</label> {{ $row->client['res_detail'] }}<br>
+                                <label>Province:</label> {{ $row->client['province'] }}<br>
+                                <label>Bldg. Number:</label> {{ $row->client['building'] }} <br>
+                                <label>Landmark:</label> {{ $row->client['landmark'] }}<br>
+                                <label>Address Remarks:</label> {{ $row->client['address_remarks'] }}  
+                              </div>
+                            </div>
+                          </div>                    
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end of view modal -->
 
                   <!-- View Modal client-->
                   <div class="modal fade" id="view-modalc-{{ $row->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -113,25 +170,25 @@
                         <div class="modal-body" id="modalView">
                           <br>
                           <div class="col-sm-12">
-                              <div class="card">
-                                  <div class="card-body">
-                                    <center><label>Profile</label></center><br>
-                                    <label>Name: </label> {{ $row->client['fullName'] }} <br>
-                                    <label>Email: </label> {{ $row['email'] }}<br>
-                                    <label>Contact #: </label> {{ $row->client['contact'] }}<br>
-                                    <label>Gender:</label> {{ $row->client['gender'] }}<br>
-                                    <hr>
-                                    <center><label>Home Address</label></center><br>
-                                    <label>Barangay:</label> {{ $row->client['brgy'] }}<br>
-                                    <label>City:</label> {{ $row->client['city'] }}<br>
-                                    <label>Street:</label> {{ $row->client['street'] }} <br>
-                                    <label>Residence Detail:</label> {{ $row->client['res_detail'] }}<br>
-                                    <label>Province:</label> {{ $row->client['province'] }}<br>
-                                    <label>Bldg. Number:</label> {{ $row->client['building'] }} <br>
-                                    <label>Landmark:</label> {{ $row->client['landmark'] }}<br>
-                                    <label>Address Remarks:</label> {{ $row->client['address_remarks'] }}  
-                                  </div>
+                            <div class="card">
+                              <div class="card-body">
+                                <center><label>Profile</label></center><br>
+                                <label>Name: </label> {{ $row->client['fullName'] }} <br>
+                                <label>Email: </label> {{ $row['email'] }}<br>
+                                <label>Contact #: </label> {{ $row->client['contact'] }}<br>
+                                <label>Gender:</label> {{ $row->client['gender'] }}<br>
+                                <hr>
+                                <center><label>Home Address</label></center><br>
+                                <label>Barangay:</label> {{ $row->client['brgy'] }}<br>
+                                <label>City:</label> {{ $row->client['city'] }}<br>
+                                <label>Street:</label> {{ $row->client['street'] }} <br>
+                                <label>Residence Detail:</label> {{ $row->client['res_detail'] }}<br>
+                                <label>Province:</label> {{ $row->client['province'] }}<br>
+                                <label>Bldg. Number:</label> {{ $row->client['building'] }} <br>
+                                <label>Landmark:</label> {{ $row->client['landmark'] }}<br>
+                                <label>Address Remarks:</label> {{ $row->client['address_remarks'] }}  
                               </div>
+                            </div>
                           </div>                    
                         </div>
                       </div>

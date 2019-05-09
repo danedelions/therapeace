@@ -14,7 +14,18 @@
                     <span class="nav-label">Dashboard</span>
                 </a>
             </li> -->
-            <li class="heading">PAGES</li>
+            <li class="heading">Create Account</li>
+
+            <li>
+                <a href="/addclient"><i class="sidebar-item-icon fas fa-user-plus"></i>
+                <span class="nav-label">Create Client</span></a>
+            </li>
+            <li>
+                <a href="/addtherapist"><i class="sidebar-item-icon fas fa-user-plus"></i>
+                <span class="nav-label">Create Therapist</span></a>
+            </li>
+
+            <li class="heading">Pages</li>
             
             <li>
                 <a href="/admin-user"><i class="sidebar-item-icon fa fa-table"></i>
@@ -37,6 +48,7 @@
                 <span class="nav-label">Blocked Users</span></a>
             </li>
 
+           
         </ul>
     </div>
 </nav>

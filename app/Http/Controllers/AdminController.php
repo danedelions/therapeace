@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Input;
 use App\Http\Requests\UserRequest;
 use App\Mail\UserExpiryNotice;
 use App\Http\Requests\TherapistRequest;
+use App\Http\Requests\ClientRequest;
+use App\UserAddress;
 use App\Client;
 use App\Therapist;
 use App\User;
@@ -15,10 +17,24 @@ use App\BookingRequest;
 use Mail;
 use Auth;
 use DB;
-
+use Hash;
+use App\Specialty;
+use Carbon\Carbon;
+use Illuminate\Validation\Rule;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')
+                ->except([
+                    'clientRegistration', 
+                    'storeClient',
+                    'therapistRegistration',
+                    'storeTherapist'
+                ]);
+    }
+
 	public function getUserView(Request $request)
     {
 
@@ -111,8 +127,24 @@ class AdminController extends Controller
         $users = $query->where([['status','1'], ['user_type', '!=', 'admin']])->paginate(7);
 
         return view('admin.blockusers', compact('users'));
+    }
+
+    public function delete($id)
+    {
+        $users = User::findOrFail($id);
+        $users->delete();
+
+        return redirect()->back();
     }    
 
-   
-      
+    public function getClient()
+    {
+        return view('admin.add_client');
+    }
+
+    public function getTherapist()
+    {
+        return view('admin.add_therapist');
+    }
+    
 }

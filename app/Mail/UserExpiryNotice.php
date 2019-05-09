@@ -35,6 +35,6 @@ class UserExpiryNotice extends Mailable
 
         // dd($user);
 
-        return $this->view('admin.notice', ['username'=>$user->username])->to($user->email);
+        return $this->view('admin.notice', compact('user'))->to($user->email);
     }
 }
