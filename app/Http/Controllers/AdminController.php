@@ -24,17 +24,6 @@ use Illuminate\Validation\Rule;
 
 class AdminController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth')
-                ->except([
-                    'clientRegistration', 
-                    'storeClient',
-                    'therapistRegistration',
-                    'storeTherapist'
-                ]);
-    }
-
 	public function getUserView(Request $request)
     {
 

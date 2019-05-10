@@ -34,7 +34,7 @@
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <!-- <th>#</th> -->
+                  <th>#</th>
                   <th>Full Name</th>
                   <th>Username</th>
                   <th>Email</th>
@@ -48,6 +48,7 @@
                 @foreach($users as $row)
                   <tr>
                     <!-- <td>{{$row['id']}}</td> -->
+                    <td>{{ $loop->iteration }}</td>
                     <td>
                         @if ($row['user_type'] == 'client')
                             {{ $row->client['fullName'] }}

@@ -57,6 +57,22 @@ class AdminCreateClient extends Controller
         });
         
         // Session::flash('message', 'Successfully created client!');
-        return view('/admin-user');
+        return view('admin.createclient')->with('message', 'Client Added Successfully!');
+    }
+
+    public function edit($userId)
+    {
+        $client = Client::find($userId);
+        return view('admin.users', compact('client'));
+    }
+    public function update(ClientRequest $request, $id)
+    {           
+        // dd($therapist->toArray());
+        $client  = Client::find($id);
+        $request = $request->validated();
+        // dd($request);
+        $client->fill($request)->save();
+        User::where('id', Auth::id())->update(['username' => $request['username'], 'email' => $request['email']]);
+        return redirect()->route('admin.createclient');
     }
 }

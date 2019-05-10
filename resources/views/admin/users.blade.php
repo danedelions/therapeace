@@ -7,11 +7,6 @@
       <div class="card-body">
         <div class="col-sm-5 col-md-5 col-lg-4">
           <h3>TheraPeace Users &nbsp;<button type="button" value="Print" onclick="printDiv('printableArea')" class="btn btn-sm btn-info"/><i class="fas fa-print"></i></button></h3>
-
-
-          <a href="/add-therapist">The</a> 
-          <a href="/add-client">Cli</a>      
-
         </div>
 
         <div class="col-sm-7 col-md-7 col-lg-8">
@@ -53,7 +48,8 @@
               <tbody>
                 @foreach($users as $row)
                   <tr>
-                    <td>{{ $row['id'] }}</td>
+                    <!-- <td>{{ $row['id'] }}</td> -->
+                    <td>{{ $loop->iteration }}</td>
                     <td>
                       @if ($row['user_type'] == 'client')
                           {{ $row->client['fullName'] }}
@@ -116,11 +112,6 @@
                                 <button type="submit" class="dropdown-item"><i class="fas fa-trash"></i>&nbsp&nbspRemove</button>
                               {!! Form::close() !!}
                             </li>
-                            <li>
-                              {!! Form::open(['url' => route('admin.delete', ['id' => $row->id]), 'method' => 'delete', 'onsubmit' => 'javascript:return confirm("Are you sure you want to delete?")']) !!}
-                                <button type="submit" class="dropdown-item"><i class="far fa-envelope"></i>&nbsp&nbspDelete</button>
-                              {!! Form::close() !!}
-                            </li>
 
                           </ul>
 
@@ -144,21 +135,68 @@
                           <div class="col-sm-12">
                             <div class="card">
                               <div class="card-body">
-                                <center><label>Profile</label></center><br>
-                                <label>Name: </label> {{ $row->client['fullName'] }} <br>
-                                <label>Email: </label> {{ $row['email'] }}<br>
-                                <label>Contact #: </label> {{ $row->client['contact'] }}<br>
-                                <label>Gender:</label> {{ $row->client['gender'] }}<br>
-                                <hr>
-                                <center><label>Home Address</label></center><br>
-                                <label>Barangay:</label> {{ $row->client['brgy'] }}<br>
-                                <label>City:</label> {{ $row->client['city'] }}<br>
-                                <label>Street:</label> {{ $row->client['street'] }} <br>
-                                <label>Residence Detail:</label> {{ $row->client['res_detail'] }}<br>
-                                <label>Province:</label> {{ $row->client['province'] }}<br>
-                                <label>Bldg. Number:</label> {{ $row->client['building'] }} <br>
-                                <label>Landmark:</label> {{ $row->client['landmark'] }}<br>
-                                <label>Address Remarks:</label> {{ $row->client['address_remarks'] }}  
+                                {!! Form::model($client, ['url'=> route('addtherapist.update', ['id'=>$client->id]),'method'=>'PATCH', 'files'=>true,'role'=>'form']) !!}
+                                    {!! csrf_field() !!}
+                                    <legend class="text-center">Update Information</legend>
+                                    <hr>
+                                    <div class="card-body">
+                                        <div class="form-row">
+                                            <div class="col-md-5"> <!-- mb-3 -->
+                                                {!! Form::inputGroup('text', 'Username', 'username', $client->user->username, ['placeholder' => 'User Name']) !!}
+                                            </div>
+                                            <div class="col-md-7">
+                                                {!! Form::inputGroup('email', 'Email', 'email', $client->user->email, ['placeholder' => 'Email']) !!}
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-6">
+                                                {!! Form::inputGroup('text', 'First Name', 'fname', null, ['placeholder' => 'First Name'])  !!}
+                                            </div>
+                                            <div class="col-md-6">
+                                                {!! Form::inputGroup('text', 'Last Name', 'lname', null, ['placeholder' => 'Last Name']) !!}
+                                            </div>
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="col-md-6">
+                                                {!! Form::inputGroup('number', 'Contact Number', 'contact', null, ['placeholder' => 'Contact Number']) !!}
+                                            </div>
+                                            <div class="col-md-6">
+                                                {!! Form::label('gender', 'Gender') !!}
+                                                {!! Form::select('gender',array('Male' => 'Male', 'Female' => 'Female', 'Others' => 'Others')) !!} 
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-row">
+                                            <legend>Address</legend>
+                                            <div class="col-md-6">
+                                                {!! Form::inputGroup('street', 'Street', 'street', null, ['placeholder' => 'Street']) !!}
+                                            </div>
+                                            <div class="col-md-6">
+                                                {!! Form::inputGroup('text', 'Barangay', 'barangay', null, ['placeholder' => 'Barangay']) !!}
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-6">
+                                                {!! Form::inputGroup('text', 'Province', 'province', null, ['placeholder' => 'Province']) !!}
+                                            </div>
+                                        </div>
+
+                                           <div class="form-row">
+                                            <div class="col-md-6">
+                                                {!! Form::inputGroup('text', 'City', 'city', null, ['placeholder' => 'City']) !!}
+                                            </div>
+                                            <div class="col-md-6">
+                                                {!! Form::inputGroup('text', 'Postal Code', 'postal_code', null, ['placeholder' => 'Postal Code']) !!}
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="form-group col-md-6">
+                                            <a class="btn btn-secondary" href="/admin-users">Cancel</a>
+                                            <button type="submit" class="btn btn-success">Update</button>
+                                        </div>
+                                    </div>
+                                    {!! Form::close() !!}  
                               </div>
                             </div>
                           </div>                    

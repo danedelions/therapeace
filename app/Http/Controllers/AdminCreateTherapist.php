@@ -18,7 +18,6 @@ use Illuminate\Http\Requests\UserRequest;
 use App\Http\Requests\ClientRequest;
 use App\UserAddress;
 use DB;
-use App\Specialty;
 
 class AdminCreateTherapist extends Controller
 {
@@ -29,21 +28,6 @@ class AdminCreateTherapist extends Controller
 
     public function store(Request $request)
     {
-        // $now = Carbon::now();
-        // $start_date = Carbon::parse($now)->format('Y-m-d');
-
-            
-            // $now = Carbon::now();
-
-            // $start_date = Carbon::parse($request->input('start_date'));
-
-            // $end_date = Carbon::parse($request->input('end_date'));
-
-            // if($now->between($start_date,$end_date)){
-            //     echo 'Coupon is Active';
-            // } else {
-            //     echo 'Coupon is Expired';
-            // }
 
         \DB::transaction(function () use ($request) {
             User::insert([
@@ -56,27 +40,27 @@ class AdminCreateTherapist extends Controller
 
             $users = User::where('username', $request->post('username'))->get();
     
-            $image = $request->file('image')->store(
-                "pictures/{$users[0]['username']}",
-                'public'
-            );
+            // $image = $request->file('image')->store(
+            //     "pictures/{$users[0]['username']}",
+            //     'public'
+            // );
 
-            $licenseimage_front = $request->file('licenseimage_front')->store(
-                "licensepicture/front/{$users[0]['username']}",
-                'public'
-            );
-             $licenseimage_back = $request->file('licenseimage_back')->store(
-                "licensepicture/back/{$users[0]['username']}",
-                'public'
-            );
-            $nbi_image     = $request->file('nbi_image')->store(
-                "pictures/{$users[0]['username']}",
-                'public'
-            );
-            $bc_image      = $request->file('bc_image')->store(
-                "pictures/{$users[0]['username']}",
-                'public'
-            );
+            // $licenseimage_front = $request->file('licenseimage_front')->store(
+            //     "licensepicture/front/{$users[0]['username']}",
+            //     'public'
+            // );
+            //  $licenseimage_back = $request->file('licenseimage_back')->store(
+            //     "licensepicture/back/{$users[0]['username']}",
+            //     'public'
+            // );
+            // $nbi_image     = $request->file('nbi_image')->store(
+            //     "pictures/{$users[0]['username']}",
+            //     'public'
+            // );
+            // $bc_image      = $request->file('bc_image')->store(
+            //     "pictures/{$users[0]['username']}",
+            //     'public'
+            // );
             Therapist::insert([
                 'user_id'        => $users[0]['id'],
                 'image'          => $image,
@@ -104,7 +88,73 @@ class AdminCreateTherapist extends Controller
             ]);
         });
 
-        // $this->getData();
-        return view('/admin-pending');
+
+        return view('admin.createtherapist');
+    }
+
+    public function edit($userId)
+    {
+        $specialties = Specialty::select('name')->pluck('name', 'name');
+        $therapist   = Therapist::with(['user', 'specialties'])->find($userId);
+
+        return view('therapist.edit', compact('therapist', 'specialties'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  int                      $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(TherapistRequest $request, $id)
+    {  
+        $therapist = Therapist::findOrFail($id);
+        $therapist->update($request->all());
+
+        $specialties = collect($request->specialties);
+        if($specialties->isNotEmpty()){
+             $ids = $specialties->map(function ($item) {
+                $specialty = Specialty::firstOrCreate(['name' => $item]);
+                return $specialty->id;
+            });
+            $therapist->specialties()->sync($ids);
+        }
+
+        $users = User::where('username', $request['username'])->first();
+
+        if($request->hasFile('$/image')) {
+            $image = $request->file('$/image')->store(
+                "pictures/{$users[0]['username']}",
+                'public'
+            );
+            
+            $therapist->image = $image;
+        }
+
+        if($request->hasFile('licenseimage_front')) {
+            $licenseimage_front = $request->file('licenseimage_front')->store(
+                "licensepicture/front/{$users[0]['username']}",
+                'public'
+            );
+            
+            $therapist->licenseimage_front = $licenseimage_front;
+        }
+        
+        if($request->hasFile('licenseimage_back')) {
+            $licenseimage_back = $request->file('licenseimage_back')->store(
+                "licensepicture/back/{$users[0]['username']}",
+                'public'
+            );
+            
+            $therapist->licenseimage_back = $licenseimage_back;
+        }        
+
+        $request = $request->validated();
+
+        $therapist->fill($request)->save();
+        User::where('id', Auth::id())->update(['username' => $request['username'], 'email' => $request['email']]);
+
+        return redirect()->route('get.therapist-account');
     }
 }

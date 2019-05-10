@@ -60,7 +60,8 @@
               <tbody>
                 @foreach($users as $user)
                 <tr>
-                  <td>{{$user->id}}</td>
+                  <!-- <td>{{$user->id}}</td> -->
+                  <td>{{ $loop->iteration }}</td>
                   <td>{{$user->therapist->fullName}}</td>
                   <td>{{$user->email}}</td>
                   <td>{{$user->therapist->contact}}</td>
