@@ -49,7 +49,8 @@ class ClientController extends Controller
                 'email'     => $request->post('email'),
                 'password'  => Hash::make($request->post('password')),
                 'status'    => 0,
-                'user_type' => 'client'
+                'user_type' => 'client',
+                'created_at' => now()
             ]);
             $users  = User::where('username', $request->post('username'))->get();
             $client = Client::insert([
@@ -65,7 +66,8 @@ class ClientController extends Controller
                 'brgy'            => $request->post('brgy'),
                 'building'        => $request->post('building'),
                 'landmark'        => $request->post('landmark'),
-                'address_remarks' => $request->post('address_remarks')
+                'address_remarks' => $request->post('address_remarks'),
+                'created_at' => now()
             ]);
         });
         return view('/login');

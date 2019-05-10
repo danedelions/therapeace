@@ -14,7 +14,11 @@
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="/client-messages"><i class="fas fa-envelope"></i> Messages</a>
+          <a class="nav-link" href="/client-messages"><i class="fas fa-envelope"></i> Messages
+            @if($count)
+          <span class="badge badge-pill badge-danger">{{ $count }}</span> 
+        @endif
+          </a>
         </li>
 
         <li class="nav-item dropdown">

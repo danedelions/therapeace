@@ -187,6 +187,29 @@
                                         </div>
                                     </div>
                                 @endif
+                                <!-- MODAL -->
+                                    <div class="modal fade" id="view-modal-{{$contact->user_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Just a reminder...</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                            <div class="modal-body" id="modalView">
+                                            
+                                            <br>
+                                            
+                                            <div class="col-sm-12">
+                                                <center>This thread will only be removed/deleted once your appointment with <b>{{ $contact->fname }}</b> is finished.</center><br>
+                                                <center>
+                                                    <button data-dismiss="modal" class="btn btn-default">Okay</button>
+                                                </center>
+                                            </div>                    
+                                        </div>
+                                    </div>
+                                <!-- MODAL -->
                             @endforeach
                         </div>
                         <div class="type_msg">
@@ -210,29 +233,7 @@
     </div>
 
 
-<!-- MODAL -->
-                <div class="modal fade" id="view-modal-{{$contact->user_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Just a reminder...</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        <div class="modal-body" id="modalView">
-                        
-                        <br>
-                        
-                        <div class="col-sm-12">
-                            <center>This thread will only be removed/deleted once your appointment with <b>{{ $contact->fname }}</b> is finished.</center><br>
-                            <center>
-                                <button data-dismiss="modal" class="btn btn-default">Okay</button>
-                            </center>
-                        </div>                    
-                    </div>
-                </div>
-<!-- MODAL -->
+
 
 
 @endsection

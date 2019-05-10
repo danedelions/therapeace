@@ -16,6 +16,9 @@
                             <br>
 
                                 <div><h4>{{$therapist->therapist}}</h4></div>
+                                @if($therapist->checkAdvanceExpiry() == true)
+                                <div class="text-danger">Your license is about to expire or is already expired. Please Renew it ASAP.</div>
+                                @endif
                         </center>
                         <hr>    
                         <div class="form-row">

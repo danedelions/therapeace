@@ -13,7 +13,11 @@
           <a class="nav-link" href="/therapist-account"><i class="fas fa-user"></i> Account</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/therapist-messages"><i class="fas fa-envelope"></i> Messages</a>
+        <a class="nav-link" href="/therapist-messages"><i class="fas fa-envelope"></i> Messages 
+          @if($count)
+        <span class="badge badge-pill badge-danger">{{ $count }}</span> 
+        @endif
+        </a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Welcome {{ Auth::user()->username}}</a>

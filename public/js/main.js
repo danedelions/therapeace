@@ -14,7 +14,56 @@ $(document).ready(function(){
   $('input[name="username"]').on('change', function () {
     checkDuplicateUsername();
   });
+
+  $('#fileToUpload').on('change', function () {
+    clearFeedback(this);
+    checkImageSize(this);
+  });
+
+  $('#fileUpload1').on('change', function () {
+    clearFeedback(this);
+    checkImageSize(this);
+  });
+
+  $('#fileUpload2').on('change', function () {
+    clearFeedback(this);
+    checkImageSize(this);
+  });
+
+  $('#fileUpload3').on('change', function () {
+    clearFeedback(this);
+    checkImageSize(this);
+  });
+
+  $('#fileUpload4').on('change', function () {
+    clearFeedback(this);
+    checkImageSize(this);
+  });
 })
+
+function clearFeedback(el) {
+  $(el)
+  .removeClass('limit-size')
+  .removeClass('is-invalid')
+  .removeClass('invalid');
+}
+
+function checkImageSize(el) {
+  var fileSize = $(el)[0].files[0].size;
+  
+  console.log(fileSize);
+  if(fileSize > 5000) {
+    $(el).addClass('is-invalid').siblings('.invalid-feedback').remove(); // Add validation error
+    $(el).after($('<div/>', {
+      class: 'invalid-feedback',
+      text: 'Upload is greater than 5MB'
+    }));
+  
+    $(el).addClass('limit-size');
+  }
+}
+
+
 
 function showTab(n) {
   // This function will display the specified tab of the form...
@@ -179,6 +228,56 @@ function validateForm() {
     $('input[name="email"]').after($('<div/>', {
       class: 'invalid-feedback',
       text: 'email already taken'
+    }));
+
+    valid = false;
+  }
+
+  if($('#fileToUpload').hasClass('limit-size')) { // If profile image is greater than the limit
+    $('#fileToUpload').addClass('is-invalid').siblings('.invalid-feedback').remove();
+    $('#fileToUpload').after($('<div/>', {
+      class: 'invalid-feedback',
+      text: 'Upload is greater than 5MB'
+    }));
+
+    valid = false;
+  }
+
+  if($('#fileUpload1').hasClass('limit-size')) { // If front image is greater than the limit
+    $('#fileUpload1').addClass('is-invalid').siblings('.invalid-feedback').remove();
+    $('#fileUpload1').after($('<div/>', {
+      class: 'invalid-feedback',
+      text: 'Upload is greater than 5MB'
+    }));
+
+    valid = false;
+  }
+
+  if($('#fileUpload2').hasClass('limit-size')) { // If back image is greater than the limit
+    $('#fileUpload2').addClass('is-invalid').siblings('.invalid-feedback').remove();
+    $('#fileUpload2').after($('<div/>', {
+      class: 'invalid-feedback',
+      text: 'Upload is greater than 5MB'
+    }));
+
+    valid = false;
+  }
+
+  if($('#fileUpload3').hasClass('limit-size')) { // If nbi image is greater than the limit
+    $('#fileUpload3').addClass('is-invalid').siblings('.invalid-feedback').remove();
+    $('#fileUpload3').after($('<div/>', {
+      class: 'invalid-feedback',
+      text: 'Upload is greater than 5MB'
+    }));
+
+    valid = false;
+  }
+
+  if($('#fileUpload4').hasClass('limit-size')) { // If bc image is greater than the limit
+    $('#fileUpload4').addClass('is-invalid').siblings('.invalid-feedback').remove();
+    $('#fileUpload4').after($('<div/>', {
+      class: 'invalid-feedback',
+      text: 'Upload is greater than 5MB'
     }));
 
     valid = false;
