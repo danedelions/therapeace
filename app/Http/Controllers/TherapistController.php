@@ -69,6 +69,7 @@ class TherapistController extends Controller
                 'password'  => Hash::make($request->post('password')),
                 'user_type' => 'therapist',
                 'status'    => 2,
+                'created_at' => now()
             ]);
 
             $users = User::where('username', $request->post('username'))->get();
@@ -117,8 +118,8 @@ class TherapistController extends Controller
                 'nbi_image'      => $nbi_image,
                 'bc_image'       => $bc_image,
                 'user_bio'       => $request->post('user_bio'),
-                'personal_rate'  => 500.00
-
+                'personal_rate'  => 500.00,
+                'created_at' => now()
             ]);
         });
 

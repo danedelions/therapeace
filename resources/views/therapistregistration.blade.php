@@ -91,7 +91,7 @@
       </div>
       <div class="form-group col-md-12">
         <label>License Image (Front)</label>
-        <input type="file" name="licenseimage_front" id="fileUpload2" class="form-control required" data-validation-message="Please Enter License Image (front)">
+        <input type="file" name="licenseimage_front" id="fileUpload1" class="form-control required" data-validation-message="Please Enter License Image (front)">
       </div>
       <div class="form-group col-md-12">
         <label>License Image (Back)</label>

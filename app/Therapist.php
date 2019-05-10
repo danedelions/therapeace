@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Report;
+use Carbon\Carbon;
 
 class Therapist extends Model
 {
@@ -122,6 +123,8 @@ class Therapist extends Model
         return $this->belongsTo('App\Message', 'user_id');
     }
 
-    
-
+    public function checkAdvanceExpiry()
+    {
+        return Carbon::now()->gte(Carbon::parse($this->expiry_date)->subDay(5));  
+    }
 }
